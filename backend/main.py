@@ -848,46 +848,48 @@ async def get_question_source(question_id: str):
     """Retrieve source citation details for a specific question."""
     conn = db.get_connection()
     try:
-        # Get question citation
-        citation = conn.execute(
+        # Get question source link from question_sources table (Phase 0)
+        source_link = conn.execute(
             """
-            SELECT * FROM question_citations
-            WHERE question_id = ? LIMIT 1
+            SELECT qs.source_chunk_id, qs.authority_score
+            FROM question_sources qs
+            WHERE qs.question_id = ? LIMIT 1
             """,
             (question_id,),
         ).fetchone()
 
-        if not citation:
+        if not source_link:
             return {"status": "not_found", "question_id": question_id}
+
+        chunk_id = source_link["source_chunk_id"]
+        authority_score = source_link["authority_score"] or 50
 
         # Get source chunk and document details
         chunk = conn.execute(
             """
-            SELECT sc.*, sd.name as document_name, sd.category, sd.doc_type
+            SELECT sc.chunk_id, sc.doc_id, sc.chunk_text, sc.page_num, sc.section_title,
+                   sd.name as document_name, sd.category, sd.doc_type
             FROM source_chunks sc
             JOIN source_documents sd ON sc.doc_id = sd.doc_id
             WHERE sc.chunk_id = ? LIMIT 1
             """,
-            (citation["chunk_id"],),
+            (chunk_id,),
         ).fetchone()
 
-        # Get authority score from question_sources
-        source_link = conn.execute(
-            "SELECT authority_score FROM question_sources WHERE question_id = ? LIMIT 1",
-            (question_id,),
-        ).fetchone()
+        if not chunk:
+            return {"status": "not_found", "question_id": question_id}
 
-        authority_score = source_link["authority_score"] if source_link else 50
+        # Format citation note
+        citation_note = db.format_citation_note(dict(chunk), page_num=chunk["page_num"])
 
         return {
             "status": "found",
             "question_id": question_id,
-            "citation": dict(citation) if citation else None,
-            "source": dict(chunk) if chunk else None,
+            "source": dict(chunk),
             "authority_score": authority_score,
-            "page_start": citation["page_start"],
-            "page_end": citation["page_end"],
-            "citation_note": citation["citation_note"],
+            "page_start": chunk["page_num"],
+            "page_end": chunk["page_num"],
+            "citation_note": citation_note,
         }
     finally:
         conn.close()
@@ -899,22 +901,24 @@ async def search_questions(query: str, topic_id: str | None = None, limit: int =
     results = []
     conn = db.get_connection()
     try:
-        # FTS5 search on source chunks
-        search_query = f"source_chunks_fts MATCH '{query}'" if query else "1=1"
+        # Validate query
+        if not query or not query.strip():
+            return {"query": query, "topic_id": topic_id, "total": 0, "results": []}
 
+        # FTS5 search on source chunks, ranked by authority
         fts_results = conn.execute(
-            f"""
+            """
             SELECT DISTINCT sc.chunk_id, sd.doc_id, sd.name, sd.category, sd.doc_type,
-                   sc.page_num, sc.chunk_text, qs.authority_score
+                   sc.page_num, sc.chunk_text, COALESCE(qs.authority_score, 50) as authority_score
             FROM source_chunks_fts fts
-            JOIN source_chunks sc ON fts.chunk_id = sc.chunk_id
+            JOIN source_chunks sc ON fts.rowid = sc.rowid
             JOIN source_documents sd ON sc.doc_id = sd.doc_id
             LEFT JOIN question_sources qs ON sc.chunk_id = qs.source_chunk_id
-            WHERE {search_query}
-            ORDER BY qs.authority_score DESC NULLS LAST, sc.page_num ASC
+            WHERE source_chunks_fts MATCH ?
+            ORDER BY authority_score DESC, sc.page_num ASC
             LIMIT ?
             """,
-            (limit,),
+            (query, limit),
         ).fetchall()
 
         for row in fts_results:
@@ -924,8 +928,8 @@ async def search_questions(query: str, topic_id: str | None = None, limit: int =
                 "title": row["name"],
                 "category": row["category"],
                 "page_start": row["page_num"],
-                "excerpt": row["chunk_text"][:500],
-                "authority_score": row["authority_score"] or 50,
+                "excerpt": row["chunk_text"][:500] if row["chunk_text"] else "",
+                "authority_score": row["authority_score"],
             })
     finally:
         conn.close()

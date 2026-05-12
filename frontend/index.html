@@ -610,6 +610,7 @@
     <button data-view="exam">Mock Exam</button>
     <button data-view="review">Review</button>
     <button data-view="essay">Essay</button>
+    <button data-view="sources">Sources + Search</button>
     <button data-view="lawSources">Law + Sources</button>
   </nav>
 
@@ -856,6 +857,56 @@
         <div id="essayHistory" class="muted">Loading.</div>
       </div>
     </section>
+
+    <section id="sources" class="view">
+      <div class="page-head">
+        <div>
+          <h1>Question Sources + Search</h1>
+          <div class="note">Full-text search questions by source, view citations, and source authority distribution.</div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="loadSourceDistribution()">Refresh Distribution</button>
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="panel">
+        <h2>Search Questions by Source</h2>
+        <div class="form-row">
+          <input type="text" id="sourceSearchInput" placeholder="Search: leverage, fund management, IFSCA regulation, etc." style="flex:1; padding: 10px;">
+          <button class="btn primary" onclick="performSourceSearch()">Search</button>
+        </div>
+      </div>
+
+      <!-- Search Results -->
+      <div class="grid-2">
+        <div class="panel">
+          <h2>Search Results</h2>
+          <div id="searchResults" class="muted">Enter a search query above.</div>
+        </div>
+        <div class="panel">
+          <h2>Source Distribution</h2>
+          <div id="sourceDistribution" class="muted">Loading...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Citation Modal -->
+    <div id="citationModal" class="modal hidden">
+      <div class="modal-overlay" onclick="closeCitationModal()"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Question Source Citation</h2>
+          <button class="close" onclick="closeCitationModal()">×</button>
+        </div>
+        <div class="modal-body">
+          <div id="citationDetail" class="muted">Loading...</div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" onclick="closeCitationModal()">Close</button>
+        </div>
+      </div>
+    </div>
 
     <section id="lawSources" class="view">
       <div class="page-head">
@@ -1665,6 +1716,136 @@
       await loadEssayHistory();
       await loadDailyLawRevision();
       await loadFullAct();
+    }
+
+    // Phase 1: Content Intelligence - Source Search Functions
+
+    async function performSourceSearch() {
+      const query = qs('sourceSearchInput')?.value?.trim();
+      if (!query) {
+        qs('searchResults').textContent = 'Enter a search query.';
+        return;
+      }
+
+      qs('searchResults').innerHTML = '<div class="muted">Searching...</div>';
+      try {
+        const data = await api(`/api/questions/search?query=${encodeURIComponent(query)}&limit=20`);
+        const results = data.results || [];
+
+        if (results.length === 0) {
+          qs('searchResults').innerHTML = `<div class="muted">No results found for "${escapeHtml(query)}"</div>`;
+          return;
+        }
+
+        qs('searchResults').innerHTML = `
+          <div style="margin-bottom: 10px;"><strong>Found ${results.length} sources</strong></div>
+          ${results.map((result, idx) => `
+            <div class="source-box" style="margin-bottom: 15px; padding: 12px; background: #f5f5f5; border-radius: 6px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="flex: 1;">
+                  <strong style="font-size: 14px;">${escapeHtml(result.title || 'Unknown')}</strong>
+                  <div class="muted" style="font-size: 12px; margin-top: 4px;">
+                    Category: ${escapeHtml(result.category || 'N/A')} | Page ${result.page_start || '?'}
+                  </div>
+                </div>
+                <span class="badge" style="margin-left: 10px;">Authority: ${result.authority_score || 50}</span>
+              </div>
+              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">
+                ${escapeHtml((result.excerpt || '').substring(0, 250))}...
+              </div>
+              <button class="btn" style="font-size: 11px; margin-top: 8px;" onclick="showCitationDetail('${escapeHtml(result.chunk_id)}')">
+                View Citation
+              </button>
+            </div>
+          `).join('')}
+        `;
+      } catch (error) {
+        qs('searchResults').innerHTML = `<div class="muted">Search error: ${escapeHtml(error.message)}</div>`;
+      }
+    }
+
+    async function loadSourceDistribution() {
+      qs('sourceDistribution').innerHTML = '<div class="muted">Loading distribution...</div>';
+      try {
+        const data = await api('/api/sources/distribution-by-topic');
+        const distribution = data.distribution || [];
+        const total = data.total_chunks || 0;
+
+        qs('sourceDistribution').innerHTML = `
+          <div style="font-size: 13px;">
+            <div style="margin-bottom: 12px;"><strong>Total Chunks: ${total}</strong></div>
+            ${distribution.map(item => {
+              const pct = total > 0 ? Math.round((item.chunks / total) * 100) : 0;
+              return `
+                <div style="margin-bottom: 10px; padding: 8px; background: #f9f9f9; border-radius: 4px;">
+                  <div style="display: flex; justify-content: space-between;">
+                    <strong style="font-size: 12px;">${escapeHtml(item.label || 'Unknown')}</strong>
+                    <span style="font-size: 11px; color: #666;">${pct}%</span>
+                  </div>
+                  <div style="display: flex; gap: 10px; margin-top: 4px; font-size: 11px;">
+                    <span>📄 ${item.chunks} chunks</span>
+                    <span>❓ ${item.questions} Qs</span>
+                    <span>⭐ auth ${Number(item.avg_authority).toFixed(1)}</span>
+                  </div>
+                  <div style="width: 100%; height: 6px; background: #eee; border-radius: 3px; margin-top: 4px;">
+                    <div style="width: ${pct}%; height: 100%; background: #4CAF50; border-radius: 3px;"></div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      } catch (error) {
+        qs('sourceDistribution').innerHTML = `<div class="muted">Error: ${escapeHtml(error.message)}</div>`;
+      }
+    }
+
+    async function showCitationDetail(questionId) {
+      qs('citationDetail').innerHTML = '<div class="muted">Loading citation...</div>';
+      try {
+        // Extract actual question ID from chunk_id parameter
+        const data = await api(`/api/questions/${encodeURIComponent(questionId)}/source`);
+
+        if (data.status !== 'found' || !data.source) {
+          qs('citationDetail').innerHTML = '<div class="muted">Citation not found.</div>';
+          qs('citationModal').classList.remove('hidden');
+          return;
+        }
+
+        const source = data.source || {};
+        const citation = data.citation || {};
+
+        qs('citationDetail').innerHTML = `
+          <div style="line-height: 1.6;">
+            <h3 style="margin-bottom: 8px;">Source Information</h3>
+            <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
+              <div><strong>Document:</strong> ${escapeHtml(source.document_name || 'Unknown')}</div>
+              <div><strong>Category:</strong> ${escapeHtml(source.category || 'N/A')}</div>
+              <div><strong>Page:</strong> ${data.page_start || '?'}${data.page_end && data.page_end !== data.page_start ? `-${data.page_end}` : ''}</div>
+              <div><strong>Authority Score:</strong> <span style="font-weight: bold; color: #2196F3;">${data.authority_score || 50}</span> / 100</div>
+            </div>
+
+            <h3 style="margin-bottom: 8px;">Citation Note</h3>
+            <div style="background: #f9f9f9; padding: 12px; border-left: 4px solid #2196F3; margin-bottom: 12px;">
+              <code style="font-size: 13px;">${escapeHtml(data.citation_note || '[Source citation]')}</code>
+            </div>
+
+            <h3 style="margin-bottom: 8px;">Excerpt</h3>
+            <div style="background: #fafafa; padding: 12px; border-radius: 6px; font-size: 12px; line-height: 1.5; max-height: 200px; overflow-y: auto;">
+              ${escapeHtml((source.chunk_text || '').substring(0, 800))}
+              ${(source.chunk_text?.length || 0) > 800 ? '...' : ''}
+            </div>
+          </div>
+        `;
+      } catch (error) {
+        qs('citationDetail').innerHTML = `<div class="muted">Error loading citation: ${escapeHtml(error.message)}</div>`;
+      }
+
+      qs('citationModal').classList.remove('hidden');
+    }
+
+    function closeCitationModal() {
+      qs('citationModal').classList.add('hidden');
     }
 
     window.addEventListener('load', async () => {
