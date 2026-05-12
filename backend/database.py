@@ -750,6 +750,43 @@ def create_fts5_index(conn: sqlite3.Connection | None = None) -> None:
             conn.close()
 
 
+def get_source_authority_for_chunk(chunk_id: int, conn: sqlite3.Connection | None = None) -> int:
+    """
+    Retrieve authority score for a specific source chunk.
+
+    Args:
+        chunk_id: ID of the source chunk
+        conn: Database connection (optional)
+
+    Returns:
+        Authority score (0-100), or 50 if not found
+    """
+    owns_conn = conn is None
+    if conn is None:
+        conn = get_connection()
+
+    try:
+        result = conn.execute(
+            """
+            SELECT authority_score
+            FROM question_sources
+            WHERE source_chunk_id = ?
+            ORDER BY authority_score DESC
+            LIMIT 1
+            """,
+            (chunk_id,)
+        ).fetchone()
+
+        score = result[0] if result else 50  # Default score if not found
+
+        # Verify score is in valid range
+        return max(0, min(100, int(score)))
+
+    finally:
+        if owns_conn:
+            conn.close()
+
+
 def rows_to_dicts(rows: list[sqlite3.Row]) -> list[dict[str, Any]]:
     return [dict(row) for row in rows]
 
