@@ -397,7 +397,7 @@ Amendment based: {is_amendment_based}
 Source policy: {source_policy}
 
 Question design rules:
-- Use only the retrieved source context below.
+- Use **ONLY** the retrieved source context below. Do NOT add external knowledge.
 - For smart_mock/exam_material generation, every question must be grounded in PYQ, phase paper, information handout, syllabus, ICSI/study material, or official IFSCA material supplied in the retrieved context.
 - Use PYQ/memory-paper chunks for exam style, trap shape, and intensity; use official/ICSI/study-material chunks for regulatory facts.
 - Do not copy a full PYQ stem verbatim unless the supplied context itself is a question paper and the question is clearly useful as prior-year practice.
@@ -409,9 +409,13 @@ Question design rules:
 - Exactly four options: A, B, C, D. correct_answer must be one of A/B/C/D.
 - Every distractor must be plausible to a serious candidate but contradicted or unsupported by the cited source.
 - explanation must cite the source index and explain the trap.
-- source_index must match the single strongest supporting context block.
+- source_index must match the single strongest supporting context block (1-based index from list below).
 - tested_fact should be the exact regulatory fact being tested.
 - trap_logic should state why the wrong options are tempting.
+
+IMPORTANT: Each question MUST reference one chunk from the list below via source_index.
+Chunks are numbered [1], [2], [3], etc. in the source context.
+If a question cannot be grounded in the provided sources, skip it.
 
 Retrieved source context:
 {context}

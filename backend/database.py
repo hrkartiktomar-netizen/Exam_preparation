@@ -751,6 +751,86 @@ def create_fts5_index(conn: sqlite3.Connection | None = None) -> None:
             conn.close()
 
 
+def format_citation_note(source_chunk: dict[str, Any], page_num: int | None = None) -> str:
+    """
+    Format a citation note in academic format: [Document Name, Section X, p.YYY]
+
+    Args:
+        source_chunk: Dict with keys: 'name'/'title', 'section_title', 'page_start', 'page_end'
+        page_num: Override page number if provided
+
+    Returns:
+        Formatted citation string like "[IFSCA Reg 2027, Section 5.2, p.180]"
+    """
+    title = source_chunk.get("name") or source_chunk.get("title") or "Source Document"
+    section = source_chunk.get("section_title") or ""
+    page = page_num or source_chunk.get("page_start") or source_chunk.get("page_num") or "?"
+
+    citation_parts = [title.strip()]
+    if section and section.strip():
+        citation_parts.append(f"Section {section.strip()}")
+
+    citation = ", ".join(citation_parts)
+    return f"[{citation}, p.{page}]"
+
+
+def link_question_to_source(
+    question_id: str,
+    source_chunk_id: int,
+    authority_score: int | None = None,
+    conn: sqlite3.Connection | None = None,
+) -> None:
+    """
+    Link a question to its authoritative source chunk.
+
+    Creates a record in question_sources table with authority score.
+
+    Args:
+        question_id: ID of the question being linked
+        source_chunk_id: ID of the source chunk providing authority
+        authority_score: Authority score (0-100), auto-calculated if None
+        conn: Optional database connection (creates new if None)
+    """
+    owns_conn = conn is None
+    if owns_conn:
+        conn = get_connection()
+
+    try:
+        # Auto-calculate authority score if not provided
+        if authority_score is None:
+            # Retrieve chunk's source document info
+            chunk_row = conn.execute(
+                """
+                SELECT sd.doc_type, sd.category
+                FROM source_chunks sc
+                JOIN source_documents sd ON sc.doc_id = sd.doc_id
+                WHERE sc.chunk_id = ? LIMIT 1
+                """,
+                (source_chunk_id,),
+            ).fetchone()
+
+            if chunk_row:
+                doc_type = chunk_row["doc_type"] or "extracted_pdf"
+                category = chunk_row["category"] or "default"
+                authority_score = int(calculate_source_authority(doc_type, category, exam_signal=0))
+            else:
+                authority_score = 50  # Default if chunk not found
+
+        # Insert or replace the link
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO question_sources
+            (question_id, source_chunk_id, authority_score)
+            VALUES (?, ?, ?)
+            """,
+            (question_id, source_chunk_id, authority_score),
+        )
+        conn.commit()
+    finally:
+        if owns_conn:
+            conn.close()
+
+
 def get_source_authority_for_chunk(chunk_id: int, conn: sqlite3.Connection | None = None) -> int:
     """
     Retrieve authority score for a specific source chunk.
