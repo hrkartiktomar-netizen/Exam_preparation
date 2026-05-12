@@ -843,6 +843,142 @@ async def pending_amendments():
     return {"amendments": amendments_data}
 
 
+@app.get("/api/questions/{question_id}/source", response_model=dict[str, Any])
+async def get_question_source(question_id: str):
+    """Retrieve source citation details for a specific question."""
+    conn = db.get_connection()
+    try:
+        # Get question citation
+        citation = conn.execute(
+            """
+            SELECT * FROM question_citations
+            WHERE question_id = ? LIMIT 1
+            """,
+            (question_id,),
+        ).fetchone()
+
+        if not citation:
+            return {"status": "not_found", "question_id": question_id}
+
+        # Get source chunk and document details
+        chunk = conn.execute(
+            """
+            SELECT sc.*, sd.name as document_name, sd.category, sd.doc_type
+            FROM source_chunks sc
+            JOIN source_documents sd ON sc.doc_id = sd.doc_id
+            WHERE sc.chunk_id = ? LIMIT 1
+            """,
+            (citation["chunk_id"],),
+        ).fetchone()
+
+        # Get authority score from question_sources
+        source_link = conn.execute(
+            "SELECT authority_score FROM question_sources WHERE question_id = ? LIMIT 1",
+            (question_id,),
+        ).fetchone()
+
+        authority_score = source_link["authority_score"] if source_link else 50
+
+        return {
+            "status": "found",
+            "question_id": question_id,
+            "citation": dict(citation) if citation else None,
+            "source": dict(chunk) if chunk else None,
+            "authority_score": authority_score,
+            "page_start": citation["page_start"],
+            "page_end": citation["page_end"],
+            "citation_note": citation["citation_note"],
+        }
+    finally:
+        conn.close()
+
+
+@app.get("/api/questions/search", response_model=SourceSearchResponseModel)
+async def search_questions(query: str, topic_id: str | None = None, limit: int = 10):
+    """Full-text search questions and return by authority score."""
+    results = []
+    conn = db.get_connection()
+    try:
+        # FTS5 search on source chunks
+        search_query = f"source_chunks_fts MATCH '{query}'" if query else "1=1"
+
+        fts_results = conn.execute(
+            f"""
+            SELECT DISTINCT sc.chunk_id, sd.doc_id, sd.name, sd.category, sd.doc_type,
+                   sc.page_num, sc.chunk_text, qs.authority_score
+            FROM source_chunks_fts fts
+            JOIN source_chunks sc ON fts.chunk_id = sc.chunk_id
+            JOIN source_documents sd ON sc.doc_id = sd.doc_id
+            LEFT JOIN question_sources qs ON sc.chunk_id = qs.source_chunk_id
+            WHERE {search_query}
+            ORDER BY qs.authority_score DESC NULLS LAST, sc.page_num ASC
+            LIMIT ?
+            """,
+            (limit,),
+        ).fetchall()
+
+        for row in fts_results:
+            results.append({
+                "chunk_id": str(row["chunk_id"]),
+                "document_id": str(row["doc_id"]),
+                "title": row["name"],
+                "category": row["category"],
+                "page_start": row["page_num"],
+                "excerpt": row["chunk_text"][:500],
+                "authority_score": row["authority_score"] or 50,
+            })
+    finally:
+        conn.close()
+
+    return {
+        "query": query,
+        "topic_id": topic_id,
+        "total": len(results),
+        "results": results,
+    }
+
+
+@app.get("/api/sources/distribution-by-topic", response_model=dict[str, Any])
+async def source_distribution_by_topic():
+    """Get pie chart data for source distribution by topic."""
+    conn = db.get_connection()
+    try:
+        distribution = conn.execute(
+            """
+            SELECT
+                COALESCE(sd.category, 'Unknown') as source_type,
+                COUNT(DISTINCT sc.chunk_id) as chunk_count,
+                COUNT(DISTINCT qs.question_id) as question_count,
+                AVG(CAST(qs.authority_score AS REAL)) as avg_authority
+            FROM source_documents sd
+            LEFT JOIN source_chunks sc ON sd.doc_id = sc.doc_id
+            LEFT JOIN question_sources qs ON sc.chunk_id = qs.source_chunk_id
+            GROUP BY source_type
+            ORDER BY chunk_count DESC
+            """
+        ).fetchall()
+
+        pie_data = [
+            {
+                "label": row["source_type"],
+                "chunks": row["chunk_count"],
+                "questions": row["question_count"] or 0,
+                "avg_authority": round(row["avg_authority"] or 50, 1),
+            }
+            for row in distribution
+        ]
+
+        total_chunks = sum(item["chunks"] for item in pie_data)
+
+        return {
+            "status": "success",
+            "total_chunks": total_chunks,
+            "distribution": pie_data,
+        }
+    finally:
+        conn.close()
+
+
 if __name__ == "__main__":
     import uvicorn
 

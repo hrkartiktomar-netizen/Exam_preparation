@@ -196,6 +196,75 @@ class TestContentIntelligence:
         finally:
             conn.close()
 
+    def test_search_returns_questions_by_authority(self):
+        """TEST 5: FTS5 search should return results ranked by authority score."""
+        print("\n[TEST 5] test_search_returns_questions_by_authority")
+
+        conn = get_connection()
+        try:
+            # Test FTS5 search on source chunks
+            results = conn.execute(
+                """
+                SELECT DISTINCT sc.chunk_id, qs.authority_score
+                FROM source_chunks_fts fts
+                JOIN source_chunks sc ON fts.chunk_id = sc.chunk_id
+                LEFT JOIN question_sources qs ON sc.chunk_id = qs.source_chunk_id
+                WHERE source_chunks_fts MATCH 'ifsca OR regulation'
+                ORDER BY qs.authority_score DESC
+                LIMIT 5
+                """
+            ).fetchall()
+
+            # Should have results
+            assert len(results) > 0, "No FTS5 search results found"
+
+            # Verify sorted by authority score descending
+            scores = [row["authority_score"] for row in results if row["authority_score"] is not None]
+            if len(scores) > 1:
+                for i in range(len(scores) - 1):
+                    assert scores[i] >= scores[i + 1], "Results not sorted by authority score"
+
+            print(f"  Found {len(results)} results, top authority: {scores[0] if scores else 'N/A'}")
+            print("  [OK] PASS: Search results ranked by authority")
+        finally:
+            conn.close()
+
+    def test_source_distribution_pie_chart(self):
+        """TEST 6: Source distribution should return pie chart data by category."""
+        print("\n[TEST 6] test_source_distribution_pie_chart")
+
+        conn = get_connection()
+        try:
+            distribution = conn.execute(
+                """
+                SELECT
+                    COALESCE(sd.category, 'Unknown') as source_type,
+                    COUNT(DISTINCT sc.chunk_id) as chunk_count,
+                    COUNT(DISTINCT qs.question_id) as question_count,
+                    AVG(CAST(qs.authority_score AS REAL)) as avg_authority
+                FROM source_documents sd
+                LEFT JOIN source_chunks sc ON sd.doc_id = sc.doc_id
+                LEFT JOIN question_sources qs ON sc.chunk_id = qs.source_chunk_id
+                GROUP BY source_type
+                ORDER BY chunk_count DESC
+                """
+            ).fetchall()
+
+            assert len(distribution) > 0, "No source distribution data"
+
+            total_chunks = sum(row["chunk_count"] for row in distribution)
+            print(f"  Total chunks: {total_chunks}")
+
+            for row in distribution:
+                print(
+                    f"    {row['source_type']}: {row['chunk_count']} chunks, "
+                    f"{row['question_count'] or 0} Qs, avg authority {row['avg_authority'] or 50}"
+                )
+
+            print("  [OK] PASS: Source distribution pie chart data generated")
+        finally:
+            conn.close()
+
 
 if __name__ == "__main__":
     """Run content intelligence tests directly."""
@@ -211,6 +280,8 @@ if __name__ == "__main__":
         test_suite.test_citation_format_includes_page_number()
         test_suite.test_question_linked_to_source_chunk()
         test_suite.test_authority_score_calculated_correctly()
+        test_suite.test_search_returns_questions_by_authority()
+        test_suite.test_source_distribution_pie_chart()
 
         print("\n" + "=" * 60)
         print("ALL CONTENT INTELLIGENCE TESTS PASSED [OK]")
