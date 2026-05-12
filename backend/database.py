@@ -751,8 +751,11 @@ def create_fts5_index(conn: sqlite3.Connection | None = None) -> None:
     except Exception as e:
         print(f"FTS5 migration error: {e}")
         if owns_conn:
-            conn.close()
+            conn.rollback()
         raise
+    finally:
+        if owns_conn:
+            conn.close()
 
 
 def _run_migration_002(conn: sqlite3.Connection | None = None) -> None:
@@ -784,32 +787,6 @@ def _run_migration_002(conn: sqlite3.Connection | None = None) -> None:
             conn.rollback()
         raise
     finally:
-        if owns_conn:
-            conn.close()
-
-
-def _run_migration_002(conn: sqlite3.Connection | None = None) -> None:
-    """Execute Phase 2 amendment automation migration."""
-    owns_conn = conn is None
-    if conn is None:
-        conn = get_connection()
-
-    try:
-        migration_path = BACKEND_DIR / "migrations" / "002_amendment_automation.sql"
-
-        if not migration_path.exists():
-            return  # Migration file optional
-
-        with open(migration_path, "r") as f:
-            migration_sql = f.read()
-
-        conn.executescript(migration_sql)
-
-        if owns_conn:
-            conn.commit()
-
-    except Exception as e:
-        print(f"Phase 2 migration error: {e}")
         if owns_conn:
             conn.close()
 
