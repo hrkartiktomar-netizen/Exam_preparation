@@ -1165,6 +1165,7 @@
       renderRuntime(dashboardCache.ai_status || {});
       renderFocusPlan(dashboardCache.focus_plan, dashboardCache.next_recommended_action);
       renderWatchlist('amendmentWatchlist', dashboardCache.amendment_watchlist || []);
+      await loadAmendmentRadar();
       qs('weakTopics').innerHTML = dashboardCache.weak_topics?.length ? dashboardCache.weak_topics.map(topic => `
         <div class="source-box">
           <strong>${escapeHtml(topic.display_name || topic.topic)}</strong><br>
@@ -1182,6 +1183,30 @@
           <td>${escapeHtml(topic.trend)}</td>
         </tr>
       `).join('');
+    }
+
+    async function loadAmendmentRadar() {
+      try {
+        const data = await api('/api/amendments/status');
+        const html = `
+          <div style="margin-bottom: 1.5rem;">
+            <div class="badge neutral">${data.new_count_this_week} New This Week</div>
+            <span class="muted" style="font-size: 0.9rem;">Last poll: ${data.last_poll_at}</span>
+          </div>
+          ${data.amendments.length ? data.amendments.map(amend => `
+            <div class="source-box" style="margin-bottom: 1rem;">
+              <strong>${escapeHtml(amend.rule_name)}</strong>
+              <span class="badge ${amend.priority === 'CRITICAL' ? 'danger' : amend.priority === 'HIGH' ? 'warning' : 'neutral'}">${amend.priority}</span><br>
+              <span class="muted">Effective: ${amend.effective_date}</span><br>
+              <span class="muted" style="font-size: 0.85rem;">Topic: ${escapeHtml(amend.topic)}</span>
+              ${amend.source_url ? `<br><a href="${amend.source_url}" target="_blank" style="font-size: 0.9rem;">📄 Source</a>` : ''}
+            </div>
+          `).join('') : '<div class="muted">No new amendments detected.</div>'}
+        `;
+        qs('amendmentWatchlist').innerHTML = html;
+      } catch (error) {
+        qs('amendmentWatchlist').innerHTML = `<div class="muted">Error loading amendments: ${error.message}</div>`;
+      }
     }
 
     async function loadMockBlueprint() {

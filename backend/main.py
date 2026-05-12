@@ -870,6 +870,59 @@ async def pending_amendments():
     return {"amendments": amendments_data}
 
 
+@app.get("/api/amendments/status")
+async def amendments_status():
+    """Return amendment polling status and new amendments."""
+    conn = db.get_connection()
+    try:
+        # Get last poll timestamp
+        last_poll = conn.execute(
+            "SELECT MAX(polled_at) as last_polled FROM amendment_source_polls WHERE status = 'success'"
+        ).fetchone()
+
+        # Count new amendments this week
+        from datetime import datetime, timedelta
+        week_ago = (datetime.now() - timedelta(days=7)).isoformat()
+        new_count = conn.execute(
+            "SELECT COUNT(*) as count FROM amendments WHERE created_at > ?",
+            (week_ago,),
+        ).fetchone()[0]
+
+        # Get recent amendments
+        recent = conn.execute(
+            """
+            SELECT amendment_id, topic, rule_name, effective_date, source_url, priority, created_at
+            FROM amendments
+            ORDER BY created_at DESC
+            LIMIT 10
+            """,
+        ).fetchall()
+
+        amendments_list = [
+            {
+                "amendment_id": row[0],
+                "topic": row[1],
+                "rule_name": row[2],
+                "effective_date": row[3],
+                "source_url": row[4],
+                "priority": row[5],
+                "created_at": row[6],
+            }
+            for row in recent
+        ]
+
+        return {
+            "enabled": True,
+            "last_poll_at": last_poll[0] if last_poll[0] else "Never",
+            "next_poll_at": "Today at 3am UTC (estimated)",
+            "new_count_this_week": new_count,
+            "auto_questions_count": new_count * 3,
+            "amendments": amendments_list,
+        }
+    finally:
+        conn.close()
+
+
 @app.get("/api/questions/{question_id}/source", response_model=dict[str, Any])
 async def get_question_source(question_id: str):
     """Retrieve source citation details for a specific question."""
