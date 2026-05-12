@@ -755,20 +755,23 @@ async def submit_mock(mock_id: str, request: MockSubmitRequestModel):
 
 
 @app.post("/api/exams/start")
-async def exam_start(total_questions: int = Query(default=50, ge=10, le=100), mode: str = Query(default="balanced")):
+async def exam_start(request: SmartMockRequestModel | None = None):
     """Start a new exam session with adaptive mock generation."""
     try:
+        request = request or SmartMockRequestModel()
         # Generate adaptive mock
-        result = db.generate_smart_mock(total_questions=total_questions, mode=mode, use_gemini=True)
+        result = db.generate_smart_mock(total_questions=request.total_questions, mode=request.mode, use_gemini=True)
 
-        exam_id = f"SM_{datetime.now().strftime('%Y%m%d_%H%M')}_{result['mock_id'][-4:]}"
-        started_at = datetime.now()
+        # exam_id = mock_id for simplicity and consistency
+        mock_id = result["mock_id"]
+        exam_id = f"EXAM_{mock_id}"
 
         questions = [_coerce_question(q) for q in result["questions"]]
 
         return {
             "exam_id": exam_id,
-            "started_at": started_at.isoformat(),
+            "mock_id": mock_id,
+            "started_at": datetime.now().isoformat(),
             "time_limit_seconds": 3600,
             "question_count": len(questions),
             "questions": questions,
@@ -782,14 +785,38 @@ async def exam_start(total_questions: int = Query(default=50, ge=10, le=100), mo
 async def exam_time_remaining(exam_id: str):
     """Get remaining time for exam (server-side timer validation)."""
     try:
-        # For now, extract started_at from exam_id (YYYYMMDD_HHMM format)
-        # In production, would store in Redis/database
-        # This is a simplified implementation - in real system would track exam state
-        return {
-            "exam_id": exam_id,
-            "time_remaining_seconds": 3600,  # Placeholder - would be calculated from DB
-            "status": "active",
-        }
+        conn = db.get_connection()
+        try:
+            # Try to find mock_id from exam_id (format: SM_YYYYMM_HHMM_<mock_id_suffix>)
+            # Or look up by mock_id directly if exam_id == mock_id
+            row = conn.execute(
+                """
+                SELECT started_at FROM mock_sessions
+                WHERE mock_id = ? OR mock_id LIKE ?
+                LIMIT 1
+                """,
+                (exam_id, f"%{exam_id[-4:]}%"),
+            ).fetchone()
+
+            if not row or not row["started_at"]:
+                return {
+                    "exam_id": exam_id,
+                    "time_remaining_seconds": 3600,
+                    "status": "not_found",
+                }
+
+            started_at = datetime.fromisoformat(row["started_at"])
+            elapsed = (datetime.now() - started_at).total_seconds()
+            remaining = max(0, 3600 - elapsed)
+
+            return {
+                "exam_id": exam_id,
+                "time_remaining_seconds": int(remaining),
+                "elapsed_seconds": int(elapsed),
+                "status": "active" if remaining > 0 else "expired",
+            }
+        finally:
+            conn.close()
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
@@ -798,57 +825,118 @@ async def exam_time_remaining(exam_id: str):
 async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
     """Submit exam with server-side time validation and scoring."""
     try:
-        answers = [answer.model_dump() for answer in request.answers]
+        conn = db.get_connection()
+        try:
+            # Look up mock session to get started_at and questions
+            session_row = conn.execute(
+                "SELECT * FROM mock_sessions WHERE mock_id = ? OR mock_id LIKE ? LIMIT 1",
+                (exam_id, f"%{exam_id[-4:]}%"),
+            ).fetchone()
 
-        # Calculate score: +4 correct, -1 wrong, 0 unanswered
-        correct_count = 0
-        wrong_count = 0
-        unanswered_count = 0
+            if not session_row:
+                raise HTTPException(status_code=404, detail="Exam session not found")
 
-        for answer in answers:
-            if answer.get("selected_answer") is None:
-                unanswered_count += 1
-            elif answer.get("selected_answer") == answer.get("correct_answer"):
-                correct_count += 1
-            else:
-                wrong_count += 1
+            started_at_str = session_row["started_at"]
+            if not started_at_str:
+                raise HTTPException(status_code=400, detail="Exam session not started")
 
-        score = (correct_count * 4) + (wrong_count * -1) + (unanswered_count * 0)
+            started_at = datetime.fromisoformat(started_at_str)
+            elapsed = (datetime.now() - started_at).total_seconds()
 
-        # Detect weak areas (accuracy < 60%)
-        weak_areas = []
-        topic_breakdown = {}
+            # Server-side timer enforcement - CRITICAL SECURITY CHECK
+            if elapsed > 3600:
+                return {
+                    "exam_id": exam_id,
+                    "status": "error",
+                    "reason": "EXAM_TIME_EXPIRED",
+                    "code": 403,
+                    "message": f"Exam expired {elapsed - 3600:.0f} seconds ago",
+                }
 
-        for answer in answers:
-            topic = answer.get("topic", "UNKNOWN")
-            if topic not in topic_breakdown:
-                topic_breakdown[topic] = {"correct": 0, "total": 0}
+            # Load questions and answers from database
+            mock_id = session_row["mock_id"]
+            question_rows = conn.execute(
+                """
+                SELECT mq.question_number, q.question_id, q.correct_answer, q.topic_id
+                FROM mock_questions mq
+                JOIN questions q ON q.question_id = mq.question_id
+                WHERE mq.mock_id = ?
+                ORDER BY mq.question_number
+                """,
+                (mock_id,),
+            ).fetchall()
 
-            topic_breakdown[topic]["total"] += 1
-            if answer.get("selected_answer") == answer.get("correct_answer"):
-                topic_breakdown[topic]["correct"] += 1
+            if not question_rows:
+                raise HTTPException(status_code=400, detail="No questions found for exam")
 
-        for topic, stats in topic_breakdown.items():
-            accuracy_pct = (stats["correct"] / stats["total"] * 100) if stats["total"] > 0 else 0
-            if accuracy_pct < 60:
-                weak_areas.append({
-                    "topic": topic,
-                    "accuracy_pct": round(accuracy_pct, 1),
-                    "correct": stats["correct"],
-                    "total": stats["total"],
-                })
+            # Build answer map from request
+            answer_map = {answer.question_id: answer for answer in request.answers}
 
-        return {
-            "exam_id": exam_id,
-            "score": score,
-            "total_marks": len(answers) * 4,
-            "correct": correct_count,
-            "wrong": wrong_count,
-            "unanswered": unanswered_count,
-            "weak_areas": weak_areas,
-            "status": "submitted",
-            "timestamp": datetime.now().isoformat(),
-        }
+            # Validate and score answers
+            correct_count = 0
+            wrong_count = 0
+            unanswered_count = 0
+            topic_breakdown = {}
+
+            for row in question_rows:
+                question_id = row["question_id"]
+                topic = row["topic_id"]
+                correct_answer = row["correct_answer"]
+
+                if topic not in topic_breakdown:
+                    topic_breakdown[topic] = {"correct": 0, "total": 0}
+
+                topic_breakdown[topic]["total"] += 1
+                answer = answer_map.get(question_id)
+
+                if not answer or not answer.selected_answer:
+                    unanswered_count += 1
+                elif answer.selected_answer == correct_answer:
+                    correct_count += 1
+                    topic_breakdown[topic]["correct"] += 1
+                else:
+                    wrong_count += 1
+
+            # Calculate score using database.py formula: +4 correct, -1 wrong, 0 unanswered
+            marks_per_question = round(100 / len(question_rows), 4)
+            negative_marking_per_wrong = round(marks_per_question * 0.25, 4)
+            raw_score = round(correct_count * marks_per_question, 2)
+            negative_marks = round(wrong_count * negative_marking_per_wrong, 2)
+            final_score = round(max(0.0, raw_score - negative_marks), 2)
+
+            # Detect weak areas (accuracy < 60%)
+            weak_areas = []
+            for topic, stats in topic_breakdown.items():
+                accuracy_pct = (stats["correct"] / stats["total"] * 100) if stats["total"] > 0 else 0
+                if accuracy_pct < 60:
+                    weak_areas.append({
+                        "topic": topic,
+                        "accuracy_pct": round(accuracy_pct, 1),
+                        "correct": stats["correct"],
+                        "total": stats["total"],
+                    })
+
+            return {
+                "exam_id": exam_id,
+                "mock_id": mock_id,
+                "status": "submitted",
+                "code": 200,
+                "final_score": final_score,
+                "raw_score": raw_score,
+                "negative_marks": negative_marks,
+                "total_questions": len(question_rows),
+                "total_correct": correct_count,
+                "total_wrong": wrong_count,
+                "total_unanswered": unanswered_count,
+                "accuracy_pct": round((correct_count / len(question_rows) * 100), 2) if question_rows else 0,
+                "weak_areas": weak_areas,
+                "elapsed_seconds": int(elapsed),
+                "timestamp": datetime.now().isoformat(),
+            }
+        finally:
+            conn.close()
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 

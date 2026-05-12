@@ -2736,12 +2736,13 @@ def save_smart_mock(mock_id: str, ranked_topics: list[dict[str, Any]], allocatio
         conn.execute(
             """
             INSERT OR REPLACE INTO mock_sessions
-            (mock_id, mock_type, generated_at, total_questions, allocation_json, difficulty_curve_json, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            (mock_id, mock_type, generated_at, started_at, total_questions, allocation_json, difficulty_curve_json, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 mock_id,
                 "smart",
+                datetime.now().isoformat(),
                 datetime.now().isoformat(),
                 sum(allocation.values()),
                 json.dumps(allocation),
