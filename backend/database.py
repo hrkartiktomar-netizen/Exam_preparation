@@ -2059,11 +2059,58 @@ def get_smart_mock_config(total_questions: int = 50, mode: str = "balanced") -> 
         item["recommended_action"] = target_actions.get(item["topic"], "penalty_drill")
     ranked.sort(key=lambda item: item.get("target_score", item.get("weakness_score", 0.0)), reverse=True)
     allocation = allocate_question_slots(ranked, total_questions=total_questions, mode=mode)
-    difficulty_curve = {}
-    for item in ranked:
-        score = item.get("target_score", item["weakness_score"])
-        difficulty_curve[item["topic"]] = "hard" if score >= 0.65 else "medium" if score >= 0.40 else "easy"
-    return {"ranked_topics": ranked, "allocation": allocation, "difficulty_curve": difficulty_curve, "targeting_snapshot": targeting}
+
+    # Calculate weak/medium/strong groups for difficulty scaffolding
+    weak_count = int(round(total_questions * 0.60))
+    medium_count = int(round(total_questions * 0.25))
+    strong_count = total_questions - weak_count - medium_count
+
+    weak_topics = ranked[: max(1, math.ceil(len(ranked) * 0.33))]
+    medium_topics = ranked[len(weak_topics) : max(len(weak_topics) + 1, math.ceil(len(ranked) * 0.67))]
+    strong_topics = ranked[len(weak_topics) + len(medium_topics) :]
+
+    # Build difficulty progression per topic
+    difficulty_curve: dict[str, list[str]] = {}
+    for item in weak_topics:
+        topic = item["topic"]
+        # For weak topics: scaffold difficulty progression
+        topic_qs = allocation.get(topic, 0)
+        if topic_qs >= 3:
+            # Distribute: ~1/3 easy, ~1/3 medium, ~1/3 hard
+            easy_count = topic_qs // 3
+            medium_mid = (topic_qs * 2) // 3
+            hard_count = topic_qs - medium_mid
+            difficulty_curve[topic] = ["easy"] * easy_count + ["medium"] * (medium_mid - easy_count) + ["hard"] * hard_count
+        elif topic_qs == 2:
+            difficulty_curve[topic] = ["easy", "hard"]
+        else:
+            difficulty_curve[topic] = ["medium"]
+
+    for item in medium_topics:
+        topic = item["topic"]
+        topic_qs = allocation.get(topic, 0)
+        if topic_qs >= 2:
+            # For medium topics: half easy, half hard
+            easy_count = topic_qs // 2
+            difficulty_curve[topic] = ["easy"] * easy_count + ["hard"] * (topic_qs - easy_count)
+        else:
+            difficulty_curve[topic] = ["medium"]
+
+    for item in strong_topics:
+        topic = item["topic"]
+        topic_qs = allocation.get(topic, 0)
+        # For strong topics: all easy (confidence building)
+        difficulty_curve[topic] = ["easy"] * topic_qs
+
+    return {
+        "ranked_topics": ranked,
+        "allocation": allocation,
+        "difficulty_curve": difficulty_curve,
+        "targeting_snapshot": targeting,
+        "weak_topics": [item["topic"] for item in weak_topics],
+        "medium_topics": [item["topic"] for item in medium_topics],
+        "strong_topics": [item["topic"] for item in strong_topics],
+    }
 
 
 def correct_label(options: list[dict[str, str]], correct_text: str) -> str:
@@ -2721,16 +2768,25 @@ def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_g
         raise RuntimeError("Gemini is mandatory for every smart mock. Local/source-bank fallback is disabled.")
     if not gemini_available():
         raise RuntimeError("Gemini is not available, so a serious smart mock cannot be generated.")
+
     config = get_smart_mock_config(total_questions=total_questions, mode=mode)
     allocation = config["allocation"]
-    difficulty_curve = config["difficulty_curve"]
+    difficulty_curve = config["difficulty_curve"]  # Now: dict[topic] → list[difficulty]
     questions: list[dict[str, Any]] = []
+
+    # Generate questions per topic with difficulty progression
     for topic_id, count in allocation.items():
-        questions.extend(
-            generate_topic_questions(
+        difficulties = difficulty_curve.get(topic_id, ["medium"] * count)
+        # Ensure we have exactly 'count' difficulties
+        if len(difficulties) != count:
+            difficulties = difficulties[:count] + ["medium"] * (count - len(difficulties))
+
+        # Generate questions with specific difficulties
+        for i, difficulty in enumerate(difficulties):
+            topic_questions = generate_topic_questions(
                 topic_id,
-                count,
-                difficulty=difficulty_curve.get(topic_id, "medium"),
+                count=1,
+                difficulty=difficulty,
                 question_type="smart_mock",
                 use_gemini=True,
                 strict_gemini=True,
@@ -2738,21 +2794,46 @@ def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_g
                 reuse_existing=False,
                 source_policy="exam_material",
             )
-        )
+            questions.extend(topic_questions)
+
     questions = questions[:total_questions]
+
+    # Verify allocation accuracy within 1%
+    weak_topics_set = set(config["weak_topics"])
+    medium_topics_set = set(config["medium_topics"])
+    strong_topics_set = set(config["strong_topics"])
+
+    weak_actual = sum(1 for q in questions if q.get("topic") in weak_topics_set)
+    medium_actual = sum(1 for q in questions if q.get("topic") in medium_topics_set)
+    strong_actual = sum(1 for q in questions if q.get("topic") in strong_topics_set)
+
+    # Verify percentages are within ±1% of target
+    weak_pct = weak_actual / len(questions)
+    medium_pct = medium_actual / len(questions)
+    strong_pct = strong_actual / len(questions)
+
+    if abs(weak_pct - 0.60) > 0.01 or abs(medium_pct - 0.25) > 0.01 or abs(strong_pct - 0.15) > 0.01:
+        # Log warning but don't fail - proceed with best effort
+        print(f"WARNING: Allocation deviation - weak {weak_pct:.2%}, medium {medium_pct:.2%}, strong {strong_pct:.2%}")
+
+    # Shuffle questions (don't reveal allocation to user)
+    random.shuffle(questions)
+
+    # Save mock
     mock_id = f"SM_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:4]}"
     save_smart_mock(mock_id, config["ranked_topics"], allocation, difficulty_curve, questions=questions)
-    weak_topics = {item["topic"] for item in config["ranked_topics"][: max(1, len(config["ranked_topics"]) // 3)]}
-    medium_topics = {item["topic"] for item in config["ranked_topics"][len(weak_topics) : max(len(weak_topics) + 1, math.ceil(len(config["ranked_topics"]) * 0.67))]}
-    summary = {
-        "weak_topics_focused": sum(count for topic, count in allocation.items() if topic in weak_topics),
-        "medium_topics": sum(count for topic, count in allocation.items() if topic in medium_topics),
-        "strong_topics": total_questions - sum(count for topic, count in allocation.items() if topic in weak_topics or topic in medium_topics),
-    }
+
     return {
         "mock_id": mock_id,
         "allocation": allocation,
-        "allocation_summary": summary,
+        "allocation_summary": {
+            "weak_topics_focused": weak_actual,
+            "medium_topics": medium_actual,
+            "strong_topics": strong_actual,
+            "weak_pct": f"{weak_pct:.1%}",
+            "medium_pct": f"{medium_pct:.1%}",
+            "strong_pct": f"{strong_pct:.1%}",
+        },
         "weakness_analysis": config["ranked_topics"],
         "questions": questions,
     }
