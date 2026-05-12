@@ -7,12 +7,16 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.triggers.cron import CronTrigger
 from fastapi import BackgroundTasks, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 import database as db
+import amendment_poller
+import job_queue
 from gemini_integration import (
     PROMPT_CONTRACT_VERSION,
     USE_CASE_CATALOG,
@@ -92,13 +96,18 @@ def _run_startup_amendment_scan(force_local: bool = False) -> dict[str, Any]:
 
 
 @asynccontextmanager
+@asynccontextmanager
 async def lifespan(app: FastAPI):
+    # Startup
     db.init_db()
+    job_queue.init_job_queue_schema()
+
     if db.table_count("documents") == 0:
         db.ingest_documents(force=False)
     app.state.gemini = initialize_gemini_runtime(run_probe=True)
     db.seed_critical_amendments()
     app.state.question_quarantine = db.quarantine_low_quality_questions()
+
     try:
         app.state.startup_amendment_scan = _run_startup_amendment_scan(force_local=False)
     except Exception as exc:
@@ -108,7 +117,25 @@ async def lifespan(app: FastAPI):
             "watchlist": [],
             "candidate_sources": [],
         }
+
+    # Initialize and start APScheduler
+    scheduler = AsyncIOScheduler()
+    scheduler.add_job(
+        amendment_poller.run_amendment_poller,
+        CronTrigger(hour=3, minute=0, timezone="UTC"),
+        id="amendment_daily_poll",
+        name="Daily Amendment Poll (3am UTC)",
+        coalesce=True,
+        max_instances=1,
+    )
+    scheduler.start()
+    app.state.scheduler = scheduler
+
     yield
+
+    # Shutdown
+    if hasattr(app.state, "scheduler"):
+        app.state.scheduler.shutdown(wait=True)
 
 
 app = FastAPI(
