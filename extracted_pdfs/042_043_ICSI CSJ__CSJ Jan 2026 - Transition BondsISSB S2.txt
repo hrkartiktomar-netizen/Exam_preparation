@@ -1,0 +1,484 @@
+SOURCE: 043_ICSI CSJ__CSJ Jan 2026 - Transition BondsISSB S2.pdf
+PAGES: 4
+================================================================================
+
+
+[PAGE 1]
+84    |   January 2026    CHARTERED SECRETARY
+ARTICLE
+This article throws light on the framework of IFSCA for Transition Bonds. This framework is 
+expected to function as the architect’s blueprint, by mandating credible transition plans, taxonomic 
+alignment, and transparent disclosure mechanisms that enables foreign investors to fund the 
+modernization of India’s hard-to-abate sectors. This regulatory framework acknowledges a 
+fundamental truth: achieving economy-wide decarbonization requires not just building the new, but 
+systematically upgrading what already exists and cannot be abandoned.
+CS Pradeep Ramakrishnan, FCS
+Executive Director  
+IFSCA, GIFT City, Gujarat  
+pradeep.ramakrishnan@ifsca.gov.in
+Pavan Shah
+General Manager  
+IFSCA GIFT City, Gujarat  
+pavan.shah@ifsca.gov.in
+Chintan Panchal
+Manager 
+IFSCA GIFT City, Gujarat  
+chintan.panchal@ifsca.gov.in
+Financing the Foundation: How India’s New 
+Transition Bond Framework Unlocks Industrial 
+Decarbonization
+INTRODUCTION
+I
+magine attempting to renovate a centuries-old 
+mansion while its residents continue their daily 
+lives within its walls. This captures the predicament 
+facing hard-to-abate sectors in their decarbonization 
+journey. Unlike constructing an entirely new green 
+building on vacant land, which parallels how GSS+ bonds 
+have, successfully primarily financed renewable energy 
+and electric vehicle infrastructure, the transformation 
+of steel, cement, chemicals, aviation, and shipping 
+requires retrofitting essential systems while maintaining 
+uninterrupted operations. As these sectors form the 
+structural foundations of modern economies, producing 
+materials and services that will remain indispensable 
+even in a post-zero world and hence renovation is 
+precisely what net-zero demands. Collectively, these 
+sectors account for roughly two-fifths of global GHG 
+emissions1, these industries must undergo comprehensive  
+transformation. 
+Just as restoring an old mansion requires both vision and 
+precision, the transition of heavy industries demands 
+financing models that can support gradual, credible 
+transformation. Traditional green finance has excelled at 
+funding new, low-emission projects such as solar farms 
+or electric mobility. However, these instruments often fall 
+short when it comes to decarbonizing legacy industries 
+that cannot simply be rebuilt from scratch. This is where 
+1. https://www.weforum.org/publications/net-zero-industry-tracker-2024/   
+transition finance steps in, bridging the gap between 
+today’s carbon-intensive reality and tomorrow’s low-
+carbon economy. For India, whose industrial backbone 
+continues to power both domestic growth and global 
+supply chains, developing such financing mechanisms 
+is not just an environmental imperative but an economic  
+necessity.
+The IFSCA’s Framework for Transition Bonds intends 
+to function as the architect’s blueprint for this complex 
+renovation, by mandating credible transition plans, 
+taxonomic alignment, and transparent disclosure 
+mechanisms that enables foreign investors to fund the 
+modernization of India’s hard-to-abate sectors. This 
+regulatory framework acknowledges a fundamental truth: 
+achieving economy-wide decarbonization requires not 
+just building the new, but systematically upgrading what 
+already exists and cannot be abandoned. 
+THE GLOBAL LANDSCAPE OF TRANSITION 
+FINANCE  
+1.  Global Disclosure Developments
+ Over the past few years, the global architecture 
+for transition finance has evolved from voluntary 
+principles into structured, mandatory systems. The 
+most significant development is the establishment of a 
+global baseline for disclosure, led by the International 
+Sustainability Standards Board (ISSB). The IFRS S2 
+
+[PAGE 2]
+January 2026   |   85   CHARTERED SECRETARY
+ARTICLE
+standard, strengthened by new 2025 guidance 2, now 
+requires companies to disclose transition plans if they 
+materially affect climate risk understanding. This 
+global baseline is being implemented across major 
+jurisdictions. The European Union (EU) through its 
+Corporate Sustainability Reporting Directive (CSRD) 3, 
+will see its first disclosures in 2025, while the United 
+Kingdom’s (UK) Transition Plan Taskforce (TPT) 
+framework4 is expected to embed into regulatory 
+requirements by the Financial Conduct Authority 
+(FCA). These developments mark a decisive shift, from 
+optional sustainability reporting to legally enforceable 
+transition accountability.
+2.  Taxonomy Evolution and Market Alignment
+ Parallel to disclosure reforms, taxonomies defining 
+“green” and “transition” activities have advanced 
+rapidly. These frameworks give investors a common 
+language to assess the credibility of decarbonization 
+efforts.
+  Singapore has emerged as a leader through 
+its Singapore-Asia Taxonomy for Sustainable 
+Finance5, introducing an “amber” category for 
+credible transition activities. This taxonomy 
+supported its first $500 million transition bond in 
+October 2025.
+  The ASEAN Taxonomy for Sustainable Finance 6 
+and the Australian Sustainable Finance 
+Taxonomy7 similarly integrate transition activities 
+as distinct classifications.
+  The EU Platform on Sustainable Finance, in 
+January 2025, issued detailed guidance 8 for 
+evaluating high-quality corporate transition 
+plans, linking disclosure standards with activity 
+classification.
+ Beyond governments, global coalitions such as the 
+G20 Sustainable Finance Working Group, OECD, and 
+ICMA are shaping common standards. In November 
+2025, ICMA launched the Climate Transition Bond 
+Guidelines (CTBG) 9, a dedicated instrument-level 
+framework that complements entity-level practices 
+under the Climate Transition Finance Handbook 
+(CTFH).
+2. https://www.ifrs.org/news-and-events/news/2025/06/ifrs-publishes-
+guidance-disclosures-transition-plans/
+3. https://finance.ec.europa.eu/document/download/ec293327-af1d-432c-
+8523-cfe7eec8367e_en?filename=250123-building-trust-transition-report_
+en.pdf 
+4. https://www.gov.uk/government/consultations/climate-related-transition-
+plan-requirements/transition-plan-requirements-implementation-routes-
+accessible-webpage  
+5. https://www.mas.gov.sg/-/media/mas-media-library/development/
+sustainable-finance/singaporeasia-taxonomy-updated.pdf
+6. https://asean.org/book/asean-taxonomy-for-sustainable-finance-
+version-3/
+7. https://www.asfi.org.au/s/Australian-Sustainable-Finance-Taxonomy-
+Version-1-srfe.pdf  
+8. https://finance.ec.europa.eu/document/download/ec293327-af1d-432c-
+8523-cfe7eec8367e_en?filename=250123-building-trust-transition-report_
+en.pdf
+9. https://www.icmagroup.org/assets/documents/Sustainable-finance/2025-
+updates/Climate-Transition-Bond-Guidelines-CTBG-November-2025.pdf
+Together, these developments underscore a growing 
+consensus: transition finance is no longer peripherality, it 
+is becoming a core pillar of sustainable finance, grounded 
+in disclosure, taxonomy, and transparency.
+INDIA’S CLIMATE AMBITION AND THE 
+TRANSITION FINANCE IMPERATIVE
+At COP26 in Glasgow (November 2021), Prime Minister 
+Narendra Modi announced India’s net-zero emissions 
+target by 2070 and updated the country’s Nationally 
+Determined Contributions (NDCs). India’s climate finance 
+requirements to achieve those targets vary significantly 
+depending on scope, sectoral coverage, and time horizon, 
+as demonstrated in the table below:
+Source Year Estimates to 
+2030
+Estimates to 
+2050/2070
+Remarks 
+CEEW-CEFi 2021 Part of USD 
+10.1 trillion.
+USD 10.1 
+trillion to 
+2070 (net-
+zero).
+Investment 
+gap: USD 
+3.5 trillion, 
+Concessional 
+finance need: 
+USD 1.4 
+trillion.
+Climate 
+Policy 
+Initiativeii
+2024 USD 170 
+billion/year 
+(INR 11 
+trillion/year).
+Not specified 
+to 2070.
+Covers 
+mitigation 
+sectors, 87% 
+domestic 
+sources.
+NITI Aayog 
+India Energy 
+Security 
+Scenarios 
+(IESS) 2047iii
+2025 USD 250 
+billion/
+year (energy 
+transition 
+only).
+USD 250 
+billion/year 
+to 2047.
+Energy 
+transition only, 
+excludes EV 
+infrastructure 
+and demand 
+sectors.
+Centre for 
+Social & 
+Economic 
+Progressiv
+2025 USD 467 
+billion 
+(2022-2030, 
+four sectors 
+namely Steel, 
+Cement, 
+Power 
+and Road 
+transport 
+only).
+Not 
+specified.
+Steel (USD 
+251Bn), 
+Cement (USD 
+141Bn), Power 
+(USD 57Bn), 
+Transport 
+(USD 18Bn), 
+1.3% of GDP 
+annually.
+India’s climate finance landscape between 2020 and 2025 
+presents a sharp paradox. A raft of supportive policies 
+has successfully “crowded in” significant capital for 
+“green” sectors, particularly renewable energy and electric 
+mobility. However, this success has created a profound 
+sectoral imbalance, leaving the capital-intensive, hard-to-
+abate industrial sectors, such as steel, cement, chemicals, 
+and heavy transport, facing significant barriers to accessing 
+the transition finance required for their decarbonization.
+CPI in its 2024 report 10, tracked total green finance flows 
+of $65 billion in FY 2021-22. The sectoral distribution of 
+this capital is heavily skewed. Clean Energy (primarily 
+solar and wind) and Clean Transport (overwhelmingly 
+10. https://www.climatepolicyinitiative.org/publication/landscape-of-green-
+finance-in-india-2024/
+Financing the Foundation: How India’s New Transition Bond Framework Unlocks Industrial Decarbonization
+
+[PAGE 3]
+86    |   January 2026    CHARTERED SECRETARY
+ARTICLE
+electric vehicles) attracted $23.9 billion and $9 billion, 
+respectively. Together, these two “green” sectors accounted 
+for 53% of all tracked green finance. The said reports 
+systematically exclude chemicals, petrochemicals, aviation, 
+shipping, and oil & gas transition finance. This omission 
+reflects both data scarcity and the absence of established 
+financing frameworks for these sectors’ transition  
+pathways.
+As per the Centre for Social and Economic Progress’s 2025 
+study indicates that steel sector requires USD 251 billion 
+(2022-2030) and Cement needs USD 141 billion (additional 
+capital expenditure) for decarbonization efforts. This 
+imbalance is not accidental, it is the direct result of targeted, 
+successful policy interventions aimed at de-risking and 
+incentivising mature green technologies. Against this, 
+hard-to-abate sectors face a combination of policy gaps, 
+market perception issues, and technological risk that deter 
+competitive capital. This has resulted in a situation where 
+investors are comfortable financing inherently “green” 
+assets, they remain hesitant to fund “greening” activities 
+within “brown” industrial sectors. “Framework for 
+Transition Bonds” issued by IFSCA on July 29, 2025, aims 
+to address policy gaps for the Indian and other issuers from 
+hard-to-abate sectors.  
+IFSCA’S TRANSITION BOND 
+FRAMEWORK: BRIDGING 
+POLICY AND PRACTICE
+1.  Purpose and Context
+ India’s industrial decarbonization 
+challenge requires a financing 
+mechanism tailored to its 
+high-emission sectors where 
+transition is gradual and 
+capital intensive. The IFSCA 
+Framework for Transition Bonds is designed 
+precisely to fill this policy and financing gap.  
+By allowing companies in hard-to-abate sectors to 
+issue bonds at GIFT IFSC while adhering to credible 
+transition standards, the framework seeks to unlock 
+foreign capital and build investor confidence through 
+transparency, verification, and accountability.
+2.  Structural Design and Core Principles
+ The framework is built on four core pillars that 
+collectively strengthen its credibility and investor 
+appeal:
+  Credible entity-level transition plans aligned with 
+the Paris Agreement and supported by measurable 
+emission-reduction targets.
+  Taxonomic alignment with recognized 
+international frameworks or technology roadmaps 
+to ensure consistency and comparability.
+  Mandatory independent external reviews such 
+as second-party opinions, certification, or 
+verification, to safeguard investor trust.
+  Comprehensive disclosure requirements, both 
+at issuance and annually, covering governance, 
+emission metrics, and capital expenditure rollout.
+ These pillars directly address global investors’ 
+expectations for clarity, accountability, and science-
+based alignment, key prerequisites for scaling 
+transition finance.
+3.  Taxonomic Flexibility and Global Alignment
+ Recognizing that India’s own Climate Finance 
+Taxonomy remains in draft form, IFSCA has adopted a 
+pragmatic approach. Issuers are permitted to reference 
+internationally recognized taxonomies and technology 
+roadmaps, such as:
+  EU, Japan, Singapore-Asia, ASEAN, and 
+Australian frameworks, and
+  Japan’s METI and the International Energy 
+Agency (IEA) decarbonization roadmaps.
+ This flexibility provides immediate functionality 
+for Indian issuers while maintaining international 
+credibility and minimizing transaction costs, crucial 
+for attracting foreign institutional capital familiar 
+with these benchmarks.
+4.  Disclosure Architecture and 
+Governance Integrity
+ Drawing on ICMA’s Climate 
+Transition Finance Handbook, 
+the framework mandates detailed 
+disclosures across four key dimensions:
+ Transition Plan & Governance: 
+Measurable GHG reduction targets, 
+board-level oversight, and linkage with 
+overall sustainability strategy.
+  Business Model Materiality: Project-level 
+relevance, sectoral emissions footprint, and Scope 
+3 emissions reporting timeline.
+  Science-based Strategy: Transparent use of 
+modeling frameworks such as SBTi, ACT, and IEA 
+scenarios.
+  Implementation Transparency: Capital 
+expenditure roadmap, timeline for phasing out 
+incompatible activities, and disclosure of locked-
+in emissions.
+ Together, these requirements institutionalize 
+credibility and ensure that transition bonds reflect 
+authentic, verifiable climate action.
+5.  Integration with Domestic Policy Ecosystem
+ IFSCA Framework for Transition Bonds create a 
+powerful policy synergy with India’s newly notified 
+Greenhouse Gases Emission Intensity (GEI) Target 
+Rules, 2025 11, operationalizing the Carbon Credit 
+11. https://beeindia.gov.in/sites/default/files/Greenhouse_Gases_Emission_
+Intensity_Target_Rules_2025.pdf  
+IFSCA framework has the 
+potential to anchor GIFT-
+IFSC as a regional hub for 
+transition finance, setting 
+benchmarks for emerging 
+economies, balancing growth 
+and decarbonization.
+Financing the Foundation: How India’s New Transition Bond Framework Unlocks Industrial Decarbonization
+
+[PAGE 4]
+January 2026   |   87   CHARTERED SECRETARY
+ARTICLE
+Trading Scheme (CCTS) effective from fiscal year 
+2025-26. Hence, establishing a dual-pathway financial 
+model for hard-to-abate sectors. This has the potential 
+to create a triple financial value proposition for 
+transition-focused companies as given below: 
+  Access to cost-effective foreign capital through 
+transition bonds to finance low-carbon 
+infrastructure, technology upgrades, and 
+decarbonization pathway. 
+  Compliance revenue through carbon credit 
+generation and trading when emissions reductions 
+exceed intensity targets. 
+  Regulatory certainty within India’s evolving 
+carbon market framework. This complementarity 
+addresses a fundamental challenge in hard-to-
+abate transition finance i.e. the extended capital 
+payback periods (often 15-25 years for CCS 
+infrastructure) that make pure debt financing 
+unattractive without auxiliary revenue streams. By 
+combining transition bond financing with carbon 
+credit monetization under the GEI framework, 
+India’s policy architecture converts compliance 
+obligations into financial opportunities.
+6.  Outlook and Potential Impact
+ The framework explicitly targets hard-to-abate sectors 
+such as steel, cement, chemicals, aviation, shipping etc. 
+Industries such as steel and cement alone are estimated 
+to require USD 392 billion in investment by 2030. If the 
+IFSCA succeeds in mobilizing even 10% of the capital 
+requirements, taking conservative estimates, for the 
+steel and cement sectors during 2025–2030, and if 
+this effort is complemented by similar mobilization 
+in other hard-to-abate sectors, it could potentially 
+facilitate around USD 10 billion in annual investments 
+by 2030.
+STRUCTURAL BARRIERS TO TRANSITION 
+FINANCE
+In spite of the tremendous potential of transition finance, 
+the full utilization of the IFSCA’s “Framework for Transition 
+Bonds” is facing following barriers:
+a) Lack of Climate Finance taxonomy:  India’s draft 
+Climate Finance Taxonomy (released May 2025) 
+acknowledges the need to address “transition, in line 
+with country circumstances, in hard-to-abate sectors”  
+with Iron, Steel, and Cement as priority sectors.  
+b) Sector Specific Transition Roadmap:  The Asia 
+Investor Group on Climate Change’s consultation 
+response12 to India’s taxonomy highlights that “the 
+government could consider issuing guidance for 
+corporate transition plans, aligned with national 
+targets and sectoral roadmaps to help standardize 
+disclosures and improve investor confidence in 
+transition-aligned activities”. 
+12. https://aigcc.net/wp-content/uploads/2025/07/Public-Consultation-
+response_India-Taxonomy_050625.pdf  
+c) Risk Perception:  Hard-to-abate sectors face multiple 
+risk layers such as technology risk (CCS, Green 
+hydrogen), asset stranding risk and long payback 
+period. 
+CONCLUSION: BUILDING INDIA’S 
+TRANSITION FINANCE FUTURE
+The IFSCA Framework for Transition Bonds marks a 
+significant milestone in India’s sustainable finance journey. 
+While green finance has successfully driven growth in 
+renewable energy and electric mobility, the next frontier 
+lies in transforming the country’s industrial core, the 
+hard-to-abate sectors that power its economic engine. 
+The framework fills this critical gap by introducing a 
+credible, transparent, and globally aligned mechanism 
+to channel capital into these sectors’ decarbonization  
+pathways.
+Yet, its success will depend on implementation depth, 
+policy convergence, and market adoption. The transition 
+finance ecosystem in India still faces foundational 
+challenges as enumerated in the article. The coordinated 
+approach among regulators, industry bodies, government 
+and financial institutions to standardize disclosures, 
+validate credible transition plans, and provide blended 
+finance instruments that reduce perceived risks will serve 
+to address these challenges.
+Going forward, India’s transition finance architecture will 
+evolve from being regulation-driven to market-led. The real 
+test will be whether private capital, domestic and global, views 
+transition finance not as compliance, but as opportunity. 
+By linking financial performance with measurable climate 
+outcomes, instruments such as transition bonds can reshape 
+how capital markets support industrial competitiveness and  
+sustainability.
+IFSCA framework has the potential to anchor GIFT-
+IFSC as a regional hub for transition finance, setting 
+benchmarks for emerging economies, balancing 
+growth and decarbonization. In doing so, India would 
+not only steer its own industrial transition but also 
+demonstrate how developing nations can finance 
+climate ambition without compromising development  
+priorities.
+REFERENCES:
+i. https://www.ceew.in/press-releases/india-will-
+require-investments-worth-over-usd-10-trillion-
+achieve-net-zero-2070-ceew  
+ii. https://www.climatepolicyinitiative.org/publication/
+landscape-of-green-finance-in-india-2024/  
+iii. https://static.pib.gov.in/WriteReadData/specificdocs/
+documents/2025/may/doc202557551101.pdf 
+iv. https://csep.org/blog/indias-climate-finance-
+requirements-steel-and-cement-overwhelm-power/
+ 
+Financing the Foundation: How India’s New Transition Bond Framework Unlocks Industrial Decarbonization

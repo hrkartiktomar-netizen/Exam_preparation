@@ -1,0 +1,4688 @@
+IFSCA Act & Related Concepts
+
+     IFSCA Act
+
+1. Purpose & Scope
+
+     It applies specifcally to fnancial services, fnancial products and fnancial
+          institutions operating in an international fnancial services centre [IFSC]
+          set up under the Special Economic Zones Act, 2005 (SEZ Act)
+
+          The Act thereby creates a regulatory regime for IFSCs in India—
+          enabling entities to carry out cross-border nancial operations
+          under a unied regulator rather than multiple domestic
+          regulators.
+
+2. Key Denitions & Application
+
+     “Appropriate regulator” means any fnancial sector regulator listed in
+          the First Schedule of the Act (or example, Reserve Bank o India (RBI),
+          Securities and Exchange Board o India (SEBI), Insurance Regulatory and
+          Development Authority o India (IRDAI), etc.).
+
+Under the IFSCA Act, 2019, the “appropriate regulators” originally were:
+     RBI – banking,
+     SEBI – capital markets,
+     IRDAI – insurance,
+     PFRDA – pensions.
+
+Ater the IFSCA was established in 2020, it became the single unied
+regulator or all fnancial products, services, and institutions operating within
+India’s International Financial Services Centres (e.g., GIFT City)—
+replacing the earlier multiple regulators.
+
+     “Financial institution” is defned in Section 3(c) as a unit set up in an
+          IFSC engaged in rendering fnancial services in respect o any fnancial
+          product.
+
+     “Financial product” is defned in Section 3(d) to include securities,
+          contracts of insurance, deposits, credit arrangements, foreign
+          currency contracts (other than immediate currency exchanges) among
+          others.
+
+          3. Institutional Structure (Authority)
+
+     The Act establishes the International Financial Services Centres Authority
+          (IFSCA) (Section 4).
+
+     Composition:
+
+               o A Chairperson.
+
+               o Members nominated by RBI, SEBI, IRDAI, and PFRDA.
+
+               o Two members from the Ministry of Finance.
+               o Two members appointed on the recommendation o a selection
+                    committee.
+
+3. Age Limit
+     The Act itsel does not prescribe a xed minimum or maximum age.
+     However, as per the IFSCA (Terms and Conditions of Service of
+          Chairperson and Members) Rules, 2020:
+               o Chairperson: holds oce up to 65 years of age.
+               o Whole-time Members: hold oce up to 62 years of age.
+
+4. Tenure
+     Term: 3 years rom the date o appointment, eligible for
+          reappointment.
+     Removal: The Central Government can remove members or proven
+          misconduct, insolvency, conict o interest, etc. (Section
+
+     The Authority is the statutory regulator or duties specifed under the Act.
+     Establishment o a Fund: Section 15 provides or the “International
+
+          Financial Services Centres Authority Fund” to meet expenses o the
+          Authority.
+
+4. Powers & Functions of IFSCA
+     Functions (Section 12):
+               o Develop and regulate fnancial products, fnancial services and
+                    fnancial institutions in IFSCs.
+               o Regulate products, services and institutions in an IFSC which were
+                    permitted by any regulator (e.g., RBI/SEBI) beore the Act.
+               o Regulate other fnancial products, services or institutions in IFSCs as
+                    notifed by Central Government. indiacode.nic.in
+               o Recommend to Central Government other fnancial
+                    services/products/institutions which may be permitted in IFSCs.
+     Powers (Section 13):
+               o The Authority has powers similar to those o the appropriate
+                    regulators, to make regulations, issue directions, levy ees/charges,
+                    etc.
+     Additional powers: The Act empowers the Authority to impose penalties,
+          make regulations or fnancial services in IFSCs, supervise and inspect
+          institutions.
+
+5. Regulatory Scope & Coverage
+     The Act applies to “International Financial Services Centres” set up under
+          Section 18 o the SEZ Act, 2005.
+     Coverage spans banking units, insurance, securities, und management,
+         leasing, deposits, oreign currency contracts, cross‐border transactions
+          within IFSCs. (As the defnitions indicate).
+          It eectively brings under one regulator the nancial services in
+          IFSCs which earlier would have been regulated by
+          RBI/SEBI/IRDAI/PFRDA in their separate domains.
+     The Act does not automatically override domestic regulators or domestic
+          operations; its ocus is on the IFSC regime.
+
+6. Procedural, Transitional & Ancillary Provisions
+     Section 32 provides or “Power to remove diculties” – allowing Central
+          Government to issue orders or smooth implementation.
+     Section 33 provides or amendment to certain enactments. Section 34
+          gives savings (i.e., continuity o prior permissions, etc).
+     The Act enables the Authority to rame regulations, and various
+          regulations have since been issued (e.g., the Finance Company
+          Regulations, Banking Regulations under IFSC) under the Act.
+     Transitional arrangements: Entities already operating under domestic
+          regulator’s permit can transition under IFSCA oversight in IFSCs.
+
+7. Signicance & Implications
+     The Act is a key plank in India’s eort to develop the GIFT International
+          Financial Services Centre (GIFT IFSC) in Gujarat as a global fnancial hub by
+         oering world‐class fnancial services environment.
+     It simplies regulatory architecture in IFSCs by creating a unied
+          regulator (IFSCA), thereby reducing regulatory overlaps and
+          potentially improving ease of doing business.
+
+     Global Innovation Index by WIPO: India has improved its position to
+          38th in the 2025 Global Innovation Index,
+          World Competitiveness Ranking by IMD Business school- India
+          ranks 41st out o 69 countries in the 2025 Ranking.
+    
+
+     For fnancial institutions, the Act oers scope to innovate cross-border
+          fnancial services under a specialized regulatory regime, possibly
+          enhancing India’s competitiveness in international fnancial services.
+
+     It also sets the stage or India to adopt global regulatory practices and
+          attract oreign fnancial players into IFSCs
+
+1. IFSCA Act: Purpose, Structure & Key Provisions
+Purpose & application
+
+     The Act was enacted on 19 December 2019 to “provide or the
+          establishment o an Authority to develop and regulate the fnancial
+          services market in the International Financial Services Centres in India
+
+     Section 2 states that the Act applies to IFSCs set up under Section 18 o
+          the Special Economic Zones Act, 2005.
+
+Denitions (Section 3)
+     Key defnitions include:
+               o “appropriate regulator” – a fnancial sector regulator specifed in the
+                    First Schedule.
+               o “Authority” – meaning the IFSCA, established under Section 4.
+               o “nancial institution” – a unit set up in an IFSC engaged in
+                    rendering nancial services in respect of any nancial
+                    product.
+               o “fnancial product” – includes securities, contracts o insurance,
+                    deposits, credit arrangements, oreign-currency contracts (other
+                    than immediate currency exchange) and other notifed instruments.
+               o “International Financial Services Centre” – an IFSC set up
+                    under Section 18 of SEZ Act.
+
+Institutional set-up (Chapter II)
+     Section 4: Establishment o the Authority (IFSCA) as a body corporate.
+
+Powers, functions & regulatory architecture
+     Section 12: Functions o the Authority – to develop and regulate fnancial
+          products, services and institutions in IFSCs; regulate those permitted
+          earlier by appropriate regulators; recommend to Central Government
+          other services/products/institutions or IFSCs.
+
+     Section 13: Powers o the Authority – including making regulations, issuing
+          directions, etc.
+
+     Chapter IV: Finance, accounts and audit – e.g., Section 14: grants by
+          Central Government; Section 15: Fund o Authority; Section 16: accounts &
+          audit; Section 17: Perormance review committee. AdvocateKhoj
+
+     Chapter V: Foreign exchange transactions – Section 20 deals with
+          transactions in oreign currency in IFSCs.
+
+     Chapter VI: Miscellaneous – powers to make rules/regulations, override
+          certain other enactments in relation to IFSCs (Section 30), modiy other
+          enactments (Section 31), remove diculties (Section 32), amendment to
+          certain enactments (Section 33), savings (Section 34).
+
+2. IFSCA (the Authority)
+
+Role & scope
+
+     The International Financial Services Centres Authority (IFSCA) is
+          the statutory body created under the IFSCA Act. Its mandate: to regulate
+          and develop fnancial services, fnancial products and fnancial institutions
+          in IFSCs in India.
+
+     It acts as a unied regulator or the IFSC ecosystem — which means it
+          perorms, or IFSCs, unctions that domestic regulators perorm in their
+          respective domains.
+
+     IFSCA is operationalised via various regulations — e.g., Banking
+          Regulations 2020 or IFSCs, Insurance Regulations 2020, Issuance &
+          Listing o Securities Regulations 2021.
+
+Institutional structure & processes
+
+     Head oce located in GIFT City, Gandhinagar.
+
+     IFSCA provides a “single-window” approval process (the SWIT —
+          Single Window IT System) or entities to set up in the IFSC.
+
+          It collaborates with foreign regulators, global nancial centres,
+          for promoting cross-border linkages, innovation.
+
+Key functional aspects
+
+     Licensing/registration o fnancial institutions in IFSCs (banks, insurance
+          companies, und managers, capital market intermediaries) under its
+          regulations.
+
+     Supervisory & compliance oversight o fnancial institutions in IFSCs.
+
+     Regulatory innovation: rameworks or new products and services (fntech,
+          aircrat/ship leasing in IFSCs) tailored to international operations. For
+          example, a detailed ramework or investment advisors in GIFT IFSC.
+          Facilitating foreign currency transactions in IFSCs (Section 20 of
+          IFSCA Act) and aiming to enable full convertibility and global
+          connectivity.
+     Promoting development o IFSC ecosystem: inrastructure, talent, global
+          business-ows, etc.
+
+Achievements and metrics
+     According to IFSCA’s own website as o June 2025: 939 IFSCA-registered
+          entities; banking asset size in the IFSC in India (GIFT IFSC) USD 93.85 bn+.
+
+3. International Financial Services Centre (IFSC) – Concept and Indian
+Context
+Concept
+
+     An IFSC is a jurisdiction that provides fnancial services to non-resident
+          and international clients, oten in oreign currency, and operates under a
+          regulatory, fscal and operational regime tailored or global fnancial
+          transactions.
+
+     In India’s context, an IFSC is created under Section 18 of the SEZ Act,
+          2005, and then the IFSCA Act applies to such centres.
+
+Features & objective
+     The objective is to “on-shore the oshore” — bring back international
+          fnancial services which might otherwise occur oshore, into India under
+          Indian jurisdiction but global standards.
+     Key eatures o Indian IFSCs (as typifed by GIFT IFSC) include:
+               o Full convertibility o oreign currencies or eligible transactions.
+               o Global-benchmark regulation and unifed regulator (IFSCA).
+               o Tax/other incentives, ease o doing business, proximity to India’s
+                    domestic market.
+               o Inrastructure support: physical (oces, towers, smart-city eatures)
+                    and digital (single-window approvals, global connectivity).
+
+4. GIFT IFSC & GIFT City
+     The Gujarat International Finance Tec-City (GIFT City) is a planned smart
+          city and fnancial hub, located near Gandhinagar/Ahmedabad in Gujarat,
+          India.
+
+     Promoted as India’s rst operational smart city with integrated
+          infrastructure, high-quality digital and physical connectivity,
+          “walk-to-work” concept, etc.
+
+GIFT IFSC – Key Features
+
+          GIFT International Financial Services Centre (GIFT IFSC) is India’s
+          rst dedicated IFSC, located within GIFT City.
+
+     Unique value proposition: access to the Indian economy + global
+          inrastructure + oreign currency transactions.
+
+Regulatory & operational regime
+
+     Entities in GIFT IFSC are regulated by IFSCA under the IFSCA Act and
+          associated regulations.
+
+     The “single window IT” system (SWIT) enables oreign/domestic
+          fnancial institutions to get approvals to set up in GIFT IFSC.
+
+     Examples o business lines: Banking Units (IBUs), Alternative Investment
+          Funds, commodity/ bullion exchanges, asset managers, global in-house
+          centres, fntech units.
+
+Current status & scale
+
+          As per IFSCA data as o June 2025: 939 registered entities in the IFSC,
+          banking assets USD 93.85 bn+.
+
+5. How They All Fit Together: Holistic Perspective
+
+     The IFSCA Act establishes the legal and institutional architecture enabling
+          the regulatory regime or fnancial services in designated IFSCs (such as
+          GIFT IFSC).
+          IFSCA serves as the unied regulator, replacing or consolidating
+          the functions for IFSC operations that would otherwise fall under
+          domestic regulators like RBI, SEBI, IRDAI and PFRDA. This avoids
+          regulatory fragmentation.
+      IFSC is the special jurisdiction (under SEZ Act) with a tailored regulatory,
+          infrastructural and scal regime aimed at global nancial business.
+     Together, the ramework is designed to:
+
+               o Attract global fnancial services frms, capital, and talent to India.
+
+               o Provide a platform for foreign currency and cross-border
+                    nancial services under Indian jurisdiction.
+
+               o Leverage India’s growth story and domestic market while oering
+                    global connect.
+
+               o Improve ease o doing business in fnancial services, especially in
+                    international transactions.
+
+Integrated Overview: IFSCA, IFSC, GIFT IFSC, and GIFT City
+
+1. Context and Rationale
+     Background: India’s fnancial ecosystem was largely domestically
+          oriented, with international fnancial activities routed through global hubs
+          like Singapore, Dubai, or London.
+     Need: To capture global fnancial ows, deepen capital markets, and
+          position India as a global fnancial centre, the International Financial
+          Services Centre (IFSC) was conceived.
+     Key Enabler: The International Financial Services Centres
+          Authority (IFSCA) was created to regulate and develop fnancial services
+          within these IFSCs — the frst and only currently being GIFT IFSC in
+          Gujarat.
+
+2. GIFT City – Concept and Vision
+     Full Form: Gujarat International Finance Tech-City (GIFT City).
+     Location: Between Ahmedabad and Gandhinagar, Gujarat.
+     Vision: To create a smart city and global nancial hub competing with
+          Dubai, Singapore, and Hong Kong.
+
+Key Objectives:
+     Create world-class inrastructure or fnancial services.
+     Provide onshore access to oshore fnancial activities (oreign currency
+          transactions, global insurance, derivatives trading).
+     Attract international banks, unds, fntechs, and capital markets.
+Infrastructure:
+     GIFT City is a Special Economic Zone (SEZ) with state-o-the-art ICT,
+          transport, and utilities.
+     Divided into GIFT IFSC (nancial zone) and GIFT SEZ (non-nancial
+          zone).
+
+3. International Financial Services Centre (IFSC)
+Denition (as per IFSCA Act, 2019):
+A fnancial centre that oers nancial services and products to non-residents
+and residents (to the extent permissible) in foreign currency.
+Functions:
+
+     Allow fnancial institutions to deal in international markets (oreign
+          currency lending, insurance, derivatives, und management).
+
+     Serve as a global gateway or Indian corporates and investors.
+     Host exchanges like India INX (BSE) and NSE IFSC or global securities
+
+          and derivatives trading.
+Major Sectors Operated:
+
+     Banking (oreign currency lending, deposits).
+     Capital markets (listing o oreign currency bonds, ETFs).
+     Insurance and reinsurance.
+     Fintech and sustainable fnance.
+Global Comparison:
+Similar to Dubai International Financial Centre (DIFC), Singapore MAS regime,
+and London City Financial District.
+
+4. International Financial Services Centres Authority (IFSCA)
+Legal Basis:
+Established under the International Financial Services Centres Authority
+Act, 2019 (enacted in December 2019; operational rom April 2020).
+Objective:
+Unifed regulator or all fnancial services in IFSCs — integrating powers rom:
+
+     RBI (banking)
+     SEBI (capital markets)
+     IRDAI (insurance)
+     PFRDA (pension)
+Headquarters: GIFT City, Gandhinagar.
+5. Structure and Governance of IFSCA
+
+Aspect          Details
+
+Composition     9 Members (Chairperson + 8 members)
+
+Appointed by    Central Government
+
+Representation  1 each rom RBI, SEBI, IRDAI, PFRDA + 2 rom Finance
+                Ministry + 2 experts
+
+Tenure          3 years or as notifed
+
+Chairperson (as of K. Rajaraman (IAS, succeeded Injeti Srinivas)
+2025)
+
+6. Functions and Powers
+
+Regulatory:
+
+     Regulates all fnancial institutions and services within IFSC.
+
+     Frame regulations or banking, securities, insurance, and pensions.
+
+Developmental:
+
+     Promote ease o doing business and innovation.
+
+     Encourage fntech, sustainable fnance, aircrat leasing, ship fnancing, and
+          global unds.
+
+     Coordinate with international regulators (e.g., IOSCO, BIS).
+
+IOSCO stands or the International Organisation of Securities
+Commissions. It is the leading international policy orum or securities
+regulators and is recognised as the global standard setter or the securities
+sector.
+
+Structure and Membership
+
+     Membership: IOSCO's membership regulates more than 95% o the
+          world's securities markets across more than 100 jurisdictions. Members
+          are typically primary securities and/or utures regulators in a national
+          jurisdiction.
+
+     Governing Body: The IOSCO Board is the governing and standard-setting
+          body, comprised o 35 securities regulators rom various countries,
+          including the Securities and Exchange Board o India (SEBI).
+
+     Headquarters: The permanent secretariat is located in Madrid, Spain.
+7. Key Initiatives and Achievements
+     FinTech Sandbox: Allows startups to test innovative fnancial products.
+     IFSC Banking Units (IBUs): Foreign and Indian banks can operate in
+          oreign currency (e.g., SBI, HSBC, Standard Chartered).
+     Aircraft Leasing: Inspired by Ireland’s model — GIFT IFSC aims to be
+          Asia’s aircrat leasing hub.
+     Fund Management Regulations, 2022: Framework or global unds and
+          asset managers.
+     Green Finance and ESG Bonds: GIFT IFSC promoting sustainability-
+          linked instruments.
+     Unied Single Window Clearance: Simplifed regulatory interace.-
+          SWIT
+
+8. Fiscal and Regulatory Incentives
+     Tax Benets:
+               o 10-year income tax holiday (out o 15 years).
+               o No GST on services to oshore clients.
+               o Exemption rom stamp duty and certain securities transaction taxes.
+     Ease of Capital Flow: Free repatriation, oreign currency transactions
+          allowed.
+     Liberalised Environment: FEMA, SEZ, and Companies Act provisions
+          harmonised or global competitiveness.
+
+Global Financial Centres (GFCs): Present Status and Emerging Trends
+(2025)
+
+1. Concept and Signicance
+     Denition:
+          A Global Financial Centre (GFC) is a city or region with a high
+          concentration o fnancial institutions providing cross-border nancial
+          services—including banking, capital markets, insurance, asset
+          management, and fntech.
+
+2. Measurement and Ranking: The GFCI Index
+     Prepared by:
+          Z/Yen Group and China Development Institute under the Global Financial
+          Centres Index (GFCI) series.
+    Indicators Used:
+             o Over 140 quantitative parameters (e.g., economic stability, tax
+                  environment, inrastructure).
+             o Survey-based qualitative inputs rom global fnance
+                  proessionals.
+             o Data rom institutions like the World Bank, OECD, and IMF.
+
+    Key Dimensions:
+             1. Business Environment
+             2. Human Capital
+             3. Inrastructure
+             4. Financial Sector Development
+             5. Reputation and General Factors
+
+3. Top Global Financial Centres (GFCI 37 – March 2025)
+
+Ran  Centre    Region Highlights
+k
+
+1    New York  North    Global capital markets, depth, innovation, Wall
+               America  Street dominance.
+
+2 London Europe         Strong legal-fnancial ecosystem; resilience post-
+                        Brexit.
+
+3 Hong Kong Asia        Gateway to China; major hub or oshore RMB and
+                        securities.
+
+4 Singapore Asia        Wealth management and fntech hub o Asia-
+                        Pacifc.
+
+5    San       North    Tech-fnance integration; venture capital
+
+     Francisco America leadership.
+
+6    Chicago   North    Derivatives and commodities trading hub.
+               America
+
+     Los       North    Increasing inuence in creative and tech-linked
+7 Angeles America fnance.
+
+8 Shanghai Asia         Mainland China’s key capital market centre.
+
+9 Shenzhen Asia         Fintech innovation hub; home to major Chinese
+                        tech giants.
+
+10 Seoul       Asia     Rising Asian hub with strong regulatory
+                        rameworks.
+
+Emerging Centres:
+     Dubai (Rank ~12) – Middle East’s fnancial gateway.
+     Frankfurt, Tokyo, Paris, Toronto – Strong regional hubs.
+     Busan, Casablanca, Kuala Lumpur – Rapidly emerging due to niche
+
+          strengths (fntech, Islamic fnance, trade fnance).
+(Sources: GFCI 37 Report 2025; Caproasia 2025; Longnance.net)
+
+ Current Global Trends (2024–2025)
+A. Rise of Asia-Pacic
+
+     Asia now houses 5 o the world’s top 10 centres.
+     Singapore and Hong Kong dominate wealth and fntech sectors.
+     China’s policy support or the Shanghai-Shenzhen-Hong Kong triangle is
+
+          reshaping global fnance.
+B. Fintech and Digital Transformation
+
+     Centres with advanced digital infrastructure (Singapore, San Francisco,
+          Dubai) attract global innovation.
+
+     Blockchain-based settlement systems and digital asset regulation
+          emerging as dierentiators.
+
+C. Sustainable and Green Finance
+     London and Singapore lead in ESG bonds, carbon trading, and green
+          nance frameworks.
+     Global unds now mandate sustainability disclosure and ESG benchmarks.
+
+D. Regulatory Flexibility and Tax Eciency
+     Dubai and Singapore’s low-tax, exible regulatory environments drive
+          global und registrations.
+     Balance between innovation and regulation (especially or crypto and
+          digital assets) is crucial.
+
+E. Human Capital and Talent Competitiveness
+     Access to skilled proessionals and global work environments determine
+          long-term dominance.
+     Talent migration and hybrid work models are reshaping physical
+          concentration in cities.
+
+F. Geopolitical Reconguration
+     U.S.-China tensions inuencing global fnance ows (Hong Kong under
+          pressure, Singapore benefting).
+     Brexit reshaped European power balance — London resilient, Paris and
+          Frankurt rising.
+7. India’s Position and Opportunity
+     Mumbai – India’s traditional fnancial capital (BSE, NSE, RBI HQ) but
+          limited international integration.
+     GIFT City – IFSC (Gandhinagar)
+               o India’s rst International Financial Services Centre, regulated
+                    by IFSCA.
+               o Oers oreign currency transactions, oshore und management,
+                    aircrat leasing, and fntech innovation.
+               o Positioned to evolve as India’s gateway to global nance.
+               o With sustained regulatory, tax, and inrastructure reorms, can
+                    emerge as a regional GFC comparable to Dubai or Singapore.
+
+8. Outlook and Way Forward (2025–2030)
+     Shift from dominance to multipolarity:
+          The era o New York–London duopoly is giving way to a multi-centre world
+          with Asia-Pacifc emerging strongly.
+     Technology-led competitiveness:
+          Centres investing in digital inrastructure, cybersecurity, and fntech
+          ecosystems will lead (e.g., Singapore, Dubai).
+     Sustainability imperative:
+          Global fnancial ows are increasingly directed through green and ESG-
+          compliant jurisdictions.
+     Collaborative ecosystems:
+          Cross-border cooperation among GFCs on regulation (crypto, AI, data) is
+          critical to maintain fnancial stability.
+     India’s trajectory:
+          I GIFT IFSC continues its pace o innovation, tax reorms, and global
+          outreach, it could join the top 30 by 2030 (currently ranked 46th in GFCI
+          37).
+
+The International Financial Services Centres Authority Act, 2019 (IFSCA
+Act)
+Objective, Scope, and Key Provisions
+The International Financial Services Centres Authority Act, 2019 was
+enacted by Parliament in December 2019 to establish a unied regulator or
+India’s International Financial Services Centres (IFSCs).
+     Objective: To develop and regulate a world-class international
+          nancial centre in India through a single-window regulatory
+          framework or cross-border fnancial services.
+
+     Enforcement: Came into eect in phases (April & September 2020);
+          administered by the Ministry of Finance.
+
+1. Establishment of IFSCA (Section 4)
+     Constitutes a corporate body titled International Financial Services
+          Centres Authority (IFSCA).
+     Enjoys perpetual succession and a common seal.
+     Head Oce: Located in GIFT City, Gandhinagar (Gujarat), with
+          powers to establish other oces.
+
+2. Unied Regulatory Framework
+     Transers the powers o RBI, SEBI, IRDAI, and PFRDA (or IFSC
+          activities) to IFSCA.
+
+4. Legal and Currency Provisions
+     IFSC fnancial transactions are to be conducted in foreign currency (as
+          notifed by IFSCA in consultation with the Central Government).
+
+5. Legal Framework and Jurisdiction
+     IFSCs must be established within SEZs under the SEZ Act, 2005; only
+          one IFSC per SEZ is permitted.
+     IFSCA exercises powers o the fnancial regulators or IFSC-related
+          activities (as per the First Schedule).
+
+The International Financial Services Centres Authority (IFSCA)
+          2. Regulatory Powers & Functions
+
+Statutory mandate: To regulate and develop fnancial products, services,
+and institutions within IFSCs.
+Key Powers:
+
+     Licensing & Regulation: Issue authorizations or banks, exchanges,
+          insurers, and unds.
+
+     Section 12(2): Regulate any fnancial service or product within the IFSC.
+          Section 13: Transfers “all powers” of RBI, SEBI, IRDAI, and PFRDA
+          to IFSCA for IFSC-related functions.
+
+3. Developmental Role
+     Promotes growth o the IFSC ecosystem through single-window
+          approvals, informal guidance schemes, and global partnerships.
+4. Innovation & FinTech Focus
+     Regulatory Sandbox (2020): FinTechs test new ideas under controlled
+          conditions.
+     Innovation Sandbox: Enables market institutions to experiment with
+          data-driven solutions.
+     Objective: Create a global FinTech hub at GIFT IFSC.
+
+5. Supervisory & Adjudicatory Powers
+     Can impose penalties, cancel licenses, or issue enforcement
+          actions.
+
+6. Signicance
+     Provides single-window regulation or cross-border fnance.
+     Key to India’s eort to onshore the oshore nancial activity and
+          build global credibility.
+
+International Financial Services Centres (IFSCs): Global Context
+Concept
+An IFSC is a jurisdiction catering to international nancial transactions—
+primarily or non-residents or oreign currency operations.
+Purpose & Functions
+
+     Attract international capital and provide access to global fnancial
+          services.
+
+     Oer liberal regulatory environments—100% oreign ownership, tax
+          benefts, and reduced compliance.
+
+     Bridge domestic and global markets, acilitating und-raising, trading,
+          and fnancial innovation.
+
+     Global Rankings (GFCI 2024):
+     1. New York
+     2. London
+     3. Hong Kong
+     4. Singapore
+
+          (CaproAsia, GFCI 2024)
+
+GIFT IFSC: India’s First Operational IFSC
+Overview
+
+     Located within GIFT City, Gujarat; notifed in 2015 under the SEZ Act.
+     Represents India’s frst and only operational IFSC.
+Key Features & Activities
+     Comprehensive platorm or banking, insurance, capital markets,
+          asset management, ntech, and bullion trading.
+     Hosts:
+               o 3 exchanges (e.g. India INX, International Bullion Exchange[IIBX],
+                    NSE IFSC)
+               o 25 banks (9 oreign), 26 aircraft leasing rms, 80 fund
+                    managers, 40 ntechs.
+
+Strategic Role
+     Serves as India’s gateway for global nance, linking domestic and
+          international markets.
+     Supports 100% FDI, foreign currency transactions, and tax
+          exemptions (10-year proft holiday).
+    
+
+GIFT City: Infrastructure, Ecosystem & Policy Integration
+Background & Vision
+
+     Conceived in 2007 by PM Narendra Modi (then CM o Gujarat).
+     Designed as a world-class nance and IT zone.
+Ecosystem & Governance
+     Single-window clearance integrating 16 Central & State agencies.
+     Dual zones: Domestic Tari Area & Multi-Services SEZ (IFSC).
+     Hosts major institutions: HSBC, IBM, Standard Chartered, etc.
+
+Comparative Analysis: GIFT IFSC vs Global Financial Centres
+
+Financial Regulatory     GFCI                 Distinct Strengths
+Centre Authority         2024 Key Incentives
+                         Rank
+
+GIFT IFSC IFSCA (Unifed  46  10-yr tax holiday, India’s frst integrated
+                             100% FDI, single- fnance-tech hub;
+(India) Regulator)           window approvals emerging market access
+
+        Monetary             17% corp. tax (as Policy stability; global
+                             low as 5%), strong fntech leader
+Singapore Authority o   4   treaties
+
+        Singapore (MAS)
+
+London  PRA & FCA        2   Low capital gains Deep capital markets;
+(UK)
+                             tax              legal transparency
+Financial Regulatory  GFCI                  Distinct Strengths
+Centre Authority      2024 Key Incentives
+                      Rank
+
+Dubai  DFSA           12    0% tax, 100%    MENA gateway; high
+(UAE,
+DIFC)                       oreign ownership inrastructure quality
+
+New York Fed, SEC, State 1  Global capital  Largest equity & debt
+(USA)  Regulators           access          markets
+
+Hong   SFC & HKMA 3         Low corporate tax China gateway; oshore
+Kong                        (16.5%), rule-o-law yuan hub
+
+(Sources: CaproAsia, India-Brieng, PRS India, Drishti IAS)
+
+             Union Budget & Economic Survey
+                 Concepts, approach, broad trends
+
+                      Banking
+
+ I. Banking Institutions (Organised Sector)
+          o Scheduled Banks (under RBI Act, 1934)- 2nd Schedule Banks
+
+                    Commercial Banks: Public Sector Banks (e.g., SBI, PNB),
+                         Private Sector Banks (e.g., HDFC, ICICI), Foreign Banks.
+
+                    Regional Rural Banks (RRBs): Jointly owned by Centre, State,
+                         and sponsor bank. The ownership stakes in RRBs are divided
+                         among the Central Government (50%), the Sponsor Bank
+                         (35%), and the State Government (15%).
+
+                    Cooperative Banks: Urban and rural cooperative institutions.
+
+          o Non-Scheduled Banks (smaller, outside RBI schedule).
+
+ II. Non-Banking Financial Institutions (NBFIs/NBFCs)
+
+          o Development Financial Institutions (DFIs) – e.g., NABARD, SIDBI,
+               EXIM Bank, NHB.
+
+          o Non-Banking Financial Companies (NBFCs) – lend or invest, but
+               cannot issue demand deposits.
+
+          o Mutual Funds, Insurance Companies, Pension Funds – mobilize
+               savings and invest in capital markets.
+
+ III. Regulatory Architecture
+               o RBI – Monetary authority & banking regulator.
+               o SEBI – Capital markets regulator.
+               o IRDAI – Insurance regulator.
+               o PFRDA – Pension sector regulator.
+               o IFSCA – Regulator or IFSCs (e.g., GIFT IFSC).
+               o Ministry of Finance – Policy ormulation and coordination.
+
+B. Key Functions of Financial Institutions
+     1. Financial Intermediation
+               o Mobilize household savings and allocate them to productive sectors.
+               o Transorm short-term deposits into long-term loans.
+     2. Payment and Settlement System
+               o Enable smooth transactions through digital and inter-bank platorms
+                    (UPI, NEFT, RTGS).
+     3. Credit Creation and Allocation
+               o Create money via lending.
+               o Direct unds to priority sectors (agriculture, MSME, housing).
+     4. Risk Management and Diversication
+               o Oer hedging, insurance, and investment diversifcation services.
+     5. Resource Mobilization for Development
+               o DFIs like NABARD, SIDBI, and EXIM Bank channel credit to
+                    agriculture, small industries, and exports.
+     6. Financial Inclusion
+               o Expand access via Jan Dhan Yojana, PM Mudra Yojana, digital
+                    banking, and fntech innovations.
+     7. Capital Formation and Economic Growth
+               o Facilitate capital market operations and project fnancing, enabling
+                    growth and employment.
+
+C. Recent Developments and Trends (2023–25)
+     Digital Banking Revolution: Growth o UPI, fntech lending, and digital-
+          only banks.
+     Consolidation of PSBs: Rationalisation or eciency and capitalisation.
+     Regulatory Convergence: RBI’s scale-based regulation or NBFCs,
+          unifed KYC norms.
+
+     Green and Sustainable Finance: Push toward ESG-linked lending and
+          green bonds.
+
+     Global Integration: IFSC (GIFT City) as oshore fnancial hub with IFSCA
+          as unifed regulator.
+
+2. Functions of the Reserve Bank of India (RBI)
+A. Constitutional & Institutional Role
+
+     Established: 1935 under RBI Act, 1934.
+     Ownership: Fully owned by the Government o India (since 1949).
+     Mandate: To maintain monetary stability, regulate banks, manage
+
+          currency, and ensure fnancial stability.
+     Headquarters: Mumbai.
+     Governor (2025): Sanjay Malhotra
+
+     Monetary Authority
+               o Objective: Maintain price stability while supporting growth.
+               o Instruments:
+                         Repo / Reverse Repo Rate – Control liquidity and credit
+                              cost.
+                         Cash Reserve Ratio (CRR) and Statutory Liquidity Ratio
+                              (SLR) – Manage money supply.
+                         Open Market Operations (OMOs) – Buy/sell government
+                              securities to control liquidity.
+                         Monetary Policy Committee (MPC) – Sets policy repo rate
+                              (exible ination targeting: 4% ± 2%).
+
+Example (2024–25): RBI held repo rate at 6.5%, maintaining “withdrawal o
+accommodation” stance to balance growth and ination.
+
+     2. Issuer of Currency
+               o Sole authority or issuing banknotes (except ₹1 note and coins
+                    issued by the Government).
+               o Ensures public confdence and stability in the currency system.
+          o Introduced new security eatures and digital innovations (Digital
+               Rupee
+               ( e-Rupee)pilot in wholesale/retail).
+
+3. Regulator and Supervisor of the Financial System
+          o Regulates and supervises commercial banks, cooperative banks,
+               and NBFCs.
+          o Ensures prudential norms (Basel III, CRAR, asset classifcation).
+          o Oversees credit ow, transparency, and risk management.
+          o Manages Prompt Corrective Action (PCA) ramework or weak banks.
+               The RBI’s Prompt Corrective Action (PCA) ramework is a
+               supervisory tool used to monitor banks that show signs o fnancial
+               stress. It triggers timely corrective actions, such as restricting
+               lending and operations, to prevent a bank's fnancial health rom
+               deteriorating urther and to protect depositors.
+
+4. Manager of Foreign Exchange
+          o Administers Foreign Exchange Management Act (FEMA), 1999.
+          o Manages orex reserves (~USD 650+ billion, 2025).
+          o Maintains exchange rate stability and promotes orderly external
+               sector.
+          o Encourages capital inows, FDI, and external borrowings under
+               macroprudential limits.
+
+5. Developmental and Promotional Role
+          o Promotes fnancial inclusion, MSME fnance, and priority sector
+               lending.
+          o Supports institutions like NABARD, NHB, and SIDBI.
+          o Advances fnancial literacy, green fnance, and fntech regulation.
+          o Facilitates Payment Inrastructure (UPI, RuPay, Bharat BillPay,
+               CBDC).
+
+6. Banker to the Government
+          o Manages government accounts, public debt, and borrowing
+               programs.
+          o Handles Ways and Means Advances (WMAs) or temporary
+               mismatches.
+          o Issues and redeems government securities through Public Debt
+               Oce (PDO).
+7. Banker’s Bank and Lender of Last Resort
+          o Holds CRR deposits and provides refnancing acilities to banks.
+
+          o Acts as a Lender of Last Resort during liquidity crises (e.g., NBFC
+               stress, bank runs).
+
+8. Data, Research, and Financial Stability
+          o Publishes Financial Stability Reports, Monetary Policy Reports,
+               Handbook of Statistics.
+          o Member o global regulatory orums (BIS, IMF).
+
+          o Monitors systemic risk via Financial Stability and Development
+               Council (FSDC).
+
+Ways and Means Advances (WMA) are temporary loans rom the Reserve
+Bank o India to the central and state governments to help manage short-term
+cash ow mismatches. This acility is a short-term credit, typically repaid
+within three months, and is designed to ensure smooth functioning by
+bridging the gap between receipts and expenditures.
+
+Summary Table
+
+Function        Key                         Outcome
+                Instrument/Example
+
+                            Repo, CRR, MPC  Price & growth
+Monetary Policy                             stability
+
+                            decisions
+
+Currency Issue  Rupee, Digital Rupee        Monetary
+                                            confdence
+
+Banking         Basel norms, PCA            Financial
+Regulation                                  soundness
+
+Forex           FEMA, reserves              Exchange rate
+Management                                  stability
+
+Developmental NABARD, PLI, inclusion Long-term growth
+Role
+
+                            WMAs, debt      Fiscal discipline
+Banker to Govt
+
+                            management
+
+3. Banking System in India — Structure and Developments
+
+B. Structure of Indian Banking System
+     1. Scheduled vs Non-Scheduled Banks
+               o Scheduled Banks: Listed in the Second Schedule of the RBI
+                    Act, 1934; meet capital and reserve requirements; enjoy access to
+                    RBI acilities.
+                         Commercial Banks (Public, Private, Foreign)
+                         Cooperative Banks (Urban & Rural)
+                         Regional Rural Banks (RRBs)
+               o Non-Scheduled Banks: Do not meet criteria under RBI Act;
+                    smaller and localized.
+
+     2. Commercial Banks — Backbone of the System
+               o Public Sector Banks (PSBs) – Majority owned by the Government
+                    o India.
+                         Examples: SBI, PNB, Bank o Baroda.
+                         Account or ~60% o banking assets.
+                         Focus on priority sector, fnancial inclusion, and rural credit.
+               o Private Sector Banks – Ecient, tech-driven operations.
+                         Examples: HDFC Bank, ICICI Bank, Axis Bank.
+                         Key role in retail and digital banking innovation.
+               o Foreign Banks – Branches o global banks; ocus on trade fnance
+                    and corporate lending.
+                         Examples: HSBC, Citi, Standard Chartered.
+               o Regional Rural Banks (RRBs) – Jointly owned by Centre, the
+                    State, and sponsor bank; rural outreach.
+               o Cooperative Banks – Dual regulation by RBI and State; serve
+                    agriculture and small borrowers.
+
+     3. Development Financial Institutions (DFIs)
+               o Provide medium to long-term fnance or industry, inrastructure,
+                    housing, and exports.
+               o Transitioned into specialised banks or NBFCs post-liberalisation.
+               o Examples: NABARD, SIDBI, EXIM Bank, NHB, NaBFID.
+
+Development Financial Institutions (DFIs) in India — Overview of
+NABARD, SIDBI, EXIM Bank, NHB, and NaBFID
+1. NABARD — National Bank for Agriculture and Rural Development
+     Established: 1982 under the NABARD Act, 1981.
+     Headquarters: Mumbai.
+     Regulator/Ownership: Fully owned by the Government o India.
+     Primary Role: Apex development bank or agriculture and rural sectors.
+     Functions:
+               o Refnancing to rural fnancial institutions (RRBs, co-operatives).
+               o Supervision o rural credit institutions.
+               o Rural inrastructure unding through RIDF (Rural Infrastructure
+                    Development Fund).
+               o Promotes sel-help groups (SHGs), microfnance, and fnancial
+                    inclusion.
+     Sectoral Focus: Agriculture, allied activities, rural development.
+
+2. SIDBI — Small Industries Development Bank of India
+     Established: 1990 under the SIDBI Act, 1989.
+     Headquarters: Lucknow.
+     Regulator/Ownership: Wholly owned by the Government o India and
+          fnancial institutions.
+     Primary Role: Apex fnancial institution or MSMEs (Micro, Small &
+          Medium Enterprises).
+     Functions:
+               o Direct and indirect fnance to MSMEs.
+               o Developmental support — cluster development, entrepreneurship
+                    promotion.
+               o Credit guarantee and risk capital support.
+               o Implementing government schemes: SMILE, CGTMSE, etc.
+     Sectoral Focus: MSMEs and entrepreneurship development.
+
+3. EXIM Bank — Export-Import Bank of India
+     Established: 1982 under the Export-Import Bank of India Act, 1981.
+     Headquarters: Mumbai.
+     Ownership: 100% Government o India.
+     Primary Role: Apex fnancial institution or promoting India’s
+          international trade.
+
+     Functions:
+               o Export credit, lines o credit, buyer’s credit.
+               o Overseas investment fnance.
+               o Export-oriented project fnance and export insurance support.
+               o Collaboration with global DFIs and export credit agencies.
+
+     Sectoral Focus: International trade and export promotion.
+
+4. NHB — National Housing Bank
+     Established: 1988 under the NHB Act, 1987.
+     Headquarters: New Delhi.
+     primary Role: Apex fnancial institution or the housing sector.
+     Functions:
+               o Refnancing housing fnance companies (HFCs) and banks.
+               o Regulating and promoting housing fnance institutions.
+               o Implementing housing-related government schemes (e.g., PMAY).
+     Sectoral Focus: Housing fnance and real estate development.
+
+5. NaBFID — National Bank for Financing Infrastructure and
+Development
+
+     Established: 2021 under the NaBFID Act, 2021.
+     Headquarters: Mumbai.
+     Ownership: Government o India (majority) with provision or private
+
+          capital participation up to 49%.
+     Primary Role: Apex infrastructure development bank.
+     Functions:
+
+               o Financing and refnancing inrastructure projects (transport, energy,
+                    water, digital, etc.).
+
+               o Providing long-term project loans and credit enhancement.
+               o Catalyzing private investment and bond market participation.
+               o Classifed as a DFI (Development Financial Institution).
+     Sectoral Focus: Core and social inrastructure fnancing.
+D. Major Developments (Post-2010 to 2025)
+     1. Bank Consolidation
+               o 2019–20: Major PSB mergers (e.g., Bank o Baroda-Vijaya-Dena; SBI
+                    with associates).
+               o Aim: Scale eciency, better governance, and global
+                    competitiveness.
+     2. Financial Inclusion Drive
+               o Pradhan Mantri Jan Dhan Yojana (PMJDY): Over 50 crore accounts
+                    opened.
+               o Direct Benet Transfer (DBT) integration.
+               o Digital Payments: UPI, AEPS, BHIM, RuPay.
+     3. Digital & Neo Banking
+               o Rise o fntech partnerships, digital lending, AI-driven risk
+                    assessment.
+               o RBI initiatives: Account Aggregator, e-KYC, Digital Rupee pilot
+                    (CBDC).
+     4. Banking Reforms
+               o Insolvency and Bankruptcy Code (IBC) – aster bad loan resolution.
+               o PSB recapitalisation and governance reorms.
+               o Asset Quality Improvement: Gross NPAs ell rom >9% (2018) to
+                    <3% (2025 est.).
+               o EASE 5.0 reforms: Enhanced customer experience, digitization, tech
+                    adoption.
+     5. Emergence of Small Finance & Payment Banks
+               o Small Finance Banks: Target underbanked (e.g., AU, Equitas).
+               o Payments Banks: Handle small deposits, remittances (e.g., Paytm,
+                    India Post).
+     6. Global Integration
+               o Cross-border banking ties via IFSC (GIFT City), enabling oshore
+                    banking and fntech innovation.
+
+Payment Banks and Neo-Banks — Comparative Overview
+
+1. Payments Banks
+Concept:
+Introduced by the RBI in 2015, Payments Banks are niche banks aimed at
+deepening nancial inclusion — especially among the unbanked and low-
+income segments. They combine digital reach with traditional banking
+inrastructure.
+
+Legal Basis:
+     Governed under the Banking Regulation Act, 1949 and licensed by
+          RBI.
+     Operate under the Guidelines for Licensing of Payments Banks (RBI, 2014).
+
+Key Features:
+     Deposit Limit: Can accept deposits up to ₹2 lakh per customer (limit
+          revised periodically by RBI).
+
+     No Lending: Cannot issue loans or credit cards.
+     Permitted Activities:
+
+               o Accept demand deposits (savings/current).
+
+               o Issue debit cards, provide payments/remittance services.
+
+               o Distribute fnancial products like insurance, mutual unds.
+
+     Technology Focus: Encourage digital and mobile-based
+          transactions.
+
+     CRR/SLR: Must maintain CRR with RBI and invest minimum 75% o
+          demand deposits in SLR-eligible government securities.
+
+     Examples: India Post Payments Bank, Paytm Payments Bank, Airtel
+          Payments Bank, Fino Payments Bank, NSDL Payments Bank.
+
+2. Neo-Banks
+
+Concept:
+Neo-banks are digital-only banks — they operate entirely online without
+physical branches. Unlike payments banks, they do not hold their own
+banking licence in India but partner with licensed banks or NBFCs to oer
+services.
+
+Legal Status in India:
+     Not directly regulated by RBI as banks.
+     Function under partnerships with RBI-licensed banks/NBFCs or regulated
+          activities (deposits, lending, etc.).
+
+     Supervised indirectly via their partner banks.
+
+Key Features:
+     Digital-First Model: Full-stack mobile/web-based banking interace.
+     Services Oered: Account management, digital payments, small-ticket
+          loans, personal fnance tools, APIs or businesses.
+
+     Customer Segments: Tech-savvy retail customers, reelancers, startups,
+          and SMEs.
+
+     Technology Use: AI-driven customer support, advanced analytics, open
+          banking APIs.
+
+     Examples in India: Jupiter, RazorpayX,
+
+4. Financial Institutions in India — Roles and Functions
+
+A. Small Industries Development Bank of India (SIDBI)
+     Establishment: 1990 under SIDBI Act, 1989.
+          Objective: Promote, fnance, and develop Micro, Small & Medium
+          Enterprises (MSMEs).
+     Functions:
+               o Renance support to banks, NBFCs, and MFIs or MSME loans.
+               o Direct lending to innovative and green enterprises.
+               o Developmental: Cluster development, digital MSME platorms, credit
+                    guarantee programs.
+               o Recent focus (2024–25): Green fnancing, fntech collaboration, and
+                    promoting Start-up India Fund of Funds.
+     Schemes: SIDBI Make in India Sot Loan Fund (SMILE), ASPIRE Fund, and
+          Credit Guarantee Fund Trust (CGTMSE).
+
+The ASPIRE Fund is a und o unds managed by the Small Industries
+Development Bank o India (SIDBI) with a corpus o ₹310 crore to invest in other
+Alternative Investment Funds (AIFs). The AIFs, in turn, provide equity and other
+orms o fnancing to (MSMEs), especially those in the rural and agro-based
+sectors. The und is part o the larger ASPIRE scheme, promoted by the Ministry
+o Micro, Small and Medium Enterprises (MSME
+The SIDBI Make in India Soft Loan Fund for Micro, Small & Medium
+Enterprises (SMILE) scheme is a government initiative, managed by the Small
+Industries Development Bank o India (SIDBI), that provides sot loans (quasi-
+equity) and term loans to MSMEs or new projects, expansion, modernization,
+and technology upgrades.
+
+B. Export-Import Bank of India (EXIM Bank)
+     Establishment: 1982 under the Export-Import Bank o India Act.
+     Objective: Promote India’s international trade and project exports.
+     Functions:
+
+               o Pre-shipment and post-shipment credit or exporters.
+               o Overseas investment nancing (Lines o Credit, Buyer’s Credit).
+               o Export insurance and guarantee programs in coordination with
+
+                    ECGC.
+               o Project exports: Support Indian frms executing inrastructure and
+
+                    manuacturing projects abroad.
+               o Recent Initiatives: Supporting Indian companies in Arica and
+
+                    Central Asia, fnancing under Make in India for the World.
+     Signicance: Strengthens India’s trade competitiveness and South–South
+
+          cooperation.
+
+C. National Bank for Agriculture and Rural Development (NABARD)
+     Establishment: 1982 (via NABARD Act, 1981) based on
+          recommendations o the B.Sivaraman Committee.
+     Objective: Apex body or agriculture and rural development nance.
+     Functions:
+               o Renancing: Provides credit to cooperatives, RRBs, and commercial
+                    banks or agriculture and rural development.
+               o Developmental: Supports watershed management, rural
+                    inrastructure (RIDF), skill and livelihood projects.
+               o Supervisory: Monitors cooperative and RRB unctioning.
+               o Recent Focus: Climate-resilient agriculture, Agri-tech, and digital
+                    rural credit (NABARD AgriStack).
+     Schemes: Rural Inrastructure Development Fund (RIDF), NABARD
+          Inrastructure Development Assistance (NIDA), Tribal Development Fund.
+
+D. National Housing Bank (NHB)
+     Objective: Promote and regulate housing nance institutions and
+          expand housing credit.
+     Functions:
+               o Renancing: Provides fnance to HFCs, banks or housing loans.
+               o Regulatory: Oversees housing fnance companies (transerred to RBI
+                    in 2019 or prudential oversight).
+    o Developmental: Promotes aordable housing and supports PMAY
+         (Pradhan Mantri Awas Yojana).
+
+    o Recent Focus: Green housing, bond market access or HFCs, digital
+         mortgage ecosystem.
+
+E. National Bank for Financing Infrastructure and Development
+(NaBFID)
+
+     Establishment: 2021 under the NaBFID Act, 2021 (as a Development
+          Finance Institution).
+
+     Ownership: Government-promoted, proessionally managed DFI.
+
+     Objective: Provide long-term fnancing or infrastructure projects
+          across sectors (roads, power, water, transport, digital).
+
+     Functions:
+
+               o Lending: Long-term fnance and guarantees or inrastructure
+                    projects.
+
+               o Market Development: Catalyse bond markets, inrastructure trusts
+                    (InvITs, REITs).
+
+               o Capacity Building: Technical assistance to project developers.
+
+               o Recent Initiatives (2024–25):
+
+                         ₹10,000 crore equity base; ₹1 lakh crore lending target in 3
+                              years.
+
+                         Partnerships with multilateral DFIs (ADB, AIIB) and green
+                              fnance rameworks.
+
+     Signicance: Central to India’s National Infrastructure Pipeline (NIP)
+          and 5-trillion-economy vision.
+
+F. Comparative Overview of India’s 5 nancial Institutions
+
+Institution Yea Sector           Core Function         Recent Focus
+                       r
+
+1. SIDBI    199  MSMEs           Refnance &            Green MSME & start-
+                                 development o small  up fnance
+            0                    industries
+
+2. EXIM     198  Trade           Export fnance &       Project exports &
+     Bank   2                    overseas investment   Arica-Asia lines
+
+3.  NABARD  198  Agriculture  &  Refnance, rural       Climate-smart
+            2    Rural           inrastructure        agriculture, agri-
+                                                       tech
+Institution  Yea  Sector          Core Function            Recent Focus
+             r
+
+4. NHB       198                  Promote housing fnance Aordable & green
+                    Housing
+                                  institutions             housing
+             8
+
+5.  NaBFID   202  Inrastructure  Long-term inra  fnance  Green bonds, PPP
+             1                                             inra projects
+
+G. Synthesis and Contemporary Relevance
+
+     Together, these DFIs bridge the market gap or long-term and priority
+          fnance sectors (MSME, rural, housing, inra).
+
+     They complement RBI’s monetary policy by channeling targeted
+          developmental credit.
+
+     Current priorities (2023–25):
+
+               o Strengthening green fnance and ESG lending.
+
+               o Encouraging bond market participation and risk diversifcation.
+
+               o Leveraging digital tools or inclusion and transparency.
+
+               o Aligning with national programs — Atmanirbhar Bharat, Gati Shakti,
+                    PMAY, Make in India.
+
+5. Recent Developments in the Global Financial System and Its Impact
+on Indian Financial System
+
+Concept & Context
+
+     The global fnancial system is evolving under three major orces:
+          geopolitical tensions, digital transformation (payments, CBDCs,
+          ntech), and institutional/market reforms (e.g., inclusion of
+          sovereign bonds, new liquidity buers).
+
+Sovereign bonds are debt instruments issued by national governments
+to raise funds for public expenditures, infrastructure projects, or to
+manage national debt. When an investor buys a sovereign bond, they
+are eectively lending money to the government in exchange for
+regular interest payments and the return of the principal upon the
+bond's maturity.
+
+Key Global Developments
+
+     1. Inclusion of India in global bond indices
+
+               o For example, the inclusion o Indian sovereign debt in the J.P.
+                    Morgan benchmark (“EM Bond Index”) expected billions o dollars o
+                    inows.
+
+               o Implication: increased oreign portolio ows, but also greater
+                    exposure to global “hot money” volatility and sudden stops.
+     2. Geopolitical fragmentation & external spillovers
+
+               o Trade conicts, sanctions, and regional payment-system
+                    alternatives are creating shits away rom traditional global
+                    structures.
+
+               o India’s fnancial system remains resilient but the central bank ags
+                    external spillover risks (e.g., global growth slowdown, trade
+                    disruptions) as important.
+
+Impact on Indian Financial System
+
+     Payment and settlement systems: India’s rapid digital payments
+          inrastructure becomes globally competitive; cross-border payment
+          participation could boost rupee internationalisation, but also exposes
+          Indian systems to global cyber and settlement risks.
+
+     Banking & nancial stability: While Indian banks are in relatively good
+          shape (GNPA ~2.3% as o Mar 31 2025) Business Standard global stress-
+          spill overs could still push asset quality pressures, especially in NBFCs and
+          sectors with external vulnerabilities.
+
+     Strategic opportunity: As many countries seek alternative fnancial
+          hubs and payment systems, India has a chance to strengthen its position
+          (e.g., via the IFSC at GIFT City) and capture more global fnancial ows.
+
+6. Role of Information Technology in Banking and Finance
+
+Concept & Framework
+
+     IT has three broad roles: (i) Access & inclusion, (ii) Eciency & cost
+          reduction, (iii) Innovation & new business models.
+
+Key Technological Developments & Applications
+
+     1. Digital payments and real-time settlement
+
+               o Platorms like UPI, IMPS, NEFT, RTGS have revolutionised retail and
+                    merchant payments in India.
+
+     2. AI/ML in banking & nance
+
+               o Use cases: credit scoring using alternative data, raud detection,
+                    Robo-advisory, algorithmic trading.
+
+               o Improves accuracy, speeds decisions, and enables micro-
+                    segmentation o customers.
+
+     3. Blockchain / Distributed Ledger Technology (DLT)
+
+               o Used or trade fnance, cross-border payments, smart contracts,
+                    asset tokenisation. For India, experimentation with blockchain is
+                    underway.
+
+     4. Fintech platforms, open banking & APIs
+               o Enables new entrants (neobanks), micro-loans, peer-to-peer lending.
+               o The term “neo-bank” (also called “challenger bank” or “digital-only
+
+                    bank”) reers to a digital-frst fnancial company that oers banking-
+                    type services through apps/web but often does not have its own
+                    full banking licence or physical branches
+
+Impact on Banking & Finance in India
+     Financial inclusion: IT enables access to banking services in remote
+          areas; Jan Dhan + Aadhaar + mobile/IT (“JAM trinity”) is a game-changer.
+     Cost eciencies: Fewer branches needed, greater automation; banks
+          save operational costs and extend services.
+     Customer experience: 24×7 access, mobile banking, personalized
+          services, aster onboarding.
+     Risk management: Better data, real-time monitoring, predictive
+          analytics enable improved control o credit and operational risks.
+     New business models: Neobanks, digital lenders, wealth tech, and
+          insurtech are growing.
+     Digital economy enablement: Supports e-commerce, digital
+          government payments (DBT), supply-chain fnance.
+     Regulatory compliance & data analytics: Banks harness big data and
+          analytics to meet Know-Your-Customer (KYC), Anti-Money-Laundering (AML)
+          and regulatory reporting requirements.
+
+7. Non-Banking System
+The non-banking system includes fnancial institutions that do not hold ull
+banking licences (i.e., cannot accept demand deposits) but engage in credit,
+investment, leasing, hire-purchase, microfnance, and housing fnance. In India,
+the key players are Non-Banking Financial Companies (NBFCs) and
+Housing Finance Companies (HFCs) regulated by the Reserve Bank of
+India (RBI).
+Signicance:
+
+     Provide credit to underserved segments such as MSMEs, housing, and
+          rural borrowers.
+
+     Act as alternative fnancial intermediaries, deepening fnancial inclusion.
+     Diversiy credit markets, supplementing banks and enhancing competition.
+
+B. Structure of Non-Banking Financial Institutions (NBFCs/HFCs) in India
+Regulatory Structure:
+     NBFCs: Registered under the Companies Act, regulated by the RBI Act.
+     HFCs: Formerly under National Housing Bank (NHB), now largely under
+          RBI regulation post-harmonisation.
+
+Classication (Scale-Based Regulatory Framework):
+     1. Base Layer: Small NBFCs.
+     2. Middle Layer: Systemically important NBFCs.
+     3. Upper Layer: Large, systemically signifcant NBFCs.
+     4. Top Layer: Reserved or very large or high-risk NBFCs (i needed).
+
+Funding:
+NBFCs rely on borrowings — commercial papers, bonds, and bank loans — rather
+than demand deposits (except or a ew deposit-taking NBFCs).Key Indicators
+(as of March 2024):
+
+     CRAR: ~26.6% (well above minimum).
+     GNPA: ~4.0%, showing improved asset quality.
+
+C. Recent Developments in Non-Banking System
+2. Regulatory Strengthening
+
+     Scale-Based Regulation (2022): Risk-based oversight proportional to size.
+     Enhanced disclosure norms or NBFCs and HFCs — recovery perormance,
+
+          asset valuation, governance transparency.
+     RBI’s ocus on credit risk, governance, and digital lending standards.
+3. Sectoral New Entrants
+     Establishment o specialised NBFCs like Sagarmala Finance Corporation
+
+          Limited or maritime and inrastructure fnancing.
+4. Asset Quality & Risk Prole
+
+     Stable GNPA (~4%) and robust CRAR (~26%).
+     Challenges rom rising unding costs, competition rom banks, and digital
+
+          lenders.
+
+D. Implications & Challenges
+Implications
+     NBFCs extend credit access to sectors underserved by banks.
+     Diversiy and strengthen the overall fnancial system.
+     Recent regulatory reorms improve governance and stability.
+
+8. Developments in Digital Payments
+
+A. Concept & Importance
+Digital payments are electronic und transers through platorms such as UPI,
+cards, mobile wallets, internet banking, and QR-code systems.
+Importance:
+
+     Promotes nancial inclusion and reduces dependence on cash.
+     Improves eciency, transparency, and cost-eectiveness o
+
+          transactions.
+     Enables new business models and supports fntech innovation.
+     Facilitates direct government transfers (DBT) and digital economy
+
+          expansion.
+
+B. Recent Developments in India
+1. Massive Growth of UPI and Real-Time Payments
+
+     UPI transactions rose rom ~92 crore (FY2017-18) to 13,116 crore
+          (FY2023-24) (CAGR ~129%).
+
+     UPI now accounts or ~83% of total digital payment volumes.
+2. Growth Projections & Scale
+
+     Digital payment transactions projected to grow rom 159 billion
+          (FY2023-24) to 481 billion (FY2028-29); value rom ₹265 trillion to
+          ₹593 trillion.
+
+3. Expansion Beyond Metros
+     Sharp rise in QR-code usage in Tier 2–4 cities.
+     Merchant acceptance networks widening rapidly.
+     Mobile payments (1H 2024): 76.04 billion transactions, +46% YoY.
+
+4. Internationalisation
+     UPI and RuPay expanding abroad (UAE, Singapore, Nepal).
+     Participation in BIS Project Nexus or global cross-border payment
+          interoperability.
+
+5. Technology & Innovation
+     Use o AI/ML or raud detection and personalisation.
+     Emerging tools: biometric, voice-based, and wearable payment
+          solutions.
+
+Challenges
+     Persistent digital divide and cash dependence in rural areas.
+     Rising cybersecurity and fraud vulnerabilities.
+     Need or adaptive regulation to match fntech innovation.
+     Data privacy, consumer protection, and infrastructure bottlenecks
+          remain critical issues.
+
+1. Banking Sector: Structure and Recent Developments
+Scheduled Commercial Banks (SCBs) (as o late 2025):
+
+     12 Public Sector Banks (including SBI and 11 nationalised banks)
+In addition, India has:
+
+     Development Banks and All-India Financial Institutions (AIFIs)
+          supporting sectoral fnancing
+
+Scheduled banks hold over 60% of total banking assets, while NBFCs and
+AIFIs contribute signifcantly to the rest o fnancial intermediation.
+
+B. Key Performance Indicators
+     Asset Quality: GNPA ratio improved to ~2.5% (Sep 2024),
+     Protability: Bank profts rose on higher growth, recoveries, and
+          improved credit quality.
+     Capital Adequacy: Banks maintain robust CRAR under Basel III norms.
+
+C. Recent Policy and Structural Initiatives
+     Repo Rate: RBI cut the policy repo rate to 5.50% (June 2025) to
+          stimulate growth.
+2. Structure and Functions of Financial Institutions
+A. Institutional Composition
+The Indian fnancial system includes banks, NBFCs, AIFIs, cooperatives,
+mutual funds, insurance companies, and pension funds.
+
+     NBFCs: Over 9,300 registered with RBI (asset fnanciers, MFIs, housing
+          fnance, etc.)
+
+     AIFIs: Provide long-term project and industrial fnance
+     Cooperatives: Oer rural/agricultural and small business fnance
+
+B. Key Classications
+
+Category       Description                   Features
+
+                              Listed in RBI  Access to deposit insurance, clearing
+Scheduled Banks                              system
+
+                              Schedule II
+
+Non-Scheduled  Not in Schedule II            Limited privileges, smaller scale
+Banks
+
+NBFCs          Non-deposit-taking Provide loans, leasing, hire-purchase,
+
+               lenders                       asset fnance
+
+Cooperative                                      Serve agriculture, small business,
+Banks          Rural & Urban tiers
+
+                                                 housing
+
+Functions:
+Mobilising savings, allocating credit, acilitating payments, risk management, and
+promoting inclusion.
+
+Supervision:
+RBI’s Board for Financial Supervision (BFS) oversees banks, NBFCs, and
+fnancial intermediaries under an integrated ramework.
+
+B. Monetary Policy & Regulation
+
+     Repo Rate (2025): Reduced to 5.50% to stimulate growth.
+
+     Ination Targeting: RBI ollows a exible ination targeting ramework.
+
+     NBFC Regulation: Post-2019, RBI regulates Housing Finance
+          Companies (HFCs) ater transer rom NHB.
+
+     Supervision: Continuous monitoring o solvency, liquidity, and
+          governance o fnancial institutions.
+C. Digital Finance & Innovation
+     CBDC Pilot (Digital Rupee): Retail trials launched in Dec 2022 or a
+          secure, sovereign digital currency.
+     UPI Advancements: Features like UPI HELP, IoT Payments, and
+          Credit-Linked UPI introduced.
+     Innovation Infrastructure: Establishment o RBI Innovation Hub and
+          ReBIT to promote fntech and cybersecurity.
+
+Framework for Responsible AI (FREE-AI): The RBI released a committee
+report in August 2025 outlining a ramework or the ethical and responsible
+adoption o Artifcial Intelligence (AI) in the fnancial sector. It is guided by seven
+principles (sutras) including trust, people-frst, and innovation, and recommends
+establishing an AI Innovation Sandbox
+
+6. Technology and Innovation in Banking
+A. Core Banking & Digital Platforms
+
+     Nearly all banks now operate on Core Banking Systems enabling real-
+          time nationwide access.
+
+     UPI, IMPS, NEFT, and RuPay orm the backbone o India’s digital
+          payment ecosystem.
+
+B. Fintech Ecosystem
+     India has 2,000+ ntech rms, the third-largest ecosystem globally.
+     Collaboration between banks and fntechs in digital lending, wealth-tech,
+          and insurtech.
+     Account Aggregator ramework enables secure fnancial data-sharing.
+
+C. Cybersecurity
+     Focus on encryption, raud detection, and incident response.
+
+D. Innovation Initiatives
+     RBI Innovation Hub and Regulatory Sandbox acilitate AI, blockchain,
+          and cloud banking pilots.
+     Integration with Aadhaar, e-KYC, and DigiLocker enables seamless
+          digital onboarding.
+     Banks increasingly deploy AI chatbots and blockchain trade nance
+          solutions.
+
+7. Non-Banking Finance: NBFCs, HFCs, and Cooperatives
+A. NBFCs
+     Around 9,300 NBFCs registered with RBI; subset permitted to take
+          deposits (NBFC-D).
+
+     Focus areas: micronance, infrastructure, housing, vehicle nance.
+     Post-IL&FS crisis, RBI tightened liquidity and risk-provisioning norms.
+     D-SIB NBFCs designated or stricter supervision due to systemic
+
+          importance.
+
+B. Housing Finance Companies (HFCs)
+     Now regulated by RBI (since 2019).
+     Provide housing and aordable loans; sector is undergoing consolidation
+          and recapitalisation.
+     NHB continues to provide refnance and policy guidance.
+
+C. Cooperative Institutions
+     34,000+ PACS, 351 DCCBs, and 34 State Co-op Banks serve rural
+          credit needs.
+     Joint supervision by RBI and NABARD.
+     Challenges: governance issues, low capital adequacy.
+
+D. Other Non-Bank Institutions
+     Include MFIs, chit funds, micro NBFCs, and non-deposit-taking lenders.
+     Insurance, mutual unds, and pensions — regulated by IRDAI, SEBI, and
+          PFRDA — orm part o the broader non-bank ecosystem.
+
+8. Digital Payments and Payment Innovations
+A. UPI and Mobile Payments
+
+     Total digital payments value: ₹223 lakh crore (Jan–Nov 2024).
+     UPI alone processed 15,547 crore transactions in FY2024–25.
+     Cross-border UPI transactions surged rom 37,000 (FY2024) to 7.55 lakh
+
+          (FY2025).
+     Mobile wallets (PPIs) and e-KYC-based payments deepen inclusion.
+B. Central Bank Digital Currency (CBDC)
+     Digital Rupee (e₹) retail pilot launched in Dec 2022.
+     Aims or secure, accessible digital currency integrated with banks and
+
+          merchants.
+C. Cross-Border and Policy Framework
+     UPI linkages expanding to Sri Lanka, UAE, Bhutan and others.
+     Payment and Settlement Systems Act (2007) provides legal basis.
+     Payment Infrastructure Development Fund (PIDF) supports rural POS
+
+          inrastructure.
+D. Wallets and Emerging Platforms
+
+     Wallets (e.g., Paytm, PhonePe) operate under RBI’s PPI framework with
+          KYC and transaction limits.
+
+     Integration o Visa, Mastercard, and RuPay enhances interoperability.
+     Fintechs leverage payments or e-commerce and rural empowerment.
+
+ Prepaid Payment Instruments (PPIs) are digital instruments that store money in
+    advance and are used to make payments for goods, services, or fund transfers .
+    They function like digital wallets, gift cards, or prepaid cards — value is preloaded,
+    and users spend until the balance is exhausted.
+
+ Regulator: Reserve Bank of India (RBI)
+
+4. Usage Limits
+
+ Minimum KYC PPI:
+
+        o Max outstanding balance: ₹10,000.
+
+        o Reloadable, but cumulative reloads per month capped at ₹10,000.
+
+ Full KYC PPI:
+
+        o Max outstanding balance: ₹2 lakh.
+
+6. Examples by Type
+
+Category Example
+
+Closed  Ola Money, Flipkart Git Card
+
+Semi-   Paytm Wallet, PhonePe Wallet,
+Closed  Amazon Pay
+
+Open    SBI Prepaid Card, HDFC Forex Card
+
+                  Capital Market
+
+Indian Financial System: Regulatory Bodies and Market Structure
+
+A. Key Regulatory Bodies in India and Their Mandates
+1. Securities and Exchange Board of India (SEBI)
+     Established: 1992 under the SEBI Act, 1992.
+     Mandate: Regulate and develop the securities market, protect investors,
+
+          and promote transparency.
+          Key Functions:
+     Regulates stock exchanges and intermediaries (brokers, merchant
+          bankers, mutual unds).
+     Conducts market surveillance and investigations into insider trading
+          and manipulation.
+     Promotes market development (e.g., REITs, InvITs, corporate bonds).
+     Oversees primary market (issuances), secondary market (trading), and
+          disclosures.
+     Leads investor education and ensures technological advancement o
+          market systems.
+
+4. Other Bodies
+     Ministry of Finance: Oversees fnancial policy and legislation.
+     Self-Regulatory Organisations & Market Institutions: Stock
+          exchanges (NSE, BSE), depositories (NSDL, CDSL).
+
+1. NSDL (National Securities Depository Limited)
+     Established: 1996 (India’s frst depository).
+     Promoted by: NSE, IDBI Bank, UTI.
+     Function: Holds securities (shares, bonds, ETFs, etc.) in electronic
+          (demat) form and enables seamless transfer, settlement, and pledge
+          o securities.
+     Depository Participants (DPs): Intermediaries (like brokers/banks)
+          through which investors access NSDl
+
+2. CDSL (Central Depository Services (India) Limited)
+ Established: 1999.
+ Promoted by: BSE (Bombay Stock Exchange).
+ Function: Same as NSDL — provides dematerialisation, transfer, and
+
+     settlement o securities in electronic orm.
+2. Primary and Secondary Markets: Money, Bond, Equity, Forex
+A. Money Market
+
+     Market or short-term unds (≤ 1 year) to manage liquidity or banks and
+          corporates.
+Instrument Issuer           Purpose          Typical        Key Features
+                                             Maturity /
+                                             Duration
+
+                            Short-term       91 days, 182 Issued at discount, rede
+
+Treasury      Government borrowing to        days, 364      face value; zero-coupon;
+
+Bills (T-Bills) of India    meet liquidity   days           free.
+
+                            needs
+
+Commercial    Corporation   Short-term       7 days to 1    Unsecured promissory n
+Papers (CPs)  s, nancial   working capital  year           issued at discount; high
+              institutions  requirement                     than T-Bills.
+
+Certicates   Banks and To raise short- 7 days to 1
+of Deposit
+(CDs)         select        term funds from year (banks); Negotiable, tradable, iss
+
+              nancial corporates/individ up to 3 years demat or physical form.
+
+              institutions uals              (FIs)
+
+Repos /       RBI, banks, Collateralised     Overnight to Borrower sells securities
+Reverse
+Repos         nancial short-term            14 days        agreement to repurchas
+
+              institutions borrowing/lending (commonly) of monetary policy.
+
+                                             Call Money: 1
+
+Call/Notice   Banks and     Manage short-    day            Unsecured interbank len
+Money         primary       term liquidity   (overnight);   highly liquid; rate reec
+              dealers       between          Notice         market liquidity.
+                            institutions     Money: 2–14
+
+                                             days
+
+B. Bond (Debt) Market
+Functions & Purpose:
+
+     Provides medium-to-long-term unding or governments and corporates.
+     Enables price discovery, risk diversication, and liquidity.
+Key Instruments:
+     Government Securities (G-Secs)
+     Corporate Bonds / NCDs
+     Municipal & Infrastructure Bonds
+     Green Bonds
+Market Segments:
+     Primary Market: New issues (sovereign or corporate).
+     Secondary Market: Trading o existing bonds or liquidity and valuation.
+Recent Developments:
+     SEBI launched “Bond Central” or transparency and retail access
+     Relaxed foreign investor norms or government bonds (Reuters).
+     Shift to debt market nancing or inrastructure and corporates.
+
+C. Equity Market
+Functions & Purpose:
+
+     Facilitates capital raising, ownership transfer, and liquidity.
+     Reects corporate perormance and investor sentiment.
+Key Instruments:
+     Equity Shares, Preference Shares
+     Derivatives (Futures & Options)
+     Exchange-Traded Funds (ETFs)
+     IPOs, FPOs, Rights Issues, Bonus Shares
+Market Segments:
+     Primary Market: IPOs/FPOs or resh capital.
+     Secondary Market: Trading on NSE/BSE or liquidity.
+
+          Recent Developments:
+     Strong IPO momentum and FPI inows (Times of India).
+     SEBI reorms: e-IPO, ESG disclosures, retail participation
+     Rise in algorithmic trading and inclusion in global indices.
+Signicance:
+     Key or capital formation, wealth creation, and economic growth.
+     Enhances corporate transparency and investor participation.
+
+D. Forex (Foreign Exchange) Market
+Functions & Purpose:
+
+     Facilitates currency trading (spot, orwards, swaps).
+     Supports international trade, capital ows, and exchange rate
+
+          management.
+Key Instruments:
+
+     Spot Trades
+     Forward Contracts
+     Currency Swaps
+     Cross-Currency Derivatives
+Recent Developments:
+
+     RBI interventions to stabilise the rupee and manage reserves.
+     Push or rupee internationalisation and cross-border ntech
+
+          payments.
+     Global volatility aecting FPI ows and market sentiment.
+Signicance:
+     Inuences foreign investor returns, equity valuations, and bond
+
+          yields.
+     Essential or hedging exchange risks o globally exposed frms.
+
+E. Comparative Summary of Market Segments
+
+Market Maturity Main
+Segment / Horizon Instruments Key Function Recent Focus in India
+
+Money Short-term T-Bills, CPs,    Liquidity &    Liquidity management, call
+Market (<1 year) CDs, Repos       policy         money market stress
+                                  transmission
+
+Bond    Medium to  G-Secs,        Long-term      Corporate bond deepening,
+Market  long-term  Corporate      unding, risk  retail access, oreign
+                   Bonds          allocation     participation
+
+Equity                   Shares,  Capital        IPO boom, retail investor
+Market  Long-term Derivatives,    ormation,     surge, ESG reorms
+                                  ownership,
+                         IPOs     returns
+
+Forex   Variable   Spot,          Currency       Rupee internationalisation,
+Market  (spot to   Forwards,      stability,     FX volatility management
+        long)      Swaps          trade/capital
+                                  ows
+
+ Spot Trades:
+     Buying or selling a currency right now, with payment and delivery
+     happening in two days.
+     Example: A company pays in USD today or imported goods.
+
+ Forward Contracts:
+     A deal made today for a future date, locking the exchange rate in
+     advance to avoid uture price changes.
+     Example: An exporter fxes a USD–INR rate now or payment coming ater
+     3 months.
+     Currency Swaps:
+          Two parties exchange money in dierent currencies and agree to
+          switch it back later. It’s used to manage long-term currency or
+          interest rate risks.
+          Example: An Indian company and a US company swap rupees and dollars
+          or their loan payments.
+
+     Cross-Currency Derivatives:
+          Contracts involving two foreign currencies (not the Indian rupee), used
+          by global frms to protect against exchange rate changes between
+          those currencies.
+          Example: A Japanese frm hedging between the euro and US dollar
+
+3. Basics of Derivatives: Forwards, Futures, Swaps
+
+A. Concept and Rationale
+     Denition: A derivative is a fnancial contract whose value is derived
+          rom an underlying asset such as a commodity, currency, interest rate,
+          equity, or index.
+     Core Functions:
+               o Hedging: Reduces risk by locking in uture prices or rates.
+               o Speculation: Enables traders to proft rom expected price
+                    movements.
+               o Arbitrage: Exploits price dierences across markets or low-risk
+                    proft.
+     Participants: Hedgers (producers, corporates), Speculators (traders), and
+          Arbitrageurs (market-neutral proft seekers).
+
+B. Forwards, Futures, and Swaps – Key Features
+1. Forward Contracts
+
+     Meaning: Private, customized OTC agreements to buy or sell an asset
+          at a specifc uture date and price.
+
+     Features:
+               o Custom-tailored terms (quantity, price, maturity).
+               o Higher counterparty risk (no clearinghouse).
+               o Settlement on maturity (delivery or cash).
+
+2. Futures Contracts
+     Meaning: Standardized exchange-traded contracts to buy/sell an asset at
+          a uture date and price.
+     Features:
+               o Traded on exchanges (MCX, NSE, BSE).
+               o Central clearing reduces default risk.
+               o Daily mark-to-market (MTM) settlement via margins.
+
+3. Swap Contracts
+     Meaning: OTC contracts where two parties exchange uture cash ows
+          based on predetermined terms.
+     Types:
+               o Interest Rate Swap (IRS): Exchange fxed vs. oating interest
+                    payments.
+               o Currency Swap: Exchange cash ows in dierent currencies.
+               o Commodity Swap: Exchange payments linked to commodity
+                    prices.
+     Use: Long-term exposure management (interest rate or orex risk).
+
+D. Indian Context and Recent Developments
+     India’s derivatives markets have expanded across equity, commodity,
+          and currency segments.
+     Commodity Derivatives: Gold, silver, crude oil, and base metals actively
+          traded on MCX and NCDEX.
+     Currency & Interest Rate Derivatives: Regulated under RBI and FEMA
+          guidelines.
+     Recent Development (2025): RBI permitted bond forwards to
+          strengthen long-term hedging options or investors.
+          NOTE- Regulatory oversight: SEBI (or securities/commodities) and RBI
+          (or currency/interest-rate derivatives).
+
+Commodity Exchanges in India (Brief Overview)
+          MCX (Multi Commodity Exchange of India Ltd.)
+               o Established: 2003, Mumbai, Regulator: SEBI
+               o Focus: Mainly metals (gold, silver, copper), energy (crude oil,
+                    natural gas), and some agri commodities.
+               o Signicance: India’s largest and among the top global commodity
+                    derivatives exchanges by trading volume.
+          NCDEX (National Commodity & Derivatives Exchange Ltd.)
+               o Established: 2003, Mumbai, Regulator: SEBI
+               o Focus: Farm commodities like wheat, chana, guar seed, soybean,
+                    jeera,
+               o Objective: Improve price discovery and risk management or
+                    armers and traders; supports warehousing and delivery-based
+                    contracts.
+
+Key Dierence:
+          MCX → Non-agricultural (metals, energy)
+          NCDEX → Agricultural (grains, pulses, spices)
+
+4. Spot and Derivative Markets of Precious Metals
+
+A. Concept and Market Structure
+1. Spot Market
+
+     Immediate trade and delivery o metals (gold, silver, platinum).
+     Participants: Importers, refners, jewellers, bullion dealers.
+     Purpose: Physical delivery, price reerence, and inventory management.
+     Example: Domestic gold prices mirror international bullion prices plus
+
+          import premiums.
+2. Derivative Market
+
+     Enables utures, options, orwards, and swaps on metals or hedging or
+          speculative trading.
+
+     Major Indian Exchange: Multi-Commodity Exchange (MCX) — trades in
+          gold and silver utures/options.
+
+     Contracts may be cash-settled or physically deliverable depending on
+          specifcations.
+
+C. Recent Developments in India
+     India’s precious metal derivatives market valued around USD 300+
+          billion, reecting growing investor participation.
+     Increased use o gold/silver futures as ination and currency volatility
+          hedges.
+     Rising digital gold and gold ETF investments as substitutes or
+          physical holdings.
+     SEBI has enhanced transparency, contract standardization, and
+          delivery inrastructure in commodity derivatives.
+D. Functions and Linkages
+
+     Hedging: Importers and jewellers lock in uture costs to manage input-
+          price risk.
+
+     Speculation: Traders proft rom expected metal price trends.
+
+     Price Discovery: Futures indicate expected market price trends;
+          inuence spot markets.
+
+     Liquidity & Risk Transfer: Derivatives allow redistribution o price risk
+          among market participants.
+
+     Spot–Derivative Linkage: Spot market reects physical demand;
+          derivative market reects uture expectations—together enhancing
+          eciency and stability.
+
+Capital Market in India – A Comprehensive Overvie1. Structure and Role
+of the Indian Capital Market
+
+     Denition & Composition:
+          India’s capital market encompasses both equity markets (stocks, IPOs)
+          and debt markets (government and corporate bonds). It channels
+          household and institutional savings into productive investments,
+          supporting long-term economic growth.
+
+               o Size: Market revenues (equity + FICC) grew rom USD 3.5B in
+                    FY2023 to USD 4.1B in FY2024 (Crisil/Greenwich).
+
+               o Market Cap: Equity market capitalization reached USD 3.5 trillion
+                    in 2024, making India among the top ve global markets.
+
+     Core Functions:
+
+               o Mobilisation of Savings: Converts idle savings into long-term
+                    investments.
+
+               o Financing & Capital Formation: Provides unds or companies
+                    and governments.
+
+               o Liquidity & Price Discovery: Facilitates transparent trading on
+                    BSE, NSE, allowing investors to easily enter/exit.
+
+               o Risk Transfer: Through derivatives and diversifed products.
+
+     Components:
+
+               o Primary Market: New issues (IPOs, bonds, debentures).
+
+               o Secondary Market: Trading o existing securities.
+
+               o Segments: Equity, Debt (G-Secs, corporate bonds), Mutual Funds,
+                    ETFs.
+       o G-Secs: RBI-managed issuance o T-bills, dated securities, and
+            state loans.
+
+       o Corporate Bonds: Finance private and public corporations via
+            debentures, NCDs, and CPs.
+
+2. Key Financial Regulators and Coordination Mechanisms
+
+Regulat Act &  Jurisdiction    Major Functions         Recent Initiatives
+
+or     Year
+
+       SEBI    Securities &    Protect investors,      T+1 settlement,
+       Act,    commodity
+SEBI   1992    markets         regulate exchanges, ESG/BRSR norms, Social
+
+                               ensure disclosure & air Stock Exchange, stricter
+
+                               trading                 IPO rules
+
+RBI    RBI Act, Monetary &     Monetary policy,        UPI & e-Rupee pilots,
+               banking         supervise               Basel III, liquidity
+
+       1934    system          banks/NBFCs, manage acilities (SDF),
+
+                               currency, FX, payments improved supervision
+
+IRDAI  IRDA    Insurance &     Protect policyholders,  Risk-based capital
+       Act,    reinsurance     license insurers,       (RBC), insurtech
+       1999                    enorce solvency        sandbox, bancassurance
+                               norms                   norms
+
+       PFRDA                   Regulate NPS/APY,       Auto-enrolment, new
+       Act,                                            und manager norms,
+PFRDA  2013    Pension  unds  ensure und saety,     portability reorms
+                               expand pension
+
+                               coverage
+
+IFSCA  IFSCA   IFSC entities   Unifed regulation or IIBX launch, sandbox
+       Act,    (GIFT City)     global banking, capital, programs, international
+       2019
+                               insurance, unds        product listings
+
+     Coordination:
+
+       o FSDC (Financial Stability and Development Council) chaired
+            by the Finance Minister ensures policy coherence, systemic stability,
+            and cross-sector coordination among regulators.
+
+Bancassurance — Overview (Concise)
+Bancassurance is the distribution of insurance products through banks.
+Banks act as intermediaries or selling life, health, and general insurance
+policies to their customers.
+(“Bank” + “Insurance” = Bancassurance)
+
+Reinsurance — Concise Overview
+Reinsurance is insurance for insurance companies — a system where an
+insurer transers part o its risk portfolio to another insurance company (the
+reinsurer) to reduce potential losses rom large claims.
+
+3. Major Segments of Indian Financial Markets
+A. Foreign Exchange (Forex) Market
+
+     Regulator: RBI under FEMA, 1999.
+     Participants: AD banks, exporters/importers, corporates, FPIs, NRIs.
+     Instruments: Spot, Forward contracts, NDFs, Currency utures, Options,
+
+          Swaps.
+     Recent Development:
+
+               o Sep 2025: RBI allowed standalone primary dealers to trade
+                    rupee NDFs oshore (Economic Times).
+
+               o Residents can hedge exposures up to USD 100,000 via deliverable
+                    orwards without documentation.
+
+     Exchanges: NSE/BSE oer currency futures in USD/INR, EUR/INR,
+          GBP/INR, JPY/INR.
+
+B. Money Market
+     Denition: Short-term unds market (maturity ≤1 year).
+     Instruments: Treasury Bills (91/182/364-day), CPs, CDs, Call money,
+          Repos, CBLO/TREPS.
+     Regulator: RBI (manages liquidity via LAF, MSF, repo/reverse repo).
+
+MSF, or Marginal Standing Facility, is a window provided by the Reserve
+Bank o India (RBI) or banks to borrow overnight unds at a higher interest
+rate than the repo rate(+0.25%). It helps banks maintain liquidity and meet
+their short-term unding requirements in times o fnancial stress.
+
+     Infrastructure:
+               o NDS-OM: RBI’s electronic platorm or T-bill/G-Sec trades.
+               o CCIL: Central counterparty or settlement.
+
+C. Bond (Debt) Market
+     Composition:
+               o Government Bonds: Central and State loans via RBI auctions.
+               o Corporate Bonds: Public issues (SEBI-regulated) and private
+                    placements.
+     Participants: Banks, PDs, Insurance/Pension Funds, MFs, FPIs.
+     Market Size: ₹53.6 lakh crore (~USD 627B) corporate bonds outstanding
+
+          by March 2025 Inrastructure: NDS-OM, CCIL (clearing).
+     Regulatory Division:
+
+               o RBI: G-Secs and bank investment rules.
+               o SEBI: Listed corporate bonds, MFs, disclosure norms.
+          NDS-OM (Negotiated Dealing System – Order Matching):
+               o Operated by: Reserve Bank of India (RBI)
+               o Function: RBI’s electronic, anonymous trading platform for
+
+                    Government Securities (G-Secs), Treasury Bills (T-Bills), and
+                    State Development Loans (SDLs).
+          CCIL (Clearing Corporation of India Ltd.):
+               o Role: Acts as the central counterparty for clearing and
+                    settlement of trades done on NDS-OM and other RBI
+                    platforms.
+               o Functions:
+
+                              Guarantees settlement (mitigates counterparty risk).
+               o Regulated by: RBI and SEBI (for dierent segments).
+In short:
+          NDS-OM → Trading platform for G-Secs/T-Bills.
+          CCIL → Ensures safe settlement by acting as the central
+          counterparty.
+NSDL & CDSL — Role vs CCIL (Clear distinction)
+          CCIL (Clearing Corporation of India Ltd.)
+               o Focus: Wholesale market (interbank, institutional).
+               o Function: Clearing and settlement of trades in Government
+
+                    Securities (G-Secs), forex, money market instruments, and
+                    derivatives.
+               o Acts as: Central counterparty — guarantees trade settlement
+                    between participants.
+               o Regulator: RBI (mainly).
+
+     NSDL and CDSL
+               o Focus: Retail and capital markets (stocks, bonds, mutual unds).
+        o Function: Act as depositories — hold securities in dematerialised
+             (electronic) orm or investors.
+
+        o Services:
+                  Maintain investors’ demat accounts.
+                  Enable transer, settlement, and pledge o securities.
+                  Support corporate actions (dividends, bonus, etc.).
+
+        o Regulator: SEBI.
+
+D. Equity Market
+     Structure:
+               o Primary Market: IPOs/FPOs, QIPs, Rights Issues under
+                    SEBI/Companies Act.
+               o Secondary Market: Trading via NSE, BSE; settlement through
+                    NSCCL/ICCL (T+1).
+     Participants: Retail, HNIs, FIIs, MFs, Banks, FPIs.
+     Instruments: Shares, ETFs, REITs, InvITs.
+     Depositories: NSDL, CDSL ensure dematerialised holdings.
+
+4. Derivatives in India
+
+     Key Uses: Hedging, Speculation, Arbitrage.
+
+Type Nature                    Market     Example              Regulation
+
+Forwar  OTC, customizable OTC             Currency orwards
+                                                                           RBI (FEMA rules)
+ds
+                                          (USD/INR hedges)
+
+Futures Standardized,          NSE, BSE,  Nity Futures, Gold  SEBI
+              exchange-traded  MCX        Futures              (margin/limit
+                                                               norms)
+
+Swaps   OTC cash ow           OTC/Bank Interest rate &        RBI (hedging
+        exchanges              markets currency swaps          guidelines)
+
+     Recent Development:
+
+        o IFSCA (GIFT IFSC): USD-denominated gold utures launched
+             (2025).
+
+        o Interest Rate Futures: Deepening bond market liquidity.
+
+     Governance:
+
+        o RBI: OTC currency & interest rate derivatives.
+               o SEBI: Exchange-traded derivatives.
+               o IFSCA: Derivatives in IFSC (internationally aligned).
+
+5. Precious Metals Market (Spot and Derivatives)
+A. Spot Market
+
+     Structure: Physical trade in gold, silver, platinum.
+     Import Policy: Only RBI-nominated agencies or TRQ holders can import
+
+          gold.
+     Reform: Launch o India International Bullion Exchange (IIBX) in July
+
+          2022 at GIFT City — enabling transparent imports and direct access or
+          jewellers.
+          B. Derivative Market
+     Platforms:
+
+               o MCX: INR-denominated gold/silver utures (1 kg lots).
+               o IIBX (IFSC): USD-denominated, physically deliverable gold utures
+
+                    (frst trade: July 2025).
+     Regulators:
+
+               o SEBI → MCX/NCDEX.
+               o IFSCA → IIBX (GIFT City).
+     Products: Gold and silver utures/options, planned platinum/palladium
+          utures.
+
+                       Insurance
+
+1. History and Evolution of Insurance
+a. Global Context
+
+     Ancient Roots:
+               o Babylon (c. 1750 BCE) – The Code of Hammurabi contained early
+                    “insurance-like” clauses (loans orgiven i goods lost at sea).
+               o Chinese & Indian traders (3rd millennium BCE) spread risk by
+                    distributing goods across multiple ships.
+               o Greek & Roman “Bottomry Bonds” – Early marine insurance where
+                    loans were repaid only i the ship saely arrived.
+
+     Middle Ages:
+               o Lloyd’s of London (late 17th century) became the global hub or
+                    marine insurance.
+
+               o Fire insurance originated ater the Great Fire of London (1666)
+                    — establishment o “Fire Oce” (1667).
+
+     Modern Era:
+
+               o 19th–20th centuries: rise o life, health, and liability insurance
+                    due to industrialization, social welare ideas, and actuarial science.
+
+               o Reinsurance and global risk markets developed or fnancial
+                    stability.
+
+b. Indian Context
+
+     Pre-Independence:
+
+               o 1818: Oriental Lie Insurance Co. (Calcutta) – frst Indian insurer,
+                    mostly serving Europeans.
+
+               o 1912: Indian Life Assurance Companies Act – rst regulation.
+
+     Post-Independence:
+
+               o 1956: Lie insurance nationalised → Life Insurance Corporation
+                    (LIC) established.
+
+               o 1972: General insurance nationalized → GIC and 4 subsidiaries
+                    ormed.
+
+               o 1999: IRDA Act passed; liberalization began, allowing private and
+                    oreign players.
+
+               o 2000s–2020s: Digital insurance, microinsurance, Insurtech, and
+                    embedded products expanded.
+
+               o Current Regulator: Insurance Regulatory and Development
+                    Authority of India (IRDAI).
+
+2. Fundamental Principles of Insurance
+
+Principle    Explanation                       Example
+
+Utmost Good  Both insurer and insured must     Concealing pre-existing
+                                               disease voids a health
+Faith (Uberrimae disclose all material acts   policy.
+
+Fidei)       honestly.
+
+Insurable    The insured must have a           One can insure their own
+Interest     legal/fnancial stake in the       house but not a
+             subject insured.                  neighbour’s.
+
+Indemnity    Compensation equals actual loss,  Fire insurance  pays  or
+             not proft (applies to property    reconstruction  cost  only.
+
+             insurance).
+Principle         Explanation                         Example
+
+Subrogation       Ater paying the claim, insurer     I insurer pays or car
+                  acquires insured’s right to         damage, it can sue
+                  recover rom third party.           negligent driver.
+
+Contribution      I multiple insurers cover the      Dual health insurance
+                  same risk, all share claim          policies share hospital bill.
+                  proportionally.
+
+                  Only the nearest cause o loss      Loss due to earthquake
+                  (not remote) determines liability.
+Proximate  Cause                                      (insured) vs. resulting fre
+                                                      (uninsured).
+
+Mitigation of     The insured must take               Attempting to save goods
+Loss              reasonable steps to minimize        in fre instead o doing
+                  losses.                             nothing.
+
+3. Core Concepts: Risk, Uncertainty, Pooling, Diversication, Indemnity,
+Insurable Interest
+a. Risk
+
+     Denition: Probability o loss due to uncertain uture events.
+     Types:
+
+               o Pure Risk: Only loss (e.g., accident, death) — insurable.
+
+               o Speculative Risk: Gain or loss (e.g., investment) — not insurable.
+
+b. Uncertainty
+     Meaning: Lack o complete knowledge about outcomes.
+     Insurance transforms uncertainty into measurable risk via actuarial
+          methods and probability.
+
+c. Risk Pooling
+     Collective contribution o many insured persons into a common fund to
+          compensate the ew who suer losses.
+          Reduces individual fnancial burden; stabilizes loss exposure through law
+          of large numbers.
+
+d. Diversication
+     Spreading risk across dierent types o policies, geographies, or assets to
+          reduce overall exposure.
+     Example: Insurers invest premiums in varied asset classes (equity, bonds,
+          reinsurance).
+
+e. Indemnity
+     Central to property and liability insurance.
+     Restores insured to pre-loss fnancial position — no prot motive.
+     Example: Rs. 5 lakh fre damage → insurer pays Rs. 5 lakh (not more).
+f. Insurable Interest
+     Ensures insurance is not a gambling contract.
+     Exists when loss or damage would cause nancial detriment to insured.
+     Must exist at the time of policy (life) or both at inception and loss
+
+          (property).
+
+4. Importance in Economic and Social Context
+     Economic Stability: Transers risk rom individuals to pooled systems,
+          encouraging entrepreneurship.
+     Savings Mobilization: Premiums und long-term inrastructure via
+          insurers’ investments (especially LIC, GIC).
+     Social Security: Lie, health, crop, and micro-insurance reduce
+          vulnerability o poor households.
+     Financial Inclusion: Schemes like PM Jeevan Jyoti Bima Yojana, PM
+          Suraksha Bima Yojana, Ayushman Bharat broaden coverage.
+     Resilience: Enhances recovery rom disasters, pandemics, and business
+          interruptions.
+
+5. Global and Indian Trends
+     Digitalization & InsurTech: AI-based underwriting, telematics,
+          blockchain or claim verifcation.
+     Parametric Insurance: Pays based on triggers (e.g., rainall index) rather
+          than actual loss.
+     Climate Risk Coverage: Catastrophe bonds and sovereign risk pools
+          (e.g., Caribbean Catastrophe Risk Insurance).
+     India’s Focus: Expanding penetration (currently ~4.2% o GDP vs global
+          ~7%), rural insurance, ESG-linked products.
+
+3. Legal Foundations and Basics of Group, Health, and Pension
+Insurance
+
+     1. Key Legislations
+               o Insurance Act, 1938:
+                    The cornerstone law that regulates all orms o insurance in India —
+                    covering registration, licensing, capital requirements, investments,
+                    commissions, and reporting obligations.
+               o Life Insurance Corporation Act, 1956:
+                    Created the Lie Insurance Corporation (LIC) ater nationalizing
+                    private lie insurers. LIC was granted monopoly in lie insurance
+                    until 2000.
+
+               o General Insurance Business (Nationalisation) Act, 1972:
+                    Nationalized general insurance and ormed the General Insurance
+                    Corporation (GIC) with our subsidiaries.
+
+               o Insurance Regulatory and Development Authority of India
+                    (IRDAI) Act, 1999:
+                    Liberalized the sector, allowed private and oreign participation, and
+                    established IRDAI as the statutory regulator.
+
+               o PFRDA Act, 2013:
+                    Created the Pension Fund Regulatory and Development
+                    Authority (PFRDA) to oversee pension unds and promote
+                    retirement savings.
+
+               o Other Applicable Laws:
+                    Companies Act (2013) or corporate governance, Consumer
+                    Protection Act (2019) or grievance redressal, and FEMA (1999)
+                    governing oreign investments
+
+The Indian government has increased the Foreign Direct Investment (FDI) limit in
+the insurance sector rom 74% to 100% to attract capital, encourage
+competition, and improve insurance penetration. This change will be enabled
+through amendments to the Insurance Act, 1938, and other related legislation
+
+     2. Regulatory Institutions
+
+               o IRDAI: Regulates insurance companies, brokers, and
+                    intermediaries; approves products; ensures solvency and air
+                    market conduct.
+                    Recent ocus areas include: risk-based supervision, simplifed
+                    product approval, and a regulatory sandbox or innovation.
+
+               o PFRDA: Supervises NPS and APY; licenses pension und managers
+                    and central record-keeping agencies; ensures transparency and
+                    portability in pension accounts.
+
+B. Group Insurance
+
+Group insurance provides coverage to a defned group o people under a single
+master policy — usually employees, customers, or members o an association.
+
+     Features:
+
+               o One contract between the insurer and the employer/organization.
+               o Premium based on group risk profle; lower due to pooling and
+                    economies o scale.
+
+               o Simplifed underwriting — no need or individual medical tests.
+               o Claims are paid to the master policyholder or directly to members.
+
+     Types:
+               o Group Term Life Insurance (e.g., employer-provided lie cover).
+               o Group Health/Mediclaim Insurance (covers hospitalization).
+               o Group Personal Accident Insurance.
+
+     Regulatory Aspects:
+          IRDAI’s Group Insurance Guidelines ensure air pricing, disclosure, and
+          portability. The master policyholder acts as trustee or members, bound by
+          fduciary responsibility.
+
+C. Health Insurance
+Health insurance protects individuals and amilies rom high medical costs and
+promotes healthcare access.
+
+     1. Types of Products:
+               o Individual or Family Floater Policies — reimbursement or cashless
+                    hospitalisation.
+               o Top-Up and Super Top-Up — additional coverage beyond a base
+                    policy.
+               o Critical Illness & Hospital Cash Plans — lump-sum or per-day
+                    benefts.
+               o Government Health Schemes — e.g., Ayushman Bharat – PM-JAY,
+                    RSBY.
+
+     2. Key Regulations:
+               o The IRDAI (Health Insurance) Regulations and Master Circular
+                    (2024) standardize defnitions, exclusions, and customer
+                    inormation sheets.
+               o Third-Party Administrators (TPAs) are licensed and regulated to
+                    manage claims eciently.
+
+     3. Trends and Reforms:
+               o Wellness-linked premiums and telemedicine coverage.
+               o InsurTech integration — digital underwriting, claim automation.
+               o Alignment with Ayushman Bharat’s health inclusion goals.
+D. Pension and Retirement Insurance
+
+Pension insurance products aim to provide post-retirement income security by
+converting savings into periodic payments (annuities).
+
+     1. Regulatory Framework:
+
+               o Governed by the PFRDA Act (2013) or voluntary and mandatory
+                    schemes.
+
+               o IRDAI regulates private annuity products sold by lie insurers.
+
+     2. Key Schemes:
+
+               o National Pension System (NPS):
+                    Market-linked defned contribution plan open to all citizens. Oers
+                    tax benefts under Section 80CCD. Assets managed by licensed
+                    Pension Fund Managers.
+
+               o Atal Pension Yojana (APY):
+                    Guaranteed minimum monthly pension (₹1,000–₹5,000) or inormal
+                    sector workers; government co-contribution or 5 years.
+
+               o Employer Schemes:
+                    EPF and EPS under the EPF Act; group pension plans by insurers like
+                    LIC.
+
+     3. Economic Importance:
+
+               o Pension unds are major sources o long-term capital formation,
+                    fnancing inrastructure and government debt.
+
+               o India’s pension coverage is still low (~25% o workorce), so reorms
+                    aim at expanding voluntary participation and digital enrolment.
+
+4. Intermediation: Mobilising Savings, Evolution, and Bancassurance in
+India
+
+A. Role of Insurance as Financial Intermediary
+
+Insurance serves as a crucial fnancial intermediary by:
+
+     Pooling small, regular savings (premiums) rom individuals and
+          households.
+
+     Investing these unds in long-term instruments such as government
+          bonds, inrastructure, and corporate debt.
+
+     Recycling funds back into the economy, thereby supporting capital
+          ormation and stability.
+
+For instance, LIC alone manages assets exceeding ₹45 lakh crore (2024), much
+o which is invested in inrastructure and social-sector projects — making
+insurance a key engine o long-term domestic capital mobilisation.
+B. Evolution of Intermediation in India
+     1. Pre-Liberalization (1956–1999):
+               o State monopoly under LIC and GIC.
+               o Traditional products with strong savings ocus; limited innovation or
+                    competition.
+               o Agents were the primary distribution channel.
+     2. Post-Liberalization (2000–2015):
+               o Private and oreign players entered ater IRDAI Act (1999).
+               o Emergence o diversifed intermediaries — brokers, corporate
+                    agents, web aggregators.
+               o Growth o ULIPs (Unit-Linked Insurance Plans) integrating
+                    investment and protection.
+
+ ULIP (Unit Linked Insurance Plan):
+     It’s a combo of insurance and investment.
+     When you pay the premium, part o it goes toward life insurance, and
+          the rest is invested in unds — like equity, debt, or hybrid funds
+          (similar to mutual unds).
+     So, you get market returns along with life cover.
+     Example: I you invest ₹1 lakh a year in an HDFC Life ULIP, maybe
+          ₹10,000 goes toward lie cover and ₹90,000 gets invested in market-linked
+          unds.
+     You can withdraw ater 5 years (lock-in).
+
+General Insurance:
+     It’s pure protection, not investment.
+     You pay a premium, and i a loss or damage happens, the company
+          compensates you. I nothing happens, you don’t get anything back.
+     Example:
+               o Health insurance – covers hospital bills.
+
+Telematics- the branch o inormation technology which deals with the long-
+distance transmission o computerized inormation.
+
+Embedded insurance means insurance built directly into the purchase o a
+product or service, so the buyer gets protection automatically — without needing
+to buy a separate policy.
+How it works:
+The insurance is bundled or integrated into another product, platorm, or
+transaction — oten through digital channels or partnerships between insurers
+and non-insurance companies.
+Examples:
+When you buy a new smartphone, and it automatically comes with screen
+damage insurance.
+Flight booking websites (like MakeMyTrip) oering travel insurance at checkout.
+
+     3. Digital & InsurTech Era (2015–present):
+               o Online policy sales, AI-based underwriting, telematics.
+               o Emergence o embedded insurance — bundled with loans, travel,
+                    or e-commerce.
+               o Use o data analytics to reach underinsured populations.
+
+C. Bancassurance in India
+Bancassurance reers to the distribution o insurance products through banks
+— combining the outreach o banks with the risk expertise o insurers.
+
+     1. Rationale:
+               o Banks have a vast customer base, trust, and branch network.
+               o Provides banks with ee-based income and insurers with cost-
+                    eective access to clients.
+
+     2. Models of Bancassurance:
+               o Corporate Agency Model: Bank acts as insurer’s agent and earns
+                    commission.
+               o Referral Model: Bank reers customers; insurer completes the
+                    sale.
+               o Joint Venture Model: Bank co-owns the insurance company.
+               o Open Architecture (Post-2013 IRDAI Guidelines): Banks can
+                    partner with multiple insurers — one each in lie, non-lie, and
+                    health segments.
+
+     3. Examples:
+               o SBI Life (SBI + BNP Paribas Cardi)
+               o ICICI Prudential Life (ICICI Bank + Prudential plc)
+               o HDFC Life (HDFC Bank + abrdn)
+               o Canara HSBC Life Insurance (Canara Bank + HSBC)
+
+     4. Regulatory Safeguards:
+          o IRDAI regulates bancassurance licensing, commission caps, and
+               disclosure norms.
+
+          o RBI guidelines require banks to manage conicts o interest, train
+               sta, and protect consumer choice.
+
+5. Recent Developments:
+
+          o Digital Bancassurance: Integration with UPI and net banking
+               platorms or seamless policy issuance.
+
+          o API-driven Models: Allow real-time risk assessment and policy
+               generation.
+
+          o Rural Outreach: Bancassurance leveraged or PMJJBY and PMSBY
+               schemes, broadening fnancial inclusion.
+
+D. Insurance as a Vehicle of Savings and Development
+
+     Lie insurance and pension products channel long-term household
+          savings into the economy, unlike bank deposits which are short-term.
+
+     They stabilize nancial markets by providing steady demand or
+          government and corporate bonds.
+
+     Insurance penetration in India (~4.2% o GDP in 2024) is growing but
+          remains below the global average (~7%), suggesting large untapped
+          potential.
+
+5. Summary: Integrated Perspective
+
+Aspect          Essence                                               Economic / Social
+                                                                      Impact
+                                Provides institutional stability and
+Legal Framework consumer protection via IRDAI,                        Builds public trust and
+                                                                      solvency discipline.
+                                PFRDA, and statutory acts.
+                                                                      Enhances workorce
+Group & Health  Protects employees and amilies;                      security and welare.
+Insurance       reduces catastrophic health
+                expenses.                                             Supports old-age
+                                                                      security and reduces
+Pension         Ensures post-retirement income;                       fscal burden.
+Insurance       diversifes savings base.
+                                                                      Deepens fnancial
+Intermediation & Converts savings into productive                     markets, improves
+Bancassurance capital; expands outreach.                              inclusion.
+
+1. Core Functions of Insurance Companies
+Insurance companies perorm several interlinked unctions — rom product
+design to reinsurance — to ensure fnancial soundness, risk diversifcation, and
+customer protection.
+
+A. Product Design
+
+Purpose: Create insurance products that meet customer needs while ensuring
+proftability and regulatory compliance.
+
+     Process:
+
+               o Market research → identiy insurable needs (e.g. health, property,
+                    retirement).
+
+               o Design policy eatures — coverage, exclusions, tenure, premium
+                    mode, surrender value.
+
+               o Determine target segment and distribution strategy.
+
+               o Obtain IRDAI approval beore launch (mandatory under File and
+                    Use guidelines).
+
+     Recent Trends:
+
+               o Customization through modular or “rider” benefts (e.g. critical
+                    illness rider).
+
+               o Parametric products — payout linked to index (rainall, earthquake
+                    magnitude).
+
+               o Use o data analytics or personalized products (usage-based motor
+                    insurance).
+
+Example:
+HDFC Ergo’s “Pay-As-You-Drive” car policy (India’s frst telematics-linked motor
+insurance).
+
+HDFC ERGO’s “Pay-As-You-Drive” Policy
+
+     What it is:
+          A usage-based motor insurance policy, introduced by HDFC ERGO
+          General Insurance, where your premium depends on how much and
+          how safely you drive.
+
+     How it works:
+
+               o The policy uses telematics (a small device or mobile app) to track
+                    driving behaviour — distance driven, speed, braking patterns, etc.
+
+               o You pre-select a kilometre slab (e.g. 5,000 / 10,000 / 15,000 km).
+
+               o The premium is calculated based on your actual usage, not a at
+                    yearly rate.
+
+               o I you drive less or drive saely, you pay less premium.
+B. Pricing (Rate Making or Actuarial Function)
+Purpose: Set air, adequate, and non-discriminatory premiums to cover
+expected losses and operating costs.
+
+     Components of Premium:
+               o Expected claim cost (pure risk premium)
+               o Operating and administrative expenses
+               o Proft and contingency margin
+               o Investment income oset
+
+     Role of Actuaries:
+               o Estimate mortality/morbidity rates, loss ratios, and policy lapse
+                    rates.
+               o Ensure solvency and compliance with IRDAI (Assets, Liabilities &
+                    Solvency Margin) Regulations.
+
+     Methods:
+               o Experience rating (based on past data)
+               o Prospective loss modeling using stochastic simulations
+
+     Example:
+          Lie insurers price term plans based on mortality tables like Indian
+          Assured Lives Mortality (IALM) 2012–14.
+
+C. Distribution
+Purpose: Deliver products eectively to target customers.
+
+     Traditional Channels:
+               o Individual Agents — largest orce in India.
+               o Corporate Agents — banks, NBFCs, large corporates.
+               o Brokers — represent customers, not insurers.
+
+     Modern Channels:
+               o Bancassurance — banks sell insurance as agents.
+               o Web Aggregators — e.g., Policybazaar, Turtlemint.
+               o InsurTech & Digital Platforms — AI-driven onboarding, embedded
+                    insurance (e-commerce, UPI apps).
+     Regulatory Basis:
+          IRDAI (Insurance Intermediaries) Regulations, 2022.
+
+Example:
+Over 65% o new lie policies (FY24) sold through bancassurance and digital
+modes.
+
+D. Underwriting
+Purpose: Assess and classiy risk beore issuing a policy.
+
+     Key Tasks:
+               o Evaluate risk profle (age, occupation, medical condition, property
+                    type).
+               o Determine acceptance, rejection, or loading (extra premium).
+               o Set policy terms (sum insured, deductible, exclusions).
+
+     Principle:
+          Based on utmost good faith — insured must disclose material acts.
+
+     Example:
+          Health insurers use “underwriting grids” to decide premiums or pre-
+          existing diseases.
+
+E. Claims Management
+Purpose: Fulfl the insurer’s promise — pay valid claims switly while preventing
+raud.
+
+     Process:
+               1. Claim intimation and documentation.
+               2. Verifcation (surveyors or TPAs in health/motor).
+               3. Settlement or repudiation.
+               4. Grievance redressal or appeal to Ombudsman (under IRDAI
+                    (Protection o Policyholders’ Interests) Regulations, 2023).
+
+     KPIs:
+          Claim Settlement Ratio (CSR) and Turnaround Time (TAT).
+
+     Examples:
+               o LIC’s CSR: ~98.5% (FY24).
+               o Digital claims in motor insurance settled in <24 hours using AI
+                    image recognition.
+
+F. Investment Management
+Purpose: Manage the large pool o premium income until claims arise —
+balancing saety, liquidity, and return.
+
+     Regulation:
+          IRDAI (Investment) Regulations, 2016 — speciy exposure limits to equity,
+          debt, inrastructure, and government securities.
+
+     Typical Portfolio Mix:
+               o Lie insurers: 50–60% in G-Secs, 15–25% in corporate bonds, rest in
+                    equity.
+               o Non-lie insurers: more liquid, shorter-term investments.
+
+     Economic Role:
+          Insurance unds are a major source o long-term capital or inrastructure,
+          housing, and social welare projects.
+
+     Example:
+          LIC’s inrastructure investment portolio exceeds ₹10 lakh crore (2024).
+
+G. Reinsurance
+Purpose: Transer part o the risk to another insurer to reduce loss volatility and
+improve solvency.
+
+     Forms of Reinsurance:
+               o Facultative (case-by-case basis).
+               o Treaty (automatic cover or a class o business).
+               o Proportional vs. Non-Proportional (quota share vs. excess-o-loss).
+
+     Regulatory Framework:
+          IRDAI (Reinsurance) Regulations, 2018 — prioritize domestic reinsurers like
+          GIC Re beore oreign entities.
+
+     Functions:
+               o Stabilize underwriting results.
+               o Enable insurers to accept large or catastrophic risks.
+               o Spread global risk (e.g., natural disasters, aviation, marine).
+
+Example:
+GIC Re (India’s sole domestic reinsurer) reinsures major catastrophe covers such
+as cyclones and earthquakes in India and Asia.
+
+2. Major Insurance Lines and Products
+Insurance business globally and in India is divided into our broad lines — Life,
+Annuities, Health, and Property-Liability (General).
+A. Life Insurance
+Covers fnancial risk o death or survival o the insured.
+
+     Main Products:
+               o Term Insurance: Pure protection; fxed term; no maturity beneft.
+               o Whole Life: Covers lie-long; premium until a certain age.
+               o Endowment Plans: Protection + savings; lump-sum on
+                    death/maturity.
+               o Unit-Linked Insurance Plans (ULIPs): Market-linked investment +
+                    insurance.
+               o Micro-Insurance: Low-cost policies or rural and inormal workers.
+
+     Objective: Income replacement, amily protection, and savings
+          mobilization.
+
+     Example: LIC’s Jeevan Amar (pure term) and HDFC Lie’s Click2Invest
+          (ULIP).
+
+B. Annuities (Pension/Retirement Products)
+Provide a stream of income during retirement, converting lump-sum savings
+into periodic payments.
+
+     Types:
+               o Immediate Annuity: Starts right ater purchase.
+               o Deferred Annuity: Payments start ater a deerment period.
+               o Fixed vs. Variable Annuities: Based on market perormance.
+
+     Instruments:
+               o National Pension System (NPS), LIC Jeevan Akshay, and Atal Pension
+                    Yojana (APY).
+
+     Economic Role: Stabilise old-age income and reduce public pension
+          burden.
+
+C. Health Insurance
+Covers medical expenses and health-related risks.
+
+     Products:
+               o Indemnity Plans (hospitalisation reimbursement).
+               o Dened Benet Plans (lump-sum on diagnosis).
+               o Family Floater, Critical Illness, Top-up, and Personal Accident covers.
+ Institutional Dimension:
+          o IRDAI and Health Insurance Council regulate.
+          o TPAs manage claims and hospital networks.
+
+ Example: Ayushman Bharat – PM-JAY (public health insurance or low-
+     income amilies).
+
+D. Property and Liability (General Insurance)
+Protects against loss or damage to property, vehicles, or legal liabilities.
+
+     Major Sub-Lines:
+               1. Fire Insurance: Industrial and household fre cover.
+               2. Marine Insurance: Goods, ships, and reight against perils o the
+                    sea.
+               3. Motor Insurance: Mandatory third-party + optional own-damage
+                    (regulated under Motor Vehicles Act, 1988).
+               4. Aviation, Engineering, Crop, and Miscellaneous Lines.
+               5. Liability Insurance: Public, product, proessional indemnity.
+
+     Example: Pradhan Mantri Fasal Bima Yojana (crop insurance scheme);
+          Motor Third Party Insurance — compulsory by law.
+
+3. Summary Table
+
+Function Purpose                            Example
+
+Product    Align customer need & insurer    Pay-as-you-drive car
+Design     proftability                     insurance
+
+Pricing    Set air premiums                Mortality-based lie pricing
+
+Distribution Expand market reach            Bancassurance (SBI Lie)
+
+Underwriting Assess and classiy risks      Health underwriting grids
+
+Claims     Fulfl policy promise             24-hour AI motor claims
+
+Investment Grow unds saely                LIC inra investments
+
+Reinsurance Diversiy and stabilize risk    GIC Re catastrophe
+                                            reinsurance
+
+Insurance  Focus Area             Examples
+Line
+
+Lie       Death/survival risk Term, Endowment, ULIP
+
+Annuities  Retirement income NPS, LIC Jeevan Akshay
+Insurance     Focus Area           Examples
+Line
+
+Health        Medical cost         Family Floater, PM-JAY
+              protection
+Property-                          Motor, Fire, Crop
+Liability     Asset and liability  Insurance
+              risk
+
+1. Liability Risks and Liability Insurance
+
+A. Nature of Liability Risk
+
+     Denition: Liability risk arises when an individual or organization is held
+          legally responsible or injury, loss, or damage caused to another person
+          or property.
+
+     Types of liability:
+
+               1. Civil liability – arising rom negligence or breach o duty (e.g.,
+                    proessional negligence).
+
+               2. Contractual liability – arising rom contract obligations.
+
+               3. Statutory liability – imposed by specifc laws (e.g., environmental,
+                    product, or motor vehicle acts).
+
+Characteristics:
+
+     Oten low frequency but high severity — unpredictable and potentially
+          catastrophic.
+
+     Can extend to bodily injury, property damage, or nancial loss.
+
+     Increasingly complex due to new-age risks — cyber, directors’ liability,
+          data breaches, ESG claims, etc.
+
+B. Major Liability Insurance Products in India
+
+Type               Coverage                       Example / Legal
+                                                  Reference
+
+Public Liability   Covers legal liability to the  Public Liability Insurance
+Insurance          public due to accidents in     Act, 1991 (mandatory or
+                   premises or operations.        hazardous industries).
+
+Product Liability  Covers manuacturer’s or seller’s Consumer Protection Act,
+Insurance
+                   liability or harm caused by   2019 – Product Liability
+
+                   deective products.            section.
+
+Professional       Protects proessionals (doctors, IRDAI-approved
+Indemnity          CAs, architects, lawyers) against proessional indemnity
+Type                   Coverage                          Example / Legal
+                                                         Reference
+
+Insurance              errors or omissions.              policies.
+
+Directors and          Covers managerial liability or   SEBI (LODR) 2015 –
+Ocers (D&O)           decisions causing                 mandates D&O cover or
+Liability              company/shareholder loss.         top management.
+
+Employer’s             Covers employee injury/death Employees’
+Liability /
+Workmen                during employment.                Compensation Act, 1923.
+Compensation
+
+Environmental          For costs arising rom pollution  Environment Protection
+                                                         Act, 1986.
+Liability / Pollution  or environmental damage.
+
+Legal Liability
+
+Cyber Liability        Covers data breaches,             Emerging under IRDAI
+Insurance              ransomware, digital loss, and     Sandbox; oered by ICICI
+                       regulatory fnes.                  Lombard, HDFC Ergo.
+
+Emerging Trends:
+
+ Increasing corporate awareness due to ESG governance and litigation risk.
+
+ IRDAI exploring mandatory liability lines or certain high-risk sectors
+     (chemical, healthcare, data management).
+
+ Cross-border reinsurance demand via GIC Re and Lloyd’s India or complex
+     liabilities.
+
+2. Valuation and Solvency Requirements in Insurance
+
+Insurance companies must maintain adequate fnancial strength to honour
+policyholder claims, which is ensured through asset and liability valuations
+and solvency regulations.
+
+A. Valuation Principles
+
+Objective: To assess the insurer’s true fnancial position — determining
+policyholder liabilities, reserves, and capital adequacy.
+
+     Valuation of Liabilities:
+
+               o Based on Actuarial Valuation (Lie Insurance): present value o
+                    uture obligations minus uture premiums.
+
+               o For General Insurance: estimation o Outstanding Claims Reserve
+                    (OCR), Unexpired Risk Reserve (URR), and IBNR (Incurred But Not
+                    Reported) reserves.
+
+     Valuation of Assets:
+               o Carried at market or amortised cost depending on IRDAI
+                    (Investment) Regulations, 2016.
+
+               o Only “approved investments” (Government securities, bonds, high-
+                    rated equities) count toward solvency.
+
+Actuarial Oversight:
+Each insurer must appoint an Appointed Actuary under IRDAI (Appointed
+Actuary) Regulations, 2022 — responsible or:
+
+     Pricing and valuation.
+     Solvency testing.
+     Product certifcation and stress testing.
+An actuary is a proessional who assesses and manages fnancial risks and
+uncertainty using mathematics, statistics, and fnancial theory.
+
+B. Solvency Requirements
+Meaning:
+Solvency margin = excess o assets over liabilities required to ensure the insurer
+can meet obligations under adverse conditions.
+
+     Regulatory Framework:
+          Section 64VA, Insurance Act, 1938 and IRDAI (Assets, Liabilities and
+          Solvency Margin of Insurers) Regulations, 2016.
+
+     Minimum Solvency Margin (MSM):
+               o Life Insurers: 150% o required solvency margin.
+               o General Insurers: 150% o required solvency margin.
+               o Reinsurers: 200%.
+
+Purpose:
+     Protect policyholders against insolvency.
+     Maintain confdence in the insurance system.
+     Enable international equivalence (aligned with Solvency II and IAIS
+          standards).
+
+Example (India):
+     LIC (FY2024) Solvency Ratio: ~185%.
+     Private lie insurers (average): ~205%.
+     IRDAI may introduce Risk-Based Capital (RBC) norms — aligning
+          solvency with insurer’s specifc risk profle.
+
+C. Emerging Global & Indian Reforms
+ Risk-Based Solvency (RBS) ramework being implemented in India rom
+     2025 (pilot stage).
+
+ Shit toward IFRS 17 (Insurance Contracts) or valuation and disclosure
+     — ensures comparability across jurisdictions.
+
+ Stress Testing & ORSA (Own Risk and Solvency Assessment)
+     introduced or large insurers.
+
+3. Specialist Insurance Lines in India
+
+A. Agricultural Insurance
+
+Objective: Protect armers against loss o crops, livestock, or agricultural
+income due to natural calamities or weather variations.
+
+1. Historical Evolution
+     1972: Pilot Crop Insurance Scheme by GIC.
+     1985: Comprehensive Crop Insurance Scheme (CCIS).
+     1999: National Agricultural Insurance Scheme (NAIS).
+     2016: Pradhan Mantri Fasal Bima Yojana (PMFBY) – comprehensive,
+          technology-driven, and subsidy-based.
+
+2. Current Framework: PMFBY
+
+Feature            Details
+
+Launch             2016, merged NAIS + MNAIS
+
+Coverage           Food, oilseed, horticultural crops
+
+Perils Covered Drought, ood, pests, cyclone, etc.
+
+Premium   Sharing  Farmer: 1.5% (Rabi), 2% (Khari),   5%  (Horticulture);  rest
+                   subsidized by Centre & State.
+
+Technology         Satellite imagery, remote sensing, drones or yield
+Integration        estimation.
+
+Implementation     Public and private insurers (e.g., AIC, IFFCO Tokio, Bajaj
+                   Allianz).
+
+Nodal Agency Agriculture Insurance Company o India (AIC).
+
+3. Other Agricultural Insurance Lines
+
+     Weather-Based Crop Insurance Scheme (WBCIS) – payout linked to
+          weather indices.
+
+ Livestock and Poultry Insurance – covers death/disease o animals.
+ Horticulture Insurance – high-value crops.
+
+ Parametric & Climate Index Insurance – emerging products using
+     climate data.
+
+B. Export Credit Guarantee Insurance
+
+Objective: Promote exports by protecting exporters and banks against non-
+payment risk rom oreign buyers or political instability.
+
+1. Institution: ECGC Ltd. (formerly Export Credit Guarantee Corporation
+of India Ltd.)
+
+ Ownership: 100% Government o India (under Ministry o Commerce &
+     Industry).
+
+ Regulation: IRDAI licensed; ounded under the Companies Act, 1957.
+
+ Primary Role:
+
+        o Provides credit risk insurance to exporters and banks.
+
+        o Encourages export fnance and trade credit extension.
+
+2. Major Products
+
+Category              Purpose                               Examples
+
+Shipment Policies     Protect exporters against             Standard Policy, Small
+(Short-Term)          commercial (buyer deault) &          Exporter Policy.
+                      political (war, currency
+                      inconvertibility) risks.
+
+Specic Shipment      For capital goods or turnkey          Buyer Credit Policy,
+Policies              projects.                             Supplier Credit Policy.
+(Medium/Long-
+Term)
+
+Export Credit  Banks  Protects banks  that  extend  credit  ECIB (WT-PC) or pre-
+Insurance for         to exporters.                         shipment, ECIB (WT-
+
+(ECIB)                                                      PS) or post-shipment.
+
+Overseas              Covers Indian investments abroad      ECGC OII Scheme.
+Investment            against expropriation or war risks.
+Insurance
+
+A turnkey project is a method o project delivery where a single contractor
+handles all aspects o a project, rom initial design to fnal construction and
+commissioning, resulting in a ready-to-operate acility or system or the client.
+The term signifes that the client can "turn the key" to begin using the completed
+project, minimizing their involvement in the day-to-day management. This
+approach provides a single point o responsibility, streamlining the process and
+reducing complexity.
+3. Importance:
+     Facilitates trade fnance by lowering risk premium.
+          Encourages MSME exports and supports India’s global
+          competitiveness.
+     Aligns with Atmanirbhar Bharat and Make in India export goals.
+
+4. Challenges & Reforms:
+     Volatility in global trade, sanctions, and geopolitical risks.
+     ECGC now uses AI-based credit risk evaluation and digital claim platorms.
+     FY24: ECGC insured exports worth US$150+ billion, contributing ~30%
+          o India’s merchandise exports coverage.
+
+4. Synthesis and Signicance
+
+Dimension     Function / Importance
+
+Liability     Protects individuals and corporations rom legal and fnancial
+Insurance     claims; supports business confdence.
+
+Valuation &   Ensure insurer’s stability and protect policyholder interests
+Solvency      through capital adequacy.
+
+Agricultural  Stabilizes rural income and ood security; mitigates climate
+Insurance     and yield risks.
+
+Export Credit Promotes international trade by covering payment and
+
+Insurance     political risks.
+
+Insurance underwriting is the process where an insurer evaluates the risk o
+insuring a person or asset to decide whether to accept the risk, and i so, to
+determine the policy's terms and premium. Underwriters assess actors like age,
+health, occupation, and liestyle to estimate the likelihood o a claim, setting
+premiums that reect the risk profle to ensure the company's fnancial stability.
+
+1. Reinsurance: Concept and Importance
+
+A. Meaning
+
+     Reinsurance is the process by which an insurance company (the ceding
+          insurer) transers part o its risk to another insurance company (the
+          reinsurer) in exchange or a premium.
+     It is essentially “insurance of insurance” — a second layer o protection
+         that stabilizes the insurer’s fnancial perormance and solvency.
+
+B. Objectives of Reinsurance
+
+     1. Risk Diversication: Spread risk across insurers and countries to avoid
+          concentration.
+
+     2. Stabilization of Results: Reduce proft/loss volatility due to catastrophic
+          events.
+
+     3. Increase Underwriting Capacity: Enables insurers to issue larger
+          policies than their capital would otherwise allow.
+
+     4. Catastrophic Protection: Provides cover against low-requency, high-
+          severity events (earthquakes, cyclones).
+
+     5. Capital Relief and Solvency Management: Strengthens solvency ratio
+          by transerring liabilities.
+
+     6. Knowledge Transfer: Global reinsurers assist Indian insurers with
+          actuarial expertise and risk modeling.
+
+Underwriting in insurance is the process where an insurance company evaluates
+the risk o an applicant to decide whether to accept the risk, determine the policy
+terms (like coverage limits and exclusions), and set the premium
+
+C. Types of Reinsurance
+
+Basis       Type          Description                       Example
+
+By          Facultative   Individual policy or risk ceded   A nuclear plant or
+                          specifcally; suited or large or  satellite launch.
+agreement Reinsurance     unusual risks.
+
+            Treaty        Automatic cession or a class o  All motor or fre
+            Reinsurance   business under a standing         policies up to a
+                          agreement.                        limit.
+
+By sharing                Premium and losses shared in      40% o every
+of loss
+            Proportional  fxed ratio (quota share, surplus). motor policy
+
+                                                            ceded.
+
+            Non-          Reinsurer pays only when losses Reinsurer pays i
+            Proportional
+                          exceed a threshold (excess o loss, fre loss > ₹10
+
+                          catastrophe).                     crore.
+
+D. Reinsurance Market in India
+
+     India has both domestic and foreign reinsurers operating under IRDAI
+          (Reinsurance) Regulations, 2018.
+ Licensed Entities (2024):
+
+          o Domestic reinsurer: General Insurance Corporation o India (GIC Re).
+
+          o Foreign Reinsurance Branches (FRBs): SCOR, Munich Re, Swiss Re,
+               Hannover Re, Lloyd’s India, etc.
+
+          o Cross-border reinsurers (CBRs): Allowed under prescribed
+               conditions.
+
+2. GIC Re – The National Reinsurer of India( In "GIC Re," "Re" stands
+for reinsurance)
+
+A. Overview
+
+     Full Name: General Insurance Corporation o India (GIC Re).
+
+     Establishment: 1972, under the General Insurance Business
+          (Nationalisation) Act.
+
+     Headquarters: Mumbai.
+
+     Ownership: 100% Government o India (under Ministry o Finance).
+
+     Status: Designated as India’s National Reinsurer under IRDAI
+          (Reinsurance) Regulations, 2018.
+
+B. Role and Functions
+
+Function           Description
+
+Domestic           Accepts obligatory cessions and voluntary treaties rom
+Reinsurance        Indian insurers.
+
+International      Operates globally (UAE, Malaysia, UK, South Arica,
+Business           Russia); reinsures 160+ countries.
+
+Catastrophic Cover Provides national protection against cyclones, oods, and
+
+Provider           large fre losses.
+
+Capacity Building  Supports smaller insurers with technical expertise and risk
+                   management.
+
+Financial Strength India’s only reinsurer rated by S&P (“A–/Stable”).
+
+C. Financial and Operational Prole (FY2023–24)
+     Gross Premium Income: ~₹47,000 crore.
+     International Business: ~30% o portolio.
+     Solvency Ratio: ~2.2 times (well above IRDAI norm).
+     Market Share in India: Over 70% o all reinsurance premiums.
+3. Obligatory Cessions
+A. Meaning
+
+     An obligatory cession is the mandatory portion of every general
+          insurance policy that Indian insurers must reinsure with the national
+          reinsurer (GIC Re).
+
+B. Legal Framework
+     Governed by Section 101A of the Insurance Act, 1938 and IRDAI
+          (Reinsurance) Regulations, 2018.
+     The IRDAI specifes annually:
+               o The percentage of risk to be compulsorily ceded.
+               o The classes of business covered.
+               o The terms and conditions or such cessions.
+
+C. Current Practice (as per IRDAI Order for FY2024–25):
+     Obligatory cession to GIC Re: 4% o the sum insured on each general
+          insurance policy (except specifc exclusions like reinsurance, aviation hull,
+          and oil & energy risks).
+     Retention by Indian insurers: Balance 96% can be retained or placed
+          with other reinsurers (domestic or oreign).
+
+Historical Trend:
+     Earlier (2000s): Obligatory cession up to 20%.
+     Gradual reduction → 5% → 4% (reecting market liberalisation and oreign
+          participation).
+
+D. Signicance of Obligatory Cession
+     1. Strengthens Domestic Reinsurance Pool: Keeps part o premium
+          within the country.
+     2. Develops Local Expertise: GIC Re gains underwriting experience across
+          all classes.
+     3. Improves National Retention Ratio: Reduces outow o oreign
+          exchange.
+     4. Supports Financial Stability: Ensures capacity during catastrophic
+          losses.
+4. Retention of Risk within the Country
+
+A. Concept
+
+     “Retention” reers to the portion o risk that insurers keep for
+          themselves, rather than transerring to reinsurers.
+
+     Retention within India means ensuring that a substantial part o India’s
+          reinsurance premium and capacity remains in Indian hands (GIC Re and
+          local insurers).
+
+B. IRDAI’s Retention Policy Objectives
+
+     1. Conserve Domestic Capital: Limit oreign reinsurance outow.
+
+     2. Build National Capacity: Encourage local reinsurers and risk
+          management capability.
+
+     3. Strategic Autonomy: Protect India’s ability to cover large domestic risks
+          (e.g., inrastructure, agriculture, deence).
+
+     4. Gradual Market Liberalization: Balance between competition (oreign
+          reinsurers) and domestic strength (GIC Re).
+
+Order of Preference Rule (2018):
+IRDAI set a clear hierarchy or who gets the rst opportunity to take Indian
+insurers’ reinsurance business:
+
+     1. Indian Reinsurers (like GIC Re):
+          Indian companies must frst oer reinsurance to local players — mainly the
+          state-owned General Insurance Corporation of India (GIC Re).
+
+     2. Foreign Reinsurer Branches (FRBs) in India:
+          I GIC Re cannot absorb all the risk, insurers can then oer it to oreign
+          reinsurance companies that have branches registered and operating
+          within India.
+
+     3. Cross-Border Reinsurers (CBRs):
+          Only when domestic and local oreign branches don’t have enough
+          capacity, insurers can approach overseas reinsurers (those without a
+          presence in India).
+
+D. Retention Ratios in Practice
+
+Line of      Typical Retention   Comments
+Business     (India)
+
+Fire &       60–70%              Shared with GIC Re, FRBs
+Engineering
+Line of     Typical Retention     Comments
+Business    (India)
+
+Motor       100%                  Fully retained; predictable losses
+
+Health      85–90%                Rising retention due to data
+                                  maturity
+
+Crop Insurance 40–50%             Catastrophic exposure → shared
+                                  globally
+
+E. Strategic Importance
+
+ Enhances India’s nancial sovereignty in managing risk.
+
+ Reduces exposure to global reinsurance cycles and currency
+     volatility.
+
+ Supports national schemes like PMFBY, Ayushman Bharat, and Bharat
+     Sookshma Bima Yojana by ensuring domestic capacity.
+
+The scheme known as Bharat Sookshma Bima Yojana in Hindi is ocially
+reerred to in English as the Bharat Sookshma Udyam Suraksha Policy.
+
+This is a specialized property insurance policy designed to provide fnancial
+protection to Micro, Small, and Medium Enterprises (MSMEs) in India.
+
+Purpose and Coverage
+
+         Objective: To saeguard small businesses rom fnancial losses due
+             to unoreseen events and disasters, thereby ensuring their
+             continuity and stability.
+
+         Target Audience: Enterprises where the total value o insurable
+             assets at any single location does not exceed ₹5 Crore at the time
+             o policy commencement.
+
+5. Challenges and Future Outlook
+
+Challenges                     Emerging Solutions / Trends
+
+Catastrophe accumulation (oods,
+                                                         Catastrophe bonds, parametric reinsurance
+
+cyclones)
+
+Limited domestic capital base  IRDAI encouraging new reinsurers and FDI
+
+Pricing cycles (sot vs. hard market) Risk-based pricing, actuarial modernization
+
+Global regulatory convergence  Adoption o Risk-Based Capital and IFRS 17
+
+Low data transparency          Creation o Indian Catastrophe Risk Pool
+                               (2024 proposal)
+
+6. Summary Table
+Aspect          Essence / Function
+
+Reinsurance     Transer o insurance risk to another insurer to stabilize
+                and expand capacity.
+
+GIC Re          India’s national reinsurer; accepts obligatory and
+                voluntary cessions; global presence.
+
+                                     Mandated 4% risk cession to GIC Re; ensures national
+Obligatory Cession
+
+                                     pool and expertise.
+
+Risk Retention  Policy goal to conserve domestic capital and develop
+within Country  local reinsurance strength.
+
+The Insurance Industry: History, Principles, and the Indian Framework
+
+1. History of Insurance (Global and India)
+Global Evolution
+
+          Ancient roots: Insurance traces to early risk-sharing in Babylonia
+          (Code o Hammurabi, 1750 BCE) — ship borrowers exempted rom
+          repayment i vessels sank, an early orm o risk transer.
+          17th–18th centuries:
+
+               o Lloyd’s Coee House (London): Became the hub of marine
+                    insurance and underwriting.
+
+               o Great Fire of London (1666): Triggered formal re insurance.
+          19th century onwards: Legal codication via statutes such as the
+          Marine Insurance Act 1906 in the UK.
+Indian Evolution
+          Colonial era:
+
+               o Oriental Life Insurance Co. (1818, Calcutta) — rst Indian
+                    life insurer.
+
+               o Madras Equitable (1829) followed.
+          Legislative milestones:
+
+               o Life Insurance Act 1912, Insurance Act 1938 – rst
+                    regulatory laws.
+
+Nationalisation:
+                              Life Insurance Corporation (LIC) formed in 1956.
+                              General Insurance Corporation (GIC) formed in 1973.
+Liberalisation:
+
+     o IRDA Act 1999 created the Insurance Regulatory and
+          Development Authority of India (IRDAI).
+
+     o Market opened to private and foreign players (2000
+          onwards).
+
+Current scenario (2024): 24 life insurers, 34 general insurers
+(including AIC & ECGC);
+
+2. Principles of Insurance
+
+Principle       Meaning                         Key Implication
+
+Utmost Good     Both insurer and insured must   Non-disclosure can
+
+Faith (Uberrimae disclose all material facts    void policy.
+
+Fidei)          truthfully.
+
+Insurable       The insured must suer loss if Prevents wagering
+Interest
+                the insured event occurs.       contracts.
+
+Indemnity       Compensation equals actual      Ensures nancial
+                loss (no prot).                restoration, not gain.
+
+Contribution    Multiple insurers covering the  Prevents over-
+                same risk share claims          indemnication.
+
+                proportionally.
+
+Subrogation     After paying a claim, insurer   Prevents double
+                acquires insured’s right to     recovery.
+                recover from third parties.
+
+Risk Pooling &  Premiums from many              Reduces uncertainty
+Law of Large    policyholders fund claims for   through
+Numbers         the few who suer losses.       diversication.
+
+3. Risk and Uncertainty
+
+          Risk: Quantiable — measurable probability (e.g., mortality,
+          accident rates).
+
+          Uncertainty: Unquantiable — unknown probability (e.g., war,
+          pandemic).
+
+          Insurance covers only fortuitous, measurable risks.
+
+In insurance, "ortuitous" means a loss is accidental, unoreseen, and occurs by
+chance. This is a undamental principle, as insurance contracts are intended to
+cover events that are not certain to happen and are outside the reasonable
+control o the insured and the insurer. Examples o ortuitous losses include
+damage rom an unexpected fre, thet, or natural disaster
+Law o Large Numbers: Larger the pool → closer actual losses to expected losses
+→ more stable premiums.
+Diversifcation: Spread risk across sectors, geographies, and products to limit
+correlated losses.
+
+4. Legal and Regulatory Framework (India)
+Core Statutes
+
+          Insurance Act 1938 — foundational law, amended repeatedly.
+          IRDAI Act 1999 — established IRDAI as apex regulator.
+          Insurance Laws (Amendment) Act 2015 — liberalisation (higher
+          FDI limits, modernised provisions).
+          Other applicable laws:
+
+               o Indian Contract Act 1872 (valid contract).
+               o Motor Vehicles Act 1988 (compulsory third-party cover).
+               o Public Liability Insurance Act 1991 (hazardous industries).
+               o Consumer Protection Act (policyholder rights).
+
+5. Intermediation and Mobilising Savings
+
+Economic Role
+
+Insurers pool long-term household savings → invest in
+government securities, corporate debt, and infrastructure.
+
+Insurance Web Aggregator is an insurance intermediary that maintains
+a website to provide an interace or insurance prospects to compare
+prices and obtain product inormation rom dierent insurers and related
+matters. It does not act as a broker in the traditional sense—it doesn’t
+typically advise on deep customised insurance solutions or handle the ull
+claim process. Instead, it helps the customer navigate the market.
+
+Distribution Channels
+
+Channel               Role
+
+Agents                Represent one insurer; earn commissions;
+                      handle proposals & claims.
+
+Brokers               Represent client; licensed; oer multi-insurer
+                      comparisons.
+
+Corporate Agents /    Banks or corporates sell insurance via
+Bancassurance         branches; major growth driver since 2002.
+
+Web Aggregators like  Online comparison platforms licensed by
+policy bazar.com      IRDAI.
+Channel            Role
+                   Target rural/low-income markets.
+Micro-insurance &
+Marketing Firms
+
+6. Core Functions of Insurance Companies
+
+Function     Description
+
+Product      Dene coverage, term, and riders; ensure regulatory
+Design       compliance.
+
+Pricing      Set premium based on expected loss, expenses, and
+
+(Actuarial) prot; uses mortality/morbidity data.
+
+                        Evaluate risk, classify applicant, decide acceptance and
+Underwriting
+
+                        premium.
+
+Claims       Verify loss, assess validity, and settle within IRDAI
+
+Management timelines (30 days for life, 15–30 for non-life).
+
+                        Deploy “oat” in approved assets under IRDAI norms;
+                        majority in government securities.Insurers invest the
+                        “oat” — premium money held before claims are paid —
+Investment in safe, IRDAI-approved assets.
+Management Most of it must go into government securities to ensure
+                        capital safety and liquidity, not risky returns.
+                        This keeps insurers solvent and protects policyholders’
+                        funds.
+
+Reinsurance  Transfer part of risk to reinsurers to stabilise results and
+             maintain solvency.
+
+7. Insurance Lines and Products
+
+Segment Major Products                           Notes
+
+Life        Term, Endowment, Whole Life, ULIPs,  Long-term contracts;
+Insurance   Child/Education, Pension/Annuities
+                                                 tax benets under
+                                                 80C/10(10D).
+
+General     Motor (Own Damage + TP), Fire &      Covers property &
+(Non-Life)                                       legal risks.
+            Allied, Marine Cargo/Hull,
+            Engineering, Liability, Crop
+
+Health Mediclaim, Family Floater, Critical       Standardised norms,
+Insurance Illness, Top-up, Group Health          cashless network.
+
+Pension / Deferred/Immediate annuities,          Must specify
+
+Annuity Retirement ULIPs, NPS-linked plans guaranteed benets.
+Market Snapshot (2024):
+24 Life Insurers + 34 General Insurers (including AIC and ECGC).
+
+8. Liability Insurance, Solvency & Reserves
+Liability Insurance Types
+
+          Motor Third-Party: Mandatory under MV Act 1988.
+          Public Liability: Required for hazardous industries (PL Act 1991).
+          Employers’/Workmen’s Compensation: Covers workplace injury.
+          Professional / Product Liability: For doctors, lawyers,
+          manufacturers.
+          Directors & Ocers (D&O): For managerial decisions and
+          governance risks.
+Solvency Norms
+          Minimum solvency ratio = 150 % (Available / Required Solvency
+          Margin).
+          Capital requirements: Life & General ≥ ₹100 crore; Health ≥ ₹30
+          crore.
+
+9. Specialist Insurance Lines in India
+Agricultural Insurance (PMFBY)
+
+          Pradhan Mantri Fasal Bima Yojana (2016) protects farmers from
+          crop losses due to natural calamities.
+          Premiums subsidised by Centre & States; implemented by AIC and
+          private insurers.
+          Aims to stabilise farmer incomes and sustain agricultural credit
+          ow.
+
+Export Credit Insurance (ECGC)
+          Export Credit Guarantee Corporation of India (1957) insures
+          exporters against buyer default and political risks.
+          Provides credit guarantees to banks, pre/post-shipment covers,
+          and overseas investment insurance.
+          Operates under the Commerce Ministry; critical for trade
+          nancing and SME exports.
+
+10. Reinsurance and Risk Retention
+Purpose
+          Allows insurers to spread catastrophic or concentrated risks and
+          stabilise claims experience.
+
+Indian Structure
+          GIC Re: Established 1972; national reinsurer.
+               o Obligatory cession: 4 % of re & engineering treaty
+                    premiums (FY 2025–26).
+          Foreign Reinsurers: Swiss Re, SCOR, Munich Re operate via
+          branches; IRDAI allows cessions abroad within limits.
+          Risk Retention:
+               o Smaller risks often fully retained.
+               o Large industrial risks partially retained (10–20 %) and
+                    reinsured.
+          Regulatory Oversight: IRDAI monitors reinsurance programmes;
+          encourages balance between domestic retention and global
+          diversication.
+
+ECGC (Export Credit Guarantee Corporation of India Ltd.)
+     A Government o India enterprise under the Ministry o Commerce &
+          Industry that promotes exports by covering credit and political risks.
+
+Main Functions:
+     Export Credit Insurance: Protects exporters rom buyer deault,
+          insolvency, and political events like war or import bans.
+     Bank Credit Cover: Insures banks lending to exporters against non-
+          repayment.
+     Overseas Investment Insurance: Covers Indian investments abroad (JVs,
+          subsidiaries) against political risks — expropriation, war, remittance
+          restrictions.
+     Advisory Role: Provides country and buyer risk ratings.
+          Policy Support: Operates the National Export Insurance Account
+          (NEIA) or high-risk markets.
+
+                PENSION SECTOR
+
+1. Status of the Pension Sector in India
+B. Demographic and Economic Context
+
+     Population aged 60+ (Census 2011): 104 million (8.6%).
+              Projected by 2050: ~340 million (20% o total population) — a threefold
+                  increase.
+
+              Life expectancy: 70 years (2024, UN data).
+
+              Formal pension coverage: <25% o workorce (mostly in government
+                  and organized sector).
+
+              Informal/unorganized workforce: ~85% o total employment →
+                  minimal pension
+
+Institution                 Mandate / Function
+
+PFRDA (Pension Fund         Regulates and promotes NPS, APY, and related
+Regulatory and Development  intermediaries (und managers, POPs). Established
+Authority)                  under PFRDA Act, 2013.
+
+EPFO (Employees’ Provident  Administers EPF, EPS, and EDLI or organized-sector
+Fund Organisation)          employees under EPF & MP Act, 1952.
+
+IRDAI                       Regulates annuity and pension products oered by lie
+                            insurers.
+
+Department of Financial     Policy oversight or government pensions and pension
+Services (DFS)              reorms.
+
+Ministry of Rural Development Implements social pensions under NSAP.
+
+       E. Evolution of the Pension Sector in India
+
+       Period   Milestone
+
+                          Defned Beneft (DB) government pensions dominated. Limited
+       Pre-1990s coverage outside government service.
+
+       1995     Employees’ Pension Scheme (EPS) introduced under EPFO.
+
+       2004     National Pension System (NPS) launched or new central
+                government recruits (Defned Contribution model).
+
+       2009–10  NPS opened to all citizens; Swavalamban Yojana launched or
+                unorganized sector.
+
+       2015     Atal Pension Yojana (APY) launched or low-income/unorganized
+                workers.
+
+       2013–14 Pension Fund Regulatory and Development Authority (PFRDA) Act
+       onward enacted; NPS architecture institutionalized.
+
+       F. Current Coverage and Performance (as of FY2023–24)
+
+       Scheme               Subscribers (approx.)          Assets under
+                                                           Management (AUM)
+
+       Atal Pension Yojana  6.3 crore                      ₹35,000+ crore
+Scheme             Subscribers (approx.)  Assets under
+                                          Management (AUM)
+EPFO (EPF + EPS)
+Total Pension AUM  29 crore accounts (active +
+(regulated)                                                    ₹20+ lakh crore corpus
+
+                   inactive)
+
+                   ~₹29–30 lakh crore     ~12% o India’s GDP
+
+G. Key Issues and Challenges
+
+     1. Low Coverage: 85% workorce outside ormal pension system.
+
+     2. Inadequate Benets: Small monthly pensions under EPS/APY due to low
+          contributions.
+
+     3. Fragmented Regulation: Multiple agencies (PFRDA, EPFO, IRDAI) with
+          overlapping jurisdictions.
+
+     4. Informal Sector Inclusion: Irregular income makes sustained
+          contributions dicult.
+
+     5. Gender Gap: Female participation in NPS/APY is signifcantly lower
+          (around 30%).
+
+     6. Need for Universal Pension: No unifed old-age income guarantee.
+
+Government (Public Sector) Pension Schemes
+
+1. Civil Service / Government Pension (Old Pension Scheme - OPS)
+
+     Nature: Dened Benet (DB) – based on last salary drawn and years o
+          service.
+
+     Eligibility: Government employees recruited beore 1 Jan 2004 (Central) /
+          date specifed by States.
+
+     Funding: Non-contributory (paid rom government budget).
+
+     Formula: Pension = 50% o last drawn salary (ater 20 years’ service).
+
+     Drawback: High fscal burden and no portability.
+
+     Status: Replaced by NPS or new recruits post-2004, but some states
+          (Rajasthan, Chhattisgarh, Punjab, Himachal Pradesh, etc.) have reverted to
+          OPS in recent years.
+
+2. National Pension System (NPS)
+     Nature: Dened Contribution (DC) scheme regulated by PFRDA.
+     Launched: 2004 (mandatory or new Central Govt. employees).
+     Extended to: All citizens (2009), Corporate employees, and unorganized
+          sector.
+
+     Structure:
+               o Tier I: Mandatory retirement account (restricted withdrawal).
+               o Tier II: Voluntary savings account (withdrawable).
+
+     Contribution:
+               o Govt. employees – 10% employee + 14% employer.
+               o Others – voluntary, with tax benefts (Sec. 80CCD(1), 80CCD(2)).
+
+     Withdrawal: 60% lump sum (tax-ree) + 40% annuity purchase at
+          retirement.
+
+     AUM (2024): ₹10+ lakh crore; 1.2 crore subscribers.
+
+3. Atal Pension Yojana (APY)
+     Launched: 2015 (replacing Swavalamban Yojana).
+     Target Group: Unorganized sector workers (18–40 years).
+     Nature: Dened Benet (guaranteed monthly pension).
+     Pension Range: Guaranteed pension amount o ₹1,000 to ₹5,000/month
+          (ater age 60).
+     Contribution: Based on age and desired pension (₹42–₹210/month).
+     Co-contribution: Government provided 50% o contribution or 5 years
+          (or early joiners, 2015–2016).
+     Subscribers: ~6.3 crore (2024).
+
+B. Occupational / Employer-Based Schemes
+1. Employees’ Provident Fund (EPF)
+
+     Regulator: EPFO (under Ministry o Labour).
+     Coverage: Establishments with ≥20 employees.
+     Contribution: 12% o basic salary rom employer and employee each.
+     Nature: Dened Contribution (savings with interest).
+     Withdrawals: Partial or housing, medical, marriage, etc.
+     Interest Rate (2024–25): 8.25%.
+     Corpus (2024): ~₹17–18 lakh crore.
+   2. Employees’ Pension Scheme (EPS), 1995
+         Regulator: EPFO.
+         Contribution: 8.33% o employer’s EPF share (limited to ₹15,000 salary
+              cap).
+         Nature: Dened Benet – lielong pension ater retirement.
+         Formula: Pension = (Pensionable salary × Service years) / 70.
+         Issues: Low pensions (avg. ₹1,500–₹2,000/month), unding shortall.
+
+   3. Superannuation Funds
+         Nature: Employer-sponsored retirement beneft (voluntary).
+         Tax Benet: Employer contribution up to 15% o salary deductible under
+              Sec. 36(1)(iv).
+         Used by: Large corporates, PSUs, banks.
+
+ Superannuation, or a company pension plan, is a retirement beneft plan provided
+     by a company. Employers and employees contribute a fxed percentage o basic
+     salary into a und to create a corpus and fnancial stability or employees upon
+     retirement. This und is paid out on retirement, death, or resignation o employees.
+     It is designed to ensure fnancial security or employees post-retirement. Also,
+     contributions to superannuation by employees are a tool or tax benefts
+   C. Voluntary and Individual Retirement Plans
+   1. Voluntary NPS (All Citizens Model)
+         Any Indian citizen (18–70 years) can open an NPS account directly.
+         Low-cost, transparent, online model.
+         Flexible contributions, auto-choice investment options.
+   2. Insurance-based Pension / Annuity Plans
+         Oered by lie insurers (LIC, HDFC Lie, ICICI Pru, SBI Lie, etc.).
+         Types:
+                   o Deferred Annuity: Accumulate corpus → pension later.
+                   o Immediate Annuity: Pension starts immediately ater purchase.
+   3. Mutual Fund Retirement Plans
+         Regulated by SEBI.
+         Equity/debt-oriented long-term investment products with tax benefts
+              under Sec. 80C.
+         Example: HDFC Retirement Savings Fund, ICICI Prudential Retirement
+              Fund.
+Scheme        Type      Regulato Nature  Target Group Key Benet
+
+                        r       (DB/DC)
+
+              Govt.                      Govt.             Guaranteed
+
+OPS           Pension   DFS     DB       employees         lielong pension
+
+                                         (pre-2004)
+
+NPS           Public/   PFRDA DC         Govt., private, Market-linked
+              Private                    individuals returns, portable
+
+APY           Public    PFRDA DB         Inormal  sector  Guaranteed
+                                                           ₹1k–₹5k pension
+
+EPF           Employer EPFO     DC       Organized         Lump sum +
+
+                                         sector            interest
+
+EPS           Employer EPFO     DB       Organized         Monthly pension
+                                         sector
+
+Superannuati  Employer  IRDAI/  DC       Corporate         Employer beneft
+on                      Trusts           employees
+
+E. Global and Indian Outlook
+     India’s pension assets-to-GDP ratio (~18%) remains low compared to:
+               o US (~150%), UK (~100%), OECD average (~90%).
+
+1. National Pension System (NPS)
+A. Background and Evolution
+
+     Introduced: 1 January 2004 or Central Government employees (except
+          armed forces), replacing the Old Pension Scheme (OPS).
+
+     Extended: To all Indian citizens on a voluntary basis rom 1 May 2009.
+     Regulated by: Pension Fund Regulatory and Development Authority
+
+          (PFRDA), established under PFRDA Act, 2013.
+     Objective: To provide old-age income security through a dened
+
+          contribution, market-linked pension model ensuring fscal sustainability
+          and individual savings discipline
+
+B. Structure and Design
+The NPS operates through a two-tiered individual account structure:
+Tier Nature                                   Purpose
+
+Tier Mandatory retirement account (restricted Core pension savings with tax
+
+I withdrawals).                               benefts.
+
+Tier Voluntary savings account (withdrawable Acts like a savings account
+
+II anytime).                                  linked to NPS.
+
+C. Participants and Architecture
+
+Entity              Function
+
+Subscriber          Individual contributing to NPS.
+
+Point of Presence   Banks, fnancial institutions authorized to acilitate
+(POP)               enrollment and contributions.
+
+Central             NSDL e-Gov and CAMS – maintain data, transactions,
+Recordkeeping       and issue PRAN (Permanent Retirement Account
+Agency (CRA)        Number).
+
+Pension Fund        Manage investment portolios (HDFC Pension, SBI
+Managers (PFMs)     Pension, LIC Pension, etc.).
+
+Trustee Bank        Axis Bank (currently) – manages und ows.
+
+Annuity Service     Lie insurers oering annuities post-retirement (e.g., LIC,
+Providers (ASPs)    HDFC Lie).
+
+D. Contribution Mechanism
+
+Category                                                       Employer  Total
+                    Employee Contribution Contribution
+
+Central Govt.       10% o Basic + DA         14% by Govt.               24% total
+Employees
+
+State Govt.         Usually 10% each (varies  —                          —
+
+Employees           by state).
+
+Private Sector /    Voluntary (minimum  ₹1,000 —                         Individual
+All Citizens Model  annually).                                           choice
+
+Corporate NPS       As per corporate HR policy Up to 10% o
+                                                                                               —
+
+                    (tax benefts available). salary deductible.
+
+ Subscribers: Over 1.25 crore (including government, private, and
+     voluntary).
+G. Withdrawal and Exit Rules
+     At Retirement (Age 60):
+               o Withdraw up to 60% lump sum (tax-ree).
+               o Remaining 40% must be used to buy an annuity rom an ASP or
+                    monthly pension.
+     Premature Exit (before 60 years):
+               o Allowed ater 3 years.
+               o 20% lump sum, 80% annuity purchase mandatory.
+
+ Partial Withdrawals:
+          o Up to 25% o contributions or specifc purposes (education,
+               marriage, home, illness).
+
+          o Allowed thrice during the subscription.
+
+H. Tax Benets (Under Income Tax Act)
+
+Section   Benet                                 Limit
+
+80CCD(1)                                                               ₹1.5 lakh (part o 80C
+          Employee/sel-contribution deduction
+
+                                                                       limit)
+
+80CCD(1B) Additional sel-contribution           ₹50,000 (exclusive)
+
+80CCD(2)  Employer contribution (up to           No upper monetary
+          10%/14%)                               limit
+
+Maturity  60% corpus tax-ree; annuity taxed as  —
+Benets   income
+
+K. Policy and Reform Directions
+
+     PFRDA is exploring Guaranteed Pension Products (GPP) and Flexible
+          NPS Lite to increase uptake.
+
+     States demanding hybrid schemes (OPS + NPS) led to proposals like NPS-
+          Plus.
+
+     Integration with e-Shram portal or unorganized sector workers under
+          consideration.
+
+2. Atal Pension Yojana (APY)
+A. Introduction and Context
+ Launched: 9 May 2015 by Government o India
+
+B. Eligibility and Enrollment
+
+Criteria   Details
+
+Age Limit  18–40 years
+
+Nationality Indian citizen
+
+Bank Account Mandatory (auto-debit acility)
+
+Exclusion  Individuals paying income tax or covered under statutory social
+
+(from 2022) security schemes (like EPFO, NPS) cannot join APY.
+
+C. Nature of Scheme
+
+     Dened Benet (DB) model — fxed pension guaranteed by the
+          Government o India.
+
+     Pension starts at age 60 and continues or lie.
+
+     In case o death, spouse continues pension; on both deaths, corpus paid to
+          nominee.
+
+E. Government Co-Contribution
+     For eligible low-income workers (joined beore 31 March 2016):
+               o Government contributed 50% o subscriber’s contribution or
+                    ₹1,000 per annum (whichever lower) or 5 years
+
+F. Operational Model
+     Administered through banks and post oces (as Points o Presence).
+     Auto-debit system rom savings account ensures contribution regularity.
+
+G. Benets
+     1. Guaranteed Monthly Pension: ₹1,000–₹5,000.
+     2. Family Pension: Spouse eligible ater subscriber’s death.
+     3. Corpus Return to Nominee: Lump sum paid to nominee ater death o
+          both subscriber and spouse.
+     4. Tax Benets: Eligible under Sec. 80CCD(1).
+     5. Portability: Across banks and regions.
+H. Performance and Reach
+
+Parameter  (as  of  March  Details
+2024)
+
+Subscribers                ~6.3 crore
+
+AUM                        ~₹35,000 crore
+
+Gender ratio               ~55% male, 45% emale
+
+Rural share                ~70% subscribers
+
+Avg. monthly               ₹140–₹200
+contribution
+
+Leading States: Uttar Pradesh, Bihar, West Bengal, Maharashtra, and Madhya
+Pradesh.
+
+I. Signicance
+     APY serves as the social security pillar or inormal sector workers
+          (drivers, vendors, domestic help, etc.).
+     Complements PM Shram Yogi Maan-Dhan (PM-SYM) and e-Shram
+          initiatives.
+     Critical step toward inclusive pension coverage under National Social
+          Security Code, 2020.
+
+1. PM-SYM (Pradhan Mantri Shram Yogi Maan-Dhan Yojana)
+     For unorganised sector workers (sel-employed, daily wagers, street
+          vendors, etc.)
+     Voluntary, contributory pension scheme.
+     Both worker and government contribute (₹55–₹200/month each).
+     Managed by LIC, not EPFO.
+     Pension: ₹3,000/month ater 60 years.
+     Aim: Social security for informal workers.
+
+2. EPS (Employees’ Pension Scheme, 1995)
+
+     For organised sector employees covered under EPF with salary
+          <15,000/month (Employees’ Provident Fund).
+
+     Employer contributes 8.33% of employee’s basic pay (rom the EPF
+          share).
+
+     Managed by EPFO (Employees’ Provident Fund Organisation).
+
+     Pension depends on salary and service length, not fxed at ₹3,000.
+ Aim: Retirement income for formal-sector employees.
+
+Comparative Overview: NPS vs. APY
+
+Feature           National Pension System Atal Pension Yojana
+
+                  (NPS)                                         (APY)
+
+Type              Defned Contribution (DC)                      Defned Beneft (DB)
+
+Launch Year       2004 (Govt.), 2009 (All                       2015
+                  Citizens)
+
+Regulator         PFRDA                                         PFRDA
+
+Eligibility       18–70 years (All citizens)                    18–40 years (Unorganized
+                                                                workers)
+
+Contribution      Flexible, voluntary                           Fixed, auto-debited
+
+Return Type       Market-linked                                 Government-guaranteed
+                                                                pension
+
+Withdrawal        60% tax-ree               lump  sum  +  40%  Pension  ater  60  only
+                  annuity
+
+Tax Benets       Sections 80CCD(1), (1B), (2) Section 80CCD(1)
+
+Corpus            By PFMs (SBI, HDFC, LIC, etc.)                Managed under NPS
+Management                                                      architecture
+
+Subscriber Base                                                 ~6.3 crore
+                                ~1.25 crore
+
+(2024)
+
+1. Annuity Plans
+
+     An annuity is a nancial contract between an individual and an insurer in
+          which the individual pays a lump sum or series of payments, and in
+          return, the insurer provides regular periodic income, usually ater
+          retirement.
+
+     Purpose: To ensure steady post-retirement income and protect against
+          longevity risk (outliving one’s savings).
+
+B. Types of Annuities
+
+Type              Description                                          Suitable For
+
+Immediate Annuity Starts immediately ater paying a Retirees seeking
+                                  lump sum (usually post-retirement). instant income.
+
+Deferred Annuity  Income starts ater a chosen                         Younger investors
+                  deerment period; accumulation                       planning or uture
+                  happens beore payouts.                              income.
+Type              Description                         Suitable For
+
+Fixed Annuity     Pays a predetermined, fxed amount Risk-averse investors
+
+                  regularly.                          preerring stability.
+
+Variable Annuity  Returns uctuate based on           Investors willing to
+                  underlying und perormance         take moderate
+                  (market-linked).                    market risk.
+
+Lifetime Annuity  Income paid till the annuitant’s    Individuals seeking
+                  lietime.                           longevity protection.
+
+Joint-life Annuity Pays till either spouse is alive.  Married couples.
+
+Annuity with      Pays pension during lie; ater death, Common in India
+
+Return of Purchase the original purchase price is     (popular among NPS
+
+Price (ROP)       returned to nominee.                retirees).
+
+E. Role in NPS
+
+     Under the National Pension System, at least 40% of corpus (or
+          regular exit) must be used to purchase an annuity rom a PFRDA-
+          approved Annuity Service Provider (ASP) — e.g., LIC, HDFC Lie, ICICI
+          Prudential.
+
+     ASP pays monthly pension for life as per selected option.
+
+ Policy Context
+
+     IRDAI regulates annuity products; encouraging deferred and variable
+          annuities to align with NPS reorms.
+
+     GIC Re and LIC dominate India’s annuity market, but private life
+          insurers (HDFC Lie, ICICI Pru, SBI Lie) are expanding oerings.
+
+C. Types of Investment Instruments
+
+Category       Examples                               Nature
+
+Fixed-         Bonds, Government Securities (G-       Low-risk, stable returns
+
+income / Debt Secs), PPF, Bank FDs, NCDs
+
+Equity         Shares, Equity Mutual Funds, ETFs      High-risk, growth-
+                                                      oriented
+
+Hybrid         Balanced or Hybrid Mutual Funds        Mix o equity and debt
+
+Alternative    Real Estate, Gold ETFs, REITs, InvITs, Diversifcation, moderate-
+
+               Crypto (unregulated)                   to-high risk
+
+Insurance-     Endowment, ULIPs, Annuities            Combine protection with
+linked                                                savings
+
+Retirement / NPS, EPF, PPF, APY                       Long-term wealth and
+Category       Examples                                    Nature
+Pension                                                    income security
+
+D. Asset Allocation
+
+ The core investment decision involves deciding what proportion o total
+     investable unds go into equity, debt, gold, or cash.
+
+ Age-based rule o thumb:
+
+      o Equity allocation ≈ (100 – age)%
+
+E. Risk Categories
+
+Type of Risk Example
+
+Market Risk Equity price uctuations
+
+Interest Rate  Bond values all when rates rise
+Risk
+
+Credit Risk    Deault by bond issuer
+
+Ination Risk Returns lose value in real terms
+
+                           Diculty in selling investment
+Liquidity Risk
+
+                           quickly
+
+Reinvestment Reinvested income earns lower
+
+Risk           rate
+
+F. Return Metrics           Meaning
+Measure                     Gross return beore ination.
+Nominal Return              Adjusted or ination.
+Real Return                 Annualized growth rate over
+CAGR (Compounded Annual     time.
+Growth Rate)                Total return i bond held till
+                            maturity.
+YTM (Yield to Maturity)     Risk-adjusted return measure.
+
+Sharpe Ratio
+
+G. Investment Process
+     1. Goal Setting: Retirement, education, home, etc.
+     2. Risk Proling: Assess tolerance (conservative, balanced, aggressive).
+     3. Asset Allocation: Choose mix o equity, debt, etc.
+     4. Product Selection: Choose mutual unds, NPS, ETFs, etc.
+     5. Monitoring and Rebalancing: Periodic review to maintain desired
+
+          allocation.
+
+H. Institutional Framework in India
+     Regulators:
+               o SEBI – capital markets, mutual unds
+               o RBI – monetary policy, government securities, oreign Exchanges,
+                    orex market-swaps, spots etc
+               o IRDAI – insurance-linked investments, Annuity plans
+               o PFRDA – pension investments (NPS, APY)
+     Investment Avenues (Public):
+               o EPFO, PPF, SCSS, Sukanya Samriddhi
+               o Mutual unds via AMFI-regulated intermediaries
+
+                                           Pension Sector in India
+
+1. Overview and Structure
+India’s pension system is ragmented and covers only a small portion o the
+workorce.
+
+     Challenges:
+               o Coverage concentrated in ormal/government sectors.
+               o Fragmented regulation: EPFO (under Ministry o Labour) and
+                    PFRDA (under Ministry o Finance).
+               o 81% of India’s labour force is inormal; only ~25% o Indians
+                    plan or retirement.
+
+     Summary: India’s pension ecosystem combines public and private
+          schemes, both contributory and tax-unded, with low penetration but
+          expanding policy ocus.
+
+2. Major Pension Schemes in India
+Scheme         Examples       Type       Who Pays       Key Benet        Portability
+Category                      (DB/DC)
+
+Civil / Govt   Old Pension               Employer       Lietime          Non-
+Pensions       (pre-2004),
+                                                        annuity ~50%
+                                    DB   (tax-unded) o last salary portable
+               Army,
+               Railways
+
+               EPFO or       DB (now                   Pension = (avg
+
+Employees’ private            closed to  Employer       last 5 yrs        Portable via
+                                                                          EPF
+Pension        workers with   high-      8.33% +        wages ×           transer
+Scheme (EPS,   earnings less  wage       Govt 1.16%     service yrs) /
+1995)          than           entrants)  o wages       70 (~50%)
+               15k/month
+
+Provident                                Employee Lump-sum                Fully
+Fund (EPF)                               12% +                            portable
+               EPFO           DC         Employer       corpus with
+                                         ~12%           interest
+
+                                         Employee
+
+National       All-Citizen,              10% +          Lump-sum +        Fully
+                                                                          portable
+Pension        Govt,          DC         Employer annuity at
+
+System (NPS) Corporate                   10%            retirement
+
+                                         (corporate)
+
+Atal Pension   Inormal-                 Subscriber     Guaranteed Nominal
+Yojana (APY)   sector                    + Govt co-
+               workers        DB         contrib.       ₹1,000–           amily
+                                         (initially)
+                                                        ₹5,000/month portability
+
+PM-SYM         Inormal       DB         Subscriber     ₹3,000/month      –
+               workers                   (voluntary)    guaranteed
+
+Superannuatio  Corporate                      Employer  Lump-sum +        Transerabl
+                              DB or DC (≈15% o         annuity (⅓ +      e with
+n Funds        pension                                  ⅔ split)          service
+               unds                          pay)
+
+               NPS Tier II,                                  Accumulated
+                                         Contributor
+Private /      Insurance      DC                                          Fully
+                                                             corpus +     portable
+Pension Funds Pension                    (voluntary)
+
+               Plans                                         annuity
+
+3. Dened-Benet (DB) vs. Dened-Contribution (DC) Pensions
+
+Dened-Benet (DB) Schemes:
+
+     Promise a fxed pension based on a ormula (usually a raction o fnal
+          salary).
+
+     Examples: Pre-2004 government pensions, armed orces, railways, EPS-
+          95.
+     EPS formula: (Average last 60 months’ salary × service years) / 70 →
+          capped ~50% replacement; minimum ₹1,000/month.
+
+     Financed by the employer or the state; limited portability via “Scheme
+          Certifcates.”
+
+Dened-Contribution (DC) Schemes:
+     Payout depends on contributions and investment returns.
+     Examples: EPF, NPS, APY, PM-SYM, Superannuation Funds.
+     EPF/EPS: Employee contributes 12% o basic pay; employer contributes
+          12% (8.33% to EPS, 3.67% to EPF).
+     NPS: Both employee and employer contribute fxed percentages; corpus
+          invested in market instruments; at retirement, 60% lump-sum + 40%
+          annuity.
+     APY (2015): Fixed contribution → guaranteed pension
+          ₹1,000–₹5,000/month at 60.
+     PM-SYM (2019): ₹3,000/month pension or inormal workers.
+     Corporate Superannuation Funds: Employer-unded (up to 15% o
+          pay), paying partly lump-sum and partly annuity.
+     Trend: Shit rom DB (state-backed) to DC (market-linked) to widen
+          coverage.
+
+4. National Pension System (NPS)
+Nature and Eligibility
+
+     Regulated by PFRDA.
+     Open to all Indian citizens (including NRIs/OCIs) aged 18–70 years.
+     Two accounts: Tier I (retirement) and Tier II (voluntary).
+     Tax Benets:
+
+               o Up to 10% o salary (basic + DA) deductible under Sec. 80CCD(1).
+               o Additional ₹50,000 under Sec. 80CCD(1B).
+Investment and Management
+     Funded through Central Recordkeeping Agency (CRA) under PFRDA.
+     Managed by 9 Pension Fund Managers (PFMs): SBI, LIC, UTI, Kotak,
+          Axis, ICICI, Tata, Aditya Birla, HDFC.
+     Subscribers may choose:
+               o Active Choice: Allocate up to 75% in equities.
+               o Auto Choice: Equity share reduces with age.
+     Regulated to avoid speculative investments.
+Withdrawal and Exit
+
+     At 60: 60% tax-ree lump sum; 40% annuitized.
+     Small corpus (≤ ₹2.5 lakh): ull withdrawal allowed.
+     Early exit: 20% lump-sum allowed (≥ 10 yrs service), remainder
+
+          annuitized.
+     Partial withdrawals (up to 25%) allowed ater 10 years or specifc
+
+          purposes.
+     Upon death: ull payout to nominee.
+
+5. Atal Pension Yojana (APY)
+Purpose: Guaranteed pension or unorganized workers (18–40 years old) who
+are non-taxpayers.
+Structure:
+
+     Subscribers select pension (₹1,000–₹5,000 at 60).
+     Administered by PFRDA using NPS architecture.
+Performance (as of April 2025):
+     Subscribers: ~7.65 crore
+     ~48% women participants.
+Features:
+     Lietime guaranteed pension with amily beneft.
+     Automatic debit through bank/post oce channels.
+6. Annuity Plans
+Denition: Contracts (mainly with insurance companies) converting a lump-sum
+into periodic lielong payments.
+Types:
+     1. Immediate Annuity: Payments start immediately ater paying lump-sum.
+     2. Deferred Annuity: Payments begin ater a fxed deerment period (e.g.,
+
+          5–10 years).
+     3. Fixed/Guaranteed Annuity: Constant payout; stable but limited upside.
+     4. Variable/Indexed Annuity: Payout linked to market returns or ination
+
+          index; oers growth but higher risk.
+Providers: LIC, HDFC Lie, SBI Lie, ICICI Pru, etc.
+Regulation:
+
+     Governed by IRDAI, with prescribed minimum guarantees and solvency
+          norms.
+ Standardised product eatures and disclosure requirements.
+     Integration with NPS:
+
+ At NPS exit, 40% o corpus must buy an IRDAI-approved annuity.
+
+ Common options: lie annuity, joint-lie, return-o-purchase-price variants.
+     Function: Ensures steady lifelong income, complementing lump-sum
+     retirement corpus.
+
+7. Investment Principles for Pension Schemes
+1. Asset Allocation
+
+     Diversiy across equities, corporate bonds, G-Secs, and alternatives.
+     NPS allows up to 75% equity exposure or younger subscribers.
+     Older investors shit toward fxed income or stability.
+1. Nominal Return
+Meaning: The raw percentage gain or loss on an investment beore adjusting or
+ination or taxes.
+
+2. Real Return
+Meaning: Return adjusted or ination, showing true purchasing power gain.
+
+                                           Real Return (R ᵣ )= 1+ Rn−1
+                                                                      1+i
+
+Where i= ination rate.
+Approximation: Rr ≈ Rn−i
+Example: I nominal return = 8% and ination = 5%,
+
+                                         Rr ≈ 8 %−5 %=3 %
+
+3. CAGR (Compounded Annual Growth Rate)
+
+Meaning: The smoothed annual growth rate over multiple years — ignores
+volatility.
+
+                      CAGR  =(  V  f   1/ n
+
+                                Vi    ) −1
+
+Where:
+
+ V i= initial value
+
+ V f = fnal value
+
+ n= number o years
+Example: ₹1 lakh → ₹1.33 lakh in 3 years
+
+                                              CAGR=¿
+
+5. Sharpe Ratio
+Meaning: Measures risk-adjusted return — excess return per unit o volatility.
+
+                                     Sharpe Ratio (S)= Rp−Rf
+
+                                                                        σp
+Where:
+
+     Rp= portolio return
+     Rf= risk-ree return
+     σ p= standard deviation o portolio returns
+Interpretation:
+Higher ratio → better risk-adjusted perormance (above 1.0 = strong).
+
+Instrument Issuer         Purpose                     Typical      Key Features
+                                                      Maturity /
+                                                      Duration
+
+                          Short-term                  91 days, 182 Issued at discount, rede
+
+Treasury     Government borrowing to                  days, 364    face value; zero-coupon;
+
+Bills (T-Bills) of India  meet liquidity              days         free.
+
+                          needs
+
+Commercial   Corporation Short-term                   7 days to 1  Unsecured promissory n
+             s, nancial working capital              year         issued at discount; high
+Papers (CPs) institutions requirement                              than T-Bills.
+
+Certicates  Banks and To raise short- 7 days to 1
+of Deposit
+(CDs)        select       term funds from year (banks); Negotiable, tradable, iss
+
+             nancial corporates/individ up to 3 years demat or physical form.
+
+             institutions uals                        (FIs)
+
+Repos /      RBI, banks, Collateralised               Overnight to Borrower sells securities
+Reverse
+Repos        nancial short-term                      14 days      agreement to repurchas
+
+             institutions borrowing/lending (commonly) of monetary policy.
+
+Call/Notice  Banks and    Manage short-               Call Money: 1 Unsecured interbank len
+Money        primary      term liquidity
+             dealers      between                     day          highly liquid; rate reec
+                          institutions
+                                                      (overnight); market liquidity.
+
+                                                      Notice
+
+                                                      Money: 2–14
+Instrument Issuer  Purpose  Typical     Key Features
+                            Maturity /
+                            Duration
+
+                            days
+
+ Marginal Standing Facility (MSF): This is the main window or banks to
+     borrow overnight unds rom the RBI when inter-bank liquidity dries up
+     completely. Banks can dip into their Statutory Liquidity Ratio (SLR)
+     requirement to avail o this acility up to a certain limit.
+

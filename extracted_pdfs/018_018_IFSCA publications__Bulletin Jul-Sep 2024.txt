@@ -1,0 +1,2576 @@
+SOURCE: 018_IFSCA publications__Bulletin Jul-Sep 2024.pdf
+PAGES: 38
+================================================================================
+
+
+[PAGE 1]
+IFSCA
+JUL-SEPJUL-SEP
+www.ifsca.gov.in
+20242024
+BULLETIN
+INTERNATIONAL FINANCIAL
+SERVICES CENTRES AUTHORITY
+
+
+[PAGE 2]
+ 
+ 
+ 
+ 
+ 
+ 
+The IFSCA Bulletin is issued by the Division of Economic Policy and Analysis, 
+International Financial Services Centres Authority . The source of data/ information is 
+the periodic reports submitted by the regulated entities to IFSCA. 
+ 
+IFSCA has no objection to the material published herein being reproduced, provided an 
+acknowledgement of the same is made. 
+ 
+The soft copy of IFSCA Bulletin in PDF format can be freely downloaded from Reports 
+and Publications section in IFSCA website (https:/ /ifsca.gov.in) 
+ 
+Any comments and suggestions on any of the features/ sections may be sent to the email 
+id: dept-epa@ifsca.gov.in 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+[PAGE 3]
+ 
+Contents
+___________________________________________________________________________ 
+Chairperson’s Desk.................................................................................................................................................... 1
+IFSC Business Highlights.........................................................................................................................................4
+Regulatory Updates...................................................................................................................................................5
+Highlights of the Quarter.........................................................................................................................................9
+Public Consultation .................................................................................................................................................13
+Collaboration and Partnerships ...........................................................................................................................16
+Events and Activities............................................................................................................................................... 17
+Current Statistics.................................................................................................................................................... 24 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+[PAGE 4]
+                             CHAIRPERSON’S DESK 
+ 
+ 
+ 
+ IFSCA BULLETIN | 2024 
+GIFT IFSC 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+India is currently celebrating ‘the  great festival of 
+democracy’ or ‘Azadi ka Amrit Mahotsav’, a period of 25 
+years leading to the 100th year of independence , 
+culminating into the vision of ‘Viksit Bharat in 2047’. In 
+line with this, t he budget 2023-24 lays out a blueprint 
+for achieving long term welfare and development goals. 
+The India n reforms process driven by Government of 
+India has achieved great progress by repealing 1550 
+outdated colonial era laws, replaced many of them with 
+modern, progressive and business -friendly laws and 
+regulations. Hon’ble Finance Minister has announced a 
+review of the Income Tax, GST Act and Customs Duty 
+Structures in the Budget for FY25. More reforms can be 
+expected in enabling high degree of comfort for Indian 
+and Foreign Investors.  
+The services sector is a key driver of India's export 
+growth, this became even more apparent in midst of the 
+volatility last year, when despite a global export slump, 
+the export of services from India offset the decline in  
+merchandise trade. 
+India has witnessed remarkable growth in its services 
+exports, more than doubling from USD 158 billion to 
+USD 341 billion over the past nine years.  Financial 
+services from the BFSI sector are at the heart of this 
+development, catapulting India to the 8th rank globally 
+in business service exports, with its services exports now 
+accounting for 4.3% of the world's total.  
+This implies that as India continues its upward 
+trajectory, a well -developed financial sector will be 
+crucial to provide the necessary foundation for sustained 
+growth and competitiveness in the global financial 
+services landscape.  
+It is in line with  this objective  that the International 
+Financial Services Centre (IFSC) at Gujarat 
+International Finance Tec -City (GIFT City) was 
+envisaged. 
+The International Financial Services Centres Authority 
+(IFSCA) was set up by the Government of India on April 
+27, 2020, as a unified financial regulator with main 
+objective to develop and regulate financial services in the 
+IFSCs and to make the vision of developed India a reality 
+and establish India as a world -class financial hub that 
+could compete with leading global financial centres such 
+as Singapore and London.  
+IFSCA has adopted a clean -slate principle of studying 
+global best practices and principle of alignment with 
+Global Standards in the process of drafting new 
+regulation in the last 4 years.  The efforts in this regard 
+are gradually coming to fruition as international 
+financial transactions that were once routed through 
+global hubs like Singapore, Dubai, and Hong Kong are 
+now being conducted from GIFT IFSC establishing it as 
+a credible alternative for international financial 
+dealings.  
+The IFSC has seen remarkable growth with the banking 
+and funds sectors at the forefront . Banking assets have 
+crossed the  $70 Bn billion mark, and the transactions 
+have exceeded $975 Bn billion as of September 2024. 
+The popularity of this sector can be attributed to the 
+foreign currency borrowings of the Indian Corporates 
+and Public sector entities and trade finance with retail 
+products gaining traction.  The number of fund 
+management companies and funds in the IFSC has also 
+increased significantly, as of September 2024, there are 
+128 FMEs and 168 funds registered with IFSCA.  
+The IFSC is mobilising capital effectively , the growing 
+significance and global participation of Indian market is 
+evident with GIFT Nifty reaching an all -time high on 
+September 24, 2024, with open interest of $20.84 
+billion and a single-day turnover of $22.72 billion. 
+A Catalyst for India's Economic Growth 
+Contributing to the India@2047 Vision 
+  
+ 
+K Rajaraman 
+Chairperson, IFSCA 
+          
+ 
+ 
+ 
+ 
+ 
+         
+ 
+“Our vis ion is to develop 
+the GIFT IFSC into a 
+leading global financial 
+centre having  strong 
+connects with global 
+financial and commodity 
+markets across the world” 
+
+[PAGE 5]
+                             CHAIRPERSON’S DESK 
+ 
+ 
+ 
+ IFSCA BULLETIN | 2024 
+Ship leasing and aircraft leasing are two business 
+segments that were not very popular in India till very 
+recently, however, the regulatory ecosystem at IFSC has 
+enabled these segments to grow and create ripples in the 
+global ship leasing market. Ship leasing began in June 
+2023, and numerous leasing entities have been set up 
+ever since . The number of ship lessors  are 12 as of  
+September 2024. Additionally, aircraft leasing has 
+grown tremendously with 27 lessors  and 159 aviation 
+assets leased  as of September 2024. This growth 
+positions GIFT City as a rising player in the global 
+leasing market. 
+To drive economic success through systematic efforts in 
+congruence with the pillars and goals highlighted in the 
+budget 2024 -25, IFSCA has implemented various  
+initiatives for instance, aligning with the budget's focus 
+on improving Ease of Doing Business and promoting 
+exports, an International Arbitration Centre is being set 
+up at the GIFT IFSC to provide timely dispute resolution 
+under international jurisprudence. This move aims to 
+reduce India's outbound Alternative Dispute Resolution 
+(ADR) expenses and transform them into a thriving 
+global industry, attracting disputants worldwide. Under 
+this move, an ADR Centre offering arbitration, 
+mediation, and diverse dispute resolution methods and 
+an IFSC International Court dealing with all ADR 
+matters arising from IFSCs, with powers similar to a 
+High Court are envisioned. This will set India on track to 
+become a global leader in ADR, offering top -notch 
+services at competitive prices. 
+Similarly, to materialise the goal of Digital economy, the 
+Single Window IT System (SWIT) portal was launched 
+by Hon'ble Prime Minister at a public function at 
+Ahmedabad on  September 16, 2024 . This portal will 
+provide a one-stop online solution, eliminating the need 
+for multiple permissions and excessive documentation, 
+and facilitating inter -regulatory coordination between 
+RBI, SEBI, and other regulators  and promote ease of 
+doing business. 
+The Reserve Bank of India (RBI) has liberalized the 
+Liberalised Remittance Scheme (LRS) for resident 
+Indians in International Financial Services Centres 
+(IFSC), GIFT City. Previously, remittances were only 
+permitted for investing in securities and opening non -
+interest-bearing foreign currency accounts. However, 
+following the revisions, resident Indians can now make 
+payments for education fees to foreign universities or 
+institutions in IFSC, GIFT City, and are no longer 
+required to repatriate idle funds within 15 days. This will 
+help make IFSC even more attractive to foreign investors 
+and financial institutions, enhancing its global 
+competitiveness supporting the pillar of Economic 
+Empowerment by boosting financial sector growth. 
+The IFSCA supports India's commitment to 
+environmental sustainability and in alignment with the 
+pillar of Green Growth , the trading and settlement of 
+Sovereign Green Bonds (SGrBs)  has been permitted 
+with a view to facilitate easier access for non -resident 
+investors to invest and trade in SGrBs through IFSC and 
+to enhance global climate capital flows into India . To 
+further strengthen the framework and facilitate 
+informed decision-making, improved transparency, and 
+reduced 'greenwashing' risks, IFSCA has also  enabled 
+Credit Rating Agencies to undertake additional activities 
+relating to ESG Ratings and Data Products Providers. 
+The IFSCA recognizes the  shortage of workforce for 
+BATF (Book-keeping, Accounting, Taxation and  
+Financial Crime Compliance) services globally and the 
+implied inherent potential for export of such services. To 
+enable India to leverage its inherent strengths by 
+training and development through various programs, 
+the IFSCA ( BATF) Regulations, 2024 were introduced. 
+This initiative resonates with the budget pillar of Human 
+Capital development to contribute to the goal of Viksit 
+Bharat. 
+Additionally, to leverage India’s strong talent pool and 
+to foster industry-academia ties and empowering female 
+professionals in the financial services sector, a working 
+group for ‘Augmenting Talent Availability in IFSC’ has 
+been commissioned. 
+IFSCA stand s committed to fuelling India’s growth 
+towards economic excellence. Through collaborative 
+efforts, innovative spirit, and policy support, we will 
+unlock GIFT IFSC's full potential, driving India's 
+transformation towards a Viksit Bharat. 
+ 
+
+[PAGE 6]
+                             CHAIRPERSON’S DESK 
+ 
+ 
+ 
+ IFSCA BULLETIN | 2024 
+ 
+The Hon’ble Prime Minister of India, Shri Narendra Modi launching IFSCA’s Single Window IT System (SWIT) 
+
+
+[PAGE 7]
+GOLD Traded on
+IIBX
+ 25.43 Tns
+SILVER Traded on
+IIBX
+42.27 Tns
+Bullion
+No. of Qualified
+Suppliers/Jewelers
+28/142(as on Sep 2024)
+Fund Management
+Aircraft/Ship Leasing
+159
+No. of Aviation Assets
+Leased
+No. of Ships Leased
+12
+Cumulative Debt Listing
+on Exchanges
+Banking Sector
+Capital Market
+Cumulative
+Derivatives trade 
+Aggregate Open
+Interest of all
+Derivatives Contract
+Banking Assets Cumulative Banking
+Transaction
+70.93 Bn 91.29 Bn 107.15 Bn
+Monthly Turnover
+(IFSC Exchanges)
+101.99 Bn 63.90 Bn 15.97 Bn
+No. of Funds/Schemes
+Registered
+Total Commitments
+RaisedNo of Fund
+Management Entities
+No. of Registered
+Aircraft/Ship Lessors
+128 168 12.13 Bn
+27/12
+IFSC BUSINESS HIGHLIGHTS
+Total IFSCA
+Registrations 724
+(as on Sep 2024) (During Jul-Sep 2024)
+( including NDF)
+(Sep 2024) (upto Sep 2024)
+(upto Sep 2024) (upto Sep 2024) (upto Sep 2024)
+ USD ($) USD ($) USD ($)
+ USD ($)  USD ($)  USD ($)
+ USD ($)
+(month ended Sep 2024)
+Cumulative ESG
+labelled Debt Listing on
+IFSC Exchanges
+14.78 Bn
+No. of Debt Listings on
+IFSC Exchanges
+24
+Sustainable Finance
+Total Sustainable
+Credit by Banks
+1549 Mn USD ($)  USD ($)(During Apr - Sep 2024) (as on Sep 2024) (During Jul - Sep 2024)
+(as at end of Sep 2024)
+Premium written by
+IFSC Insurance
+Office 
+Premium transacted
+by IFSC Insurance
+Intermediary Office 
+Insurance Sector
+No. of Insurance
+Firms/Intermediaries
+15/23  USD ($)  USD ($)(as at end of Sep 2024)
+(provisional)
+(provisional)
+(During Jul-Sep 2024) (During Jul-Sep 2024)
+(During Jul-Sep 2024) (During Jul-Sep 2024)
+(month ended Sep 2024)(month ended Sep 2024)
+63 Mn39 Mn
+(During Jul-Sep 2024)
+
+[PAGE 8]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Regulatory Updates 5 
+Regulatory Updates  
+_____________________________________________________________________________________
+Banking 
+RBI Circular on Remittances to International 
+Financial Services Centres (IFSCs) under the 
+Liberalised Remittance Scheme (LRS)  (July 10, 
+2024) 
+The Reserve Bank of India has permitted 
+Authorised Persons to facilitate  remittances for all 
+permissible purposes under LRS to IFSCs for: 
+i. Availing financial services or financial products 
+as per the IFSCA Act, 2019 within IFSCs; and 
+ii. All current or capital account transactions, in 
+any other foreign jurisdiction (other than IFSCs) 
+through a Foreign Currency Account (FCA) held 
+in IFSCs. For these permissible purposes, 
+resident individuals can open FCA in IFSCs. 
+Permitting IBUs to participate in the synthetic 
+securitisation program of Parent bank (July 11, 
+2024) 
+IBUs have been permitted to participate in the 
+synthetic securitisation program of its Parent bank 
+subject to following conditions: 
+i. The Home Regulator of the IBU has adopted the 
+Basel III framework and has not prohibited the 
+banks under its jurisdiction from undertaking 
+such transactions. 
+ii. IBU shall notify the Authority before the 
+exposures of the IBU are incorporated in the 
+Parent bank’s program for synthetic 
+securitization. 
+iii. IBU shall comply with provisions of PRU 
+Direction, IFSCA Banking Handbook (as 
+revised (from time to time). 
+iv. The Authority may require the IBU to submit a 
+copy of the reports being submitted to its Home 
+Regulator for such transactions to the extent 
+such report pertains to the assets of the IBU 
+included in the program on synthetic 
+securitisation. 
+IFSCA (Banking) (Amendment) regulations 2024 
+(July 15, 2024) 
+The IFSCA (Banking) (Amendment) regulations 
+2024 amends the existing IFSCA (Banking) 
+Regulations, 2020, and insert following mentioned 
+currencies under the First Schedule as: 
+i. Swedish Krone (SEK) 
+ii. Norwegian Krone (NOK) 
+iii. New Zealand Dollar (NZD) 
+iv. Danish Krone (DKK) 
+IFSCA (Board for Regulation and Supervision of 
+Payment and Settlement Systems) Regulations, 
+2024 notified (July 18, 2024) 
+Clause (a) of sub-section (2) of Section 38 read with 
+Section 34B of the PSS Act empowers IFSCA to 
+make regulations providing for the powers and 
+functions of the Board for Regulation and 
+Supervision of Payment and Settlement Systems 
+(“BPSS”), the time and venue of its meetings and 
+the procedure to be followed by the BPSS at its 
+meetings (including the quorum at such meetings). 
+In exercise of such powers, the International 
+Financial Services Centres Authority (Board for 
+Payment and Settlement Systems) Regula tions, 
+2024 (“the regulations”) were notified in order to 
+enable the functioning of the BPSS for IFSC, the 
+regulations, inter alia, specify as under: 
+i. The duties, powers and functions of the BPSS. 
+ii. The procedure to be followed at the meetings of 
+the BPSS. 
+iii. How the powers of the BPSS are to be exercised 
+under specific circumstances. 
+iv. The power of the BPSS to set up sub-committees 
+and advisory committees. 
+Sustainable Finance 
+Trading and Settlement of Sovereign Green Bonds 
+(SGrBs) in IFSC (September 24, 2024) 
+The Government of India has been issuing SGrBs to 
+mobilize resources for green infrastructure in India. 
+
+[PAGE 9]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Regulatory Updates 6 
+Considering the substantial increase in 
+international investors' dedication to net -zero 
+goals, SGrBs present a promising avenue to attract 
+significant foreign climate capital into India. To 
+further increase global participation in SGrBs, a 
+scheme for “Trad ing and Settlement of Sovereign 
+Green Bonds in the IFSC in India” was introduced 
+by the RBI on August 29, 2024. Subsequently, on 
+September 24, 2024, IFSCA issued a circular on 
+“Trading and Settlement of SGrBs in IFSC” 
+detailing the operational guidelines f or various 
+market participants. This will facilitate easier access 
+for non -resident investors to invest and trade in 
+SGrBs, enhancing global climate capital flows into 
+India. 
+Fund Management 
+Valuation of Assets of Schemes under IFSCA (Fund 
+Management) Regulations 2022 by Credit Rating 
+Agencies at IFSC (July 25, 2024) 
+This circular  enabled Credit Rating Agencies 
+(“CRAs”) registered with IFSCA under IFSCA 
+(Capital Market Intermediaries) Regulations, 2021 
+to undertake the valuation of assets of the schemes 
+under IFSCA (Fund Management) Regulations, 
+2022. With this measure, the schemes launched by 
+Fund Management Entities in IFSC will have the 
+option to avail of the valuation services for their 
+schemes from the CRAs, in addition to a fund 
+administrator or a custodian, registered with 
+IFSCA, or a valuer registered with the I nsolvency 
+and Bankruptcy Board of India (IBBI). 
+Capital Markets 
+Maintenance of Net Worth by Capital Market 
+Intermediaries (September 05, 2024) 
+The circular draws reference to Regulation 6 of 
+IFSCA (Capital Market Intermediaries) Regulation, 
+2021 which mandates CMIs to always maintain 
+stipulated net worth. Further, it is mandated by 
+circular that any CMIs not maintaining stipulated 
+net worth at an y time shall not undertake any 
+existing or new business activity till the time net 
+worth is restored. 
+Gazette Notification on Securities Contracts 
+(Regulation) Amendment Rules, 2024 (August 28, 
+2024) 
+As per the notification published, companies that 
+want to list their securities on stock exchanges in 
+IFSCs will now have a lower requirement of 10 per 
+cent instead of earlier 25 per cent of their shares 
+available to the public, regardless of how much 
+capital they have after issuing shares. 
+Additionally, in Rule 19A, the amendments clarify 
+that similar modifications of having minimum 
+public shareholding of 10 per cent instead of earlier 
+25 per cent of their shares available to the public, 
+will also apply to companies already listed on 
+recognized stock exchanges in IFSCs. 
+Credit Rating Agencies in the IFSC (July 25, 2024) 
+Securities and Exchange Board of India (SEBI), vide 
+circular dated July 19, 2024 , on “Enabling Credit 
+Rating Agencies (CRAs) to undertake rating 
+activities under IFSCA” permitted credit rating 
+agencies registered with SEBI to undertake rating 
+activities in the IFSC in accordance with regulation 
+9(f) of the SEBI (Credit Rating Agencies)  
+Regulations, 1999 (“SEBI CRA Regulations”) and 
+para 25 of the Master Circular for CRAs dated May 
+16, 2024. The Explanation provided under 
+regulation 9(f) of the SEBI CRA Regulations 
+provides that - “...the ratings undertaken by a credit 
+rating agency unde r the respective guidelines of a 
+financial sector regulator or authority shall be 
+under the purview of the respective financial sector 
+regulator or authority”. 
+Accordingly, a CRA registered with SEBI, desirous 
+of providing rating services in the IFSC, shall apply 
+for registration with IFSCA in accordance with the 
+requirements provided under the IFSCA (Capital 
+Market Intermediaries) Regulations, 2021 (“CMI  
+Regulations”), as amended from time to time. The 
+activities of the CRAs operating in the IFSC shall be 
+subject to the requirements in the IFSCA Act, 2019, 
+CMI Regulations and other applicable regulations 
+and circulars notified by IFSCA from time to time. 
+ 
+
+[PAGE 10]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Regulatory Updates 7 
+Enabling Credit Rating Agencies to undertake 
+additional activities relating to ESG Ratings and 
+Data Products Providers (July 31, 2024) 
+IFSCA issued a circular on enabling CRAs to 
+undertake additional activities relating to ESG 
+Ratings and Data Products Providers. With an 
+objective to develop an ecosystem for various 
+activities relating to ESG including sustainability in 
+the IFSC, it was decided that a framework may be 
+specified to enable CRAs registered with the IFSCA 
+(“Authority”) to also undertake services relating to 
+ERDPPs in accordance with the requirements laid 
+down in this circular. 
+IFSCA (Listing) Regulations, 2024 notified (August 
+30, 2024) 
+The Government of India notified the Direct Listing 
+Scheme in January 2024 providing the legal 
+framework for direct listing of equity shares of 
+public Indian companies on the international 
+exchanges in the IFSC. Subsequently, IFSCA 
+constituted a Standing Committee on Primary 
+Markets (“SCOP”), chaired by Shri T. V. Mohandas 
+Pai wh ich recommended that the IFSCA's 
+regulatory framework for listing of companies 
+should be aligned with other international financial 
+centres such as Singapore, Hong Kong, USA and 
+UK. Following extensive deliberations in the SCOP 
+and public consultations, it  was decided to replace 
+the existing IFSCA (Issuance and Listing of 
+Securities) Regulations, 2021 with the New Listing 
+Regulations. The Authority in its meeting held on 
+June 27, 2024, approved the New Listing 
+Regulations. 
+The IFSCA (Listing) Regulations, 2024 (“New 
+Listing Regulations”) provide a unified regulatory 
+framework for listing of securities and other 
+permitted financial products were notified on 
+August 30, 2024. The regulations are expected to 
+promote ease of doin g business for the issuers to 
+access capital market through listing of securities 
+on the stock exchanges in the IFSC with greater 
+flexibility and efficiency. The regulations aim to 
+protect the interests of investors by ensuring that 
+there is full disclosure of material information that 
+are required for decision making by the investors. 
+The regulations are expected give a boost to primary 
+listing, particularly for Indian companies as well as 
+provide the much -needed fillip to the primary 
+market in the IFSC, across various financial 
+instruments. 
+The salient features of the New Listing Regulations 
+can be found here: 
+ 
+Listing of Debt Securities on the recognized stock 
+exchanges in the IFSC (September 11, 2024) 
+IFSCA issued the circular stating that it shall be 
+mandatory for issuers to obtain credit rating for the 
+debt securities proposed to be listed on the 
+recognised stock exchanges with effect from  
+October 01, 2024. 
+Caution to Public - Dealing with unregistered 
+Broker Dealers in the IFSC (September 20, 2024) 
+This press release was issued in order to render 
+caution while dealing with unregistered Broker 
+Dealer in IFSC. IFSCA observed that some entities 
+who are not registered with IFSCA were offering 
+investment/broking services over social media 
+platforms and lu ring public in making spurious 
+investment in lieu of higher returns. General public 
+was advised to refer IFSCA website to check 
+registration of entity and report them to IFSCA if 
+they are approached by such entity 
+Metals and Commodities 
+Circular on Direct Market Access (DMA) facility and 
+Sponsored Access (SA) facility for Bullion Exchange 
+participants (July 08, 2024) 
+IFSCA issued a circular on July 8, 2024, expanding 
+the scope of the IFSCA’s June 21, 2023, circular 
+regarding Direct Market Access (DMA) and 
+Sponsored Access (SA) guidelines to also include 
+Bullion Exchanges, Bullion Trading Members, and 
+Bullion Clearing Members within the International 
+Financial Services Centre (IFSC).  
+
+
+[PAGE 11]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Regulatory Updates 8 
+Circular on Bullion Trading Members and Clearing 
+Members in GIFT- IFSC (August 09, 2024) 
+With reference to IFSCA’s circular 
+F.No.329/IFSCA/Bullion MIIs/2021 dated 
+September 17, 2021, it has been decided to extend 
+the period specified in paragraphs 3 and 4 of the 
+circulars till October 31, 2024, or till the time IFSCA 
+issues revised guidelines/handbook/circular 
+specifying the requirements of minimum Net worth 
+and Base Minimum Capital for Bullion 
+intermediaries, whichever is earlier. 
+Other Updates 
+Press Release on Financial Action Task Force (FATF) 
+High risk and other monitored jurisdictions - June 
+2024 (July 16, 2024) 
+The Financial Action Task Force (FATF), vide 
+public statement ‘High -Risk Jurisdictions subject 
+to a Call for Action’ dated June 28, 2024, has called 
+on its members and other jurisdictions to refer to 
+the statement on these jurisdictions adopted in 
+February 2020 and October 2022. 
+Further, FATF had earlier identified the following 
+jurisdictions as having strategic deficiencies which 
+have developed an action plan with the FATF to deal 
+with them. The “Jurisdictions under Increased 
+Monitoring” are Bulgaria, Burkina Faso, Cameroon, 
+Croatia, Democratic Republic of the Congo, Haiti, 
+Kenya, Mali, Monaco, Mozambique, Namibia, 
+Nigeria, Philippines, Senegal, South Africa, South 
+Sudan, Syria, Tan zania, Venezuela, Vietnam, 
+Yemen. As per the public statement, Turkiye and 
+Jamaica have been removed  from the list of 
+Jurisdictions under Increased Monitoring based on 
+the decision made at the June 28, 2024, FATF 
+Plenary. 
+FAQs on IFSCA Website 
+Following FAQs were issued on website during the  
+quarter: 
+1. FAQs on Circular titled “Additional 
+requirements for carrying out the permissible 
+activities by Finance Company as a Lessor 
+under ‘Framework for Ship Leasing 
+2. FAQs for the International Financial Services 
+Centres Authority (Book -keeping, Accounting, 
+Taxation and Financial Crime Compliance 
+Services) Regulations, 2024 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+[PAGE 12]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Highlights of the Quarter 9 
+Highlights of the Quarter
+_____________________________________________________________________________________ 
+Driving Innovation with a Single Click: IFSCA’s IT 
+Gateway 
+The Hon’ble Prime Minister Shri Narendra Modi on 
+16th September 2024 launched IFSCA’s Single 
+Window IT System (SWIT System). 
+The Hon’ble Finance Minister, in the Union Budget 
+for FY 2023 -24 announced “Implementation of a 
+single window IT -enabled system for application 
+processing of entities desirous of setting up 
+operations in GIFT IFSC”  to improve the Ease of 
+Doing Business (EoDB) in GIFT IFSC. 
+Towards this end, IFSCA set  forth on a mission 
+which has resulted in the de velopment of a Single -
+Window IT -enabled system for the registration of 
+IFSC Entities. 
+Salient features of the SWIT System: 
+1. IFSCA Single Window IT System (SWITS 
+henceforth) contains a Common Application  
+Form (CAF) to be filled by prospective entities 
+of various financial verticals, and simplifies the 
+process of Registration in IFSCs, by bringing all 
+stakeholders [Financial Sector regulators 
+(IFSCA, RBI, SEBI, IRDAI), SEZ Authorities, 
+MIIs/ Bullion MIIs, Prospective entities] onto a 
+single IT -enabled system. This CAF was 
+formulated after comparative analysis with key 
+financial centres like DIFC, Singapore etc. 
+2. SWITS is integrated vide API with the SEZ 
+Online System for SEZ -specific approvals from 
+the SEZ Authorities (IFSCA Administrator). 
+This was done in coordination with the 
+Development Commissioner's office and 
+National Securities Depository Limited (NSDL). 
+3. SWITS contains a NoC processing module 
+interfacing with three financial sector 
+regulators (RBI, SEBI and IRDAI) for the NoC 
+applications of prospective entities. The 
+integration was done in coordination with RBI, 
+SEBI and IRDAI.  
+4. SWITS integrates the process of applying for 
+GSTIN by an IFSC entity. A separate  window 
+exists for entities to apply for GSTIN which was 
+achieved in coordination with GSTN 
+5. Real time data validation of PAN, DIN, and CIN 
+through APIs are incorporated into SWITS, 
+which was done in coordination with Ministry 
+of Corporate Affairs (MCA) 
+6. A Payment Gateway is integrated in the SWITS 
+which allows for entities to pay different fee 
+obligations online, thereby simplifying existing 
+processes of offline payments/ Demand Drafts. 
+The Payment Gateway enables ease of doing 
+business for foreign entiti es in IFSCs. This was 
+done in coordination with service providers 
+dealing with payment gateway services.  
+7. A Digital Signature Certificate (DSC) Module is 
+integrated into the SWITS which enable signing 
+of documents digitally and also serves as a 
+means of authenticating identity. This was done 
+by working with Certifying Authorities 
+authorized by the Controller o f Certifying 
+Authorities (CCAs). 
+It is expected to increase IFSC's and IFSCA's 
+contribution to the vision of Viksit Bharat@2047, 
+by attracting business opportunities to Indian 
+shores. 
+Sustainable Finance 
+Report on Transition Finance by the Expert 
+Committee on Climate Finance 
+The Expert Committee on Climate Finance was 
+constituted by IFSCA on December  21, 2023, to 
+provide a roadmap for IFSCA to develop a climate 
+finance ecosystem and instruments at GIFT IFSC 
+with a special focus on Transition Finance as well as 
+to provide recommendations on establishing the 
+GIFT-IFSC as a global hub for climate financing. 
+The Committee is chaired by Shri Dhruba 
+Purkayastha (Director - Growth and Institutional 
+Advancement, Council on Energy, Environment 
+and Water) and includes experts across policy think 
+tanks, standard setters, consultants, industry, and 
+global financial institutions. 
+The Expert Committee has submitted its report on 
+Transition Finance to the Chairperson, IFSCA, Shri 
+K. Rajaraman on July 01, 2024. 
+
+[PAGE 13]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Highlights of the Quarter 10 
+The Report on Transition Finance captures the 
+recommendations by the Expert Committee under 
+three pillars: 
+1. Scope and definition of Transition Finance 
+2. Policy and Regulation 
+3. Financial Mechanisms and Instruments 
+ 
+Expert Committee on Climate Finance submitting report on 
+Transition Finance to Chairperson, IFSCA Shri K. Rajaraman 
+(Third from right) and ED, IFSCA Shri Pradeep Ramakrishnan 
+(Fifth from left) 
+The report emphasizes the role of transition finance 
+in driving investments towards hard -to-abate 
+sectors such as steel, cement, shipping, fertilizers 
+etc. which are crucial for economic growth of India 
+and other developing nations.  The report offers 
+strategic recommendations to IFSCA and policy 
+makers by exploring global best practices and 
+regulatory landscapes, to enhance the role of GIFT-
+IFSC as a gateway for attracting international 
+climate capital flows in order to achieve India’ s 
+ambitious goal of achieving net-zero by 2070. 
+Pension 
+Report of the Expert Committee on Development of 
+Pension Products at GIFT IFSC submitted to IFSCA 
+The Expert Committee on ‘Development of Pension 
+Products at GIFT IFSC’ has submitted its report to 
+the Chairperson, IFSCA  on July 08, 2024. The 
+Committee was constituted to identify the scope of 
+providing pension products targeting global 
+citizens, with special emphasis on NRIs and OCIs 
+and to explore a possible regulatory framework for 
+the same. Under the Chairmanship of Prof.  Mukul 
+Asher (Former Professor at the Lee Kuan Yew 
+School of Public Policy at the National University of 
+Singapore), the Committee h as recommended a 
+non-INR denominated long -term savings product 
+to be regulated by IFSCA. 
+The report highlights that there are over 13.5 
+million NRIs and 18.7 million PIOs living in various 
+parts of the world. The pension products would 
+provide portability and nomination (succession  
+plans) features for the NRI investors. The 
+Committee has recommended a detailed product 
+design emphasizing each stage of the product. The 
+report recommends a comprehensive regulatory  
+framework that strikes a balance between 
+encouraging voluntary participation and  
+safeguarding the interests of the contributors. The 
+Committee has also analyzed  the tax design and 
+proposed a tax framework with crucial 
+recommendations to make the product attractive. 
+Payment & Settlement 
+Issued in-principle Approval to Betafront 
+Technologies Private Limited, Zinc Money Pte. Ltd 
+and Glomopay Software Private Limited to set up a 
+wholly owned subsidiary as a Payment Service 
+Provider for carrying out Payment Services under 
+the IFSCA (Payment Services) Regulations, 2024. 
+Finance Company 
+Certificate of Registration issued to aircraft leasing 
+entities 
+Issued Certificate of Registration (CoR) to “RRPF 
+Engine (India) IFSC Pvt Ltd”, a wholly owned 
+subsidiary of UK -based Alpha Partners Leasing 
+Limited for undertaking operating lease for engines 
+of aircraft or any other part thereof. 
+Certificate of Registration issued to ship leasing 
+entities 
+Issued CoR to the “SCI Bharat IFSC Limited”, a 
+wholly owned subsidiary of Shipping Corporation 
+of India Limited for undertaking a ship operating 
+lease. 
+Certificate of Registration issued to finance 
+companies other than aircraft/ ship leasing               
+entities 
+Issued CoR to ‘Credilix IFSC Private Limited’, a 
+wholly owned subsidiary of the Singapore -based 
+Mogli Labs Asia Private Limited for undertaking 
+factoring and forfaiting of receivables. 
+
+
+[PAGE 14]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Highlights of the Quarter 11 
+Insurance 
+Certificate of Registration (CoR) granted to Life 
+insurance Corporation of India (LIC) and TATA 
+AIG General Insurance Company Ltd. (TATA AIG). 
+Number of IIOs:  
+ 
+Banking 
+Permission was granted to a Foreign Bank to setup 
+a Global Administrative Office (GAO) 
+FirstRand Bank Limited (FRB), a South African 
+based banking company, was granted permission 
+by the Authority to set up a GAO as a branch in 
+IFSC. 
+FinTech 
+Global Financial Innovation Network 
+(GFIN): IFSCA was elected as a member of the 
+Coordination Group (Board) of GFIN and 
+participated in its meeting on July 29, 2024. As a 
+Board member, IFSCA recommended the 
+membership applications of the Central Bank of 
+Jordan and the Financial Markets Authority of New 
+Zealand. Additionally, IFSCA proposed a spotlight 
+session to the GFIN Secretariat on October 9, 2024, 
+focused on "Gen AI – Use Cases for BFSI." 
+IFSCA participated in the policy implementation 
+meeting held on Artificial Intelligence in Insurance 
+Sector on September  03-04, 2024, at Basel, 
+Switzerland and FinTech Forum Meeting held on 
+September 04, 2024. The meetings covered updates 
+on AI Application Paper, Digital Assets Survey, 
+SupTech, Embedded Insurance and Artificial 
+Intelligence in Insurance Sector. 
+IFSCA participated in a panel discussion on 
+“Innovation in FinTech Regulation: Balancing 
+Innovation and Regulation in Global Financial 
+Services” at the Global FinTech Festival 2024. 
+Additionally, IFSCA organized an exclusive closed-
+door session for key stakeholders to explore 
+strategic opportunities and innovations within 
+IFSCA. 
+IFSCA attended the 1st meeting of the India – 
+Philippines Joint Working Group on FinTech where 
+IFSCA along with RBI had conducted a session on 
+the topic, “Promote Cooperation on FinTech”. 
+Further, IFSCA also attended the 6th meeting of 
+India – Singapore Jo int Working Group on 30th 
+August 2024 via video conferencing. 
+IFSCA participated in a Technical Workshop on the 
+Global Cross Border Privacy Rules (Global CBPR) 
+Forum, organized by NASSCOM, DSCI, MEITY, 
+and MEA on August 28, 2024. The workshop aimed 
+to provide a preliminary understanding of Global 
+CBPR and the Global Cooperation Arrangement for 
+Privacy Enforcement (Global CAPE), with 
+attendance from industry experts, regulators, and 
+government officials. 
+IFSCA was invited to participate in the Workshop 
+on the Global CBPR Framework organised from 
+September 19-21, 2024. The main agenda of the 
+workshop was to deep dive into the Global CBPR  
+Framework and discuss on how it can enable 
+trusted cross -border flows of personal data and 
+promote digital trades 
+I-Sprint: Currently, all the I -Sprints have been 
+completed and based on the recommendations of 
+the Jury, winners were declared basis the final 
+demos presented by the finalists. 
+Metals & Commodities 
+Total gold imported through IIBX since launch has 
+crossed 43 tonnes valuing USD 3.29 billion approx.  
+Pursuant to IFSCA’s approval, IIBX launched gold 
+and silver spot contracts with J Matadee FTWZ 
+vault, Chennai as delivery centre. These contracts 
+were launched as separate tokens under the existing 
+products (with GIFT IFSC delivery centre) with 
+effect from 29th July 2024. 
+6
+4
+2
+2 IIOs Life Insurers
+General Insurers
+Stand Alone Health
+Insurers
+Reinsurers
+
+[PAGE 15]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Highlights of the Quarter 12 
+Office of Administrator (IFSCA) 
+Vide Gazette Notification S.O. 940(E) dated 
+28.02.2024, the powers of Development 
+Commissioner under the SEZ Act, have been vested 
+with the Administrator (IFSCA) and since then, the 
+Administrator (IFSCA) has been performing the 
+functions of Development Com missioner for IFSC 
+entities in GIFT -SEZ, including conducting Unit 
+Approval Committee (UAC) meetings, issuance of 
+Letter Of Approval (LOA), approval of Bond -cum-
+LUT (BLUT), granting extension of LOA, taking 
+note of Commencement, etc. 
+Unit Approval Committee (UAC): 
+Particulars 
+During 
+Quarter 
+(Jul-Sep) 
+Till 
+Sep 
+2024 
+No. of UAC Meetings 13 19 
+No. of New Unit 
+Applications considered 95 195 
+No. of New Unit 
+Applications approved 95 192 
+No. of LOA issued 89 185 
+ 
+Post LOA: 
+Particulars 
+During 
+Quarter 
+(Jul-Sep) 
+Till 
+Sep 
+2024 
+No. of physical BLUT 
+approved 73 159 
+No. of LOA Extensions 
+approved 60 76 
+No. of Commencement 
+intimations approved 32 46 
+ 
+Ease of Doing Business Initiatives 
+Weekly UAC Meetings 
+To expedite the issuance of Letters of Approval 
+(LOAs) to Units, weekly UAC meetings were 
+initiated in the month of July.  Under the 
+chairmanship of the Administrator of IFSCA, 13 
+UAC meetings have been conducted in the Quarter  
+(once every week) 
+Circular-Based UAC Approvals 
+In a significant step towards enhancing Ease of 
+Doing Business, the UAC has begun to process 
+certain applications on a circular basis.  In the 
+Quarter, the UAC has approved by Circulation: 
+i. 37 LOA applications for Fund entities 
+ii. 10 applications for changes in Directors/  
+Shareholding pattern 
+iii. 03 Broad-banding applications 
+Others 
+Report of the Expert Committee for drafting 
+institutional arbitral rules for the proposed 
+International Arbitration Centre at GIFT IFSC 
+submitted to IFSCA 
+The Expert Committee on drafting institutional 
+arbitral rules for the International  Arbitration 
+Centre at GIFT IFSC has submitted its report to the 
+Chairperson, IFSCA on July  16, 2024. The 
+Committee was set up by IFSCA pursuant to the 
+announcement of the Hon’ble Finance Minister in 
+the Union Budget for FY 2022 -23 that “An 
+International Arbitration Centre will be set up in 
+the GIFT City for timely settlement of disputes 
+under international jurisprudence”. 
+The Expert Committee, chaired by Dr. M. S. Sahoo, 
+former Chairperson of IBBI, along with other legal 
+experts in Alternative Dispute Redressal (ADR), 
+was established to draft institutional arbitral rules 
+for the proposed International Arbitration Centre at 
+GIFT IFSC. The committee was also tasked with 
+suggesting regulatory design, legal framework, and 
+procedures for the centre. The Arbitration Centre at 
+IFSC will focus on international jurisprudence, 
+aiming for speedy and cost-effective dispute 
+resolution. 
+The Committee examined the regulatory and 
+institutional frameworks of well -established 
+institutions such as Singapore International 
+Arbitration Centre (SIAC), Singapore International 
+Commercial Court (SICC), Hong Kong 
+International Arbitration Centre (HKIA C), the 
+London Court of International Arbitration (LCIA), 
+and Dubai International Arbitration Centre (DIAC) 
+among others. It also engaged with international 
+dispute resolution professionals and 
+representatives from dispute resolution centres to 
+take their feedback and accordingly suggest design 
+for an effective and competitive Alternative Dispute 
+Resolution Centre (ADRC) at the GIFT-IFSC. 
+ 
+
+[PAGE 16]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Public Consultation 13 
+Public Consultation
+_____________________________________________________________________________________
+Finance Company 
+Consultation paper on the proposed Guidelines on 
+setting up of International Trade Financing 
+Services Platform (‘ITFS’) (August 30, 2024) 
+The purpose of this consultation paper is to gather 
+feedback on the proposed Guidelines for setting up 
+an International Trade Financing Services Platform 
+(ITFS). The Authority aims to replace the previous 
+framework with comprehensive guidelines to 
+streamline the process and enhance the ease of 
+doing business for ITFS operators.  
+Consultation paper on the proposed International 
+Financial Services Authority (Registration of 
+Factors and Registration of Assignment of 
+Receivables) Regulations, 2024 (August 30, 2024) 
+The purpose of this consultation paper is to gather 
+feedback from the public on the proposed 
+Regulations for the International Financial Services 
+Authority (Registration of Factors and Registration 
+of Assignment of Receivables) in 2024. These 
+regulations a re framed to fulfil the requirement 
+under the Factoring Regulation Act, 2011. 
+Consultation paper on revised ‘Framework for 
+undertaking Global/Regional Corporate Treasury 
+Centres activities by Finance Company/Unit in IFSC’ 
+(September 12, 2024) 
+IFSCA issued the revised ‘Framework for 
+undertaking Global/Regional Corporate Treasury 
+Centre activities (GRCTC) in IFSC’. The revised 
+framework aims to streamline the permissible 
+activities/services undertaken by treasury centers 
+and to introduce elements  aligned with 
+international best practices such as those prevalent 
+in Singapore and Hong Kong, to make it attractive 
+for entities to set up their treasury centers in the 
+IFSC while ensuring the Authority has due 
+oversight over their activities. The consult ation 
+paper also encompasses a draft explanatory note 
+which outlines the scope of various activities that 
+may be undertaken by the GRCTC and restrictions 
+on these activities (if any). 
+Metals and Commodities 
+Consultation Paper on the IFSCA (Bullion Market) 
+Regulations (August 31, 2024) 
+The objective of this consultation paper is to seek 
+comments from the public on the draft IFSCA 
+(Bullion Market) Regulations, 2024. The purpose of 
+the proposed IFSCA Bullion Market Regulations, 
+2024 is to provide the revised regulatory framework 
+for, and ensure the growth and development of, the 
+bullion market ecosystem in the IFSC and in India 
+at large. Once notified, the IFSCA (Bullion Market) 
+Regulations, 2024 shall replace  the extant IFSCA 
+(Bullion Exchange) Regulations, 2020. 
+Capital Markets 
+Public Comments on draft IFSCA (Listing) 
+Regulations, 2024 (July 25, 2024) 
+The consultation paper seeking comments/ 
+suggestions from the public on the draft IFSCA 
+(Listing) Regulations, 2024 was issued by IFSCA on 
+May 03, 2024. The comments/ suggestions 
+received thereafter were published on the website. 
+The regulations were suitably modified based on the 
+comments received from the stakeholders and were 
+placed before the Standing Committee on Primary 
+Markets (SCOP). Pursuant to recommendations of 
+SCOP, the draft regulations were modified and 
+placed before the Authority in the meeting held on 
+June 27, 2024. The comments received from the 
+stakeholders were also placed before the Authority. 
+Consultation paper on the review of IFSCA (Market 
+Infrastructure Institutions) Regulations, 2021 
+(August 30, 2024) 
+IFSCA (Market Infrastructure Institutions) 
+Regulations, 2021 were notified in April 2021 
+providing a unified regulatory framework for Stock 
+
+[PAGE 17]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Public Consultation 14 
+Exchanges, Clearing Corporations and Depositories 
+(hereinafter referred as MIIs) operating in IFSC.  
+MIIs are vested with regulatory responsibilities, 
+while pursuing their commercial interests like other 
+profit-oriented entities. It is imperative that the 
+MIIs, in pursuance of their business objectives, 
+should not lose sight of their regulatory roles. The  
+MIIs are also the first line regulators for the 
+intermediaries such as Broker -Dealers, Clearing 
+Members and Depository Participants. On account 
+of the conflicting nature of the MII’s role, it is felt 
+that governance standards of MIIs need to be robust 
+to enhance and maintain market confidence and 
+deter malpractices.  
+Accordingly, to strengthen corporate governance 
+practices, IFSCA issued a consultation paper in 
+August 2024 to seek the comments of the 
+stakeholders on the amendments proposed in the 
+regulations. Amendments in the regulations have 
+been proposed based on the Principles for Financial 
+Market Infrastructures specified by Committee on 
+Payments and Market Infrastructures and 
+International Organization of Securities 
+Commissions. 
+Consultation paper on Listing of Commercial Paper 
+(CP) and Certificates of Deposit (CD) on the 
+recognized stock exchanges in the IFSC (September 
+02, 2024) 
+IFSCA issued a consultation paper to seek 
+comments and suggestions from the public and 
+stakeholders on the proposed circular on listing of 
+commercial paper (CP) and certificates of deposit 
+(CD) on the recognised stock exchanges in the IFSC. 
+ 
+Insurance 
+Public Consultation on proposed amendments to 
+IFSCA (Registration of Insurance Business) 
+Regulations, 2021 (July 10, 2024) 
+IFSCA had issued a consultation paper to seek 
+comments / views/ suggestions from public on the 
+proposed amendments to IFSCA (Registration of 
+Insurance Business) Regulations, 2021. 
+Consultation paper on the proposed IFSCA 
+(Investment by IFSC Insurance Office) 
+(Amendment) Regulations, 2024 (September 0 3, 
+2024) 
+IFSCA issued a consultation paper to seek 
+comments / views/ suggestions from public on the 
+proposed amendments to International Financial 
+Services Authority (Investment by International 
+Financial Service Centre Insurance Office) 
+Regulations, 2022. 
+Fund Management 
+Consultation paper on Review of IFSCA (Fund 
+Management) Regulations, 2022 (August 05, 2024) 
+IFSCA has issued a consultation paper to seek 
+comments / views/ suggestions from public on the 
+proposed amendments to IFSCA  (Fund 
+Management) Regulations, 2022. 
+ 
+Cyber Security 
+Consultation Paper on Principle -Based Guidelines 
+on Cyber Security and Cyber Resilience for all 
+Regulated Entities (REs) in IFSC (September 28, 
+2024) 
+IFSCA has issued a consultation paper to seek 
+comments/ views from different stakeholders in  
+GIFT IFSC to put in place a principle -based 
+framework on cyber security and cyber resilience. 
+Global In-house Centres 
+Feedback / comments/ suggestions for review of 
+IFSCA (Global in-house Centres) Regulations, 2020 
+(July 18, 2024) 
+The IFSCA intends to review the IFSCA (Global In-
+House Centres) Regulations, 2020 under regulation 
+7 of the International Financial Services Centres 
+Authority (Procedure for making Regulations) 
+Regulations, 2021 keeping in view of outcome and 
+experience of  the market participants and 
+stakeholders. With an intend to have more effective 
+
+[PAGE 18]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Public Consultation 15 
+Global In -House Centres /Global Capabilities 
+Centres ecosystem in GIFT -IFSC and to adopt the 
+international best practices, comments/ 
+suggestions in this regard have been sought from 
+the General public, market participants and 
+stakeholders. 
+Others 
+Consultation paper on the proposed IFSCA 
+(Informal Guidance Scheme), 2024 (August 20, 
+2024) 
+IFSCA has issued a consultation paper to seek 
+comments / views/ suggestions from public on the 
+proposed IFSCA (Informal Guidance Scheme), 
+2024 which intends to provide an avenue for 
+financial institutions and persons intending to set 
+up a Unit in IFSC to seek clarity and guidance on 
+various issues pertaining to their potential business 
+activity and transactions, which are under the 
+regulatory ambit of IFSCA. 
+Consultation Paper on Complaint Handling and 
+Grievance Redressal (August 30, 2024) 
+The objective of this consultation paper is to seek 
+comments from public and other stakeholders on 
+the draft regulatory framework for complaint 
+handling and grievance redressal by the entities 
+regulated by IFSCA. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+[PAGE 19]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Collaboration and Partnerships 16 
+Collaboration and Partnerships
+_____________________________________________________________________________________
+IFSCA executes MoU with Labuan Financial 
+Services Authority 
+IFSCA and the Labuan Financial Services Authority 
+have entered into a Memorandum of 
+Understanding (MoU) to formalize institutional 
+cooperation between the two institutions for 
+mutual benefit. The MoU was signed by Mr. K. 
+Rajaraman, Chairperson, IFSCA, and Mr. Dato' 
+Wan Mohd Fadzmi bin Che Wan Othman Fadzilah, 
+Chairman, Labuan Financial Services Authority, on 
+August 19, 2024.  
+The MoU was formally exchanged between H.E. Mr. 
+B. N. Reddy, High Commissioner of India to 
+Malaysia and Mr. Dato' Wan Mohd Fadzmi bin Che 
+Wan Othman Fadzilah, Chairman, LFSA on August 
+20, 2024, and witnessed by the Honourable Dato' 
+Seri Anwar Ibrahim, Prim e Minister of Malaysia 
+and the Hon’ble Prime Minster of the Republic of 
+India, Shri Narendra Modi.  
+The objective of the MoU is to facilitate the sharing 
+of knowledge and best practices on the 
+development, regulation and supervision of the 
+financial markets of the respective jurisdictions as 
+well as to promote and secure the fitness and 
+propriety of lice nsed or registered persons and to 
+promote high standards and integrity in conduct of 
+business. 
+IFSCA signs MoU with ICMAI to Develop GIFT IFSC 
+as a Global Finance and Accounting Hub 
+ 
+IFSCA and the Institute of Cost Accountants of 
+India (‘ICMAI’) have exchanged Memorandum of 
+Understanding (MoU) on 30th August 2024 at 
+IFSCA Headquarters, GIFT City, Gandhinagar. This 
+collaboration aims to position GIFT IFSC as a 
+leading "Global Finance and Accounting Hub."  
+The MoU's primary objective is to support the 
+export of financial services talent from GIFT  IFSC. 
+ICMAI, leveraging its extensive network of overseas 
+chapters and members, will  actively disseminate 
+information about the opportunities available 
+within GIFT IFSC. 
+Additionally, ICMAI under the guidance of IFSCA, 
+shall develop academic courses tailored to the 
+specific needs of International Financial Services 
+Centres (IFSCs), aligned to the global best practices. 
+IFSCA executes MoU with Indian Venture and 
+Alternate Capital Association (IVCA) 
+IFSCA and the IVCA have entered into a 
+Memorandum of Understanding (MoU) to enhance 
+cooperation for the development of GIFT IFSC as a 
+“Global Fund Management Hub”. Shri Dr. Dipesh 
+Shah from IFSCA and Rajat Tandon, President of 
+IVCA, formally signed the MoU in a special 
+ceremony, on September 18, 2024.  Shri K. 
+Rajaraman, Chairperson IFSCA, Mr Rajat Tandon, 
+President IVCA, Dr. Dipesh Shah, Executive 
+Director IFSCA witnessed the MoU signing. 
+ 
+ 
+ 
+
+
+[PAGE 20]
+IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Events and Outreach Activities 17 
+Events and Outreach Activities
+_____________________________________________________________________________________
+Conference on “Developing Alternative Dispute 
+Resolution and International Arbitration Centre in 
+GIFT-IFSC” 
+IFSCA in collaboration with GIFT City and GNLU 
+organized a Conference on “Developing Alternative 
+Dispute Resolution and International Arbitration 
+Centre (IAC) in GIFT -IFSC” on September 28, 
+2024, at GIFT City, marking a significant step 
+towards developing a world class ADR ecosystem in 
+GIFT-IFSC. The Conference was inaugurated by 
+Shri K. Rajaraman, Chairperson, IFSCA in the 
+august presence of Shri Dr. M.S. Sahoo, Former 
+Chairperson IBBI, Prof. (Dr.) S. Shanthakumar, 
+Director, GNLU and other senior practitio ners in 
+the field of Alternative Dispute Resolution (ADR). 
+The event was attended by more than 100 
+participants including ADR Practitioners, experts, 
+academicians, Industry bodies and regulated 
+entities in GIFT-IFSC. 
+ 
+IFSCA Delegation visit to Scandinavia 
+Norway 
+Embassy of India, Norway, jointly with Norway 
+India Chamber of Commerce and Industry (NICCI) 
+hosted a high -level meeting in collaboration with 
+IFSCA delegation, bringing together business 
+leaders and sector specialists from both India and 
+Norway to discuss business opportunities in India's 
+maiden IFSC at GIFT CITY.  
+The meeting commenced with a warm welcome by 
+Mr. Helge Tryti, Chairman of NICCI, followed by 
+insightful addresses from esteemed dignitaries, 
+including Indian Ambassador to Norway H.E 
+Acquino Vimal and other key representatives. 
+ 
+The keynote address by Mr. K. Rajaraman, 
+Chairperson of IFSCA, focused on opportunities for 
+Norwegian financial institutions in India's financial 
+gateway i.e GIFT IFSC. 
+ 
+Sweden 
+Chairperson IFSCA, accompanied by the 
+delegation, engaged in a roundtable meeting 
+organised by SIBC with Director General for Trade 
+Policy Ms. Camilla Mellander and key pension and 
+investment funds including AP2, Cohesion 
+Investments, Carnegie, Swedbank, Serneke, etc. A 
+brief presentation was made by Sh. K. Rajaraman, 
+Chairperson IFSCA on how the pension funds and 
+investment funds can invest in India and offshore 
+utilising GIFT Investment Fund ecosystem. 
+ 
+ 
+Denmark 
+Embassy of India, Copenhagen, and IFSCA 
+organised an International Conference on “GIFT 
+International Financial Services Centre: Financial 
+Gateway to India” today. The event was well 
+attended by leading Danish financial institutions 
+including investment & pension funds, banks, asset 
+management firms, ship leasing companies etc.  
+
+
+[PAGE 21]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Events and Outreach Activities 18 
+During the conference, Shri K. Rajaraman , 
+Chairperson, IFSCA, shared insights on the range of 
+benefits that GIFT IFSC provides in areas of 
+banking, capital market, fund management, ship 
+and aircraft leasing, etc.  
+IFSCA Delegation Visit to Australia 
+IFSCA, with support from the Consulate General of 
+India (C GI) and the Australia India Business 
+Council (AIBC), organized several rounds of 
+interaction with Australian-based financial services 
+industries. During these interactions, various 
+business opportunities at GIFT -IFSC for banks, 
+insurance companies, funds, professional service 
+providers, and FinTechs were presented. 
+Roundtable with Australian Universities 
+organized by Austrade 
+The roundtable was attended by leading Australian 
+Universities from New South Wales and 
+neighbouring provinces. During the roundtable, 
+Chairperson, IFSCA highlighted various 
+progressive policy reforms to develop GIFT IFSC as 
+an “International Hub for Higher Education”.  
+ 
+Roundtable with Family Offices and HNIs/  
+UHNIs 
+The event was attended by prominent family office 
+and fund management firms based out of Sydney, 
+Australia. During the event, Chairperson IFSCA 
+highlighted several structural reforms carried out 
+by Government of India over the last 10 years to 
+make India one of the most attractive destinations 
+for foreign investments.   
+ 
+ 
+Roundtable Meeting with Australian 
+Investors and Self-Managed Super Funds  
+The roundtable was attended by key individual 
+investors and SMSFs based out of Australia, who 
+are keenly exploring the opportunity to invest into 
+India’s growth story. Chairperson IFSCA made a 
+detailed presentation on the reforms carried out by 
+Government of India to make India one the of 
+fastest growing major economies.  
+ 
+Roundtable with Australian FinTech and 
+RegTech Companies  
+Chairperson, IFSCA gave a brief overview of GIFT 
+IFSC and IFSCA. He outlined the objectives for 
+setting up GIFT IFSC which, inter alia, includes 
+serving as a soft-landing pad for foreign fintechs to 
+enter the Indian market. 
+ 
+IFCCI Higher Education   Committee Webinar on 
+Evolution of NEP and FHEI norm: A French 
+Perspective 
+IFSCA officials participated in a Webinar organized 
+by Higher Education Committee of the Indo-French 
+Chamber of Commerce & Industry (IFCCI) themed 
+on the “Evolution of NEP & FHEI norms: A French 
+Perspective”.  During the webinar, IFSCA officials 
+presented the regulatory and development 
+opportunities in GIFT IFSC, particularly in respect 
+of International Branch Campus opportunities  
+ 
+ 
+
+
+[PAGE 22]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Events and Outreach Activities 19 
+Industry Roundtable - Deakin University GIFT City 
+IFSCA Officials participated in roundtable 
+interaction organised by Deakin University. During 
+the conference, IFSCA officials highlighted the 
+importance of Industry- Academia collaboration for 
+talent development in GIFT IFSC.  
+Meeting with officials of University of Tasmania 
+IFSCA officials held a meeting with the Officials of 
+Tasmania University to discuss the IBC 
+opportunities in GIFT IFSC.   
+Meeting with officials of University of Sunshine 
+Coast 
+IFSCA officials held a meeting with the Officials of 
+University of Sunshine Coast. During the meeting, 
+IFSCA officials presented IBC opportunities in 
+GIFT IFSC. 
+GIFT IFSC: Demystifying The Asset Management 
+Landscape 
+IFSCA officials participated in an event organised 
+by Nuvama Asset Services, alongside esteemed 
+partners Deloitte and IC Universal Legal, Advocates 
+& Solicitors. During the event, IFSCA officials 
+shared their insights on asset management 
+landscape in GIFT IFSC.  Dr. Dipesh Shah , 
+Executive Director (Development) International 
+Financial Services Centres Authority  (IFSCA), 
+spoke at the event about the asset management 
+landscape in the GIFT IFSC. 
+ 
+ 
+ 
+Workshop on Trade credit- ECGC 
+IFSCA officials participated in a workshop on Trade 
+Credit Insurance organised by ECGC. During the 
+workshop, IFSCA officials highlighted the 
+importance of collaboration between Banks and 
+Insurance Offices for the growth of Trade credit 
+business in GIFT IFSC. 
+Financial Crime Expert and Conclave Awards 
+IFSCA officials participated in FinCrimeExpert’s 
+first ever Conclave and Awards Event. The event 
+was attended by various industry leaders, 
+regulators, LEAs, solution providers and 
+distinguished guests to celebrate outstanding 
+achievements in this niche field of Financial Crime 
+Compliance. Financial Crime Compliance (FCC) 
+professionals play a crucial role in safeguarding the 
+financial system, which is one of the important 
+elements for a Viksit Bharat Vision, 2024. 
+ 
+Café Alt Conference 2024 
+IFSCA officials participated in an event organised 
+by Cafemutual which was focused on alternative 
+investments. The event was aimed to help wealth 
+managers, boutique MFD firms, institutional 
+investors, family offices and bank/NDs to make 
+sense of the latest  trends and opportunities in 
+alternative investments. 
+Financial Crime Expert and Capacity Building 
+Event IFSCA officials participated in an event 
+organised by FinCrimeExpert Capacity Building 
+Event which was the first ever of its type in India. It 
+was an initiative to address the growing need for 
+skilled professionals in the field of financial crime 
+prevention and detection. It provides an 
+opportunity for individuals interested in this field to 
+enhance their knowledge and skills through 
+networking, workshops, seminars, and training 
+sessions. 
+ 
+ 
+
+
+[PAGE 23]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Events and Outreach Activities 20 
+Webinar on "Harnessing Financial Planning 
+Opportunities through GIFT IFSC" by FPSB India 
+IFSCA officials participated in a webinar organised 
+by FPSB themed on "Harnessing Financial 
+Planning Opportunities through GIFT IFSC". 
+During the event, IFSCA officials emphasized on 
+strategic advantages and future potential of GIFT 
+IFSC in transforming financial planning in India. 
+The officials also highlighted unique opportunities 
+GIFT IFSC offers to financial planning 
+professionals. 
+Webinar on theme “Unravel the Gift City: Indian 
+IFSC” by HSBC IFSCA officials participated in a 
+webinar organised by HSBC themed on “Unravel 
+the Gift City: Indian IFSC”. During the webinar, 
+IFSCA officials discussed about multiple benefits 
+for clients expl oring investment into Indian 
+markets, whether it is a capital market investment 
+or strategic investments 
+Global Webinars on GIFT City for MNC clients 
+IFSCA officials participated in a Global Seminar 
+organised by Standard Chartered bank (SCB) titled 
+"Unlocking Opportunities in India’s GIFT City: A 
+Global Financial Hub" on 11th and 12th September 
+2024. IFSCA officials highlighted about the key 
+growth aspirations for the GIFT City, various 
+initiatives to make GIFT City attractive for 
+Corporates (Non-FIs) and key vision, Growth and 
+Opportunities for Global Corporates. 
+USIBC’s India Ideas Summit and 49th Annual 
+General Meeting 
+ 
+IFSCA officials participated in India Ideas Summit 
+& 49th Annual Meeting of U.S. Chamber of 
+Commerce’s U.S. -India Business Council (USIBC) 
+which took place on 12th September 2024 at New 
+Delhi.  The summit was held on theme - Partnership 
+and Prosperity in the Era of AI and Critical 
+Technology, which focused on how companies use 
+critical technologies, including AI, to strengthen 
+innovation and sustainability and position 
+themselves as drivers of change in this new era of 
+U.S.-India relations. 
+Jefferies 3rd India Forum 
+IFSCA officials participated in Jefferies 3rd India 
+Forum, which was held at The Oberoi Gurgaon, 
+from Sep 17 - 19, 2024. Jefferies 3rd India Forum 
+has sign ups from 110+ clients belonging to Global 
+Funds from 10+ geographies. A comprehensive 
+event of its kind, this event brought together Global 
+institutional inve stors, leading public and private 
+companies from around the region as well as pre -
+eminent thought leaders and innovative thinkers, 
+offering original content and actionable investment 
+insights. 
+IFSCA officials provided comprehensive overview 
+of the GIFT IFSC ecosystem and the business 
+opportunities it provides for global investors and 
+corporates. 
+ICICI Bank webinar on Asset Management 
+Opportunities in GIFT City 
+IFSCA officials participated in a webinar organised 
+by ICICI Bank on the theme titled “Asset 
+Management Opportunities in GIFT City”. During 
+the webinar, IFSCA official discussed on the 
+emerging opportunities for Asset Management in 
+GIFT City.   Dr. Shah from IFSCA was invited to 
+provide a keynote address to share valuable insights 
+and unveil the future trends shaping Gift City. 
+ 
+ 
+ 
+ 
+
+
+[PAGE 24]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Events and Outreach Activities 21 
+RE-INVEST 2024 
+Shri Pradeep Ramakrishnan, Executive Director, 
+IFSCA, participated in a panel discussion titled 
+"Accelerating Capital for India's Energy 
+Transition: Spotlight on Enabling 
+Instruments" at RE -invest 2024, held between 
+16th to 18th September in Gandhinagar, Gujarat. 
+RE-INVEST is a Government of India flagship event 
+to showcase India’s Renewable Energy potential to 
+the world & to invite investment in the sector by 
+initiating multilateral d ialogue. It is global 
+renewable energy investors  meet, and expo 
+organized by the Ministry of New and Renewable 
+Energy (MNRE), Government of India. This year’s 
+edition marked India attaining 200 GW of non -
+fossil fuel capacity.  
+In his remarks during the panel discussion, Shri 
+Pradeep Ramakrishnan emphasized the pivotal role 
+of the IFSCA’ s regulatory framework in fostering a 
+robust green bond market within the GIFT IFSC. He 
+further highlighted the significance of various 
+sustainable finance initiatives undertaken by IFSCA 
+such as ESG funds and sustainable lending by IBUs 
+which are in line with the Government’s mission of 
+making the GIFT IFSC a climate finance hub. 
+ 
+Shri Pradeep Ramakrishnan , ED, IFSCA (Second from left) 
+with other key dignitaries at the panel discussion during RE -
+INVEST 2024 
+Green, Social, Sustainable, Sustainability -linked 
+and Transition Bonds (GSS+ Bonds) Training 
+Workshop 
+The National Stock Exchange (NSE), in 
+collaboration with the Climate Bonds Initiatives 
+(CBI) and the International Finance Corporation 
+(IFC), under the aegis of IFSCA, successfully 
+organized a two -day training program on GSS+ 
+bonds on September 24, 2024, and September 25, 
+2024, at Gift city club, Gandhinagar. The workshop 
+aimed to foster knowledge and awareness about the 
+GSS+ bond framework, its role in achieving India's 
+sustainable development goals, and the 
+opportunities it presents for the financial sector. 
+The training workshop commenced with a keynote 
+address by the Chairperson of IFSCA, Shri K. 
+Rajaraman.  Chairperson IFSCA, in his address 
+remarked the significance of embracing innovative 
+financial instruments and leveraging GIFT IFSC 
+ecosystem to advance India's sustainable 
+development agenda. He stated that “The GIFT 
+IFSC banks have advanced over USD 1.5 billion in 
+green credit, the bond markets have an outstanding 
+of USD 13.07 billion in GSS+ bonds and the 1st ESG 
+fund is already operational. On the work shop, he 
+remarked, "Capacity building empowers all 
+stakeholders with the knowledge and tools 
+necessary to develop and implement innovative 
+solutions. This workshop is a significant step 
+towards enhancing our collective ability to channel 
+green capital effe ctively to green businesses. 
+Understanding and Capacity to handle new age 
+instruments such as Transition bonds to steer the 
+energy transition in India is direly required. The 
+workshop fulfils that need.”  
+  
+Shri K. Rajaraman , Chairperson, IFSCA (In the middle) with 
+other key dignitaries at GSS+ Bonds Training Workshop 
+The comprehensive training workshop was 
+designed to address the issuance of thematic 
+labelled bonds, with particular emphasis on Green, 
+Social, Sustainable, Sustainability -Linked, and 
+Transition Bonds as mechanisms to bridge the 
+sustainable finance gap in India. The event 
+attracted a diverse range of participants from 
+various sectors, including policymakers, thereby 
+promoting a collaborative environment that 
+facilitated knowledge sharing and innovation. 
+ 
+
+
+[PAGE 25]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Events and Outreach Activities 22 
+ILS Asia 2024 - Cat Bond & ILS conference in 
+Singapore 
+Recognizing the potential of the niche segment of 
+Insurance Linked Securities (ILS) and Natural 
+Catastrophes (Nat Cat) risks, and the under -
+developed nature of regulatory framework in IFSC 
+jurisdiction on the matter, a two -member 
+delegation from IFSCA attended the 6th ILS  Asia 
+2024 Conference held in Singapore.  
+For 2024, the theme for the conference was 
+"Renewing growth opportunities", in the light of 
+robust performance of the CAT Bonds and ILS asset 
+class over the years. The conference gave 
+opportunity to understand regulatory framework & 
+current practices prevalent in the domain of ILS in 
+different jurisdictions and to understand the 
+segment of ILS from the perspective of ceding 
+insurers or reinsurers, investors, asset managers, 
+service providers, fund managers, risk modellers, 
+law firms, pension investors, inve stment bankers 
+etc. 
+As Singapore is one of the biggest Asian Re -
+insurance markets and Asian headquarter for 
+various re -insurers, various Cross Border 
+Reinsurers (CBRs) who book re-insurance business 
+from DTA India are situated in Singapore.  Thus, on 
+the background of IRDAI’s  recent circular on 
+collateral, the delegation during its visit to 
+Singapore also had one -to-one meetings with 
+certain Cross Border Re-insurers (CBRs) to discuss 
+opportunities for them in the GIFT-IFSC. 
+7th Asian Captive Conference, 2024 at Kuala 
+Lumpur, Malaysia 
+Mr. Praveen Trivedi, Executive Director, IFSCA, 
+participated in a panel discussion titled “A Captive 
+Perspective: Insite from Leading Asian Domiciles.” 
+at 7th Asian Captive Conference, 2024 at Kuala 
+Lumpur, Malaysia.  The conference was organised 
+by Laban International Business and Financial 
+Centre, Malaysia (Labuan IBFC) and Labuan 
+International Insurance Association (LIIA). 
+In his remarks during the panel discussions, while 
+acknowledging development of captive insurance 
+business in peer jurisdictions like, Singapore, 
+Labuan, Malaysia, Hong Kong etc., Mr. Trivedi 
+informed that the proposal of enabling ‘captive 
+insurance’ in India’s GIFT IFSC is under active 
+consideration of the Government of India. 
+ 
+Detailed deliberations were held during the 
+conference regarding growing importance of 
+captives in the insurance sector. While recognising 
+the growth of captive insurance in USA and 
+European markets, it was emphasised that Asian 
+markets too have big potential of growing captive 
+insurance. 
+ 
+The speakers also discussed various regulatory 
+frameworks on supervision of Capitve Insurer and 
+its success stories in various Asian jurisdictions, 
+increased usage of captives to access the 
+reinsurance market etc.  The participants were 
+unanimous that capt ives are likely to become 
+further embedded into corporate risk strategies, 
+regardless of market conditions and all regulators 
+need to have more collaborations, cooperation and 
+information sharing to capitalize the full potential 
+of captive insurance for the overall development of 
+insurance ecosystem. 
+ 
+
+
+[PAGE 26]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Events and Outreach Activities 23 
+IFSCA’s delegation meeting with Labuan Financial 
+Services Authority (LFSA) 
+A delegation led by Mr Praveen Trivedi, Executive 
+Director, IFSCA and Mr Bhaskar Khadakbhavi, 
+General Manager, IFSCA had meeting with Mr 
+Mohd Rizlan Mokhtar, Director, Registration & 
+Authorisation of LFSA and his team members, at 
+their office in Kuala Lumper, Malaysia.   
+ 
+These discussions were on the backdrop of recent 
+MoU signed between IFSCA and Labuan FSA, to 
+facilitate the cooperation and information sharing 
+regarding laws, rules, and regulations governing 
+financial products, financial services, and financial 
+institutions within the respective jurisdictions.  
+ 
+The officials of IFSCA and Labuan FSA exchanged 
+knowledge and best practices in the development, 
+regulation, and supervision of respective financial 
+markets. By exchanging insights and strategies, 
+these regulators aim to enhance the stability, 
+transparency, and efficiency of financial markets in 
+both the jurisdictions ultimately benefiting 
+consumers. 
+Panel Discussion on Green and Transition Finance, 
+Mumbai 
+Shri Arjun Prasad, GM, IFSCA participated in a 
+Panel Discussion in the NaBFID Infrastructure 
+Conclave during Sept 2024 and provided an 
+overview of the opportunities for Green and 
+Transition Financing at GIFT IFSC. 
+ 
+University of Wollongong India’s Fintech Event 
+Dr. Dipesh Shah, Executive Director, IFSCA gave a 
+talk on the topic of "GIFT -IFSCA: the Past, the 
+Present, and the Future" at an event organized by 
+University of Wollongong in GIFT IFSC on August 
+30, 2024. 
+ 
+Session on "Opportunities in GIFT IFSC”, Kolkata 
+IFSCA officials participated in a two-hour Breakout 
+Session on "Opportunities in GIFT IFSC" in 49th 
+Regional Conference of Eastern India Regional 
+Council, ICAI. The session was focused on various 
+opportunities in IFSC including Direct Listing. 
+ 
+ 
+ 
+ 
+ 
+
+
+[PAGE 27]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 24 
+Current Statistics
+____________________________________________________________________________________ 
+ 
+Table 1: Number of Licenses/ Registrations issued 
+Segment Category Number of Licenses/ Registrations issued  
+During Jul-Sep 2024 As on Sep 30, 2024 
+Banking IBUs 0 28 
+GAO 0 2 
+Finance Company 
+Aircraft Lessors 1 27 
+Ship Lessors 1 12 
+Finance Company – Core/ 
+Non-core (Including ITFS) 1 10 
+Capital Market 
+MII 0 5 
+Broker Dealer 2 82 
+Depository Participant 0 10 
+Clearing Member 0 22 
+Registered Distributors 1 10 
+Investment Advisors 0 3 
+Custodian 0 5 
+Debenture Trustee 0 4 
+Investment Banker 1 4 
+Funds FMEs 12 128 
+AIFs 25 168 
+Insurance IIOs 2 15 
+Intermediaries 0 23 
+Ancillary Services Ancillary Services Entities 6 78 
+Bullion 
+Bullion MII 0 1 
+Bullion Intermediaries 2 19 
+Vaults 0 3 
+FinTech Direct 1 11 
+Sandbox 2 49 
+GIC GIC 0 3 
+Foreign University International Branch Campus 0 2 
+Total 57 724 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+[PAGE 28]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 25 
+Banking 
+Table 2: Number of IBUs 
+Particulars As on Jun 30,2024 As on Sep 30,2024 
+No. of IBUs 28 28 
+ 
+Table 3: Assets of IBUs 
+Month ended Jul 2024 Aug 2024 Sep 2024 
+Particulars USD Mn 
+Investments 2903.44 3253.19 3852.40 
+               Sovereign securities 1192.39 1391.00 1865.68 
+               Corporate Bonds 1471.66 1595.19 1730.34 
+               Other investments 239.39 266.99 256.39 
+Trade Finance 12310.99 13183.85 14172.26 
+Commercial Loans 27743.86 29743.28 32021.11 
+Retail loans 85.33 91.58 95.24 
+Other loans 775.34 871.24 1034.09 
+Interbank/Interbranch placements 14661.63 14978.50 15962.43 
+Others 3368.84 3459.17 3796.35 
+Total 61849.43 65580.80 70933.89 
+ 
+Table 4: Liabilities of IBUs  
+Month ended Jul 2024 Aug 2024 Sep 2024 
+Particulars USD Mn 
+Customer deposits 4473.50 4960.02 5473.68 
+Interbank/Interbranch borrowings 42468.18 45377.02 49490.44 
+Bilateral Borrowings 6350.73 6639.53 7054.15 
+Multilateral Borrowings 17.15 17.11 0.00 
+MTN Borrowings and other debt instruments 2703.58 2732.94 2968.96 
+Others 5836.29 5854.18 5946.66 
+Total 61849.43 65580.80 70933.89 
+ 
+Table 5: Customer Deposits (in USD Mn) 
+Month ended Jul 2024 Aug 2024 Sep 2024 
+ Demand 
+deposits 
+Time 
+deposits 
+Demand 
+deposits 
+Time 
+deposits 
+Demand 
+deposits 
+Time 
+deposits 
+Retail deposits 380.83 395.65 379.47 408.79 396.25 423.38 
+Corporate deposits 467.79 3229.24 446.52 3725.24 609.88 4044.12 
+ 
+ 
+ 
+
+[PAGE 29]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 26 
+Table 6: Non-Resident Deposits 
+Month 
+Ended 
+Category 
+ 
+(Amount in USD Mn) 
+Accounts 
+held by 
+Resident 
+Indians 
+Accounts 
+held by 
+Non-
+Resident 
+Indians 
+(NRIs) 
+Accounts 
+held by 
+Non-
+Residents 
+(Other 
+Countries) 
+Jul 2024 
+Retail  No. of accounts 25 4549 438 
+Amount 1.71 709.65 65.12 
+Corporate No. of accounts 2081 484 1417 
+Amount 1178.32 1048.51 1470.20 
+Aug 2024 
+Retail  No. of accounts 30 4795 477 
+Amount 1.71 711.22 75.33 
+Corporate No. of accounts 2084 476 1551 
+Amount 1136.13 1196.46 1839.17 
+Sep 2024 
+Retail  No. of accounts 35 5167 596 
+Amount 0.19 743.44 76.00 
+Corporate No. of accounts 2163 519 1571 
+Amount 1227.42 1287.57 2139.01 
+ 
+Table 7: Derivative Outstanding of IBUs (USD Mn) (Notional) 
+Month ended Jul 2024 Aug 2024 Sep 2024 
+FCY-INR Derivatives (to be settled in FCY) 23114.16 26630.70 25494.10 
+FCY-FCY Derivatives (to be settled in FCY) 12922.34 15181.43 16100.95 
+INR Interest Rate Derivatives (to be settled in FCY) 49434.24 54243.28 64756.54 
+FCY Interest Rate Derivatives (to be settled in FCY) 110437.98 115920.91 118927.98 
+Others 1230.01 1391.10 1379.82 
+Total 197138.73 213367.42 226659.39 
+ 
+Table 8: Industry wise credit exposure of IBUs 
+Month ended Jul 2024 Aug2024 Sep 2024 
+Sector Industries Amount Outstanding (USD Mn) 
+ 
+  
+Auto Components 164.69 171.71 169.93 
+Automobile 710.05 803.37 873.60 
+Capital Goods 138.17 191.38 231.34 
+Cement and Cement Products 862.67 966.38 994.99 
+Electronic Systems 461.93 553.98 668.73 
+Food Processing 522.84 858.94 828.61 
+Glass and Glassware 17.20 17.32 17.16 
+Iron & Steel 596.10 707.67 785.92 
+Laminates/ Plywood/ Boards 7.73 7.48 8.07 
+Leather and Leather Products 2.55 2.40 2.12 
+Medical and Medical Equipment 240.00 260.53 288.70 
+Metals 1962.99 1853.12 1851.03 
+Paper and Packaging 51.40 54.27 57.97 
+Petrochemicals 3233.18 3535.67 3958.72 
+Plastic and Plastic Products 67.11 73.37 70.66 
+Textiles and Apparels 109.29 73.36 75.91 
+
+[PAGE 30]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 27 
+Vehicles, Vehicle Parts, and 
+Transport Equipment 168.32 173.02 146.93 
+Services 
+Banking and Finance 14087.53 14961.30 16811.35 
+Clearing Corporation 253.68 263.43 262.61 
+Education 168.33 166.02 163.80 
+Financial Services 537.45 686.58 732.47 
+Healthcare 20.35 17.77 31.97 
+IT and Software Industry 432.88 406.65 455.56 
+Logistics 16.08 68.62 79.90 
+NBFC 4891.74 5366.25 6574.77 
+Professional Services 54.55 54.96 55.00 
+Retail and e-commerce 230.46 287.15 280.10 
+Telecommunication 1188.12 1254.73 1341.16 
+Tourism & Hospitality 194.45 218.80 218.23 
+Trade/Distributor 129.08 113.94 429.25 
+Infrastructure 
+Construction 60.23 71.16 61.48 
+Mining 229.46 205.94 183.64 
+Oil and Gas 2280.86 2258.32 2420.88 
+Ports and Shipping 1025.63 988.41 1039.78 
+Power Sector 1570.68 1573.86 1590.31 
+Renewable Energy 311.57 413.30 480.41 
+Roads and Highways 33.63 59.48 58.91 
+Agriculture and 
+Forestry   445.41 439.79 437.50 
+Aviation   425.39 518.27 420.91 
+Chemicals   1585.72 1602.71 1567.22 
+Jewelry   211.29 223.53 289.48 
+Paints   0.63 0.63 0.00 
+Pharmaceuticals   772.06 777.54 783.02 
+Other Sectors    2853.31 3211.57 3228.62 
+Total  43326.79 46514.68 51028.72 
+ 
+Table 9: Country wise exposure of IBUs 
+Jul 2024 Aug 2024 Sep 2024 
+Country 
+Name 
+%age of 
+total 
+exposure 
+Country 
+Name 
+%age of 
+total 
+exposure 
+Country 
+Name 
+%age of 
+total 
+exposure 
+India 74.29 India 74.23 India 73.36 
+USA  5.02 USA  5.36 USA  6.40 
+Mauritius 4.17 Mauritius 3.42 Mauritius 3.95 
+UK 3.55 UK 3.31 Singapore 3.13 
+Netherlands 2.72 UAE 2.94 UK 3.04 
+Singapore 2.67 Singapore 2.67 UAE 2.53 
+ UAE  2.50 Netherlands 2.10 Netherlands 1.82 
+Bahrain 0.93 Bahrain 1.18 Hong Kong 1.47 
+Hong Kong 0.57 Hong Kong 0.94 Bangladesh 0.57 
+Bangladesh 0.40 Saudi Arabia 0.67 Ireland  0.51 
+Others  3.18 Others 3.18 Others  3.22 
+ 
+
+[PAGE 31]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 28 
+Payment and Settlement 
+Table 10: Number of Payment Service Providers (PSP)  
+Particulars Total 
+In-principle Approval Granted 4 
+ 
+Capital Markets 
+Table 11: IFSC Stock Exchanges Turnover (Traded Value in USD Mn) 
+Month Jul 2024 Aug 2024 Sep 2024 Total 
+Particulars No. of 
+contracts 
+Traded 
+Value 
+No. of 
+contracts 
+Traded 
+Value 
+No. of 
+contracts 
+Traded 
+Value 
+No. of 
+contracts 
+Traded 
+Value 
+Commodity 
+Futures 2041 156.72 1519 120.94 1621 133.73 5181 411.39 
+Index 
+Futures 1978344 96055.2 2059525 101235 1995116 101844 6032985 299134 
+Index 
+Options 160523 29.65 178533 26.25 155635 13.58 494691 69.48 
+Currency 
+Futures 668 15.97 440 10.48 366 8.72 1474 35.17 
+Depository 
+Receipts on 
+US stocks 
+67178 0.3 99308 0.47 61314 0.32 227800 1.08 
+Total 2208754 96257.8 2339325 101393 2214052 102000 6762131 299651 
+ 
+Table 12: Aggregate Open Interest (OI) of all derivatives contracts on IFSC 
+Stock Exchanges 
+As on last 
+trading day of 
+the month 
+Open Interest (no. of contracts) Value (USD Mn) 
+Jul 2024 267912 13392.34 
+Aug 2024 294202 14899.85 
+Sep 2024 307550 15970.45 
+ 
+Table 13: India INX Global Access 
+Particulars During Jul-Sep 2024 
+(Accounts Opened) As on Sep 30, 2024 
+Total Number of Accounts 198 4183 
+ 
+Table 14a: Trading in Global Exchanges through India INX Global Access (Traded Value: USD Mn) 
+Entity Type Particulars Jul-Sep 2024 Till Sep 30, 2024 
+LRS 
+(Residents) 
+Equity, ETFs, Funds, Bonds, and other 
+products  3.51  18.26  
+IFSC Entities  Equity, ETFs, Funds, and other products 30.22 508.51 
+Derivatives Products 751.58 31371.72 
+Non-residents 
+outside IFSC 
+Equity, ETFs, Funds, and other products 3.05 15.82 
+Derivatives Products 0.57 176.67 
+Total 788.93 32090.98 
+
+[PAGE 32]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 29 
+ 
+Table 14b: Trading in Global Exchanges through India INX Global 
+Access (Apr - Jun 2024: USD Mn) 
+Exchange Total trading 
+value 
+Trading in 
+Derivatives 
+Trading in non-
+derivatives 
+KSE* 349.52   -  349.52  
+HKEX 138.75   -  138.75  
+SGX 116.05   -  116.05  
+CME 110.50   -  110.50  
+NYMEX 26.71   -  26.71  
+ARCA 20.59  20.59   -  
+NASDAQ 13.07  13.07   -  
+COMEX 5.06   -  5.06  
+CBOE 3.95   -  3.95  
+NYSE 1.80  1.80   -  
+Others 2.93  1.31  1.62  
+Total 788.93  36.77  752.16  
+*KSE stand for Korea Stock Exchange. the acronym 'KSE' is used for korea stock exchange 
+as same is used by our overseas broker partner (Interactive Brokers LLC). 
+ 
+Table 15: Capital Market Intermediaries as on Sep 30, 2024 
+Type of Entity No. of entities 
+Broker-Dealers 82 
+Clearing Members 22 
+Custodians 5 
+Depository Participants 10 
+Investment Bankers 4 
+Investment Advisers 3 
+Debenture Trustees 4 
+Distributors of Capital Market Products & Services 10 
+ 
+ 
+Sustainable Finance 
+Table 16a: Listing of debt securities at IFSC Exchanges (In USD Bn) 
+Particulars As on Jun 30, 2024 As on Sep 30, 2024 
+Cumulative debt listings 58.7 63.90 
+Cumulative ESG labelled debt listing 13.311 14.78 
+ 
+ 
+ 
+1 The data of Cumulative ESG labelled debt securities changed to USD 13.31 Bn from USD 12.66 Bn (previously reported) for 
+Q1 of 2024 on account of the revised reporting. 
+
+[PAGE 33]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 30 
+Table 16b: Listing of debt securities at IFSC Exchanges 
+Sr No Name of the issuer Listing Date Labels Amount 
+(USD Mn) 
+1 Pahal Financial Services Private Limited 03-07-2024 - 5.00 
+2 Pahal Financial Services Private Limited 03-07-2024 - 7.00 
+3 Midland Microfin Limited 05-07-2024 - 5.00 
+4 Pahal Financial Services Private Limited 10-07-2024 - 7.50 
+5 TruCap Finance Limited 12-07-2024 - 5.00 
+6 Piramal Capital & Housing Finance Limited 30-07-2024 Sustainable 300.00 
+7 Muthoot Finance Limited 17-07-2024 - 100.00 
+8 Kinara Capital Private Limited 01-08-2024 - 12.50 
+9 Muthoot Microfinance Limited 28-08-2024 - 12.00 
+10 Dvara Kshetriya Gramin Financial Services 
+Private Limited 12-08-2024 - 5.00 
+11 Dvara Kshetriya Gramin Financial Services 
+Private Limited 12-08-2024 - 3.00 
+12 SAEL Limited 01-08-2024 Green 305.00 
+13 Canara Bank 12-09-2024 - 300.00 
+14 Satya Microcapital Limited 30-09-2024 - 5.00 
+15 Satya Microcapital Limited 30-09-2024 - 8.50 
+16 REC Limited 30-09-2024 Green 500.00 
+17 
+Kodangal Solar Parks Private Limited 
+Wardha Solar (Maharashtra) Private Limited 
+Adani Renewable Energy (RJ) Limited 
+11-09-2024 Green 362.50 
+18 Adani Ports and Special Economic Zone Limited 23-09-2024 - 500.00 
+19 Adani Ports and Special Economic Zone Limited 23-09-2024 - 750.00 
+20 Adani Ports and Special Economic Zone Limited 23-09-2024 - 750.00 
+21 Adani Ports and Special Economic Zone Limited 23-09-2024 - 500.00 
+22 Adani Ports and Special Economic Zone Limited 23-09-2024 - 300.00 
+23 Adani Ports and Special Economic Zone Limited 23-09-2024 - 450.00 
+24 Satin Credit care Network Limited 30-09-2024 - 5.00 
+ 
+Table 17: Overall Sustainable Financing by IBUs 
+Classification 
+During Apr-Sep 2024 
+Cumulative 
+in FY 2024-25 
+(USD Mn) 
+Medium / Long 
+Term Loans 
+(USD Mn) 
+Short term Loans (USD Mn) 
+Trade 
+Finance 
+Working 
+Capital/ Supply 
+Chain Finance 
+Others 
+Green 617.15 79.53 12.35 31.55 740.59 
+Social 230.68 366.28 4.05 0.00 601.01 
+Sustainable 44.63 116.60 0.00 0.00 161.23 
+Sustainability 
+Linked 46.51 0.00 0.00 0.00 46.51 
+Others 0.00 0.00 0.00 0.00 0.00 
+Total 938.97 562.41 16.40 31.55 1549.34 
+ 
+ 
+
+[PAGE 34]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 31 
+Table 18: Sector-wise classification of Sustainable Financing by IBUs 
+Sector (List is Indicative) 
+During Apr-Sep 2024 
+Amount 
+(USD Mn) 
+Total No. of 
+Transactions 
+Renewable Energy 813.85 219 
+Energy Efficiency 0.50 5 
+Pollution Prevention and Control 5.50 6 
+Sustainable Water and Wastewater Management 0.00 0 
+Clean Transportation 12.35 2 
+Climate Change Adoption 0.00 0 
+Green Buildings 4.50 2 
+Affordable Basic Infrastructure 47.00 1 
+Affordable Housing 1.23 4 
+Food Security and Sustainable Food Systems 0.00 0 
+Social Project as per Framework 150.00 1 
+Sustainable Project as per Framework 0.00 0 
+Health Care 18.78 37 
+Social Education 0.00 0 
+Social Loan 13.64 0 
+MSME 266.83 3253 
+Others 215.16 870 
+Total  1549.34 4400 
+ 
+Insurance 
+Table 19: Written/ Transacted premium by IFSC Insurance Offices and Intermediary Offices 
+Particulars 
+FY 2023-24 Apr-Jun 2024 
+(Unaudited) 
+Jul-Sep 2024 
+(Unaudited) 
+Number of 
+Offices* 
+Written/ 
+Transacted 
+Premium 
+Number of 
+Offices* 
+Written/ 
+Transacted 
+Premium 
+Number of 
+Offices* 
+Written/ 
+Transacted 
+Premium 
+(USD Mn) (USD Mn) (USD Mn) 
+IIOs 12 149 13 28 15 39 
+IIIOs 23 276 23 55 23 63 
+*Number of offices are as at the end of the particular period 
+ 
+Fund Management 
+Table 20: Number of Fund Management Entities (FMEs) and Funds 
+Particulars As on Jun 30, 2024 As on Sep 30, 2024 
+FMEs  116*  128* 
+Funds  143  168 
+*Excluding in-principle approvals 
+ 
+ 
+
+[PAGE 35]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 32 
+Table 21: Investments by Fund Management Schemes at GIFT IFSC as on Sep 30, 2024 
+Particulars 
+No. of 
+Schemes 
+Registered 
+In USD Mn 
+Complaints/ 
+Legal 
+Disputes 
+outstanding 
+Total 
+Commit-
+ments 
+raised 
+Total 
+funds 
+raised 
+Investments 
+into India 
+Investments 
+made in 
+Foreign 
+Jurisdiction 
+Total 
+Investments 
+made 
+(A) (B) (A+B)* 
+Venture Capital 
+Schemes 
+(including Angel 
+Schemes) 
+11 191.6 37.28 19.9 8.8 28.7 0 
+Category I and 
+II AIFs 57 7988.62 3328.21 2815.59 195.99 3011.59 0 
+Category III 
+AIFs 100 3954.19 2215.75 1460.97 110.93 1571.90 0 
+Total 168 12134.41 5581.24 4296.46 315.72 4612.18 0 
+*Excluding the exposure towards derivatives contracts. In the case of fund of fund, cash maintained, and expenses incurred by the master 
+fund are also excluded. This reflects the investments made by the FMEs as on the end of the quarter, excluding exposure towards derivative 
+contracts, cash equivalents, etc. In the case of schemes which are in the nature of fund of funds, cash maintained, and expenses incurred 
+by the master fund are also excluded. The cumulative investments made as at the end of quarter stand at USD 5148.01 million. 
+ 
+Table 22: Portfolio Management Services (PMS) as on Sep 30, 2024 
+Type of Services AUM (in USD Mn) 
+Discretionary & Non- Discretionary PMS 990.13 
+Advisory Services 648.46 
+Total 1638.60 
+ 
+Finance Companies/ Finance Units 
+Table 23: Finance Companies/ Finance Units during Jul-Sep 2024 
+Type of Finance Company Aircraft 
+Lease 
+Ship 
+Lease FC (Core) FC (Non-
+Core) Total 
+Provisional Registration Granted 1 1 2 0  4 
+Final CoR Granted 1 1 1 0 3 
+Registration till Jun 30, 2024 27 12 5 5 49 
+ 
+Table 24: Assets leased by AOL/ Ship Leasing Entities 
+Type of asset As on Jun 30, 2024 As on Sep 30, 2024 
+By Aircraft Leasing entities 
+Aircraft  31 44 
+Engines 50 47 
+Aircraft Auxiliary Power Units (APU) 56 68 
+Total 137 159 
+By Ship Leasing entities 
+Ship 6 12 
+ 
+ 
+ 
+ 
+
+[PAGE 36]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 33 
+Table 25: Transactions financed by ITFS Platforms 
+Particulars As on Jun 30, 2024 As on Sep 30, 2024 
+Number of Transactions financed 411 544 
+Value of Transactions financed (USD Mn) 18.03 25.68 
+ 
+Metals and Commodities 
+Table 26: Participants on India International Bullion Exchange (IIBX) 
+Participants As on Jun 30, 2024 As on Sep 30, 2024 
+Qualified Jewellers 129 142 
+      Clients 80 90 
+      ‘Special category’ Clients 49 52 
+Qualified Suppliers 28 28 
+      Clients 26 26 
+      ‘Special category’ Clients 02 02 
+Valid India UAE CEPA TRQ Holders 164 357 
+ 
+Table 27: Regulated Entities/ Intermediaries on IIBX 
+Regulated Entities As on Jun 30, 2024 As on Sep 30, 2024 
+Bullion Trading Members 5 6 
+Bullion Trading Cum Self Clearing Members 3 3 
+Bullion Trading Cum Clearing Members 7 8 
+Bullion Professional Clearing Members 2 2 
+Vault Managers 3 3 
+ 
+Table 28: Product-wise summary of trades on IIBX 
+Product  
+During FY 2023-24 During FY 2024-25 During Jul-Sep 2024 
+Traded 
+Value 
+(USD Mn) 
+Traded 
+Volume 
+(in kg) 
+Traded 
+Value 
+(USD Mn) 
+Traded 
+Volume 
+(in kg) 
+Traded 
+Value 
+(USD Mn) 
+Traded 
+Volume 
+(in kg) 
+LBMA 1 kg Gold 995 4.52 75.00 0.00 0.00 0.00 0.00 
+LBMA 100 gm Gold 999 0.00 0.00 0.00 0.00 0.00 0.00 
+UAE GD 1 kg Gold 995 2.22 34.00 3.78 51.00 0.00 0.00 
+UAE GD 100 gm Gold 999 7.24 114.80 3.70 50.00 0.00 0.00 
+UAEGD TRQ 1 kg Gold 995 252.91 3957.00 1017.37 13055.00 723.49 9129.00 
+UAEGD TRQ 100 gm Gold 
+999 238.38 3747.40 1736.13 22041.70 1305.39 16300.30 
+Total (Gold) 505.27 7928.20 2760.98 35197.30 2028.88 25429.30 
+UAEGDCEPA SILVER 
+GRAINS 698.48 908800.00 217.91 228060.00 32.27 32760.00 
+UAEGD SILVER GRAINS 0.00 0.00 0.11 120.00 0.11 120.00 
+SILVER GRAINS 0.00 0.00 0.00 0.00 0.00 0.00 
+UAEGD SILVER BAR 0.00 0.00 0.00 0.00 0.00 0.00 
+SILVER BAR 0.00 0.00 8.68 9390.00 8.68 9390.00 
+Total (Silver)* 698.48 908800.00 226.71 237570.00 41.07 42270.00 
+*The trading of silver started on IIBX from December 13, 2023 
+
+[PAGE 37]
+ IFSCA BULLETIN | JUL-SEP 2024  
+ 
+Current Statistics 34 
+FinTech 
+Table 29: FinTech Ecosystem in IFSC 
+Sr. No. Particulars Till Sep 30, 2024 
+1 
+Number of Sandbox Entities 49 
+        In Innovation Sandbox 22 
+       In Regulatory Sandbox 27 
+2 Number of FinTech/ TechFin Entities Authorized 9 
+3 Number of Accelerators Authorized 2 
+4 Number of Entities exited from Sandbox 4 
+ 
+Ancillary Services 
+Table 30: Activity‑wise break up of ancillary services entities, including in-principal approval 
+S. 
+No. Core Activity No. of Authorized Entities 
+As on June 30, 2024 As on Sep 30, 2024 
+1 Legal, Compliance and Secretarial 13 13 
+2 Professional & Management Consulting 
+Services 11 12 
+3 Auditing, Accounting, Bookkeeping and 
+Taxation Services 22 26 
+4 Administration, Asset Management Support 
+Services and Trusteeship Services 26 27 
+Total 72 78 
+
+[PAGE 38]
+INTERNATIONAL FINANCIAL
+SERVICES CENTRES AUTHORITY
+2nd & 3rd Floor, PRAGYA Tower, Block 15, Zone 1, 
+Road 1C, GIFT SEZ, GIFT City, Gandhinagar, Gujarat – 382 355
+         www.ifsca.gov.in

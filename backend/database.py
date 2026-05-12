@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from gemini_integration import generate_questions_with_gemini, gemini_available
+from authority_scoring import source_authority_score as calculate_source_authority
 
 
 BACKEND_DIR = Path(__file__).resolve().parent
@@ -2118,6 +2119,25 @@ def save_question(question: dict[str, Any], created_by: str = "local_source_engi
                     question.get("page_start"),
                     question.get("page_end"),
                     question.get("citation_note"),
+                ),
+            )
+            # Link question to source with authority score
+            authority_score = question.get("authority_score")
+            if authority_score is None:
+                # Calculate authority score based on source metadata
+                doc_type = question.get("source", "extracted_pdf")
+                category = question.get("source_category", "default")
+                authority_score = int(calculate_source_authority(doc_type, category, exam_signal=0))
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO question_sources
+                (question_id, source_chunk_id, authority_score)
+                VALUES (?, ?, ?)
+                """,
+                (
+                    question["question_id"],
+                    question.get("source_chunk_id"),
+                    authority_score,
                 ),
             )
         conn.execute(

@@ -1,0 +1,963 @@
+Fund Management
+Regime in IFSC at
+GIFT City
+
+             International Financial
+             Services Centre
+Content
+
+01 IFSC                                    06 Tax Framework
+               IFSC in India at GIFT City  07 Steps for setting up
+
+02 Legal Framework                                        FMEs in GIFT City
+               Participants
+
+03 Overview of IFSC Tax                    08 Relocation of Offshore
+               framework                                  funds to the IFSC
+
+04 AIFs in India and Journey of            09 Steps for setting up
+               Fund Regime in IFSC                        FMEs in GIFT City
+
+05 FMEs in IFSC                            10  Benefits at glance for
+                                               setting up FMEs in
+                                               IFSC
+
+FMEs in GIFT City
+International Financial Services Centre (‘IFSC’)
+
+Globally, Financial Centres are locations with an agglomeration of participants in banking, asset management,
+insurance and financial markets with venues and supporting services for these activities.
+The world has witnessed the transformation of New York, London, Singapore, Hong Kong and Tokyo as Global
+Financial Centres. Recently, there has been a spurt of newer Financial Centres in Dubai(UAE), Malaysia, South
+Korea and few other countries.
+
+IFSC in India at Gujarat International Finance Tech City (‘GIFT City’)
+
+The Government of India (‘GoI’) had launched India’s first IFSC in Gujarat at GIFT City in April 2015.
+With the launch of the IFSC at GIFT City, the GoI had taken the first step to bring financial services transactions
+which are relatable to India, back to India.
+
+  “My vision is that in ten years from now, GIFT city should become the price setter for at least a few of the largest traded
+  instruments in the world, whether in commodities, currencies, equities, interest rates or any other financial instrument.”
+  The concept of IFSC is simple but powerful. It aims to provide on-shore talent with an offshore technological and
+  regulatory framework. This is to enable Indian firms to compete on an equal footing with offshore financial centres.“
+  Shri Narendra Modi, Hon’ble Prime Minister of India
+  http://pib.nic.in/newsite/PrintRelease.aspx?relid=156240
+
+The core objectives for developing an IFSC in India are outlined below -
+a. To realise the vision of the Government of India to emerge as a major economic power by facilitating development
+
+     of strong base of International Financial Services in the country.
+b. To position IFSC as a world-class zone for the long-term provision of office/service accommodation and high
+
+     technological, economical and commercial infrastructure.
+c. Facilitate the implementation of the Government’s strategy for the development of a financial hub in the South
+
+     Asian sub-continent.
+
+The latest Global Financial Centres Index, London, (September 2020) places IFSC at GIFT City right at the top
+amongst 15 Centres globally, which are likely to gain greater significance in next 24 months.
+
+  “There has been a constant call to attract offshore fund managers (who invest in India, but operate from an offshore
+  location), by encouraging them to shift their fund management and administration to India. In this context the Committee
+  has made suggestions for a suitable tax and regulatory framework for the domiciliation of AIFs in International Financial
+  Services Centers in India.”
+  Shri. N.R. Narayana Murthy, Chairman - Alternative Investment Policy Advisory Committee
+  https://www.sebi.gov.in/reports/reports/jan-2018/3rd-report-submitted-by-alternative-investment-policy-advisory-
+  committee-_37460.html
+
+GIFT is being developed on 886 acres of land consisting of a Multi Service Special Economic Zone (‘SEZ’) with IFSC
+on 261 acres and a domestic Finance Centre on the remaining.
+The world class infrastructure development at GIFT City has won many awards and accolades from reputed forums.
+
+Business Ecosystem: Today, GIFT City is operational with 15 Indian banks including 3 foreign banks clocking
+foreign currency business transactions worth US$ 28 billion, Insurance business worth US$ 30 billion carried out
+by Insurance and Reinsurance companies of national repute and insurance intermediaries, establishment of
+Medium-Term Note program by leading Indian issuers of US$ 51 billion and presence of two International
+Exchanges located in GIFT City operating 22 hours a day.
+
+FMEs in GIFT City                                                                                                              1
+Legal framework for units in IFSC                    Regulator
+                                                     Board of Approval headed by the Secretary,
+ Regulations                                         Department of Commerce
+ Special Economic Zones Act,2005                     IFSC Authority
+                                                     IFSC Authority
+ IFSC Authority Act, 2019                            Securities and Exchange Board of India
+ International Financial Services Centres Authority  Insurance Regulatory and Development Authority of
+ (Banking) Regulations, Nov2020 for setting up IBUs  India
+ SEBI (International Financial Services Centres)
+ Guidelines, 2015                                    Reserve Bank of India
+ • IFSCA (Insurance Intermediary)
+                                                     Central Board of Direct Taxes
+      Regulations, 2021                              Central Board of Indirect taxes and Customs
+ • IFSCA (Registration of Insurance Business)
+
+      Regulations, 2021
+
+ • FEMA (International Financial Services Centre)
+      Regulations, 2015
+
+ • FEM (Foreign Currency Accounts by a
+      Person Resident In India) Regulations, 2015
+
+ • FEM (Transfer or issue of Foreign Security)
+      Regulations, 2004 (‘ODI Regulations’)
+
+ Income-tax Act, 1961
+ Goods and Services Tax Law
+
+Participants in IFSC
+
+Banks                                                • Indian banks (viz. banks authorised to deal in
+(regulated by the IFSCA)                                  foreign exchange)
+
+                                                     • Foreign banks already having presence in India
+
+             Insurance players                       • Indian Insurer
+            (regulated by IFSCA)                     • Indian Reinsurer
+                                                     • Indian Broker
+             Capital Market Players                  • Foreign Insurer
+            (regulated by IFSCA)                     • Foreign Reinsurer
+
+FMEs in GIFT City                                    • Stock Exchanges / Commodity Exchanges
+                                                     • Clearing Corporation
+                                                     • Depository, Custodians
+                                                     • Broker
+                                                     • Alternate Investment Fund / Fund Management Entity
+                                                     • Mutual Fund
+                                                     • Investment Adviser
+                                                     • Portfolio Manager
+
+                                                                                                                                                                   2
+Overview of IFSC Tax framework
+
+                                                               Banks      IFSCA - Banking license (IBU)
+                                                                          SEZ - IFSC unit license
+
+GIFT SEZ,                         IFSC Units            Capital Markets   IFSCA - license
+GIFT City                   (Financial services)             entities     SEZ - IFSC unit license
+
+                                                               Insurance  IFSCA- Insurance license
+                                                                entities  SEZ - IFSC unit license
+
+The Regulatory Powers of RBI, SEBI, IRDAI and PFRDA have been vested in IFSCA for regulating
+financial institutions, financial products, and services in IFSC at GIFT City exercisable by IFSCA from
+1st October 2020
+
+     Particulars            Units in IFSC                                 Investors
+
+Income-tax                  • 100% tax exemption for 10                • Interest income paid to non-residents
+
+Goods and                   consecutive years out of 15 years  Monies lent to IFSC units not taxable
+Services Tax
+                            • MAT / AMT @ 9% of book profits               Long Term Bonds & Rupee
+Other taxes and                 applies to Company / others setup              Denominated Bonds listed on IFSC
+duties                          as a unit in IFSC. MAT not applicable          exchanges taxable at lower rate of
+                                to companies in IFSC opting for new            4%
+         FMEs in GIFT City      tax regime
+                                                                       • Transfer of specified securities listed on
+                            • From 01 April 2020, dividend                 IFSC exchanges by a non-resident or
+                                income distributed by Company in           Category III AIF located in IFSC not
+                                IFSC to be taxed in the hands of the       treated as transfer - Gains accruing not
+                                shareholder.                               chargeable to tax in India
+
+                                                                       • Specified securities include Bond, GDR,
+                                                                           Foreign currency denominated bond,
+                                                                           Rupee-denominated bond of an Indian
+                                                                           company, Derivatives, Unit of a Mutual
+                                                                           Fund, Unit of a business trust, Unit of
+                                                                           Alternative Investment Fund and
+                                                                           Foreign currency denominated equity
+                                                                           share of a company
+
+                            • No GST on services –                     • No GST on transactions carried out in
+
+                             received by unit in IFSC                    IFSC exchanges
+
+                             provided to IFSC / SEZ units or
+                                Offshore clients
+
+                            • GST applicable on services provided
+                                to DTA
+
+                            • State Subsidies – Lease rental,          • Exemption from STT, CTT, stamp duty in
+                                Provident Fund contribution,               respect of transactions carried out on
+                                electricity charges                        IFSC exchanges
+
+                                                                                                                     3
+Alternate Investment Funds (AIFs) in India
+
+In 2012, the SEBI introduced AIF Regulations1 with an intention to regulate unregistered pooling vehicles. It aimed
+to avoid regulatory gaps and to have a level playing field for all types of funds in India.
+
+Currently, there are more than 600 AIFs registered with the SEBI. As on 31 December 2019, as per the data
+published by SEBI, the total capital commitment of these AIFs is US$ 49.69 billion out of which the fund raised from
+investors is US$ 24.53 billion and the amount of investments made is US$ 20.30 billion. These facts clearly
+demonstrate the potential of AIFs as a pooling vehicle in India.
+
+Considering the success of the AIF regime in domestic market and a with a view to encourage fund regime in IFSC, in
+2015, the SEBI had issued detailed guidelines2 to facilitate and regulate the securities market in India’s first IFSC at GIFT
+City. These guidelines provided the basic framework for AIFs, such as permissible investors, permissible investments, etc.
+
+      Cumulative Amount Mobilized by AIF (2015-20)                                                  Yr on Yr growth in Amount Mobilized by AIF (2015-20)
+                                                                                                                                 Rs in crores
+
+      4,00,000                                                     3,47,802
+                                                     2,82,148
+                                                                                                    2015-16 2016-17                       2017-18 2018-19 2019-20
+                                      1,65,095                                                                                             Funds raised Investments made
+er    3,00,000            84,304
+
+ro    2,00,000  38,879                                                                              4,00,000
+.CsR  1,00,000                                                                                      3,00,000
+                                                                                                    2,00,000
+      0                                                                                             1,00,000
+            2015-16 2016-17 2017-18 2018-19 2019-20
+                                                                                                              0
+
+      Commitments raised  Funds raised                  Investments made                                                     Commitments
+                                                                                                                                  raised
+
+https://www.sebi.gov.in/statistics/1392982252002.html
+Based on the suggestions submitted by AIPAC, on 26 November 2018, the SEBI issued circular3 specifying the
+‘Operating guidelines for AIFs in IFSC’.
+
+                                                                                                                             June 2021
+
+Journey of Fund regime in IFSC                                                                                               AIFs permitted to invest in mutual
+
+                                                                           August 2019                                       funds, Continuing interest
+                                                                       Permissible investments by
+                                                                       IFSC AIFs expanded and                                requirement voluntary for relocated
+                                                                       aligned with domestic AIFs
+                                                                                                                             AIFs                        August 2021
+
+                                                                                                                                                         Rules prescribed for computation
+
+                                                                                                                                                         of income of a Category III IFSC
+
+                                                                                                                                                         AIF attributable to units held by
+
+                                                                                                                                                         non-resident investors
+
+March 2015                                              July 2019                                  September 2020            June 2021                   October 2021
+SEBI issues IFSC                                        Exemption from filing                      New tax framework         SEBI permits off-           Exemption from filing return of
+regulations including Fund                              income-tax return for                      for Category III AIFs     market transfer of          income in India to Non-resident
+regime                                                  NR investors in                            in IFSC                   securities by FPI           investors in Category III AIFs
+                                                        Category I or II AIF                                                 relocating to IFSC
+                                         January 2018                                              December 2020                                         April 2022
+                                      AIPAC report      July 2019                                  Permitting segregated     May 2021                    Issuance of the
+                                      submitted to the  Income from offshore                       portfolio, relaxation in  • Exemption from            IFSCA (Fund
+                                      SEBI with         investments by non-                        investment                                            Management)
+                                      recommendations   resident investors                         diversification and         obtaining PAN to NR       Regulations, 2022
+                                      for AIFs in IFSC  through Category I or II                   leverage                    investing in Category     based on
+                                                        AIF, not taxable                                                       III AIF in IFSC           recommendations
+                                        November 2018                                                March 2021              • Sponsor contribution      of Expert
+                                      Operating                                                     Favourable tax regime      by Indian party to        Committee report
+                                      Guidelines for                                                for relocation of          IFSC AIF under            in February 2022
+                                      Alternative                                                   offshore funds to IFSC     automatic route
+                                      Investment Funds
+                                      (AIFs) in IFSC
+                                      issued
+
+1. SEBI (AIF) Regulations,2012
+2. Securities and ExchangeBoardof India(International financial services centres) guidelines, 2015
+3. Circular No. SEBI/HO/IMD/DF1/CIR/P/143/2018
+
+      FMEs in GIFT City                                                                                                                                                                     4
+Fund Management Entities (FMEs) in IFSC
+
+The IFSC Authority ('IFSCA'), in its endeavour to develop a comprehensive and consistent regulatory framework
+for Investment Funds based on global best practices with a special focus on ease of doing business, had
+constituted an Expert Committee on Investment Funds to recommend to IFSCA on the road map for the funds
+industry in the IFSCs.
+
+The Expert Committee submitted its report ('Committee Report') to the IFSCA on January 31, 2022. Upon
+examination of the Committee Report, the IFSCA proposed to issue the IFSCA (Fund Management)
+Regulations, 2022 and the consultation paper along with the draft regulations were released for public
+consultation.
+
+In April 2022, the IFSCA has notified the final IFSCA (Fund Management) Regulations, 2022. These Regulations
+provide a comprehensive regulatory framework for Asset Managers and Funds and could prove to be a seminal
+moment for the Asset Management industry in IFSC.
+
+Cornerstone of the new regulations
+
+                   Regulating            Regulatory                           Risk- based
+                   Fund Manager v. Fund  Oversight                            Approach
+
+A paradigm shift in exercise of          Fund Manager to obtain registration  Three categories of FME have been
+regulatory oversight through             from IFSCA and requirement for       notifed:
+regulation of Fund Managers as           launching of Funds/ Schemes to be    • With least regulatory oversight
+compared to regulation of Funds          fine-tuned based upon the investor   • With moderate regulatory
+under the earlier regime                 classes
+                                                                                  oversight
+                                                                              • With high regulatory oversight
+
+FMEs in GIFT City                                                                                              5
+FMEs in IFSC
+
+Snapshot and basic construct of the regulations                                            Fund/ Schemes
+
+ Fund Management Entity                                                                    • Venture
+                                                                                               Capital
+ • Authorised FME                                                                              Schemes
+ • Registered FME (Non –
+                                                                                           • Restricted
+      Retail)                                                                                  schemes (non-
+ • Registered FME (Retail)                                                                     retail schemes)
+
+                                                                          IFSCA (Fund      • Retail Schemes
+                                                                         Management)
+                                                                      Regulations, 2022  Other Fund Management
+                                                                                         Activities
+ Focus Areas
+                                                                                         • Portfolio Management
+ • Special Situation Funds                                                                   Services
+ • ETFs
+ • ESG                                                                                   • Investment Trusts
+                                                                                         • Family Investment Funds
+
+The notified Regulations mention that the respective Schemes ‘may’ be construed as Category I/ II/ III
+                                       AIF under inter alia the Income-tax Act, 1961
+
+Existing Fund Managers of AIFs and existing Portfolio Managers to seek fresh registration under the new
+                                                               Regulations
+
+                                                           within 6 months
+
+FMEs in GIFT City                                                                                        6
+FMEs in IFSC            • Pooling of money from accredited investors or investors investing above USD
+                            250,000
+Categories of FME
+                        • Invest in start-up or early-stage ventures through Venture Capital Scheme
+      Authorised FME    • Family Investment Funds
+                        • Minimum net worth: USD 75,000
+       Registered FME
+         (Non-Retail)   • Pooling of money from accredited investors or investors making capital
+                            commitment above USD 150,000
+       Registered FME
+            (Retail)    • Portfolio Management services, Multi Family Offices, Investment Manager for
+                            private placement of REITs and InvITs
+
+                        • Minimum net worth: USD 500,000
+                        • Allowed to undertake all activities of Authorised FMEs
+
+                        • Pooling of money from all investors or including retail investors
+                        • Public offer of Investment Trusts (REITs and InvITs), Launch of ETFs
+                        • Minimum net worth: USD 1,000,000
+                        • Allowed to undertake all activities of Authorised FMEs and Registered FME (Non-
+
+                             retail)
+
+Categories of Schemes   • Launched by FMEs – schemes that invest primarily in start-ups, early stage VC
+       Venture Capital      undertakings involved in new products, services, technology etc. Also includes an
+            Scheme          Angel Fund
+
+           Restricted   • Offered only on a private placement basis (including accredited investors) and shall
+            Scheme          have less than 50 investors
+
+        Retail Scheme   • ‘Green channel’ for subscription by investors
+
+                        • Offered only to relevant persons on a private placement basis (including accredited
+                            investors) and shall have less than 1,000 investors
+
+                        • ‘Green channel’ if subscription is to be raised only from accredited investors
+                        • Launched by Registered FME
+
+                        • Schemes offered to all investors including retail investors
+                        • Schemes can be:
+
+                             - filed with regulator only after approval from fiduciaries;
+                             - launched only after incorporating all comments from regulator in the offer
+
+                                   document
+                        • Launched by Registered FME (Retail)
+
+FMEs in GIFT City                                                                                               7
+FMEs in IFSC
+
+Key attributes of FME
+
+Particulars                 Categories of FME         Registered FME (Non-
+                            Authorised FME            Retail)
+                                                                                Registered FME (Retail)
+
+Types of schemes managed    • Venture Capital         • Venture Capital         • All schemes including Retail
+                                Schemes offered           Schemes and               Schemes offered to all investors
+                                on a private              Restricted Schemes        including retail investors
+                                placement basis           offered on a private
+                                                          placement basis
+
+Legal structure of FME      • Company, limited liability partnership (LLP) or   • Company
+                                branch thereof
+
+Minimum no. of employees    1                         2                         3
+(based out of IFSC)         (1 Principal Officer for
+                            overall activities)       (1 Principal Officer for  (1 Principal Officer for overall
+                                                      overall activities + 1    activities + 1 Compliance and Risk
+                                                      Compliance and Risk       Manager + 1 Additional Key
+                                                      Manager)                  Managerial Personnel for fund
+                                                                                management)
+
+FME Experience              • FME to employ such employees who shall have       • FME/ holding company to have
+                                relevant experience                                 > 5 years of experience in
+                                                                                    managing AUM of at least USD
+                                                                                    200mn with more than 25,000
+                                                                                    investors; or
+
+                                                                                • At least 1 person in control
+                                                                                    holding more than 25%
+                                                                                    shareholding in the FME to have
+                                                                                    at least 5 years of experience in
+                                                                                    financial services
+
+                                                                                • FME to employ such employees
+                                                                                    who shall have relevant
+                                                                                    experience
+
+Experience and              • Professional Qualification : A professional qualification or post-graduate degree or post
+professional qualification      graduate diploma (minimum 2 years) in finance, law, accountancy, business
+of Key Managerial               management, commerce, economics, capital market, banking, insurance or actuarial
+Personnel                       science from a recognised university/ institution or a certification from any
+                                organization/ institution/ association/ stock exchange which is recognised/ accredited
+                                by Authority or a regulator in India or Foreign Jurisdiction
+
+                            • Experience : At least 5 years in related activities in the securities market or financial
+                                products including in a portfolio manager, broker dealer, investment advisor, wealth
+                                manager, research analyst or fund management
+
+Minimum number of                                                               4 (At least 50% to be
+
+Directors / Partners in the -                         -                         independent and not
+
+FME                                                                             associated with FME)
+
+     FMEs in GIFT City                                                                                   8
+FMEs in IFSC
+
+FME Contribution: Skin-in-the-game
+
+Targeted Corpus    Minimum /            Venture Capital  Types of Schemes        Retail schemes
+(TC)               Maximum          Scheme/ Close ended
+                                                               Open ended     Lower of: (a) 1% of
+Less than USD 30    Minimum           Non-retail scheme    Non-retail scheme  AUM of the scheme
+million                                                                       or (b) USD 200,000
+                    Maximum         2.5% of TC           5% of TC
+More than USD 30    Minimum                                                                -
+million             Maximum          10% of TC              10% of TC            Same as above
+                                    USD 750,000          USD 1,500,000
+                                                                                           -
+                                     10% of TC              10% of TC
+
+• Contribution requirements to be fulfilled by FME or its associates within 45 days, unless exempted and to be
+    maintained on ongoing basis
+
+• The contribution requirements by the FME is not mandatory in following cases:
+     - In case of VC schemes and Restricted schemes (Non-retail):
+           o At least 2/3rd of the investors in the scheme by value permit waiver of such contribution;
+           o At least 2/3rd of the investors in the scheme are accredited investors; or
+           o FOF scheme investing in a scheme which has similar such requirements (applicable in case of Retail schemes)
+     - In case of relocation of funds/ schemes established or incorporated or registered outside India to IFSC
+
+FMEs in GIFT City                                                                                                         9
+FMEs in IFSC
+
+Key attributes of Schemes
+
+                             Categories of Schemes
+
+Particulars                  Venture Capital
+                             Scheme
+                                                       Restricted Scheme                      Retail Scheme
+
+Legal Structure              Company, LLP or Trust                                            Company/ Trust
+
+Type of Fund/ Scheme         Close-ended               Open-ended or Close-ended
+
+Corpus                       Minimum – USD 5           Minimum – USD 5 million
+                             million                   Maximum – No limit
+
+                             Maximum – USD 200
+                             million
+
+Minimum number of            -                         -
+
+investors
+
+in the scheme
+
+Maximum number of            < 50                      < 1000 or such higher limit as may No restrictions
+                                                       be prescribed by the IFSCA
+investors in the scheme
+
+Minimum contribution or      Accredited investors –    Accredited investors – None            Open-ended schemes –
+capital commitment from      None                                                             None
+an investor in the scheme                              Other than Accredited investors –
+                             Other than                • USD 150,000                          Close-ended schemes -
+                             Accredited investors:     • Employees/ Directors/                Minimum investment to be
+                                                                                              USD 10,000
+                             • USD 250,000                 Designated Partners/ Partners
+                             • Employees/                  of the FME – USD 40,000            No restriction to close-
+                                                                                              ended schemes investing
+                                 Directors/                                                   less than 15% in unlisted
+                                 Designated                                                   securities
+                                 Partners/ Partners
+                                 of FME – USD
+                                 60,000
+
+Maximum holding by a         None                      None                                   25%
+
+single investor in the Fund
+
+or Scheme
+
+Asset classes                Primarily in unlisted     • Several asset classes including      Several asset classes
+                             securities of start-ups,      listed securities, unlisted        including listed securities,
+                             specified VCUs                securities, derivatives, etc       unlisted securities,
+                                                                                              derivatives, etc
+                                                       • Close ended schemes – Up to
+                                                           20% of corpus may be invested
+                                                           in physical assets such as real
+                                                           estate, bullion, art or any other
+                                                           physical asset as specified
+
+FMEs in GIFT City                                                                                             10
+FMEs in IFSC
+
+Key attributes of Schemes (…continued)
+
+                         Categories of Schemes
+
+Particulars              Venture Capital          Restricted Scheme                    Retail Scheme
+Investment restrictions  Scheme
+
+Cap on investment in     • Atleast 80% of         • Investment in associate            • Cap on investment in
+unlisted securities          AUM to be                entities subject to prior            single investee company
+Leverage                     invested in              approval of 75% investors in         – 10% of AUM; 15%
+                             companies                the scheme by value                  subject to prior approval
+                             incorporated for <                                            of the fiduciaries (not
+                             10 years or other                                             applicable in case of
+                             venture capital                                               Index schemes)
+                             schemes
+                                                                                       • Cap on investment in a
+                         • Investment in its                                               single sector – 25% of
+                             associate subject                                             AUM (50% for financial
+                             to prior approval                                             service sector) (not
+                             of 75% investors in                                           applicable in case of
+                             the scheme by                                                 sectoral / thematic /
+                             value                                                         Index schemes)
+
+                                                                                       • Cap on investment in its
+                                                                                           associate – 25% of AUM
+
+                         None                     • Open ended scheme – 25% of         • Open-ended: 15% of the
+                                                      the corpus of the scheme             AUM of the scheme
+
+                                                  • Close ended scheme – No such       • Close-ended – 50% of
+                                                      restriction                          the AUM of the scheme
+
+                         Permissible subject to disclosure of maximum leverage and     Permissible only for
+                         methodology for calculation of leverage in the placement      meeting temporary liquidity
+                         memorandum                                                    requirement (for meeting
+                         • deviations subject to approval of 2/3rd investors by value  redemptions or dividend
+                                                                                       payments) up to 20% of the
+                                                                                       AUM of the scheme and the
+                                                                                       duration of such borrowing
+                                                                                       to not exceed 6 months
+
+NAV disclosure           • Yearly                 • Open-ended scheme –                • Open-ended scheme –
+                                                      Monthly                              Daily
+
+                                                  • Close-ended scheme – Half-         • Close-ended scheme –
+                                                      yearly                               Weekly
+
+FMEs in GIFT City                                                                                     11
+FMEs in IFSC
+
+Special Situation Funds
+
+Permitted to       • stressed loan available for acquisition
+invest in:         • security receipts (SRs) issued by an Asset Reconstruction Company (ARC) registered with the
+
+                        RBI
+                   • securities of investee companies whose
+
+                        - stressed loans are available for acquisition,
+                        - against whose borrowings, SRs are issued by an ARC,
+                        - whose borrowings are subject to corporate insolvency resolution process, etc.
+
+Category of FME to launch a Special Situation  Registered FME
+Fund                                           Close - ended fund
+                                               Company or LLP or Trust
+Type of Fund                                   Only in special situation assets
+                                               Not permissible other than to meet day-to-day operational
+Legal structure of the Fund                    requirements
+                                               As may be specified by IFSCA from time to time
+Permissible Investments
+                                               To apply as applicable to close - ended Restricted schemes
+Leverage
+
+Scheme corpus, eligible investors, investment
+conditions
+
+Computation of NAV, contribution by FME in
+the Fund/ scheme and other disclosure/
+valuation norms
+
+FMEs in GIFT City                                                                                          12
+FMEs in IFSC
+
+Exchange Traded Funds                                            esct  NAV: Daily basis
+
+• Registered FMEs (Retail) permitted to launch ETFs in IFSC      sp
+• Units of ETFs to be mandatorily listed on at least one of the  A
+                                                                 t     Redemption: Option available to investors
+    recognised stock exchange in IFSC
+• Simplified framework may be prescribed by recognised stock     rtan
+                                                                 o
+    exchange(s) for intermediaries to act as market makers
+
+                                                                 p     Material deviation: consent of at least
+                                                                 m I
+                                                                       2/3rd of investors by value
+
+   Equity/ Debt       Replicates index of IFSC/ Indian/ foreign jurisdiction ≥ 95% (equity)/ 90% (debt) of total
+   Index              assets
+
+   Gold/ Silver Index Investment in gold/ silver, bullion, ETCD (with underlying as gold) ≥ 90% of AUM
+
+s
+F
+T
+E
+
+f  Commodity Index Invest ≥ 90% in specified commodity or related security/ investment
+
+o
+
+s
+e
+
+p
+y
+T
+
+   Active Managed FME has discretion over composition of portfolio subject to investment policies
+
+   Other              Subject to approval of Exchange
+
+Environmental, Social and Governance (ESG)
+
+FME managing          • Establish policy on governance around material sustainability-related risks and opportunities
+AUM > USD 3           • Disclosure in annual report:
+billion
+                           - How the FME identifies, assesses and manages material sustainability-related risks;
+ESG Fund                   - Process of factoring sustainability-related risks and opportunities into investment
+
+                                 strategies
+
+                      • FME launching ESG scheme to make disclosure in the prescribed manner regarding:
+
+                           - investment objective,
+                           - investment policy and strategy
+                           - material risk, benchmark, etc.
+                      • Scheme documents shall disclose whether sustainability-related risks are incorporated in
+                           decision making
+
+                           - Negative statement to be included when sustainability-related risks are not incorporated
+
+   FMEs in GIFT City                                                                                            13
+FMEs in IFSC
+
+Portfolio Management Services (PMS)
+
+Eligible FME and   • Person resident outside India/ NRI
+clients            • Individual/ non-individual resident in India, eligible to invest offshore as per prescribed
+
+Permitted              regulations and
+Investments        • Multi-family office
+Investment         • Minimum ticket size: USD 150,000
+Restrictions
+                        - minimum investment threshold shall not apply to an accredited investor
+Others
+                   • Securities/ financial products in IFSC, India or foreign jurisdiction
+                   • Discretionary PMS: listed/ to-be listed securities, money market instruments, units of investment
+
+                       scheme
+
+                   • Investment in derivatives, with express consent
+                   • Segregation of client’s funds/ portfolios from FME’s funds/ portfolios
+
+                   • Dealing with client’s funds
+                        - aligned with the existing Capital Market Intermediaries Regulations (CMI)
+
+                   • Provide advisory services subject to compliance with CMI
+
+Family Investment Fund                                          Permissible Activities and Instruments
+
+         Eligibility conditions                           • Permissible activities
+
+• Set-up in form of a Company, LLP or Contributory          - Activities related to managing Family Office as specified
+   Trust                                                       by IFSCA
+
+• For Contributory Trusts:                                • Permissible investments:
+  - the beneficiaries should be identifiable, though not
+      specifically named in Trust deed                      - Securities issued by unlisted entities;
+  - the share of each beneficiary should be capable of      - Securities listed/ to-be listed on stock exchanges (and
+      being determined
+  - addition of further contributors shall not make            other investment schemes), in IFSC, India or foreign
+      existing beneficiaries unknown or their shares           jurisdictions;
+                                                            - Money market instruments/ debt or derivatives;
+• Minimum corpus - USD 10 million within 3 years            - Asset-backed or mortgage-backed securitised debt
+• Borrowing/ leveraging permissible                            instruments;
+                                                            - Units of mutual funds and alternative investment funds
+                                                               in India and foreign jurisdiction;
+                                                            - Investment in Limited Liability Partnerships;
+                                                            - Physical assets like real estate, bullion, art, etc., or
+                                                            - Any other securities or financial productas may be
+                                                               specified
+
+FMEs in GIFT City                                         14
+Tax Framework
+
+ Under the new Fund Management Regulations:
+
+ Venture Capital Scheme shall be construed as Category I AIF under Income tax Act, 1961 and
+ Restricted Scheme (Non-Retail) shall be construed either as Category I/ II / III AIF (as the case may be)
+
+ A. For AIFs and itsinvestors
+
+       a. Category I and II AIF
+       • Category I and Category II AIF have tax pass-through status for Indian income-tax purposes (except for
+
+            business income, which is taxable in the hands of the AIF for which 100% tax holiday can be claimed for a
+            period of 10 consecutive years out of a block of first 15 years).
+
+       • Investors are taxedon income arising from investmentsmade by the AIF as if the investments were made
+            directly by them.
+
+       • Income accruing or arising or received by non-resident investors from offshoreinvestments through a
+            Category I and II AIF is not taxable in India.
+
+       • Investors can claim losses (other than business loss) of AIF on pass through basis, provided the units of such
+            AIF are held for a period of 12 months or more. However, any business loss can be carried forward only at
+            the AIFlevel.
+
+       • Exemption has been provided to non-resident investors from filing return of income, provided they earn
+            income only from investments made in a Category I or Category II AIFs in IFSC and tax has been deducted
+            on the distribution made by such AIFs to non-resident investors. Further, such non-resident investors are also
+            exempted from obtaining PAN in India.
+
+       • To the extent beneficial, the investors can avail the tax treatment in accordance with the Tax-treaty, subject to
+            satisfaction of Tax-treaty eligibilityconditions.
+
+       b. Category IIIAIF
+
+       • Category III AIFs are subjectto fundlevel taxation.
+       • The following income earned by the Category III AIF, which are attributable to non-resident investors in the
+
+            AIF, is exempt from tax:
+
+           o Income on transfer of any securities (other than shares in a company resident in India), including
+                derivatives, debt securities and offshoresecurities.
+
+           o Income from securities issued by a non-resident (not being a Permanent Establishment) and where such
+                income otherwise does not accrue or arise in India
+
+           o Income from a securitisation trust chargeable under the head “profits and gains of business or profession
+           o Income on transfer of specified securities listed on a recognised stock exchange located in IFSC where
+
+                consideration for such transaction is in convertible foreign exchange
+
+       • Income on transferof shares in an Indian company is taxable as follows to the Category III AIF:
+           o Short-term Capital Gains - 15% if Securities Transaction Tax paid, else 30%;
+           o Long-term Capital Gains - 10%
+
+       • Income in respect of securities (suchas interest, dividend) is taxable to the Category III AIF at the rate of 10%
+            (5% in case of interest income on certain rupee denominated bonds, Government securities or municipal
+            debt securities referredto in section 194LD).
+
+       • Any income accruing or arisingto or received from the Category III AIF or on transfer of its units is exempt
+            from tax in the hands of investors.
+
+FMEs in GIFT City                                                                                                           15
+Tax Framework (… continued)
+
+       • Surcharge on certain Long-term Capital Gains, Short-term Capital Gains and dividends earned by the
+            Category III AIF is capped at 15%. Further, the provisions of Alternate Minimum Tax are not applicable
+            to the Category III AIF.
+
+       • Exemption has been provided to non-resident investors of Category III AIF in IFSC from obtaining a
+            PAN and filing income-tax return in India
+
+       • Exemption from stamp duty, Securities Transaction Tax & Commodities Transaction Tax for
+            transactions carried out on IFSC exchanges.
+
+ B. For Manager:
+
+       • 100% corporate tax exemptionfor 10 consecutive years out of block of 15 years (from date of approval from
+            regulator) in respect of income from business carried on in IFSC.
+
+       • The Minimum Alternate Tax (‘MAT’)/ Alternate Minimum Tax (‘AMT’) rate has been reduced to 9% (as
+            against 18.5%). However, companies in IFSC choosing to opt for new tax regime under domestic tax law
+            shall be exempt from MAT provisions.
+
+       • The dividend distributed by Manager may be taxable in the hands of its shareholders under the domestic tax
+            law.
+
+       • Supplyof services by Manager to AIFs in IFSC is exempt from Goods and Services Tax. The same shall be
+            applicable to services by FME to Scheme in IFSC.
+
+       • Interest payable to a non-resident in respect of monies borrowed exempt from income tax.
+
+Attribution mechanism
+
+       The CBDT has notified rules prescribing the method of computation of income of the Category III AIF in IFSC
+       attributable to units held by non-resident investors.
+
+       The key aspects of the attribution mechanism is as follows:
+       • The attribution mechanism is based on the Assets Under Management (AUM) of the AIF.
+
+       • Income arising from transfer of security is attributable on the basis of the average of daily aggregate AUM of
+            the AIF over the period of holding of the security. Income received in respect of securities is attributable on
+            the basis of the AUM as on the date of receipt of income.
+
+       • The term ‘AUM’ has been defined as the closing balance of the value of assets or investments of the AIF as
+            on a particular date.
+
+FMEs in GIFT City                                                                                                            16
+Tax Framework (… continued)
+
+Relocation of Offshore funds to the IFSC:
+
+ A. Tax neutrality provided for relocation of Offshore funds to IFSC:
+
+       The Finance Act, 2021 introduced provisions to provide for tax neutrality in case of relocation of offshore fund
+       or wholly owned Special Purpose Vehicles of the Offshore fund to the resultant fund (Category I/ II / III) in the
+       IFSC, where the transfer of assets have been taken place on or before March 31, 2023 as follows:
+
+       • Exemption from capital gains from any transfer, in relocation, of a capital asset of the original fund or its wholly
+            owned Special Purpose Vehicles of the original fund to the resultant fund in the IFSC.
+
+       • Exemption from capital gains from transfer by a shareholder / unit holder, in a relocation, of capital asset
+            being share / unit held by him in the original fund; or the original fund itself, in consideration for share / unit in
+            the resultant fund.
+
+       • Exemption from capital gains tax arising or received by a non-resident investor or a Category III AIF in IFSC,
+            on account of transfer of shares of an Indian company by the resultant fund or the Category III AIF to the
+            extent attributable to the units held by non-resident and such shares were transferred from the original fund,
+            or from its wholly owned special purpose vehicle, to the resultant fund pursuant to relocation and where the
+            capital gains on such transferwould originally not been subject to tax had the relocation not taken place.
+
+       • Cost of acquisition to previous owner shall be available to the resultant fund.
+
+       • No impact on carry forward of losses with change in the shareholding of Indian company to the extent the
+            change in shareholding has taken place on account of relocation.
+
+ B. Regulatory Relaxations
+
+       • One time “Off-market transfer” of securities permitted by SEBI for offshorefundsrelocating to IFSC
+
+       • Continuing interest requirement for Manager / sponsor has been made voluntary for Resultant Fund
+
+FMEs in GIFT City                                                                                                                   17
+Key steps for setting up GIFT - FME and Scheme
+
+1                  Apply for availability of name for FME (not applicable to a Branch) and
+                   Scheme (if applicable)
+
+2                  Identification of office space in GIFT Special Economic Zone (SEZ) and secure
+                   Provisional letter of allotment (PLOA) from GIFT SEZ
+
+3                  Apply for Branch set-up/ Company/LLP incorporation for FME and Scheme (if
+                   applicable) and obtain Certificate of Incorporation
+
+4                  Appointment of a trustee for Scheme and registration of trust deed,
+
+                   wherever applicable
+
+5                  Application to the Development Commissioner of SEZ and obtain letter of
+                   approval (LOA) from SEZ Authorities for FME and Scheme (if applicable)
+
+6                  Obtain IFSC Authority approval
+
+7                  Commencement of Business
+
+FMEs in GIFT City                                                                             18
+Key benefits for FMEs in IFSC
+
+    • Various tax incentives and regulatory exemptions granted to IFSCUnits
+    • Lower operating costs, in addition to other subsidies granted by the Gujarat Government
+    • Availability of skilledresources
+    • Proximity to the onshoremarket
+    • World class infrastructure, unparalleled connectivity and transportation access
+    • Access to multiple markets from IFSC and opportunity to become a part of growing
+
+         ecosystem supported by robust policy initiatives by Government of India.
+
+  Financial Ecosystem for FMEs in IFSC
+
+ 19 banks              Fund     Custodians  Trusteeship     Stock                              Depository
+operational        administrat                services   exchanges                               services
+
+   in IFSC               or
+
+FMEs in GIFT City                                                                                          19
+Gujarat Government State subsidies
+  Newly introduced State Subsidies Incentives available under IT/ITeS policy of Gov. of Gujarat
+
+Capital Subsidy                  Capital subsidy @ 25% of capital expenditure (one-time)
+Subsidy for operating expense    • Upto INR 2000m where gross fixed capital investment by entity
+Electricity duty reimbursement
+                                     exceeds INR 2500m
+                                 • Upto INR 500m where capital investment is less than INR 2500
+
+                                     m
+                                 Opex Subsidy @ 15% of operating expenditure (for 5 years)
+                                 • Upto INR 400m where gross fixed capital investment by entity
+
+                                     exceeds INR 2500m
+                                 • Upto INR 200m where gross fixed capital investment is less
+
+                                     than INR 2500m
+                                 100% Reimbursement of Electricity duty for 5 years
+
+Reimbursement of Provident Fund  100% of EPF amount contribution (upto 12%)
+contribution by employer
+                                 • 100% for female employees
+Interest subsidy                 • 75% for male employees
+Employment generation incentive
+                                 Interest subsidy (for 5 years) of upto 7% on term loan or actual interest paid,
+                                 max INR 10 mn per annum
+                                 Reimbursement of 50% of one month employment cost to company (one-
+                                 time) upto a maximum of
+
+                                 INR 50k for men
+                                 INR 60k for women
+
+Special Incentives for IT City / Township, Cloud Ecosystem, Data Centres and R&D institutes
+
+IT City / Townships              Capex: One time support of 25% of CAPEX subject to maximum of
+                                 INR 500m
+
+Facilitating infrastructure      Opex (Rentals): First two years: 50% of monthly rentals subject to a
+Cloud System for CLS             maximum of INR 10k
+                                 First three years subsequently: 25% of monthly rentals subject to a
+                                 maximum of INR 5k
+                                 Capex: One-time support of 25% of eligible CAPEX up to INR 200m
+
+Data centre projects             Capex: One-time support of 25% of eligible CAPEX up to INR 1.5bn
+Establishing R&D institutes      Opex: Power tariff subsidy of INR 1/ unit (5 years)
+
+                                 One-time support of 60% of machinery cost up to INR 50m
+
+FMEs in GIFT City                                                                                                 20
+Thank you
+
+Gujarat International Finance Tec-City Company Ltd
+Reg. Office: EPS - Building no. 49A, Block 49, Zone 04,
+Gyan Marg, GIFT City, Gandhinagar – 382355. Gujarat
+Tel. No. : +91 79 61708300
+Visit us on: w ww.giftgujarat.in
+

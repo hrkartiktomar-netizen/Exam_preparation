@@ -1,0 +1,301 @@
+SOURCE: 107_IFSCA TAS__FAQs Dec 2025.pdf
+PAGES: 8
+================================================================================
+
+
+[PAGE 1]
+ 
+1 | P a g e  
+INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY 
+(Financial Support Services Regulatory Division) 
+ 2nd & 3rd Floor, Savvy Pragya, Gujarat International Finance Tec-City, Gandhinagar, Gujarat 382050 
+ 
+______________________________________________________________________________ 
+ Efile 3346/ IFSCA-TAS/1/2025                                      Date 12.12.2025 
+ 
+FREQUENTLY ASKED QUESTIONS (FAQs) UNDER  THE IFSCA (TECHFIN AND  
+ANCILLARY SERVICES) REGULATIONS, 2025 
+1. Who can apply under the IFSCA (TechFin and Ancillary Services) Regulations, 2025 (“TAS 
+Regulations”)? 
+Any entity desirous of providing either TechFin Services or Ancillary Services, or both, from the IFSC, 
+can apply under the TAS Regulations to  obtain a Certificate of Registration (“CoR”), before 
+commencing its operations in the IFSC. 
+2. What legal form(s) of the Applicant are eligible to obtain CoR under the TAS Regulations? 
+The following legal form(s) of the Applicant are eligible to obtain CoR under the TAS Regulations: 
+(i) Companies or Limited Liability Partnerships (“LLPs”) incorporated in IFSC. 
+(ii) Branches of companies or LLPs incorporated outside IFSC  (i.e. India or from foreign 
+jurisdiction). 
+3. Can a partnership firm be set up under the TAS Regulations, and if so, in what form? 
+Yes, a partnership firm may be set up under the TAS Regulations either in the form of a newly registered 
+partnership firm or in the form of branch of an existing partnership firm, provided that: 
+(i) Such partnership firm is registered under the Indian Partnership Act, 1932; 
+(ii) All partners are members of a professional body or institute established under an Act of 
+Parliament (e.g., BCI, ICAI, ICSI, ICMAI, etc.), including IBBI; and  
+(iii) All promoters or partners of the applicant entity must be from jurisdictions not identified by the 
+Financial Action Task Force (FATF) in its public statement as “High-Risk Jurisdictions subject 
+to a call for action.” 
+4. Whether an entity authorised  under the erstwhile Ancillary Services Framework or FinTech 
+Entity Framework, can migrate under the TAS Regulations, 2025.   
+Yes, an existing entity, including the entities that are already operating in branch mode, authorised under 
+the erstwhile Ancillary Services Framework or FinTech Entity Framework, can migrate and continue 
+
+[PAGE 2]
+ 
+2 | P a g e  
+INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY 
+(Financial Support Services Regulatory Division) 
+ 2nd & 3rd Floor, Savvy Pragya, Gujarat International Finance Tec-City, Gandhinagar, Gujarat 382050 
+ 
+operations, under the TAS Regulations, 2025 , subject to the conditions  stipulated under the  IFSCA’s 
+circular titled “Transition to IFSCA (TechFin and Ancillary Services) Regulations, 2025” dated July 31, 
+2025. 
+5. What services are not permitted to be provided under the TAS Regulations, 2025 
+Please refer the Third Schedule of the TAS Regulations, 2025. 
+ 
+6. What is the timeline to comply with the TAS Regulations and conditions of the in-principle 
+approval? 
+On receipt of in -principle approval, the a pplicant entity must, within a period of one hundred eighty 
+(180) days, unless extended by the Authority, take necessary steps to comply with the TAS Regulations 
+and conditions of the in-principle approval. 
+7. Are there any requirements for appointment or designation of P rincipal Officer (‘PO’) and 
+Compliance Officer (‘CO’)?  
+(1) Yes, Regulation 9 of the TAS Regulations mandates the TechFin and Ancillary Service Providers 
+(“TAS Provider”) to appoint or designate one of its existing officers as: 
+(a) a Principal Officer (however, for any entity providing services exclusively to its Group Entities 
+located in IFSC, the appointment of a principal officer is optional, subject to the approval of the 
+Authority); and 
+(b) a Compliance Officer 
+(2) Both PO and CO must be full-time employees and based out of IFSC. 
+(3) However, i n case of a TAS Provider engaging a member of a professional body other than  in 
+employment mode, such professional may also be designated  as PO or CO  of that TAS Provider,  
+provided that they shall be based out of IFSC unit and shall not be permitted to function as PO or CO 
+for any other unit of IFSC. 
+8. Do existing Ancillary Services Providers and TechFins need to obtain CoR  under the TAS 
+Regulations? 
+Entities which have been granted authorisation for providing Ancillary Services or TechFin Services, 
+under the “Framework for enabling Ancillary services at International Financial Services Centres" or 
+“Framework for FinTech Entity in the International Financial Services Centres (IFSCs)", respectively, 
+
+[PAGE 3]
+ 
+3 | P a g e  
+INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY 
+(Financial Support Services Regulatory Division) 
+ 2nd & 3rd Floor, Savvy Pragya, Gujarat International Finance Tec-City, Gandhinagar, Gujarat 382050 
+ 
+shall be required to obtain CoR under the TAS Regulations within a period of 12 months from the 
+commencement of the TAS Regulations, unless this period is extended by the Authority, upon an 
+application from the entity. 
+IFSCA may, upon receipt of a declaration from the existing Ancillary Services Provider or TechFin 
+entity, certifying the compliance with the requirements specified under TAS Regulations as per format 
+in Annexure – I of this FAQS, and on being satisfied with such declaration, issue a CoR to the existing 
+Ancillary Service Provider or TechFin. 
+9. What about entities which have been granted in -principle approval for Ancillary Services or 
+TechFin Services, under the “Framework for enabling Ancillary services at International Financial 
+Services Centres"  or “Framework  for FinTech Entity in the International Financial Services 
+Centres (IFSCs)”, respectively?” 
+Such entities must also obtain a CoR under regulation 4 of the TAS Regulations within 12 months from 
+the date of commencement of the TAS Regulations. 
+10. What process must a TechFin entity operating in the Sandbox under the FE Framework follow 
+to obtain registration for providing TechFin services at GIFT-IFSC? 
+A TechFin entity currently operating in the Sandbox under the Financial Entity (FE) Framework is 
+required to successfully exit the Sandbox before seeking formal registration.  After the successful exit, 
+the entity must submit a fresh application through the SWIT portal under the TAS Regulations to obtain 
+registration for providing TechFin services. 
+11.  How the pending applications will be processed and what would be the fees applicable? 
+(1) Applications pending under Framework for enabling Ancillary services at International Financial 
+Services Centres" or “Framework for FinTech Entity in the International Financial Services Centres 
+(IFSCs)”, as on the date of commencement of the TAS Regulations  will be processed under the TAS 
+Regulations. 
+(2) No additional application fee / processing fee will be applicable, if already paid 
+(3) Registration/annual Recurring Fees (Flat + Conditional if appliable), other fees as specified by 
+Authority vide circular dated 31.07.2025 titled “Transition to IFSCA (TechFin and Ancillary Services) 
+Regulations, 2025” issued under the TAS Regulations will apply.  
+
+[PAGE 4]
+ 
+4 | P a g e  
+INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY 
+(Financial Support Services Regulatory Division) 
+ 2nd & 3rd Floor, Savvy Pragya, Gujarat International Finance Tec-City, Gandhinagar, Gujarat 382050 
+ 
+12. What if the CoR is not obtained within 12 months by the entities, which  has received in -
+principle approval or by existing Ancillary Services Providers and  TechFin Entities, which 
+received final authorisation under existing frameworks. 
+Existing entities that are having approval as Ancillary Service Provider  under Framework for enabling 
+Ancillary services at International Financial Services Centres  or are Authorised TechFin as per as per 
+Framework for FinTech Entity in the International Financial Services Centres and fail to obtain a 
+Certificate of Registration (CoR) under the TAS Regulations, 2025 within the stipulated period of 12 
+months from the commencement of these Regulations, unless extended by the Authority, will have their 
+approvals or authorisations deemed invalid. Such entities shall cease their operations under the old 
+frameworks upon expiry of the 12 months period. 
+13. Which existing circulars are being repealed under the TAS Regulations? 
+The following provisions/circulars shall stand repealed after 24 months from the commencement of the 
+TAS Regulations: 
+(1) The Framework for enabling Ancillary services at International Financial Services Centres  dated 
+February 10, 2021, and any other circulars issued thereunder. 
+ 
+(2) Clause 7(b), Part B of Annexure-I of the Framework for FinTech Entity in the International 
+Financial Services Centres dated April 27, 2022, pertaining to Authorization of TechFin entities. 
+(3) However, all prior authorisations, obligations, and proceedings undertaken under these frameworks 
+shall remain valid and unaffected.  
+14. In which currency shall the TAS Provider carry out its operations and financial reporting?  
+ (1) For operations: Specified Foreign Currencies. 
+(2) INR account allowed to defray its administrative and statutory expenses. 
+ (3) For reporting: USD (unless otherwise specified by the Authority). 
+15. What is the mode of payment for application, registration, annual fee and other fees? 
+Please refer to IFSCA fees circular issued from time to time. 
+(1) For payments in USD: 
+• Account Name: International Financial Services Centres Authority 
+• Account Number: 970105000174 
+
+[PAGE 5]
+ 
+5 | P a g e  
+INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY 
+(Financial Support Services Regulatory Division) 
+ 2nd & 3rd Floor, Savvy Pragya, Gujarat International Finance Tec-City, Gandhinagar, Gujarat 382050 
+ 
+• Type of Account: USD Current Account 
+• Bank Name: ICICI Bank Limited 
+• SWIFT Code: ICICINAAXXX  
+• NOSTRO Details: CHASUS33XXX 
+• Correspondent Bank: JP MORGAN CHASE BANK NA, NEW YORK, USA 
+• NOSTRO Account No.: 833999532 
+(2) For payments in INR (for Indian entities other than those in GIFT-IFSC): 
+• Account Name: IFSCA FUND 2 
+• Account Number: 39907189884 
+• Bank Name: State Bank of India 
+• Type of Account: INR Current Account 
+• IFSC Code: SBIN0060228 
+Note: The applicable INR amount shall be calculated using the latest RBI reference rate, generally 7 
+days prior to the transaction date, available at FBIL Website. 
+For comprehensive details, please refer to the IFSCA Fee Circular dated April 8, 2025, clarification on 
+fee circular dated April 23, 2025, and amendments made thereafter. 
+16. How can one get clarification on any difficulties in interpreting these regulations? 
+For any clarification or additional guidance, stakeholders may contact the Financial Support Services 
+Regulatory Division (FSSRD) of the IFSCA at tas-ifsc@ifsca.gov.in . In case of any specific  policy / 
+proposed transaction related clarification, the applicant may seek guidance under the IFSCA Informal 
+guidance scheme. 
+17. What is the due date for the payment of fees? 
+1st year 
+• Registration fees: 
+(i) Upon grant of in -principle approval, one-time registration fee must be paid within 15 days 
+from the date of issue, in terms of IFSCA circular dt. April 8, 2025 and July 31, 2025 as 
+amended from time to time.  
+
+[PAGE 6]
+ 
+6 | P a g e  
+INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY 
+(Financial Support Services Regulatory Division) 
+ 2nd & 3rd Floor, Savvy Pragya, Gujarat International Finance Tec-City, Gandhinagar, Gujarat 382050 
+ 
+ 
+(ii) For the existing entities operating under the relevant erstwhile frameworks, which have 
+already been paid annual fees, such entities must pay annual fees on a pro rata basis for the 
+remaining period of the financial year in which CoR is granted under TAS Regulations.   
+ 
+• Conditional Fees as part of Annual fee for FY, in which CoR was issued:  
+The conditional fees for the 1 st year of grant of CoR shall be paid within 30 days of end of the 
+said financial year in which C oR was granted under TAS Regulations, calculated on a pro rata 
+basis in the year of grant of CoR.  
+2nd year onwards: 
+(i) the Annual recurring fee is applicable as per the IFSCA transition circular dated 31.07.2025 
+read with IFSCA Fee Circular dated 08.04.2025 as amended from time to time. 
+(ii) Conditional fees calculated basis turnover for the previous financial year. 
+(iii) Both flat fee plus conditions fee, as applicable, have to be paid in advance for next FY within 
+the timelines as specified by IFSCA Circular issued from time to time. 
+ 
+18. Whether providing technology services / solutions for carrying out BATF services are covered 
+under TAS Regulations.  
+Yes, it is clarified here that "Development, implementation, and ongoing maintenance of any ERP 
+software or any other software/technology platform on which accounting, bookkeeping, taxation, and 
+financial crime compliance services are performed" are covere d under IFSCA ( TechFin and Ancillary 
+Services) Regulations, 2025, subject to the condition that the service recipients for these services are 
+BATF services providers located in IFSC as well as outside India. Further, BATF services are as defined 
+under IFSCA(BATF) Regulations, 2024. 
+ 
+Disclaimer: These F AQs are not interpretation of law. They are intended to provide  a simplified 
+explanation of processes, terms, and requirements under the IFSCA  (TechFin and Ancillary Services) 
+Regulations, 2025. In case of any disparity between these F AQs and the provisions of the relevant Acts, 
+Regulations, Guidelines, Circulars, etc., the latter shall prevail. For official legal reference,  
+stakeholders must consult the Acts, Regulations, Guidelines, and Circulars  available on the  IFSCA 
+website www.ifsca.gov.in 
+ 
+
+[PAGE 7]
+ 
+7 | P a g e  
+INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY 
+(Financial Support Services Regulatory Division) 
+ 2nd & 3rd Floor, Savvy Pragya, Gujarat International Finance Tec-City, Gandhinagar, Gujarat 382050 
+ 
+Annexure- I 
+             Date:  
+            Place: 
+From, 
+Name of Authorized Signatory Name of Entity 
+Type of Entity(Ancillary Services Provider / TechFin Entity)  
+Address 
+Contact details 
+ 
+To, 
+The Executive Director 
+Financial Support Services Regulatory  
+Division International Financial Services Centres Authority 
+2nd and 3rd Floor, Pragya Tower, GIFT City, Gandhinagar 
+Subject: Submission of Letter of compliance with IFSCA(TechFin and Ancillary Services) Regulations, 
+2025 - request to issue a CoR 
+Dear Sir, 
+I/We have been granted authorization vide letter no.  dated  bearing authorization no.  as an 
+Ancillary Services Providers/ TechFin Entity under IFSCA Ancillary Services Framework, 2021 
+/TechFin related provisions of IFSCA's FinTech Entity Framework, 2022 to undertake the following 
+services from GIFT-IFSC, namely,  ,  ,  and  . 
+Further, we have also obtained SEZ Letter of Approval for the services permissible under First & Second 
+Schedule of IFSCA( TAS) Regulations, 2025 
+In view of the above, I/ We (name of authorised signatory) hereby declare and confirm that the entity( 
+name of the entity    ) complied with all the provisions of IFSCA(TechFin and Ancillary Services) 
+Regulations, 2025 and hence, it is requested to issue a Certificate of Registration as a TechFin and 
+Ancillary Services Provider under the said regulations. 
+(Authorized Signatory)  
+Name: 
+Designation:  
+Signature:  
+Seal: 
+ 
+
+[PAGE 8]
+ 
+8 | P a g e  
+INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY 
+(Financial Support Services Regulatory Division) 
+ 2nd & 3rd Floor, Savvy Pragya, Gujarat International Finance Tec-City, Gandhinagar, Gujarat 382050 
+ 
+Documents to be attached for fresh application under IFSCA (TAS) Regulations, 2025 on  
+IFSCA SWIT Portal  
+Portal link : https://swit.ifsca.gov.in/  
+ 
+S. 
+No. 
+Supporting documents to be submitted 
+1 (Certificate of Incorporation / Registration / equivalent certificate / Articles of Association 
+(AOA) / Memorandum of Association (MOA) / LLP Agreement  
+2 Provisional Letter of Allotment / Lease Deed in case of existing unit 
+3 NOC from Home Regulator, in case of applicant entity being regulated by any financial  
+sectoral regulator  
+4 Board Resolution(s) for setting up of Unit and to seek registration under the respective 
+regulations  
+5 Ownership and Group Structure Chart (to ascertain UBOs) / Shareholding structure  
+6 Last 3 years Audited Financial Statements (Balance Sheet, P&L Statement, Income 
+Statement). In case of branch, provide above details of Parent entity.  
+7 Net Worth Certificate and Personal Tax Returns  
+8 Business Plan for the proposed business activities in GIFT IFSC 
+9 Financial Projections for next 5 years  
+10 Manpower Projections for next 5 years  
+11 Permanent Account Number (PAN) or any other tax identification no.  
+12 Information on Management  
+13 Detailed Resume 
+14 Copy of proof of payment of application fees (Specify SWIFT MT 103 or UTR No.)  
+ 
+ 
