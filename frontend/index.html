@@ -1873,6 +1873,268 @@
       qs('citationModal').classList.add('hidden');
     }
 
+    // ========================================================================
+    // PHASE 3: TCS iON EXAM UI - ADAPTIVE MOCK & EXAM TIMER
+    // ========================================================================
+
+    let examState = {
+      exam_id: null,
+      started_at: null,
+      current_question_idx: 0,
+      answers: [],  // [{question_id, selected_answer, time_spent_seconds, marked_for_review}]
+      marked_for_review: new Set(),
+      time_remaining: 3600,
+      timer_interval: null,
+      questions: []
+    };
+
+    async function startExam(count = 50) {
+      qs('examName').textContent = 'Starting Exam...';
+      try {
+        const data = await api(`/api/exams/start?count=${count}`);
+        examState.exam_id = data.exam_id;
+        examState.started_at = data.started_at;
+        examState.questions = data.questions;
+        examState.time_remaining = data.time_limit_seconds;
+
+        // Initialize answer tracking
+        examState.answers = data.questions.map(q => ({
+          question_id: q.question_id,
+          selected_answer: null,
+          time_spent_seconds: 0,
+          marked_for_review: false
+        }));
+
+        // Load from localStorage if available
+        const saved = localStorage.getItem(`exam_${examState.exam_id}`);
+        if (saved) {
+          const savedState = JSON.parse(saved);
+          examState.answers = savedState.answers || examState.answers;
+          examState.marked_for_review = new Set(savedState.marked_for_review || []);
+        }
+
+        displayQuestion(0);
+        renderQuestionPalette();
+        startTimerPoll();
+
+        qs('examShell').classList.remove('hidden');
+        qs('preExam').classList.add('hidden');
+
+        return examState;
+      } catch (error) {
+        qs('examName').textContent = `Error: ${error.message}`;
+      }
+    }
+
+    function displayQuestion(idx) {
+      if (idx < 0 || idx >= examState.questions.length) return;
+
+      examState.current_question_idx = idx;
+      const q = examState.questions[idx];
+      const answer = examState.answers[idx];
+
+      qs('questionCounter').textContent = `Question ${idx + 1} of ${examState.questions.length}`;
+      qs('questionTopic').textContent = `Topic: ${q.topic || 'General'}`;
+
+      const optionsHtml = (q.options || []).map(opt => {
+        const checked = answer?.selected_answer === opt.label ? 'checked' : '';
+        return `
+          <label style="display: block; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+            <input type="radio" name="answer" value="${opt.label}" ${checked}
+              onchange="selectAnswer('${opt.label}')">
+            <strong>${opt.label}:</strong> ${escapeHtml(opt.text)}
+          </label>
+        `;
+      }).join('');
+
+      qs('questionArea').innerHTML = `
+        <div class="question-content">
+          <h3>${escapeHtml(q.question_text)}</h3>
+          <div class="negative-marking">💡 Scoring: +4 for correct, -1 for wrong, 0 for unanswered</div>
+          <div class="options">
+            ${optionsHtml}
+          </div>
+        </div>
+      `;
+
+      updateNavigationButtons();
+      updatePaletteCellState(idx);
+    }
+
+    function selectAnswer(option) {
+      examState.answers[examState.current_question_idx].selected_answer = option;
+      saveExamState();
+      updatePaletteCellState(examState.current_question_idx);
+    }
+
+    function markReviewAndNext() {
+      const idx = examState.current_question_idx;
+      examState.marked_for_review.add(examState.questions[idx].question_id);
+      examState.answers[idx].marked_for_review = true;
+      saveExamState();
+      updatePaletteCellState(idx);
+      nextQuestion();
+    }
+
+    function nextQuestion() {
+      if (examState.current_question_idx < examState.questions.length - 1) {
+        displayQuestion(examState.current_question_idx + 1);
+      }
+    }
+
+    function previousQuestion() {
+      if (examState.current_question_idx > 0) {
+        displayQuestion(examState.current_question_idx - 1);
+      }
+    }
+
+    function jumpToQuestion(idx) {
+      const current = examState.current_question_idx;
+      // Restriction: can only jump within reasonable distance OR allow all (depending on exam rules)
+      // For now allowing all jumps for flexibility
+      displayQuestion(idx);
+    }
+
+    function clearResponse() {
+      examState.answers[examState.current_question_idx].selected_answer = null;
+      displayQuestion(examState.current_question_idx);
+      saveExamState();
+    }
+
+    function renderQuestionPalette() {
+      const palette = qs('questionPalette');
+      const cells = examState.questions.map((q, idx) => {
+        const answer = examState.answers[idx];
+        const isAnswered = answer?.selected_answer ? '■' : '□';
+        const isMarked = examState.marked_for_review.has(q.question_id) ? '★' : '';
+        const char = isMarked ? isMarked : isAnswered;
+        const cellClass = answer?.selected_answer ? (examState.marked_for_review.has(q.question_id) ? 'answered-marked' : 'answered') :
+                         examState.marked_for_review.has(q.question_id) ? 'marked' : 'not-answered';
+        return `
+          <span class="qnum ${cellClass}" onclick="jumpToQuestion(${idx})" title="Q${idx + 1}">
+            ${char}
+          </span>
+        `;
+      }).join('');
+
+      palette.innerHTML = cells;
+    }
+
+    function updatePaletteCellState(idx) {
+      const cells = document.querySelectorAll('.qnum');
+      cells.forEach((cell, i) => {
+        if (i === idx) {
+          cell.style.border = '2px solid red';
+        } else {
+          cell.style.border = '1px solid #ccc';
+        }
+      });
+    }
+
+    function updateNavigationButtons() {
+      const prevBtn = document.querySelector('button[onclick="previousQuestion()"]');
+      const nextBtn = document.querySelector('button[onclick="nextQuestion()"]');
+
+      if (prevBtn) prevBtn.disabled = examState.current_question_idx === 0;
+      if (nextBtn) nextBtn.disabled = examState.current_question_idx === examState.questions.length - 1;
+    }
+
+    function startTimerPoll() {
+      if (examState.timer_interval) clearInterval(examState.timer_interval);
+
+      examState.timer_interval = setInterval(async () => {
+        try {
+          const data = await api(`/api/exams/${examState.exam_id}/time-remaining`);
+          examState.time_remaining = data.time_remaining_seconds;
+
+          const minutes = Math.floor(examState.time_remaining / 60);
+          const seconds = examState.time_remaining % 60;
+          qs('examTimer').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+          // Update submit button enabled at 5 min mark
+          const submitBtn = document.querySelector('button[onclick="submitCurrentMock(false)"]');
+          if (submitBtn) {
+            submitBtn.disabled = examState.time_remaining > 300;
+          }
+
+          // Auto-submit when time expires
+          if (examState.time_remaining <= 0) {
+            clearInterval(examState.timer_interval);
+            await submitCurrentMock(true);
+          }
+        } catch (error) {
+          console.error('Timer error:', error);
+        }
+      }, 5000);  // Poll every 5 seconds
+    }
+
+    async function submitCurrentMock(autoSubmit = false) {
+      const submitBtn = document.querySelector('button[onclick="submitCurrentMock(false)"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      if (!autoSubmit && examState.time_remaining > 300) {
+        alert('Submit disabled. Only available within last 5 minutes.');
+        if (submitBtn) submitBtn.disabled = false;
+        return;
+      }
+
+      try {
+        const response = await api(`/api/exams/${examState.exam_id}/submit`, {
+          method: 'POST',
+          body: JSON.stringify(examState.answers)
+        });
+
+        if (response.code === 403 || response.reason === 'EXAM_TIME_EXPIRED') {
+          alert('Exam time expired. Submission rejected.');
+          return;
+        }
+
+        // Display results
+        clearInterval(examState.timer_interval);
+        displayExamResults(response);
+        alert(`Exam submitted! Score: ${response.score}/${response.raw_score} with ${response.correct} correct, ${response.wrong} wrong.`);
+        localStorage.removeItem(`exam_${examState.exam_id}`);
+      } catch (error) {
+        alert(`Submit error: ${error.message}`);
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    }
+
+    function displayExamResults(result) {
+      const analysis = qs('examAnalysis');
+      analysis.innerHTML = `
+        <div class="page-head">
+          <h1>Exam Results</h1>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px;">
+          <div class="panel">
+            <h3>Score</h3>
+            <div style="font-size: 2em; color: var(--green);">${result.score}</div>
+            <span class="muted">/ ${result.raw_score}</span>
+          </div>
+          <div class="panel">
+            <h3>Accuracy</h3>
+            <div style="font-size: 2em; color: var(--ion-blue);">${result.accuracy_pct.toFixed(1)}%</div>
+            <span class="muted">${result.correct} correct, ${result.wrong} wrong</span>
+          </div>
+          <div class="panel">
+            <h3>Weak Areas</h3>
+            <div>${result.weak_areas.length > 0 ? result.weak_areas.join(', ') : 'None'}</div>
+          </div>
+        </div>
+      `;
+      analysis.classList.remove('hidden');
+      qs('examShell').classList.add('hidden');
+    }
+
+    function saveExamState() {
+      const state = {
+        answers: examState.answers,
+        marked_for_review: Array.from(examState.marked_for_review)
+      };
+      localStorage.setItem(`exam_${examState.exam_id}`, JSON.stringify(state));
+    }
+
     window.addEventListener('load', async () => {
       qs('uploadDate').value = new Date().toISOString().slice(0, 10);
       qs('amendmentDate').value = new Date().toISOString().slice(0, 10);

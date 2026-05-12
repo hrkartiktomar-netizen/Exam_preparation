@@ -923,6 +923,116 @@ async def amendments_status():
         conn.close()
 
 
+# ============================================================================
+# PHASE 3: ADAPTIVE MOCK GENERATION - EXAM ENDPOINTS
+# ============================================================================
+
+@app.post("/api/exams/start")
+async def start_exam(count: int = Query(default=50, ge=25, le=75)):
+    """Start a new exam session. Returns exam_id, started_at, questions, time_limit_seconds."""
+    try:
+        # Generate smart mock
+        mock_data = db.generate_smart_mock(total_questions=count, mode="balanced", use_gemini=True)
+        mock_id = mock_data["mock_id"]
+
+        return {
+            "exam_id": mock_id,
+            "started_at": datetime.now().isoformat(),
+            "time_limit_seconds": 3600,  # 60 minutes
+            "question_count": len(mock_data["questions"]),
+            "questions": mock_data["questions"],
+            "allocation_summary": mock_data["allocation_summary"],
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/api/exams/{exam_id}/time-remaining")
+async def get_exam_time_remaining(exam_id: str):
+    """Get remaining time for exam. Server validates timer."""
+    try:
+        conn = db.get_connection()
+        try:
+            # Query mock to get start time
+            mock_row = conn.execute(
+                "SELECT created_at FROM mocks WHERE mock_id = ? LIMIT 1",
+                (exam_id,),
+            ).fetchone()
+
+            if not mock_row:
+                return {"status": "not_found", "exam_id": exam_id}
+
+            from datetime import datetime, timedelta
+
+            started_at = datetime.fromisoformat(mock_row[0])
+            elapsed = (datetime.now() - started_at).total_seconds()
+            time_remaining = max(0, 3600 - elapsed)
+
+            return {
+                "exam_id": exam_id,
+                "time_remaining_seconds": int(time_remaining),
+                "time_limit_seconds": 3600,
+                "status": "active" if time_remaining > 0 else "expired",
+            }
+        finally:
+            conn.close()
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.post("/api/exams/{exam_id}/submit")
+async def submit_exam(exam_id: str, answers: list[dict[str, Any]]):
+    """Submit exam answers. Server validates timer + calculates score."""
+    try:
+        conn = db.get_connection()
+        try:
+            # Validate timer: must be within 60 minutes
+            mock_row = conn.execute(
+                "SELECT created_at FROM mocks WHERE mock_id = ? LIMIT 1",
+                (exam_id,),
+            ).fetchone()
+
+            if not mock_row:
+                raise HTTPException(status_code=404, detail="Exam not found")
+
+            from datetime import datetime
+
+            started_at = datetime.fromisoformat(mock_row[0])
+            elapsed = (datetime.now() - started_at).total_seconds()
+
+            if elapsed > 3600:
+                return {"status": "error", "reason": "EXAM_TIME_EXPIRED", "code": 403}
+
+            # Submit answers via db.submit_mock()
+            result = db.submit_mock(exam_id, answers)
+
+            # Calculate weak areas
+            breakdown = result.get("topic_breakdown", {})
+            weak_areas = [topic for topic, acc in breakdown.items() if acc.get("accuracy_pct", 100) < 60]
+
+            return {
+                "status": "success",
+                "exam_id": exam_id,
+                "score": result.get("final_score", 0),
+                "raw_score": result.get("raw_score", 0),
+                "total_questions": result.get("total_questions", 0),
+                "correct": result.get("total_correct", 0),
+                "wrong": result.get("total_wrong", 0),
+                "unanswered": result.get("total_unanswered", 0),
+                "negative_marks": result.get("negative_marks", 0),
+                "accuracy_pct": (result.get("total_correct", 0) / result.get("total_questions", 1) * 100),
+                "topic_breakdown": breakdown,
+                "weak_areas": weak_areas,
+                "question_analysis": result.get("question_analysis", [])[:10],  # Return top 10 for UI
+            }
+        finally:
+            conn.close()
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
 @app.get("/api/questions/{question_id}/source", response_model=dict[str, Any])
 async def get_question_source(question_id: str):
     """Retrieve source citation details for a specific question."""
