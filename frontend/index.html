@@ -647,6 +647,22 @@
           <div id="amendmentWatchlist" class="muted">Loading.</div>
         </div>
       </div>
+
+      <!-- Phase 4: Advanced Analytics, SRS, and Study Path Widgets -->
+      <div class="grid-3">
+        <div class="panel">
+          <h2>Exam Analytics</h2>
+          <div id="analyticsPanel" class="muted">No exams analyzed yet.</div>
+        </div>
+        <div class="panel">
+          <h2>Spaced Repetition - Due Today</h2>
+          <div id="srsPanel" class="muted">No topics due for review.</div>
+        </div>
+        <div class="panel">
+          <h2>Week Study Goals</h2>
+          <div id="studyPathPanel" class="muted">No active study path.</div>
+        </div>
+      </div>
     </section>
 
     <section id="exam" class="view">
@@ -1183,6 +1199,10 @@
           <td>${escapeHtml(topic.trend)}</td>
         </tr>
       `).join('');
+      await loadAmendmentRadar();
+      await loadAnalytics();
+      await loadSRSPanel();
+      await loadStudyPathPanel();
     }
 
     async function loadAmendmentRadar() {
@@ -1206,6 +1226,118 @@
         qs('amendmentWatchlist').innerHTML = html;
       } catch (error) {
         qs('amendmentWatchlist').innerHTML = `<div class="muted">Error loading amendments: ${error.message}</div>`;
+      }
+    }
+
+    async function loadAnalytics() {
+      try {
+        const timeline = await api('/api/analytics/timeline?limit=5');
+        if (!timeline || timeline.length === 0) {
+          qs('analyticsPanel').innerHTML = '<div class="muted">No exam data yet. Take a mock to see analytics.</div>';
+          return;
+        }
+        const latest = timeline[0];
+        const html = `
+          <div style="margin-bottom: 1rem;">
+            <div class="badge neutral">Latest: ${(latest.accuracy || 0).toFixed(1)}%</div>
+            <span class="muted">Exams: ${timeline.length}</span>
+          </div>
+          ${timeline.map((item, idx) => `
+            <div class="source-box" style="margin-bottom: 0.8rem; padding: 0.8rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <strong>Exam ${timeline.length - idx}</strong>
+                <span class="badge neutral">${(item.accuracy || 0).toFixed(1)}%</span>
+              </div>
+              <div class="muted" style="font-size: 0.85rem;">Avg Topics: ${(item.avg_topic_accuracy || 0).toFixed(1)}%</div>
+            </div>
+          `).join('')}
+        `;
+        qs('analyticsPanel').innerHTML = html;
+      } catch (error) {
+        qs('analyticsPanel').innerHTML = `<div class="muted">Error: ${error.message}</div>`;
+      }
+    }
+
+    async function loadSRSPanel() {
+      try {
+        const due = await api('/api/srs/due-topics');
+        const stats = await api('/api/srs/stats');
+        if (!due || due.length === 0) {
+          qs('srsPanel').innerHTML = `
+            <div class="muted">No topics due today.</div>
+            <div style="margin-top: 1rem; font-size: 0.9rem;">
+              <strong>SRS Status:</strong><br>
+              Topics tracked: ${stats.total_topics_in_srs || 0}<br>
+              Due soon: ${stats.due_today || 0}<br>
+              Completed: ${stats.completed_reviews || 0}
+            </div>
+          `;
+          return;
+        }
+        const html = `
+          <div style="margin-bottom: 1rem;">
+            <div class="badge danger">${due.length} Due Today</div>
+            <span class="muted">Retention: ${(stats.retention_estimate || 0).toFixed(0)}%</span>
+          </div>
+          ${due.slice(0, 5).map(topic => `
+            <div class="source-box" style="margin-bottom: 0.8rem; padding: 0.8rem;">
+              <strong>${escapeHtml(topic.display_name || topic.topic_id)}</strong>
+              <div class="muted" style="font-size: 0.85rem;">Interval: ${topic.interval_days} days</div>
+              <button class="btn" style="margin-top: 0.5rem; font-size: 0.85rem;" onclick="markSRSComplete('${topic.topic_id}')">✓ Reviewed</button>
+            </div>
+          `).join('')}
+        `;
+        qs('srsPanel').innerHTML = html;
+      } catch (error) {
+        qs('srsPanel').innerHTML = `<div class="muted">Error: ${error.message}</div>`;
+      }
+    }
+
+    async function markSRSComplete(topicId) {
+      try {
+        await api(`/api/srs/mark-reviewed/${topicId}`, { method: 'POST' });
+        loadSRSPanel();
+      } catch (error) {
+        alert(`Error: ${error.message}`);
+      }
+    }
+
+    async function loadStudyPathPanel() {
+      try {
+        const path = await api('/api/study-paths/current');
+        if (!path || !path.weeks || path.weeks.length === 0) {
+          qs('studyPathPanel').innerHTML = '<div class="muted"><button class="btn" onclick="generateStudyPath()">Generate 12-Week Path</button></div>';
+          return;
+        }
+        const currentWeek = path.weeks[0];
+        const html = `
+          <div style="margin-bottom: 1rem;">
+            <div class="badge neutral">Exam: ${path.exam_date}</div>
+            <span class="muted">12-week plan</span>
+          </div>
+          <div class="source-box" style="margin-bottom: 1rem; padding: 1rem;">
+            <strong>Week 1 Goals</strong>
+            <div style="margin-top: 0.5rem;">
+              <div class="muted">Focus: ${currentWeek.focus_topics.slice(0, 2).join(', ')}</div>
+              <div class="muted">Daily: ${currentWeek.daily_questions} questions</div>
+              <div style="margin-top: 0.5rem;"><em>${currentWeek.milestone}</em></div>
+            </div>
+          </div>
+        `;
+        qs('studyPathPanel').innerHTML = html;
+      } catch (error) {
+        qs('studyPathPanel').innerHTML = `<div class="muted">Error: ${error.message}</div>`;
+      }
+    }
+
+    async function generateStudyPath() {
+      try {
+        qs('studyPathPanel').innerHTML = '<div class="muted">Generating personalized plan...</div>';
+        const weakTopics = [];
+        await api('/api/study-paths/generate?weak_topics=' + weakTopics.join(','), { method: 'POST' });
+        loadStudyPathPanel();
+      } catch (error) {
+        qs('studyPathPanel').innerHTML = `<div class="muted">Error: ${error.message}</div>`;
       }
     }
 

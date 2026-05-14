@@ -5,6 +5,7 @@ Single-user, local execution. No distributed requirements.
 
 from __future__ import annotations
 
+import database as db
 import json
 import sqlite3
 import uuid
@@ -190,8 +191,6 @@ async def execute_amendment_questions(target_resource: str, payload: dict[str, A
     Returns:
         {amendment_id, questions_generated, drill_id}
     """
-    import database as db
-
     amendment_id = target_resource
     topic_id = payload.get("topic_id", "PH2_CURRENT_AFFAIRS")
     count = payload.get("count", 3)

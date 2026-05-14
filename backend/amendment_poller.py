@@ -9,13 +9,17 @@ import hashlib
 import json
 import sqlite3
 import time
+import uuid
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin
 
+import database as db
 import httpx
+import job_queue
 from bs4 import BeautifulSoup
+from gemini_integration import extract_and_verify_amendment
 
 BACKEND_DIR = Path(__file__).resolve().parent
 DB_PATH = BACKEND_DIR / "ifsca_exam.db"
@@ -111,8 +115,6 @@ class AmendmentPoller:
 
     async def _extract_amendment(self, circular: dict[str, Any]) -> dict[str, Any] | None:
         """Extract amendment from circular using Gemini."""
-        from gemini_integration import extract_and_verify_amendment
-
         # Check cache first (SHA256 dedup)
         sha256 = hashlib.sha256(circular["url"].encode()).hexdigest()
         if self._sha256_exists(sha256):
@@ -142,9 +144,6 @@ class AmendmentPoller:
 
     async def _save_amendment(self, amendment: dict[str, Any]) -> str:
         """Save amendment to database."""
-        import database as db
-        import uuid
-
         amendment_id = str(uuid.uuid4())
         amendment["amendment_id"] = amendment_id
 
@@ -153,12 +152,10 @@ class AmendmentPoller:
 
     async def _queue_questions(self, amendment_id: str, amendment: dict[str, Any]) -> None:
         """Queue 3 question generation jobs for amendment."""
-        from job_queue import enqueue_job
-
         topic_id = self._map_topic_id(amendment.get("topic", "PH2_CURRENT_AFFAIRS"))
 
         for i in range(3):
-            enqueue_job(
+            job_queue.enqueue_job(
                 "amendment_questions",
                 target_resource=amendment_id,
                 payload={"topic_id": topic_id, "count": 1},
@@ -197,7 +194,6 @@ class AmendmentPoller:
         """Record poll result for auditing."""
         conn = sqlite3.connect(self.db_path)
         try:
-            import uuid
             poll_id = str(uuid.uuid4())
             conn.execute(
                 """

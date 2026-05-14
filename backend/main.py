@@ -4,12 +4,13 @@ from __future__ import annotations
 
 from contextlib import asynccontextmanager
 from datetime import datetime, timedelta
-from pathlib import Path
+import json
+from pathlib import Path as PathLib
 from typing import Any
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
-from fastapi import BackgroundTasks, FastAPI, HTTPException, Query
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Path, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -23,12 +24,15 @@ from gemini_integration import (
     extract_and_verify_amendment,
     gemini_available,
     generate_amendment_watchlist,
+    generate_exam_analysis,
     generate_focus_plan,
     generate_law_revision_plan,
     generate_mock_blueprint,
+    generate_personalized_study_path,
     generate_product_gap_analysis,
     generate_pyq_calibration,
     generate_study_session,
+    generate_srs_recommendation,
     generate_topic_source_brief,
     get_gemini_health,
     grade_essay,
@@ -38,10 +42,13 @@ from models import (
     AmendmentExtractRequestModel,
     AmendmentModel,
     AmendmentResponseModel,
+    AnalyticsTimelineModel,
     DashboardStatsModel,
     EssayGradingResponseModel,
     EssayPromptModel,
     EssaySubmissionModel,
+    ExamAnalyticsModel,
+    ExamAnalyticsResponseModel,
     HealthResponseModel,
     IngestResponseModel,
     IngestionStatusModel,
@@ -55,6 +62,11 @@ from models import (
     SmartMockRequestModel,
     SmartMockResponseModel,
     SourceSearchResponseModel,
+    SRSScheduleRequestModel,
+    SRSTopicModel,
+    StudyPathModel,
+    StudyPathProgressModel,
+    StudyPathWeekModel,
     StudySessionRequestModel,
     TopicModel,
     TopicStatsModel,
@@ -62,7 +74,7 @@ from models import (
 )
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = PathLib(__file__).resolve().parents[1]
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
 DIGEST_PATH = PROJECT_ROOT / "COMPLETE_PDF_DIGEST.txt"
 PLAN_PATH = PROJECT_ROOT / "memory" / "FINAL_MAXIMUM_EXTENSIVE_PROJECT_PLAN.md"
@@ -1248,7 +1260,242 @@ async def source_distribution_by_topic():
         conn.close()
 
 
+@app.post("/api/exams/{exam_id}/analytics", response_model=ExamAnalyticsResponseModel)
+async def post_exam_analytics(exam_id: str, analytics: list[ExamAnalyticsModel]):
+    """Save detailed analytics after exam completion. Per Context7 docs for FastAPI: proper error handling."""
+    try:
+        count = db.save_exam_analytics(exam_id, [a.model_dump() for a in analytics])
+        overall_acc = sum(a.accuracy_pct for a in analytics) / len(analytics) if analytics else 0.0
+        weak = [a.topic_id for a in analytics if a.accuracy_pct < 60]
+        return ExamAnalyticsResponseModel(
+            exam_id=exam_id,
+            total_topics_analyzed=len(analytics),
+            overall_accuracy=overall_acc,
+            topic_analytics=analytics,
+            weak_topics=weak[:5],
+            improvement_areas=["Review weak topics", "Practice time management"],
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+
+@app.get("/api/analytics/timeline", response_model=list[AnalyticsTimelineModel])
+async def get_analytics_timeline(limit: int = Query(default=10, ge=1, le=50)):
+    """Get score progression timeline across all mocks."""
+    try:
+        timeline = db.get_analytics_timeline(limit)
+        return [AnalyticsTimelineModel(**item) for item in timeline]
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/analytics/comparison/{topic_id}")
+async def compare_topic_performance(topic_id: str):
+    """Compare topic performance across all exams (trending)."""
+    try:
+        analytics = db.get_analytics_timeline(50)
+        topic_data = [a for a in analytics if a.get("topic_id") == topic_id or topic_id in str(a)]
+        return {
+            "topic_id": topic_id,
+            "exam_count": len(topic_data),
+            "avg_accuracy": sum(a.get("avg_topic_acc", 0) for a in topic_data) / len(topic_data) if topic_data else 0,
+            "trend": "improving" if len(topic_data) > 1 and topic_data[-1].get("avg_topic_acc", 0) > topic_data[0].get("avg_topic_acc", 0) else "stable",
+            "history": topic_data[:5],
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/srs/due-topics", response_model=list[SRSTopicModel])
+async def get_srs_due_topics():
+    """Get topics due for spaced repetition review today."""
+    try:
+        due = db.get_due_topics()
+        return [SRSTopicModel(**item) for item in due]
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/srs/schedule-topic", response_model=dict[str, str])
+async def schedule_srs_topic(request: SRSScheduleRequestModel):
+    """Schedule a topic for spaced repetition review."""
+    try:
+        review_id = db.schedule_topic_review(request.topic_id, request.interval_days)
+        return {
+            "status": "scheduled",
+            "review_id": review_id,
+            "topic_id": request.topic_id,
+            "interval_days": request.interval_days,
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/srs/mark-reviewed/{topic_id}", response_model=dict[str, Any])
+async def mark_srs_reviewed(topic_id: str, success: bool = Query(default=True)):
+    """Mark topic as reviewed and reschedule for next interval."""
+    try:
+        db.mark_topic_reviewed(topic_id, success)
+        next_interval = 3 if success else 1
+        return {
+            "status": "reviewed",
+            "topic_id": topic_id,
+            "success": success,
+            "next_review_in_days": next_interval,
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/srs/stats", response_model=dict[str, Any])
+async def get_srs_stats():
+    """Get SRS system statistics."""
+    try:
+        conn = db.get_connection()
+        try:
+            total_topics = conn.execute("SELECT COUNT(DISTINCT topic_id) FROM review_items WHERE item_type = 'topic'").fetchone()[0] or 0
+            due_today = conn.execute("SELECT COUNT(*) FROM review_items WHERE item_type = 'topic' AND DATE(due_at) <= DATE('now')").fetchone()[0] or 0
+            completed = conn.execute("SELECT COUNT(*) FROM review_items WHERE item_type = 'topic' AND last_result = 'success'").fetchone()[0] or 0
+        finally:
+            conn.close()
+        return {
+            "total_topics_in_srs": total_topics,
+            "due_today": due_today,
+            "completed_reviews": completed,
+            "retention_estimate": round(100 * completed / max(total_topics, 1), 1) if total_topics else 0,
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/study-paths/generate", response_model=StudyPathModel)
+async def generate_study_path_endpoint(weak_topics: list[str] = Query(default=[])):
+    """Generate personalized 12-week study path."""
+    try:
+        exam_date = (datetime.now() + timedelta(days=84)).isoformat()[:10]
+        path_data = gemini_integration.generate_personalized_study_path(weak_topics, exam_date)
+        weeks = [StudyPathWeekModel(**w) for w in path_data.get("weeks", [])]
+        return StudyPathModel(
+            path_id=path_data["path_id"],
+            exam_date=exam_date,
+            weeks=weeks,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/study-paths/current", response_model=StudyPathModel | None)
+async def get_active_study_path():
+    """Get currently active study path."""
+    try:
+        path_data = db.get_active_study_path()
+        if not path_data:
+            return None
+        weeks = [StudyPathWeekModel(**w) for w in path_data.get("weeks_json", [])]
+        return StudyPathModel(
+            path_id=path_data["path_id"],
+            exam_date=path_data["exam_date"],
+            weeks=weeks,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/study-paths/{path_id}/progress")
+async def get_study_path_progress(path_id: str):
+    """Get progress tracking for a study path."""
+    try:
+        conn = db.get_connection()
+        try:
+            path = conn.execute("SELECT * FROM study_paths WHERE path_id = ?", (path_id,)).fetchone()
+            progress = conn.execute("SELECT * FROM study_path_progress WHERE path_id = ? ORDER BY week_number", (path_id,)).fetchall()
+        finally:
+            conn.close()
+
+        if not path:
+            raise HTTPException(status_code=404, detail="Study path not found")
+
+        return {
+            "path_id": path_id,
+            "exam_date": path["exam_date"],
+            "total_weeks": path["milestone_count"],
+            "weeks_completed": len([p for p in progress if p["status"] == "completed"]),
+            "progress_items": [dict(p) for p in progress],
+        }
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/study-paths/{path_id}/week/{week}")
+async def get_study_path_week(path_id: str, week: int = Path(ge=1, le=12)):
+    """Get specific week details from study path."""
+    try:
+        conn = db.get_connection()
+        try:
+            path = conn.execute("SELECT weeks_json FROM study_paths WHERE path_id = ?", (path_id,)).fetchone()
+        finally:
+            conn.close()
+
+        if not path:
+            raise HTTPException(status_code=404, detail="Study path not found")
+
+        try:
+            weeks_data = json.loads(path["weeks_json"]) if isinstance(path["weeks_json"], str) else path["weeks_json"]
+        except (json.JSONDecodeError, ValueError) as e:
+            raise HTTPException(status_code=500, detail=f"Corrupted study path data: {str(e)}") from e
+
+        week_data = next((w for w in weeks_data if w["week"] == week), None)
+
+        if not week_data:
+            raise HTTPException(status_code=404, detail=f"Week {week} not found")
+
+        return week_data
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/study-paths/{path_id}/week/{week}/mark-complete")
+async def mark_week_complete(path_id: str, week: int = Path(ge=1, le=12)):
+    """Mark a week of study path as completed."""
+    try:
+        conn = db.get_connection()
+        try:
+            progress = conn.execute(
+                "SELECT * FROM study_path_progress WHERE path_id = ? AND week_number = ?",
+                (path_id, week)
+            ).fetchone()
+
+            if progress:
+                conn.execute(
+                    "UPDATE study_path_progress SET status = 'completed', completed_at = ? WHERE path_id = ? AND week_number = ?",
+                    (datetime.now().isoformat(), path_id, week)
+                )
+            else:
+                progress_id = f"PROGRESS_{path_id}_{week}"
+                conn.execute(
+                    "INSERT INTO study_path_progress (progress_id, path_id, week_number, status, completed_at) VALUES (?, ?, ?, ?, ?)",
+                    (progress_id, path_id, week, "completed", datetime.now().isoformat())
+                )
+            conn.commit()
+        finally:
+            conn.close()
+
+        return {
+            "status": "marked_complete",
+            "path_id": path_id,
+            "week": week,
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
 if __name__ == "__main__":
     import uvicorn
+
 
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True, log_level="info")

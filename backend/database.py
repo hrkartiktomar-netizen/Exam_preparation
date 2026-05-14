@@ -10,7 +10,7 @@ import re
 import sqlite3
 import uuid
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -580,6 +580,39 @@ CREATE TABLE IF NOT EXISTS recommendation_log (
     reason_json TEXT,
     accepted BOOLEAN,
     completed BOOLEAN
+);
+
+CREATE TABLE IF NOT EXISTS exam_analytics (
+    analytics_id TEXT PRIMARY KEY,
+    exam_id TEXT NOT NULL,
+    topic_id TEXT,
+    accuracy_pct REAL,
+    time_spent_seconds INTEGER,
+    difficulty_rating TEXT,
+    comparison_to_avg REAL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(exam_id) REFERENCES mock_sessions(mock_id)
+);
+
+CREATE TABLE IF NOT EXISTS study_paths (
+    path_id TEXT PRIMARY KEY,
+    exam_date TEXT NOT NULL,
+    weeks_json TEXT NOT NULL,
+    milestone_count INTEGER DEFAULT 12,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS study_path_progress (
+    progress_id TEXT PRIMARY KEY,
+    path_id TEXT NOT NULL,
+    week_number INTEGER,
+    completed_topics_json TEXT,
+    score_history_json TEXT,
+    status TEXT DEFAULT 'not_started',
+    completed_at TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(path_id) REFERENCES study_paths(path_id)
 );
 """
 
@@ -3302,3 +3335,171 @@ def essay_prompts() -> list[dict[str, str]]:
         {"prompt_id": "essay_aml", "topic": "PH2_AML_KYC", "prompt": "Why are AML, CFT and KYC controls central to the credibility of an international financial centre?"},
         {"prompt_id": "essay_transition_bonds", "topic": "PH2_LISTING", "prompt": "Assess the role of ESG, SGrBs and transition bonds in IFSC capital markets."},
     ]
+
+
+def save_exam_analytics(exam_id: str, topic_analytics: list[dict[str, Any]]) -> int:
+    """Save detailed analytics after exam completion. Per Context7 docs for SQLite: use try/finally for connection cleanup."""
+    conn = get_connection()
+    try:
+        analytics_count = 0
+        for topic in topic_analytics:
+            analytics_id = f"ANALYTICS_{exam_id}_{topic['topic_id']}"
+            conn.execute(
+                """INSERT OR REPLACE INTO exam_analytics
+                   (analytics_id, exam_id, topic_id, accuracy_pct, time_spent_seconds, difficulty_rating, comparison_to_avg)
+                   VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                (analytics_id, exam_id, topic["topic_id"], topic["accuracy_pct"], topic.get("time_spent_seconds", 0),
+                 topic.get("difficulty_rating", "medium"), topic.get("comparison_to_avg", 0.0))
+            )
+            analytics_count += 1
+        conn.commit()
+        return analytics_count
+    finally:
+        conn.close()
+
+
+def get_exam_analytics(exam_id: str) -> list[dict[str, Any]]:
+    """Retrieve analytics for specific exam."""
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            "SELECT * FROM exam_analytics WHERE exam_id = ? ORDER BY created_at DESC",
+            (exam_id,)
+        ).fetchall()
+        return rows_to_dicts(rows)
+    finally:
+        conn.close()
+
+
+def get_analytics_timeline(limit: int = 10) -> list[dict[str, Any]]:
+    """Get analytics timeline (score trending across all mocks)."""
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            """SELECT e.mock_id, e.score, e.accuracy, AVG(a.accuracy_pct) as avg_topic_acc,
+                      COUNT(DISTINCT a.topic_id) as topics_analyzed, e.generated_at as created_at
+               FROM mock_sessions e
+               LEFT JOIN exam_analytics a ON e.mock_id = a.exam_id
+               WHERE e.score IS NOT NULL
+               GROUP BY e.mock_id
+               ORDER BY e.generated_at DESC
+               LIMIT ?""",
+            (limit,)
+        ).fetchall()
+        return rows_to_dicts(rows)
+    finally:
+        conn.close()
+
+
+def schedule_topic_review(topic_id: str, interval_days: int = 1) -> str:
+    """Schedule topic for spaced repetition review."""
+    conn = get_connection()
+    try:
+        review_id = f"SRS_{topic_id}_{int(datetime.now().timestamp())}"
+        due_at = (datetime.now() + timedelta(days=interval_days)).isoformat()
+        conn.execute(
+            """INSERT INTO review_items (review_id, item_type, item_id, topic_id, due_at, interval_days, ease)
+               VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            (review_id, "topic", topic_id, topic_id, due_at, interval_days, 2.5)
+        )
+        conn.commit()
+        return review_id
+    finally:
+        conn.close()
+
+
+def get_due_topics(conn: sqlite3.Connection | None = None) -> list[dict[str, Any]]:
+    """Get topics due for SRS review today."""
+    owns_conn = conn is None
+    if conn is None:
+        conn = get_connection()
+    try:
+        today = datetime.now().isoformat()[:10]
+        rows = conn.execute(
+            """SELECT r.*, t.display_name FROM review_items r
+               LEFT JOIN topics t ON r.topic_id = t.topic_id
+               WHERE r.item_type = 'topic' AND DATE(r.due_at) <= DATE(?)
+               ORDER BY r.due_at ASC""",
+            (today,)
+        ).fetchall()
+        return rows_to_dicts(rows)
+    finally:
+        if owns_conn:
+            conn.close()
+
+
+def mark_topic_reviewed(topic_id: str, success: bool = True) -> None:
+    """Mark topic as reviewed and reschedule if needed. Per Context7 docs: proper error handling with try/finally."""
+    conn = get_connection()
+    try:
+        ease = 2.5
+        next_interval = 1
+        if success:
+            ease = 2.8
+            next_interval = 3
+        next_due = (datetime.now() + timedelta(days=next_interval)).isoformat()
+        conn.execute(
+            """UPDATE review_items SET due_at = ?, ease = ?, last_result = ?, interval_days = ?
+               WHERE topic_id = ? AND item_type = 'topic'""",
+            (next_due, ease, "success" if success else "retry", next_interval, topic_id)
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def create_study_path(exam_date: str, weak_topics: list[str], amendments_count: int = 0) -> str:
+    """Generate personalized 12-week study path based on weakness and exam date."""
+    conn = get_connection()
+    try:
+        path_id = f"PATH_{uuid.uuid4().hex[:12]}"
+        weeks_data = []
+        weak_list = list(weak_topics[:3])  # Convert to list, not set
+
+        for week in range(1, 13):
+            if week <= 4:
+                focus = weak_list + ["PH2_IFSCA_ACT", "PH2_BANKING"]
+            elif week <= 8:
+                focus = weak_list + ["PH2_FM_REGS", "PH2_CAPITAL"]
+            else:
+                focus = weak_list if weak_list else ["PH2_PAYMENT", "PH2_AML_KYC"]
+
+            weeks_data.append({
+                "week": week,
+                "focus_topics": focus[:5],
+                "daily_questions": 20 + (week % 3) * 5,
+                "milestone": f"Complete {5 - (week // 3)} topics" if week < 12 else "Final revision",
+                "status": "not_started"
+            })
+
+        conn.execute(
+            "INSERT INTO study_paths (path_id, exam_date, weeks_json, milestone_count) VALUES (?, ?, ?, ?)",
+            (path_id, exam_date, json.dumps(weeks_data), 12)
+        )
+        conn.commit()
+        return path_id
+    finally:
+        conn.close()
+
+
+def get_active_study_path() -> dict[str, Any] | None:
+    """Get current active study path with progress."""
+    conn = get_connection()
+    try:
+        sp = conn.execute(
+            "SELECT * FROM study_paths ORDER BY created_at DESC LIMIT 1"
+        ).fetchone()
+        if not sp:
+            return None
+
+        sp_dict = dict(sp)
+        sp_dict["weeks_json"] = json.loads(sp["weeks_json"]) if isinstance(sp["weeks_json"], str) else sp["weeks_json"]
+
+        progress = conn.execute(
+            "SELECT * FROM study_path_progress WHERE path_id = ? ORDER BY week_number",
+            (sp["path_id"],)
+        ).fetchall()
+        sp_dict["progress"] = [dict(p) for p in progress]
+        return sp_dict
+    finally:
+        conn.close()

@@ -1184,3 +1184,189 @@ Return JSON with topic, rule_name, old_value, new_value, effective_date, priorit
         "verify_status": "LOCAL_FALLBACK",
         "ai_model": None,
     }
+
+
+def generate_exam_analysis(
+    exam_id: str,
+    mock_id: str,
+    topic_accuracies: dict[str, float],
+    overall_score: float,
+    time_spent: int,
+) -> dict[str, Any]:
+    """Generate detailed post-exam analysis with insights. Per Context7 docs: structured JSON output with error fallbacks."""
+    if not gemini_available():
+        weak = [t for t, acc in topic_accuracies.items() if acc < 0.60][:3]
+        return {
+            "exam_id": exam_id,
+            "overall_assessment": f"Score {overall_score:.0f}/100.",
+            "weak_topics": weak,
+            "improvement_areas": ["Review weak topics", "Increase practice time"],
+            "next_focus": weak[0] if weak else "PH2_IFSCA_ACT",
+            "estimated_days_to_master": 14,
+            "ai_model": None,
+        }
+
+    schema = {
+        "type": "object",
+        "properties": {
+            "overall_assessment": {"type": "string"},
+            "weak_topics": {"type": "array", "items": {"type": "string"}, "maxItems": 5},
+            "strength_topics": {"type": "array", "items": {"type": "string"}, "maxItems": 5},
+            "improvement_areas": {"type": "array", "items": {"type": "string"}, "maxItems": 5},
+            "next_focus": {"type": "string"},
+            "estimated_days_to_master": {"type": "integer", "minimum": 1, "maximum": 365},
+        },
+        "required": ["overall_assessment", "weak_topics", "improvement_areas"],
+    }
+
+    topic_str = "\n".join([f"- {t}: {acc:.1%}" for t, acc in list(topic_accuracies.items())[:10]])
+    prompt = _contract_prompt(
+        "exam_analysis",
+        "Analyze IFSCA exam performance and recommend improvements.",
+        f"""Score: {overall_score}/100 | Time: {time_spent} min | Topics:
+{topic_str}
+
+Return JSON with: overall_assessment, weak_topics (array), strength_topics (array), improvement_areas (array), next_focus (string), estimated_days_to_master (int).""",
+    )
+
+    result = call_json(prompt, schema=schema, temperature=0.3, operation="exam_analysis")
+    if isinstance(result, dict) and isinstance(result.get("weak_topics"), list):
+        result["exam_id"] = exam_id
+        result["ai_model"] = DEFAULT_GEMINI_MODEL
+        return result
+
+    weak = [t for t, acc in topic_accuracies.items() if acc < 0.60][:3]
+    strong = [t for t, acc in topic_accuracies.items() if acc >= 0.80][:2]
+    return {
+        "exam_id": exam_id,
+        "overall_assessment": f"Score {overall_score:.0f}/100 achieved.",
+        "weak_topics": weak,
+        "strength_topics": strong,
+        "improvement_areas": ["Drill weak topics", "Practice time management"],
+        "next_focus": weak[0] if weak else "PH2_BANKING",
+        "estimated_days_to_master": 14,
+        "ai_model": None,
+    }
+
+
+def generate_personalized_study_path(weak_topics: list[str], exam_date: str, amendments_count: int = 0) -> dict[str, Any]:
+    """Generate 12-week personalized study roadmap. Per Context7: with local fallback."""
+    if not gemini_available():
+        weeks = []
+        for i in range(1, 13):
+            if i <= 4:
+                focus = weak_topics[:3] + ["PH2_IFSCA_ACT", "PH2_BANKING"]
+            elif i <= 8:
+                focus = ["PH2_FM_REGS", "PH2_CAPITAL"]
+            else:
+                focus = ["PH2_PAYMENT", "PH2_AML_KYC"]
+            weeks.append({
+                "week": i,
+                "focus_topics": focus[:4],
+                "daily_questions": 20 + (i % 3) * 5,
+                "milestone": "Revision" if i >= 10 else f"Week {i} topics",
+            })
+        return {"path_id": f"PATH_LOCAL_{int(datetime.now().timestamp())}", "weeks": weeks, "ai_model": None}
+
+    schema = {
+        "type": "object",
+        "properties": {
+            "weeks": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "week": {"type": "integer"},
+                        "focus_topics": {"type": "array", "items": {"type": "string"}},
+                        "daily_questions": {"type": "integer"},
+                        "milestone": {"type": "string"},
+                    },
+                },
+            },
+            "study_strategy": {"type": "string"},
+        },
+    }
+
+    weak_desc = ", ".join(weak_topics[:2]) if weak_topics else "Phase 2 topics"
+    prompt = _contract_prompt(
+        "study_path",
+        "Generate 12-week IFSCA exam study plan.",
+        f"""Weak topics: {weak_desc} | Exam: {exam_date} | Amendments: {amendments_count}
+Return JSON: weeks array (12 items with week, focus_topics, daily_questions, milestone), study_strategy (string).""",
+    )
+
+    result = call_json(prompt, schema=schema, temperature=0.4, operation="study_path_generation")
+    if isinstance(result, dict) and isinstance(result.get("weeks"), list) and len(result["weeks"]) == 12:
+        result["path_id"] = f"PATH_{int(datetime.now().timestamp())}"
+        result["ai_model"] = DEFAULT_GEMINI_MODEL
+        return result
+
+    weeks = []
+    for i in range(1, 13):
+        focus = weak_topics[:2] if i <= 6 else ["PH2_CAPITAL", "PH2_AML_KYC"]
+        weeks.append({
+            "week": i,
+            "focus_topics": focus,
+            "daily_questions": 20 + min(i, 8) * 3,
+            "milestone": "Final revision" if i >= 10 else f"Master topics",
+        })
+    return {
+        "path_id": f"PATH_LOCAL_{int(datetime.now().timestamp())}",
+        "weeks": weeks,
+        "study_strategy": "Weak topics weeks 1-6, amendments weeks 6-9, final revision weeks 10-12.",
+        "ai_model": None,
+    }
+
+
+def generate_srs_recommendation(topic_id: str, current_accuracy: float, last_reviewed: str | None = None) -> dict[str, Any]:
+    """Recommend SRS review interval using Ebbinghaus forgetting curve."""
+    if not gemini_available():
+        if current_accuracy >= 0.80:
+            interval = 30
+        elif current_accuracy >= 0.65:
+            interval = 14
+        elif current_accuracy >= 0.55:
+            interval = 7
+        else:
+            interval = 1
+        return {"topic_id": topic_id, "interval_days": interval, "confidence": 0.5, "ai_model": None}
+
+    schema = {
+        "type": "object",
+        "properties": {
+            "interval_days": {"type": "integer", "minimum": 1, "maximum": 30},
+            "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+            "reasoning": {"type": "string"},
+        },
+    }
+
+    prompt = _contract_prompt(
+        "srs_recommendation",
+        "Recommend optimal review interval (Ebbinghaus curve).",
+        f"""Topic: {topic_id} | Accuracy: {current_accuracy:.0%} | Last reviewed: {last_reviewed or 'Never'}
+Ebbinghaus: <60%→1d, 60-75%→3d, 75-85%→7d, >85%→30d.
+Return JSON: interval_days (int 1-30), confidence (0-1), reasoning (str).""",
+    )
+
+    result = call_json(prompt, schema=schema, temperature=0.2, operation="srs_recommendation")
+    if isinstance(result, dict) and isinstance(result.get("interval_days"), int):
+        result["topic_id"] = topic_id
+        result["ai_model"] = DEFAULT_GEMINI_MODEL
+        return result
+
+    if current_accuracy >= 0.85:
+        interval = 30
+    elif current_accuracy >= 0.75:
+        interval = 14
+    elif current_accuracy >= 0.60:
+        interval = 7
+    else:
+        interval = 1
+
+    return {
+        "topic_id": topic_id,
+        "interval_days": interval,
+        "confidence": 0.6,
+        "reasoning": f"Ebbinghaus: {current_accuracy:.0%} suggests {interval}-day interval.",
+        "ai_model": None,
+    }

@@ -339,3 +339,79 @@ class QuestionGenerationRequestModel(BaseModel):
     @classmethod
     def normalize_topic(cls, value: str) -> str:
         return value.strip().upper()
+
+
+class ExamAnalyticsModel(BaseModel):
+    """Topic-level analytics from a single exam."""
+    topic_id: str
+    accuracy_pct: float = Field(ge=0, le=100)
+    time_spent_seconds: int = Field(ge=0)
+    difficulty_rating: Difficulty = "medium"
+    comparison_to_avg: float = 0.0
+
+
+class ExamAnalyticsResponseModel(BaseModel):
+    """Post-exam analytics breakdown by topic."""
+    exam_id: str
+    total_topics_analyzed: int
+    overall_accuracy: float = Field(ge=0, le=100)
+    topic_analytics: list[ExamAnalyticsModel]
+    weak_topics: list[str] = []
+    improvement_areas: list[str] = []
+    generated_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+
+class AnalyticsTimelineModel(BaseModel):
+    """Score progression across all mocks (trending)."""
+    exam_id: str
+    score: float | None = None
+    accuracy: float | None = None
+    avg_topic_accuracy: float | None = None
+    topics_analyzed: int = 0
+    created_at: str
+
+
+class SRSTopicModel(BaseModel):
+    """Spaced Repetition System topic review item."""
+    review_id: str
+    topic_id: str
+    display_name: str | None = None
+    due_at: str
+    interval_days: int
+    ease: float = Field(default=2.5, ge=1.3, le=4.0)
+    last_result: str | None = None
+
+
+class SRSScheduleRequestModel(BaseModel):
+    """Request to schedule a topic for SRS review."""
+    topic_id: str
+    interval_days: int = Field(default=1, ge=1, le=30)
+
+
+class StudyPathWeekModel(BaseModel):
+    """Single week in a 12-week study path."""
+    week: int = Field(ge=1, le=12)
+    focus_topics: list[str] = Field(min_length=1, max_length=5)
+    daily_questions: int = Field(ge=5, le=100)
+    milestone: str
+    status: str = "not_started"
+
+
+class StudyPathModel(BaseModel):
+    """Personalized 12-week exam preparation study path."""
+    path_id: str
+    exam_date: str
+    weeks: list[StudyPathWeekModel]
+    milestone_count: int = 12
+    created_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+
+class StudyPathProgressModel(BaseModel):
+    """Progress tracking for a study path week."""
+    progress_id: str
+    path_id: str
+    week_number: int = Field(ge=1, le=12)
+    completed_topics: list[str] = []
+    score_history: list[float] = []
+    status: str = "not_started"
+    completed_at: str | None = None
