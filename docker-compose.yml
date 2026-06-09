@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  # FastAPI Backend Server
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ifsca-exam-prep-backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Gemini API Keys (required - set at least GEMINI_KEY_1)
+      - GEMINI_KEY_1=${GEMINI_KEY_1:-}
+      - GEMINI_KEY_2=${GEMINI_KEY_2:-}
+      - GEMINI_KEY_3=${GEMINI_KEY_3:-}
+      - GEMINI_KEY_4=${GEMINI_KEY_4:-}
+      - GEMINI_KEY_5=${GEMINI_KEY_5:-}
+      # Application settings
+      - DEBUG=false
+      - LOG_LEVEL=INFO
+      - DATABASE_PATH=/data/ifsca_exam.db
+      - EXTRACTED_PDF_DIR=/data/extracted_pdfs
+    volumes:
+      # Persist database across container restarts
+      - exam_database:/data
+      # Mount source PDFs (read-only)
+      - ./extracted_pdfs:/data/extracted_pdfs:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - ifsca-network
+    depends_on:
+      db_init:
+        condition: service_completed_successfully
+
+  # SQLite Database Initializer (runs once at startup)
+  db_init:
+    image: python:3.10-slim
+    container_name: ifsca-db-init
+    working_dir: /app
+    command: >
+      bash -c "
+      echo '🔄 Installing dependencies...' &&
+      pip install --quiet -r requirements.txt &&
+      echo '🔄 Initializing database...' &&
+      python -c 'from backend.database import init_db; init_db()' &&
+      echo '✅ Database initialized successfully'
+      "
+    environment:
+      - DATABASE_PATH=/data/ifsca_exam.db
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - exam_database:/data
+      - ./:/app
+      - ./extracted_pdfs:/app/extracted_pdfs:ro
+    networks:
+      - ifsca-network
+
+  # Optional: Nginx Reverse Proxy (for production HTTPS)
+  nginx:
+    image: nginx:latest
+    container_name: ifsca-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - backend
+    networks:
+      - ifsca-network
+    restart: unless-stopped
+    profiles:
+      - "with-nginx"  # Enable with: docker-compose --profile with-nginx up
+
+networks:
+  ifsca-network:
+    driver: bridge
+
+volumes:
+  exam_database:
+    driver: local

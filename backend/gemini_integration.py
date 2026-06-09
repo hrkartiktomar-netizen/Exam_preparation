@@ -134,8 +134,8 @@ def load_env_file(path: Path = ENV_PATH) -> None:
 
 def gemini_keys_from_env() -> list[str]:
     load_env_file()
-    keys = [os.getenv("GEMINI_API_KEY")]
-    keys.extend(os.getenv(f"GEMINI_API_KEY_{index}") for index in range(1, 51))
+    keys = [os.getenv("GEMINI_KEY")]
+    keys.extend(os.getenv(f"GEMINI_KEY_{index}") for index in range(1, 51))
     deduped: list[str] = []
     seen: set[str] = set()
     for key in keys:
@@ -395,6 +395,12 @@ Difficulty: {difficulty}
 Question type: {question_type}
 Amendment based: {is_amendment_based}
 Source policy: {source_policy}
+
+Material sourcing context:
+- Easy/weak questions use ONLY regulatory_core and official study materials (laws, regulations, ICSI)
+- Medium questions may include amendment_tracking and recent regulatory updates
+- Hard/advanced questions can use consulting reports, case studies, and scenario-based materials
+- All questions MUST be grounded in the provided source context below.
 
 Question design rules:
 - Use **ONLY** the retrieved source context below. Do NOT add external knowledge.

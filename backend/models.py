@@ -415,3 +415,80 @@ class StudyPathProgressModel(BaseModel):
     score_history: list[float] = []
     status: str = "not_started"
     completed_at: str | None = None
+
+
+# ============================================================================
+# PHASE 5: Essay Autonomy & Law Revision Models
+# ============================================================================
+
+class SpacedReviewItemModel(BaseModel):
+    """Spaced repetition review item (provision, amendment, regulation)."""
+    review_id: str
+    item_type: str  # "provision_amendment", "provision_regulation", etc.
+    item_id: str
+    topic_id: str
+    due_at: str
+    interval_days: int = Field(default=1, ge=1)
+    ease: float = Field(default=2.5, ge=1.3, le=4.0)
+    last_result: str | None = None  # "success", "failure", "skipped"
+    display_name: str | None = None
+
+
+class HighYieldProvisionModel(BaseModel):
+    """High-yield provision from amendments (exam-relevant)."""
+    item_id: str
+    item_type: str
+    topic_id: str
+    title: str
+    effective_date: str | None = None
+    source_url: str | None = None
+    priority: str | None = None
+    questions_needed: int | None = None
+
+
+class WeakLegalAreaModel(BaseModel):
+    """Legal area where user's accuracy is weak (<60%)."""
+    topic: str
+    display_name: str | None = None
+    total_seen: int
+    total_correct: int
+    accuracy_pct: float
+    status: str | None = None
+    last_tested: str | None = None
+
+
+class RecentAmendmentModel(BaseModel):
+    """Recent amendment for law revision."""
+    amendment_id: str
+    topic: str
+    rule_name: str
+    effective_date: str | None = None
+    old_value: str | None = None
+    new_value: str | None = None
+    source_url: str | None = None
+    priority: str | None = None
+    questions_needed: int | None = None
+    created_at: str | None = None
+
+
+class LawRevisionModel(BaseModel):
+    """Daily law revision plan combining provisions, amendments, and spaced review."""
+    high_yield_provisions: list[HighYieldProvisionModel] = []
+    recent_amendments: list[RecentAmendmentModel] = []
+    weak_legal_areas: list[WeakLegalAreaModel] = []
+    spaced_review_due: list[SpacedReviewItemModel] = []
+    generated_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+    ai_revision_focus: str | None = None
+
+
+class EssayReviewItemModel(BaseModel):
+    """Essay-linked review item with spaced scheduling."""
+    review_id: str
+    essay_id: str
+    item_type: str
+    item_id: str
+    topic_id: str
+    due_at: str
+    interval_days: int
+    ease: float = Field(ge=1.3, le=4.0)
+    referenced_text: str | None = None

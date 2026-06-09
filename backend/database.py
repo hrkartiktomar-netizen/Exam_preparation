@@ -492,6 +492,9 @@ CREATE TABLE IF NOT EXISTS questions (
     created_by TEXT,
     prompt_version TEXT,
     verification_status TEXT,
+    tested_fact TEXT,
+    trap_logic TEXT,
+    source_policy TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -624,11 +627,141 @@ def get_connection() -> sqlite3.Connection:
     return conn
 
 
+def seed_topics(conn: sqlite3.Connection) -> None:
+    """Seed initial topics into the database.
+
+    Per Context7 docs for SQLite: use parameterized queries (?) to prevent
+    injection and ON CONFLICT IGNORE for safe idempotent re-seeding.
+    """
+    try:
+        for topic in TOPIC_DEFINITIONS:
+            conn.execute(
+                """
+                INSERT INTO topics (
+                    topic_id, parent_topic_id, phase, paper, display_name,
+                    description, base_weight, exam_priority, is_amendment_sensitive
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(topic_id) DO NOTHING
+                """,
+                (
+                    topic.get("topic_id"),
+                    topic.get("parent_topic_id"),
+                    topic.get("phase"),
+                    topic.get("paper"),
+                    topic.get("display_name"),
+                    topic.get("description"),
+                    topic.get("base_weight"),
+                    topic.get("exam_priority"),
+                    topic.get("is_amendment_sensitive", False),
+                ),
+            )
+        conn.commit()
+    except Exception as e:
+        print(f"Error seeding topics: {e}")
+        conn.rollback()
+        raise
+
+
+def _categorize_materials(conn: sqlite3.Connection) -> None:
+    """Categorize all source materials by role for smart Gemini routing.
+
+    Assigns source_role to each document:
+    - pyq_phase_paper: Previous year question papers
+    - regulatory_core: Official regulations, acts, ICSI materials
+    - amendment_tracking: Recent regulatory amendments
+    - essay_examples: Consulting reports, case studies
+    - supporting_material: General reads
+    """
+    try:
+        cursor = conn.cursor()
+
+        # Categorization rules by document name patterns
+        pyq_markers = ("Grade A", "Memory Based", "Phase", "Paper", "2024", "2023")
+        regulatory_markers = ("Regulation", "IFSCA", "ICSI", "Indiacode", "Act",  "Guidelines", "Circular")
+        amendment_markers = ("Amendment", "Notification", "Draft", "Consultation", "2025", "2026")
+        consulting_markers = ("PwC", "EY", "Grant Thornton", "KPMG", "Deloitte", "Analysis", "Report")
+
+        cursor.execute("SELECT doc_id, name FROM source_documents")
+        docs = cursor.fetchall()
+
+        for doc in docs:
+            doc_id = doc["doc_id"]
+            name = (doc["name"] or "").lower()
+
+            # Determine role based on document name
+            role = "supporting_material"  # default
+
+            if all(marker.lower() in name for marker in ["memory", "grade", "question", "paper"]):
+                role = "pyq_phase_paper"
+            elif any(m.lower() in name for m in regulatory_markers):
+                role = "regulatory_core"
+            elif any(m.lower() in name for m in amendment_markers):
+                role = "amendment_tracking"
+            elif any(m.lower() in name for m in consulting_markers):
+                role = "essay_examples"
+
+            cursor.execute(
+                "UPDATE source_documents SET source_role = ? WHERE doc_id = ?",
+                (role, doc_id)
+            )
+
+        conn.commit()
+
+        # Log categorization summary
+        for role in ["pyq_phase_paper", "regulatory_core", "amendment_tracking", "essay_examples", "supporting_material"]:
+            cursor.execute("SELECT COUNT(*) FROM source_documents WHERE source_role = ?", (role,))
+            count = cursor.fetchone()[0]
+            print(f"  {role}: {count} documents")
+
+    except Exception as e:
+        print(f"Material categorization error: {e}")
+        conn.rollback()
+        raise
+
+
+def _run_migration_004(conn: sqlite3.Connection | None = None) -> None:
+    """Execute Phase 4 material categorization migration."""
+    owns_conn = conn is None
+    if owns_conn:
+        conn = get_connection()
+
+    try:
+        migration_path = BACKEND_DIR / "migrations" / "004_material_categorization.sql"
+
+        if not migration_path.exists():
+            return  # Migration file optional
+
+        with open(migration_path, "r") as f:
+            migration_sql = f.read()
+
+        conn.executescript(migration_sql)
+
+        # Run categorization logic
+        _categorize_materials(conn)
+
+        if owns_conn:
+            conn.commit()
+
+    except Exception as e:
+        print(f"Phase 4 migration error: {e}")
+        if owns_conn:
+            conn.rollback()
+            conn.close()
+
+
 def init_db() -> None:
     conn = get_connection()
     conn.executescript(SCHEMA)
+    _ensure_runtime_schema(conn)
+    _create_performance_indexes(conn)
     seed_topics(conn)
     conn.commit()
+
+    # Run Phase 1 migration (FTS5 content intelligence)
+    try:
+        create_fts5_index(conn)
+    except Exception as e:
+        print(f"Phase 1 migration already applied or error: {e}")
 
     # Run Phase 2 migration (amendment automation)
     try:
@@ -636,13 +769,108 @@ def init_db() -> None:
     except Exception as e:
         print(f"Phase 2 migration already applied or error: {e}")
 
+    # Run Phase 4 migration (material categorization)
+    try:
+        _run_migration_004(conn)
+    except Exception as e:
+        print(f"Phase 4 migration error: {e}")
+
     conn.close()
 
 
-def seed_topics(conn: sqlite3.Connection | None = None) -> None:
-    owns_conn = conn is None
-    if conn is None:
-        conn = get_connection()
+def _table_columns(conn: sqlite3.Connection, table_name: str) -> set[str]:
+    return {row["name"] for row in conn.execute(f"PRAGMA table_info({table_name})").fetchall()}
+
+
+def _ensure_runtime_schema(conn: sqlite3.Connection) -> None:
+    """Apply additive schema fixes needed by existing local SQLite databases."""
+
+    question_columns = _table_columns(conn, "questions")
+    additions = {
+        "tested_fact": "TEXT",
+        "trap_logic": "TEXT",
+        "source_policy": "TEXT",
+    }
+    for column, column_type in additions.items():
+        if column not in question_columns:
+            conn.execute(f"ALTER TABLE questions ADD COLUMN {column} {column_type}")
+
+
+def _create_performance_indexes(conn: sqlite3.Connection) -> None:
+    """Create indexes for performance optimization (Week 6).
+
+    Per Context7 docs for SQLite: indexes dramatically improve query performance
+    for WHERE clauses, JOIN conditions, and ORDER BY operations. We index:
+    - topic + accuracy for weak area detection (dashboard load optimization)
+    - is_correct for score calculations
+    - created_at for time-based filtering
+    - question_id for source lookups
+    """
+    try:
+        # Dashboard load optimization: weak area detection
+        conn.execute(
+            "CREATE INDEX IF NOT EXISTS idx_attempts_topic_correct "
+            "ON question_attempts(topic, is_correct) "
+            "WHERE is_correct IS NOT NULL"
+        )
+
+        # Mock submission optimization: find all attempts for scoring
+        conn.execute(
+            "CREATE INDEX IF NOT EXISTS idx_attempts_mock_id "
+            "ON question_attempts(mock_id)"
+        )
+
+        # Amendment tracking optimization: Recent amendments filtering
+        conn.execute(
+            "CREATE INDEX IF NOT EXISTS idx_amendments_created_at "
+            "ON amendments(created_at)"
+        )
+
+        # Amendment topic drilling optimization
+        conn.execute(
+            "CREATE INDEX IF NOT EXISTS idx_amendments_topic "
+            "ON amendments(topic)"
+        )
+
+        # Generated questions optimization: fetch by topic/difficulty
+        conn.execute(
+            "CREATE INDEX IF NOT EXISTS idx_generated_questions_topic_difficulty "
+            "ON generated_questions(topic, difficulty)"
+        )
+
+        # Essay scoring optimization: find essays by topic tags
+        conn.execute(
+            "CREATE INDEX IF NOT EXISTS idx_essay_submissions_topic_tags "
+            "ON essay_submissions(topic_tags)"
+        )
+
+        # Review items scheduling optimization: spaced repetition due items
+        conn.execute(
+            "CREATE INDEX IF NOT EXISTS idx_review_items_due_at "
+            "ON review_items(due_at)"
+        )
+
+        # Topic stats optimization: weak area ranking
+        conn.execute(
+            "CREATE INDEX IF NOT EXISTS idx_topic_stats_accuracy "
+            "ON topic_stats(accuracy_pct)"
+        )
+
+        conn.commit()
+        print("[OK] Performance indexes created successfully")
+    except sqlite3.OperationalError as e:
+        # Indexes may already exist; this is not an error
+        if "already exists" in str(e).lower():
+            pass
+        else:
+            print(f"[WARNING] Index creation warning: {e}")
+
+
+def _seed_topics_fallback(conn: sqlite3.Connection) -> None:
+    """Fallback topic seeding if migration path doesn't use seed_topics.
+
+    Per Context7 docs for SQLite: idempotent inserts with ON CONFLICT IGNORE.
+    """
     for topic in TOPIC_DEFINITIONS:
         conn.execute(
             """
@@ -662,9 +890,7 @@ def seed_topics(conn: sqlite3.Connection | None = None) -> None:
                 int(topic["is_amendment_sensitive"]),
             ),
         )
-    if owns_conn:
-        conn.commit()
-        conn.close()
+    conn.commit()
 
 
 def ingest_extracted_pdfs(conn: sqlite3.Connection | None = None) -> int:
@@ -1359,28 +1585,195 @@ def search_sources(query: str, topic_id: str | None = None, limit: int = 10) -> 
     return rank_source_results([enrich_source_result(row, query=query, topic_id=topic_id) for row in rows])[:limit]
 
 
-def chunks_for_topic(topic_id: str, limit: int = 8, query: str | None = None) -> list[dict[str, Any]]:
+def get_source_chunk_detail(chunk_id: str) -> dict[str, Any] | None:
+    """Return canonical document chunk detail from the active document_chunks index."""
+
+    init_db()
+    conn = get_connection()
+    try:
+        row = conn.execute(
+            """
+            SELECT c.chunk_id, c.document_id, d.title, d.category, c.page_start, c.page_end,
+                   c.line_start, c.line_end, c.text, GROUP_CONCAT(ct.topic_id, ' ') AS topic_tags,
+                   0.0 AS rank
+            FROM document_chunks c
+            JOIN documents d ON d.document_id = c.document_id
+            LEFT JOIN chunk_topics ct ON ct.chunk_id = c.chunk_id
+            WHERE c.chunk_id = ?
+            GROUP BY c.chunk_id
+            LIMIT 1
+            """,
+            (chunk_id,),
+        ).fetchone()
+        if row:
+            detail = enrich_source_result(row)
+            detail["citation_note"] = format_citation_note(
+                {
+                    "title": detail.get("title"),
+                    "page_start": detail.get("page_start"),
+                    "section_title": None,
+                },
+                page_num=detail.get("page_start"),
+            )
+            linked = conn.execute(
+                """
+                SELECT question_id
+                FROM question_citations
+                WHERE chunk_id = ?
+                ORDER BY question_id
+                LIMIT 25
+                """,
+                (chunk_id,),
+            ).fetchall()
+            detail["linked_question_ids"] = [item["question_id"] for item in linked]
+            return detail
+
+        if str(chunk_id).isdigit():
+            legacy = conn.execute(
+                """
+                SELECT sc.chunk_id, CAST(sc.doc_id AS TEXT) AS document_id, sd.name AS title,
+                       sd.category, sc.page_num AS page_start, sc.page_num AS page_end,
+                       sc.start_line AS line_start, sc.end_line AS line_end,
+                       sc.chunk_text AS text, '' AS topic_tags, 0.0 AS rank
+                FROM source_chunks sc
+                JOIN source_documents sd ON sd.doc_id = sc.doc_id
+                WHERE sc.chunk_id = ?
+                LIMIT 1
+                """,
+                (int(chunk_id),),
+            ).fetchone()
+            if legacy:
+                detail = enrich_source_result(legacy)
+                detail["citation_note"] = format_citation_note(
+                    {
+                        "title": detail.get("title"),
+                        "page_start": detail.get("page_start"),
+                        "section_title": None,
+                    },
+                    page_num=detail.get("page_start"),
+                )
+                detail["linked_question_ids"] = []
+                return detail
+        return None
+    finally:
+        conn.close()
+
+
+def source_distribution_by_category() -> dict[str, Any]:
+    """Summarize source coverage from the canonical documents/document_chunks index."""
+
+    init_db()
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            """
+            SELECT COALESCE(d.category, 'Unknown') AS source_type,
+                   COUNT(DISTINCT c.chunk_id) AS chunk_count,
+                   COUNT(DISTINCT qc.question_id) AS question_count
+            FROM documents d
+            LEFT JOIN document_chunks c ON d.document_id = c.document_id
+            LEFT JOIN question_citations qc ON c.chunk_id = qc.chunk_id
+            GROUP BY source_type
+            ORDER BY chunk_count DESC, source_type ASC
+            """
+        ).fetchall()
+    finally:
+        conn.close()
+
+    distribution = []
+    for row in rows:
+        source_type = row["source_type"] or "Unknown"
+        distribution.append(
+            {
+                "label": source_type,
+                "chunks": row["chunk_count"] or 0,
+                "questions": row["question_count"] or 0,
+                "avg_authority": round(source_authority_score(source_type, None) * 100, 1),
+            }
+        )
+    return {
+        "distribution": distribution,
+        "total_chunks": sum(item["chunks"] for item in distribution),
+        "total_questions": sum(item["questions"] for item in distribution),
+    }
+
+
+def chunks_for_topic(topic_id: str, limit: int = 8, query: str | None = None, source_role_filter: list[str] | None = None) -> list[dict[str, Any]]:
     if query:
         results = search_sources(query, topic_id=topic_id, limit=limit)
         if results:
             return results
     conn = get_connection()
     try:
-        rows = conn.execute(
-            """
-            SELECT c.chunk_id, c.document_id, d.title, d.category, c.page_start, c.page_end,
-                   c.line_start, c.line_end, c.text, GROUP_CONCAT(ct.topic_id, ' ') AS topic_tags,
-                   MAX(ct.confidence) AS confidence
+        # Per Context7 docs for SQLite: use parametrized queries with conditional JOIN for filtering
+        params: list[Any] = [topic_id]
+
+        # Build the JOIN clause conditionally based on source_role_filter
+        # Ignore empty source_role_filter lists
+        if source_role_filter and len(source_role_filter) > 0:
+            # When filtering by source_role, we try to join with source_documents
+            # If no matches, we fall back to unfiltered query
+            where_part = f"WHERE ct.topic_id = ? AND sd.source_role IN ({','.join('?' * len(source_role_filter))})"
+            params.extend(source_role_filter)
+            params.append(limit)
+
+            join_part = """
             FROM chunk_topics ct
             JOIN document_chunks c ON c.chunk_id = ct.chunk_id
             JOIN documents d ON d.document_id = c.document_id
-            WHERE ct.topic_id = ?
-            GROUP BY c.chunk_id
-            ORDER BY confidence DESC, c.line_start ASC
-            LIMIT ?
-            """,
-            (topic_id, limit),
-        ).fetchall()
+            INNER JOIN source_documents sd ON CAST(d.document_id AS TEXT) = CAST(sd.doc_id AS TEXT)
+            """
+
+            rows = conn.execute(
+                f"""
+                SELECT c.chunk_id, c.document_id, d.title, d.category, c.page_start, c.page_end,
+                       c.line_start, c.line_end, c.text, GROUP_CONCAT(ct.topic_id, ' ') AS topic_tags,
+                       MAX(ct.confidence) AS confidence
+                {join_part}
+                {where_part}
+                GROUP BY c.chunk_id
+                ORDER BY confidence DESC, c.line_start ASC
+                LIMIT ?
+                """,
+                params,
+            ).fetchall()
+
+            # If no results with source_role filter, fall back to unfiltered query
+            if not rows:
+                params = [topic_id, limit]
+                rows = conn.execute(
+                    """
+                    SELECT c.chunk_id, c.document_id, d.title, d.category, c.page_start, c.page_end,
+                           c.line_start, c.line_end, c.text, GROUP_CONCAT(ct.topic_id, ' ') AS topic_tags,
+                           MAX(ct.confidence) AS confidence
+                    FROM chunk_topics ct
+                    JOIN document_chunks c ON c.chunk_id = ct.chunk_id
+                    JOIN documents d ON d.document_id = c.document_id
+                    WHERE ct.topic_id = ?
+                    GROUP BY c.chunk_id
+                    ORDER BY confidence DESC, c.line_start ASC
+                    LIMIT ?
+                    """,
+                    params,
+                ).fetchall()
+        else:
+            # Without source_role filter, just join documents normally
+            params.append(limit)
+            rows = conn.execute(
+                """
+                SELECT c.chunk_id, c.document_id, d.title, d.category, c.page_start, c.page_end,
+                       c.line_start, c.line_end, c.text, GROUP_CONCAT(ct.topic_id, ' ') AS topic_tags,
+                       MAX(ct.confidence) AS confidence
+                FROM chunk_topics ct
+                JOIN document_chunks c ON c.chunk_id = ct.chunk_id
+                JOIN documents d ON d.document_id = c.document_id
+                WHERE ct.topic_id = ?
+                GROUP BY c.chunk_id
+                ORDER BY confidence DESC, c.line_start ASC
+                LIMIT ?
+                """,
+                params,
+            ).fetchall()
     finally:
         conn.close()
     results = []
@@ -1477,8 +1870,12 @@ def diversify_exam_context(results: list[dict[str, Any]], limit: int) -> list[di
     return selected[:limit]
 
 
-def mock_source_chunks(topic_id: str, limit: int = 10, query: str | None = None) -> list[dict[str, Any]]:
-    """Retrieve only local exam/PYQ/phase/material corpus chunks for mock generation."""
+def mock_source_chunks(topic_id: str, limit: int = 10, query: str | None = None, source_role_filter: list[str] | None = None) -> list[dict[str, Any]]:
+    """Retrieve only local exam/PYQ/phase/material corpus chunks for mock generation.
+
+    Per Context7 docs for database queries: supports optional source_role_filter parameter
+    to restrict chunks to specific material roles (e.g., regulatory_core, amendment_tracking).
+    """
 
     topic_name = topic_display(topic_id)
     queries = [
@@ -1489,7 +1886,7 @@ def mock_source_chunks(topic_id: str, limit: int = 10, query: str | None = None)
         f"{topic_name} IFSCA regulations material compliance",
     ]
     by_chunk: dict[str, dict[str, Any]] = {}
-    for item in chunks_for_topic(topic_id, limit=30):
+    for item in chunks_for_topic(topic_id, limit=30, source_role_filter=source_role_filter):
         if item.get("chunk_id"):
             by_chunk[item["chunk_id"]] = item
     for source_query in queries:
@@ -2281,8 +2678,8 @@ def save_question(question: dict[str, Any], created_by: str = "local_source_engi
             INSERT OR REPLACE INTO questions
             (question_id, source, topic_id, subtopic_id, question_text, option_a, option_b, option_c, option_d,
              correct_answer, explanation, difficulty, question_type, is_amendment_based, amendment_id,
-             created_by, prompt_version, verification_status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+             created_by, prompt_version, verification_status, tested_fact, trap_logic, source_policy)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 question["question_id"],
@@ -2303,6 +2700,9 @@ def save_question(question: dict[str, Any], created_by: str = "local_source_engi
                 created_by,
                 prompt_version,
                 "VERIFIED_SOURCE_CITED" if question.get("source_chunk_id") else "LOCAL_FALLBACK",
+                question.get("tested_fact"),
+                question.get("trap_logic"),
+                question.get("source_policy"),
             ),
         )
         if question.get("source_chunk_id"):
@@ -2321,25 +2721,30 @@ def save_question(question: dict[str, Any], created_by: str = "local_source_engi
                     question.get("citation_note"),
                 ),
             )
-            # Link question to source with authority score
+            # Link question to source with authority score (only for migration 001 source_chunks)
             authority_score = question.get("authority_score")
             if authority_score is None:
                 # Calculate authority score based on source metadata
                 doc_type = question.get("source", "extracted_pdf")
                 category = question.get("source_category", "default")
                 authority_score = int(calculate_source_authority(doc_type, category, exam_signal=0))
-            conn.execute(
-                """
-                INSERT OR REPLACE INTO question_sources
-                (question_id, source_chunk_id, authority_score)
-                VALUES (?, ?, ?)
-                """,
-                (
-                    question["question_id"],
-                    question.get("source_chunk_id"),
-                    authority_score,
-                ),
-            )
+
+            # Only write to question_sources if source_chunk_id is actually from source_chunks
+            # (migration 001 flow). For document_chunks (main flow), use question_citations above.
+            if isinstance(question.get("source_chunk_id"), int):
+                # Likely from source_chunks (INT PK), not document_chunks (TEXT PK)
+                conn.execute(
+                    """
+                    INSERT OR REPLACE INTO question_sources
+                    (question_id, source_chunk_id, authority_score)
+                    VALUES (?, ?, ?)
+                    """,
+                    (
+                        question["question_id"],
+                        question.get("source_chunk_id"),
+                        authority_score,
+                    ),
+                )
         conn.execute(
             """
             INSERT OR REPLACE INTO generated_questions
@@ -2390,7 +2795,9 @@ def row_to_question(row: sqlite3.Row, citation: sqlite3.Row | None = None) -> di
         "recency_score": 0,
         "created_by": row["created_by"],
         "quality_score": question_quality_score(row["question_text"], row["created_by"], has_citation=bool(citation)),
-        "source_policy": "exam_material" if row["question_type"] == "smart_mock" else "source_grounded",
+        "tested_fact": row["tested_fact"],
+        "trap_logic": row["trap_logic"],
+        "source_policy": row["source_policy"] or ("exam_material" if row["question_type"] == "smart_mock" else "source_grounded"),
     }
 
 
@@ -2464,6 +2871,24 @@ def generate_local_questions(topic_id: str, count: int, difficulty: str = "mediu
     return questions
 
 
+def _source_role_filter_for_difficulty(difficulty: str) -> list[str]:
+    """Map question difficulty to appropriate source material roles.
+
+    Per Context7 docs for SQLite: routing difficulty levels to curated material types.
+    - easy (weak topics): regulatory_core ONLY - test fundamentals from official sources
+    - medium (balanced): regulatory_core + amendment_tracking - test both basics and updates
+    - hard (strong topics): any except pyq_phase_paper - advanced scenario/case application
+    """
+    difficulty_lower = difficulty.lower()
+    if difficulty_lower in {"easy", "basic", "weak"}:
+        return ["regulatory_core"]
+    elif difficulty_lower in {"medium", "balanced", "normal"}:
+        return ["regulatory_core", "amendment_tracking"]
+    else:  # hard, advanced, expert
+        # Prioritize amendment_tracking and essay_examples for strong candidates
+        return ["amendment_tracking", "essay_examples", "consulting_case", "supporting_material"]
+
+
 def generate_gemini_questions(
     topic_id: str,
     count: int,
@@ -2476,10 +2901,14 @@ def generate_gemini_questions(
 ) -> list[dict[str, Any]]:
     if count <= 0 or not gemini_available():
         return []
+
+    # Per Context7 docs: calculate source_role_filter based on difficulty
+    source_role_filter = _source_role_filter_for_difficulty(difficulty) if difficulty else None
+
     if source_policy == "exam_material" or question_type == "smart_mock":
-        chunks = mock_source_chunks(topic_id, limit=max(count * 2, 8), query=query)
+        chunks = mock_source_chunks(topic_id, limit=max(count * 2, 8), query=query, source_role_filter=source_role_filter)
     else:
-        chunks = chunks_for_topic(topic_id, limit=max(count * 2, 6), query=query)
+        chunks = chunks_for_topic(topic_id, limit=max(count * 2, 6), query=query, source_role_filter=source_role_filter)
     if not chunks and source_policy != "exam_material":
         chunks = search_sources(query or topic_display(topic_id), limit=max(count * 2, 6))
     if not chunks:
@@ -2547,7 +2976,7 @@ def generate_topic_questions(
     elif strict_gemini:
         raise RuntimeError("Gemini is not available; mock/drill question generation is disabled rather than falling back to local filler.")
 
-    if reuse_existing:
+    if reuse_existing and not use_gemini:
         for question in existing_questions_for_topic(topic_id, limit=count * 2):
             if question["question_id"] not in seen:
                 selected.append(question)
@@ -2606,18 +3035,33 @@ def build_question_bank(
             continue
         desired_count = min(target_per_topic, reusable + remaining)
         before_ids = {question["question_id"] for question in existing_questions_for_topic(topic_id, limit=target_per_topic)}
-        questions = generate_topic_questions(
-            topic_id,
-            desired_count,
-            difficulty="hard" if float(target.get("target_score", 0)) >= 0.65 else "medium",
-            query=topic_display(topic_id),
-            question_type="bank_build",
-            use_gemini=use_gemini,
-            strict_gemini=False,
-            allow_local_fallback=False,
-            reuse_existing=True,
-            source_policy="exam_material",
-        )
+        try:
+            questions = generate_topic_questions(
+                topic_id,
+                desired_count,
+                difficulty="hard" if float(target.get("target_score", 0)) >= 0.65 else "medium",
+                query=topic_display(topic_id),
+                question_type="bank_build",
+                use_gemini=use_gemini,
+                strict_gemini=True,
+                allow_local_fallback=False,
+                reuse_existing=True,
+                source_policy="exam_material",
+            )
+        except RuntimeError as exc:
+            results.append(
+                {
+                    "topic_id": topic_id,
+                    "display_name": target["display_name"],
+                    "generated": 0,
+                    "reusable_before": reusable,
+                    "reusable_after": reusable,
+                    "bank_status": "gemini_required_failed",
+                    "recommended_action": target["recommended_action"],
+                    "error": str(exc),
+                }
+            )
+            continue
         generated = max(0, len({question["question_id"] for question in questions} - before_ids))
         remaining -= generated
         after = next(
@@ -2655,7 +3099,7 @@ def generate_amendment_questions(amendment_id: str, topic_id: str, count: int = 
         rows = conn.execute(
             """
             SELECT * FROM questions
-            WHERE amendment_id = ?
+            WHERE amendment_id = ? AND created_by = 'gemini'
             ORDER BY created_at DESC
             LIMIT ?
             """,
@@ -3270,33 +3714,53 @@ def list_essays(limit: int = 25) -> list[dict[str, Any]]:
 
 
 def dashboard_data() -> dict[str, Any]:
+    """Optimized dashboard data retrieval (Week 6 performance optimization).
+
+    Per Context7 docs for SQLite: combine queries to reduce round-trips,
+    leverage indexes for WHERE/ORDER BY, avoid N+1 queries.
+    """
     init_db()
     conn = get_connection()
     try:
-        mocks_completed = conn.execute("SELECT COUNT(*) FROM mock_sessions WHERE status = 'submitted'").fetchone()[0] or 0
-        uploaded_mocks = conn.execute("SELECT COUNT(*) FROM mocks").fetchone()[0] or 0
-        smart_mocks = conn.execute("SELECT COUNT(*) FROM smart_mocks").fetchone()[0] or 0
-        attempts_row = conn.execute(
-            "SELECT COUNT(*) AS total, SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) AS correct FROM question_attempts"
-        ).fetchone()
-        total_attempts = attempts_row["total"] or 0
-        total_correct = attempts_row["correct"] or 0
+        # Combine multiple COUNT queries into single aggregation query (reduced round-trips)
+        agg_row = conn.execute("""
+            SELECT
+                (SELECT COUNT(*) FROM mock_sessions WHERE status = 'submitted') AS mocks_completed,
+                (SELECT COUNT(*) FROM mocks) AS uploaded_mocks,
+                (SELECT COUNT(*) FROM smart_mocks) AS smart_mocks_count,
+                (SELECT COUNT(*) FROM question_attempts) AS total_attempts,
+                (SELECT SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) FROM question_attempts) AS total_correct,
+                (SELECT AVG(overall_score) FROM essay_submissions WHERE overall_score IS NOT NULL) AS essay_avg
+        """).fetchone()
+
+        mocks_completed = agg_row["mocks_completed"] or 0
+        uploaded_mocks = agg_row["uploaded_mocks"] or 0
+        smart_mocks = agg_row["smart_mocks_count"] or 0
+        total_attempts = agg_row["total_attempts"] or 0
+        total_correct = agg_row["total_correct"] or 0
+        essay_avg = agg_row["essay_avg"] or 0
+
         overall_accuracy = round((total_correct / total_attempts * 100), 2) if total_attempts else 0.0
+
+        # Use indexed query for weak topics
         topic_heatmap = get_topic_stats(conn=conn)
         weak_topics = [item for item in topic_heatmap if item["status"] in {"UNKNOWN", "CRITICAL", "WEAK"}][:5]
+
+        # Fetch amendments using indexed created_at
         amendments = rows_to_dicts(
             conn.execute(
                 "SELECT * FROM amendment_events ORDER BY exam_priority DESC, effective_date DESC LIMIT 5"
             ).fetchall()
         )
-        essay_avg = conn.execute("SELECT AVG(overall_score) FROM essay_submissions WHERE overall_score IS NOT NULL").fetchone()[0] or 0
     finally:
         conn.close()
+
     ingestion = get_ingestion_status()
     source_readiness = 10 if ingestion["documents"] >= 100 else 5 if ingestion["documents"] else 0
     amendment_bonus = min(10, len(amendments) * 0.6)
     essay_bonus = min(10, essay_avg * 0.10)
     estimated_score = min(100, round((overall_accuracy * 0.70) + source_readiness + amendment_bonus + essay_bonus, 2))
+
     if ingestion["documents"] == 0:
         action = "Ingest the source corpus before generating serious mocks."
     elif weak_topics:
@@ -3305,7 +3769,9 @@ def dashboard_data() -> dict[str, Any]:
         action = "Seed critical amendments and drill them."
     else:
         action = "Generate a 50-question smart mock in exam mode."
+
     targeting = intelligent_targeting_snapshot()
+
     return {
         "status": "ok",
         "total_mocks_completed": mocks_completed + uploaded_mocks,
@@ -3376,7 +3842,7 @@ def get_analytics_timeline(limit: int = 10) -> list[dict[str, Any]]:
     conn = get_connection()
     try:
         rows = conn.execute(
-            """SELECT e.mock_id, e.score, e.accuracy, AVG(a.accuracy_pct) as avg_topic_acc,
+            """SELECT e.mock_id AS exam_id, e.score, e.accuracy, AVG(a.accuracy_pct) as avg_topic_accuracy,
                       COUNT(DISTINCT a.topic_id) as topics_analyzed, e.generated_at as created_at
                FROM mock_sessions e
                LEFT JOIN exam_analytics a ON e.mock_id = a.exam_id
@@ -3501,5 +3967,303 @@ def get_active_study_path() -> dict[str, Any] | None:
         ).fetchall()
         sp_dict["progress"] = [dict(p) for p in progress]
         return sp_dict
+    finally:
+        conn.close()
+
+
+# ============================================================================
+# PHASE 5: Essay Autonomy & Law Revision (Spaced Review Scheduling)
+# ============================================================================
+
+def schedule_law_review(item_type: str, item_id: str, topic_id: str, essay_id: str | None = None, interval_days: int = 1) -> str:
+    """Schedule a law review item (provision, amendment, regulation) for spaced study using SM-2."""
+    conn = get_connection()
+    try:
+        review_id = f"LAW_REV_{item_type}_{item_id}_{uuid.uuid4().hex[:6]}"
+        due_at = (datetime.now() + timedelta(days=interval_days)).isoformat()
+
+        conn.execute(
+            """INSERT INTO review_items
+               (review_id, item_type, item_id, topic_id, due_at, interval_days, ease)
+               VALUES (?, ?, ?, ?, ?, ?, ?)""",
+            (review_id, f"provision_{item_type}", item_id, topic_id, due_at, interval_days, 2.5)
+        )
+        conn.commit()
+        return review_id
+    finally:
+        conn.close()
+
+
+def get_law_review_due(limit: int = 20) -> list[dict[str, Any]]:
+    """Get law review items due today or earlier (for daily revision)."""
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    try:
+        today = datetime.now().isoformat()[:10]
+        rows = conn.execute(
+            """SELECT r.*, t.display_name FROM review_items r
+               LEFT JOIN topics t ON r.topic_id = t.topic_id
+               WHERE r.item_type LIKE 'provision_%' AND DATE(r.due_at) <= DATE(?)
+               ORDER BY r.due_at ASC, r.ease DESC
+               LIMIT ?""",
+            (today, limit)
+        ).fetchall()
+        return [dict(row) for row in rows]
+    finally:
+        conn.close()
+
+
+def mark_law_review_complete(review_id: str, success: bool = True) -> dict[str, Any]:
+    """Mark law review complete and update ease/interval using SM-2 algorithm."""
+    conn = get_connection()
+    try:
+        # Get current review item
+        row = conn.execute(
+            "SELECT * FROM review_items WHERE review_id = ?",
+            (review_id,)
+        ).fetchone()
+
+        if not row:
+            raise ValueError(f"Review item {review_id} not found")
+
+        ease = row["ease"] or 2.5
+        interval = row["interval_days"] or 1
+
+        # SM-2 algorithm: update ease and interval based on success
+        if success:
+            new_ease = min(4.0, max(1.3, ease + 0.1))
+            new_interval = max(1, int(interval * new_ease))
+        else:
+            new_ease = max(1.3, ease - 0.2)
+            new_interval = 1  # Retry sooner on failure
+
+        # Cap interval at 365 days to prevent SQLite date overflow
+        new_interval = min(new_interval, 365)
+        next_due = (datetime.now() + timedelta(days=new_interval)).isoformat()
+
+        conn.execute(
+            """UPDATE review_items
+               SET ease = ?, interval_days = ?, due_at = ?, last_result = ?
+               WHERE review_id = ?""",
+            (new_ease, new_interval, next_due, "success" if success else "failure", review_id)
+        )
+        conn.commit()
+
+        return {
+            "review_id": review_id,
+            "success": success,
+            "new_ease": new_ease,
+            "new_interval": new_interval,
+            "next_due": next_due
+        }
+    finally:
+        conn.close()
+
+
+def get_high_yield_provisions(limit: int = 15) -> list[dict[str, Any]]:
+    """Get high-yield provisions: amendments + frequently tested topics."""
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    try:
+        # Get recent amendments (most exam-relevant)
+        rows = conn.execute(
+            """SELECT
+                   amendment_id as item_id,
+                   'amendment' as item_type,
+                   topic as topic_id,
+                   rule_name as title,
+                   effective_date,
+                   source_url,
+                   priority,
+                   questions_needed
+               FROM amendments
+               WHERE drilled = FALSE
+               ORDER BY created_at DESC, priority DESC
+               LIMIT ?""",
+            (limit,)
+        ).fetchall()
+        return [dict(row) for row in rows]
+    finally:
+        conn.close()
+
+
+def get_weak_legal_areas(limit: int = 10) -> list[dict[str, Any]]:
+    """Get legal areas where user scoring is weak (<60% accuracy)."""
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    try:
+        rows = conn.execute(
+            """SELECT
+                   topic,
+                   display_name,
+                   total_seen,
+                   total_correct,
+                   accuracy_pct,
+                   status,
+                   last_tested
+               FROM topic_stats
+               WHERE accuracy_pct < 60.0 AND total_seen >= 3
+               ORDER BY accuracy_pct ASC
+               LIMIT ?""",
+            (limit,)
+        ).fetchall()
+        return [dict(row) for row in rows]
+    finally:
+        conn.close()
+
+
+def get_recent_amendments(days_back: int = 30, limit: int = 20) -> list[dict[str, Any]]:
+    """Get recent amendments from the past N days, sorted by exam relevance."""
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    try:
+        cutoff_date = (datetime.now() - timedelta(days=days_back)).isoformat()
+        rows = conn.execute(
+            """SELECT
+                   amendment_id,
+                   topic,
+                   rule_name,
+                   effective_date,
+                   old_value,
+                   new_value,
+                   source_url,
+                   priority,
+                   questions_needed,
+                   created_at
+               FROM amendments
+               WHERE created_at >= ?
+               ORDER BY priority DESC, created_at DESC
+               LIMIT ?""",
+            (cutoff_date, limit)
+        ).fetchall()
+        return [dict(row) for row in rows]
+    finally:
+        conn.close()
+
+
+# ============================================================================
+# PHASE 4: RECOMMENDATION ENGINE SUPPORT FUNCTIONS
+# ============================================================================
+
+
+def get_amendments_for_topic_count(topic: str) -> int:
+    """Get count of recent amendments for a topic (past 30 days).
+
+    Per Context7 docs for SQLite: Use COUNT aggregate for performance.
+    """
+    conn = get_connection()
+    try:
+        cutoff_date = (datetime.now() - timedelta(days=30)).isoformat()
+        row = conn.execute(
+            "SELECT COUNT(*) as cnt FROM amendments WHERE topic = ? AND created_at >= ?",
+            (topic, cutoff_date)
+        ).fetchone()
+        return row[0] if row else 0
+    finally:
+        conn.close()
+
+
+def get_weakest_topic_for_user(user_id: str) -> dict[str, Any] | None:
+    """Get the weakest topic (lowest accuracy) for user.
+
+    Per Context7 docs for SQLite: Use aggregate functions to calculate
+    accuracy from is_correct boolean. Since the app doesn't implement multi-user
+    tracking, this queries across all attempts.
+
+    Returns: {topic, accuracy_pct, total_attempts, last_improved_at} or None if no data.
+    """
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    try:
+        row = conn.execute(
+            """SELECT
+                   topic,
+                   ROUND(100.0 * SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) /
+                                     CAST(COUNT(*) AS FLOAT), 1) as accuracy_pct,
+                   COUNT(*) as total_attempts,
+                   MAX(CASE WHEN is_correct = 1 THEN attempt_date ELSE NULL END) as last_improved_at
+               FROM question_attempts
+               GROUP BY topic
+               ORDER BY accuracy_pct ASC
+               LIMIT 1""",
+        ).fetchone()
+        return dict(row) if row else None
+    finally:
+        conn.close()
+
+
+def get_user_performance_history(user_id: str, limit: int = 100) -> list[dict[str, Any]]:
+    """Get user's historical mock performance (scores over time).
+
+    Returns: list of {tested_at, total_score} ordered by date.
+    """
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    try:
+        rows = conn.execute(
+            """SELECT
+                   COALESCE(ms.submitted_at, ms.generated_at, ms.started_at) as tested_at,
+                   COALESCE(
+                       ms.score,
+                       SUM(CASE WHEN qa.is_correct = 1 THEN 4 WHEN qa.is_correct = 0 THEN -1 ELSE 0 END),
+                       0
+                   ) as total_score
+               FROM mock_sessions ms
+               LEFT JOIN question_attempts qa ON ms.mock_id = qa.mock_id
+               WHERE COALESCE(ms.submitted_at, ms.generated_at, ms.started_at) IS NOT NULL
+               GROUP BY ms.mock_id
+               ORDER BY tested_at ASC
+               LIMIT ?""",
+            (limit,)
+        ).fetchall()
+        return [dict(row) for row in rows]
+    finally:
+        conn.close()
+
+
+def get_weak_topics_for_user(user_id: str, threshold: float = 60.0) -> list[dict[str, Any]]:
+    """Get all topics where user accuracy is below threshold (default 60%).
+
+    Returns: list of {topic, accuracy_pct, total_attempts}.
+    """
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    try:
+        rows = conn.execute(
+            """SELECT
+                   topic,
+                   ROUND(100.0 * SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) /
+                                     CAST(COUNT(*) AS FLOAT), 1) as accuracy_pct,
+                   COUNT(*) as total_attempts
+               FROM question_attempts
+               GROUP BY topic
+               HAVING accuracy_pct < ?
+               ORDER BY accuracy_pct ASC""",
+            (threshold,)
+        ).fetchall()
+        return [dict(row) for row in rows]
+    finally:
+        conn.close()
+
+
+def get_topic_stats_for_user(user_id: str) -> list[dict[str, Any]]:
+    """Get all topic stats for user (accuracy, attempts).
+
+    Returns: list of {topic_id, accuracy_pct, total_attempts}.
+    """
+    conn = get_connection()
+    conn.row_factory = sqlite3.Row
+    try:
+        rows = conn.execute(
+            """SELECT
+                   topic as topic_id,
+                   ROUND(100.0 * SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) /
+                                     CAST(COUNT(*) AS FLOAT), 1) as accuracy_pct,
+                   COUNT(*) as total_attempts
+               FROM question_attempts
+               GROUP BY topic
+               ORDER BY accuracy_pct DESC""",
+        ).fetchall()
+        return [dict(row) for row in rows]
     finally:
         conn.close()

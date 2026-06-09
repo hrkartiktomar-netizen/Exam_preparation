@@ -18,6 +18,12 @@ from fastapi.staticfiles import StaticFiles
 import database as db
 import amendment_poller
 import job_queue
+import essay_grader
+import law_revision_engine
+import recommendation_engine
+import readiness_engine
+import error_handling
+import input_validation
 from gemini_integration import (
     PROMPT_CONTRACT_VERSION,
     USE_CASE_CATALOG,
@@ -71,6 +77,11 @@ from models import (
     TopicModel,
     TopicStatsModel,
     WeakTopicsResponseModel,
+    LawRevisionModel,
+    SpacedReviewItemModel,
+    HighYieldProvisionModel,
+    RecentAmendmentModel,
+    WeakLegalAreaModel,
 )
 
 
@@ -621,21 +632,100 @@ async def dashboard(include_ai: bool = Query(default=True)):
     return DashboardStatsModel.model_validate(data)
 
 
-@app.get("/api/law/ifsca-act")
+@app.get("/api/dashboard/next-action")
+async def get_next_action():
+    """Get next recommended action for default user (Phase 4 autonomy).
+
+    Per PROJECT_REFACTOR_PLAN.xml Week 4: Auto-recommend next action based on accuracy.
+    Decision tree:
+    - accuracy < 40% AND attempts >= 5 → DRILL (critical)
+    - 40% <= accuracy < 60% AND no improvement 3 days → MOCK
+    - 60% <= accuracy < 75% AND amendments exist → AMENDMENT_REVIEW
+    - 75% <= accuracy < 90% → ESSAY
+    - else → REVIEW
+    """
+    try:
+        recommendation = recommendation_engine.get_next_action_for_dashboard(user_id="default")
+        if recommendation is None:
+            return {
+                "action": "NO_DATA",
+                "topic": None,
+                "reason": "Insufficient performance data. Start with a mock exam.",
+                "priority": 1,
+                "estimated_duration_minutes": 60,
+                "estimated_question_count": 50,
+            }
+        return {
+            "action": recommendation.action.value,
+            "topic": recommendation.topic,
+            "reason": recommendation.reason,
+            "priority": recommendation.priority,
+            "estimated_duration_minutes": recommendation.estimated_duration_minutes,
+            "estimated_question_count": recommendation.estimated_question_count,
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to calculate next action: {str(e)}"
+        )
+
+
+@app.get("/api/dashboard/readiness")
+async def get_readiness(target_score: int = Query(default=130, ge=0, le=200)):
+    """Get readiness estimate for exam at current performance trajectory (Phase 4 autonomy).
+
+    Per PROJECT_REFACTOR_PLAN.xml Week 4: Estimate probability of achieving target score.
+    Returns: readiness_percentage (0-100), final_score_estimate (0-200), weak_areas_count.
+    """
+    try:
+        if not 0 <= target_score <= 200:
+            raise HTTPException(
+                status_code=422,
+                detail="target_score must be between 0 and 200"
+            )
+
+        estimate = readiness_engine.calculate_readiness_estimate(
+            user_id="default",
+            target_score=target_score,
+            days_to_exam=28
+        )
+        estimate.validate()
+
+        return {
+            "readiness_percentage": estimate.readiness_percentage,
+            "final_score_estimate": estimate.final_score_estimate,
+            "days_to_exam": estimate.days_to_exam,
+            "weak_areas_count": estimate.weak_areas_count,
+            "confidence": estimate.confidence,
+        }
+    except ValueError as e:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Invalid readiness parameters: {str(e)}"
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to calculate readiness: {str(e)}"
+        )
+
+
+
 async def ifsca_act():
     return db.ifsca_act_full_text()
 
 
-@app.get("/api/law/daily-revision")
-async def daily_law_revision(
-    lines_per_day: int = Query(default=80, ge=30, le=180),
-    day_index: int | None = Query(default=None, ge=0),
+@app.get("/api/law/daily-revision", response_model=LawRevisionModel)
+async def get_daily_law_revision(
     include_ai: bool = Query(default=True),
+    days_back: int = Query(default=30, ge=7, le=90),
 ):
-    revision = db.daily_ifsca_act_revision(lines_per_day=lines_per_day, day_index=day_index)
-    revision["ai_revision"] = generate_law_revision_plan(revision, force_local=not include_ai)
-    revision["ai_status"] = get_gemini_health()
-    return revision
+    """Get daily law revision plan: high-yield provisions, amendments, weak areas, spaced review due."""
+    return law_revision_engine.daily_law_revision(
+        user_id="default",
+        days_back=days_back,
+        force_local=not include_ai,
+    )
 
 
 @app.post("/api/questions/generate-from-source")
@@ -960,13 +1050,20 @@ async def essay_prompts():
 
 @app.post("/api/grade-essay", response_model=EssayGradingResponseModel)
 async def grade_essay_endpoint(submission: EssaySubmissionModel):
+    """Grade essay using automated 4-rubric system with source grounding."""
     try:
         source_chunks = db.chunks_for_topic(submission.topic.upper(), limit=6, query=submission.prompt)
-        grade = grade_essay(submission.essay_text, submission.topic.upper(), source_chunks)
-        essay_id = db.save_essay(submission.model_dump(), grade, source_chunks)
-        grade["essay_id"] = essay_id
-        grade["suggested_sources"] = source_chunks
-        return EssayGradingResponseModel.model_validate(grade)
+        # Use essay_grader module (thin wrapper with validation + fallback)
+        grade_response = essay_grader.grade_essay_with_sources(
+            submission.essay_text,
+            submission.topic.upper(),
+            source_chunks,
+            force_local=False
+        )
+        # Save to database
+        essay_id = db.save_essay(submission.model_dump(), grade_response.model_dump(), source_chunks)
+        grade_response.essay_id = essay_id
+        return grade_response
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
@@ -974,6 +1071,52 @@ async def grade_essay_endpoint(submission: EssaySubmissionModel):
 @app.get("/api/essays/history")
 async def essay_history(limit: int = Query(default=25, ge=1, le=100)):
     return {"essays": db.list_essays(limit=limit)}
+
+
+# ============================================================================
+# PHASE 5: Law Revision & Spaced Review Endpoints
+# ============================================================================
+
+@app.get("/api/law/review/due", response_model=list[SpacedReviewItemModel])
+async def get_law_review_due(limit: int = Query(default=20, ge=1, le=50)):
+    """Get law review items due today for spaced revision."""
+    return law_revision_engine.get_spaced_review_due(limit=limit)
+
+
+@app.post("/api/law/review/{review_id}/complete")
+async def mark_law_review_complete(
+    review_id: str,
+    success: bool = Query(default=True),
+):
+    """Mark a law review item as complete (success/failure) and update SM-2 scheduling."""
+    try:
+        result = law_revision_engine.mark_review_complete(review_id, success=success)
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        return result
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/law/weak-areas", response_model=list[WeakLegalAreaModel])
+async def get_weak_legal_areas(limit: int = Query(default=10, ge=1, le=20)):
+    """Get legal areas where user's accuracy is weak (<60%)."""
+    return law_revision_engine.get_weak_legal_areas(limit=limit)
+
+
+@app.get("/api/amendments/recent", response_model=list[RecentAmendmentModel])
+async def get_recent_amendments_endpoint(
+    days_back: int = Query(default=30, ge=7, le=90),
+    limit: int = Query(default=20, ge=1, le=50),
+):
+    """Get recent amendments from past N days (highest exam relevance)."""
+    return law_revision_engine.get_recent_amendments(days_back=days_back, limit=limit)
+
+
+@app.get("/api/law/high-yield", response_model=list[HighYieldProvisionModel])
+async def get_high_yield_provisions(limit: int = Query(default=15, ge=1, le=30)):
+    """Get high-yield provisions most likely to appear in exam."""
+    return law_revision_engine.get_high_yield_provisions(limit=limit)
 
 
 @app.post("/api/record-amendment", response_model=AmendmentResponseModel)

@@ -591,6 +591,508 @@
         grid-template-columns: repeat(5, 42px);
       }
     }
+
+    /* ============ TCS iON Exam Mode Enhancements (Week 6) ============ */
+
+    .timer.critical {
+      animation: blink-timer 0.6s infinite;
+    }
+
+    @keyframes blink-timer {
+      0%, 50% { background: #ba1a1a; }
+      51%, 100% { background: #8a0000; }
+    }
+
+    .exam-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--ion-blue-dark);
+      color: #fff;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--ion-blue-dark);
+      min-height: 70px;
+    }
+
+    .exam-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .exam-timer-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+
+    .timer-label {
+      font-size: 11px;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+
+    .time-display {
+      font-size: 36px;
+      font-weight: 800;
+      font-family: monospace;
+      letter-spacing: 2px;
+    }
+
+    .exam-structure {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 16px;
+      height: calc(100vh - 180px);
+      padding: 12px;
+    }
+
+    .exam-content-area {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+    }
+
+    .question-number {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .question-prompt {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding: 12px;
+      background: #f8fafc;
+      border-left: 4px solid var(--ion-blue);
+      border-radius: 4px;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      border: 2px solid var(--line);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: #fff;
+    }
+
+    .option-item:hover {
+      background: #f8fafc;
+      border-color: var(--ion-blue);
+    }
+
+    .option-item input[type="radio"] {
+      margin-top: 4px;
+      cursor: pointer;
+      accent-color: var(--ion-blue);
+    }
+
+    .option-item input[type="radio"]:checked {
+      accent-color: var(--green);
+    }
+
+    .option-text {
+      font-size: 14px;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .question-footer {
+      display: flex;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .difficulty-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background: #ffe6cc;
+      color: var(--orange);
+      border-radius: 4px;
+    }
+
+    .marks-info {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .navigation-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 16px 0;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 6px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .btn-nav {
+      min-width: 120px;
+      padding: 10px 16px;
+      border: 2px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-nav:hover:not(:disabled) {
+      border-color: var(--ion-blue);
+      color: var(--ion-blue);
+      background: var(--ion-blue-soft);
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-mark-review {
+      color: var(--focus);
+      border-color: var(--focus);
+    }
+
+    .btn-mark-review.active {
+      background: var(--focus);
+      color: #fff;
+    }
+
+    .btn-submit {
+      padding: 12px 24px;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background: #8b0000;
+    }
+
+    .btn-submit:disabled {
+      background: #e0cccc;
+      cursor: not-allowed;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      padding: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      max-height: 60vh;
+      overflow-y: auto;
+      border-radius: 6px;
+    }
+
+    .palette-cell {
+      width: 100%;
+      aspect-ratio: 1;
+      border: 2px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
+
+    .palette-cell:hover:not(:disabled) {
+      transform: scale(1.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .palette-cell.answered {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+
+    .palette-cell.unanswered {
+      background: #fff;
+      border-color: var(--line);
+    }
+
+    .palette-cell.marked-review {
+      background: var(--focus);
+      color: #fff;
+      border-color: var(--focus);
+    }
+
+    .palette-cell.visited {
+      background: var(--ion-blue-soft);
+      border-color: var(--ion-blue);
+    }
+
+    .palette-legend {
+      padding: 12px;
+      font-size: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .legend-item .cell {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--line);
+      border-radius: 3px;
+    }
+
+    .result-page {
+      display: none;
+      padding: 30px;
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .result-page.active {
+      display: block;
+    }
+
+    .result-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .result-score-box {
+      margin: 20px 0;
+      padding: 20px;
+      background: var(--ion-blue-soft);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .score-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .score-value {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--ion-blue-dark);
+      margin: 0 8px;
+    }
+
+    .score-max {
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .stat-card {
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      border: 1px solid var(--line);
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--ion-blue-dark);
+      margin: 8px 0;
+    }
+
+    .weak-areas-list {
+      margin: 20px 0;
+      padding: 12px;
+      background: #fff8f5;
+      border-left: 4px solid var(--red);
+      border-radius: 4px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-body {
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .modal-body h3 {
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .modal-body ol, .modal-body ul {
+      margin-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .modal-body li {
+      margin-bottom: 6px;
+    }
+
+    .modal-footer {
+      padding: 20px;
+      border-top: 1px solid var(--line);
+      text-align: right;
+    }
+
+    .btn-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .exam-structure {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .palette-grid {
+        grid-template-columns: repeat(8, 1fr);
+        max-height: 150px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .exam-header {
+        flex-direction: column;
+        gap: 10px;
+        min-height: auto;
+        padding: 10px;
+      }
+
+      .exam-structure {
+        gap: 8px;
+        padding: 8px;
+        height: auto;
+      }
+
+      .exam-content-area {
+        padding: 12px;
+      }
+
+      .palette-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .navigation-buttons {
+        flex-direction: column;
+      }
+
+      .btn-nav {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2005,6 +2507,208 @@
       qs('citationModal').classList.add('hidden');
     }
 
+    /* ============ TCS iON Exam Mode (Week 6) ============ */
+
+    let examTimerInterval = null;
+    let currentExamSecondsRemaining = 3600; // 60 minutes
+
+    function startExamTimer() {
+      const startTime = Date.now();
+      const totalSeconds = 3600; // 60 minutes
+
+      examTimerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        currentExamSecondsRemaining = totalSeconds - elapsed;
+
+        if (currentExamSecondsRemaining <= 0) {
+          clearInterval(examTimerInterval);
+          autoSubmitExam();
+          return;
+        }
+
+        updateExamTimer(currentExamSecondsRemaining);
+      }, 1000);
+    }
+
+    function updateExamTimer(secondsRemaining) {
+      const minutes = Math.floor(secondsRemaining / 60);
+      const seconds = secondsRemaining % 60;
+      const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+      const timerEl = qs('#examTimer');
+      if (timerEl) {
+        timerEl.textContent = display;
+
+        // Red when <5 minutes
+        if (secondsRemaining < 300) {
+          timerEl.classList.add('warning');
+        }
+
+        // Blink when <1 minute
+        if (secondsRemaining < 60) {
+          timerEl.classList.add('critical');
+        }
+      }
+
+      // Enable submit button when <5 minutes
+      const submitBtn = qs('button[onclick="submitCurrentMock(false)"]');
+      if (submitBtn && secondsRemaining < 300) {
+        submitBtn.disabled = false;
+      }
+    }
+
+    function stopExamTimer() {
+      if (examTimerInterval) {
+        clearInterval(examTimerInterval);
+        examTimerInterval = null;
+      }
+    }
+
+    function autoSubmitExam() {
+      alert('Time limit reached. Submitting exam automatically...');
+      submitCurrentMock(false);
+    }
+
+    function showInstructions() {
+      if (qs('#instructionsModal')) {
+        qs('#instructionsModal').classList.add('active');
+      }
+    }
+
+    function closeInstructions() {
+      if (qs('#instructionsModal')) {
+        qs('#instructionsModal').classList.remove('active');
+      }
+    }
+
+    function showResultPage(scoreData) {
+      const resultPage = qs('#resultPage');
+      if (!resultPage) return;
+
+      // Populate result data
+      if (scoreData.score !== undefined) {
+        qs('#resultScore').textContent = scoreData.score;
+      }
+      if (scoreData.correct !== undefined) {
+        qs('#statCorrect').textContent = scoreData.correct;
+      }
+      if (scoreData.wrong !== undefined) {
+        qs('#statWrong').textContent = scoreData.wrong;
+      }
+      if (scoreData.unanswered !== undefined) {
+        qs('#statUnanswered').textContent = scoreData.unanswered;
+      }
+      if (scoreData.accuracy !== undefined) {
+        qs('#statAccuracy').textContent = scoreData.accuracy + '%';
+      }
+
+      // Show weak areas
+      if (scoreData.weakAreas && scoreData.weakAreas.length > 0) {
+        qs('#weakList').innerHTML = scoreData.weakAreas
+          .map(w => `<li>${escapeHtml(w.topic || 'Unknown')}: ${w.accuracy || 0}% accuracy</li>`)
+          .join('');
+      }
+
+      resultPage.classList.add('active');
+      qs('#examShell').classList.add('hidden');
+      qs('#preExam').classList.add('hidden');
+      stopExamTimer();
+    }
+
+    function returnToDashboard() {
+      switchView('today');
+    }
+
+    function reviewAnswers() {
+      // Switch to review tab for answer review
+      switchView('review');
+    }
+
+    // Handle keyboard shortcuts in exam mode
+    document.addEventListener('keydown', (e) => {
+      if (!qs('#examShell') || qs('#examShell').classList.contains('hidden')) return;
+
+      // Arrow keys for navigation
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        previousQuestion();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        saveAndNext();
+      }
+
+      // Number keys for options (1-4 or A-D)
+      if (['1', '2', '3', '4'].includes(e.key)) {
+        e.preventDefault();
+        const option = String.fromCharCode(64 + parseInt(e.key)); // Convert 1-4 to A-D
+        selectOption(option);
+      }
+
+      // Letter keys for options (A-D, a-d)
+      if (['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D'].includes(e.key)) {
+        e.preventDefault();
+        selectOption(e.key.toUpperCase());
+      }
+
+      // M for mark for review
+      if (e.key === 'm' || e.key === 'M') {
+        e.preventDefault();
+        markReviewAndNext();
+      }
+
+      // S for submit (only if enabled)
+      if ((e.key === 's' || e.key === 'S') && currentExamSecondsRemaining < 300) {
+        e.preventDefault();
+        submitCurrentMock(false);
+      }
+    });
+
+    function selectOption(option) {
+      const radio = qs(`input[value="${option}"]`);
+      if (radio) {
+        radio.checked = true;
+        radio.closest('.option-row').classList.add('selected');
+
+        // Auto-save
+        const qIdx = currentQuestion || 1;
+        localStorage.setItem(`answer_q${qIdx}`, option);
+
+        // Update palette
+        const cell = qs(`[data-q-idx="${qIdx}"]`);
+        if (cell) {
+          cell.classList.remove('unanswered');
+          cell.classList.add('answered');
+        }
+      }
+    }
+
+    // Auto-save on radio selection
+    document.addEventListener('change', (e) => {
+      if (e.target.type === 'radio' && qs('#examShell') && !qs('#examShell').classList.contains('hidden')) {
+        const qIdx = currentQuestion || 1;
+        const value = e.target.value;
+
+        // Save to localStorage
+        localStorage.setItem(`answer_q${qIdx}`, value);
+
+        // Show "Saved" indicator briefly
+        const saveBtn = qs('button:has(>*):contains("Save")');
+        if (saveBtn) {
+          saveBtn.textContent = '✓ Saved';
+          setTimeout(() => {
+            saveBtn.textContent = '💾 Save Answer';
+          }, 1500);
+        }
+
+        // Update palette cell
+        const cell = qs(`[data-q-idx="${qIdx}"]`);
+        if (cell) {
+          cell.classList.add('answered');
+          cell.classList.remove('unanswered');
+        }
+      }
+    });
+
     window.addEventListener('load', async () => {
       qs('uploadDate').value = new Date().toISOString().slice(0, 10);
       qs('amendmentDate').value = new Date().toISOString().slice(0, 10);
@@ -2016,5 +2720,86 @@
       }
     });
   </script>
+
+  <!-- Exam Instructions Modal -->
+  <div id="instructionsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 style="margin: 0;">📋 Exam Instructions</h2>
+        <button class="btn-close" onclick="closeInstructions()">✕</button>
+      </div>
+      <div class="modal-body">
+        <h3>IFSCA Grade A Exam - Exam Mode Rules</h3>
+        <ol>
+          <li><strong>Total Questions:</strong> 50 MCQ (or as selected)</li>
+          <li><strong>Time Limit:</strong> 60 minutes</li>
+          <li><strong>Marking:</strong> +4 for correct, -1 for wrong, 0 for unanswered</li>
+          <li><strong>Navigation:</strong> Use Previous/Next buttons only (no skip allowed)</li>
+          <li><strong>Mark for Review:</strong> Click button to mark, review later</li>
+          <li><strong>Submit:</strong> Enabled only in last 5 minutes</li>
+          <li><strong>Auto-Submit:</strong> Exam auto-submits when timer reaches 00:00</li>
+          <li><strong>Offline Mode:</strong> Answers saved locally, synced on submit</li>
+        </ol>
+        <h3>Keyboard Shortcuts</h3>
+        <ul>
+          <li><kbd>←</kbd> <kbd>→</kbd> Previous/Next question</li>
+          <li><kbd>1</kbd>-<kbd>4</kbd> or <kbd>A</kbd>-<kbd>D</kbd> Select option</li>
+          <li><kbd>M</kbd> Mark for Review</li>
+          <li><kbd>S</kbd> Submit (when enabled)</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button class="btn primary" onclick="closeInstructions()">Got it! Start →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exam Result Page -->
+  <div id="resultPage" class="result-page">
+    <div class="result-header">
+      <h1>🎉 Exam Submitted Successfully</h1>
+      <p>Your answers have been recorded and analyzed.</p>
+    </div>
+
+    <div class="result-score-box">
+      <div class="score-label">Your Score</div>
+      <div>
+        <span class="score-value" id="resultScore">0</span>
+        <span class="score-max">/ 200</span>
+      </div>
+    </div>
+
+    <div>
+      <h2>Score Breakdown</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="score-label">Correct</span>
+          <div class="stat-value" id="statCorrect">0</div>
+        </div>
+        <div class="stat-card">
+          <span class="score-label">Wrong</span>
+          <div class="stat-value" id="statWrong">0</div>
+        </div>
+        <div class="stat-card">
+          <span class="score-label">Unanswered</span>
+          <div class="stat-value" id="statUnanswered">0</div>
+        </div>
+        <div class="stat-card">
+          <span class="score-label">Accuracy</span>
+          <div class="stat-value" id="statAccuracy">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="weak-areas-list">
+      <h2 style="margin-top: 0;">🎯 Weak Areas Detected</h2>
+      <ul id="weakList" style="margin: 0; padding-left: 20px;"></ul>
+    </div>
+
+    <div class="action-buttons" style="margin-top: 30px;">
+      <button class="btn primary" onclick="returnToDashboard()">← Back to Dashboard</button>
+      <button class="btn" onclick="reviewAnswers()">📝 Review Answers</button>
+    </div>
+  </div>
 </body>
 </html>
