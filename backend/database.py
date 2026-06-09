@@ -662,6 +662,55 @@ def seed_topics(conn: sqlite3.Connection) -> None:
         raise
 
 
+def _populate_source_role_on_documents(conn: sqlite3.Connection) -> None:
+    """Populate source_role column on documents table from source_documents.
+
+    This bridges the documents and source_documents parallel tables
+    by matching titles and populating source_role on documents.
+    Per Context7 docs for SQLite: use UPDATE with JOIN for bulk operations.
+    """
+    try:
+        cursor = conn.cursor()
+
+        # Step 1: Check if source_role column exists, add if not
+        cols = _table_columns(conn, "documents")
+        if "source_role" not in cols:
+            cursor.execute("ALTER TABLE documents ADD COLUMN source_role TEXT DEFAULT 'supporting_material'")
+            conn.commit()
+
+        # Step 2: Update documents.source_role from source_documents by title matching
+        # Use a simple substring match since titles vary slightly
+        # Update rule: if documents.title contains source_documents.name (or vice versa), match them
+        cursor.execute("""
+        UPDATE documents
+        SET source_role = (
+            SELECT sd.source_role
+            FROM source_documents sd
+            WHERE sd.name IS NOT NULL AND documents.title IS NOT NULL
+            AND (
+                LOWER(documents.title) LIKE '%' || LOWER(SUBSTR(sd.name, 1, 40)) || '%'
+                OR LOWER(sd.name) LIKE '%' || LOWER(SUBSTR(documents.title, 1, 40)) || '%'
+            )
+            LIMIT 1
+        )
+        WHERE source_role = 'supporting_material'  -- Only update defaults
+        """)
+
+        conn.commit()
+
+        # Log results
+        dist = cursor.execute("""
+        SELECT source_role, COUNT(*) as cnt FROM documents GROUP BY source_role
+        """).fetchall()
+        print("  documents.source_role distribution:")
+        for role, cnt in dist:
+            print(f"    {role}: {cnt}")
+
+    except Exception as e:
+        print(f"  Warning: Could not populate source_role on documents: {e}")
+        conn.rollback()
+
+
 def _categorize_materials(conn: sqlite3.Connection) -> None:
     """Categorize all source materials by role for smart Gemini routing.
 
@@ -771,6 +820,9 @@ def init_db() -> None:
 
     # Run Phase 4 migration (material categorization)
     try:
+        # First populate source_role on documents table from source_documents
+        _populate_source_role_on_documents(conn)
+        # Then categorize source_documents itself
         _run_migration_004(conn)
     except Exception as e:
         print(f"Phase 4 migration error: {e}")
@@ -1705,60 +1757,41 @@ def chunks_for_topic(topic_id: str, limit: int = 8, query: str | None = None, so
             return results
     conn = get_connection()
     try:
-        # Per Context7 docs for SQLite: use parametrized queries with conditional JOIN for filtering
+        # Per Context7 docs for SQLite: use parametrized queries with conditional filtering
         params: list[Any] = [topic_id]
 
-        # Build the JOIN clause conditionally based on source_role_filter
-        # Ignore empty source_role_filter lists
+        # Build WHERE clause conditionally based on source_role_filter
+        # material_role filtering (documents table has source_role column populated from source_documents)
         if source_role_filter and len(source_role_filter) > 0:
-            # When filtering by source_role, we try to join with source_documents
-            # If no matches, we fall back to unfiltered query
-            where_part = f"WHERE ct.topic_id = ? AND sd.source_role IN ({','.join('?' * len(source_role_filter))})"
+            # Filter by source_role (if documents.source_role column exists and is populated)
+            where_part = f"WHERE ct.topic_id = ? AND (d.source_role IS NOT NULL AND d.source_role IN ({','.join('?' * len(source_role_filter))}))"
             params.extend(source_role_filter)
             params.append(limit)
+        else:
+            # Without source_role filter
+            where_part = "WHERE ct.topic_id = ?"
+            params.append(limit)
 
-            join_part = """
+        # Safe query - will work with or without source_role column in documents table
+        rows = conn.execute(
+            f"""
+            SELECT c.chunk_id, c.document_id, d.title, d.category, c.page_start, c.page_end,
+                   c.line_start, c.line_end, c.text, GROUP_CONCAT(ct.topic_id, ' ') AS topic_tags,
+                   MAX(ct.confidence) AS confidence
             FROM chunk_topics ct
             JOIN document_chunks c ON c.chunk_id = ct.chunk_id
             JOIN documents d ON d.document_id = c.document_id
-            INNER JOIN source_documents sd ON CAST(d.document_id AS TEXT) = CAST(sd.doc_id AS TEXT)
-            """
+            {where_part}
+            GROUP BY c.chunk_id
+            ORDER BY confidence DESC, c.line_start ASC
+            LIMIT ?
+            """,
+            params,
+        ).fetchall()
 
-            rows = conn.execute(
-                f"""
-                SELECT c.chunk_id, c.document_id, d.title, d.category, c.page_start, c.page_end,
-                       c.line_start, c.line_end, c.text, GROUP_CONCAT(ct.topic_id, ' ') AS topic_tags,
-                       MAX(ct.confidence) AS confidence
-                {join_part}
-                {where_part}
-                GROUP BY c.chunk_id
-                ORDER BY confidence DESC, c.line_start ASC
-                LIMIT ?
-                """,
-                params,
-            ).fetchall()
-
-            # If no results with source_role filter, fall back to unfiltered query
-            if not rows:
-                params = [topic_id, limit]
-                rows = conn.execute(
-                    """
-                    SELECT c.chunk_id, c.document_id, d.title, d.category, c.page_start, c.page_end,
-                           c.line_start, c.line_end, c.text, GROUP_CONCAT(ct.topic_id, ' ') AS topic_tags,
-                           MAX(ct.confidence) AS confidence
-                    FROM chunk_topics ct
-                    JOIN document_chunks c ON c.chunk_id = ct.chunk_id
-                    JOIN documents d ON d.document_id = c.document_id
-                    WHERE ct.topic_id = ?
-                    GROUP BY c.chunk_id
-                    ORDER BY confidence DESC, c.line_start ASC
-                    LIMIT ?
-                    """,
-                    params,
-                ).fetchall()
-        else:
-            # Without source_role filter, just join documents normally
-            params.append(limit)
+        # Graceful fallback if source_role filter returned no results
+        if not rows and source_role_filter:
+            params = [topic_id, limit]
             rows = conn.execute(
                 """
                 SELECT c.chunk_id, c.document_id, d.title, d.category, c.page_start, c.page_end,
