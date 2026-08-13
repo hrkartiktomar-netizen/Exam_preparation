@@ -410,7 +410,8 @@ CREATE TABLE IF NOT EXISTS documents (
     downloaded_at TEXT,
     ingested_at TEXT,
     status TEXT,
-    notes TEXT
+    notes TEXT,
+    source_role TEXT DEFAULT 'supporting_material'
 );
 
 CREATE TABLE IF NOT EXISTS document_chunks (
@@ -624,6 +625,7 @@ def get_connection() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
+    conn.execute("PRAGMA busy_timeout = 5000")
     return conn
 
 
@@ -646,8 +648,8 @@ def seed_topics(conn: sqlite3.Connection) -> None:
                 (
                     topic.get("topic_id"),
                     topic.get("parent_topic_id"),
-                    topic.get("phase"),
-                    topic.get("paper"),
+                    topic.get("phase") or "phase_2",
+                    topic.get("paper") or "paper_2",
                     topic.get("display_name"),
                     topic.get("description"),
                     topic.get("base_weight"),
@@ -655,6 +657,10 @@ def seed_topics(conn: sqlite3.Connection) -> None:
                     topic.get("is_amendment_sensitive", False),
                 ),
             )
+        # Backfill legacy rows seeded with NULL phase/paper so TopicModel validation
+        # (phase/paper are required strings) never fails for existing databases.
+        conn.execute("UPDATE topics SET phase = 'phase_2' WHERE phase IS NULL OR phase = ''")
+        conn.execute("UPDATE topics SET paper = 'paper_2' WHERE paper IS NULL OR paper = ''")
         conn.commit()
     except Exception as e:
         print(f"Error seeding topics: {e}")
@@ -671,6 +677,15 @@ def _populate_source_role_on_documents(conn: sqlite3.Connection) -> None:
     """
     try:
         cursor = conn.cursor()
+
+        # Step 0: If the legacy source_documents table (or its source_role column)
+        # does not exist yet, there is nothing to copy. Do not fail or roll back
+        # the ALTER below in that case.
+        tables = {row["name"] for row in cursor.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+        if "source_documents" not in tables:
+            return
+        if "source_role" not in _table_columns(conn, "source_documents"):
+            return
 
         # Step 1: Check if source_role column exists, add if not
         cols = _table_columns(conn, "documents")
@@ -768,8 +783,62 @@ def _categorize_materials(conn: sqlite3.Connection) -> None:
         raise
 
 
+def _split_sql_statements(sql: str) -> list[str]:
+    """Split a SQL script into statements, ignoring comment lines and any
+    semicolons that appear inside comments."""
+
+    statements: list[str] = []
+    buffer: list[str] = []
+    for raw_line in sql.splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("--"):
+            continue
+        # Drop inline comments (none of the bundled migration scripts use '--'
+        # inside string literals).
+        line = re.sub(r"--[^\n]*$", "", line).strip()
+        if not line:
+            continue
+        buffer.append(line)
+        if line.endswith(";"):
+            statements.append(" ".join(buffer))
+            buffer = []
+    if buffer:
+        statements.append(" ".join(buffer))
+    return statements
+
+
+def _execute_migration_script_idempotent(conn: sqlite3.Connection, sql: str) -> None:
+    """Execute a migration script statement-by-statement, skipping statements that
+    would fail on a re-run (duplicate ALTER TABLE ADD COLUMN, existing indexes)."""
+
+    for statement in _split_sql_statements(sql):
+        lower = statement.lower()
+        if lower.startswith("alter table") and "add column" in lower:
+            # Skip ALTER TABLE ... ADD COLUMN when the column already exists.
+            match = re.search(
+                r"alter\s+table\s+([\"'`\w]+)\s+add\s+column\s+([\"'`\w]+)",
+                lower,
+            )
+            if match:
+                table_name = match.group(1).strip('"\'`')
+                column_name = match.group(2).strip('"\'`')
+                try:
+                    if column_name in _table_columns(conn, table_name):
+                        continue
+                except sqlite3.OperationalError:
+                    # Table itself does not exist yet; run the statement as-is.
+                    pass
+        try:
+            conn.execute(statement)
+        except sqlite3.OperationalError as exc:
+            message = str(exc).lower()
+            if "duplicate column name" in message or "already exists" in message:
+                continue
+            raise
+
+
 def _run_migration_004(conn: sqlite3.Connection | None = None) -> None:
-    """Execute Phase 4 material categorization migration."""
+    """Execute Phase 4 material categorization migration (idempotent)."""
     owns_conn = conn is None
     if owns_conn:
         conn = get_connection()
@@ -783,7 +852,7 @@ def _run_migration_004(conn: sqlite3.Connection | None = None) -> None:
         with open(migration_path, "r") as f:
             migration_sql = f.read()
 
-        conn.executescript(migration_sql)
+        _execute_migration_script_idempotent(conn, migration_sql)
 
         # Run categorization logic
         _categorize_materials(conn)
@@ -798,7 +867,21 @@ def _run_migration_004(conn: sqlite3.Connection | None = None) -> None:
             conn.close()
 
 
-def init_db() -> None:
+_INITIALIZED_DB: Path | None = None
+
+
+def init_db(force: bool = False) -> None:
+    """Initialize schema/migrations for the current DB_PATH.
+
+    Guarded per DB path: request handlers call init_db() defensively on many
+    hot paths (search, ingestion status, dashboard); re-running the full schema
+    and migration scripts on every call caused log spam and raised the chance
+    of write contention with the APScheduler jobs. After the first successful
+    run for a given DB_PATH, subsequent calls are no-ops unless force=True.
+    """
+    global _INITIALIZED_DB
+    if not force and _INITIALIZED_DB == DB_PATH:
+        return
     conn = get_connection()
     conn.executescript(SCHEMA)
     _ensure_runtime_schema(conn)
@@ -818,16 +901,29 @@ def init_db() -> None:
     except Exception as e:
         print(f"Phase 2 migration already applied or error: {e}")
 
-    # Run Phase 4 migration (material categorization)
+    # Run Phase 4 migration (material categorization).
+    # Must run BEFORE _populate_source_role_on_documents so that
+    # source_documents.source_role exists for the role copy below.
     try:
-        # First populate source_role on documents table from source_documents
-        _populate_source_role_on_documents(conn)
-        # Then categorize source_documents itself
         _run_migration_004(conn)
     except Exception as e:
         print(f"Phase 4 migration error: {e}")
 
+    # Remove broken FK constraints on PYQ tables for databases created
+    # before the PYQ flow was rewired to the canonical document index.
+    try:
+        _run_migration_005(conn)
+    except Exception as e:
+        print(f"Phase 5 (PYQ FK) migration error: {e}")
+
+    # Copy source roles from the legacy source_documents table when available.
+    try:
+        _populate_source_role_on_documents(conn)
+    except Exception as e:
+        print(f"Phase 4 migration error: {e}")
+
     conn.close()
+    _INITIALIZED_DB = DB_PATH
 
 
 def _table_columns(conn: sqlite3.Connection, table_name: str) -> set[str]:
@@ -1100,6 +1196,87 @@ def _run_migration_002(conn: sqlite3.Connection | None = None) -> None:
     finally:
         if owns_conn:
             conn.close()
+
+
+def _run_migration_005(conn: sqlite3.Connection | None = None) -> None:
+    """Rebuild PYQ tables without the broken FK constraints from migration 004.
+
+    The old constraints declared:
+      - pyq_sessions.pyq_source_doc_id REFERENCES source_documents(doc_id), but the
+        submit flow stores 0 (no source_documents row), so every insert failed.
+      - pyq_question_attempts.question_id REFERENCES questions(question_id), but PYQ
+        questions are cached in memory and never exist in `questions`.
+
+    This migration only acts on databases that still carry those constraints.
+    Fresh databases are created FK-free by the updated migration 004 script.
+    """
+
+    rebuild_sessions = (
+        "CREATE TABLE pyq_sessions (\n"
+        "    pyq_id TEXT PRIMARY KEY,\n"
+        "    pyq_source_doc_id INTEGER NOT NULL,\n"
+        "    pyq_title TEXT NOT NULL,\n"
+        "    phase_number INTEGER,\n"
+        "    year INTEGER,\n"
+        "    paper_number INTEGER,\n"
+        "    started_at TEXT,\n"
+        "    submitted_at TEXT,\n"
+        "    total_questions INTEGER,\n"
+        "    score INTEGER,\n"
+        "    accuracy REAL,\n"
+        "    status TEXT,\n"
+        "    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n"
+        ")"
+    )
+    rebuild_attempts = (
+        "CREATE TABLE pyq_question_attempts (\n"
+        "    attempt_id TEXT PRIMARY KEY,\n"
+        "    pyq_id TEXT NOT NULL,\n"
+        "    question_id TEXT NOT NULL,\n"
+        "    question_number INTEGER,\n"
+        "    selected_answer TEXT,\n"
+        "    official_answer TEXT,\n"
+        "    is_correct BOOLEAN,\n"
+        "    time_spent_seconds INTEGER,\n"
+        "    marked_for_review BOOLEAN,\n"
+        "    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n"
+        ")"
+    )
+
+    def table_has_fks(name: str) -> bool:
+        try:
+            rows = conn.execute(f"PRAGMA foreign_key_list({name})").fetchall()
+            return bool(rows)
+        except sqlite3.OperationalError:
+            return False
+
+    def rebuild_if_needed(name: str, ddl: str) -> None:
+        table_names = {
+            row["name"]
+            for row in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
+        }
+        if name not in table_names or not table_has_fks(name):
+            return
+        # Rebuilding a table that other FK constraints reference requires a
+        # connection with FK enforcement off; use a dedicated connection so the
+        # main connection's PRAGMA foreign_keys=ON is untouched.
+        migration_conn = sqlite3.connect(DB_PATH)
+        try:
+            migration_conn.execute("PRAGMA foreign_keys = OFF")
+            migration_conn.executescript(
+                f"""
+                ALTER TABLE {name} RENAME TO {name}_fk_legacy;
+                {ddl};
+                INSERT INTO {name} SELECT * FROM {name}_fk_legacy;
+                DROP TABLE {name}_fk_legacy;
+                """
+            )
+            migration_conn.commit()
+        finally:
+            migration_conn.close()
+
+    rebuild_if_needed("pyq_question_attempts", rebuild_attempts)
+    rebuild_if_needed("pyq_sessions", rebuild_sessions)
 
 
 def format_citation_note(source_chunk: dict[str, Any], page_num: int | None = None) -> str:
@@ -3262,18 +3439,23 @@ def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_g
     difficulty_curve = config["difficulty_curve"]  # Now: dict[topic] → list[difficulty]
     questions: list[dict[str, Any]] = []
 
-    # Generate questions per topic with difficulty progression
+    # Generate questions per topic with difficulty progression.
+    # Batch generation per (topic, difficulty) group so a 50-question mock makes
+    # a handful of Gemini calls instead of one serial call per question.
     for topic_id, count in allocation.items():
         difficulties = difficulty_curve.get(topic_id, ["medium"] * count)
         # Ensure we have exactly 'count' difficulties
         if len(difficulties) != count:
             difficulties = difficulties[:count] + ["medium"] * (count - len(difficulties))
 
-        # Generate questions with specific difficulties
-        for i, difficulty in enumerate(difficulties):
+        group_counts: dict[str, int] = {}
+        for difficulty in difficulties:
+            group_counts[difficulty] = group_counts.get(difficulty, 0) + 1
+
+        for difficulty, group_count in group_counts.items():
             topic_questions = generate_topic_questions(
                 topic_id,
-                count=1,
+                count=group_count,
                 difficulty=difficulty,
                 question_type="smart_mock",
                 use_gemini=True,
@@ -3330,6 +3512,11 @@ def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_g
 def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
     conn = get_connection()
     try:
+        # Idempotent resubmission: clear any previously recorded attempt rows for
+        # this mock so a retry (e.g. after a network failure) cannot double-count
+        # attempts in question_attempts and skew the adaptive analytics.
+        conn.execute("DELETE FROM answers WHERE mock_id = ?", (mock_id,))
+        conn.execute("DELETE FROM question_attempts WHERE mock_id = ?", (mock_id,))
         question_rows = conn.execute(
             """
             SELECT mq.question_number, q.*
@@ -3947,33 +4134,57 @@ def mark_topic_reviewed(topic_id: str, success: bool = True) -> None:
         conn.close()
 
 
-def create_study_path(exam_date: str, weak_topics: list[str], amendments_count: int = 0) -> str:
-    """Generate personalized 12-week study path based on weakness and exam date."""
+def create_study_path(
+    exam_date: str,
+    weak_topics: list[str],
+    amendments_count: int = 0,
+    weeks_data: list[dict[str, Any]] | None = None,
+) -> str:
+    """Generate personalized 12-week study path based on weakness and exam date.
+
+    If weeks_data is provided (e.g. the Gemini-generated weeks returned to the
+    caller), persist those exact weeks so GET /api/study-paths/current matches
+    what the generate endpoint returned.
+    """
     conn = get_connection()
     try:
         path_id = f"PATH_{uuid.uuid4().hex[:12]}"
-        weeks_data = []
-        weak_list = list(weak_topics[:3])  # Convert to list, not set
+        if weeks_data is None:
+            weeks_data = []
+            weak_list = list(weak_topics[:3])  # Convert to list, not set
 
-        for week in range(1, 13):
-            if week <= 4:
-                focus = weak_list + ["PH2_IFSCA_ACT", "PH2_BANKING"]
-            elif week <= 8:
-                focus = weak_list + ["PH2_FM_REGS", "PH2_CAPITAL"]
-            else:
-                focus = weak_list if weak_list else ["PH2_PAYMENT", "PH2_AML_KYC"]
+            for week in range(1, 13):
+                if week <= 4:
+                    focus = weak_list + ["PH2_IFSCA_ACT", "PH2_BANKING"]
+                elif week <= 8:
+                    focus = weak_list + ["PH2_FM_REGS", "PH2_CAPITAL"]
+                else:
+                    focus = weak_list if weak_list else ["PH2_PAYMENT", "PH2_AML_KYC"]
 
-            weeks_data.append({
-                "week": week,
-                "focus_topics": focus[:5],
-                "daily_questions": 20 + (week % 3) * 5,
-                "milestone": f"Complete {5 - (week // 3)} topics" if week < 12 else "Final revision",
-                "status": "not_started"
-            })
+                weeks_data.append({
+                    "week": week,
+                    "focus_topics": focus[:5],
+                    "daily_questions": 20 + (week % 3) * 5,
+                    "milestone": f"Complete {5 - (week // 3)} topics" if week < 12 else "Final revision",
+                    "status": "not_started"
+                })
+
+        # Normalize persisted weeks: ensure status exists and week numbers are sane.
+        normalized = []
+        for index, week in enumerate(weeks_data[:12], start=1):
+            normalized.append(
+                {
+                    "week": int(week.get("week", index)),
+                    "focus_topics": list(week.get("focus_topics") or [])[:5],
+                    "daily_questions": int(week.get("daily_questions", 20)),
+                    "milestone": str(week.get("milestone", f"Week {index}")),
+                    "status": week.get("status") or "not_started",
+                }
+            )
 
         conn.execute(
             "INSERT INTO study_paths (path_id, exam_date, weeks_json, milestone_count) VALUES (?, ?, ?, ?)",
-            (path_id, exam_date, json.dumps(weeks_data), 12)
+            (path_id, exam_date, json.dumps(normalized), 12)
         )
         conn.commit()
         return path_id
@@ -4127,16 +4338,17 @@ def get_weak_legal_areas(limit: int = 10) -> list[dict[str, Any]]:
     try:
         rows = conn.execute(
             """SELECT
-                   topic,
-                   display_name,
-                   total_seen,
-                   total_correct,
-                   accuracy_pct,
-                   status,
-                   last_tested
-               FROM topic_stats
-               WHERE accuracy_pct < 60.0 AND total_seen >= 3
-               ORDER BY accuracy_pct ASC
+                   ts.topic,
+                   COALESCE(t.display_name, ts.topic) AS display_name,
+                   ts.total_seen,
+                   ts.total_correct,
+                   ts.accuracy_pct,
+                   ts.status,
+                   ts.last_tested
+               FROM topic_stats ts
+               LEFT JOIN topics t ON t.topic_id = ts.topic
+               WHERE ts.accuracy_pct < 60.0 AND ts.total_seen >= 3
+               ORDER BY ts.accuracy_pct ASC
                LIMIT ?""",
             (limit,)
         ).fetchall()
