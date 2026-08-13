@@ -899,7 +899,7 @@ async def generate_penalty_drill(request: PenaltyDrillRequestModel):
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
-@app.post("/api/generate-smart-mock", response_model=SmartMockResponseModel)
+@app.post("/api/generate-smart-mock")
 async def generate_smart_mock(request: SmartMockRequestModel | None = None):
     request = request or SmartMockRequestModel()
     try:
@@ -910,7 +910,7 @@ async def generate_smart_mock(request: SmartMockRequestModel | None = None):
         gemini_questions = sum(1 for question in result["questions"] if question.get("created_by") == "gemini" or str(question.get("question_id", "")).startswith("Q_AI_"))
         local_questions = len(result["questions"]) - gemini_questions
         marks_per_question = round(100 / max(1, len(questions)), 4)
-        return SmartMockResponseModel(
+        response = SmartMockResponseModel(
             status="success",
             mock_id=result["mock_id"],
             total_questions=len(questions),
@@ -931,13 +931,23 @@ async def generate_smart_mock(request: SmartMockRequestModel | None = None):
                 "generation": "Gemini structured JSON output; no local fallback for mocks",
             },
         )
+        # This endpoint feeds the live exam UI, so the paper is delivered
+        # blind: strip every answer-revealing field before sending it to the
+        # browser. Scoring happens server-side against the recorded bank.
+        payload = response.model_dump()
+        for question in payload["questions"]:
+            question.pop("correct_option", None)
+            question.pop("explanation", None)
+            question.pop("tested_fact", None)
+            question.pop("trap_logic", None)
+        return payload
     except HTTPException:
         raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
-@app.post("/api/mocks/generate", response_model=SmartMockResponseModel)
+@app.post("/api/mocks/generate")
 async def generate_mock_alias(request: SmartMockRequestModel | None = None):
     return await generate_smart_mock(request)
 
@@ -945,8 +955,12 @@ async def generate_mock_alias(request: SmartMockRequestModel | None = None):
 @app.post("/api/mocks/{mock_id}/submit", response_model=MockSubmitResponseModel)
 async def submit_mock(mock_id: str, request: MockSubmitRequestModel):
     try:
+        if not db.mock_session_exists(mock_id):
+            raise HTTPException(status_code=404, detail="Mock not found")
         result = db.submit_mock(mock_id, [answer.model_dump() for answer in request.answers])
         return MockSubmitResponseModel.model_validate(result)
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
@@ -1057,13 +1071,10 @@ async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
 
             # Server-side timer enforcement - CRITICAL SECURITY CHECK
             if elapsed > 3600:
-                return {
-                    "exam_id": exam_id,
-                    "status": "error",
-                    "reason": "EXAM_TIME_EXPIRED",
-                    "code": 403,
-                    "message": f"Exam expired {elapsed - 3600:.0f} seconds ago",
-                }
+                raise HTTPException(
+                    status_code=403,
+                    detail=f"Exam expired {elapsed - 3600:.0f} seconds ago",
+                )
 
         finally:
             conn.close()
@@ -1343,7 +1354,10 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                     )
                 )
 
-            final_score = total_correct * 2  # 2 marks per question
+            total_wrong = total_answered - total_correct
+            raw_score = total_correct * 2
+            negative_marks = round(total_wrong * 0.67, 2)
+            final_score = round(max(0.0, raw_score - negative_marks), 2)
             accuracy = round((total_correct / total_questions * 100), 2) if total_questions > 0 else 0
             total_unanswered = max(0, total_questions - total_answered)
 
@@ -1366,9 +1380,11 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                 "pyq_id": pyq_id,
                 "status": "submitted",
                 "final_score": final_score,
+                "raw_score": raw_score,
+                "negative_marks": negative_marks,
                 "total_questions": total_questions,
                 "total_correct": total_correct,
-                "total_wrong": total_answered - total_correct,
+                "total_wrong": total_wrong,
                 "total_unanswered": total_unanswered,
                 "accuracy_pct": accuracy,
             }
@@ -1913,7 +1929,12 @@ async def source_distribution_by_topic():
 async def post_exam_analytics(exam_id: str, analytics: list[ExamAnalyticsModel]):
     """Save detailed analytics after exam completion. Per Context7 docs for FastAPI: proper error handling."""
     try:
-        count = db.save_exam_analytics(exam_id, [a.model_dump() for a in analytics])
+        # exam_analytics.exam_id is a FK to mock_sessions.mock_id, so the
+        # EXAM_ prefix must be resolved before saving.
+        mock_id = _resolve_mock_id(exam_id)
+        if not db.mock_session_exists(mock_id):
+            raise HTTPException(status_code=404, detail="Exam session not found")
+        count = db.save_exam_analytics(mock_id, [a.model_dump() for a in analytics])
         overall_acc = sum(a.accuracy_pct for a in analytics) / len(analytics) if analytics else 0.0
         weak = [a.topic_id for a in analytics if a.accuracy_pct < 60]
         return ExamAnalyticsResponseModel(
@@ -1943,13 +1964,21 @@ async def get_analytics_timeline(limit: int = Query(default=10, ge=1, le=50)):
 async def compare_topic_performance(topic_id: str):
     """Compare topic performance across all exams (trending)."""
     try:
-        analytics = db.get_analytics_timeline(50)
-        topic_data = [a for a in analytics if a.get("topic_id") == topic_id or topic_id in str(a)]
+        topic_data = db.get_exam_analytics_for_topic(topic_id, limit=50)
+        accuracies = [float(a.get("accuracy_pct", 0) or 0) for a in topic_data]
+        avg_accuracy = round(sum(accuracies) / len(accuracies), 2) if accuracies else 0.0
+        # Rows are newest-first, so accuracies[0] is the most recent exam.
+        if len(topic_data) > 1 and accuracies[0] > accuracies[-1]:
+            trend = "improving"
+        elif len(topic_data) > 1 and accuracies[0] < accuracies[-1]:
+            trend = "declining"
+        else:
+            trend = "stable"
         return {
             "topic_id": topic_id,
             "exam_count": len(topic_data),
-            "avg_accuracy": sum(a.get("avg_topic_accuracy", 0) or 0 for a in topic_data) / len(topic_data) if topic_data else 0,
-            "trend": "improving" if len(topic_data) > 1 and (topic_data[-1].get("avg_topic_accuracy", 0) or 0) > (topic_data[0].get("avg_topic_accuracy", 0) or 0) else "stable",
+            "avg_accuracy": avg_accuracy,
+            "trend": trend,
             "history": topic_data[:5],
         }
     except Exception as exc:

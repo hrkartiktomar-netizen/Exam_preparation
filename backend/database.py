@@ -3632,6 +3632,16 @@ def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_g
     }
 
 
+def mock_session_exists(mock_id: str) -> bool:
+    """True when a mock session row exists for the given id."""
+    conn = get_connection()
+    try:
+        row = conn.execute("SELECT 1 FROM mock_sessions WHERE mock_id = ? LIMIT 1", (mock_id,)).fetchone()
+        return row is not None
+    finally:
+        conn.close()
+
+
 def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
     conn = get_connection()
     try:
@@ -4174,6 +4184,24 @@ def get_exam_analytics(exam_id: str) -> list[dict[str, Any]]:
         rows = conn.execute(
             "SELECT * FROM exam_analytics WHERE exam_id = ? ORDER BY created_at DESC",
             (exam_id,)
+        ).fetchall()
+        return rows_to_dicts(rows)
+    finally:
+        conn.close()
+
+
+def get_exam_analytics_for_topic(topic_id: str, limit: int = 50) -> list[dict[str, Any]]:
+    """Retrieve topic-level analytics rows across exams, newest first."""
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            """SELECT exam_id, topic_id, accuracy_pct, time_spent_seconds,
+                      difficulty_rating, comparison_to_avg, created_at
+               FROM exam_analytics
+               WHERE topic_id = ?
+               ORDER BY created_at DESC
+               LIMIT ?""",
+            (topic_id, limit),
         ).fetchall()
         return rows_to_dicts(rows)
     finally:

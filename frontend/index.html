@@ -1857,7 +1857,7 @@
               <span class="badge ${amend.priority === 'CRITICAL' ? 'danger' : amend.priority === 'HIGH' ? 'warning' : 'neutral'}">${amend.priority}</span><br>
               <span class="muted">Effective: ${amend.effective_date}</span><br>
               <span class="muted" style="font-size: 0.85rem;">Topic: ${escapeHtml(amend.topic)}</span>
-              ${amend.source_url ? `<br><a href="${amend.source_url}" target="_blank" style="font-size: 0.9rem;">📄 Source</a>` : ''}
+              ${amend.source_url && /^https?:\/\//i.test(amend.source_url) ? `<br><a href="${escapeHtml(amend.source_url)}" target="_blank" rel="noopener" style="font-size: 0.9rem;">📄 Source</a>` : ''}
             </div>
           `).join('') : '<div class="muted">No new amendments detected.</div>'}
         `;

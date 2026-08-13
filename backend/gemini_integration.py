@@ -439,7 +439,13 @@ Return JSON array only.
     for item in data[:count]:
         try:
             source_index = int(item.get("source_index", 1)) - 1
-            chunk = chunks[source_index] if 0 <= source_index < len(chunks) else chunks[0]
+            # If the model cited a source block that does not exist in the
+            # retrieved context, grounding the question to an arbitrary chunk
+            # would attach a false citation and teach the wrong source.
+            # Discard the question instead.
+            if not (0 <= source_index < len(chunks)):
+                continue
+            chunk = chunks[source_index]
             correct = str(item["correct_answer"]).strip().upper()[:1]
             if correct not in {"A", "B", "C", "D"}:
                 continue
