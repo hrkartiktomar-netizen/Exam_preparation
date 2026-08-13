@@ -1681,6 +1681,20 @@
         .replaceAll("'", '&#039;');
     }
 
+    // Escape a value for use inside a SINGLE-quoted JS string that lives in an
+    // HTML attribute (e.g. onclick="fn('...')"). The browser HTML-decodes the
+    // attribute first, so an apostrophe must become \' in the attribute source
+    // to survive both layers. escapeHtml alone breaks this: &#039; decodes back
+    // to a raw quote and terminates the JS string.
+    function jsAttr(value) {
+      return String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", "\\'");
+    }
+
     async function api(path, options = {}) {
       const normalizedPath = path.startsWith('/api/') ? path.slice(4) : path;
       const response = await fetch(`${API_BASE}${normalizedPath}`, {
@@ -2217,14 +2231,14 @@
         qs('pyqStatus').textContent = `Found ${data.papers.length} available papers`;
 
         qs('pyqPaperGrid').innerHTML = data.papers.map(paper => `
-          <div class="panel" style="cursor: pointer; border: 2px solid #cfd8e3;" onclick="startPYQPaper(${paper.pyq_doc_id}, '${escapeHtml(paper.title)}')">
+          <div class="panel" style="cursor: pointer; border: 2px solid #cfd8e3;" onclick="startPYQPaper('${jsAttr(paper.pyq_doc_id)}', '${jsAttr(paper.title)}')">
             <h3>${escapeHtml(paper.title)}</h3>
             <div class="muted">
               ${paper.year ? `Year: ${paper.year}<br>` : ''}
               ${paper.phase ? `Phase: ${paper.phase}<br>` : ''}
               ${paper.paper ? `Paper: ${paper.paper}` : ''}
             </div>
-            <div style="margin-top: 0.5rem;"><button class="btn primary" onclick="event.stopPropagation(); startPYQPaper(${paper.pyq_doc_id}, '${escapeHtml(paper.title)}')">Attempt</button></div>
+            <div style="margin-top: 0.5rem;"><button class="btn primary" onclick="event.stopPropagation(); startPYQPaper('${jsAttr(paper.pyq_doc_id)}', '${jsAttr(paper.title)}')">Attempt</button></div>
           </div>
         `).join('');
       } catch (error) {
@@ -2235,7 +2249,7 @@
     async function startPYQPaper(docId, title) {
       qs('pyqStatus').textContent = `Loading ${title}...`;
       try {
-        currentPYQ = await api(`/pyq/${docId}/load`);
+        currentPYQ = await api(`/pyq/${docId}/load`, { method: 'POST' });
         pyqState = {
           currentIndex: 0,
           answers: {},
@@ -2674,7 +2688,7 @@
           <tr>
             <td>${escapeHtml(mat.name)}</td>
             <td>
-              <select onchange="updateMaterialRole(${mat.doc_id}, this.value)">
+              <select onchange="updateMaterialRole('${jsAttr(mat.doc_id)}', this.value)">
                 <option value="pyq_phase_paper" ${mat.source_role === 'pyq_phase_paper' ? 'selected' : ''}>PYQ Phase Paper</option>
                 <option value="regulatory_core" ${mat.source_role === 'regulatory_core' ? 'selected' : ''}>Regulatory Core</option>
                 <option value="amendment_tracking" ${mat.source_role === 'amendment_tracking' ? 'selected' : ''}>Amendment Tracking</option>

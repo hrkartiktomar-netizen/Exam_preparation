@@ -1423,16 +1423,24 @@ async def get_pyq_analytics():
 
 @app.get("/api/admin/materials")
 async def list_materials():
-    """List all source materials with their categorization."""
+    """List all source materials with their categorization.
+
+    Reads from the canonical documents index (the legacy source_documents
+    table is never populated at runtime), so the admin role panel reflects
+    the table that actually drives search and question routing.
+    """
     try:
         conn = db.get_connection()
         try:
             materials = conn.execute(
-                "SELECT doc_id, name, source_role FROM source_documents ORDER BY source_role, name"
+                "SELECT document_id, title, source_role FROM documents ORDER BY source_role, title"
             ).fetchall()
             return {
                 "status": "ok",
-                "materials": [dict(mat) for mat in materials],
+                "materials": [
+                    {"doc_id": mat["document_id"], "name": mat["title"], "source_role": mat["source_role"]}
+                    for mat in materials
+                ],
                 "total": len(materials),
             }
         finally:
@@ -1442,7 +1450,7 @@ async def list_materials():
 
 
 @app.post("/api/admin/materials/{doc_id}/role")
-async def update_material_role(doc_id: int, request: dict):
+async def update_material_role(doc_id: str, request: dict):
     """Update the categorization role for a source material."""
     try:
         new_role = request.get("source_role", "supporting_material")
@@ -1453,14 +1461,18 @@ async def update_material_role(doc_id: int, request: dict):
 
         conn = db.get_connection()
         try:
-            conn.execute(
-                "UPDATE source_documents SET source_role = ? WHERE doc_id = ?",
+            cursor = conn.execute(
+                "UPDATE documents SET source_role = ? WHERE document_id = ?",
                 (new_role, doc_id)
             )
+            if cursor.rowcount == 0:
+                raise HTTPException(status_code=404, detail=f"Material {doc_id} not found")
             conn.commit()
             return {"status": "ok", "doc_id": doc_id, "new_role": new_role}
         finally:
             conn.close()
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
@@ -1774,8 +1786,9 @@ async def amendments_status():
             "SELECT MAX(polled_at) as last_polled FROM amendment_source_polls WHERE status = 'success'"
         ).fetchone()
 
-        # Count new amendments this week
-        week_ago = (datetime.now() - timedelta(days=7)).isoformat()
+        # Count new amendments this week (created_at is a SQLite TIMESTAMP
+        # string, so compare against the same 'YYYY-MM-DD HH:MM:SS' layout).
+        week_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d %H:%M:%S")
         new_count = conn.execute(
             "SELECT COUNT(*) as count FROM amendments WHERE created_at > ?",
             (week_ago,),

@@ -686,6 +686,12 @@ def _populate_source_role_on_documents(conn: sqlite3.Connection) -> None:
             return
         if "source_role" not in _table_columns(conn, "source_documents"):
             return
+        # Also nothing to copy when the legacy table is empty. Without this
+        # check the UPDATE below set documents.source_role to NULL (subquery
+        # result) for every row that still had the default role.
+        legacy_count = cursor.execute("SELECT COUNT(*) FROM source_documents").fetchone()[0]
+        if not legacy_count:
+            return
 
         # Step 1: Check if source_role column exists, add if not
         cols = _table_columns(conn, "documents")
@@ -695,7 +701,9 @@ def _populate_source_role_on_documents(conn: sqlite3.Connection) -> None:
 
         # Step 2: Update documents.source_role from source_documents by title matching
         # Use a simple substring match since titles vary slightly
-        # Update rule: if documents.title contains source_documents.name (or vice versa), match them
+        # Update rule: if documents.title contains source_documents.name (or vice versa), match them.
+        # EXISTS guard keeps unmatched documents on their current role instead of
+        # being overwritten with the subquery's NULL result.
         cursor.execute("""
         UPDATE documents
         SET source_role = (
@@ -709,6 +717,15 @@ def _populate_source_role_on_documents(conn: sqlite3.Connection) -> None:
             LIMIT 1
         )
         WHERE source_role = 'supporting_material'  -- Only update defaults
+          AND EXISTS (
+            SELECT 1
+            FROM source_documents sd
+            WHERE sd.name IS NOT NULL AND documents.title IS NOT NULL
+            AND (
+                LOWER(documents.title) LIKE '%' || LOWER(SUBSTR(sd.name, 1, 40)) || '%'
+                OR LOWER(sd.name) LIKE '%' || LOWER(SUBSTR(documents.title, 1, 40)) || '%'
+            )
+          )
         """)
 
         conn.commit()
@@ -769,6 +786,11 @@ def _categorize_materials(conn: sqlite3.Connection) -> None:
                 (role, doc_id)
             )
 
+        # Also categorize the canonical documents table (the source_documents
+        # table is legacy and no longer populated at runtime). Only rows still
+        # at the default role are updated so admin-set roles are preserved.
+        _categorize_documents_by_name(conn)
+
         conn.commit()
 
         # Log categorization summary
@@ -776,11 +798,48 @@ def _categorize_materials(conn: sqlite3.Connection) -> None:
             cursor.execute("SELECT COUNT(*) FROM source_documents WHERE source_role = ?", (role,))
             count = cursor.fetchone()[0]
             print(f"  {role}: {count} documents")
+        for role in ["pyq_phase_paper", "regulatory_core", "amendment_tracking", "essay_examples", "supporting_material"]:
+            cursor.execute("SELECT COUNT(*) FROM documents WHERE source_role = ?", (role,))
+            count = cursor.fetchone()[0]
+            print(f"  (canonical) {role}: {count} documents")
 
     except Exception as e:
         print(f"Material categorization error: {e}")
         conn.rollback()
         raise
+
+
+def _categorize_documents_by_name(conn: sqlite3.Connection) -> None:
+    """Assign source_role to canonical documents rows by title pattern.
+
+    Mirrors _categorize_materials' rules but targets the documents table that
+    powers search, question generation, and the admin material-role panel.
+    """
+
+    pyq_markers = ("Grade A", "Memory Based", "Phase", "Paper", "2024", "2023")
+    regulatory_markers = ("Regulation", "IFSCA", "ICSI", "Indiacode", "Act", "Guidelines", "Circular")
+    amendment_markers = ("Amendment", "Notification", "Draft", "Consultation", "2025", "2026")
+    consulting_markers = ("PwC", "EY", "Grant Thornton", "KPMG", "Deloitte", "Analysis", "Report")
+
+    rows = conn.execute(
+        "SELECT document_id, title FROM documents WHERE COALESCE(source_role, '') IN ('', 'supporting_material')"
+    ).fetchall()
+    for row in rows:
+        name = (row["title"] or "").lower()
+        if all(marker.lower() in name for marker in ["memory", "grade", "question", "paper"]):
+            role = "pyq_phase_paper"
+        elif any(marker.lower() in name for marker in regulatory_markers):
+            role = "regulatory_core"
+        elif any(marker.lower() in name for marker in amendment_markers):
+            role = "amendment_tracking"
+        elif any(marker.lower() in name for marker in consulting_markers):
+            role = "essay_examples"
+        else:
+            role = "supporting_material"
+        conn.execute(
+            "UPDATE documents SET source_role = ? WHERE document_id = ?",
+            (role, row["document_id"]),
+        )
 
 
 def _split_sql_statements(sql: str) -> list[str]:
@@ -922,6 +981,9 @@ def init_db(force: bool = False) -> None:
     except Exception as e:
         print(f"Phase 4 migration error: {e}")
 
+    # Persist everything done by the migration steps (the individual runners
+    # only commit when they own the connection).
+    conn.commit()
     conn.close()
     _INITIALIZED_DB = DB_PATH
 
@@ -4311,7 +4373,7 @@ def get_high_yield_provisions(limit: int = 15) -> list[dict[str, Any]]:
     try:
         # Get recent amendments (most exam-relevant)
         rows = conn.execute(
-            """SELECT
+            f"""SELECT
                    amendment_id as item_id,
                    'amendment' as item_type,
                    topic as topic_id,
@@ -4322,7 +4384,7 @@ def get_high_yield_provisions(limit: int = 15) -> list[dict[str, Any]]:
                    questions_needed
                FROM amendments
                WHERE drilled = FALSE
-               ORDER BY created_at DESC, priority DESC
+               ORDER BY created_at DESC, {_PRIORITY_ORDER_SQL}
                LIMIT ?""",
             (limit,)
         ).fetchall()
@@ -4357,14 +4419,27 @@ def get_weak_legal_areas(limit: int = 10) -> list[dict[str, Any]]:
         conn.close()
 
 
+def _sqlite_now_minus(days: int) -> str:
+    """Format a cutoff timestamp matching SQLite's CURRENT_TIMESTAMP layout
+    ('YYYY-MM-DD HH:MM:SS'). Comparing against ISO format with a 'T' separator
+    mis-filters rows created near the cutoff boundary."""
+    return (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d %H:%M:%S")
+
+
+_PRIORITY_ORDER_SQL = (
+    "CASE priority WHEN 'CRITICAL' THEN 0 WHEN 'HIGH' THEN 1 "
+    "WHEN 'NORMAL' THEN 2 ELSE 3 END"
+)
+
+
 def get_recent_amendments(days_back: int = 30, limit: int = 20) -> list[dict[str, Any]]:
     """Get recent amendments from the past N days, sorted by exam relevance."""
     conn = get_connection()
     conn.row_factory = sqlite3.Row
     try:
-        cutoff_date = (datetime.now() - timedelta(days=days_back)).isoformat()
+        cutoff_date = _sqlite_now_minus(days_back)
         rows = conn.execute(
-            """SELECT
+            f"""SELECT
                    amendment_id,
                    topic,
                    rule_name,
@@ -4377,7 +4452,7 @@ def get_recent_amendments(days_back: int = 30, limit: int = 20) -> list[dict[str
                    created_at
                FROM amendments
                WHERE created_at >= ?
-               ORDER BY priority DESC, created_at DESC
+               ORDER BY {_PRIORITY_ORDER_SQL}, created_at DESC
                LIMIT ?""",
             (cutoff_date, limit)
         ).fetchall()
@@ -4398,7 +4473,7 @@ def get_amendments_for_topic_count(topic: str) -> int:
     """
     conn = get_connection()
     try:
-        cutoff_date = (datetime.now() - timedelta(days=30)).isoformat()
+        cutoff_date = _sqlite_now_minus(30)
         row = conn.execute(
             "SELECT COUNT(*) as cnt FROM amendments WHERE topic = ? AND created_at >= ?",
             (topic, cutoff_date)
