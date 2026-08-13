@@ -172,7 +172,10 @@ def available_gemini_keys() -> list[str]:
     now = time.time()
     keys = GEMINI_STATE["keys"]
     available = [key for key in keys if GEMINI_STATE["rate_limited_until"].get(key, 0) <= now]
-    return available or keys
+    # Do NOT fall back to rate-limited keys: returning them would bypass the
+    # per-key cooldown and hammer the API with calls that will 429 again.
+    # Callers treat an empty list as "no keys available" and use local fallbacks.
+    return available
 
 
 def next_gemini_key() -> str | None:

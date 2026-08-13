@@ -1,9 +1,9 @@
 """
 In-memory cache for parsed PYQ questions.
 
-Stores parsed questions temporarily (15 minutes) so submit endpoint can validate answers.
-
-Per Context7 docs for Python: use dict with expiry timestamps for simple caching.
+Stores parsed questions so the submit endpoint can validate answers.
+The cache lifetime must comfortably exceed the 60-minute PYQ exam timer;
+previously 15 minutes, which expired mid-exam and rejected submissions.
 """
 
 from __future__ import annotations
@@ -11,22 +11,24 @@ from __future__ import annotations
 import time
 from typing import Any
 
-# Format: {pyq_id: {"questions": [ParsedQuestion...], "timestamp": unix_time}}
+# Format: {pyq_id: {"questions": [ParsedQuestion...], "title": str, "timestamp": unix_time}}
 _cache: dict[str, dict[str, Any]] = {}
-_CACHE_TTL_SECONDS = 900  # 15 minutes
+_CACHE_TTL_SECONDS = 2 * 60 * 60  # 2 hours
 
 
-def cache_pyq_questions(pyq_id: str, questions: list[Any]) -> None:
+def cache_pyq_questions(pyq_id: str, questions: list[Any], title: str | None = None) -> None:
     """
     Store parsed questions in memory cache.
 
     Args:
-        pyq_id: PYQ session identifier (e.g., "PYQ_DOC1")
+        pyq_id: PYQ session identifier (e.g., "PYQ_doc_xxx")
         questions: List of ParsedQuestion objects
+        title: Paper title, carried through to the submit endpoint for session records
     """
     _cache[pyq_id] = {
         "questions": questions,
-        "timestamp": time.time()
+        "title": title,
+        "timestamp": time.time(),
     }
 
 
@@ -49,6 +51,17 @@ def get_pyq_questions(pyq_id: str) -> list[Any] | None:
         return None
 
     return entry["questions"]
+
+
+def get_pyq_title(pyq_id: str) -> str | None:
+    """Return the cached paper title for a PYQ session, if present."""
+    entry = _cache.get(pyq_id)
+    if not entry:
+        return None
+    if time.time() - entry["timestamp"] > _CACHE_TTL_SECONDS:
+        del _cache[pyq_id]
+        return None
+    return entry.get("title")
 
 
 def clear_pyq_cache(pyq_id: str | None = None) -> None:

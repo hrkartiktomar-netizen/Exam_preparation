@@ -228,8 +228,10 @@ async def handle_value_error(request, exc):
     raise HTTPException(status_code=422, detail=f"Invalid input: {str(exc)}")
 
 
-
-    app.mount("/app", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="app")
+# Mount the static frontend under /app (module level). This previously sat
+# inside handle_value_error after a raise, so the mount never executed and
+# /app/... returned 404.
+app.mount("/app", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="app")
 
 
 def _coerce_question(question: dict[str, Any]) -> QuestionModel:
@@ -967,12 +969,19 @@ async def exam_start(request: SmartMockRequestModel | None = None):
         mock_id = result["mock_id"]
         exam_id = f"EXAM_{mock_id}"
 
-        questions = [_coerce_question(q) for q in result["questions"]]
+        # Convert validated QuestionModels to mutable dicts before adding the
+        # Phase 3 exam-metadata fields (previously this raised
+        # "'QuestionModel' object does not support item assignment" -> 500).
+        questions = [_coerce_question(q).model_dump() for q in result["questions"]]
 
         # Add missing Phase 3 fields per audit
         for question in questions:
             question["expected_time_sec"] = 180  # 3 minutes per question
             question["negative_marking"] = -1    # -1 for wrong answer
+            # Exam mode is blind: do not ship the answer key with the paper.
+            # Scoring happens server-side against the recorded question bank.
+            question.pop("correct_option", None)
+            question.pop("explanation", None)
 
         return {
             "exam_id": exam_id,
@@ -1101,16 +1110,25 @@ async def list_pyq_papers():
     try:
         conn = db.get_connection()
         try:
-            pyq_docs = conn.execute(
-                "SELECT doc_id, name FROM source_documents WHERE source_role = 'pyq_phase_paper' ORDER BY name"
+            docs = conn.execute(
+                "SELECT document_id, title, category FROM documents ORDER BY title"
             ).fetchall()
 
             papers = []
-            for doc in pyq_docs:
+            for doc in docs:
+                name = doc["title"] or ""
+                lower = name.lower()
+                is_pyq = (
+                    doc["category"] == "Exam Papers (Memory-based)"
+                    or any(term in lower for term in ["memory based", "previous year", "question paper", "question-paper"])
+                    or ("phase" in lower and "paper" in lower and "grade a" in lower)
+                )
+                if not is_pyq:
+                    continue
+
                 # Extract metadata from document name
-                name = doc["name"]
                 # Pattern: "IFSCA_Grade_A_YYYY_Memory_Based_Phase_X_Paper_Y"
-                parts = name.lower().split("_")
+                parts = lower.split("_")
                 year = None
                 phase = None
                 paper = None
@@ -1121,16 +1139,16 @@ async def list_pyq_papers():
                     if part == "phase" and i + 1 < len(parts):
                         try:
                             phase = int(parts[i + 1])
-                        except:
+                        except (TypeError, ValueError):
                             pass
                     if part == "paper" and i + 1 < len(parts):
                         try:
                             paper = int(parts[i + 1])
-                        except:
+                        except (TypeError, ValueError):
                             pass
 
                 papers.append({
-                    "pyq_doc_id": doc["doc_id"],
+                    "pyq_doc_id": doc["document_id"],
                     "title": name,
                     "year": year,
                     "phase": phase,
@@ -1145,16 +1163,20 @@ async def list_pyq_papers():
 
 
 @app.post("/api/pyq/{doc_id}/load")
-async def load_pyq_paper(doc_id: int):
-    """Load a previous year question paper with its parsed questions."""
+async def load_pyq_paper(doc_id: str):
+    """Load a previous year question paper with its parsed questions.
+
+    Reads from the canonical documents/document_chunks index; the legacy
+    source_documents/source_chunks tables are never populated at runtime.
+    """
     conn = None
     try:
         conn = db.get_connection()
 
-        # Get PYQ document metadata
+        # Get PYQ document metadata from the canonical index
         doc = conn.execute(
-            "SELECT * FROM source_documents WHERE doc_id = ? AND source_role = 'pyq_phase_paper' LIMIT 1",
-            (doc_id,)
+            "SELECT * FROM documents WHERE document_id = ? LIMIT 1",
+            (doc_id,),
         ).fetchone()
 
         if not doc:
@@ -1162,8 +1184,8 @@ async def load_pyq_paper(doc_id: int):
 
         # Fetch all chunks for this document in order
         chunks = conn.execute(
-            "SELECT chunk_text FROM source_chunks WHERE doc_id = ? ORDER BY chunk_sequence",
-            (doc_id,)
+            "SELECT chunk_id, text AS chunk_text FROM document_chunks WHERE document_id = ? ORDER BY line_start",
+            (doc_id,),
         ).fetchall()
 
         if not chunks:
@@ -1183,16 +1205,18 @@ async def load_pyq_paper(doc_id: int):
         if not parsed_questions:
             raise HTTPException(status_code=400, detail="No valid questions found in PYQ paper")
 
-        # Create PYQ session ID and cache questions
-        pyq_id = f"PYQ_DOC{doc_id}"
-        pyq_cache.cache_pyq_questions(pyq_id, parsed_questions)
+        # Create PYQ session ID and cache questions.
+        # slugify lowercases the id, so the "_Q{n}" suffix in submit stays
+        # unambiguous (no uppercase Q can appear inside the slug).
+        pyq_id = f"PYQ_{db.slugify(doc_id)}"
+        pyq_cache.cache_pyq_questions(pyq_id, parsed_questions, title=doc["title"])
 
         # Format questions for frontend response
         # Note: Correct answers are stored in cache, not sent to frontend (blind submission)
         formatted_questions = []
         for pq in parsed_questions:
             formatted_questions.append({
-                "question_id": f"PYQ_DOC{doc_id}_Q{pq.question_number}",
+                "question_id": f"{pyq_id}_Q{pq.question_number}",
                 "question_number": pq.question_number,
                 "question_text": pq.question_text,
                 "options": [
@@ -1205,7 +1229,7 @@ async def load_pyq_paper(doc_id: int):
         return {
             "status": "ok",
             "pyq_id": pyq_id,
-            "title": doc["name"],
+            "title": doc["title"],
             "total_questions": len(formatted_questions),
             "time_limit_minutes": 60,
             "marks_per_question": 2,
@@ -1237,36 +1261,45 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
             )
 
         # Build a map of question_number -> correct_answer for quick validation
-        # Format of question_id from frontend is: "PYQ_DOC{doc_id}_Q{question_number}"
+        # Format of question_id from frontend is: "PYQ_<slug>_Q{question_number}"
         answer_map = {q.question_number: q.correct_answer for q in cached_questions}
+        paper_title = pyq_cache.get_pyq_title(pyq_id) or pyq_id
+        submitted_answers = [answer.model_dump() for answer in request.answers]
 
         conn = db.get_connection()
 
         try:
-            # Create PYQ session record
-            session_id = pyq_id
+            # Create/update PYQ session record. pyq_source_doc_id stores 0 for
+            # legacy rows; the FK constraint on this table was removed because
+            # PYQ papers live in the canonical documents index, not
+            # source_documents.
             conn.execute(
                 """
                 INSERT INTO pyq_sessions
-                (pyq_id, pyq_source_doc_id, pyq_title, started_at, submitted_at, status)
-                VALUES (?, 0, ?, datetime('now'), datetime('now'), 'completed')
-                ON CONFLICT DO UPDATE SET status = 'completed'
+                (pyq_id, pyq_source_doc_id, pyq_title, started_at, submitted_at, total_questions, status)
+                VALUES (?, 0, ?, datetime('now'), datetime('now'), ?, 'completed')
+                ON CONFLICT(pyq_id) DO UPDATE SET status = 'completed', submitted_at = datetime('now')
                 """,
-                (session_id, pyq_id)
+                (pyq_id, paper_title, len(cached_questions)),
             )
+
+            # Idempotent resubmission: drop any prior attempt rows for this
+            # paper so retries cannot double-count scores in analytics.
+            conn.execute("DELETE FROM pyq_question_attempts WHERE pyq_id = ?", (pyq_id,))
 
             # Process answers and calculate score
             # Per Context7 docs for Python: use proper exception handling in loops
             total_correct = 0
-            total_questions = len(request.answers) if request.answers else 0
+            total_answered = 0
+            total_questions = len(submitted_answers) if submitted_answers else 0
 
-            for answer in request.answers:
+            for answer in submitted_answers:
                 question_id = answer.get("question_id", "")
                 selected = answer.get("selected_answer")
                 time_spent = answer.get("time_spent_seconds", 0)
                 marked_for_review = answer.get("marked_for_review", False)
 
-                # Extract question_number from question_id (PYQ_DOC1_Q5 -> 5)
+                # Extract question_number from question_id (PYQ_<slug>_Q5 -> 5)
                 try:
                     q_num_str = question_id.split("_Q")[-1]
                     q_number = int(q_num_str)
@@ -1281,8 +1314,11 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                     continue
 
                 # Validate selected answer against real correct answer
-                is_correct = (selected == correct_answer)
+                is_answered = bool(selected)
+                is_correct = bool(selected == correct_answer)
 
+                if is_answered:
+                    total_answered += 1
                 if is_correct:
                     total_correct += 1
 
@@ -1290,34 +1326,35 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                 # Per Context7 docs for SQLite: use parameterized queries for safety
                 conn.execute(
                     """
-                    INSERT INTO pyq_question_attempts
+                    INSERT OR REPLACE INTO pyq_question_attempts
                     (attempt_id, pyq_id, question_id, question_number, selected_answer, official_answer, is_correct, time_spent_seconds, marked_for_review)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
-                        f"{pyq_id}_{question_id}",
+                        f"{pyq_id}_Q{q_number}",
                         pyq_id,
                         question_id,
                         q_number,
                         selected,
                         correct_answer,
-                        is_correct,
+                        int(is_correct),
                         time_spent,
-                        marked_for_review
+                        marked_for_review,
                     )
                 )
 
             final_score = total_correct * 2  # 2 marks per question
-            accuracy = (total_correct / total_questions * 100) if total_questions > 0 else 0
+            accuracy = round((total_correct / total_questions * 100), 2) if total_questions > 0 else 0
+            total_unanswered = max(0, total_questions - total_answered)
 
             # Update session with results
             conn.execute(
                 """
                 UPDATE pyq_sessions
-                SET score = ?, accuracy = ?, status = 'completed', submitted_at = datetime('now')
+                SET score = ?, accuracy = ?, total_questions = ?, status = 'completed', submitted_at = datetime('now')
                 WHERE pyq_id = ?
                 """,
-                (final_score, accuracy, session_id)
+                (final_score, accuracy, total_questions, pyq_id)
             )
 
             conn.commit()
@@ -1331,8 +1368,8 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                 "final_score": final_score,
                 "total_questions": total_questions,
                 "total_correct": total_correct,
-                "total_wrong": total_questions - total_correct,
-                "total_unanswered": 0,
+                "total_wrong": total_answered - total_correct,
+                "total_unanswered": total_unanswered,
                 "accuracy_pct": accuracy,
             }
 
@@ -1976,10 +2013,19 @@ async def generate_study_path_endpoint(weak_topics: list[str] = Query(default=[]
         # Generate study path via Gemini
         path_data = gemini_integration.generate_personalized_study_path(weak_topics, exam_date)
 
-        # Persist to database
-        path_id = db.create_study_path(exam_date, weak_topics)
+        # Persist to database — store the same weeks that are returned to the
+        # caller so GET /api/study-paths/current matches this response.
+        path_id = db.create_study_path(exam_date, weak_topics, weeks_data=path_data.get("weeks"))
 
-        weeks = [StudyPathWeekModel(**w) for w in path_data.get("weeks", [])]
+        weeks = [
+            StudyPathWeekModel(
+                **{
+                    **w,
+                    "focus_topics": list(w.get("focus_topics") or [])[:5],
+                }
+            )
+            for w in path_data.get("weeks", [])
+        ]
         return StudyPathModel(
             path_id=path_id,
             exam_date=exam_date,
