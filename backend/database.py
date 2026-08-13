@@ -30,6 +30,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_IFSCA_ACT",
         "display_name": "IFSCA Act and Authority",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "IFSCA Act, 2019, powers, functions, authority structure, unified regulator model.",
         "base_weight": 0.90,
         "exam_priority": 9,
@@ -39,6 +41,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_GIFT_IFSC",
         "display_name": "GIFT IFSC Ecosystem",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "GIFT City, IFSC purpose, entity types, ecosystem growth, global financial centre positioning.",
         "base_weight": 0.85,
         "exam_priority": 8,
@@ -48,6 +52,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_FM_REGS",
         "display_name": "Fund Management Regulations",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "FME categories, AIFs, schemes, KMP, PPM, ESG funds, fund management amendments.",
         "base_weight": 1.00,
         "exam_priority": 10,
@@ -57,6 +63,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_BANKING",
         "display_name": "Banking and IBUs",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "IFSC Banking Units, Banking Handbook, prudential norms, conduct of business, credit directions.",
         "base_weight": 0.95,
         "exam_priority": 10,
@@ -66,6 +74,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_CAPITAL",
         "display_name": "Capital Markets",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "Exchanges, depositories, FPIs, capital market ecosystem, India INX, NSE IFSC.",
         "base_weight": 0.95,
         "exam_priority": 10,
@@ -75,6 +85,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_CMI",
         "display_name": "Capital Market Intermediaries",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "CMI Regulations, principal officer, compliance officer, certification, registration obligations.",
         "base_weight": 0.85,
         "exam_priority": 8,
@@ -84,6 +96,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_LISTING",
         "display_name": "Listing, ESG, SPACs and Bonds",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "Listing Regulations, direct listing, SPACs, ESG bonds, SGrBs, transition bonds, LEAP.",
         "base_weight": 0.88,
         "exam_priority": 8,
@@ -93,6 +107,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_PAYMENT",
         "display_name": "Payment Services",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "Payment Services Regulations, PSP, RPSP, significant PSP, Payments Regulatory Board.",
         "base_weight": 0.82,
         "exam_priority": 8,
@@ -102,6 +118,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_TECHFIN_TAS",
         "display_name": "TechFin and Ancillary Services",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "TechFin, ancillary services, TAS Regulations 2025, sandbox and innovation framework.",
         "base_weight": 0.90,
         "exam_priority": 9,
@@ -111,6 +129,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_BULLION",
         "display_name": "Bullion and IIBX",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "India International Bullion Exchange, qualified jewellers, authorized persons, vaulting.",
         "base_weight": 0.78,
         "exam_priority": 7,
@@ -120,6 +140,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_INSURANCE",
         "display_name": "Insurance and Reinsurance",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "IFSC Insurance Offices, reinsurance, insurance intermediaries, insurance regulatory framework.",
         "base_weight": 0.75,
         "exam_priority": 7,
@@ -129,6 +151,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_AIRCRAFT_SHIP_LEASING",
         "display_name": "Aircraft and Ship Leasing",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "Aircraft leasing, ship leasing, tax and entity framework, asset finance structures.",
         "base_weight": 0.70,
         "exam_priority": 6,
@@ -138,6 +162,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_AML_KYC",
         "display_name": "AML, CFT, KYC and KRA",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "AML/CFT/KYC Guidelines, KRA Regulations, onboarding, beneficial ownership, certification.",
         "base_weight": 0.88,
         "exam_priority": 9,
@@ -147,6 +173,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_COMMODITY_TRADE",
         "display_name": "Commodity Trade Hub",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "Commodity trading hub, expert committee, global commodity trade via GIFT City.",
         "base_weight": 0.72,
         "exam_priority": 7,
@@ -156,6 +184,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_TAX",
         "display_name": "IFSC Tax Benefits",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "Income-tax holiday, MAT, GST, customs, specified funds, IFSC tax framework.",
         "base_weight": 0.80,
         "exam_priority": 7,
@@ -165,6 +195,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_CURRENT_AFFAIRS",
         "display_name": "Current Affairs and Data",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "Current affairs, budget, financial services policy, annual report data and statistics.",
         "base_weight": 0.84,
         "exam_priority": 8,
@@ -174,6 +206,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_MANAGEMENT_ORG",
         "display_name": "Management and Organization",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "Management, leadership, HR, communication, governance syllabus areas.",
         "base_weight": 0.62,
         "exam_priority": 5,
@@ -183,6 +217,8 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
         "topic_id": "PH2_ESSAY",
         "display_name": "Essay Evidence and Themes",
+        "phase": "phase_2",
+        "paper": "paper_2",
         "description": "Essay prompts, structure, evidence, examples, current data points.",
         "base_weight": 0.90,
         "exam_priority": 9,
@@ -814,19 +850,44 @@ def _categorize_documents_by_name(conn: sqlite3.Connection) -> None:
 
     Mirrors _categorize_materials' rules but targets the documents table that
     powers search, question generation, and the admin material-role panel.
+
+    Memory-based / previous-year / PYQ papers are matched BEFORE the official-
+    regulatory patterns: titles like "...Memory_Based_Phase_1_Paper_1" also
+    contain "IFSCA"/"Act" tokens and would otherwise be misclassified as
+    regulatory_core, poisoning the easy-question grounding filter.
     """
 
-    pyq_markers = ("Grade A", "Memory Based", "Phase", "Paper", "2024", "2023")
     regulatory_markers = ("Regulation", "IFSCA", "ICSI", "Indiacode", "Act", "Guidelines", "Circular")
     amendment_markers = ("Amendment", "Notification", "Draft", "Consultation", "2025", "2026")
     consulting_markers = ("PwC", "EY", "Grant Thornton", "KPMG", "Deloitte", "Analysis", "Report")
 
+    def is_memory_paper(name: str) -> bool:
+        return (
+            ("memory" in name and any(token in name for token in ("grade", "phase", "paper", "question", "pyq")))
+            or "previous year" in name
+            or "pyq" in name
+            or all(token in name for token in ("grade", "phase", "paper"))
+        )
+
+    # Pass 1: memory/PYQ papers are unambiguous - correct any row (including
+    # ones misclassified as regulatory_core by earlier runs of this function).
+    for row in conn.execute(
+        "SELECT document_id, title FROM documents WHERE title IS NOT NULL"
+    ).fetchall():
+        if is_memory_paper((row["title"] or "").lower()):
+            conn.execute(
+                "UPDATE documents SET source_role = 'pyq_phase_paper' WHERE document_id = ?",
+                (row["document_id"],),
+            )
+
+    # Pass 2: assign roles to rows still at the default, so admin-set roles
+    # are preserved across restarts.
     rows = conn.execute(
         "SELECT document_id, title FROM documents WHERE COALESCE(source_role, '') IN ('', 'supporting_material')"
     ).fetchall()
     for row in rows:
         name = (row["title"] or "").lower()
-        if all(marker.lower() in name for marker in ["memory", "grade", "question", "paper"]):
+        if is_memory_paper(name):
             role = "pyq_phase_paper"
         elif any(marker.lower() in name for marker in regulatory_markers):
             role = "regulatory_core"
