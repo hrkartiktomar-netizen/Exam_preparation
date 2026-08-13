@@ -1,6 +1,41 @@
+# Virtual Environments (contain files >100MB, rejected by GitHub)
+venv/
+.venv/
+.venv_pdf_2026/
+.uv_cache/
+.tooling/paddleocr_env/
+.tooling/paddleocr_clean_env/
+.tooling/ocr_env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Environment variables
+.env
 backend/.env
-backend/*.db
-backend/*.db-shm
-backend/*.db-wal
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Extracted / generated artifacts
 backend/__pycache__/
-frontend/.cache/
+backend/tests/__pycache__/
+source_documents/pdfs/_extracted/
+source_documents/pdfs/_ocr_pyq_2026/
+
+# Large personal PDF (redacted version kept if needed)
+Kartik.pdf
+Kartik_redacted.pdf

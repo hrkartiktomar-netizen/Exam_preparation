@@ -1110,6 +1110,7 @@
   <nav class="tabs" aria-label="Primary">
     <button class="active" data-view="today">Today</button>
     <button data-view="exam">Mock Exam</button>
+    <button data-view="pyq">PYQ Attempts</button>
     <button data-view="review">Review</button>
     <button data-view="essay">Essay</button>
     <button data-view="sources">Sources + Search</button>
@@ -1254,6 +1255,76 @@
       </div>
 
       <div id="examAnalysis" class="hidden"></div>
+    </section>
+
+    <section id="pyq" class="view">
+      <div class="page-head">
+        <div>
+          <h1>Previous Year Question Papers</h1>
+          <div class="note">Attempt actual IFSCA Grade A exam papers from previous years. Tracked separately from Gemini mocks.</div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="loadPYQList()">Refresh Papers</button>
+          <button class="btn primary" onclick="loadPYQAnalytics()">View Analytics</button>
+        </div>
+      </div>
+
+      <div id="preParty" class="pre-exam">
+        <h2>Available Previous Year Papers</h2>
+        <div class="status-line" id="pyqStatus">Loading available papers...</div>
+        <div class="grid-2" id="pyqPaperGrid"></div>
+      </div>
+
+      <div id="pyqExamShell" class="exam-shell hidden">
+        <div class="exam-main">
+          <div class="exam-info-bar">
+            <div>
+              <span id="pyqExamName">IFSCA Previous Year Paper</span>
+              <span class="muted" id="pyqExamMeta"></span>
+            </div>
+            <div id="pyqTimer" class="timer">60:00</div>
+          </div>
+          <div class="question-meta">
+            <div id="pyqQuestionCounter">Question 1</div>
+            <div id="pyqQuestionTopic" class="muted">Topic</div>
+          </div>
+          <div class="question-area" id="pyqQuestionArea"></div>
+          <div class="exam-actions">
+            <div class="actions">
+              <button class="btn" onclick="pyqPreviousQuestion()">Previous</button>
+              <button class="btn warn" onclick="pyqMarkReviewAndNext()">Mark for Review and Next</button>
+              <button class="btn" onclick="pyqClearResponse()">Clear Response</button>
+            </div>
+            <div class="actions">
+              <button class="btn primary" onclick="pyqSaveAndNext()">Save and Next</button>
+              <button class="btn danger" onclick="submitPYQAttempt(false)">Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="palette">
+          <div class="candidate">
+            <strong>Candidate</strong><br>
+            Previous Year Exam<br>
+            <span id="pyqPaletteSummary" class="muted">Not started</span>
+          </div>
+          <div class="palette-title">Question Palette</div>
+          <div class="question-palette" id="pyqQuestionPalette"></div>
+          <div class="legend">
+            <div class="legend-row"><span class="qnum answered">1</span><span>Answered</span></div>
+            <div class="legend-row"><span class="qnum not-answered">2</span><span>Not answered</span></div>
+            <div class="legend-row"><span class="qnum marked">3</span><span>Marked for review</span></div>
+            <div class="legend-row"><span class="qnum answered-marked">4</span><span>Answered and marked</span></div>
+            <div class="legend-row"><span class="qnum">5</span><span>Not visited</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <div id="pyqAnalysis" class="hidden"></div>
+      <div class="panel">
+        <h2>PYQ Attempt History</h2>
+        <div id="pyqHistory" class="muted">No attempts yet. Start with a paper above.</div>
+      </div>
     </section>
 
     <section id="review" class="view">
@@ -1528,6 +1599,49 @@
       </div>
 
       <div class="panel">
+        <h2>Material Categorization Management</h2>
+        <div class="note">View and manage how source materials are categorized for smart Gemini routing.</div>
+        <div class="actions">
+          <button class="btn" onclick="loadMaterialCategories()">Refresh Categories</button>
+          <button class="btn primary" onclick="showMaterialStats()">Show Statistics</button>
+        </div>
+        <div id="materialStats" class="grid-5" style="margin: 1rem 0;">
+          <div class="metric">
+            <div class="metric-value" id="stat-pyq">0</div>
+            <div class="metric-label">PYQ Papers</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value" id="stat-regulatory">0</div>
+            <div class="metric-label">Regulatory</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value" id="stat-amendment">0</div>
+            <div class="metric-label">Amendments</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value" id="stat-essay">0</div>
+            <div class="metric-label">Essay Examples</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value" id="stat-supporting">0</div>
+            <div class="metric-label">Supporting</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Document Title</th>
+                <th>Current Role</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="materialTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
         <h2>Documents</h2>
         <div class="grid-4" id="ingestionMetrics"></div>
         <div class="table-wrap">
@@ -1548,7 +1662,14 @@
     let examState = null;
 
     function qs(id) {
-      return document.getElementById(id);
+      if (!id) return null;
+      const byId = document.getElementById(id);
+      if (byId) return byId;
+      try {
+        return document.querySelector(id);
+      } catch (_) {
+        return null;
+      }
     }
 
     function escapeHtml(value) {
@@ -1561,7 +1682,8 @@
     }
 
     async function api(path, options = {}) {
-      const response = await fetch(`${API_BASE}${path}`, {
+      const normalizedPath = path.startsWith('/api/') ? path.slice(4) : path;
+      const response = await fetch(`${API_BASE}${normalizedPath}`, {
         headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
         ...options
       });
@@ -1709,7 +1831,7 @@
 
     async function loadAmendmentRadar() {
       try {
-        const data = await api('/api/amendments/status');
+        const data = await api('/amendments/status');
         const html = `
           <div style="margin-bottom: 1.5rem;">
             <div class="badge neutral">${data.new_count_this_week} New This Week</div>
@@ -1733,7 +1855,7 @@
 
     async function loadAnalytics() {
       try {
-        const timeline = await api('/api/analytics/timeline?limit=5');
+        const timeline = await api('/analytics/timeline?limit=5');
         if (!timeline || timeline.length === 0) {
           qs('analyticsPanel').innerHTML = '<div class="muted">No exam data yet. Take a mock to see analytics.</div>';
           return;
@@ -1762,8 +1884,8 @@
 
     async function loadSRSPanel() {
       try {
-        const due = await api('/api/srs/due-topics');
-        const stats = await api('/api/srs/stats');
+        const due = await api('/srs/due-topics');
+        const stats = await api('/srs/stats');
         if (!due || due.length === 0) {
           qs('srsPanel').innerHTML = `
             <div class="muted">No topics due today.</div>
@@ -1797,7 +1919,7 @@
 
     async function markSRSComplete(topicId) {
       try {
-        await api(`/api/srs/mark-reviewed/${topicId}`, { method: 'POST' });
+        await api(`/srs/mark-reviewed/${topicId}`, { method: 'POST' });
         loadSRSPanel();
       } catch (error) {
         alert(`Error: ${error.message}`);
@@ -1806,7 +1928,7 @@
 
     async function loadStudyPathPanel() {
       try {
-        const path = await api('/api/study-paths/current');
+        const path = await api('/study-paths/current');
         if (!path || !path.weeks || path.weeks.length === 0) {
           qs('studyPathPanel').innerHTML = '<div class="muted"><button class="btn" onclick="generateStudyPath()">Generate 12-Week Path</button></div>';
           return;
@@ -1836,7 +1958,7 @@
       try {
         qs('studyPathPanel').innerHTML = '<div class="muted">Generating personalized plan...</div>';
         const weakTopics = [];
-        await api('/api/study-paths/generate?weak_topics=' + weakTopics.join(','), { method: 'POST' });
+        await api('/study-paths/generate?weak_topics=' + weakTopics.join(','), { method: 'POST' });
         loadStudyPathPanel();
       } catch (error) {
         qs('studyPathPanel').innerHTML = `<div class="muted">Error: ${error.message}</div>`;
@@ -2083,6 +2205,213 @@
       qs('mockStatus').textContent = 'Gemini is mandatory. Local fallback is disabled for mocks.';
     }
 
+    // ========== PYQ (PREVIOUS YEAR QUESTIONS) FUNCTIONS ==========
+
+    let currentPYQ = null;
+    let pyqState = null;
+
+    async function loadPYQList() {
+      qs('pyqStatus').textContent = 'Loading available papers...';
+      try {
+        const data = await api('/pyq/list');
+        qs('pyqStatus').textContent = `Found ${data.papers.length} available papers`;
+
+        qs('pyqPaperGrid').innerHTML = data.papers.map(paper => `
+          <div class="panel" style="cursor: pointer; border: 2px solid #cfd8e3;" onclick="startPYQPaper(${paper.pyq_doc_id}, '${escapeHtml(paper.title)}')">
+            <h3>${escapeHtml(paper.title)}</h3>
+            <div class="muted">
+              ${paper.year ? `Year: ${paper.year}<br>` : ''}
+              ${paper.phase ? `Phase: ${paper.phase}<br>` : ''}
+              ${paper.paper ? `Paper: ${paper.paper}` : ''}
+            </div>
+            <div style="margin-top: 0.5rem;"><button class="btn primary" onclick="event.stopPropagation(); startPYQPaper(${paper.pyq_doc_id}, '${escapeHtml(paper.title)}')">Attempt</button></div>
+          </div>
+        `).join('');
+      } catch (error) {
+        qs('pyqStatus').textContent = error.message;
+      }
+    }
+
+    async function startPYQPaper(docId, title) {
+      qs('pyqStatus').textContent = `Loading ${title}...`;
+      try {
+        currentPYQ = await api(`/pyq/${docId}/load`);
+        pyqState = {
+          currentIndex: 0,
+          answers: {},
+          marked: {},
+          visited: new Set([0]),
+          timerId: null,
+          remainingSeconds: (currentPYQ.time_limit_minutes || 60) * 60,
+          enteredAt: Date.now(),
+          submitted: false
+        };
+
+        qs('preParty').classList.add('hidden');
+        qs('pyqExamShell').classList.remove('hidden');
+        qs('pyqExamName').textContent = `Previous Year Paper: ${currentPYQ.title}`;
+        qs('pyqExamMeta').textContent = ` | ${currentPYQ.total_questions} questions | ${currentPYQ.marks_per_question} marks each`;
+
+        pyqState.timerId = setInterval(pyqTickTimer, 1000);
+        renderPYQQuestion();
+      } catch (error) {
+        qs('pyqStatus').textContent = error.message;
+      }
+    }
+
+    function pyqTickTimer() {
+      if (!pyqState || pyqState.submitted) return;
+      pyqState.remainingSeconds -= 1;
+      pyqUpdateTimer();
+      if (pyqState.remainingSeconds <= 0) submitPYQAttempt(true);
+    }
+
+    function pyqUpdateTimer() {
+      const total = Math.max(0, pyqState?.remainingSeconds || 0);
+      const minutes = String(Math.floor(total / 60)).padStart(2, '0');
+      const seconds = String(total % 60).padStart(2, '0');
+      qs('pyqTimer').textContent = `${minutes}:${seconds}`;
+      qs('pyqTimer').classList.toggle('warning', total <= 300);
+    }
+
+    function renderPYQQuestion() {
+      if (!currentPYQ || !pyqState) return;
+      pyqUpdateTimer();
+      const q = currentPYQ.questions[pyqState.currentIndex];
+      pyqState.visited.add(pyqState.currentIndex);
+
+      qs('pyqQuestionCounter').textContent = `Question ${pyqState.currentIndex + 1} of ${currentPYQ.questions.length}`;
+      qs('pyqQuestionTopic').textContent = q.topic || 'Unknown';
+
+      qs('pyqQuestionArea').innerHTML = `
+        <div class="question-text">${escapeHtml(q.question_text)}</div>
+        ${q.options.map(option => {
+          const selected = pyqState.answers[q.question_id] === option.label;
+          return `
+            <label class="option-row ${selected ? 'selected' : ''}">
+              <input type="radio" name="currentPYQQuestion" value="${option.label}" ${selected ? 'checked' : ''} onchange="pyqSelectAnswer('${q.question_id}', '${option.label}')">
+              <span><strong>${option.label}.</strong> ${escapeHtml(option.text)}</span>
+            </label>
+          `;
+        }).join('')}
+      `;
+
+      pyqRenderPalette();
+    }
+
+    function pyqRenderPalette() {
+      const answered = currentPYQ.questions.filter(q => pyqState.answers[q.question_id]).length;
+      const marked = currentPYQ.questions.filter(q => pyqState.marked[q.question_id]).length;
+      qs('pyqPaletteSummary').textContent = `${answered} answered, ${marked} marked`;
+
+      qs('pyqQuestionPalette').innerHTML = currentPYQ.questions.map((q, index) => `
+        <button class="qnum ${pyqQuestionStatus(index)} ${index === pyqState.currentIndex ? 'current' : ''}" onclick="pyqGoToQuestion(${index})">${index + 1}</button>
+      `).join('');
+    }
+
+    function pyqQuestionStatus(index) {
+      const q = currentPYQ.questions[index];
+      const answered = Boolean(pyqState.answers[q.question_id]);
+      const marked = Boolean(pyqState.marked[q.question_id]);
+      const visited = pyqState.visited.has(index);
+      if (answered && marked) return 'answered-marked';
+      if (marked) return 'marked';
+      if (answered) return 'answered';
+      if (visited) return 'not-answered';
+      return '';
+    }
+
+    function pyqSelectAnswer(questionId, label) {
+      pyqState.answers[questionId] = label;
+      renderPYQQuestion();
+    }
+
+    function pyqGoToQuestion(index) {
+      pyqState.currentIndex = Math.max(0, Math.min(index, currentPYQ.questions.length - 1));
+      pyqState.enteredAt = Date.now();
+      renderPYQQuestion();
+    }
+
+    function pyqPreviousQuestion() {
+      pyqGoToQuestion(pyqState.currentIndex - 1);
+    }
+
+    function pyqSaveAndNext() {
+      pyqGoToQuestion(Math.min(pyqState.currentIndex + 1, currentPYQ.questions.length - 1));
+    }
+
+    function pyqMarkReviewAndNext() {
+      const q = currentPYQ.questions[pyqState.currentIndex];
+      pyqState.marked[q.question_id] = true;
+      pyqSaveAndNext();
+    }
+
+    function pyqClearResponse() {
+      const q = currentPYQ.questions[pyqState.currentIndex];
+      delete pyqState.answers[q.question_id];
+      renderPYQQuestion();
+    }
+
+    async function submitPYQAttempt(autoSubmit) {
+      if (!currentPYQ || !pyqState || pyqState.submitted) return;
+      if (!autoSubmit && !confirm('Submit this PYQ attempt?')) return;
+
+      pyqState.submitted = true;
+      clearInterval(pyqState.timerId);
+
+      const answers = currentPYQ.questions.map(q => ({
+        question_id: q.question_id,
+        selected_answer: pyqState.answers[q.question_id] || null,
+        time_spent_seconds: 0,
+        marked_for_review: Boolean(pyqState.marked[q.question_id])
+      }));
+
+      try {
+        const result = await api(`/pyq/${currentPYQ.pyq_id}/submit`, {
+          method: 'POST',
+          body: JSON.stringify({ answers })
+        });
+
+        qs('pyqStatus').textContent = `Submitted. Score: ${result.final_score}/${result.total_questions * 2}`;
+        qs('pyqExamShell').classList.add('hidden');
+
+        const html = `
+          <div class="panel">
+            <h2>PYQ Analysis</h2>
+            <div class="grid-4">
+              <div class="metric"><div class="metric-value">${result.final_score}</div><div class="metric-label">Score</div></div>
+              <div class="metric"><div class="metric-value">${result.total_correct}</div><div class="metric-label">Correct</div></div>
+              <div class="metric"><div class="metric-value">${result.total_wrong}</div><div class="metric-label">Wrong</div></div>
+              <div class="metric"><div class="metric-value">${result.accuracy_pct.toFixed(1)}%</div><div class="metric-label">Accuracy</div></div>
+            </div>
+          </div>
+        `;
+        qs('pyqAnalysis').classList.remove('hidden');
+        qs('pyqAnalysis').innerHTML = html;
+
+        loadPYQAnalytics();
+      } catch (error) {
+        pyqState.submitted = false;
+        qs('pyqStatus').textContent = error.message;
+      }
+    }
+
+    async function loadPYQAnalytics() {
+      try {
+        const data = await api('/pyq/analytics');
+        qs('pyqHistory').innerHTML = data.attempts.map(att => `
+          <div class="source-box">
+            <strong>${escapeHtml(att.pyq_id)}</strong><br>
+            Score: ${att.score}<br>
+            Accuracy: ${att.accuracy?.toFixed(1)}%<br>
+            Questions attempted: ${att.questions_attempted}
+          </div>
+        `).join('');
+      } catch (error) {
+        qs('pyqHistory').textContent = error.message;
+      }
+    }
+
     async function generateDrill() {
       qs('drillStatus').textContent = 'Generating Gemini drill from exam/material corpus.';
       qs('drillOutput').innerHTML = '';
@@ -2194,13 +2523,15 @@
       qs('lawStatus').textContent = 'Loading daily Act revision.';
       try {
         const data = await api('/law/daily-revision?lines_per_day=80&include_ai=true');
-        qs('lawStatus').textContent = `${data.title}: lines ${data.line_start}-${data.line_end}`;
+        const aiRevision = data.ai_revision || {};
+        qs('lawStatus').textContent = `${data.title || 'IFSCA Act'}: lines ${data.line_start || 0}-${data.line_end || 0}`;
         qs('lawRevisionOutput').innerHTML = `
           <div class="source-box">
-            <strong>${escapeHtml(data.ai_revision?.revision_focus || 'Daily revision')}</strong>
-            <h3>Key Points</h3>${renderArray(data.ai_revision?.key_points || [])}
-            <h3>MCQ Traps</h3>${renderArray(data.ai_revision?.mcq_traps || [])}
-            <h3>Self Test</h3>${renderArray(data.ai_revision?.self_test || [])}
+            <strong>${escapeHtml(aiRevision.revision_focus || data.ai_revision_focus || 'Daily revision')}</strong>
+            <h3>Key Points</h3>${renderArray(aiRevision.key_points || [])}
+            <h3>MCQ Traps</h3>${renderArray(aiRevision.mcq_traps || [])}
+            <h3>Self Test</h3>${renderArray(aiRevision.self_test || [])}
+            <h3>High Yield Provisions</h3>${renderArray((data.high_yield_provisions || []).slice(0, 5).map(item => item.title || item.provision_id || 'Provision'))}
           </div>
           <pre class="law-text">${escapeHtml(data.daily_text || '')}</pre>
         `;
@@ -2336,6 +2667,55 @@
       `).join('');
     }
 
+    async function loadMaterialCategories() {
+      try {
+        const data = await api('/admin/materials');
+        qs('materialTable').innerHTML = data.materials.map(mat => `
+          <tr>
+            <td>${escapeHtml(mat.name)}</td>
+            <td>
+              <select onchange="updateMaterialRole(${mat.doc_id}, this.value)">
+                <option value="pyq_phase_paper" ${mat.source_role === 'pyq_phase_paper' ? 'selected' : ''}>PYQ Phase Paper</option>
+                <option value="regulatory_core" ${mat.source_role === 'regulatory_core' ? 'selected' : ''}>Regulatory Core</option>
+                <option value="amendment_tracking" ${mat.source_role === 'amendment_tracking' ? 'selected' : ''}>Amendment Tracking</option>
+                <option value="essay_examples" ${mat.source_role === 'essay_examples' ? 'selected' : ''}>Essay Examples</option>
+                <option value="supporting_material" ${mat.source_role === 'supporting_material' ? 'selected' : ''}>Supporting Material</option>
+              </select>
+            </td>
+            <td><span class="badge neutral">${mat.source_role}</span></td>
+          </tr>
+        `).join('');
+      } catch (error) {
+        qs('materialTable').innerHTML = `<tr><td colspan="3" class="muted">${error.message}</td></tr>`;
+      }
+    }
+
+    async function updateMaterialRole(docId, newRole) {
+      try {
+        await api(`/admin/materials/${docId}/role`, {
+          method: 'POST',
+          body: JSON.stringify({ source_role: newRole })
+        });
+        loadMaterialCategories();
+      } catch (error) {
+        alert(error.message);
+        loadMaterialCategories();
+      }
+    }
+
+    async function showMaterialStats() {
+      try {
+        const data = await api('/admin/analysis/grounding');
+        qs('stat-pyq').textContent = data.by_role?.pyq_phase_paper || 0;
+        qs('stat-regulatory').textContent = data.by_role?.regulatory_core || 0;
+        qs('stat-amendment').textContent = data.by_role?.amendment_tracking || 0;
+        qs('stat-essay').textContent = data.by_role?.essay_examples || 0;
+        qs('stat-supporting').textContent = data.by_role?.supporting_material || 0;
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+
     function loadSampleUpload() {
       qs('uploadDate').value = new Date().toISOString().slice(0, 10);
       qs('uploadQuestions').value = JSON.stringify([
@@ -2388,7 +2768,7 @@
 
       qs('searchResults').innerHTML = '<div class="muted">Searching...</div>';
       try {
-        const data = await api(`/api/questions/search?query=${encodeURIComponent(query)}&limit=20`);
+        const data = await api(`/questions/search?query=${encodeURIComponent(query)}&limit=20`);
         const results = data.results || [];
 
         if (results.length === 0) {
@@ -2426,7 +2806,7 @@
     async function loadSourceDistribution() {
       qs('sourceDistribution').innerHTML = '<div class="muted">Loading distribution...</div>';
       try {
-        const data = await api('/api/sources/distribution-by-topic');
+        const data = await api('/sources/distribution-by-topic');
         const distribution = data.distribution || [];
         const total = data.total_chunks || 0;
 
@@ -2459,11 +2839,10 @@
       }
     }
 
-    async function showCitationDetail(questionId) {
+    async function showCitationDetail(chunkId) {
       qs('citationDetail').innerHTML = '<div class="muted">Loading citation...</div>';
       try {
-        // Extract actual question ID from chunk_id parameter
-        const data = await api(`/api/questions/${encodeURIComponent(questionId)}/source`);
+        const data = await api(`/source-chunks/${encodeURIComponent(chunkId)}`);
 
         if (data.status !== 'found' || !data.source) {
           qs('citationDetail').innerHTML = '<div class="muted">Citation not found.</div>';
@@ -2472,16 +2851,15 @@
         }
 
         const source = data.source || {};
-        const citation = data.citation || {};
-
         qs('citationDetail').innerHTML = `
           <div style="line-height: 1.6;">
             <h3 style="margin-bottom: 8px;">Source Information</h3>
             <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
-              <div><strong>Document:</strong> ${escapeHtml(source.document_name || 'Unknown')}</div>
+              <div><strong>Document:</strong> ${escapeHtml(source.title || source.document_name || 'Unknown')}</div>
               <div><strong>Category:</strong> ${escapeHtml(source.category || 'N/A')}</div>
-              <div><strong>Page:</strong> ${data.page_start || '?'}${data.page_end && data.page_end !== data.page_start ? `-${data.page_end}` : ''}</div>
-              <div><strong>Authority Score:</strong> <span style="font-weight: bold; color: #2196F3;">${data.authority_score || 50}</span> / 100</div>
+              <div><strong>Page:</strong> ${source.page_start || '?'}${source.page_end && source.page_end !== source.page_start ? `-${source.page_end}` : ''}</div>
+              <div><strong>Authority Score:</strong> <span style="font-weight: bold; color: #2196F3;">${source.authority_score || 50}</span></div>
+              <div><strong>Linked Questions:</strong> ${(source.linked_question_ids || []).length}</div>
             </div>
 
             <h3 style="margin-bottom: 8px;">Citation Note</h3>
@@ -2491,8 +2869,8 @@
 
             <h3 style="margin-bottom: 8px;">Excerpt</h3>
             <div style="background: #fafafa; padding: 12px; border-radius: 6px; font-size: 12px; line-height: 1.5; max-height: 200px; overflow-y: auto;">
-              ${escapeHtml((source.chunk_text || '').substring(0, 800))}
-              ${(source.chunk_text?.length || 0) > 800 ? '...' : ''}
+              ${escapeHtml((source.excerpt || source.text || '').substring(0, 800))}
+              ${((source.excerpt || source.text || '').length || 0) > 800 ? '...' : ''}
             </div>
           </div>
         `;
@@ -2535,7 +2913,7 @@
       const seconds = secondsRemaining % 60;
       const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-      const timerEl = qs('#examTimer');
+      const timerEl = qs('examTimer');
       if (timerEl) {
         timerEl.textContent = display;
 
@@ -2585,27 +2963,36 @@
       const resultPage = qs('#resultPage');
       if (!resultPage) return;
 
+      const normalized = {
+        score: scoreData.score ?? scoreData.final_score,
+        correct: scoreData.correct ?? scoreData.total_correct,
+        wrong: scoreData.wrong ?? scoreData.total_wrong,
+        unanswered: scoreData.unanswered ?? scoreData.total_unanswered,
+        accuracy: scoreData.accuracy ?? scoreData.accuracy_pct,
+        weakAreas: scoreData.weakAreas ?? scoreData.weak_areas ?? []
+      };
+
       // Populate result data
-      if (scoreData.score !== undefined) {
-        qs('#resultScore').textContent = scoreData.score;
+      if (normalized.score !== undefined) {
+        qs('#resultScore').textContent = normalized.score;
       }
-      if (scoreData.correct !== undefined) {
-        qs('#statCorrect').textContent = scoreData.correct;
+      if (normalized.correct !== undefined) {
+        qs('#statCorrect').textContent = normalized.correct;
       }
-      if (scoreData.wrong !== undefined) {
-        qs('#statWrong').textContent = scoreData.wrong;
+      if (normalized.wrong !== undefined) {
+        qs('#statWrong').textContent = normalized.wrong;
       }
-      if (scoreData.unanswered !== undefined) {
-        qs('#statUnanswered').textContent = scoreData.unanswered;
+      if (normalized.unanswered !== undefined) {
+        qs('#statUnanswered').textContent = normalized.unanswered;
       }
-      if (scoreData.accuracy !== undefined) {
-        qs('#statAccuracy').textContent = scoreData.accuracy + '%';
+      if (normalized.accuracy !== undefined) {
+        qs('#statAccuracy').textContent = normalized.accuracy + '%';
       }
 
       // Show weak areas
-      if (scoreData.weakAreas && scoreData.weakAreas.length > 0) {
-        qs('#weakList').innerHTML = scoreData.weakAreas
-          .map(w => `<li>${escapeHtml(w.topic || 'Unknown')}: ${w.accuracy || 0}% accuracy</li>`)
+      if (normalized.weakAreas && normalized.weakAreas.length > 0) {
+        qs('#weakList').innerHTML = normalized.weakAreas
+          .map(w => `<li>${escapeHtml(w.topic || 'Unknown')}: ${w.accuracy ?? w.accuracy_pct ?? 0}% accuracy</li>`)
           .join('');
       }
 
@@ -2667,10 +3054,17 @@
       const radio = qs(`input[value="${option}"]`);
       if (radio) {
         radio.checked = true;
-        radio.closest('.option-row').classList.add('selected');
+        document.querySelectorAll('input[name="currentQuestion"]').forEach(input => {
+          input.closest('.option-row')?.classList.toggle('selected', input.value === option);
+        });
+
+        const currentQ = currentMock?.questions?.[examState?.currentIndex ?? 0];
+        if (currentQ) {
+          selectAnswer(currentQ.question_id, option);
+        }
 
         // Auto-save
-        const qIdx = currentQuestion || 1;
+        const qIdx = (examState?.currentIndex ?? 0) + 1;
         localStorage.setItem(`answer_q${qIdx}`, option);
 
         // Update palette
@@ -2684,15 +3078,23 @@
 
     // Auto-save on radio selection
     document.addEventListener('change', (e) => {
-      if (e.target.type === 'radio' && qs('#examShell') && !qs('#examShell').classList.contains('hidden')) {
-        const qIdx = currentQuestion || 1;
+      if (e.target.type === 'radio' && qs('examShell') && !qs('examShell').classList.contains('hidden')) {
+        const qIdx = (examState?.currentIndex ?? 0) + 1;
         const value = e.target.value;
 
         // Save to localStorage
         localStorage.setItem(`answer_q${qIdx}`, value);
 
+        // Update examState answers
+        if (examState && currentMock) {
+          const currentQ = currentMock.questions[examState.currentIndex];
+          if (currentQ) {
+            examState.answers[currentQ.question_id] = value;
+          }
+        }
+
         // Show "Saved" indicator briefly
-        const saveBtn = qs('button:has(>*):contains("Save")');
+        const saveBtn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('Save'));
         if (saveBtn) {
           saveBtn.textContent = '✓ Saved';
           setTimeout(() => {
@@ -2701,7 +3103,7 @@
         }
 
         // Update palette cell
-        const cell = qs(`[data-q-idx="${qIdx}"]`);
+        const cell = qs(`q${qIdx}`);
         if (cell) {
           cell.classList.add('answered');
           cell.classList.remove('unanswered');

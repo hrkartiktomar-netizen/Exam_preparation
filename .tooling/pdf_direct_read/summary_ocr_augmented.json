@@ -1,0 +1,12 @@
+{
+  "pdf_count": 216,
+  "errors": 0,
+  "total_pages": 5802,
+  "ocr_pdf_count": 52,
+  "ocr_page_count": 207,
+  "ocr_error_count": 0,
+  "total_words_ocr_augmented": 1739842,
+  "total_text_chars_ocr_augmented": 11212205,
+  "elapsed_sec": 147.68,
+  "text_dir": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts_ocr_augmented"
+}

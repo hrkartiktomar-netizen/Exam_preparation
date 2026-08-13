@@ -1,0 +1,3955 @@
+[
+  {
+    "name": "001_IFSCA career__20222023 Recruitment Notification.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\001_IFSCA career__20222023 Recruitment Notification.pdf",
+    "bytes": 438403,
+    "pages": 13,
+    "text_chars": 47339,
+    "word_count": 7448,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "4e3aab085022e4a4fbc1845d53974b97277f29c6d035089bf173930e6c8736ab",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\001_IFSCA career__20222023 Recruitment Notification.txt"
+  },
+  {
+    "name": "002_IFSCA career__2023 Phase 1 Exam Handout - General Stream.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\002_IFSCA career__2023 Phase 1 Exam Handout - General Stream.pdf",
+    "bytes": 237568,
+    "pages": 7,
+    "text_chars": 23154,
+    "word_count": 3786,
+    "low_text_pages": [
+      {
+        "page": 7,
+        "chars": 1,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "4ac1226ee4920503192bc5f7038a0fcca100644774544258768e8aba03cf5132",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\002_IFSCA career__2023 Phase 1 Exam Handout - General Stream.txt"
+  },
+  {
+    "name": "003_IFSCA career__2023 Phase 1 Results.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\003_IFSCA career__2023 Phase 1 Results.pdf",
+    "bytes": 84525,
+    "pages": 17,
+    "text_chars": 51064,
+    "word_count": 3436,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d629363c08986b388a730abd10bf619706f2799eec09b1a7a9bdc89b01a85da0",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\003_IFSCA career__2023 Phase 1 Results.txt"
+  },
+  {
+    "name": "004_IFSCA career__2023 Phase 2 Cut-off Marks.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\004_IFSCA career__2023 Phase 2 Cut-off Marks.pdf",
+    "bytes": 72139,
+    "pages": 1,
+    "text_chars": 295,
+    "word_count": 51,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "b6a744ddc1f8efce7524831946d4a837f5c7bbcdd521337eb74f58cbe3327f05",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\004_IFSCA career__2023 Phase 2 Cut-off Marks.txt"
+  },
+  {
+    "name": "005_IFSCA career__2024 Vacancy Notification.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\005_IFSCA career__2024 Vacancy Notification.pdf",
+    "bytes": 753557,
+    "pages": 30,
+    "text_chars": 73759,
+    "word_count": 11319,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "7f4e5d2a5e2a14f982e5fd75d75e7b4f44135ca8e370b22a106319421fa430b1",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\005_IFSCA career__2024 Vacancy Notification.txt"
+  },
+  {
+    "name": "006_IFSCA career__2025 Recruitment Notification.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\006_IFSCA career__2025 Recruitment Notification.pdf",
+    "bytes": 635608,
+    "pages": 32,
+    "text_chars": 89237,
+    "word_count": 13222,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "0000ea1cf2c0fda3a7c5b313d0059b304b78a6978520a43d6256606e61de8a04",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\006_IFSCA career__2025 Recruitment Notification.txt"
+  },
+  {
+    "name": "007_IFSCA career__2025 Phase 1 Call Letter Exam Handout.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\007_IFSCA career__2025 Phase 1 Call Letter Exam Handout.pdf",
+    "bytes": 631911,
+    "pages": 7,
+    "text_chars": 23574,
+    "word_count": 3987,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "cbe8d1d689fd4f8008142b9504b7d433ed80177dd9a81a587066d800a3e8cd59",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\007_IFSCA career__2025 Phase 1 Call Letter Exam Handout.txt"
+  },
+  {
+    "name": "008_IFSCA career__2025 Phase 1 Results - General Stream.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\008_IFSCA career__2025 Phase 1 Results - General Stream.pdf",
+    "bytes": 95059,
+    "pages": 11,
+    "text_chars": 28222,
+    "word_count": 1920,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "98613e0ef4b9592fa2caae08fb5ea59c8b2053e75e5a200921a64fd07a394f0e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\008_IFSCA career__2025 Phase 1 Results - General Stream.txt"
+  },
+  {
+    "name": "009_IFSCA career__2025 Phase 2 Legal Stream Marks.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\009_IFSCA career__2025 Phase 2 Legal Stream Marks.pdf",
+    "bytes": 334246,
+    "pages": 10,
+    "text_chars": 27249,
+    "word_count": 4564,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "2f18bd86c5468506506cd55d03f8b423e4252c980fc50e029688028a04da5e3f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\009_IFSCA career__2025 Phase 2 Legal Stream Marks.txt"
+  },
+  {
+    "name": "010_IFSCA career__2025 Phase 2 Interview Marks.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\010_IFSCA career__2025 Phase 2 Interview Marks.pdf",
+    "bytes": 302123,
+    "pages": 3,
+    "text_chars": 4716,
+    "word_count": 1178,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "8e8f99ee0b5b9caf00b05c61518e0adb1ee6a21c5e44b59a11324a6c8cf9d666",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\010_IFSCA career__2025 Phase 2 Interview Marks.txt"
+  },
+  {
+    "name": "011_IFSCA career__2025 Phase 2 Cutoff Declaration.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\011_IFSCA career__2025 Phase 2 Cutoff Declaration.pdf",
+    "bytes": 112734,
+    "pages": 2,
+    "text_chars": 3128,
+    "word_count": 520,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "addd651ad0f5790c9a4dff6272958e7502356f1c290ec05688aa4b721432f702",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\011_IFSCA career__2025 Phase 2 Cutoff Declaration.txt"
+  },
+  {
+    "name": "012_IFSCA career__202526 Phase 2 Results.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\012_IFSCA career__202526 Phase 2 Results.pdf",
+    "bytes": 251894,
+    "pages": 4,
+    "text_chars": 4383,
+    "word_count": 635,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "4b79b61d8dd8e99991c83b53c39230d221aaabb7a659af12f8617d8791b322dc",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\012_IFSCA career__202526 Phase 2 Results.txt"
+  },
+  {
+    "name": "013_IFSCA publications__Annual Report 2020-21.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\013_IFSCA publications__Annual Report 2020-21.pdf",
+    "bytes": 9050177,
+    "pages": 112,
+    "text_chars": 222544,
+    "word_count": 33974,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 27,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 27,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 27,
+        "reason": "low_text"
+      },
+      {
+        "page": 5,
+        "chars": 27,
+        "reason": "low_text"
+      },
+      {
+        "page": 6,
+        "chars": 32,
+        "reason": "low_text"
+      },
+      {
+        "page": 43,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 110,
+        "chars": 32,
+        "reason": "low_text"
+      },
+      {
+        "page": 112,
+        "chars": 32,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "2b62c262f23f3c7af2d7e630171b9d58e02ee79c99b62b3e94ffc24e420cde25",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\013_IFSCA publications__Annual Report 2020-21.txt"
+  },
+  {
+    "name": "014_IFSCA publications__Annual Report 2021-22.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\014_IFSCA publications__Annual Report 2021-22.pdf",
+    "bytes": 2525283,
+    "pages": 128,
+    "text_chars": 270596,
+    "word_count": 40924,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 5,
+        "chars": 25,
+        "reason": "low_text"
+      },
+      {
+        "page": 7,
+        "chars": 33,
+        "reason": "low_text"
+      },
+      {
+        "page": 107,
+        "chars": 34,
+        "reason": "low_text"
+      },
+      {
+        "page": 117,
+        "chars": 34,
+        "reason": "low_text"
+      },
+      {
+        "page": 119,
+        "chars": 34,
+        "reason": "low_text"
+      },
+      {
+        "page": 127,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 128,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "6a334504241a219e997a9b80f7fcfa3fc19bd6b168251d599cab2ab67d18e0bd",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\014_IFSCA publications__Annual Report 2021-22.txt"
+  },
+  {
+    "name": "015_IFSCA publications__Annual Report 2022-23.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\015_IFSCA publications__Annual Report 2022-23.pdf",
+    "bytes": 5498516,
+    "pages": 168,
+    "text_chars": 268951,
+    "word_count": 40423,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 5,
+        "chars": 25,
+        "reason": "low_text"
+      },
+      {
+        "page": 7,
+        "chars": 11,
+        "reason": "low_text"
+      },
+      {
+        "page": 27,
+        "chars": 12,
+        "reason": "low_text"
+      },
+      {
+        "page": 37,
+        "chars": 12,
+        "reason": "low_text"
+      },
+      {
+        "page": 63,
+        "chars": 24,
+        "reason": "low_text"
+      },
+      {
+        "page": 109,
+        "chars": 2,
+        "reason": "low_text"
+      },
+      {
+        "page": 113,
+        "chars": 24,
+        "reason": "low_text"
+      },
+      {
+        "page": 123,
+        "chars": 24,
+        "reason": "low_text"
+      },
+      {
+        "page": 141,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 151,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 155,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 157,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 165,
+        "chars": 25,
+        "reason": "low_text"
+      },
+      {
+        "page": 167,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 168,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "ec5c7e2d711f469aad8a7057792010181f632440acad67e8e044f03ba5b41f3b",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\015_IFSCA publications__Annual Report 2022-23.txt"
+  },
+  {
+    "name": "016_IFSCA publications__Annual Report 2023-24.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\016_IFSCA publications__Annual Report 2023-24.pdf",
+    "bytes": 11714730,
+    "pages": 180,
+    "text_chars": 305746,
+    "word_count": 46537,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 5,
+        "chars": 7,
+        "reason": "low_text"
+      },
+      {
+        "page": 6,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 7,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 8,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 10,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 26,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 27,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 39,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 71,
+        "chars": 7,
+        "reason": "low_text"
+      },
+      {
+        "page": 97,
+        "chars": 7,
+        "reason": "low_text"
+      },
+      {
+        "page": 123,
+        "chars": 7,
+        "reason": "low_text"
+      },
+      {
+        "page": 144,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 145,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 156,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 157,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 160,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 161,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 163,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 175,
+        "chars": 7,
+        "reason": "low_text"
+      },
+      {
+        "page": 176,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 177,
+        "chars": 7,
+        "reason": "low_text"
+      },
+      {
+        "page": 178,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 179,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 180,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "369b4f9917cbf9605635b7b967c64ff21bf9d260cc198a29ce9f5a7ccabd30b6",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\016_IFSCA publications__Annual Report 2023-24.txt"
+  },
+  {
+    "name": "017_IFSCA publications__Bulletin Apr-Jun 2024.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\017_IFSCA publications__Bulletin Apr-Jun 2024.pdf",
+    "bytes": 2561750,
+    "pages": 33,
+    "text_chars": 73893,
+    "word_count": 10917,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "25b0faca10c66b0004ed19bfd7e17ac228ee37cbc32574804ac8d2b5131b801a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\017_IFSCA publications__Bulletin Apr-Jun 2024.txt"
+  },
+  {
+    "name": "018_IFSCA publications__Bulletin Jul-Sep 2024.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\018_IFSCA publications__Bulletin Jul-Sep 2024.pdf",
+    "bytes": 3606637,
+    "pages": 38,
+    "text_chars": 93744,
+    "word_count": 13790,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "9c53f847dfbbbe0007d13f03e86ac478d1667c8a949c25cb1f0e4e48dff72fa4",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\018_IFSCA publications__Bulletin Jul-Sep 2024.txt"
+  },
+  {
+    "name": "019_IFSCA publications__Bulletin Oct-Dec 2024.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\019_IFSCA publications__Bulletin Oct-Dec 2024.pdf",
+    "bytes": 4947121,
+    "pages": 42,
+    "text_chars": 96322,
+    "word_count": 13627,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "09f41517aa3fd61429b9302ce7dd858cb31a80efe8aa0f7c58c0e615bbe51161",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\019_IFSCA publications__Bulletin Oct-Dec 2024.txt"
+  },
+  {
+    "name": "020_IFSCA publications__Bulletin Jan-Mar 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\020_IFSCA publications__Bulletin Jan-Mar 2025.pdf",
+    "bytes": 4790146,
+    "pages": 41,
+    "text_chars": 91369,
+    "word_count": 12782,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "bda80a81dc5b1c0a56f374cdeacd7f2f626e4d601b2355054b5f6f1dceda26b2",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\020_IFSCA publications__Bulletin Jan-Mar 2025.txt"
+  },
+  {
+    "name": "021_IFSCA publications__RI Regulations Consultation 2023.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\021_IFSCA publications__RI Regulations Consultation 2023.pdf",
+    "bytes": 244651,
+    "pages": 11,
+    "text_chars": 18438,
+    "word_count": 2676,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "3c3713ded6d9b5d9a55818926b608b46bac91f81f1e4e6029c8480be9656066e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\021_IFSCA publications__RI Regulations Consultation 2023.txt"
+  },
+  {
+    "name": "022_IFSCA publications__Draft Payment Services Regulations 2023.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\022_IFSCA publications__Draft Payment Services Regulations 2023.pdf",
+    "bytes": 557264,
+    "pages": 48,
+    "text_chars": 90310,
+    "word_count": 13154,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "96233cf7f33fd9e31b5ad99870aa3cb924802fe00bfe94f757c08f559d038990",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\022_IFSCA publications__Draft Payment Services Regulations 2023.txt"
+  },
+  {
+    "name": "023_IFSCA publications__Onshore Innovation to GIFT IFSC.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\023_IFSCA publications__Onshore Innovation to GIFT IFSC.pdf",
+    "bytes": 4625827,
+    "pages": 104,
+    "text_chars": 295593,
+    "word_count": 44125,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "f7878b2d12a2839811d221fdaafd3e271f3e2134e2033905c7ff2bc0b20b0225",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\023_IFSCA publications__Onshore Innovation to GIFT IFSC.txt"
+  },
+  {
+    "name": "024_IFSCA publications__Listing Regulations Consultation 2024.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\024_IFSCA publications__Listing Regulations Consultation 2024.pdf",
+    "bytes": 711151,
+    "pages": 61,
+    "text_chars": 119212,
+    "word_count": 18072,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "3be823083e033498bedd5e1c640040d00c2d5f08b467eb21e0da21d5d29ff22a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\024_IFSCA publications__Listing Regulations Consultation 2024.txt"
+  },
+  {
+    "name": "026_IFSCA publications__Fund Management Brochure Dec 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\026_IFSCA publications__Fund Management Brochure Dec 2025.pdf",
+    "bytes": 1383370,
+    "pages": 20,
+    "text_chars": 22293,
+    "word_count": 3266,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 25,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "e85f3a1e731a88f04b2b16c200c847deaf91df25330a32bec2de604c1135520b",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\026_IFSCA publications__Fund Management Brochure Dec 2025.txt"
+  },
+  {
+    "name": "027_IFSCA publications__Commodity Trading Hub Expert Committee.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\027_IFSCA publications__Commodity Trading Hub Expert Committee.pdf",
+    "bytes": 109273,
+    "pages": 4,
+    "text_chars": 6871,
+    "word_count": 972,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "394a0e0d116ff9687e13251eb3b2f53f2ff9445968e8199bbf2fe744994918ec",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\027_IFSCA publications__Commodity Trading Hub Expert Committee.txt"
+  },
+  {
+    "name": "028_IFSCA publications__Fund Management Ecosystem Report Aug 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\028_IFSCA publications__Fund Management Ecosystem Report Aug 2025.pdf",
+    "bytes": 171973,
+    "pages": 4,
+    "text_chars": 8011,
+    "word_count": 1159,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "69bcb13d022869213d40c9458afa603a6ee2874a15adb27dd149daf6ae8dfbed",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\028_IFSCA publications__Fund Management Ecosystem Report Aug 2025.txt"
+  },
+  {
+    "name": "029_IFSCA publications__Debt Market At IFSC FY2024-25.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\029_IFSCA publications__Debt Market At IFSC FY2024-25.pdf",
+    "bytes": 4460257,
+    "pages": 18,
+    "text_chars": 18103,
+    "word_count": 2223,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 17,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 18,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "9b3e572c9bfd2961509727bbdec1d7862d169dae871bec9f895d950f11ff2e22",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\029_IFSCA publications__Debt Market At IFSC FY2024-25.txt"
+  },
+  {
+    "name": "030_IFSCA publications__IFSCA Funds Digital.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\030_IFSCA publications__IFSCA Funds Digital.pdf",
+    "bytes": 8643982,
+    "pages": 23,
+    "text_chars": 22109,
+    "word_count": 3329,
+    "low_text_pages": [
+      {
+        "page": 4,
+        "chars": 1,
+        "reason": "low_text"
+      },
+      {
+        "page": 8,
+        "chars": 1,
+        "reason": "low_text"
+      },
+      {
+        "page": 10,
+        "chars": 1,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "93624aab36a90b3bd89a83fbb586aa7e75c994ee0682d378fbc4170f0be25b50",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\030_IFSCA publications__IFSCA Funds Digital.txt"
+  },
+  {
+    "name": "031_IFSCA publications__Global Securities Markets Conclave 2.0.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\031_IFSCA publications__Global Securities Markets Conclave 2.0.pdf",
+    "bytes": 220374,
+    "pages": 4,
+    "text_chars": 8444,
+    "word_count": 1152,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "17240db9fc87410e15323da5038f8e3b99dde55ad68cb81bdbb16e62aa4903fe",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\031_IFSCA publications__Global Securities Markets Conclave 2.0.txt"
+  },
+  {
+    "name": "032_IFSCA publications__EY GIFT City Tax Benefits - IFSCA hosted.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\032_IFSCA publications__EY GIFT City Tax Benefits - IFSCA hosted.pdf",
+    "bytes": 689526,
+    "pages": 15,
+    "text_chars": 15548,
+    "word_count": 2447,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 34,
+        "reason": "low_text"
+      },
+      {
+        "page": 12,
+        "chars": 14,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "aac2643f40231ebb64cc6b636345aaf90e666815281fe451bfedca80ac7fcc89",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\032_IFSCA publications__EY GIFT City Tax Benefits - IFSCA hosted.txt"
+  },
+  {
+    "name": "033_ICSI__Paper 4.6 - IFSCA Regulations Listing And Compliances.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\033_ICSI__Paper 4.6 - IFSCA Regulations Listing And Compliances.pdf",
+    "bytes": 2151542,
+    "pages": 300,
+    "text_chars": 791729,
+    "word_count": 117522,
+    "low_text_pages": [
+      {
+        "page": 104,
+        "chars": 36,
+        "reason": "low_text"
+      },
+      {
+        "page": 160,
+        "chars": 38,
+        "reason": "low_text"
+      },
+      {
+        "page": 214,
+        "chars": 25,
+        "reason": "low_text"
+      },
+      {
+        "page": 299,
+        "chars": 3,
+        "reason": "low_text"
+      },
+      {
+        "page": 300,
+        "chars": 12,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "b4f3999ae7928e8abb16993317452247d8bffccedeb608cb32cc7e331f4f565d",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\033_ICSI__Paper 4.6 - IFSCA Regulations Listing And Compliances.txt"
+  },
+  {
+    "name": "034_ICSI__Supplement Dec 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\034_ICSI__Supplement Dec 2025.pdf",
+    "bytes": 639872,
+    "pages": 34,
+    "text_chars": 97199,
+    "word_count": 15029,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "11c03069b7cef8678da99fe19401e537577c34a13f2f1bc9d47a3503f4f6a38e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\034_ICSI__Supplement Dec 2025.txt"
+  },
+  {
+    "name": "035_ICSI__Supplement CMSL New Syllabus Dec 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\035_ICSI__Supplement CMSL New Syllabus Dec 2025.pdf",
+    "bytes": 1334623,
+    "pages": 59,
+    "text_chars": 169365,
+    "word_count": 26229,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "57cf8948dd4fff9d184e56452fa648015201cc8778dab5af8d05a891f440ea3a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\035_ICSI__Supplement CMSL New Syllabus Dec 2025.txt"
+  },
+  {
+    "name": "036_ICSI__ICSI Earlier IFSCA Note.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\036_ICSI__ICSI Earlier IFSCA Note.pdf",
+    "bytes": 443796,
+    "pages": 2,
+    "text_chars": 5197,
+    "word_count": 748,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "4d15b4e9bfb66aa03bc6c7cb17acedf9499b6e613cccb892d085569e56559af9",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\036_ICSI__ICSI Earlier IFSCA Note.txt"
+  },
+  {
+    "name": "037_ICSI CSJ__CSJ July 2024 - IFSC overview.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\037_ICSI CSJ__CSJ July 2024 - IFSC overview.pdf",
+    "bytes": 567878,
+    "pages": 2,
+    "text_chars": 9734,
+    "word_count": 1399,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "6c0d06abc6d703be19bec2dd42c533847e053a378027b051cb4f4be4facd3ee8",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\037_ICSI CSJ__CSJ July 2024 - IFSC overview.txt"
+  },
+  {
+    "name": "038_ICSI CSJ__CSJ July 2024 - Payment Services Regulations.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\038_ICSI CSJ__CSJ July 2024 - Payment Services Regulations.pdf",
+    "bytes": 933631,
+    "pages": 3,
+    "text_chars": 11937,
+    "word_count": 1822,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "9906bbf95c68e4425fd0ea9ea8fb66c6cea76e6a1b86c0eae55088cad8d17ee1",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\038_ICSI CSJ__CSJ July 2024 - Payment Services Regulations.txt"
+  },
+  {
+    "name": "039_ICSI CSJ__CSJ July 2024 - IIBX deep dive.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\039_ICSI CSJ__CSJ July 2024 - IIBX deep dive.pdf",
+    "bytes": 625547,
+    "pages": 3,
+    "text_chars": 14085,
+    "word_count": 2180,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "33dadda7123f4d58ce82ac70a3189b3529e5c6a148a01bd5dba336352f1c4e3c",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\039_ICSI CSJ__CSJ July 2024 - IIBX deep dive.txt"
+  },
+  {
+    "name": "040_ICSI CSJ__CSJ July 2024 - ITFS GIFT setup.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\040_ICSI CSJ__CSJ July 2024 - ITFS GIFT setup.pdf",
+    "bytes": 2116688,
+    "pages": 7,
+    "text_chars": 31338,
+    "word_count": 4369,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "a1dc165c8a900ebf85a2be1f2b6fa1727d43ea3a61b076e40022d938aa8136f3",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\040_ICSI CSJ__CSJ July 2024 - ITFS GIFT setup.txt"
+  },
+  {
+    "name": "041_ICSI CSJ__CSJ Jan 2025 - SGrBs at GIFT IFSC.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\041_ICSI CSJ__CSJ Jan 2025 - SGrBs at GIFT IFSC.pdf",
+    "bytes": 1084521,
+    "pages": 3,
+    "text_chars": 11536,
+    "word_count": 1837,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "c4bc1e90448f5ed737cc1ae24d6e5e202b7205a52ac1ad2c3ac5ddc38817bf4e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\041_ICSI CSJ__CSJ Jan 2025 - SGrBs at GIFT IFSC.txt"
+  },
+  {
+    "name": "042_ICSI CSJ__CSJ May 2025 - ListingsSPACsESGLEAP.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\042_ICSI CSJ__CSJ May 2025 - ListingsSPACsESGLEAP.pdf",
+    "bytes": 957496,
+    "pages": 8,
+    "text_chars": 33048,
+    "word_count": 4879,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "a7d561e4bb06577ecda02de47780bfa872c79c70df9490b50982d1cd9ad4f152",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\042_ICSI CSJ__CSJ May 2025 - ListingsSPACsESGLEAP.txt"
+  },
+  {
+    "name": "043_ICSI CSJ__CSJ Jan 2026 - Transition BondsISSB S2.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\043_ICSI CSJ__CSJ Jan 2026 - Transition BondsISSB S2.pdf",
+    "bytes": 308213,
+    "pages": 4,
+    "text_chars": 19946,
+    "word_count": 2676,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "6af6b0de4155becc70f51c51d1456fb505e328002c171f9230265d3340c1c996",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\043_ICSI CSJ__CSJ Jan 2026 - Transition BondsISSB S2.txt"
+  },
+  {
+    "name": "044_ICSI Info Capsule__2025-03-27.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\044_ICSI Info Capsule__2025-03-27.pdf",
+    "bytes": 507941,
+    "pages": 5,
+    "text_chars": 15191,
+    "word_count": 2258,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "287757dbbc7305e5a825bbaf2adaab72b866180acede4a698185af58b0550ead",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\044_ICSI Info Capsule__2025-03-27.txt"
+  },
+  {
+    "name": "045_ICSI Info Capsule__2025-04-21.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\045_ICSI Info Capsule__2025-04-21.pdf",
+    "bytes": 549979,
+    "pages": 4,
+    "text_chars": 12984,
+    "word_count": 1922,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "3e42c8d6c24833983bf5c5409cd80fb0f1bdaef9f5d5cc8eb98a95756f5d1f96",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\045_ICSI Info Capsule__2025-04-21.txt"
+  },
+  {
+    "name": "046_ICSI Info Capsule__2025-06-30.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\046_ICSI Info Capsule__2025-06-30.pdf",
+    "bytes": 528982,
+    "pages": 4,
+    "text_chars": 14247,
+    "word_count": 2119,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "5c99cd2573dc74880c62eceb91a177371725e92b8d4bcd3eab896c257324512d",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\046_ICSI Info Capsule__2025-06-30.txt"
+  },
+  {
+    "name": "047_ICSI Info Capsule__2025-07-30.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\047_ICSI Info Capsule__2025-07-30.pdf",
+    "bytes": 1073249,
+    "pages": 5,
+    "text_chars": 19059,
+    "word_count": 2857,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "db6b7d5017c42f864981c40730becf65ad78ff37e218e00a75f99697d164a33e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\047_ICSI Info Capsule__2025-07-30.txt"
+  },
+  {
+    "name": "048_ICSI Info Capsule__2025-08-07.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\048_ICSI Info Capsule__2025-08-07.pdf",
+    "bytes": 1283069,
+    "pages": 5,
+    "text_chars": 16167,
+    "word_count": 2427,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "7a07243a708b9c2c0c9e380f3f07391ad1249f2bb146901852ce20989623dece",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\048_ICSI Info Capsule__2025-08-07.txt"
+  },
+  {
+    "name": "049_ICSI Info Capsule__2025-09-12.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\049_ICSI Info Capsule__2025-09-12.pdf",
+    "bytes": 513889,
+    "pages": 4,
+    "text_chars": 14755,
+    "word_count": 2204,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "8b0b238e451bfa48005240481634d3d368588c37c6fa3355bfb06da9b4409548",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\049_ICSI Info Capsule__2025-09-12.txt"
+  },
+  {
+    "name": "050_ICSI Info Capsule__2025-09-22.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\050_ICSI Info Capsule__2025-09-22.pdf",
+    "bytes": 529596,
+    "pages": 4,
+    "text_chars": 14273,
+    "word_count": 2132,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "c26c3d32046351ee148106284ee5ba6a2762b41a39000eea8151e1fa9a79a6b8",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\050_ICSI Info Capsule__2025-09-22.txt"
+  },
+  {
+    "name": "051_ICSI Info Capsule__2025-10-17.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\051_ICSI Info Capsule__2025-10-17.pdf",
+    "bytes": 484597,
+    "pages": 4,
+    "text_chars": 12739,
+    "word_count": 1829,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "2265770dacf150bacd6460fdaba31f2ba1a2ddc2798109e87487cd9b6fea4e42",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\051_ICSI Info Capsule__2025-10-17.txt"
+  },
+  {
+    "name": "052_ICSI Info Capsule__2025-10-27.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\052_ICSI Info Capsule__2025-10-27.pdf",
+    "bytes": 1391710,
+    "pages": 4,
+    "text_chars": 14138,
+    "word_count": 2042,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "bb1bb1448a9332a8f1f89736d2062f24d9c8346cf5acc41d51211cb057ae03c8",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\052_ICSI Info Capsule__2025-10-27.txt"
+  },
+  {
+    "name": "053_ICSI Info Capsule__2025-11-18.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\053_ICSI Info Capsule__2025-11-18.pdf",
+    "bytes": 1088692,
+    "pages": 4,
+    "text_chars": 14380,
+    "word_count": 2179,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "697eb740125c492a73e93b3d8de101a6450967af43cd992c633e079bfb56f8e5",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\053_ICSI Info Capsule__2025-11-18.txt"
+  },
+  {
+    "name": "054_ICSI Info Capsule__2025-11-28.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\054_ICSI Info Capsule__2025-11-28.pdf",
+    "bytes": 612005,
+    "pages": 4,
+    "text_chars": 13243,
+    "word_count": 1922,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "05cb6a84cfbe10fbd6c696351cd1abc9ec25c376b3344b052a0dee3c80cac572",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\054_ICSI Info Capsule__2025-11-28.txt"
+  },
+  {
+    "name": "055_ICSI Info Capsule__2025-12-24.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\055_ICSI Info Capsule__2025-12-24.pdf",
+    "bytes": 1523388,
+    "pages": 4,
+    "text_chars": 15061,
+    "word_count": 2227,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "468f0fff1279c0cac29b78d411804eb4f1b8745a031e09ca1dd49c9faba74cf4",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\055_ICSI Info Capsule__2025-12-24.txt"
+  },
+  {
+    "name": "056_ICSI Info Capsule__2026-01-01.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\056_ICSI Info Capsule__2026-01-01.pdf",
+    "bytes": 1882265,
+    "pages": 4,
+    "text_chars": 14563,
+    "word_count": 2246,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d0f720ead8974141b87b9603b6241ff3f67aa4cfc3dc50bf3c6b1c013172896e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\056_ICSI Info Capsule__2026-01-01.txt"
+  },
+  {
+    "name": "057_ICSI Info Capsule__2026-01-06.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\057_ICSI Info Capsule__2026-01-06.pdf",
+    "bytes": 1278786,
+    "pages": 4,
+    "text_chars": 13177,
+    "word_count": 1892,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "dceb8c8c3ca2112be2ae21da621392206ccdb195cdb0c8645a93538bfb8f79b5",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\057_ICSI Info Capsule__2026-01-06.txt"
+  },
+  {
+    "name": "058_ICSI Info Capsule__2026-01-12.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\058_ICSI Info Capsule__2026-01-12.pdf",
+    "bytes": 1589566,
+    "pages": 4,
+    "text_chars": 14228,
+    "word_count": 2092,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "3064ff4af63482fc3585d3991b172d348988284321a33a1ba7463655618aa292",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\058_ICSI Info Capsule__2026-01-12.txt"
+  },
+  {
+    "name": "059_ICSI Info Capsule__2026-01-20.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\059_ICSI Info Capsule__2026-01-20.pdf",
+    "bytes": 1219292,
+    "pages": 4,
+    "text_chars": 13398,
+    "word_count": 1983,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "db49c8dfff85300e1afaa94f3f186b347424adeca34fadbeb2df02ecc408912d",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\059_ICSI Info Capsule__2026-01-20.txt"
+  },
+  {
+    "name": "060_ICSI Info Capsule__2026-01-27.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\060_ICSI Info Capsule__2026-01-27.pdf",
+    "bytes": 576100,
+    "pages": 4,
+    "text_chars": 11063,
+    "word_count": 1664,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "a0e1ef782f27aee286cd35e1f80cfbffafe7af29d275904203cb5c0cd8a5717a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\060_ICSI Info Capsule__2026-01-27.txt"
+  },
+  {
+    "name": "061_ICSI Info Capsule__2026-02-25.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\061_ICSI Info Capsule__2026-02-25.pdf",
+    "bytes": 592963,
+    "pages": 4,
+    "text_chars": 13750,
+    "word_count": 2042,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "e9cc31e6c8fa4abc8040aa1fa2ca9963b5d9b05c4b0843eb3f899bd558527be8",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\061_ICSI Info Capsule__2026-02-25.txt"
+  },
+  {
+    "name": "062_ICSI Info Capsule__2026-03-10.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\062_ICSI Info Capsule__2026-03-10.pdf",
+    "bytes": 1340598,
+    "pages": 4,
+    "text_chars": 13774,
+    "word_count": 2026,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "09924c5bf6d3d2d79d2a9dbb767eb25be790ee4432870af5cc15438dbe9408d6",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\062_ICSI Info Capsule__2026-03-10.txt"
+  },
+  {
+    "name": "063_ICSI Info Capsule__2026-04-06.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\063_ICSI Info Capsule__2026-04-06.pdf",
+    "bytes": 590586,
+    "pages": 4,
+    "text_chars": 15180,
+    "word_count": 2222,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "62560d6f024124416c95f1b346e0df026d42457b91f0d38d3a269e77c55b2aea",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\063_ICSI Info Capsule__2026-04-06.txt"
+  },
+  {
+    "name": "064_ICSI Info Capsule__2026-04-15.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\064_ICSI Info Capsule__2026-04-15.pdf",
+    "bytes": 509853,
+    "pages": 4,
+    "text_chars": 13437,
+    "word_count": 2000,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "0eb34e1129255d64fd42b3647fd8972778da043673b129b4e5073b3323c9d87a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\064_ICSI Info Capsule__2026-04-15.txt"
+  },
+  {
+    "name": "065_ICSI Info Capsule__2026-04-20.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\065_ICSI Info Capsule__2026-04-20.pdf",
+    "bytes": 1194902,
+    "pages": 4,
+    "text_chars": 14542,
+    "word_count": 2204,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "017c482d5d68310be30bc6f32c3ed51491d1f6a6caf1216a21064342c9949000",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\065_ICSI Info Capsule__2026-04-20.txt"
+  },
+  {
+    "name": "066_PwC__Banking in GIFT IFSC.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\066_PwC__Banking in GIFT IFSC.pdf",
+    "bytes": 2491058,
+    "pages": 20,
+    "text_chars": 24879,
+    "word_count": 3733,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 31,
+        "reason": "low_text"
+      },
+      {
+        "page": 3,
+        "chars": 28,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 28,
+        "reason": "low_text"
+      },
+      {
+        "page": 19,
+        "chars": 5,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "8a88902845811963bed1ca54cdeadab063de69c763c677618ac68605b253f96e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\066_PwC__Banking in GIFT IFSC.txt"
+  },
+  {
+    "name": "067_PwC__Capital Markets in GIFT IFSC.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\067_PwC__Capital Markets in GIFT IFSC.pdf",
+    "bytes": 1714068,
+    "pages": 16,
+    "text_chars": 19258,
+    "word_count": 2914,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 39,
+        "reason": "low_text"
+      },
+      {
+        "page": 3,
+        "chars": 36,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 36,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "d6842c4e63fb8cb1d783038e945dfc563db33083914504c6fa66d9d2dee365b0",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\067_PwC__Capital Markets in GIFT IFSC.txt"
+  },
+  {
+    "name": "068_PwC__FinTech in GIFT IFSC - final v1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\068_PwC__FinTech in GIFT IFSC - final v1.pdf",
+    "bytes": 2151805,
+    "pages": 20,
+    "text_chars": 24478,
+    "word_count": 3632,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 31,
+        "reason": "low_text"
+      },
+      {
+        "page": 3,
+        "chars": 28,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 28,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "a92c8914c84d9799e09f3bf5a29a7dfeb9602726f062d8f8d860c0c7e114134a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\068_PwC__FinTech in GIFT IFSC - final v1.txt"
+  },
+  {
+    "name": "069_PwC__FinTech in GIFT IFSC - earlier.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\069_PwC__FinTech in GIFT IFSC - earlier.pdf",
+    "bytes": 2102771,
+    "pages": 20,
+    "text_chars": 24637,
+    "word_count": 3638,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 31,
+        "reason": "low_text"
+      },
+      {
+        "page": 3,
+        "chars": 28,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 28,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "5348ba8d4d7a3f5f454c94169d6edd53f5300bd3e48dc57d61099ad3e25cc7db",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\069_PwC__FinTech in GIFT IFSC - earlier.txt"
+  },
+  {
+    "name": "070_PwC__Asset And Wealth Management.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\070_PwC__Asset And Wealth Management.pdf",
+    "bytes": 3119491,
+    "pages": 28,
+    "text_chars": 32579,
+    "word_count": 4906,
+    "low_text_pages": [
+      {
+        "page": 27,
+        "chars": 5,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "7f068ecf7bd3abaeb82b9863974868700f66965090c535780659fdfce8d3119e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\070_PwC__Asset And Wealth Management.txt"
+  },
+  {
+    "name": "071_PwC__Ship Leasing.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\071_PwC__Ship Leasing.pdf",
+    "bytes": 3228737,
+    "pages": 20,
+    "text_chars": 27567,
+    "word_count": 4233,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 36,
+        "reason": "low_text"
+      },
+      {
+        "page": 3,
+        "chars": 33,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 33,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "afa7274d1576107fdae86d0f5992a01e439507ae1be7e87aca8b3265bc0e13e7",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\071_PwC__Ship Leasing.txt"
+  },
+  {
+    "name": "072_PwC__Aircraft Leasing.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\072_PwC__Aircraft Leasing.pdf",
+    "bytes": 2362530,
+    "pages": 20,
+    "text_chars": 25007,
+    "word_count": 3761,
+    "low_text_pages": [
+      {
+        "page": 3,
+        "chars": 37,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 37,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "20c0c8ab6c54cf2b19700f712ba7493ac736ff44421b0c3e7f5a68e74496262a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\072_PwC__Aircraft Leasing.txt"
+  },
+  {
+    "name": "073_PwC__Aircraft Leasing - final v1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\073_PwC__Aircraft Leasing - final v1.pdf",
+    "bytes": 2419829,
+    "pages": 20,
+    "text_chars": 25350,
+    "word_count": 3822,
+    "low_text_pages": [
+      {
+        "page": 3,
+        "chars": 37,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 37,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "a99f5dbdaec2fd8ee9df9796fd37c512261ad449849cfdfdc983c8fbc05b489f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\073_PwC__Aircraft Leasing - final v1.txt"
+  },
+  {
+    "name": "074_PwC__Opportunities in GIFT IFSC 2024.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\074_PwC__Opportunities in GIFT IFSC 2024.pdf",
+    "bytes": 7727025,
+    "pages": 20,
+    "text_chars": 22035,
+    "word_count": 3297,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "0aeb0e72e6fd0e061511c47223c7ff85de9f07caa3bbc34d0b32d854f2f28434",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\074_PwC__Opportunities in GIFT IFSC 2024.txt"
+  },
+  {
+    "name": "075_PwC__Moving the Needle on Gujarats GIFT City.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\075_PwC__Moving the Needle on Gujarats GIFT City.pdf",
+    "bytes": 5239529,
+    "pages": 28,
+    "text_chars": 48012,
+    "word_count": 7076,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "6664ae90a64439a87c61d3372386c0fb58848aff591f510787a4534d5b465ada",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\075_PwC__Moving the Needle on Gujarats GIFT City.txt"
+  },
+  {
+    "name": "080_EY__GIFT City Advantage Dec 2025 - primary.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\080_EY__GIFT City Advantage Dec 2025 - primary.pdf",
+    "bytes": 11044385,
+    "pages": 68,
+    "text_chars": 123317,
+    "word_count": 20121,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 9,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 42,
+        "chars": 36,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "002addb2209dad7aea253c48caaae2f28f5b0f2044eafcc260fb76ba89c24736",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\080_EY__GIFT City Advantage Dec 2025 - primary.txt"
+  },
+  {
+    "name": "081_EY__GIFT City Advantage Dec 2025 - newsroom.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\081_EY__GIFT City Advantage Dec 2025 - newsroom.pdf",
+    "bytes": 4351550,
+    "pages": 68,
+    "text_chars": 121784,
+    "word_count": 19877,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 7,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 9,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 42,
+        "chars": 36,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "bc1fce27fbc9c21cfd07ae59078ab400c4cf24aa2cd9c6882a6c3ecb2c2d0c0c",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\081_EY__GIFT City Advantage Dec 2025 - newsroom.txt"
+  },
+  {
+    "name": "082_EY__GRCTCs India Advantage.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\082_EY__GRCTCs India Advantage.pdf",
+    "bytes": 1143061,
+    "pages": 20,
+    "text_chars": 37299,
+    "word_count": 5347,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 17,
+        "chars": 2,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "63d7da9a7c6747027c54853b566c9cc24174fa7e3086b6b82b63d5eccf10aa90",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\082_EY__GRCTCs India Advantage.txt"
+  },
+  {
+    "name": "084_EY__FPI Trends 2024 Roundup.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\084_EY__FPI Trends 2024 Roundup.pdf",
+    "bytes": 1248577,
+    "pages": 8,
+    "text_chars": 26558,
+    "word_count": 4188,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "32a4a708dc3baf3290d435f2c1b3b59a2ee20871c1806fce08aa5538d280d3c9",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\084_EY__FPI Trends 2024 Roundup.txt"
+  },
+  {
+    "name": "085_EY__Union Budget 2024 FS Alert.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\085_EY__Union Budget 2024 FS Alert.pdf",
+    "bytes": 1159917,
+    "pages": 9,
+    "text_chars": 24245,
+    "word_count": 3845,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "b64df9742fe1375a6c908dbe33f69881cfe104ccee3ba09807c6a1da992a1cda",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\085_EY__Union Budget 2024 FS Alert.txt"
+  },
+  {
+    "name": "087_IFSCA publications__EY GIFT City Tax Benefits - IFSCA hosted.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\087_IFSCA publications__EY GIFT City Tax Benefits - IFSCA hosted.pdf",
+    "bytes": 689526,
+    "pages": 15,
+    "text_chars": 15548,
+    "word_count": 2447,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 34,
+        "reason": "low_text"
+      },
+      {
+        "page": 12,
+        "chars": 14,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "9306755993e74183b118a83688f7e011699ddc8c9d58d2e3c33e273e97dc5a81",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\087_IFSCA publications__EY GIFT City Tax Benefits - IFSCA hosted.txt"
+  },
+  {
+    "name": "088_Grant Thornton__The World Inside IFSC GIFT City.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\088_Grant Thornton__The World Inside IFSC GIFT City.pdf",
+    "bytes": 1133226,
+    "pages": 48,
+    "text_chars": 133063,
+    "word_count": 20378,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 33,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 35,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 35,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "3427c29a0baa3287095c6583b938cfd7dc4474b6f730e99a83556ddae1313a33",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\088_Grant Thornton__The World Inside IFSC GIFT City.txt"
+  },
+  {
+    "name": "089_Grant Thornton__GIFT City IFSC Banking Perspective.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\089_Grant Thornton__GIFT City IFSC Banking Perspective.pdf",
+    "bytes": 1498153,
+    "pages": 36,
+    "text_chars": 77023,
+    "word_count": 11645,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "088526d1c27c27e5ffec5c87e7274d07ffaa32312f98b2aa11a4158c5f9ccec0",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\089_Grant Thornton__GIFT City IFSC Banking Perspective.txt"
+  },
+  {
+    "name": "093_KPMG__BFSI FPI Newsletter Aug 2024.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\093_KPMG__BFSI FPI Newsletter Aug 2024.pdf",
+    "bytes": 327874,
+    "pages": 5,
+    "text_chars": 16020,
+    "word_count": 2595,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "722afeea047da4b4e155b849afceba37d5b3fa2b8f001d654af6aa3fc628c8cf",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\093_KPMG__BFSI FPI Newsletter Aug 2024.txt"
+  },
+  {
+    "name": "094_KPMG__BFSI FPI Newsletter Jan 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\094_KPMG__BFSI FPI Newsletter Jan 2025.pdf",
+    "bytes": 396763,
+    "pages": 5,
+    "text_chars": 13722,
+    "word_count": 2108,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "69be0f6ac2c0d9e65743546854b00f404328b1de2b9e9cf3664a7120ce008c07",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\094_KPMG__BFSI FPI Newsletter Jan 2025.txt"
+  },
+  {
+    "name": "095_ixamBee__FME Regulations Study Notes.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\095_ixamBee__FME Regulations Study Notes.pdf",
+    "bytes": 474849,
+    "pages": 13,
+    "text_chars": 20621,
+    "word_count": 3006,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "5a01236ae4a576016ab15b4446cf8d1ef14650fd5832dce6fa1ed769bc2ea012",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\095_ixamBee__FME Regulations Study Notes.txt"
+  },
+  {
+    "name": "096_EduTap__Phase 12 Study Material PDF.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\096_EduTap__Phase 12 Study Material PDF.pdf",
+    "bytes": 1064681,
+    "pages": 6,
+    "text_chars": 6621,
+    "word_count": 1080,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "7c1fd333cbd08eaa95dc51cc07077387b9fd4494bfdb2bdcc76ec1fd8827c4a3",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\096_EduTap__Phase 12 Study Material PDF.txt"
+  },
+  {
+    "name": "097_IndiaCode__IFSCA Act 2019 current.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\097_IndiaCode__IFSCA Act 2019 current.pdf",
+    "bytes": 298473,
+    "pages": 21,
+    "text_chars": 51255,
+    "word_count": 8024,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "5234dd537c9fc1912f61b67fa76f639792f7a264c73150b981183815b1608417",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\097_IndiaCode__IFSCA Act 2019 current.txt"
+  },
+  {
+    "name": "098_IFSCA publications__Annual Report 2024-25 English.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\098_IFSCA publications__Annual Report 2024-25 English.pdf",
+    "bytes": 18263880,
+    "pages": 220,
+    "text_chars": 392908,
+    "word_count": 58547,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 5,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 6,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 7,
+        "chars": 9,
+        "reason": "low_text"
+      },
+      {
+        "page": 8,
+        "chars": 2,
+        "reason": "low_text"
+      },
+      {
+        "page": 10,
+        "chars": 2,
+        "reason": "low_text"
+      },
+      {
+        "page": 44,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 182,
+        "chars": 3,
+        "reason": "low_text"
+      },
+      {
+        "page": 200,
+        "chars": 3,
+        "reason": "low_text"
+      },
+      {
+        "page": 203,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 214,
+        "chars": 3,
+        "reason": "low_text"
+      },
+      {
+        "page": 215,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 216,
+        "chars": 5,
+        "reason": "low_text"
+      },
+      {
+        "page": 217,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 218,
+        "chars": 5,
+        "reason": "low_text"
+      },
+      {
+        "page": 219,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 220,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "609802ae87453873862c434a139f545e02f160d66491d662f81ea1e6d2d1450f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\098_IFSCA publications__Annual Report 2024-25 English.txt"
+  },
+  {
+    "name": "099_IFSCA publications__Annual Report 2024-25 Bilingual.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\099_IFSCA publications__Annual Report 2024-25 Bilingual.pdf",
+    "bytes": 11599651,
+    "pages": 436,
+    "text_chars": 830492,
+    "word_count": 167338,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 5,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 6,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 7,
+        "chars": 8,
+        "reason": "low_text"
+      },
+      {
+        "page": 8,
+        "chars": 2,
+        "reason": "low_text"
+      },
+      {
+        "page": 29,
+        "chars": 22,
+        "reason": "low_text"
+      },
+      {
+        "page": 44,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 182,
+        "chars": 3,
+        "reason": "low_text"
+      },
+      {
+        "page": 183,
+        "chars": 27,
+        "reason": "low_text"
+      },
+      {
+        "page": 189,
+        "chars": 37,
+        "reason": "low_text"
+      },
+      {
+        "page": 200,
+        "chars": 3,
+        "reason": "low_text"
+      },
+      {
+        "page": 203,
+        "chars": 14,
+        "reason": "low_text"
+      },
+      {
+        "page": 216,
+        "chars": 4,
+        "reason": "low_text"
+      },
+      {
+        "page": 218,
+        "chars": 4,
+        "reason": "low_text"
+      },
+      {
+        "page": 220,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 221,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 222,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 223,
+        "chars": 9,
+        "reason": "low_text"
+      },
+      {
+        "page": 224,
+        "chars": 2,
+        "reason": "low_text"
+      },
+      {
+        "page": 226,
+        "chars": 2,
+        "reason": "low_text"
+      },
+      {
+        "page": 260,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 398,
+        "chars": 3,
+        "reason": "low_text"
+      },
+      {
+        "page": 416,
+        "chars": 3,
+        "reason": "low_text"
+      },
+      {
+        "page": 419,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 430,
+        "chars": 3,
+        "reason": "low_text"
+      },
+      {
+        "page": 431,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 432,
+        "chars": 5,
+        "reason": "low_text"
+      },
+      {
+        "page": 433,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 434,
+        "chars": 5,
+        "reason": "low_text"
+      },
+      {
+        "page": 435,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 436,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "15d21a2d930a9c7b593132ae584fb0eab95b1812d467c9e871d9e5fb7fb4243d",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\099_IFSCA publications__Annual Report 2024-25 Bilingual.txt"
+  },
+  {
+    "name": "100_IFSCA publications__Bulletin Apr-Jun 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\100_IFSCA publications__Bulletin Apr-Jun 2025.pdf",
+    "bytes": 4283996,
+    "pages": 38,
+    "text_chars": 86980,
+    "word_count": 12046,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "fa21409304dfa2a666a69a0c7f1cb82cf24fd8588be3c5853cc41a90e466748b",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\100_IFSCA publications__Bulletin Apr-Jun 2025.txt"
+  },
+  {
+    "name": "101_IFSCA publications__Bulletin Jul-Sep 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\101_IFSCA publications__Bulletin Jul-Sep 2025.pdf",
+    "bytes": 19688907,
+    "pages": 68,
+    "text_chars": 148296,
+    "word_count": 21009,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "c5fc189c84afdc696287732d0020ce8b6c25854820a9931b0aba257b9dbb8524",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\101_IFSCA publications__Bulletin Jul-Sep 2025.txt"
+  },
+  {
+    "name": "102_IFSCA publications__Bulletin Oct-Dec 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\102_IFSCA publications__Bulletin Oct-Dec 2025.pdf",
+    "bytes": 15159413,
+    "pages": 64,
+    "text_chars": 160372,
+    "word_count": 23129,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "8d115f1954492654f53c4144e8f0316fe7076925051e356cf0bb889b61f1bb7a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\102_IFSCA publications__Bulletin Oct-Dec 2025.txt"
+  },
+  {
+    "name": "103_IFSCA TAS__Draft Regulations May 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\103_IFSCA TAS__Draft Regulations May 2025.pdf",
+    "bytes": 612291,
+    "pages": 20,
+    "text_chars": 32680,
+    "word_count": 4683,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "68a1504896d1b47025636433759b3e4e78fb2bfa087293b588c58e91521c1aa9",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\103_IFSCA TAS__Draft Regulations May 2025.txt"
+  },
+  {
+    "name": "104_IFSCA TAS__Draft Public Comments Bundle Jul 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\104_IFSCA TAS__Draft Public Comments Bundle Jul 2025.pdf",
+    "bytes": 282553,
+    "pages": 4,
+    "text_chars": 9043,
+    "word_count": 1226,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "5f753d53d51578a677ee081ce3f7150bf57e5cee1d55616b601505ece9b8cffc",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\104_IFSCA TAS__Draft Public Comments Bundle Jul 2025.txt"
+  },
+  {
+    "name": "105_IFSCA TAS__Final Regulations 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\105_IFSCA TAS__Final Regulations 2025.pdf",
+    "bytes": 1027922,
+    "pages": 28,
+    "text_chars": 58271,
+    "word_count": 12699,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "58ad451780bbf1726e585039e46b39b1410bcfb8e290d08b3d5b97dee6753683",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\105_IFSCA TAS__Final Regulations 2025.txt"
+  },
+  {
+    "name": "106_IFSCA TAS__Transition Circular Jul 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\106_IFSCA TAS__Transition Circular Jul 2025.pdf",
+    "bytes": 717923,
+    "pages": 2,
+    "text_chars": 156,
+    "word_count": 18,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "9bca265ba1b354d413be84bba4f0046a431ac8685e2e3dd327b01049709c42b7",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\106_IFSCA TAS__Transition Circular Jul 2025.txt"
+  },
+  {
+    "name": "107_IFSCA TAS__FAQs Dec 2025.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\107_IFSCA TAS__FAQs Dec 2025.pdf",
+    "bytes": 308666,
+    "pages": 8,
+    "text_chars": 17516,
+    "word_count": 2560,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "5720e069a57d979a5c856be8a48133102ced1965c46f9c5bd68721ada46a4eef",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\107_IFSCA TAS__FAQs Dec 2025.txt"
+  },
+  {
+    "name": "108_ICSI Info Capsule__2025-01-10.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\108_ICSI Info Capsule__2025-01-10.pdf",
+    "bytes": 463409,
+    "pages": 3,
+    "text_chars": 8412,
+    "word_count": 1283,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "4d9c91259ebcf25d34f031405ee21c68add14f553daf9f6fffdf98d9935de758",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\108_ICSI Info Capsule__2025-01-10.txt"
+  },
+  {
+    "name": "109_ICSI Info Capsule__2025-02-14.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\109_ICSI Info Capsule__2025-02-14.pdf",
+    "bytes": 519430,
+    "pages": 5,
+    "text_chars": 17069,
+    "word_count": 2598,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "2b199966c136aacf999db1189b933edd9d617bfaf4de578cfa5a9ba9448400f1",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\109_ICSI Info Capsule__2025-02-14.txt"
+  },
+  {
+    "name": "110_ICSI Info Capsule__2025-02-19.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\110_ICSI Info Capsule__2025-02-19.pdf",
+    "bytes": 519525,
+    "pages": 5,
+    "text_chars": 14498,
+    "word_count": 2125,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "a3e26e28e7d7bda19ac7d942d3761b226b2fcfa0de31d3b61c3d41e69403a9af",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\110_ICSI Info Capsule__2025-02-19.txt"
+  },
+  {
+    "name": "111_ICSI Info Capsule__2025-04-08.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\111_ICSI Info Capsule__2025-04-08.pdf",
+    "bytes": 1161489,
+    "pages": 5,
+    "text_chars": 11055,
+    "word_count": 1631,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "923292bbc4d8bca1be63012130db9eb29cdd6531342ffab9bc3c69f3b9d76f0e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\111_ICSI Info Capsule__2025-04-08.txt"
+  },
+  {
+    "name": "112_ICSI Info Capsule__2026-01-15.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\112_ICSI Info Capsule__2026-01-15.pdf",
+    "bytes": 473213,
+    "pages": 4,
+    "text_chars": 14138,
+    "word_count": 2120,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "99a3ce5108ec282932932f02ef136e26e4bd8afbc3283d7a9cd7a6916615a39b",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\112_ICSI Info Capsule__2026-01-15.txt"
+  },
+  {
+    "name": "113_ICSI Info Capsule__2026-02-09.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\113_ICSI Info Capsule__2026-02-09.pdf",
+    "bytes": 548512,
+    "pages": 4,
+    "text_chars": 14269,
+    "word_count": 2187,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "8769296f53a9cedfd4adc19938ca63b1eb523090900b12f8adc6d4ea61384ecf",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\113_ICSI Info Capsule__2026-02-09.txt"
+  },
+  {
+    "name": "114_EY__Global Commodity Trade via GIFT City 2026.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\114_EY__Global Commodity Trade via GIFT City 2026.pdf",
+    "bytes": 4268716,
+    "pages": 20,
+    "text_chars": 62611,
+    "word_count": 8876,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "2ad9dddf36a3d5740d06df2b76996cf5533f80e00d8a8b2309fdb46b27207b40",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\114_EY__Global Commodity Trade via GIFT City 2026.txt"
+  },
+  {
+    "name": "115_PwC__FinTech in GIFT IFSC - v2.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\115_PwC__FinTech in GIFT IFSC - v2.pdf",
+    "bytes": 2034164,
+    "pages": 16,
+    "text_chars": 24477,
+    "word_count": 3641,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "639e9e93a7c92a59241a2c9228c2a6de3ff4d1ddb93640c127cb27f5edf404de",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\115_PwC__FinTech in GIFT IFSC - v2.txt"
+  },
+  {
+    "name": "2-Application-Form-for-Innovation-and-Regulatory-Sandbox100520241927.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\2-Application-Form-for-Innovation-and-Regulatory-Sandbox100520241927.pdf",
+    "bytes": 468032,
+    "pages": 13,
+    "text_chars": 20162,
+    "word_count": 3049,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "ea16484c6f4a64674f37e093b82110962bfea9dd6bb73ae86d62a7e56353c5a4",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\2-Application-Form-for-Innovation-and-Regulatory-Sandbox100520241927.txt"
+  },
+  {
+    "name": "Accounts-Part-1-PFRDA-IFSCA-Grade-A.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Accounts-Part-1-PFRDA-IFSCA-Grade-A.pdf",
+    "bytes": 4863402,
+    "pages": 39,
+    "text_chars": 12223,
+    "word_count": 2022,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 3,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 5,
+        "chars": 11,
+        "reason": "low_text"
+      },
+      {
+        "page": 6,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 7,
+        "chars": 11,
+        "reason": "low_text"
+      },
+      {
+        "page": 8,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 9,
+        "chars": 11,
+        "reason": "low_text"
+      },
+      {
+        "page": 10,
+        "chars": 13,
+        "reason": "low_text"
+      },
+      {
+        "page": 11,
+        "chars": 11,
+        "reason": "low_text"
+      },
+      {
+        "page": 13,
+        "chars": 11,
+        "reason": "low_text"
+      },
+      {
+        "page": 21,
+        "chars": 11,
+        "reason": "low_text"
+      },
+      {
+        "page": 29,
+        "chars": 11,
+        "reason": "low_text"
+      },
+      {
+        "page": 36,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 37,
+        "chars": 24,
+        "reason": "low_text"
+      },
+      {
+        "page": 38,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "052228fa990277e5e2d593180629609781bc0e2752210431dbf97af15dc4bca7",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Accounts-Part-1-PFRDA-IFSCA-Grade-A.txt"
+  },
+  {
+    "name": "Amendments-and-Additions-or-Deletions-to-the-IFSCA-Banking-Handbook.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Amendments-and-Additions-or-Deletions-to-the-IFSCA-Banking-Handbook.pdf",
+    "bytes": 224011,
+    "pages": 7,
+    "text_chars": 7039,
+    "word_count": 1120,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "51524a81457f5ae7f3cbd23e316f2dd35e744e4ef96f01834d750ff24dcdc8db",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Amendments-and-Additions-or-Deletions-to-the-IFSCA-Banking-Handbook.txt"
+  },
+  {
+    "name": "Bullion.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Bullion.pdf",
+    "bytes": 27184067,
+    "pages": 23,
+    "text_chars": 1003,
+    "word_count": 115,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 3,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 5,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 6,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 7,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 8,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 9,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 10,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 11,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 12,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 13,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 14,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 15,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 16,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 17,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 18,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 19,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 20,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 21,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 22,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 23,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "28eb29a4fd3b92ea4dbaa56ef5590a4cdec769fce9887b8f23da336740d11a62",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Bullion.txt"
+  },
+  {
+    "name": "Costing-Ifsca-Only-Ifsca-Only-Costing-Methods.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Costing-Ifsca-Only-Ifsca-Only-Costing-Methods.pdf",
+    "bytes": 14292607,
+    "pages": 19,
+    "text_chars": 123028,
+    "word_count": 36996,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "f07536d967afe670cd92dc19e0403587fc6790242fbf74e2160d376d521ca324",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Costing-Ifsca-Only-Ifsca-Only-Costing-Methods.txt"
+  },
+  {
+    "name": "discovered_001_IFSCA_Holiday_List.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_001_IFSCA_Holiday_List.pdf",
+    "bytes": 102648,
+    "pages": 2,
+    "text_chars": 136,
+    "word_count": 10,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "0e444f2ea72c3391189fbfc8f4885b1b6762bfb34c6a46eb65357d6a4e12c46a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_001_IFSCA_Holiday_List.txt"
+  },
+  {
+    "name": "discovered_002_All-in-One-Current-Affairs-Booster-1st-to-7th-March-2026.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_002_All-in-One-Current-Affairs-Booster-1st-to-7th-March-2026.pdf",
+    "bytes": 1875836,
+    "pages": 35,
+    "text_chars": 78917,
+    "word_count": 10472,
+    "low_text_pages": [
+      {
+        "page": 35,
+        "chars": 12,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "f97509a89a0a874d116ab0e3b60f60f4cc5813b4f8beb41a119b3fcd36d86b60",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_002_All-in-One-Current-Affairs-Booster-1st-to-7th-March-2026.txt"
+  },
+  {
+    "name": "discovered_003_All-in-One-Current-Affairs-Booster-1st-to-7th-February-2026.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_003_All-in-One-Current-Affairs-Booster-1st-to-7th-February-2026.pdf",
+    "bytes": 1579621,
+    "pages": 40,
+    "text_chars": 93623,
+    "word_count": 12324,
+    "low_text_pages": [
+      {
+        "page": 40,
+        "chars": 12,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "2c7236c77c59176b374a94425e381154a6aa5a926d49a499b6f59ad947db046f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_003_All-in-One-Current-Affairs-Booster-1st-to-7th-February-2026.txt"
+  },
+  {
+    "name": "discovered_004_All-in-One-Current-Affairs-Booster-5th-to-15th-January-2026.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_004_All-in-One-Current-Affairs-Booster-5th-to-15th-January-2026.pdf",
+    "bytes": 1771617,
+    "pages": 44,
+    "text_chars": 105935,
+    "word_count": 13861,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 36,
+        "reason": "low_text"
+      },
+      {
+        "page": 44,
+        "chars": 12,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "aa626c2ec8ed782ea126d42128b9e62a9d0f85a08f777a65b0d09f0f3ea9f050",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_004_All-in-One-Current-Affairs-Booster-5th-to-15th-January-2026.txt"
+  },
+  {
+    "name": "discovered_005_CurrentTap-1st-to-7th-Feburary-2026.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_005_CurrentTap-1st-to-7th-Feburary-2026.pdf",
+    "bytes": 1562474,
+    "pages": 38,
+    "text_chars": 85149,
+    "word_count": 11019,
+    "low_text_pages": [
+      {
+        "page": 38,
+        "chars": 12,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "25909839ee73321102dc48c27ca5e2641020516374e3ea4ae01c2dcb505996e1",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_005_CurrentTap-1st-to-7th-Feburary-2026.txt"
+  },
+  {
+    "name": "discovered_006_CurrentTap-1st-to-7th-March-2026.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_006_CurrentTap-1st-to-7th-March-2026.pdf",
+    "bytes": 2144564,
+    "pages": 34,
+    "text_chars": 72284,
+    "word_count": 9308,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 35,
+        "reason": "low_text"
+      },
+      {
+        "page": 34,
+        "chars": 12,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "9260c53ceff6e31ae28dd0498a858a7858436eab6fbb0fa3b8341d5c2fde91ba",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_006_CurrentTap-1st-to-7th-March-2026.txt"
+  },
+  {
+    "name": "discovered_007_CurrentTap-1st-to-7th-January-2026-1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_007_CurrentTap-1st-to-7th-January-2026-1.pdf",
+    "bytes": 1328665,
+    "pages": 31,
+    "text_chars": 63050,
+    "word_count": 7886,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 37,
+        "reason": "low_text"
+      },
+      {
+        "page": 31,
+        "chars": 12,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "84eee13089ff19e38ac28c051c707dbd92bd9fd5c6d6101a6c8776b6caef78ee",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_007_CurrentTap-1st-to-7th-January-2026-1.txt"
+  },
+  {
+    "name": "discovered_008_IFSCA-Grade-A-2025-Phase-1-result.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_008_IFSCA-Grade-A-2025-Phase-1-result.pdf",
+    "bytes": 269978,
+    "pages": 1,
+    "text_chars": 1284,
+    "word_count": 216,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "92af95d0ccceb3489ae22c54e1b4b47255ed2ea403f0986e9a14c411a9e7f7cd",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_008_IFSCA-Grade-A-2025-Phase-1-result.txt"
+  },
+  {
+    "name": "discovered_009_IFSCA-Grade-A-2025-Phase-2-result.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_009_IFSCA-Grade-A-2025-Phase-2-result.pdf",
+    "bytes": 251894,
+    "pages": 4,
+    "text_chars": 4415,
+    "word_count": 643,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "8c305792b2820a01c4f76f9850e835153aa944a11ec6e7f6e6ab53ad3883eb04",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_009_IFSCA-Grade-A-2025-Phase-2-result.txt"
+  },
+  {
+    "name": "discovered_010_IFSCA-Grade-A-2025-final-result.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_010_IFSCA-Grade-A-2025-final-result.pdf",
+    "bytes": 207919,
+    "pages": 2,
+    "text_chars": 2885,
+    "word_count": 424,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "2e3a346a985848320c6c3a32e460827728d2923aef5ac0853486662d0610792f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_010_IFSCA-Grade-A-2025-final-result.txt"
+  },
+  {
+    "name": "discovered_011_ifsca-information-handout-english.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_011_ifsca-information-handout-english.pdf",
+    "bytes": 228544,
+    "pages": 7,
+    "text_chars": 24428,
+    "word_count": 4105,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "0884aadb1051ccd483209db9c6e7c1480ec5439990236ed84f36363942e56fe0",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_011_ifsca-information-handout-english.txt"
+  },
+  {
+    "name": "discovered_012_ifsca-information-handout-hindi.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_012_ifsca-information-handout-hindi.pdf",
+    "bytes": 441424,
+    "pages": 7,
+    "text_chars": 23387,
+    "word_count": 6681,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "b7275ec3989275f46b4d7006b9d716296ef5d96e9d27ecd8b9dc88d232c6a0ac",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_012_ifsca-information-handout-hindi.txt"
+  },
+  {
+    "name": "discovered_013_ifsca-phase-2-info-handout-english.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_013_ifsca-phase-2-info-handout-english.pdf",
+    "bytes": 259591,
+    "pages": 7,
+    "text_chars": 25663,
+    "word_count": 4196,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d8f10786ba5238f86457c245768c580c6474a3ec53994e823d1926bea4b7047d",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_013_ifsca-phase-2-info-handout-english.txt"
+  },
+  {
+    "name": "discovered_014_ifsca-phase-2-info-handout-hindi.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_014_ifsca-phase-2-info-handout-hindi.pdf",
+    "bytes": 614799,
+    "pages": 6,
+    "text_chars": 25009,
+    "word_count": 6829,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "ecec403492aff76632f474dfe6c73d8cdfccef75b96fbea164680e5dfdc9d39f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_014_ifsca-phase-2-info-handout-hindi.txt"
+  },
+  {
+    "name": "discovered_015_IFSCA-Grade-A-Syllabus.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_015_IFSCA-Grade-A-Syllabus.pdf",
+    "bytes": 244169,
+    "pages": 6,
+    "text_chars": 12336,
+    "word_count": 1592,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "58752dea372df048ab51ca2b36e1e5f2b8e17080748bc12fe0107b74f68119fa",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_015_IFSCA-Grade-A-Syllabus.txt"
+  },
+  {
+    "name": "discovered_016_IFSCA_Grade_A_2024_Memory_Based_Phase_1-Question_Paper_1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_016_IFSCA_Grade_A_2024_Memory_Based_Phase_1-Question_Paper_1.pdf",
+    "bytes": 1193718,
+    "pages": 38,
+    "text_chars": 45683,
+    "word_count": 7403,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "1bc9912ca5c96f3ef907d03af12db249aed4d4a0cd02e8f78b215eba337a3c5f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_016_IFSCA_Grade_A_2024_Memory_Based_Phase_1-Question_Paper_1.txt"
+  },
+  {
+    "name": "discovered_017_IFSCA_Grade_A_2024_Memory_Based_Phase_2_Question-Paper_1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_017_IFSCA_Grade_A_2024_Memory_Based_Phase_2_Question-Paper_1.pdf",
+    "bytes": 934680,
+    "pages": 19,
+    "text_chars": 32192,
+    "word_count": 4595,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "4a61eb475c4d1c9f058880da9e7d702d4ec15d13cad1c9c346dc5e4c3eb75a44",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_017_IFSCA_Grade_A_2024_Memory_Based_Phase_2_Question-Paper_1.txt"
+  },
+  {
+    "name": "discovered_018_IFSCA_Grade_A_2024_Memory_Based_Phase_1_Paper_1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_018_IFSCA_Grade_A_2024_Memory_Based_Phase_1_Paper_1.pdf",
+    "bytes": 1193718,
+    "pages": 38,
+    "text_chars": 45341,
+    "word_count": 7365,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "36497eb2d37ec55d2926399b86b0e5c8f0071fb8b229fdb609b43d932128171e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_018_IFSCA_Grade_A_2024_Memory_Based_Phase_1_Paper_1.txt"
+  },
+  {
+    "name": "discovered_019_IFSCA_Grade_A_2024_Memory_Based_Phase_2_Paper_1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_019_IFSCA_Grade_A_2024_Memory_Based_Phase_2_Paper_1.pdf",
+    "bytes": 934680,
+    "pages": 19,
+    "text_chars": 32021,
+    "word_count": 4576,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "6d19e3b2370af45e4838320be9bd451dd906f4ba8440bdd913a5c8a1a14bf453",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_019_IFSCA_Grade_A_2024_Memory_Based_Phase_2_Paper_1.txt"
+  },
+  {
+    "name": "discovered_020_IFSCAGENERAL.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_020_IFSCAGENERAL.pdf",
+    "bytes": 116331,
+    "pages": 1,
+    "text_chars": 306,
+    "word_count": 34,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "2889e8b9b51307dc259097bb30f8f8b029fd70685a6f14c053a6f2efd50aa15d",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_020_IFSCAGENERAL.txt"
+  },
+  {
+    "name": "discovered_021_IFSCALEGAL.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_021_IFSCALEGAL.pdf",
+    "bytes": 112592,
+    "pages": 1,
+    "text_chars": 194,
+    "word_count": 20,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "9088d69e7f9a4f57ea92f42632fb84948803eb8efb69ffbccad62c3900093952",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_021_IFSCALEGAL.txt"
+  },
+  {
+    "name": "discovered_022_ahmedabad.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_022_ahmedabad.pdf",
+    "bytes": 763018,
+    "pages": 5,
+    "text_chars": 18549,
+    "word_count": 1862,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "cce433a08c126a1cf6e9cb336ce38b1d323cbcd153b33da8374f71ef26cd485f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_022_ahmedabad.txt"
+  },
+  {
+    "name": "discovered_022_IFSCA_Grade_A_2022_Phase_1_Paper_2_ixamBee.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_022_IFSCA_Grade_A_2022_Phase_1_Paper_2_ixamBee.pdf",
+    "bytes": 254588,
+    "pages": 20,
+    "text_chars": 16654,
+    "word_count": 2614,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "39272dc49bb60b816fec9b5b67d765ac0014e17f1c46e580235f3557e5ccaab1",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_022_IFSCA_Grade_A_2022_Phase_1_Paper_2_ixamBee.txt"
+  },
+  {
+    "name": "discovered_023_AJMER_RESULT.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_023_AJMER_RESULT.pdf",
+    "bytes": 802169,
+    "pages": 9,
+    "text_chars": 31133,
+    "word_count": 2725,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "20cf8f102c2e382286a36b55220c83b4a2dc6e27975f3b0db854e312c08ced98",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_023_AJMER_RESULT.txt"
+  },
+  {
+    "name": "discovered_023_IFSCA_Grade_A_2023_Phase_1_Paper_1_Shift_1_ixamBee.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_023_IFSCA_Grade_A_2023_Phase_1_Paper_1_Shift_1_ixamBee.pdf",
+    "bytes": 337366,
+    "pages": 59,
+    "text_chars": 71334,
+    "word_count": 11613,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "b7792d54e38d32627d5796470fa3539d6dd332802596eef2c6b4c7072007fa52",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_023_IFSCA_Grade_A_2023_Phase_1_Paper_1_Shift_1_ixamBee.txt"
+  },
+  {
+    "name": "discovered_024_allahabad.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_024_allahabad.pdf",
+    "bytes": 372353,
+    "pages": 15,
+    "text_chars": 49282,
+    "word_count": 4012,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "9e916bd0233b221486ba6a51a3211f9a78145ffb3f8d222675c33e84914696cd",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_024_allahabad.txt"
+  },
+  {
+    "name": "discovered_024_IFSCA_Grade_A_2023_Phase_1_Paper_2_ixamBee.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_024_IFSCA_Grade_A_2023_Phase_1_Paper_2_ixamBee.pdf",
+    "bytes": 254213,
+    "pages": 20,
+    "text_chars": 16202,
+    "word_count": 2504,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d0dafcd43c4101b6c9868f6f29902c6764bc89981a80b1a21a66b004f80d88c0",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_024_IFSCA_Grade_A_2023_Phase_1_Paper_2_ixamBee.txt"
+  },
+  {
+    "name": "discovered_025_banglore.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_025_banglore.pdf",
+    "bytes": 425430,
+    "pages": 8,
+    "text_chars": 27050,
+    "word_count": 2531,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "7a896b9113e02a1d6121e93283fe0fc713bfe42613f1c6e9ca55d8b27008bf97",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_025_banglore.txt"
+  },
+  {
+    "name": "discovered_025_IFSCA_Grade_A_2023_Phase_1_Paper_1_Shift_2_ixamBee.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_025_IFSCA_Grade_A_2023_Phase_1_Paper_1_Shift_2_ixamBee.pdf",
+    "bytes": 332479,
+    "pages": 62,
+    "text_chars": 82984,
+    "word_count": 13475,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "ee97f911d7eb82f4a98a5d012fcd7078414bcae65344c711d6682d3c6a36b769",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_025_IFSCA_Grade_A_2023_Phase_1_Paper_1_Shift_2_ixamBee.txt"
+  },
+  {
+    "name": "discovered_026_DV-publishing-document-of-CEN-03-2018_RRB_Bhopal-V2.0-011119.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_026_DV-publishing-document-of-CEN-03-2018_RRB_Bhopal-V2.0-011119.pdf",
+    "bytes": 724879,
+    "pages": 7,
+    "text_chars": 21274,
+    "word_count": 2154,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "a407640ea183fbaf62005cecfaec17799b5bd83001273a89e7a8345051600bf0",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_026_DV-publishing-document-of-CEN-03-2018_RRB_Bhopal-V2.0-011119.txt"
+  },
+  {
+    "name": "discovered_026_IFSCA_Grade_A_2023_Phase_2_Paper_2_General_ixamBee.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_026_IFSCA_Grade_A_2023_Phase_2_Paper_2_General_ixamBee.pdf",
+    "bytes": 254123,
+    "pages": 20,
+    "text_chars": 16344,
+    "word_count": 2722,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "5281b0a0d56974d68db920c02e3d52cc2cea3dd06b304cd6fd4485d2d229865d",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_026_IFSCA_Grade_A_2023_Phase_2_Paper_2_General_ixamBee.txt"
+  },
+  {
+    "name": "discovered_027_bhuvneshwar.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_027_bhuvneshwar.pdf",
+    "bytes": 695774,
+    "pages": 4,
+    "text_chars": 14078,
+    "word_count": 1610,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d5bab661742bd014d303824a4896adec2036b94383c1edbc7d6fdb37bf306687",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_027_bhuvneshwar.txt"
+  },
+  {
+    "name": "discovered_027_IFSCA_2023_Phase_2_Paper_2_General_static_ixamBee.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_027_IFSCA_2023_Phase_2_Paper_2_General_static_ixamBee.pdf",
+    "bytes": 125194,
+    "pages": 25,
+    "text_chars": 35942,
+    "word_count": 5842,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "c7d89ed4f765661d8f9a946dca1c1647547675884706f0c1ca0c26a1ee5a47a3",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_027_IFSCA_2023_Phase_2_Paper_2_General_static_ixamBee.txt"
+  },
+  {
+    "name": "discovered_028_Bilaspur.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_028_Bilaspur.pdf",
+    "bytes": 493425,
+    "pages": 6,
+    "text_chars": 20155,
+    "word_count": 1950,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "fa1870517d73bf63c3053a80d5dc848c49a77dbc2767fc6ef018be347ef80775",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_028_Bilaspur.txt"
+  },
+  {
+    "name": "discovered_029_chandigarh.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_029_chandigarh.pdf",
+    "bytes": 816118,
+    "pages": 10,
+    "text_chars": 34781,
+    "word_count": 2973,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "5be48541a5f0657f801f14c60a3a5f88aa7650c0ad7682573602d9568ce8f6f5",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_029_chandigarh.txt"
+  },
+  {
+    "name": "discovered_030_Chennai.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_030_Chennai.pdf",
+    "bytes": 870691,
+    "pages": 11,
+    "text_chars": 39002,
+    "word_count": 3316,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "102e93ce3369e3508f2f60a8c6cec86a87589bcad6b876284f7f951b53573080",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_030_Chennai.txt"
+  },
+  {
+    "name": "discovered_031_DVCEN-03-2018_RRB_Gorakhpur-V2.1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_031_DVCEN-03-2018_RRB_Gorakhpur-V2.1.pdf",
+    "bytes": 846500,
+    "pages": 10,
+    "text_chars": 31650,
+    "word_count": 2831,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "b5a18d3b7d67cbd000ffa79e3b9fee4338738ca5939acb2c450f70bf1754f32e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_031_DVCEN-03-2018_RRB_Gorakhpur-V2.1.txt"
+  },
+  {
+    "name": "discovered_032_DV-publishing-document-of-CEN-03-2018_RRB_Guwahati-V2.1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_032_DV-publishing-document-of-CEN-03-2018_RRB_Guwahati-V2.1.pdf",
+    "bytes": 753215,
+    "pages": 7,
+    "text_chars": 24156,
+    "word_count": 2246,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "60037de1ab6db60de4c9688454ce77884883f32ed22880b130561e5fe92be458",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_032_DV-publishing-document-of-CEN-03-2018_RRB_Guwahati-V2.1.txt"
+  },
+  {
+    "name": "discovered_033_Jammu.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_033_Jammu.pdf",
+    "bytes": 897330,
+    "pages": 8,
+    "text_chars": 22708,
+    "word_count": 2177,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "02dae7e7a94fe0c4ecd08931228924ec679a4f4e4c7b13c90ed57896fcf04db4",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_033_Jammu.txt"
+  },
+  {
+    "name": "discovered_034_DV-publishing-document-of-CEN-03-2018_RRB_-KOLKATA-V2.1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_034_DV-publishing-document-of-CEN-03-2018_RRB_-KOLKATA-V2.1.pdf",
+    "bytes": 892706,
+    "pages": 15,
+    "text_chars": 52972,
+    "word_count": 4464,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "4286ba7bd314acddf67249c49b071af148cfde8bd79de2155ab34130f3595c59",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_034_DV-publishing-document-of-CEN-03-2018_RRB_-KOLKATA-V2.1.txt"
+  },
+  {
+    "name": "discovered_035_Malda.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_035_Malda.pdf",
+    "bytes": 479142,
+    "pages": 4,
+    "text_chars": 15469,
+    "word_count": 1622,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "8c150aeb6b97f63830eb2cdea5ecbc2f30763feda8db47b8d40376ff6b00385a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_035_Malda.txt"
+  },
+  {
+    "name": "discovered_036_Mumbai.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_036_Mumbai.pdf",
+    "bytes": 882774,
+    "pages": 14,
+    "text_chars": 49395,
+    "word_count": 4093,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "012feb949544c1c96574b94aefba2bdf7bddaf75f299613340ee342199228c5f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_036_Mumbai.txt"
+  },
+  {
+    "name": "discovered_037_CEN-03-2018-DV-Result.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_037_CEN-03-2018-DV-Result.pdf",
+    "bytes": 559376,
+    "pages": 3,
+    "text_chars": 9971,
+    "word_count": 1269,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d3db9610b6bd2734b93673a30f31f40c556c2a36fde367e394e5bba81ac3577a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_037_CEN-03-2018-DV-Result.txt"
+  },
+  {
+    "name": "discovered_038_Result_032018.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_038_Result_032018.pdf",
+    "bytes": 314455,
+    "pages": 5,
+    "text_chars": 18425,
+    "word_count": 1883,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "0a01953653a39a2a73880af7429861cdf310d4d566e9c33b407fd5ed5283a846",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_038_Result_032018.txt"
+  },
+  {
+    "name": "discovered_039_secunderabad.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_039_secunderabad.pdf",
+    "bytes": 327149,
+    "pages": 9,
+    "text_chars": 31205,
+    "word_count": 2780,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "07ab8fb5b0cf35b066c107a366f8d73c24b3e59388844f38c92153d8f889c6f2",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_039_secunderabad.txt"
+  },
+  {
+    "name": "discovered_040_DV-publishing-document-of-CEN-03-2018_RRB_Siliguri.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_040_DV-publishing-document-of-CEN-03-2018_RRB_Siliguri.pdf",
+    "bytes": 166419,
+    "pages": 4,
+    "text_chars": 12753,
+    "word_count": 1473,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "090b3c1966f5206863d71590b08ff0460558710bd0ee9640ababb0d276c2147c",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_040_DV-publishing-document-of-CEN-03-2018_RRB_Siliguri.txt"
+  },
+  {
+    "name": "discovered_041_Trivendrum.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_041_Trivendrum.pdf",
+    "bytes": 732712,
+    "pages": 3,
+    "text_chars": 11011,
+    "word_count": 1343,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d3fda1cf9d250bd4cb713d858b24af6f65a47c303b67a3e9799ab52a0e4e266f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\discovered_041_Trivendrum.txt"
+  },
+  {
+    "name": "Doing-business-at-GIFT-IFSC-booklet.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Doing-business-at-GIFT-IFSC-booklet.pdf",
+    "bytes": 9964012,
+    "pages": 63,
+    "text_chars": 99357,
+    "word_count": 14946,
+    "low_text_pages": [
+      {
+        "page": 15,
+        "chars": 22,
+        "reason": "low_text"
+      },
+      {
+        "page": 18,
+        "chars": 22,
+        "reason": "low_text"
+      },
+      {
+        "page": 20,
+        "chars": 28,
+        "reason": "low_text"
+      },
+      {
+        "page": 30,
+        "chars": 24,
+        "reason": "low_text"
+      },
+      {
+        "page": 43,
+        "chars": 36,
+        "reason": "low_text"
+      },
+      {
+        "page": 45,
+        "chars": 20,
+        "reason": "low_text"
+      },
+      {
+        "page": 47,
+        "chars": 29,
+        "reason": "low_text"
+      },
+      {
+        "page": 50,
+        "chars": 28,
+        "reason": "low_text"
+      },
+      {
+        "page": 55,
+        "chars": 35,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "ff80316d19edb878eb69973646172f8bd15ac3a78c87ba9e2b03c6a80a21a450",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Doing-business-at-GIFT-IFSC-booklet.txt"
+  },
+  {
+    "name": "Draft-Regulations.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Draft-Regulations.pdf",
+    "bytes": 254010,
+    "pages": 13,
+    "text_chars": 27695,
+    "word_count": 4015,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "6b75d57ffb99827677d4aac8949b1dd212fe5a77877176be6a777524d129858b",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Draft-Regulations.txt"
+  },
+  {
+    "name": "Feedback-on-IFSCA-FinTech-Sandbox-Google-Docs-1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Feedback-on-IFSCA-FinTech-Sandbox-Google-Docs-1.pdf",
+    "bytes": 517045,
+    "pages": 17,
+    "text_chars": 36526,
+    "word_count": 5445,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "9fca8bd096d2f6470faf2fbd6e3d197bad83bf1ff6c12de9da2420b9fa310e15",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Feedback-on-IFSCA-FinTech-Sandbox-Google-Docs-1.txt"
+  },
+  {
+    "name": "GIFT-City-IFSC-AIFs.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\GIFT-City-IFSC-AIFs.pdf",
+    "bytes": 2870130,
+    "pages": 23,
+    "text_chars": 38105,
+    "word_count": 5786,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "1efc363d00256476a59bd9fc4d22cfed9ae3bf14b6d266735c0c7f8a5f00e0f3",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\GIFT-City-IFSC-AIFs.txt"
+  },
+  {
+    "name": "IFSC-Guidelines-Cybersecurity-and-Cyber-Resilience-ms.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSC-Guidelines-Cybersecurity-and-Cyber-Resilience-ms.pdf",
+    "bytes": 540822,
+    "pages": 11,
+    "text_chars": 15988,
+    "word_count": 2400,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "66250aac2cdce99a523d75e378de205a2c85e8f0ee007f9bf4e5e2c6e8c1696a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSC-Guidelines-Cybersecurity-and-Cyber-Resilience-ms.txt"
+  },
+  {
+    "name": "IFSCA Grade A 2023 - Phase 1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA Grade A 2023 - Phase 1.pdf",
+    "bytes": 669551,
+    "pages": 50,
+    "text_chars": 50405,
+    "word_count": 8798,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "be211ba57c55ca5ad3a360cadbeef1033b0bc5cd0b9b5bbb255dfe780011f7f3",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA Grade A 2023 - Phase 1.txt"
+  },
+  {
+    "name": "IFSCA Grade A 2023 - Phase 2.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA Grade A 2023 - Phase 2.pdf",
+    "bytes": 490439,
+    "pages": 22,
+    "text_chars": 23565,
+    "word_count": 3952,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "b071278713ccc3e596f363630e0082cc967bebce279b1aae229ca25f1a1758cf",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA Grade A 2023 - Phase 2.txt"
+  },
+  {
+    "name": "IFSCA Grade A 2024 - Phase 2.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA Grade A 2024 - Phase 2.pdf",
+    "bytes": 477683,
+    "pages": 27,
+    "text_chars": 33855,
+    "word_count": 5076,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "a42a95f35cb7db2c769a2cf7958c4c334cde7eccaa31421218046c18bd7d8ec9",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA Grade A 2024 - Phase 2.txt"
+  },
+  {
+    "name": "IFSCA-2023-Phase-1-Paper-2.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-2023-Phase-1-Paper-2.pdf",
+    "bytes": 2545407,
+    "pages": 24,
+    "text_chars": 34324,
+    "word_count": 5783,
+    "low_text_pages": [
+      {
+        "page": 24,
+        "chars": 39,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "5d406e45fb800a9f0863296f5290e0eb60d9310fdcebbd19f26e090f4b0cd9d9",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-2023-Phase-1-Paper-2.txt"
+  },
+  {
+    "name": "IFSCA-2024-Notification.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-2024-Notification.pdf",
+    "bytes": 1020333,
+    "pages": 30,
+    "text_chars": 71502,
+    "word_count": 11287,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "c5b67dadba7801a55630d2faa371101ccab99a939a263257e2cb0df4a8006ad6",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-2024-Notification.txt"
+  },
+  {
+    "name": "IFSCA-Bullion-Circular-Article-Jan-26.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Bullion-Circular-Article-Jan-26.pdf",
+    "bytes": 189392,
+    "pages": 4,
+    "text_chars": 8954,
+    "word_count": 1327,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "52892a7ba8a967deeac106952ebd7088681a01d7d67faaa682426ba9db39c231",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Bullion-Circular-Article-Jan-26.txt"
+  },
+  {
+    "name": "IFSCA-Compliance-Handbook.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Compliance-Handbook.pdf",
+    "bytes": 3517602,
+    "pages": 72,
+    "text_chars": 48049,
+    "word_count": 7140,
+    "low_text_pages": [
+      {
+        "page": 4,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 8,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 9,
+        "chars": 15,
+        "reason": "low_text"
+      },
+      {
+        "page": 53,
+        "chars": 17,
+        "reason": "low_text"
+      },
+      {
+        "page": 56,
+        "chars": 15,
+        "reason": "low_text"
+      },
+      {
+        "page": 66,
+        "chars": 16,
+        "reason": "low_text"
+      },
+      {
+        "page": 70,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 71,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "d7dc9acf43cfb62f2117ecfeff5a7a1835bbe871102d557dec43e4bfe7df851a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Compliance-Handbook.txt"
+  },
+  {
+    "name": "ifsca-fee-circular-08apr202508042025073502.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ifsca-fee-circular-08apr202508042025073502.pdf",
+    "bytes": 999037,
+    "pages": 26,
+    "text_chars": 39452,
+    "word_count": 6231,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "6c4ae406ee5a64d127f6f9ef086b4bd0496cf2fbccc363c99c87d0bb2347d2c2",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ifsca-fee-circular-08apr202508042025073502.txt"
+  },
+  {
+    "name": "IFSCA-Global-in-House-Centres-Regulations-2025-Article.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Global-in-House-Centres-Regulations-2025-Article.pdf",
+    "bytes": 228821,
+    "pages": 5,
+    "text_chars": 9498,
+    "word_count": 1991,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d6a0db4b3f18dd43b57a2e33bd054ce8ed5838fb2a357004eb1b4b3ab9fc994b",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Global-in-House-Centres-Regulations-2025-Article.txt"
+  },
+  {
+    "name": "IFSCA-Grade-a-2023-Phase-1-Paper-1-Memory-Based-Paper-Lyst1714976963726.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Grade-a-2023-Phase-1-Paper-1-Memory-Based-Paper-Lyst1714976963726.pdf",
+    "bytes": 13092827,
+    "pages": 91,
+    "text_chars": 84829,
+    "word_count": 15337,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 8,
+        "reason": "low_text"
+      },
+      {
+        "page": 91,
+        "chars": 9,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "84720ee57980ff3a501b49db1a36fb2535b8378155fc03d32db7b32e6c28f6b9",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Grade-a-2023-Phase-1-Paper-1-Memory-Based-Paper-Lyst1714976963726.txt"
+  },
+  {
+    "name": "IFSCA-Grade-A-2023-Phase-2-Paper-1-Memory-Based-Paper-lyst1714977084667-240522-101130.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Grade-A-2023-Phase-2-Paper-1-Memory-Based-Paper-lyst1714977084667-240522-101130.pdf",
+    "bytes": 2498031,
+    "pages": 11,
+    "text_chars": 23319,
+    "word_count": 3851,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 8,
+        "reason": "low_text"
+      },
+      {
+        "page": 11,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "190ee872c3c468b87198d42f2ec97891f749d1a8a64154efb2420fac65ebfa7e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Grade-A-2023-Phase-2-Paper-1-Memory-Based-Paper-lyst1714977084667-240522-101130.txt"
+  },
+  {
+    "name": "IFSCA-Grade-A-2023-Phase-2-Paper-2-Memory-Based-Paper-lyst1714977168608-240522-101220.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Grade-A-2023-Phase-2-Paper-2-Memory-Based-Paper-lyst1714977168608-240522-101220.pdf",
+    "bytes": 5713095,
+    "pages": 25,
+    "text_chars": 38894,
+    "word_count": 6628,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 8,
+        "reason": "low_text"
+      },
+      {
+        "page": 25,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "6128ce2c1a20e38ce34bb1a130fb295b96269c5ce210dc61b15cd2af244ef1a2",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Grade-A-2023-Phase-2-Paper-2-Memory-Based-Paper-lyst1714977168608-240522-101220.txt"
+  },
+  {
+    "name": "IFSCA-Grade-a-2024-Memory-Based-Phase-1-Paper-1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Grade-a-2024-Memory-Based-Phase-1-Paper-1.pdf",
+    "bytes": 5078897,
+    "pages": 38,
+    "text_chars": 43039,
+    "word_count": 7690,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "85f849db7613776241594f43ed2a89d934100e485a44c65b7c7e01081ca7afd2",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Grade-a-2024-Memory-Based-Phase-1-Paper-1.txt"
+  },
+  {
+    "name": "IFSCA-Grade-a-2024-Memory-Based-Phase-2-Paper-1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Grade-a-2024-Memory-Based-Phase-2-Paper-1.pdf",
+    "bytes": 2838776,
+    "pages": 19,
+    "text_chars": 30763,
+    "word_count": 4747,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "4891180fdb2b4247dc742b31bf2bdaa5e3d96002ab67d12ed84ca59b199f8c99",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Grade-a-2024-Memory-Based-Phase-2-Paper-1.txt"
+  },
+  {
+    "name": "IFSCA-Grade-A-Officer-2022-Phase-1-Paper-2-Previous-Year-Paper.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Grade-A-Officer-2022-Phase-1-Paper-2-Previous-Year-Paper.pdf",
+    "bytes": 2170555,
+    "pages": 20,
+    "text_chars": 16754,
+    "word_count": 2834,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "72fe6648447c3d5a1a219a0d530f10db24b76b9112b6aaee2b6ca179145d9b0e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Grade-A-Officer-2022-Phase-1-Paper-2-Previous-Year-Paper.txt"
+  },
+  {
+    "name": "IFSCA-Grade-A-Officer-2023-Paper-1-Previous-Year-Paper-Shift-2.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Grade-A-Officer-2023-Paper-1-Previous-Year-Paper-Shift-2.pdf",
+    "bytes": 7122494,
+    "pages": 62,
+    "text_chars": 81738,
+    "word_count": 14155,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "b9e6b10b85deacd8bf07885b4a4ff2d48d62aa769cbba6893bad955efd05da0e",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Grade-A-Officer-2023-Paper-1-Previous-Year-Paper-Shift-2.txt"
+  },
+  {
+    "name": "IFSCA-Grade-A-Officer-2023-Phase-2-Paper-2-General-Previous-Year-Paper.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Grade-A-Officer-2023-Phase-2-Paper-2-General-Previous-Year-Paper.pdf",
+    "bytes": 2170718,
+    "pages": 20,
+    "text_chars": 16401,
+    "word_count": 2962,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "3c604c69fa993964621dbcd9f4cdfa5551e3322e737cca9e73f4d19c6f190611",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Grade-A-Officer-2023-Phase-2-Paper-2-General-Previous-Year-Paper.txt"
+  },
+  {
+    "name": "IFSCA-Informal-Guidance-Scheme-2024.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Informal-Guidance-Scheme-2024.pdf",
+    "bytes": 283826,
+    "pages": 7,
+    "text_chars": 11183,
+    "word_count": 1779,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "19e96412b50f33692191a1b4bfd0c3636dc6db240104a81a6707e1e222df4dd1",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Informal-Guidance-Scheme-2024.txt"
+  },
+  {
+    "name": "Ifsca-Payment-Services-Regulations-2024-1-01022024122008.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Ifsca-Payment-Services-Regulations-2024-1-01022024122008.pdf",
+    "bytes": 2366439,
+    "pages": 41,
+    "text_chars": 122823,
+    "word_count": 25648,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "cb8b08d48bde97e7798aad075a4dbebade114be215f1cd16a9f2ce4ac13f234d",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Ifsca-Payment-Services-Regulations-2024-1-01022024122008.txt"
+  },
+  {
+    "name": "Ifsca-Phase-2-Final.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Ifsca-Phase-2-Final.pdf",
+    "bytes": 3913000,
+    "pages": 104,
+    "text_chars": 162420,
+    "word_count": 23357,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "a751dc6987794378549158f0df83f0418fa9303acd66819ae22b59cf802da89a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Ifsca-Phase-2-Final.txt"
+  },
+  {
+    "name": "IFSCA-Strategy.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA-Strategy.pdf",
+    "bytes": 353020,
+    "pages": 14,
+    "text_chars": 23451,
+    "word_count": 3179,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "78fc6b361a49c70ec0020a2eb7fb70ca22f09509953564554dbeb59101dae6eb",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA-Strategy.txt"
+  },
+  {
+    "name": "Ifsca-syll.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Ifsca-syll.pdf",
+    "bytes": 1668017,
+    "pages": 32,
+    "text_chars": 83730,
+    "word_count": 13159,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "60686e529c05f6eff36e46c3c4e831ce0230cf20ed8109d32446824ac22224ef",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Ifsca-syll.txt"
+  },
+  {
+    "name": "IFSCA_Syllabus.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\IFSCA_Syllabus.pdf",
+    "bytes": 635608,
+    "pages": 32,
+    "text_chars": 88181,
+    "word_count": 13126,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "575a3039589a737c2942189b76c14da1fe72bb50ded7be69ef035e78ad6d74bf",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\IFSCA_Syllabus.txt"
+  },
+  {
+    "name": "ilide.info-pr_0912c3f4d281ff1e46826da1461877b6.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_0912c3f4d281ff1e46826da1461877b6.pdf",
+    "bytes": 1961510,
+    "pages": 13,
+    "text_chars": 2165,
+    "word_count": 270,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 8,
+        "reason": "low_text"
+      },
+      {
+        "page": 3,
+        "chars": 8,
+        "reason": "low_text"
+      },
+      {
+        "page": 4,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 12,
+        "chars": 0,
+        "reason": "low_text"
+      },
+      {
+        "page": 13,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "0f14337f25ef38419c68a7a0599e0f401cb68a66a18a20d350f86f307e73e3f6",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_0912c3f4d281ff1e46826da1461877b6.txt"
+  },
+  {
+    "name": "ilide.info-pr_0e572922b114a663cf5c90ed5ec7320c.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_0e572922b114a663cf5c90ed5ec7320c.pdf",
+    "bytes": 136422,
+    "pages": 3,
+    "text_chars": 4625,
+    "word_count": 711,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "978c291884f42876951b55d2195a3371f6f46dcdae99d012049926b41966638c",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_0e572922b114a663cf5c90ed5ec7320c.txt"
+  },
+  {
+    "name": "ilide.info-pr_0f59578188a0ce097215e2df978deb5c.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_0f59578188a0ce097215e2df978deb5c.pdf",
+    "bytes": 254588,
+    "pages": 20,
+    "text_chars": 16434,
+    "word_count": 2654,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "68ced55da28dbe457f9f4729228623dc79960e9ad1efc88b22d564d5e3d3841f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_0f59578188a0ce097215e2df978deb5c.txt"
+  },
+  {
+    "name": "ilide.info-pr_17e5f41a69c0dc60028a9d1400d2fd72.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_17e5f41a69c0dc60028a9d1400d2fd72.pdf",
+    "bytes": 1189589,
+    "pages": 24,
+    "text_chars": 36516,
+    "word_count": 5711,
+    "low_text_pages": [
+      {
+        "page": 24,
+        "chars": 39,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "93ccb0fe8e37802b40c6364cab173291bbc78a31db73a428864e2477a0a825ea",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_17e5f41a69c0dc60028a9d1400d2fd72.txt"
+  },
+  {
+    "name": "ilide.info-pr_1818c4996afddf5fb462406dfc32e628.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_1818c4996afddf5fb462406dfc32e628.pdf",
+    "bytes": 530757,
+    "pages": 7,
+    "text_chars": 7554,
+    "word_count": 1107,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "96b413d15b2f53aab9fd263e73ff091b3012be0bf7a267b1374d300aedc27e4a",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_1818c4996afddf5fb462406dfc32e628.txt"
+  },
+  {
+    "name": "ilide.info-pr_2b3baa402e760fe90630631162357c88.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_2b3baa402e760fe90630631162357c88.pdf",
+    "bytes": 3192583,
+    "pages": 15,
+    "text_chars": 24104,
+    "word_count": 3480,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "81151c48ac12e05ff14e4dea809c17fc6632d86158f00d59b7f06f0e565187bc",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_2b3baa402e760fe90630631162357c88.txt"
+  },
+  {
+    "name": "ilide.info-pr_3875ff1c4b4e0af6e23469a964056e6a.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_3875ff1c4b4e0af6e23469a964056e6a.pdf",
+    "bytes": 2338802,
+    "pages": 4,
+    "text_chars": 7200,
+    "word_count": 1125,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "dfd9da99cac0f99b267dec50e5f42cc8e909717b334d08082e62cbc123ab6317",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_3875ff1c4b4e0af6e23469a964056e6a.txt"
+  },
+  {
+    "name": "ilide.info-pr_4da9e1ea2f2d5655336d72e034c1f02d.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_4da9e1ea2f2d5655336d72e034c1f02d.pdf",
+    "bytes": 396438,
+    "pages": 5,
+    "text_chars": 8089,
+    "word_count": 1240,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d739e5c2347aa5af4f3c757cbb24add5841a6e644bc350c64dd2b693252a10ed",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_4da9e1ea2f2d5655336d72e034c1f02d.txt"
+  },
+  {
+    "name": "ilide.info-pr_6899e349b0c97a9defee7d65e002bc20.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_6899e349b0c97a9defee7d65e002bc20.pdf",
+    "bytes": 938244,
+    "pages": 11,
+    "text_chars": 25000,
+    "word_count": 3730,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 8,
+        "reason": "low_text"
+      },
+      {
+        "page": 11,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "bbb3676b264589390ed8a5634e6970cedfa03ec31a502420715d5f1feff3c0f1",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_6899e349b0c97a9defee7d65e002bc20.txt"
+  },
+  {
+    "name": "ilide.info-pr_6cc62758b8ebe5cfbdbcf1e237d4f9ca.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_6cc62758b8ebe5cfbdbcf1e237d4f9ca.pdf",
+    "bytes": 100713,
+    "pages": 5,
+    "text_chars": 10690,
+    "word_count": 1533,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "8955b0a5a4b82a3345ef16a5debaf7033707e685898d8b88ee1695d57d6cd22f",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_6cc62758b8ebe5cfbdbcf1e237d4f9ca.txt"
+  },
+  {
+    "name": "ilide.info-pr_7143d129aedaa9703787e7268a42d9be.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_7143d129aedaa9703787e7268a42d9be.pdf",
+    "bytes": 934680,
+    "pages": 19,
+    "text_chars": 31717,
+    "word_count": 4614,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "3b21c6cd7cf3e3a2a3819a041f78be29cdd5db59f4da5fbebd7bca1acdfaf559",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_7143d129aedaa9703787e7268a42d9be.txt"
+  },
+  {
+    "name": "ilide.info-pr_952fd7aecf82c5651b20e80ae0862e35.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_952fd7aecf82c5651b20e80ae0862e35.pdf",
+    "bytes": 624674,
+    "pages": 47,
+    "text_chars": 47622,
+    "word_count": 7889,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "a76656f09e34753cb13cd4ecfc2b02fa1b60829af7a53fce67f6200ba5785de6",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_952fd7aecf82c5651b20e80ae0862e35.txt"
+  },
+  {
+    "name": "ilide.info-pr_9f4069fd3bbe9c8246dec11e8fec47a2.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_9f4069fd3bbe9c8246dec11e8fec47a2.pdf",
+    "bytes": 646714,
+    "pages": 8,
+    "text_chars": 9077,
+    "word_count": 1468,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "71733d74f8cb88cc092e8d274fcf94600f1aa183c40140fe3b672eca9da012b8",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_9f4069fd3bbe9c8246dec11e8fec47a2.txt"
+  },
+  {
+    "name": "ilide.info-pr_aa9b83fc253521bcc5404c0ee08bb0f4.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_aa9b83fc253521bcc5404c0ee08bb0f4.pdf",
+    "bytes": 184994,
+    "pages": 3,
+    "text_chars": 4146,
+    "word_count": 433,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "f1516457d1c9c2ff2cb6397d181d15fa06265302c1c7637d17effae20925ac18",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_aa9b83fc253521bcc5404c0ee08bb0f4.txt"
+  },
+  {
+    "name": "ilide.info-pr_b11f4d36813bfbfedf0e79525b2dabbf.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_b11f4d36813bfbfedf0e79525b2dabbf.pdf",
+    "bytes": 490439,
+    "pages": 22,
+    "text_chars": 23961,
+    "word_count": 3886,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "abda8d130359d369e4ac8325af7b7722ba2ab9779403ebc784f8832c2ec8dff1",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_b11f4d36813bfbfedf0e79525b2dabbf.txt"
+  },
+  {
+    "name": "ilide.info-pr_c8f93285e66f8c3369bee097cbd9d4c1.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_c8f93285e66f8c3369bee097cbd9d4c1.pdf",
+    "bytes": 259591,
+    "pages": 7,
+    "text_chars": 25642,
+    "word_count": 4175,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "c99af74591413b672c60eaa2977d80e75c28bedb98007c6fdbd4af74f3c29750",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_c8f93285e66f8c3369bee097cbd9d4c1.txt"
+  },
+  {
+    "name": "ilide.info-pr_cc7b38244ee2251169e259d6f8c8609f.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_cc7b38244ee2251169e259d6f8c8609f.pdf",
+    "bytes": 934680,
+    "pages": 19,
+    "text_chars": 31717,
+    "word_count": 4614,
+    "low_text_pages": [
+      {
+        "page": 2,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "1c20d97afa86cb98a4c334225cb087a0c8111cbe1bf026637a13b0f13fa51b96",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_cc7b38244ee2251169e259d6f8c8609f.txt"
+  },
+  {
+    "name": "ilide.info-pr_dd1e5008ad964eadc1fa64c2c511d5a6.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_dd1e5008ad964eadc1fa64c2c511d5a6.pdf",
+    "bytes": 618666,
+    "pages": 25,
+    "text_chars": 42930,
+    "word_count": 6183,
+    "low_text_pages": [
+      {
+        "page": 1,
+        "chars": 8,
+        "reason": "low_text"
+      },
+      {
+        "page": 25,
+        "chars": 0,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "367112149624561c4a3a77b30badaa0152f9caf231d7a218aada05d33e5205c1",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_dd1e5008ad964eadc1fa64c2c511d5a6.txt"
+  },
+  {
+    "name": "ilide.info-pr_e90c61a185fb6966b495c02a18f09896.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ilide.info-pr_e90c61a185fb6966b495c02a18f09896.pdf",
+    "bytes": 4355974,
+    "pages": 58,
+    "text_chars": 72649,
+    "word_count": 11879,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "1154022377e2b639a002524c534af9ff660be73b17e6bc97c6d7619b830c63f9",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ilide.info-pr_e90c61a185fb6966b495c02a18f09896.txt"
+  },
+  {
+    "name": "Paper-2-2024-Ifsca.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Paper-2-2024-Ifsca.pdf",
+    "bytes": 1204752,
+    "pages": 15,
+    "text_chars": 11972,
+    "word_count": 2087,
+    "low_text_pages": [
+      {
+        "page": 13,
+        "chars": 2,
+        "reason": "low_text"
+      }
+    ],
+    "error": null,
+    "sha256_text": "c4fb32cb914b369ef295a65085af4dc106d656c3e84c2affa9a081cdd8512e5b",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Paper-2-2024-Ifsca.txt"
+  },
+  {
+    "name": "Phase-1-IFSCA-Grade-a-2023-Memory-Based-Paper.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Phase-1-IFSCA-Grade-a-2023-Memory-Based-Paper.pdf",
+    "bytes": 4082238,
+    "pages": 50,
+    "text_chars": 48850,
+    "word_count": 8962,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "8955d0c757aa2127f52ec90d226a19c484516bb1966c5e88ef80d0ca8839d524",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Phase-1-IFSCA-Grade-a-2023-Memory-Based-Paper.txt"
+  },
+  {
+    "name": "Phase-1-IFSCA-Grade-a-2024-Memory-Based-Paper.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Phase-1-IFSCA-Grade-a-2024-Memory-Based-Paper.pdf",
+    "bytes": 4048747,
+    "pages": 47,
+    "text_chars": 45436,
+    "word_count": 8154,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "c9afb66693b290bda85e4a55cf49a73bd73425e2f9386b94217475d289c2f1bb",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Phase-1-IFSCA-Grade-a-2024-Memory-Based-Paper.txt"
+  },
+  {
+    "name": "Phase-2-IFSCA-Grade-a-2024-Memory-Based-Paper.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Phase-2-IFSCA-Grade-a-2024-Memory-Based-Paper.pdf",
+    "bytes": 2638473,
+    "pages": 27,
+    "text_chars": 33164,
+    "word_count": 5157,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "b221d442aff179e425720fecbf289dc922c8ae1258b05a529e0437c7511301f3",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Phase-2-IFSCA-Grade-a-2024-Memory-Based-Paper.txt"
+  },
+  {
+    "name": "ps-regulations-final-consolidated-final23042024043055.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\ps-regulations-final-consolidated-final23042024043055.pdf",
+    "bytes": 2215769,
+    "pages": 30,
+    "text_chars": 66015,
+    "word_count": 10336,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "0d8672a9903d2f6c56f34ccd1d9e4c04f94cf4252b1d3d7694b2e0abffa388a8",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\ps-regulations-final-consolidated-final23042024043055.txt"
+  },
+  {
+    "name": "scribd.pdfdownloaders.com_ (1).pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\scribd.pdfdownloaders.com_ (1).pdf",
+    "bytes": 4947121,
+    "pages": 42,
+    "text_chars": 95692,
+    "word_count": 13585,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "84ae93e27cf81f1624310d53a3ce3420dd331d6d301c4be742008de166114ee9",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\scribd.pdfdownloaders.com_ _1_.txt"
+  },
+  {
+    "name": "scribd.pdfdownloaders.com_.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\scribd.pdfdownloaders.com_.pdf",
+    "bytes": 5073402,
+    "pages": 41,
+    "text_chars": 90590,
+    "word_count": 12700,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "cf1d77ff05411a89dbd2bfa8468b095da1894a01164638586fee36582b5325d0",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\scribd.pdfdownloaders.com_.txt"
+  },
+  {
+    "name": "Tha-Ifsca-Banking-Handbook-Gen-Directions-Version-212112021075913.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Tha-Ifsca-Banking-Handbook-Gen-Directions-Version-212112021075913.pdf",
+    "bytes": 2937506,
+    "pages": 54,
+    "text_chars": 84516,
+    "word_count": 13245,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "d282758c9d14e294d2af82ecc7b17b708df8589c529f01ca11a084b575f73f21",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Tha-Ifsca-Banking-Handbook-Gen-Directions-Version-212112021075913.txt"
+  },
+  {
+    "name": "The-Ifsca-Banking-Handbook-Cob-Directions-v6-005042024051513.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\The-Ifsca-Banking-Handbook-Cob-Directions-v6-005042024051513.pdf",
+    "bytes": 5235940,
+    "pages": 127,
+    "text_chars": 217708,
+    "word_count": 34139,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "8575cb3e280e79f4253626b376ed1e5a57a559eaf61ed51b79adf3fd5bbfa615",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\The-Ifsca-Banking-Handbook-Cob-Directions-v6-005042024051513.txt"
+  },
+  {
+    "name": "the-ifsca-banking-handbook-prudential-directions13082021060655.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\the-ifsca-banking-handbook-prudential-directions13082021060655.pdf",
+    "bytes": 2347928,
+    "pages": 37,
+    "text_chars": 66172,
+    "word_count": 13802,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "fac168c34d851e5c80e95e2511945c7d0ac913907a4d1d4706cfbd141716f870",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\the-ifsca-banking-handbook-prudential-directions13082021060655.txt"
+  },
+  {
+    "name": "Tokenisation-at-IFSCA-1742377448.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Tokenisation-at-IFSCA-1742377448.pdf",
+    "bytes": 2401509,
+    "pages": 55,
+    "text_chars": 87315,
+    "word_count": 13084,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "cfd4dab03c55015184e3257c84463b349aafab21055b3801dea27e3b916704cb",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Tokenisation-at-IFSCA-1742377448.txt"
+  },
+  {
+    "name": "Trimmed-2023-Ifsca-Pyq.pdf",
+    "path": "D:\\Exam_preparation\\source_documents\\pdfs\\Trimmed-2023-Ifsca-Pyq.pdf",
+    "bytes": 1778840,
+    "pages": 24,
+    "text_chars": 26137,
+    "word_count": 4991,
+    "low_text_pages": [],
+    "error": null,
+    "sha256_text": "9f3d073a67f4416014f4449e4b90ca8a8fdfbe06e1f305add8d015993b65aade",
+    "text_file": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts\\Trimmed-2023-Ifsca-Pyq.txt"
+  }
+]

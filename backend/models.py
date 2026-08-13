@@ -248,7 +248,7 @@ class SmartMockResponseModel(BaseModel):
     mock_id: str
     total_questions: int
     allocation: dict[str, int]
-    allocation_summary: dict[str, int]
+    allocation_summary: dict[str, Any]
     weakness_analysis: list[TopicStatsModel]
     questions: list[QuestionModel]
     source_grounded: bool
@@ -363,10 +363,10 @@ class ExamAnalyticsResponseModel(BaseModel):
 
 class AnalyticsTimelineModel(BaseModel):
     """Score progression across all mocks (trending)."""
-    exam_id: str
+    exam_id: str = Field(validation_alias=AliasChoices("exam_id", "mock_id"))
     score: float | None = None
     accuracy: float | None = None
-    avg_topic_accuracy: float | None = None
+    avg_topic_accuracy: float | None = Field(default=None, validation_alias=AliasChoices("avg_topic_accuracy", "avg_topic_acc"))
     topics_analyzed: int = 0
     created_at: str
 
@@ -473,6 +473,16 @@ class RecentAmendmentModel(BaseModel):
 
 class LawRevisionModel(BaseModel):
     """Daily law revision plan combining provisions, amendments, and spaced review."""
+    title: str | None = None
+    document: dict[str, Any] | None = None
+    line_start: int | None = None
+    line_end: int | None = None
+    daily_text: str | None = None
+    full_text: str | None = None
+    total_lines: int | None = None
+    day_index: int | None = None
+    total_days: int | None = None
+    ai_revision: dict[str, Any] | None = None
     high_yield_provisions: list[HighYieldProvisionModel] = []
     recent_amendments: list[RecentAmendmentModel] = []
     weak_legal_areas: list[WeakLegalAreaModel] = []

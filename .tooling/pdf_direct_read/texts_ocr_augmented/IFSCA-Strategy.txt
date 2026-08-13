@@ -1,0 +1,556 @@
+
+
+===== PDF_PAGE 1 / 14: IFSCA-Strategy.pdf =====
+My IFSCA Grade A (IT) Preparation Journey
+Exam Structure and Strategy Overview
+Abhishek Singh
+IFSCA Grade A (IT Stream) – Exam Structure
+Selection Process:
+Phase I →Phase II →Coding Test →Interview
+Phase I – Online Screening Examination
+Paper
+ 
+Marks
+ 
+Duration
+Paper 1 (Reasoning, Quantitative Aptitude, English,
+General Awareness)
+100  
+60  min
+Paper  2  (IT  Specifc  –  Objective)  
+100  
+60  min
+Negative marking: 1/4th per incorrect answer. Marks are used only or shortlisting to Phase II.
+Phase II – Online Main Examination
+Paper
+ 
+Marks
+ 
+Type
+Paper  1  (Essay,  Precis,  Comprehension)  
+100  
+Descriptive
+Paper  2  (Advanced  IT  –  Objective)  
+100  
+Objective
+Weightage in Final Merit:
+• Paper 1 – 1/3
+• Paper 2 – 2/3
+Negative marking applicable in Paper 2 only.
+Coding Test (IT Stream Only)
+The Coding Test is qualiying in nature. Failure to qualiy results in immediate elimination rom the
+selection process, irrespective o Phase II perormance.
+In our cycle, out o 19 candidates shortlisted or interview, only 12 were nally interviewed. The remaining
+candidates were disqualied at the Coding Test stage.
+Interview
+Final Merit Composition:
+• Phase II – 85%
+• Interview – 15%
+1
+
+
+===== PDF_PAGE 2 / 14: IFSCA-Strategy.pdf =====
+Index
+Contents
+1 Phase I Preparation Strategy
+ 
+3
+1.1 Paper 1   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+3
+1.1.1 
+Quantitative Aptitude  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+3
+1.1.2 
+Reasoning  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+3
+1.1.3 
+English   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+3
+1.1.4 
+General Awareness   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+3
+1.2 Paper 2 (IT Stream)   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+4
+1.2.1 
+Database Management Systems (DBMS)   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+4
+1.2.2 
+SQL Queries   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+4
+1.2.3 
+Programming Concepts (Java / C / C++)   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+4
+1.2.4 
+Data Analytics / Python   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+5
+1.2.5 
+Algorithms or Problem Solving .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+5
+1.2.6 
+Computer Networks   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+7
+1.2.7 
+Inormation & Cyber Security Concepts   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+8
+1.2.8 
+Data Warehousing   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
+9
+1.2.9 
+Shell Scripting & UNIX Programming  . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+1.2.10 Articial Intelligence / Machine Learning   . . . . . . . . . . . . . . . . . . . . . . . . . 11
+2 Coding Questions Strategy
+ 
+12
+3 Interview Preparation
+ 
+13
+2
+
+
+===== PDF_PAGE 3 / 14: IFSCA-Strategy.pdf =====
+1 
+Phase I Preparation Strategy
+1.1 Paper 1
+1.1.1 
+Quantitative Aptitude
+For Quantitative Aptitude, I took guidance rom Kaushik Mohanty through his YouTube channel.
+Career Dener
+His lectures ocus on conceptual clarity along with practical shortcut techniques that are extremely useul
+or time-bound examinations.
+Aspirants can ollow his channel to strengthen undamentals and learn ecient tricks required to solve
+questions quickly and accurately under exam pressure.
+1.1.2 
+Reasoning
+For Reasoning preparation, one may ollow Saurav Sir (Faculty at Adda247). The ollowing playlist was
+helpul or covering standard patterns and improving approach towards puzzles and logical reasoning:
+Reasoning Playlist by Saurav Sir (Adda247)
+While I did not score exceptionally high in the Reasoning section, I primarily relied on the above resource
+or understanding question patterns and practicing regularly. Aspirants are advised to ocus heavily on
+puzzle-based questions and maintain consistent timed practice.
+1.1.3 
+English
+For English preparation, one may ollow Nimisha Bansal’s YouTube channel:
+Nimisha Bansal – English Preparation
+Her lectures are particularly useul or improving grammar undamentals, comprehension skills, and struc-
+tured preparation or descriptive components such as essay and precis writing. Regular reading practice
+along with guided learning rom her sessions can signicantly enhance clarity and writing quality.
+1.1.4 
+General Awareness
+I did not attempt any questions rom the General Awareness section in Phase I. Hence, I do not consider
+mysel the right person to suggest preparation resources or this section.
+Note:  I strategically backed my strengths and ocused primarily on Quantitative Aptitude and English.
+This approach was sucient to secure 30+ marks in Paper 1. My broader strategy was to compensate by
+targeting higher marks in Paper 2 (IT Stream), where I aimed to gain the additional margin required or
+comortable qualication.
+3
+
+
+===== PDF_PAGE 4 / 14: IFSCA-Strategy.pdf =====
+1.2 
+Paper 2 (IT Stream)
+Structured Practice Framework
+Across all technical subjects, I ollowed a uniorm reinorcement strategy to ensure depth and exam-readiness.
+For each micro-topic, I generated a large set o exam-oriented MCQs aligned with the SEBI IT pattern:
+The prompt ramework I consistently used was:
+"I am preparing for IFSCA Grade A (IT) exam whose syllabus aligns with SEBI IT.
+Generate 100 MCQs with 4 options and provide answers with detailed explanations,
+following the SEBI IT pattern."
+This structured, repetition-driven reinorcement ensured comprehensive conceptual clarity across subjects.
+1.2.1 
+Database Management Systems (DBMS)
+For DBMS preparation, I ollowed a dedicated playlist by Vishwadeep Gothi:
+DBMS Playlist – Vishwadeep Gothi
+The playlist was sucient to build strong oundational clarity.
+The structured practice ramework described earlier was applied to every DBMS micro-topic, including ER
+Model, Relational Model (Relational Algebra, Tuple Calculus) etc. :
+1.2.2 
+SQL Queries
+For SQL Queries, I relied primarily on the playlist by Vishwadeep Gothi:
+DBMS Playlist – Vishwadeep Gothi
+This helped develop clarity in query construction and logical ow.
+The same structured practice ramework was applied here, with particular emphasis on query-based PYQs
+asked in SEBI IT examinations.
+1.2.3 
+Programming Concepts (Java / C / C++)
+I did not undertake additional dedicated preparation or Programming Concepts, as I was already comort-
+able with Python, C, and C++ rom my academic background.
+However, the examination emphasizes conceptual and theoretical clarity rather than pure coding ability.
+Special ocus areas included:
+• Variable scope (local, global, static)
+• Lietime o variables
+• Memory allocation (stack vs heap)
+• Pointers and reerences
+• Function calls and recursion
+• Object-oriented concepts (Java/C++)
+Even in amiliar subjects, I reinorced theoretical understanding using the same structured practice method-
+ology described earlier.
+4
+
+
+===== PDF_PAGE 5 / 14: IFSCA-Strategy.pdf =====
+1.2.4 
+Data Analytics / Python
+For Python-related concepts and data analytics oundations, I ollowed the ollowing.
+Python Data Analytics Playlist
+My ocus was on the rst 12 videos covering topics up to File Handling, including:
+• Python basics and data types
+• Control structures
+• Functions and modular programming
+• File handling
+Each micro-topic was strengthened using the structured practice ramework to ensure exam-oriented con-
+ceptual clarity.
+1.2.5 
+Algorithms or Problem Solving
+This section is highly conceptual and tests clarity o algorithm selection, data structure usage, and time/space
+complexity analysis rather than heavy implementation.
+Tree and Graph Traversals
+• Depth First Search (DFS)
+• Breadth First Search (BFS)
+Preparation should ocus not only on implementation but also on:
+• Structural diferences between DFS and BFS
+• Underlying data structures (Stack vs Queue)
+• Time and Space Complexity
+• When to preer one over the other
+A comparison-based understanding is crucial, as exam questions oten test algorithm selection rather than
+code writing.
+Connected Components
+• Undirected graphs
+• Directed graphs
+Key topics include:
+• Strongly Connected Components (SCC)
+• Weakly Connected Components (WCC)
+• Kosaraju’s Algorithm
+• Tarjan’s Algorithm
+Focus areas:
+• Diference between SCC and WCC
+5
+
+
+===== PDF_PAGE 6 / 14: IFSCA-Strategy.pdf =====
+• Algorithmic approach or each
+• Time complexity comparison (Kosaraju vs Tarjan)
+• Conceptual ow o graph transposition (in Kosaraju)
+Comparative clarity between these algorithms is more important than memorization.
+Spanning Trees
+• Spanning Tree
+• Minimum Spanning Tree (MST)
+• Kruskal’s Algorithm
+• Prim’s Algorithm
+Preparation emphasis:
+• Greedy strategy diferences
+• Edge-based vs Vertex-based expansion
+• Role o Disjoint Set Union (Union-Find)
+• Time complexity analysis
+Hashing   For hashing, I ollowed Vishwadeep Gothi’s lectures (Videos 40, 41, 42):
+Hashing Lecture – Vishwadeep Gothi
+Focus areas:
+• Hash unctions
+• Collision handling (Chaining, Open Addressing)
+• Load actor
+• Time complexity in average vs worst case
+Shortest Path Algorithms
+• Dijkstra’s Algorithm
+• Bellman-Ford Algorithm
+• Floyd-Warshall Algorithm
+• Johnson’s Algorithm
+Key understanding required:
+• Handling o negative weights
+• Single-source vs All-pairs shortest path
+• Time complexity comparison
+• When each algorithm is preerred
+6
+
+
+===== PDF_PAGE 7 / 14: IFSCA-Strategy.pdf =====
+Greedy Algorithms
+• Activity Selection
+• Fractional Knapsack
+• Hufman Coding
+• Prim’s MST
+• Kruskal’s MST
+• Dijkstra’s Algorithm
+• Job Scheduling
+The ocus should be on recognizing the greedy choice property and optimal substructure.
+Dynamic Programming (1D Array Based)
+• State denition
+• Transition relation
+• Iterative vs Recursive DP
+• Time and space optimization
+Exam-Oriented Focus   In most cases, the examination tests:
+• Which data structure is used by a given algorithm
+• Time Complexity (TC)
+• Space Complexity (SC)
+• Algorithm selection under constraints
+Note:  For conceptual clarity, I reerred to  Striver’s algorithm lectures by searching the specic algo-
+rithm name and preparing structured notes.
+Thereater, I applied the structured practice ramework described earlier to reinorce each algorithm through
+objective-question based revision.
+1.2.6 
+Computer Networks
+For Computer Networks, I ollowed the Gate Smashers playlist, which was sucient to develop strong con-
+ceptual clarity and condently attempt exam-level questions.
+Computer Networks – Gate Smashers Playlist
+The preparation strategy ocused on both conceptual depth and protocol-level details, as the examination
+oten tests precise technical distinctions.
+High-Priority Areas
+• OSI and TCP/IP Models
+• Transport Layer protocols (TCP vs UDP)
+• Application layer protocols (HTTP, FTP, SMTP, DNS)
+• Standard Port Numbers
+• Flow control and congestion control
+• Error detection and correction
+7
+
+
+===== PDF_PAGE 8 / 14: IFSCA-Strategy.pdf =====
+Protocol-Level Depth   Particular attention should be given to:
+• Active vs Passive mode in FTP
+• Port numbers used by diferent protocols
+• Connection establishment and termination in TCP
+• Diferences between connection-oriented and connectionless communication
+The examination may test ne-grained distinctions, such as which port number is used or a specic
+service or how control and data channels difer in FTP.
+Firewall (Extremely Important)   Firewall is a high-weightage topic and should be prepared thoroughly.
+Focus on:
+• Packet ltering rewall
+• Stateul inspection rewall
+• Proxy rewall
+• Application layer rewall
+• Diferences between IDS and IPS
+Conceptual clarity regarding how rewalls operate at diferent OSI layers is essential, as questions are oten
+ramed around real-world security scenarios.
+Exam-Oriented Approach   Computer Networks questions are typically conceptual and detail-oriented.
+Emphasis should be placed on:
+• Precise denitions
+• Protocol comparisons
+• Port numbers
+• Layer-specic unctionalities
+• Practical distinctions (e.g., Active vs Passive FTP)
+The structured practice ramework described earlier was applied to reinorce protocol-level clarity and
+objective-question accuracy.
+1.2.7 
+Inormation & Cyber Security Concepts
+For Inormation and Cyber Security, my preparation ocused on developing strong conceptual clarity re-
+garding major attack vectors, deense mechanisms, and security architecture undamentals.
+The emphasis was on understanding:
+• Types o cyber attacks
+• Vulnerabilities and threat models
+• Cryptographic oundations
+• Network security mechanisms
+• Secure authentication and access control
+8
+
+
+===== PDF_PAGE 9 / 14: IFSCA-Strategy.pdf =====
+Major Attack Categories Covered
+• Phishing and Social Engineering
+• SQL Injection
+• Cross-Site Scripting (XSS)
+• Man-in-the-Middle (MITM)
+• Denial o Service (DoS / DDoS)
+• Brute Force and Dictionary Attacks
+• Replay Attacks
+• Session Hijacking
+Preparation involved understanding:
+• How each attack works
+• Which layer it targets
+• Real-world scenarios
+• Prevention and mitigation techniques
+Core Security Concepts   Special attention was given to:
+• CIA Triad (Condentiality, Integrity, Availability)
+• Encryption vs Hashing
+• Symmetric vs Asymmetric Cryptography
+• Digital Signatures
+• Public Key Inrastructure (PKI)
+• Authentication vs Authorization
+• Multi-Factor Authentication (MFA)
+Exam-Oriented Focus   Questions in this section are typically conceptual and scenario-based. The ex-
+amination oten tests:
+• Identication o the type o attack
+• Appropriate mitigation technique
+• Security mechanism used in a given scenario
+• Diference between similar-looking concepts
+Accordingly, the preparation emphasized clarity o attack mechanics and deense strategies, along with
+objective-question based reinorcement.
+You can use Chat Gpt or making notes on it and can take help rom random yt videos.
+1.2.8 
+Data Warehousing
+For Data Warehousing, I reerred to a ocused lecture by Vishwadeep Gothi, which provided clarity on core
+concepts and analytical operations.
+Data Warehousing – Vishwadeep Gothi Lecture
+9
+
+
+===== PDF_PAGE 10 / 14: IFSCA-Strategy.pdf =====
+Core Concepts and Schema Types
+• Data Warehouse Architecture
+• Star Schema
+• Snowake Schema
+• Fact and Dimension Tables
+• Data Cubes and Multidimensional Structures
+Multidimensional Operations   Understanding the key OLAP operations is crucial, including:
+• Slice — Selecting a single layer rom a cube
+• Dice — Selecting a sub-cube by speciying multiple dimensions
+• Drill-Down — Navigating to more detailed data
+•  Roll-Up — Aggregating data to a higher level
+• Pivot — Reorienting the multidimensional view
+•  Aggregation — Summarizing measure values
+Data Mart and Its Techniques
+• Data Mart concepts and types
+• Diference between enterprise data warehouse and data mart
+• Design considerations or departmental analytics
+Design Techniques   Familiarity with the ollowing modeling approaches is important:
+• Top-Down vs Bottom-Up approaches
+• Dimensional Modeling
+• ER-to-Dimensional transormations
+• Schema normalization considerations
+Exam-Oriented Focus   Questions in this section typically test:
+• Diferences between schema types (Star vs Snowake)
+• The purpose and application o OLAP operations
+• Suitable modeling techniques or specic analytical requirements
+• Distinctions between data warehouse and data mart
+Reinorcement through objective practice was applied using the structured ramework described earlier.
+10
+
+
+===== PDF_PAGE 11 / 14: IFSCA-Strategy.pdf =====
+1.2.9 
+Shell Scripting & UNIX Programming
+For Shell Scripting, I reerred to the ollowing lecture by Prashant. Watching the rst 2–3 hours rom the
+start provides sucient coverage o core concepts and practical examples:
+Shell Scripting – Prashant Lecture
+Key ocus areas included:
+• Shebang and script execution
+• Variables and parameter expansion
+• Control structures (i, loops, case)
+• Functions and script modularity
+• I/O redirection and pipes
+For UNIX Programming undamentals, I ollowed another lecture by the same instructor:
+UNIX Programming – Prashant Lecture
+Important topics covered were:
+• File and directory operations
+• Permissions and process control
+• Shell utilities (grep, awk, sed)
+• Filters and text processing
+These lectures provided conceptual clarity and practical exposure suitable or objective-style questions.
+1.2.10 
+Artifcial Intelligence / Machine Learning
+For AI/ML preparation, one may ollow  CampusX   lectures or strong conceptual understanding. The
+coverage is comprehensive and builds clarity rom undamentals to applied concepts.
+I time is limited, Krish Naik’s lectures can serve as a quicker alternative or revision-oriented preparation.
+Since the examination primarily asks theoretical and conceptual questions, in-depth mathematical deriva-
+tions are not necessary. Focus areas should include:
+• Supervised vs Unsupervised learning
+• Bias–Variance tradeof 
+• Overtting and Regularization
+• Evaluation metrics (Precision, Recall, F1, ROC)
+• Basic understanding o popular algorithms (Regression, SVM, KNN, Decision Trees)
+Occasionally, ramework-specic theoretical questions (e.g., TensorFlow or PyTorch concepts) may be asked.
+For such cases, ocial documentation can be reerred to. However, the return on time investment or deep
+ramework study may not be optimal unless ample preparation time is available.
+Overall, strong conceptual clarity is sucient or this section, and structured revision is more important
+than implementation-level depth.
+11
+
+
+===== PDF_PAGE 12 / 14: IFSCA-Strategy.pdf =====
+2 
+Coding Questions Strategy
+The coding syllabus was largely aligned with SEBI IT Phase 2 (Paper 2). The questions were implementation-
+based and ocused on core data structures and undamental algorithms rather than advanced competitive
+programming concepts.
+The ollowing types o questions were asked:
+1. Write a program or Bubble Sort rom scratch (without using inbuilt sort unctions).
+2. Merge two sorted arrays and return the nal sorted array (consider only valid non-zero elements).
+3. Construct a Binary Search Tree (BST) rom a given array and print its inorder traversal.
+4. Construct a BST rom a given array and compute its height.
+5. Check whether a given string s occurs in another string t (substring check).
+6. Implement Fibonacci using Dynamic Programming.
+7. Find the minimum number o coins required (DP approach, not greedy).
+Preparation Strategy
+I you solve the Easy and Medium problems rom Striver’s DSA Sheet, it will be more than sucient or
+this section.
+Priority Areas
+• Binary Trees (BT)
+• Binary Search Trees (BST)
+• Basic Sorting
+• String Manipulation
+• 1D Dynamic Programming
+Trees (both BT and BST) should receive special attention, as multiple questions were directly based on
+construction, traversal, and structural properties.
+For Dynamic Programming, ocus only on standard easy-level problems such as Fibonacci, coin change (DP
+version), and similar 1D array-based ormulations.
+Graph problems are not required, as they are not mentioned in the syllabus.
+Exam-Oriented Insight
+The coding section tests:
+• Conceptual clarity o data structures
+• Clean implementation
+• Understanding o time and space complexity
+• Ability to write logic rom scratch
+The questions are straightorward i undamentals are clear. Strong command over Trees and basic DP
+ensures high scoring in this section.
+12
+
+
+===== PDF_PAGE 13 / 14: IFSCA-Strategy.pdf =====
+3 
+Interview Preparation
+The interview preparation was structured around three major pillars:
+1. Technical Depth (IT Domain)
+2. Organizational Awareness (IFSCA-specic knowledge)
+3. Personal and Role Justication
+1. Technical Preparation (IT-Focused)
+For the IT stream, the interview is heavily technical. The panel primarily evaluates:
+• Depth o understanding in core IT subjects
+• Practical exposure in current work prole
+• Conceptual clarity in AI/ML and Cybersecurity
+A signicant portion o the discussion revolves around the candidate’s current organization and ongoing
+work. Thereore, it is important to:
+• Clearly explain your current role and responsibilities
+• Justiy architectural and technical decisions taken in your projects
+• Demonstrate real-world problem-solving exposure
+AI/ML-related questions are usually theoretical and application-oriented rather than mathematical. Cy-
+bersecurity questions oten ocus on attack vectors, mitigation strategies, and real-world implementation
+scenarios.
+2. IFSCA-Specifc Preparation
+Strong institutional awareness is expected. Preparation should include:
+• Overview and objectives o IFSCA
+• Key provisions o the IFSCA Act, 2019
+• Regulatory role in IFSC (GIFT City)
+• Recent initiatives and achievements
+Understanding the working o the SWIT portal (IFSCA portal) is important, including its purpose, stake-
+holders, and regulatory workow.
+Candidates should be able to articulate:
+• How IFSCA difers rom RBI, SEBI, and IRDAI
+• Its unied regulatory ramework within IFSC
+• Its vision o making India a global nancial hub
+3. Personal Justifcation and Motivation
+“Why IFSCA?” is a critical question and must be answered convincingly.
+The response should reect:
+• Alignment between technical background and regulatory technology requirements
+• Interest in nancial technology, innovation, and policy-driven impact
+• Long-term commitment rather than short-term career movement
+The panel expects maturity, clarity o intent, and awareness o the responsibility associated with a regulatory
+role. BE HONEST !!!
+13
+
+
+===== PDF_PAGE 14 / 14: IFSCA-Strategy.pdf =====
+Final Approach
+The interview evaluates not only technical knowledge but also composure, clarity o thought, and institu-
+tional understanding.
+A balanced preparation covering technical expertise, regulatory awareness, and personal motivation ensures
+strong perormance in the interview.
+Motivation
+Have unwavering sel-belie. Preparation is not only about knowledge; it is equally about condence, re-
+silience, and mental strength.
+There will be moments o doubt, comparison, and pressure. In those moments, remind yoursel that growth
+comes rom struggle. As rightly said:
+“Vo maut bhi kya jo bina lade mile, vo to phir khairat ki hui na. Jinke jeevan mein jang nahi,
+vo bhi bahut abhaga hote hain.”
+Every meaningul achievement demands efort, discipline, and courage. The process itsel transorms you.
+I was able to achieve this at the age o 21. That itsel proves that with clarity o ocus, structured prepara-
+tion, and consistency, it is absolutely possible. I I could do it, you can certainly do it as well.
+Trust your preparation. Stay calm. Stay consistent. Give your absolute best.
+BEST OF LUCK
+14

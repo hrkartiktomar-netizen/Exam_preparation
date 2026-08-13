@@ -24,131 +24,46 @@ from main import app
 def test_db() -> Generator[str, None, None]:
     """Create isolated temporary SQLite database for each test.
 
+    Per Context7 docs for pytest: use real production schema, not mock schemas.
     Uses tempfile for automatic cleanup after test completes.
-    Initializes schema but starts with empty data tables.
+    Initializes full schema including migrations.
     """
     with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.db') as f:
         temp_db_path = f.name
 
     try:
-        # Initialize schema in temp database
-        conn = sqlite3.connect(temp_db_path)
-        cursor = conn.cursor()
-
-        # Create core tables (schema initialization)
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS topics (
-                topic_id TEXT PRIMARY KEY,
-                display_name TEXT NOT NULL,
-                description TEXT,
-                base_weight REAL DEFAULT 1.0,
-                exam_priority INTEGER DEFAULT 5,
-                is_amendment_sensitive BOOLEAN DEFAULT 0
-            )
-        """)
-
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS attempts (
-                attempt_id TEXT PRIMARY KEY,
-                user_id TEXT DEFAULT 'default',
-                topic TEXT NOT NULL,
-                question_id TEXT,
-                correct_option TEXT,
-                your_option TEXT,
-                is_correct BOOLEAN,
-                time_spent_seconds INTEGER DEFAULT 0,
-                attempt_at TEXT DEFAULT CURRENT_TIMESTAMP,
-                mock_id TEXT,
-                penalty INTEGER DEFAULT 0
-            )
-        """)
-
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS amendments (
-                amendment_id TEXT PRIMARY KEY,
-                topic TEXT,
-                title TEXT,
-                summary TEXT,
-                effective_date TEXT,
-                published_date TEXT,
-                source_url TEXT,
-                extracted_at TEXT
-            )
-        """)
-
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS essays (
-                essay_id TEXT PRIMARY KEY,
-                user_id TEXT DEFAULT 'default',
-                topic TEXT,
-                essay_text TEXT,
-                submitted_at TEXT DEFAULT CURRENT_TIMESTAMP,
-                graded_at TEXT,
-                total_score INTEGER,
-                content_accuracy_score INTEGER,
-                structure_clarity_score INTEGER,
-                regulatory_knowledge_score INTEGER,
-                examples_evidence_score INTEGER,
-                ai_model TEXT
-            )
-        """)
-
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS source_documents (
-                doc_id TEXT PRIMARY KEY,
-                name TEXT,
-                category TEXT,
-                type TEXT,
-                extracted_date TEXT
-            )
-        """)
-
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS source_chunks (
-                chunk_id TEXT PRIMARY KEY,
-                doc_id TEXT,
-                start_line INTEGER,
-                end_line INTEGER,
-                text TEXT,
-                section_title TEXT,
-                page_num INTEGER,
-                FOREIGN KEY (doc_id) REFERENCES source_documents(doc_id)
-            )
-        """)
-
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS question_sources (
-                question_id TEXT,
-                source_chunk_id TEXT,
-                authority_score REAL,
-                extraction_date TEXT,
-                PRIMARY KEY (question_id, source_chunk_id),
-                FOREIGN KEY (source_chunk_id) REFERENCES source_chunks(chunk_id)
-            )
-        """)
-
-        # Insert static topic definitions
-        topics = [
-            ("PH2_IFSCA_ACT", "IFSCA Act and Authority", "IFSCA Act provisions", 0.90, 9, 1),
-            ("PH2_FM_REGS", "Fund Management Regulations", "FME regulations", 1.00, 10, 1),
-            ("PH2_BANKING", "Banking and IBUs", "Banking regulations", 0.95, 10, 1),
-            ("PH2_CAPITAL", "Capital Markets", "Capital market rules", 0.95, 10, 1),
-        ]
-
-        for topic_id, display_name, description, weight, priority, sensitive in topics:
-            cursor.execute(
-                """INSERT OR IGNORE INTO topics
-                   (topic_id, display_name, description, base_weight, exam_priority, is_amendment_sensitive)
-                   VALUES (?, ?, ?, ?, ?, ?)""",
-                (topic_id, display_name, description, weight, priority, sensitive)
-            )
-
-        conn.commit()
-        conn.close()
-
-        # Override database module's DB_PATH
+        # Override database module's DB_PATH temporarily
         original_db_path = db.DB_PATH
         db.DB_PATH = Path(temp_db_path)
+
+        # Initialize database with PRODUCTION schema and migrations
+        conn = sqlite3.connect(temp_db_path)
+        conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA foreign_keys = ON")
+
+        # Execute production schema
+        conn.executescript(db.SCHEMA)
+
+        # Create performance indexes
+        db._create_performance_indexes(conn)
+
+        # Seed topics
+        db.seed_topics(conn)
+
+        # Run Phase 1 migration (FTS5)
+        try:
+            db.create_fts5_index(conn)
+        except Exception:
+            pass  # Migration may already exist
+
+        # Run Phase 2 migration (amendments)
+        try:
+            db._run_migration_002(conn)
+        except Exception:
+            pass  # Migration may already exist
+
+        # Explicitly close connection before yield
+        conn.close()
 
         yield temp_db_path
 
@@ -156,8 +71,15 @@ def test_db() -> Generator[str, None, None]:
         db.DB_PATH = original_db_path
 
     finally:
-        # Cleanup temp file
-        Path(temp_db_path).unlink(missing_ok=True)
+        # Ensure all connections are closed before cleanup
+        import gc
+        gc.collect()
+
+        # Try to cleanup temp file (may fail on Windows due to locks)
+        try:
+            Path(temp_db_path).unlink(missing_ok=True)
+        except PermissionError:
+            pass  # File may still be locked on Windows
 
 
 @pytest.fixture(scope="function")

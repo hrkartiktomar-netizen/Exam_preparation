@@ -1,0 +1,297 @@
+
+
+===== PDF_PAGE 1 / 3: 038_ICSI CSJ__CSJ July 2024 - Payment Services Regulations.pdf =====
+IFSCA (Payment Services) Regulations, 2024- 
+An Overview
+IFSCA has attempted to benchmark the regulatory regime in line with that in the international 
+regulations governing payment services in jurisdictions like those in Singapore, United Kingdom 
+and European Union. The regulations although is principle-based, has tried to cover all aspects 
+relating to the efficient functioning of the payment services operations, safeguarding of the 
+customers and applicable funds, governance of the PSP etc.
+Sanjay Meghraj Khobragade 
+Assistant Manager, IFSCA
+Gandhinagar, Gujarat
+sanjay.mk@ifsca.gov.in
+INTRODUCTION
+W
+ith a view to develop GIFT - IFSC as 
+a preferred jurisdiction for payment 
+services ecosystem, IFSCA notified 
+the 
+IFSCA 
+(Payment 
+Services) 
+Regulations in January, 2024. These 
+regulations have been benchmarked to international 
+regulations governing payment services in jurisdictions 
+like those in Singapore, United Kingdom and European 
+Union. The regulations lay down the framework for 
+entities providing the following payment services to seek 
+authorisation from IFSCA:
+a) 	 Account issuance service (including e-money account 
+issuance service)
+b) 	 E-money issuance service
+c) 	 Escrow service
+d) 	 Cross border money transfer service
+e) 	 Merchant acquisition
+KEY HIGHLIGHTS
+	
+The Payment Service Provider (PSP) shall be a 
+company with its registered office in IFSC. A single 
+authorisation shall enable the PSP to provide any of 
+the 5 enabled services. 
+	
+Basis the volume of transactions enabled, the PSP 
+may be designated by the IFSCA as Regular Payment 
+Service Provider (RPSP) or Significant Payment 
+Service Provider (SPSP). 
+	
+The net-worth criteria and threshold criteria is 
+different for both RPSP and SPSP. 
+	
+Authorisation shall be issued to the PSP in the 
+form of grant of Certificate of Authorisation, 
+which shall be valid unless revoked by the 
+Authority or surrendered by the Payment Service 
+Provider.
+	
+A Financial institution, set up as a company and 
+authorised by the Authority under applicable 
+regulatory framework, may also seek authorisation 
+to act as a Payment Service Provider under these 
+regulations.
+DEFINITION(S) OF THE ENABLED 
+PAYMENT SERVICES AND PERMISSIBLE 
+ACTIVITIES THEREIN
+i.	
+Account issuance service (including e-money 
+account issuance service): Issuance of a payment 
+account to a payment service user, irrespective of 
+whether such user is situated in IFSC or outside IFSC. 
+The PSPs providing account issuance services shall 
+also provide services to enable payments to be made 
+into the payment account as well as to allow users to 
+make withdrawals from payment accounts. A PSP 
+is also allowed to issue both, physical or electronic 
+form. Any e-wallet issued by a PSP cannot hold Indian 
+Rupee (INR) in any form. It can only hold currencies 
+such as United States Dollar (USD), Euro (EUR), 
+Great Britain Pound (GBP) and any other currencies 
+specified by the IFSCA. E-wallets issued by a PSP are 
+also prohibited from storing any cryptocurrencies or 
+stablecoins.
+ii.	
+E-money issuance service: For the purpose of 
+these regulations, e-money refers to a monetary 
+value denominated in a specified foreign currency, 
+representing a claim that has been already paid in 
+advance and is acceptable by a person other than 
+the issuer. PSPs providing e-money issuance service 
+are not permitted to use the funds for financing 
+services or permit withdrawal of cash equivalent 
+to e-money.
+iii.	 Escrow services: Arrangements wherein funds are 
+held by a PSP in an escrow account with an IFSC 
+ARTICLE
+84   |   JULY 2024
+ 
+  CHARTERED SECRETARY
+
+
+===== PDF_PAGE 2 / 3: 038_ICSI CSJ__CSJ July 2024 - Payment Services Regulations.pdf =====
+Banking Unit (“IBU”) or an IFSC Banking Company 
+(“IBC”) on behalf of two parties that are in the process 
+of completing a transaction. Any PSP providing escrow 
+services to other PSPs may hold escrow accounts with 
+multiple banks for providing such services to the 
+PSPs.
+iv.	 Cross border money transfer service: Refers to 
+the transmission of money from a person in IFSC to 
+anyone outside IFSC and receiving money from any 
+person outside IFSC for transferring such money to a 
+person situated in or outside IFSC. Additionally, this 
+service also includes transfer of money from a person 
+in the IFSC to a person in any other country including 
+India.
+v.	
+Merchant acquisition services: Similar to the 
+payment aggregation services to merchants in India. 
+Allows the merchant to facilitate different modes of 
+payments from their customers. However, payment 
+gateway services have been excluded from the scope 
+of these services. 
+PROCESS FOR AUTHORISATION
+i.	
+In the first stage, the parent company/person may 
+make an application to the Authority on behalf of 
+the proposed PSP company. The Authority while 
+assessing the application shall look into such 
+relevant criteria(s) as it may deem fit like Fit and 
+Proper of the applicant, past experience of the 
+applicant or it’s relevant persons in the payment’s 
+domain, financial soundness etc. before the grant of 
+authorisation. 
+ii.	
+IFSCA after being satisfied that the applicant has 
+fulfilled the necessary conditions (as mentioned in 
+the Regulations) for authorisation may issue an “in-
+principle approval” to the applicant. IFSCA while 
+issuing the “in-principle approval” may impose 
+some additional requirements/conditions that shall 
+be fulfilled by the applicant before the grant of final 
+authorisation. 
+iii.	 One of the conditions in the in-principle approval 
+letter shall be that the applicant needs to form 
+a company incorporated in IFSC and put in 
+the necessary capital as a part of the net-worth 
+requirements. If the parent company is a person 
+resident in India, it is advised to consider the provisions 
+of FEMA including those relating to opening of 
+foreign subsidiaries, transmission of capital from 
+the resident company to the non-resident subsidiary 
+etc. 
+iv.	 The PSP shall submit the application stating its 
+fulfilment of the necessary conditions as mentioned 
+in the “in-principle approval” letter, post-which 
+the Authority may grant authorisation to PSP to 
+carry-out the payment services. Issuance of “in-
+principle approval” by the Authority shall not 
+automatically entitle the Applicant to be granted an 
+authorisation.
+NET-WORTH REQUIREMENTS
+Every PSP needs to satisfy the net-worth requirements 
+on ongoing basis. Net-worth requirement for RPSP 
+is USD 100,000 and it is on higher side for the SPSP at 
+USD 250,000. The RPSP and SPSP needs to achieve an 
+increased net-worth of USD 200,000 and USD 500,000 
+respectively, within three years of designation as RPSP or 
+SPSP.
+GOVERNANCE AND RISK MANAGEMENT
+The regulations proposes the minimum aspects relating 
+to the Governance arrangements that shall be placed 
+by the PSP in relation to its operations of conducting 
+the payment services. The PSP(s) are encouraged to 
+put in place some additional safeguards in addition 
+to the minimum requirements as mentioned in the 
+regulations. 
+The 
+regulations 
+also 
+provide 
+for 
+the 
+aspects 
+that the PSP shall look into while entering into 
+third-party 
+service 
+relationships 
+and 
+for 
+the 
+purpose of risk management arising out of such 
+relationships. 
+Duties of the PSP in relation to the payment services users 
+or IFSCA and in relation to the overall operations have 
+been obligated under these regulations. These includes 
+duty to protect Applicable Funds, duty of co-operation 
+with the Authority, duty towards Payment Service Users, 
+duty to secure the information technology systems and 
+other infrastructure, Redressal of grievances and dispute 
+resolution.
+SAFEGUARDING ARRANGEMENTS
+For the purpose of carrying out the payment services 
+operations, the PSP needs to appoint a Nodal Bank. 
+The PSP shall maintain an escrow account (different 
+escrow accounts for different services) with the 
+Nodal bank for provision of services to the payment 
+service users. 
+The regulations also empower the Authority to require 
+a PSP to maintain security deposit of a specified amount 
+either at the time of authorisation or at any time thereafter. 
+The regulations proposes the minimum aspects 
+relating to the Governance arrangements that 
+shall be placed by the PSP in relation to its 
+operations of conducting the payment services. 
+The PSP(s) are encouraged to put in place 
+some additional safeguards in addition to the 
+minimum requirements as mentioned in the 
+regulations.
+IFSCA (Payment Services) Regulations, 2024- An Overview
+ARTICLE
+JULY 2024   |   85
+ 
+  CHARTERED SECRETARY
+
+
+===== PDF_PAGE 3 / 3: 038_ICSI CSJ__CSJ July 2024 - Payment Services Regulations.pdf =====
+Where a PSP surrenders the authorisation granted to it or 
+the authorisation granted to it has been revoked by the 
+Authority, the Authority may apply the security deposit, 
+to the extent required, to pay any sums outstanding and 
+claimed by payment service users who are customers of 
+the concerned PSP.
+A PSP authorised under the IFSCA (Payment Services) 
+Regulations would be a regulated entity and hence need to 
+comply with the requirements of the IFSCA (Anti Money 
+Laundering, Counter-Terrorist Financing and Know Your 
+Customer) Guidelines, 2022.
+CONCLUSION
+IFSCA has attempted to benchmark the regulatory 
+regime in line with that in the international regulations 
+governing payment services in jurisdictions like those 
+in Singapore, United Kingdom and European Union. 
+The regulations although is principle-based, has tried 
+to cover all aspects relating to the efficient functioning 
+of the payment services operations, safeguarding of 
+the customers and applicable funds, governance of the 
+PSP etc. 
+The regulations would also permit Indian fintech entities 
+looking to offer their products globally to develop IFSC 
+as their base from which to expand their offerings to 
+jurisdictions across the world. The regulations would 
+also support the process of “reverse-flipping” as many 
+of the Indian fintechs having holding companies 
+in foreign jurisdictions are engaged in providing 
+on or more of the payment services enabled by the 
+regulations.
+In conclusion, the IFSC Payment Regulations establish 
+a new benchmark for regulatory governance, requiring 
+robust risk management frameworks tailored to the 
+digital realm.
+RECENT DEVELOPMENTS IN THE 
+PAYMENT DOMAIN
+1.	
+In exercise of its power under the Payments and 
+Settlement Systems Act, 2007 (“PSS Act”), IFSCA has 
+recently released Consultation paper on the IFSCA 
+(Payment and Settlement Systems) Regulations, 2024 
+for regulating and authorising the payment systems in 
+IFSC.
+2.	
+IFSCA is in the process of setting up a real-time 
+foreign currency settlement system (FCSS), wherein 
+the financial institutions in IFSC shall be able to settle 
+their transactions denominated in foreign currency. 
+Once fully operational, the FCSS system will save 
+IFSC Banking Units (IBUs) both the time and cost 
+of using the correspondent banking channel to settle 
+transactions among themselves. For this purpose, 
+the Clearing Corporation of India (CCIL) has set up a 
+subsidiary in IFSC to act as the system operator for the 
+FCSS. They are in discussions with Indian Financial 
+Technology and Allied Services (IFTAS) to provide 
+the software solution for the FCSS. A settlement bank 
+having direct membership of the RTGS (Real-Time 
+Gross Settlement) system in the US is also being 
+identified. 
+Note: The above essay is based on the author’s understanding of the 
+IFSCA (Payment Services) Regulations, 2024 and knowledge regarding 
+the current happenings in the payment’s space. The views expressed by 
+the author is personal and do not represent the views of the IFSCA.
+
+CS
+IFSCA (Payment Services) Regulations, 2024- An Overview
+ARTICLE
+86   |   JULY 2024
+ 
+  CHARTERED SECRETARY

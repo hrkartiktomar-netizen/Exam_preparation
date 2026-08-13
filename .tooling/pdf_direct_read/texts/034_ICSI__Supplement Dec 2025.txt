@@ -1,0 +1,1649 @@
+
+
+===== PDF_PAGE 1 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SUPPLEMENT 
+PROFESSIONAL PROGRAMME 
+(NEW SYLLABUS) 
+ 
+for 
+December, 2025 Examinations 
+ 
+STRATEGIC MANAGEMENT & 
+CORPORATE FINANCE 
+ 
+GROUP 2, PAPER 5 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Disclaimer: This document has been prepared purely for academic 
+purposes only and it does not necessarily reflect the views of ICSI. 
+Any person wishing to act on the basis of this document should do so 
+only after cross checking with the original source. 
+ 
+
+
+===== PDF_PAGE 2 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+2 
+ 
+ 
+ 
+ 
+ 
+Students appearing in Examination shall note the following: 
+ 
+Students appearing in December, 2025 Examination should also update themselves on all the 
+relevant Notifications, Circulars, Clarifications, Orders etc. issued by MCA, SEBI, RBI & Central 
+Government upto May, 2025. 
+ 
+The students are advised to acquaint themselves with the monthly and Regulatory updates 
+published by the Institute.  
+ 
+This supplement is to be read with the SMCF study material new Syllabus updated up to May, 
+2024. 
+
+
+===== PDF_PAGE 3 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+3 
+ 
+ 
+ 
+Index 
+ 
+S. No. 
+Lesson 
+Page 
+No. 
+1.  
+Lesson 8- Raising of Funds from Equity and Procedural Aspects- 
+Public Funding 
+4 
+2.  
+Lesson 9 - Real Estate Investment Trust and  
+Lesson 10-  Infrastructure Investment Trust 
+11 
+3.  
+Lesson 11- Raising of Funds – Private Funding 
+14 
+4.  
+Lesson 13 – An overview of Listing and Issuance of Securities 
+in International Financial Services Centre 
+22 
+5.  
+Lesson 14 - Raising of Funds from Debts and Procedural Aspects 
+28 
+6.  
+Lesson 17- Role of Intermediaries in Fund Raising 
+32 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+===== PDF_PAGE 4 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+4 
+ 
+ 
+LESSON 8 
+RAISING OF FUNDS FROM EQUITY AND PROCEDURAL ASPECTS- PUBLIC 
+FUNDING 
+ 
+(1) Enabling T+2 trading of Bonus shares where T is the record date (September 16, 2024)  
+As a part of the continuing endeavor to streamline the process of Bonus issue of equity shares, 
+SEBI has decided to reduce the time taken for credit of bonus shares and trading of such shares, 
+from the record date of the Bonus Issue under SEBI (ICDR) Regulations, 2018. The operational 
+procedure to implement T+2 trading of Bonus shares is given below:  
+• 
+The issuer must apply for in-principle approval for the bonus issue under Regulation 28(1) of 
+SEBI (LODR) within 5 working days of the board approving the bonus.  
+• 
+The Issuer while fixing and intimating the record date (T day) to the Stock Exchange as 
+required under Regulation 42(1) of SEBI (LODR) Regulations, 2015, for the proposed bonus 
+issue, shall also take on record deemed date of allotment on next working date of record date 
+(T+1 day). Once the stock exchange accepts the record date and requisite documents, it will 
+notify the market, including the deemed date of allotment (T+1).  
+• 
+Upon receipt of intimation of the record date (T Day) and requisite documents from the Issuer, 
+the Stock Exchange(s) shall issue notification accepting the record date and notifying the 
+number of shares considered in the bonus issue. The notification shall include the deemed date 
+of allotment (T+1 day). 
+• 
+By 12 PM on the T+1 day, issuers must ensure the required documents are submitted to 
+depositories for crediting the bonus shares.  
+• 
+The issuer must upload the distinctive number ranges before the shares are credited.  
+• 
+The newly allotted bonus shares will be available for trading on the T+2 day.  
+• 
+Bonus shares will be directly credited to the existing ISIN without using a temporary ISIN. 
+This new process is mandatory for all bonus issues announced on or after October 1, 2024 . 
+For details: https://www.sebi.gov.in/web/?file=https://www.sebi.gov.in/sebi_data/attachdocs/sep-
+2024/1726484230463.pdf#page=1&zoom=page-width,-15,842  
+ 
+(2) Usage of UPI by individual investors for making an application in public issue of securities 
+through intermediaries (September 24, 2024)  
+In order to streamline and align the process of applying in the public issue of debt securities, non-
+convertible redeemable preference shares, municipal debt securities and securitized debt 
+instruments with that of public issue of equity shares and convertibles, SEBI has decided that all 
+individual investors applying in public issues of such securities through intermediaries (viz. 
+syndicate members, registered stock brokers, registrar to an issue and transfer agent and depository 
+participants), where the application amount is upto Rs. 5 Lakh, shall only use UPI for the purpose 
+of blocking of funds and provide his/ her bank account linked UPI ID in the bid-cum-application 
+form submitted with intermediaries. These provisions shall apply starting from November 01, 
+2024. Further, individual investors shall continue to have the choice of availing other modes (viz. 
+through SCSBs and Stock Exchange Platform) for making an application in the public issue. 
+For details: https://www.sebi.gov.in/web/?file=https://www.sebi.gov.in/sebi_data/attachdocs/sep-
+2024/1727178794123.pdf#page=1&zoom=page-width,-15,781  
+ 
+ 
+
+
+===== PDF_PAGE 5 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+5 
+ 
+ 
+(3) Trading supported by Blocked Amount in Secondary Market (November 11, 2024) 
+In a  view to promote the UPI-based block mechanism in the secondary market, the SEBI directed 
+qualified stock brokers (QSBs) to offer either the facility of trading supported by block amount in 
+the cash segment or the 3-in-1 trading account facility to their clients. 
+Clients of the QSBs will have the option, to either continue with the existing facility of trading by 
+transferring funds to Trading Members or opt for either of the facilities stated above, as provided 
+by the QSBs. The provisions of this circular will come into effect from February 01, 2025. 
+For 
+details: 
+https://www.sebi.gov.in/legal/circulars/nov-2024/trading-supported-by-blocked-
+amount-in-secondary-market_88339.html  
+ 
+(4) Enhancement in the scope of optional T+0 rolling settlement cycle in addition to the existing 
+T+1 settlement cycle in Equity Cash Markets (December 10, 2024) 
+The SEBI vide this circular has increased the number of eligible scrips for trading under optional 
+T+0 settlement cycle to top 500 scrips in terms of market capitalization as on December 31, 2024. 
+The scrips shall be made available for   trading   and   settlement   starting   with   scrips at bottom 
+100 companies out of the aforesaid 500 companies and gradually include the next bottom 100 
+companies every month till top 500 companies are available for trading in optional T+0 settlement 
+cycle. 
+ 
+Stock brokers who are designated as Qualified Stock Brokers (QSBs) and meet the parameter of 
+minimum number of active clients for qualification as QSB as on December 31, 2024 shall put in 
+place necessary systems and processes for enabling seamless participation of investors in optional 
+T+0 settlement cycle. However, new QSBs shall put in place the necessary systems within 3 
+months from the date of updation of the list. 
+ 
+To ensure smooth implementation, the MIIs shall publish the operational guidelines (including 
+mechanism for trading, clearing and settlement, risk management, etc.) and Frequently Asked 
+Questions (FAQs) along with the list of eligible scrips and list  of  QSBs for  the optional T+0  
+settlement cycle  and  disseminate  the  same  on their respective websites. 
+For 
+details: 
+https://www.sebi.gov.in/legal/circulars/dec-2024/enhancement-in-the-scope-of-
+optional-t-0-rolling-settlement-cycle-in-addition-to-the-existing-t-1-settlement-cycle-in-equity-
+cash-markets_89443.html  
+(5) SEBI (Issue of Capital and Disclosure Requirements) (Amendment) Regulations, 2025 
+(Notification No. SEBI/LAD-NRO/GN/2025/233 dated March 03, 2025) 
+SEBI has notified the SEBI (Issue of Capital and Disclosure Requirements) (Amendment) 
+Regulations, 2025 on March 03, 2025 which shall come into force on the date of their publication 
+in the Official Gazette. Provided that the provisions of these regulations with respect to the Rights 
+Issue by a listed issuer shall come into force on the 31st day from the date of their publication in 
+the Official Gazette and shall be applicable to Rights Issues that are approved by the Board of 
+Directors of the issuer after coming into force of these regulations. Provided further that the Rights 
+Issues that were approved by the Board of Directors of the issuer before coming into force of these 
+regulations shall be continued to be governed by the pre-amended provisions of the Securities and 
+Exchange Board of India (Issue of Capital and Disclosure Requirements) Regulations, 2018. 
+ 
+Vide this notification, the following amendments have been made in the SEBI (Issue of Capital 
+and Disclosure Requirements) Regulations, 2018: 
+
+
+===== PDF_PAGE 6 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+6 
+ 
+ 
+ 
+• Applicability of the SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018 
+[Regulation 3] 
+o The amendment has been made in regulation 3(b) which stipulates that the SEBI (Issue of 
+Capital and Disclosure Requirements) Regulations, 2018 will apply to a rights issue by a listed 
+issuer. The words “where the aggregate value of the issue is fifty crore rupees or more” have 
+been omitted.  
+o The first proviso to regulation 3 has been omitted stating that “in case of rights issue of size 
+less than fifty crores rupees, the issuer shall prepare the letter of offer in accordance with 
+requirements as specified in these regulations and file the same with the Board for information 
+and dissemination on the Board’s website”.  
+ 
+• Non applicability of Regulation 5 (2) – For Outstanding Convertibles Securities 
+As per regulation 5(2), an issuer shall not be eligible to make an initial public offer if there are 
+any outstanding convertible securities or any other right which would entitle any person with any 
+option to receive equity shares of the issuer.  
+A clause is inserted in proviso to regulation 5(2) which states that the provisions of regulation 
+5(2) shall not apply to outstanding stock appreciation rights granted to employees pursuant to a 
+stock appreciation right scheme, which are fully exercised for equity shares prior to the filing of 
+the red herring prospectus (in case of book-built issues) or the prospectus (in case of fixed price 
+issues), as the case may be, disclosures regarding such stock appreciation rights and the scheme 
+and the total number of equity shares resulting from the exercise of such rights are made in the 
+draft offer document and offer document.  
+ 
+ 
+• The issuer shall appoint a person qualified to be a company secretary as the compliance 
+officer who shall be responsible for monitoring the compliance of the securities laws and for 
+redressal of investors’ grievances. [Amendment: Regulation 23(8) and 121(8) relating to 
+Appointment of Compliance Officer] 
+ 
+• The draft offer document filed with SEBI shall be made public for comments, if any, for a period 
+of at least twenty one days from the date of publication of the public announcement, by hosting 
+it on the websites of the issuer, the Board, stock exchanges where specified securities are 
+proposed to be listed and lead manager(s) associated with the issue. [Amendment: Regulation 
+26(1) and 124(1)] 
+ 
+• The issuer shall announce the floor price or the price band at least two working days before the 
+opening of the issue/bid in the pre-issue and price band advertisement in the format specified 
+under Part A of Schedule X in the same newspapers in which the public announcement was 
+published. [Substitution: Regulation 29(4) and 127(4)] 
+ 
+• Subject to the provisions of the Companies Act, 2013, the issuer shall, after filing the red herring 
+prospectus (in case of a book built issue) or prospectus (in case of fixed price issue) with the 
+Registrar of Companies, make a pre-issue and price band advertisement in the same newspapers 
+in which the public announcement was published. [Substitution: Regulation 43(1) and 139(1)] 
+ 
+• The pre-issue and price band advertisement shall be in the format and shall contain the 
+
+
+===== PDF_PAGE 7 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+7 
+ 
+ 
+disclosures specified in Part A of Schedule X. [Amendment: Regulation 43(2) and 139(2)] 
+ 
+• The proviso to regulation 43(2) and 139(2) has been omitted stating that “the disclosures in 
+relation to price band or floor price and financial ratios contained therein shall only be 
+applicable where the issuer opts to announce the price band or floor price along with the pre-
+issue advertisement.” 
+ 
+ 
+• Regulation 54 and 150 has been substituted with the following regulation, namely,- 
+Reporting of transactions of the promoters and promoter group and other pre-IPO 
+transactions 
+➢ The issuer shall ensure that all transactions in securities by the promoters and promoter 
+group between the date of filing of the draft offer document or offer document, as the 
+case may be, and the date of closure of the issue shall be reported to the stock exchange(s), 
+within twenty-four hours of such transactions. 
+➢ The issuer shall also ensure that any proposed pre-IPO/ pre-offer placement disclosed in 
+the draft offer document shall be reported to the stock exchange(s), within twenty-four 
+hours of such pre-IPO/ pre-offer transactions (in part or in entirety). 
+ 
+• 
+Eligibility Requirements for Rights Issue: An issuer offering specified securities through a 
+rights issue shall satisfy the conditions of Chapter III at the time of filing the draft letter of offer 
+with the stock exchange(s), and at the time of filing the letter of offer with the Board and the 
+stock exchange(s). [Amendment: Regulation 60] 
+Vide this amendment, Rights  Issues  of  issue  size  less  than  50  crore  rupees,  have  been  
+brought under the purview of SEBI (Issue of Capital and Disclosure Requirements) Regulations, 
+2018. 
+• 
+An issuer shall not be eligible to make a rights issue if the equity shares of the issuer are 
+suspended from trading as a disciplinary measure as on the reference date. [Insertion: Regulation 
+61(d)] 
+• In regulation 62(2A) relating to General conditions for Rights Issues, the words “draft offer 
+document and the offer document”, wherever they appear, have been substituted with the words 
+“draft letter of offer and the letter of offer”.  
+SEBI, vide this amendment, has discontinued the current requirement of filing Draft Offer 
+Document with SEBI  for  issuance  of  its  observation,  instead  it  will  be  filed  with  Stock 
+Exchanges for its in-principle approval, as the entity is already a listed entity.  
+• 
+Where the issuer or any of its promoters or directors is a wilful defaulter or a fraudulent borrower, 
+the promoters or promoter group of the issuer shall not renounce their rights except to the extent 
+of renunciation within the promoter group or to the specific investor(s) as disclosed by the 
+issuer in terms of these regulations. [Amendment: Regulation 62(3)] 
+• The amendments have been made in regulation 69 relating to “Appointment of Intermediaries” 
+in case of Rights Issue. The same is reproduced below: 
+ 
+Appointment of Intermediaries [Regulation 69] 
+➢ The issuer shall appoint intermediaries which are registered with SEBI after assessing the 
+capability of intermediaries to carry out their obligations 
+
+
+===== PDF_PAGE 8 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+8 
+ 
+ 
+➢ The issuer shall enter into an agreement with the intermediaries as required under the 
+respective regulations applicable to the intermediary concerned. Provided that such 
+agreements may include such other clauses as the issuer and the intermediaries may deem fit 
+without diminishing or limiting in any way the liabilities and obligations of the intermediaries 
+and the issuer under the SEBI Act, the Companies Act, 2013, the Securities Contracts 
+(Regulation) Act, 1956, the Depositories Act, 1996 and the rules and regulations made 
+thereunder or any statutory modification or statutory enactment thereof. Provided further that 
+in case of ASBA process, the issuer shall take cognisance of the deemed agreement of the 
+issuer with the self-certified syndicate banks.  
+➢ The issuer shall appoint bankers to an issue, at centres as specified in Schedule XII.  
+➢ The issuer shall appoint a registrar to the issue registered with SEBI, which has connectivity 
+with all the depositories. Provided that if the issuer itself is a registrar, it shall not appoint 
+itself as a registrar to the issue.  
+ 
+Vide this amendment, SEBI dispensed  with  the  mandatory  requirement  of  appointment  of  a  
+Merchant Banker  by  an  Issuer. 
+• The amendments have been made in regulation 70 relating to “Disclosures in the draft letter of 
+offer and letter of offer” in case of Rights Issue. The same is reproduced below: 
+ 
+Disclosures in the draft letter of offer and letter of offer [Regulation 70] 
+➢ The draft letter of offer and letter of offer shall contain all material disclosures which are true 
+and adequate to enable the applicants to take an informed investment decision.  
+➢ The draft letter of offer and letter of offer shall contain disclosures as specified in Part B of 
+Schedule VI.  
+➢ The issuer shall ensure that the information contained in the draft letter of offer and letter of 
+offer and the particulars as per audited financial statements in the letter of offer are not more 
+than six months old from the issue opening date. 
+➢ An issuer shall make disclosures in the draft letter of offer and letter of offer, if the issuer or 
+any of its promoters or directors is a wilful defaulter or a fraudulent borrower.  
+➢ In the letter of offer, the issuer shall disclose the process of credit of rights entitlements in the 
+demat account and renunciation thereof. 
+ 
+• The amendments have been made in regulation 71 relating to “Filing of the draft letter of offer 
+and letter of offer” in case of Rights Issue. The same is reproduced below: 
+ 
+Filing of the draft letter of offer and letter of offer [Regulation 71] 
+ 
+➢ The issuer shall file the draft letter of offer with the stock exchange(s) and shall submit to 
+such stock exchange(s) the following: 
+a. the Permanent Account Number, bank account number and passport number of its 
+promoters where they are individuals, and Permanent Account Number, bank account 
+number, company registration number or equivalent, and the address of the Registrar of 
+Companies with which the promoter is registered, where the promoter is a body 
+corporate, 
+b. in case of an issue of convertible debt instruments, a due diligence certificate from the 
+debenture trustee as per Form B of Schedule V. 
+
+
+===== PDF_PAGE 9 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+9 
+ 
+ 
+ 
+➢ The issuer shall file letter of offer with the stock exchanges/ the designated stock exchange. 
+➢ The issuer shall file a letter of offer with SEBI for information and dissemination on Board’s 
+website along with fees specified in Schedule III. 
+ 
+ 
+• The amendments have been made in regulation 72 relating to “Draft letter of offer and letter of 
+offer to be available to the public” in case of Rights Issue. The same is reproduced below: 
+ 
+Draft letter of offer and letter of offer to be available to the public [Regulation 72] 
+➢ The issuer shall ensure that the draft letter of offer and letter of offer are hosted on the websites 
+as required under these regulations and its contents are the same as the versions as filed with 
+SEBI and the stock exchanges, as applicable.  
+➢ The stock exchanges shall provide copies of the draft letter of offer to the public as and when 
+requested and may charge a reasonable sum for providing a copy of the same. 
+ 
+• The issuer shall decide the issue price before determining the record date, which shall be 
+determined in consultation with the designated stock exchange. [Amendment: Regulation 
+73(1)] 
+• Regulation 74(3) and the proviso has been omitted stating that “Subject to other applicable 
+provision of these regulations, the issuer may make reservation for its employees along with 
+rights issue subject to the condition that the value of allotment to any employee shall not exceed 
+two lakhs rupees. Provided that in the event of under-subscription in the employee reservation 
+portion, the unsubscribed portion may be allotted on a proportionate basis, for a value in excess 
+of two lakhs rupees, subject to the total allotment to an employee not exceeding five lakhs 
+rupees.” 
+• The amendments have been made in regulation 75 relating to “Letter of Offer” in case of Rights 
+Issue. The same is reproduced below: 
+ 
+Letter of Offer [Regulation 75] 
+Every application form distributed by the issuer or any other person in relation to the issue shall 
+be accompanied by a copy of the letter of offer. 
+• The amendments have been made in regulation 77 relating to “Availability of letter of offer and 
+other issue materials” in case of Rights Issue. The same is reproduced below: 
+ 
+Letter of Offer [Regulation 77] 
+o The issuer shall ensure availability of the letter of offer and other issue material including 
+application forms with stock exchanges, registrar to issue, registrar and share transfer 
+agents, depository participants, stock brokers, underwriters, bankers to the issue, 
+investors’ associations and self-certified syndicate banks before the opening of the issue.  
+o The letter of offer, along with application form, shall be despatched through registered 
+post or speed post or by courier service or by electronic transmission to all the existing 
+shareholders at least three days before the date of opening of the issue.  
+o The letter of offer shall also be provided by the issuer to any existing shareholder who 
+makes a request in this regard. 
+
+
+===== PDF_PAGE 10 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+10 
+ 
+ 
+ 
+• The following regulation 77B has been inserted, namely,- 
+Allotment to Specific Investors 
+77B. (1) For the purpose of this chapter, specific investor would mean any investor who is 
+eligible to participate in rights issue of the issuer and-  
+1. whose name has been disclosed by the issuer in terms of sub-clause (i) of clause (f) of sub-
+regulation (1) of regulation 84 of these regulations;  
+2. whose name has been disclosed by the issuer in terms of sub-clause (ii) of clause (f) of sub-
+regulation (1) of regulation 84 of these regulations.  
+ 
+(2) The application by the specific investor(s) in terms of clause (a) shall be made on the first 
+day of issue opening before 11 A.M. and the issuer shall disclose to the stock exchange(s) 
+whether such specific investor(s) have made the application or not, for dissemination on the 
+first day of issue opening by 11:30 A.M.  
+ 
+(3) No withdrawal of the application(s) shall be permitted when the application by the specific 
+investor(s) is received in terms of clause (a). 
+ 
+(4) The application in terms of clause (b) shall be made by the specific investor(s) along with 
+the application money before the finalisation of basis of allotment. 
+ 
+• Regulation 81(2) has been omitted stating that “In case of every underwritten issue, the lead 
+manager(s) shall undertake minimum underwriting obligations as specified in the Securities and 
+Exchange Board of India (Merchant Bankers) Regulations, 1992.” 
+• 
+The issuer shall make arrangements for the use of proceeds of the issue to be monitored by a credit rating 
+agency registered with the Board. Vide this amendment, the appointment  of  Monitoring  Agency  
+will  be  mandatory  for  all  rights  issue irrespective of the issue size, to monitor the use of 
+proceeds of the issue. [Amendment: Regulation 82(1)] 
+• Opening of the issue: Subject to the compliance with the provisions of the Companies Act, 
+2013, a rights issue may be opened within such period as may be specified by the Board from 
+time to time. [Substitution: Regulation 85] 
+• Period of subscription: The rights issue shall be kept open for subscription for such period as 
+may be specified by the Board from time to time and no withdrawal of application shall be 
+permitted after the issue closing date. [Substitution: Regulation 87] 
+• The Regulation 99 and regulation 100 relating to eligibility conditions and issue conditions for 
+Fast Track Rights Issue under Part IX, have been omitted.  
+• The issuer shall appoint a person qualified to be a company secretary as the compliance 
+officer who shall be responsible for monitoring the compliance of the securities laws and for 
+redressal of investors’ grievances. [Amendment: Regulation 184(7) relating to Appointment of 
+Compliance Officer in case of Initial Public Offer of Indian Depository Receipts] 
+• The issuer shall also appoint a person qualified to be a company secretary as the compliance 
+officer who shall ensure compliance with the obligations under Chapter VIII relating to Rights 
+Issue of Indian Depository Receipts, and shall function from within the territorial limits of India. 
+[Substitution: Regulation 219(2)] 
+***** 
+
+
+===== PDF_PAGE 11 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+11 
+ 
+ 
+LESSON 9 - REAL ESTATE INVESTMENT TRUST  
+AND  
+LESSON 10- INFRASTRUCTURE INVESTMENT TRUST 
+ 
+(1) Amendment to Master Circular for Real Estate Investment Trusts (REITs) and 
+Infrastructure Investment Trusts (InvITs) dated May 15, 2024 – Board nomination rights to 
+unitholders of REITs/InvITs (August 06, 2024)  
+SEBI vide these circulars has revised the board nomination rights to unitholders of REITs and 
+InvITs. As per the master circulars Eligible Unitholder(s)shall be entitled to nominate only one 
+Unitholder Nominee Director, subject to the unitholding of such Eligible Unitholder(s) exceeding 
+the specified threshold. If the right to nominate one or more directors on the Board of Directors of 
+the Manager is available to any entity (or to an associate of such entity) in the capacity of 
+shareholder of the Manager or lender to the Manager or the REIT (or its HoldCo(s) or SPVs), then 
+such entity in its capacity as unitholder, shall not be entitled to nominate or participate in the 
+nomination of a Unitholder Nominee Director. These circulars have relaxed the above restrictions 
+if the right to appoint a nominee director is available in terms of clause (e) of sub-regulation (1) 
+of regulation 15 of the SEBI (Debenture Trustees) Regulations, 1993 
+https://www.sebi.gov.in/legal/circulars/aug-2024/amendment-to-master-circular-for-real-
+estateinvestment-trusts-reits-dated-may-15-2024-board-nomination-rights-to-unitholders-of-
+reits_85493.html  
+https://www.sebi.gov.in/legal/circulars/aug-2024/amendment-to-master-circular-for-
+infrastructure-investment-trusts-invits-dated-may-15-2024-board-nomination-rights-to-
+unitholders-of-invits_85491.html 
+ 
+(2) Amendment to Master Circular for Real Estate Investment Trusts (REITs) and 
+Infrastructure Investment Trusts (InvITs) dated May 15, 2024 - Review of statement of 
+investor complaints and timeline for disclosure of statement of deviation(s) (August 22, 2024)  
+To improve ease of doing business related to activities of InvITs and REITs and to align with the 
+provisions of SEBI LODR Regulations, SEBI has amended its Master Circular for Real Estate 
+Investment Trusts (REITs) and Infrastructure Investment Trusts (InvITs) dated May 15, 2024. It 
+is prescribed that the Trustee and the Board of Directors/Governing Body of the Manager shall 
+ensure that all investor complaints are redressed by the Manager in timely manner and statement 
+shall be placed, on a quarterly basis, before the Board of Directors/Governing Body of the 
+Manager and the Trustee for review. Further provided that statement of deviation shall also be 
+placed before the Trustee and the Board of Directors/Governing Body of the Manager for review. 
+Pursuant to such review, the statement shall be submitted to the stock exchange. Such submission 
+to the Stock Exchange shall be made along with the submission of financial results. 
+For details: https://www.sebi.gov.in/legal/circulars/aug-2024/amendment-to-master-circular-for-
+infrastructure-investment-trusts-invits-dated-may-15-2024-review-of-statement-of-investor-
+complaints-and-timeline-for-disclosure-of-statement-of-deviation-s-_86047.html  
+https://www.sebi.gov.in/legal/circulars/aug-2024/amendment-to-master-circular-for-real-estate-
+investment-trusts-reits-dated-may-15-2024-review-of-statement-of-investor-complaints-and-
+timeline-for-disclosure-of-statement-of-deviation-s-_86045.html 
+ 
+(3) (Real Estate Investment Trusts) (Third Amendment) Regulations, 2024 and (Infrastructure 
+Investment Trusts) (Third Amendment) Regulations, 2024 (September 27, 2024)  
+SEBI vide e-gazette notification dated September 27, 2024 brought out the amendments in SEBI 
+(Real Estate Investment Trusts) Regulations, 2014 and (Infrastructure Investment Trusts) 
+
+
+===== PDF_PAGE 12 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+12 
+ 
+ 
+Regulations, 2014. The amendments inter-alia include the reduction of the timeline for payment 
+distribution to unit holders, requiring it within five working days from the record date, instead of 
+fifteen. It also modifies voting provisions to calculate thresholds based on total votes cast rather 
+than votes against, facilitating smoother unit holder meetings. A provision mandates video 
+conferencing option for meetings and remote electronic voting. Additional regulations ensure that 
+adequate backup systems and data integrity measures are in place for electronically maintained 
+records. Overall, the amendments aim to enhance transparency, efficiency, and accessibility within 
+the REIT/InvIT framework, aligning with evolving market practices and stakeholder needs. 
+ 
+(4) Relaxation from certain provisions for units allotted to an employee benefit trust for the 
+purpose of a unit based employee benefit scheme, Alignment of timelines for making 
+distribution by REITs and Format of Quarterly Report and Compliance Certificate - Real 
+Estate Investment Trusts (REITs) [November 13, 2024] 
+SEBI vide these circulars relaxed specific lock-in and allotment requirements for units assigned 
+to employee benefit trusts under unit-based employee benefit (UBEB) schemes, promoting 
+operational ease for such trusts aligning with REIT/InvIT regulations.  
+Further, Indian  REITs  Association  (“IRA”)/Bharat  InvITs  Association  (“BIA”),  in consultation  
+with  SEBI,  shall  specify  the  format  of  quarterly  report  and  compliance certificate required 
+to be submitted by the Manager of the REIT/ Investment  Manager  of  the  InvIT to the Trustee 
+under Regulation 10(18)(a) and Regulation 9(3) of the REIT /InvIT Regulations respectively, and 
+publish it on its website. Any future changes to this format shall be made by IRA/BIA in 
+consultation with SEBI, prior to implementation. Also, SEBI updated the timeline requirements 
+for distributions by REITs/InvITs, aligning them with recent amendments to REIT/InvIT 
+regulations. To address unclaimed distributions, any unpaid amounts will now be transferred to an 
+Escrow Account termed as the “Unpaid Distribution Account.” 
+These circulars shall be applicable from immediate effect. 
+For 
+details: 
+https://www.sebi.gov.in/legal/circulars/nov-2024/relaxation-from-certain-
+provisions-for-units-allotted-to-an-employee-benefit-trust-for-the-purpose-of-a-unit-based-
+employee-benefit-scheme-alignment-of-timelines-for-making-distribution-by-reits-and-
+_88471.html 
+https://www.sebi.gov.in/legal/circulars/nov-2024/relaxation-from-certain-provisions-for-units-
+allotted-to-an-employee-benefit-trust-for-the-purpose-of-a-unit-based-employee-benefit-scheme-
+alignment-of-timelines-for-making-distribution-by-invits-and-_88472.html 
+ 
+(5) Securities and Exchange Board of India (Infrastructure Investment Trusts) (Amendment) 
+Regulations, 2025 (April 02, 2025) 
+SEBI vide notification dated April 01, 2025 amended the SEBI (Infrastructure Investment Trusts) 
+Regulations, 2014. Key changes include revised rules for filling independent director vacancies 
+within investment managers, requiring prompt filling of vacancies to maintain compliance. A new 
+Schedule is inserted introducing illustrative Roles and Responsibilities of Trustees emphasizing 
+transparency, accountability, and unitholder’s protection.  It also revises regulations related to 
+InvIT borrowing, distribution, and reporting, aiming to enhance governance and protect investor 
+interests. 
+For details: https://www.sebi.gov.in/legal/regulations/apr-2025/securities-and-exchange-board-of-
+india-infrastructure-investment-trusts-amendment-regulations-2025_93279.html 
+
+
+===== PDF_PAGE 13 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+13 
+ 
+ 
+(6) Securities and Exchange Board of India (Real Estate Investment Trusts) (Amendment) 
+Regulations, 2025 (April 23, 2025) 
+SEBI vide notification dated April 22, 2025 amended the SEBI (Real Estate Investment Trusts) 
+Regulations, 2025. ey changes include the definition and conditions related to “common 
+infrastructure” for REITs, and modifications to the definition of “cash equivalent.” The regulations 
+also address filling vacancies for independent directors, specify trustee responsibilities, and detail 
+conditions for transferring locked-in units held by sponsors. Furthermore, the amendments outline 
+eligible investments for REITs, including property management companies, liquid mutual funds, 
+and interest rate derivatives, subject to certain conditions. They also introduce provisions related 
+to Small and Medium Real Estate Investment Trusts (SM REITs), including initial offer processes, 
+scheme offer documents, pricing, and allotment procedures. Additional changes cover continuous 
+disclosures, leverage limits, unclaimed distributions, and mandatory disclosures in the scheme 
+offer document. 
+For details: https://www.sebi.gov.in/legal/regulations/apr-2025/securities-and-exchange-board-
+of-india-real-estate-investment-trusts-amendment-regulations-2025_93589.html  
+ 
+ 
+ 
+
+
+===== PDF_PAGE 14 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+14 
+ 
+ 
+LESSON 11 
+RAISING OF FUNDS – PRIVATE FUNDING 
+ 
+(1) Information to be filed by schemes of AIFs availing dissolution period/additional liquidation 
+period and conditions for in-specie distribution of assets of AIFs (July 09, 2024) 
+SEBI vide this circular specified the Information to be filed by schemes of AIFs availing 
+dissolution period/additional liquidation period and conditions for in-specie distribution of assets 
+of AIFs. 
+A. Information Memorandum for schemes of AIFs entering into Dissolution Period– 
+The information memorandum for a scheme of an AIF entering into dissolution period shall be 
+submitted to SEBI (in terms of Regulation 29B(2) of SEBI AIF Regulations) before expiry of the 
+liquidation period or additional liquidation period of the scheme, as the case may be. SEBI has 
+also specified the format for information memoranda and due diligence certificate. 
+B. Information to be submitted by schemes of AIFs availing additional liquidation period – 
+In terms of regulation 29(9A) of AIF Regulations, if the liquidation period for a scheme of an AIF 
+has expired or is expiring within three months from the date of notification of the SEBI 
+(Alternative Investment Funds) (Second Amendment) Regulations, 2024 (i.e., on or before July 
+24,2024), such schemes may be granted an additional liquidation period, subject to conditions and 
+in the manner as may be specified by SEBI.  
+In this regard, Schemes of AIFs which are intending to avail the additional/fresh liquidation period 
+in terms of aforesaid provisions, shall submit information to SEBI regarding the same as per the 
+prescribed format given in the circular for grant of the additional liquidation period. 
+C. In specie distribution of investments of AIFs – 
+With respect to carry out in specie distribution of investments of a scheme of an AIF in terms of 
+Regulation 29(8) of AIF Regulations, it is clarified that such in specie distribution (other than the 
+aforesaid mandatory in specie distribution), shall be carried out after obtaining approval of at least 
+75% of the investors by value of their investment in the scheme of the AIF. 
+The manager, trustee and key management personnel of AIF and manager shall be responsible for 
+compliance with the provisions prescribed above. 
+For details: https://www.sebi.gov.in/legal/circulars/jul-2024/information-to-be-filed-by-schemes-
+of-aifs-availing-dissolution-period-additional-liquidation-period-and-conditions-for-in-specie-
+distribution-of-assets-of-aifs_84676.html 
+ 
+(2) Securities and Exchange Board of India (Alternative Investment Funds) (Third 
+Amendment) Regulations, 2024 (July 11, 2024) 
+Vide this notification a new category has been introduced called “migrated venture capital fund, 
+means a fund that was previously registered as a venture capital fund under the SEBI (Venture 
+Capital Funds) Regulations, 1996 and subsequently registered under these regulations as a sub-
+category of Venture Capital Fund under Category I -Alternative Investment Fund. 
+The second proviso of Regulation 3(2) has been substituted which provides that ‘venture   capital   
+funds   may   seek registration   under   these regulations as migrated venture capital funds in 
+terms of Chapter III-D, within twelve months from the date of this notification. 
+ 
+After second proviso, a new proviso is added as ‘Provided further that the Board may specify 
+enhanced regulatory reporting and other measures for the venture capital funds that do not seek 
+registration as a migrated venture capital fund in terms of Chapter III-D’ 
+
+
+===== PDF_PAGE 15 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+15 
+ 
+ 
+Insertion of Chapter III -D  
+It provides applicability guidelines for the registration, operation, and reporting requirements for 
+these migrated funds. Key changes include new definitions, applicability, eligibility criteria, 
+private placement restrictions, and investment conditions. The regulations also address the 
+procedures for fund registration and the prohibition on public solicitations for subscriptions. 
+For details: https://www.sebi.gov.in/legal/regulations/jul-2024/securities-and-exchange-board-
+of-india-alternative-investment-funds-third-amendment-regulations-2024_84929.html  
+ 
+(3) SEBI (Alternative Investment Funds) (Fourth Amendment) Regulations, 2024 (Notification 
+No. SEBI/LADNRO/GN/2024/198 dated August 05, 2024)  
+SEBI has notified the SEBI (Alternative Investment Funds) (Fourth Amendment) Regulations, 
+2024 which shall come into force on the date of their publication in the Official Gazette. Vide this 
+notification the following amendments have been made:  
+• 
+Alternative Investment Funds to seek registration in Category II Alternative Investment Fund 
+which does not fall in Category I and III and which does not undertake leverage or borrowing 
+other than as permitted in these regulations. The words “to meet day to-day operational 
+requirements and” have been omitted. [Regulation 3(4)(b)]  
+• 
+The first proviso to Regulation 13(5) has been amended to specify that a large value fund for 
+accredited investors may be permitted to extend its tenure for up to five years subject to the 
+approval of two-thirds of the unit holders by value of their investment in the large value fund 
+for accredited investors.  
+• 
+The amendments have been carried out in regulation 16(1)(c) relating to investment conditions 
+for Category I Alternative Investment Funds and in regulation 17(c) relating to investment 
+conditions for Category II Alternative Investment Funds. It is provided that Category I 
+Alternative Investment Funds or Category II Alternative Investment Funds shall not borrow 
+funds or engage in any leverage for the purpose of making investments or otherwise, except 
+for borrowing funds to meet temporary funding requirements and day-to-day operational 
+requirements. 
+For details: https://www.sebi.gov.in/legal/regulations/aug-2024/securities-and-exchange-board-
+of-india-alternative-investment-funds-fourth-amendment-regulations-2024_85550.html  
+ 
+(4) Modalities for migration of Venture Capital Funds registered under erstwhile SEBI 
+(Venture Capital Funds) Regulations, 1996 to SEBI (Alternative Investment Funds) 
+Regulations, 2012 (August 19, 2024)  
+SEBI has issued the modalities for migration of Venture Capital Funds registered under erstwhile 
+SEBI (Venture Capital Funds) Regulations, 1996 to SEBI (Alternative Investment Funds) 
+Regulations, 2012 and stipulates that the application for seeking registration as a Migrated Venture 
+Capital Fund shall be made to SEBI and while applying to SEBI for migration to AIF Regulations 
+as “Migrated VCFs”, VCFs shall submit the original certificate of registration issued under VCF 
+Regulations and requisite information as per the format specified in Annexure I to the circular.  
+In terms of Regulation 19V(1) of AIF Regulations, “Migrated Venture Capital Fund” means a 
+fund that was previously registered as a Venture Capital Fund under the VCF Regulations and 
+subsequently registered under AIF Regulations as a sub-category of Venture Capital Fund under 
+Category I - Alternative Investment Fund. While opting for migration to AIF Regulations, VCFs 
+having only schemes whose liquidation period (in terms of Regulation 24(2) of VCF Regulations) 
+has not expired and shall be subject to the prescribed conditions. 
+
+
+===== PDF_PAGE 16 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+16 
+ 
+ 
+For VCFs with schemes whose liquidation periods have not yet expired, the tenure of the schemes 
+will be determined based on the Private Placement Memorandum (PPM). If the PPM disclosed a 
+definite tenure, it remains unchanged post-migration. If the PPM did not specify a tenure, the 
+remaining tenure will be determined with the approval of 75% of investors by value. 
+Conditions for Schemes with Expired Liquidation Periods 
+For VCFs that have at least one scheme with an expired liquidation period, migration is allowed 
+only if there are no pending investor complaints regarding non-receipt of funds or securities. A 
+one-time additional liquidation period of one year is available for schemes with expired liquidation 
+periods, allowing them to wind up by July 19, 2025. 
+Post-Migration Provisions 
+Upon migration, the investors, investments, and units of the VCF or its schemes registered under 
+VCF Regulations will be deemed as those of the Migrated VCF under AIF Regulations. 
+Additionally, the applicability of the SEBI Master Circular for AIFs (dated May 7, 2024) and 
+subsequent circulars will extend to Migrated VCFs, as detailed in Annexure II of the notification. 
+ 
+Non-Migrating VCFs 
+For VCFs that choose not to migrate, Schemes with unexpired liquidation periods will be subject 
+to enhanced regulatory reporting. Schemes with expired liquidation periods will face appropriate 
+regulatory action if they continue operating beyond their original tenure. VCFs that have wound 
+up all their schemes or have made no investments must apply to SEBI to surrender their 
+registration by March 31, 2025. Failure to do so will result in the cancellation of their registrations. 
+https://www.sebi.gov.in/legal/circulars/aug-2024/modalities-for-migration-of-venture-
+capitalfunds-registered-under-erstwhile-sebi-venture-capital-funds-regulations-1996-to-sebi-
+alternative-investmentfunds-regulations-2012_85914.html  
+ 
+(5) Guidelines for borrowing by Category I and Category II AIFs and maximum permissible 
+limit for extension of tenure by LVFs (August 19, 2024) 
+SEBI has issued Guidelines for borrowing by Category I and Category II AIFs and maximum 
+permissible limit for extension of tenure by LVFs. In order to facilitate ease of doing business and 
+provide operational flexibility, it has been decided to allow Category I and Category II AIFs to 
+borrow for the purpose of meeting temporary shortfall in amount called from investors for making 
+investments in investee companies (‘drawdown amount’). 
+Category I and Category II AIFs may borrow for the purpose of meeting shortfall in drawdown 
+amount, subject to the following additional conditions: 
+1. If AIF intends to borrow funds for meeting shortfall in draw down amount, the same shall 
+be disclosed in the PPM of the scheme. 
+2. Such borrowing shall be done only in case of emergency and as a last recourse, when the 
+investment opportunity is imminent to be closed and the drawdown amount from 
+investor(s)has not been received by the AIF before the date of investment, in spite of best 
+efforts by manager to obtain the drawdown amount from the delaying investor(s). 
+3. The amount borrowed shall not exceed twenty per cent of the investment proposed to be 
+made in the investee company, or ten per cent of the investable funds of the scheme of 
+AIF, or the commitment pending to be drawn down from investors other than the 
+investor(s) who has failed to provide the drawdown amount, whichever is lower. 
+
+
+===== PDF_PAGE 17 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+17 
+ 
+ 
+4. The cost of such borrowing shall be charged only to investor(s) who failed to provide the 
+drawdown amount for making investments. 
+5. The flexibility of borrowing to meet shortfall in drawdown amount shall not be used as a 
+means to provide different drawdown timelines to investors. 
+6. The manager shall disclose the details with respect to amount borrowed, terms of 
+borrowing and repayment to all the investors of the AIF/scheme, on a periodic basis asper 
+the terms of agreement with the investors of the AIF. 
+Further, all Category I and Category II AIFs shall maintain thirty days cooling off period between 
+two periods of borrowing as permissible under AIF Regulations. The cooling off period of thirty 
+days shall be calculated from the date of repayment of previous borrowing. 
+With regard to Maximum permissible limit for extension of tenure by LVFs, Existing  LVF  
+schemes  who  have  not  disclosed  definite  period  of extension in their tenure in the PPM or 
+whose period of extension in tenure is beyond the permissible five years, shall align the period of 
+extension in tenure with the amended  requirement within three months from the date of this 
+circular, i.e., on or before November 18, 2024. 
+Such LVF schemes shall update their revised period of extension in tenure  in  the quarterly  report  
+submitted  on  the  SEBI  Intermediary Portal (SI Portal)for the quarter ending December 31, 2024. 
+While  realigning the period  of  extension  in  tenure, LVF schemes shall have the flexibility to 
+revise their original tenure subject to the consent of all the investors of the scheme. Such  LVF  
+schemes  shall submit  an  undertaking  to  SEBI on  or before November 18, 2024, stating that 
+consent of all the investors of the scheme has been obtained for revising the original tenure. 
+For 
+details: 
+https://www.sebi.gov.in/legal/circulars/aug-2024/guidelines-for-borrowing-by-
+category-i-and-category-ii-aifs-and-maximum-permissible-limit-for-extension-of-tenure-by-
+lvfs_85909.html  
+ 
+(6) Modification in framework for valuation of investment portfolio of AIFs (September 19, 
+2024)  
+SEBI vide this circular has modified the framework for valuation of investment portfolio of AIFs 
+(Provided in Chapter 22 of Master Circular for AIFs dated May 07, 2024) as under: 
+• 
+Valuation of securities, other than unlisted securities and listed securities which are non-traded 
+and thinly traded, for which valuation norms have been prescribed under SEBI (Mutual Funds) 
+Regulations, 1996 (‘MF Regulations’), shall be carried out as per the norms prescribed under 
+MF Regulations.  
+• 
+Further, valuation of thinly-traded and non-traded securities will be harmonized across Sebi-
+regulated entities by March 31, 2025.  
+• 
+Changes in valuation methods to comply with these rules will not be considered "material 
+changes," but must be disclosed to investors.  
+• 
+With regards to independent valuers, the framework for independent valuers of AIF portfolios 
+now requires that the registered valuer shall have the membership of ICAI, ICSI or ICMAI or 
+a CFA Charter.  
+Further, AIFs will now have seven months, as compared to six earlier, to report valuations based 
+on audited data from investee companies. 
+
+
+===== PDF_PAGE 18 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+18 
+ 
+ 
+For details: 
+https://www.sebi.gov.in/web/?file=https://www.sebi.gov.in/sebi_data/attachdocs/sep-
+2024/1726747283181.pdf#page=1&zoom=page-width,-16,800 
+ 
+(7) Specific due diligence of investors and investments of AIFs (October 08, 2024) 
+SEBI vide this circular, issued guidelines on the specific due diligence as per Regulation 20(20) 
+of SEBI (AIF) Regulations, 2012 requiring Alternative Investment Fund (“AIFs”), managers of 
+AIFs (“Managers”) and their Key Management Personnel (“KMPs”), to exercise specific due 
+diligence with respect to their investors and investments to prevent facilitation of circumvention 
+of such laws as may be specified by SEBI from time to time. It inter-alia prescribes the following: 
+1 Investors availing benefits designated for Qualified Institutional Buyers (“QIBs”)/ 
+Qualified Buyers (“QBs”) through AIFs: 
+Applicability: For every scheme of AIFs which: (i) has an investor or investors belonging to the 
+same group; and (ii) such investor or investors contribute(s) 50% (fifty percent) or more to the 
+corpus of the scheme. 
+Compliance: Necessary due diligence as per the implementation standards formulated by 
+Standard Setting Forum for AIFs (“SFA”) shall be carried out prior to – 
+i. availing benefits available to QIBs under SEBI (Issue of Capital and Disclosure Requirements) 
+Regulations, 2018 and other regulations formulated by SEBI. 
+ii. making any investments in security receipts issued by asset reconstruction companies or 
+availing benefits designated for QBs under the Securitisation and Reconstruction of Financial 
+Assets and Enforcement of Security Interest Act, 2002. 
+2. RBI regulated lenders/ entities ever-greening their stressed loans/ assets through AIFs: 
+Applicability: For every scheme of an AIF: 
+i. whose manager or sponsor is an entity regulated by the Reserve Bank of India (“RBI”); 
+ii. that has investors regulated by RBI who: (a) individually or along with investors of the same 
+group contribute(s) 25% (twenty five percent) or more to the corpus of the scheme; or (b) is an 
+associate of the manager/sponsor of the AIF; or (c) by itself, or through its representative(s)/ 
+nominee(s), has majority or veto power in voting over decisions of the investment committee set 
+up by the manager to approve investment decisions of the scheme. 
+Compliance: 
+i. Necessary due diligence as per the implementation standards formulated by SFA shall be carried 
+out. 
+ii. If an investor of the scheme is an AIF, or a fund set up outside India or in International Financial 
+Services Centres (IFSC) in India, then the criteria check for investor(s) regulated by RBI shall be 
+carried out on a look through basis. 
+iii. The manager shall ensure that the scheme does not make any investment that would lead to the 
+RBI regulated lender/entity acquiring or holding an interest/exposure in the investee company 
+indirectly (that is, through investment in a scheme of an AIF), that they are not permitted to acquire 
+or hold directly. 
+1. Consequences of failure to satisfy the due diligence checks specified by SFA:  
+
+
+===== PDF_PAGE 19 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+19 
+ 
+ 
+Schemes falling under the ambit of the provisions discussed in paragraph A and B hereinabove, 
+shall proceed with proposed investment in accordance with the respective implementation 
+standards as formulated by SFA. If the proposed investment does not satisfy the due diligence 
+checks specified by SFA then: 
+a. either such investor or investors of same group as specified above, shall be excluded from the 
+investment, subject to necessary disclosure in the PPM for exclusion of investors; or 
+b. the investment shall not be made. 
+4. Applicability to existing investments held by the schemes as on the date of the Circular:  
+For schemes falling under the ambit of the provisions discussed in paragraph A and B hereinabove, 
+due diligence checks are also required to be carried out for existing investments as per the 
+implementation standards formulated by SFA. Basis the due-diligence checks for such existing 
+investments: 
+a. Any existing investment not satisfying the due diligence checks: details of such investment to be 
+reported to the custodian of the AIF, on or before April 7, 2025, in the format specified in 
+Annexure I of the Circular. 
+b. All existing investments satisfy the due diligence checks: the manager of the AIF shall submit 
+an undertaking to that effect to the custodian, on or before April 7, 2025. 
+c. Custodians shall compile the information reported in sub-paragraph (a) and (b) and furnish the 
+same to SEBI on or before May 7, 2025. 
+5. Investment from countries sharing land borders with India through AIFs:  
+a. Applicability: For every scheme of AIFs where 50% (fifty percent) or more of the corpus of the 
+scheme is contributed by investors – 
+i. who are citizens of/are from/are situated in a country which shares land border with India, or 
+ii. whose beneficial owners, as determined in terms of sub-rule (3) of Rule 9 of the Prevention of 
+Money-laundering (Maintenance of Records) Rules, 2005, are citizens of/are from/are situated in 
+a country which shares land border with India. 
+b. Compliance: 
+i. Necessary due diligence as per the implementation standards formulated by SFA, shall be carried 
+out prior to making any investment. 
+ii. Upon carrying out the necessary due diligence, such schemes shall report details of its 
+investment, which would result in the scheme holding 10% (ten percent) or more of equity/equity-
+linked securities issued by an investee company (on a fully-diluted basis), to its custodian within 
+30 (thirty) days of investment, in the format as may be specified by SFA. Custodians shall compile 
+such information received from AIFs on a monthly basis and report to SEBI within 10 (ten) 
+working days from the end of the month. 
+For Such schemes shall also report to their custodians on or before April 07, 2025 in a format  
+specified by SFA, details of their existing investments where the scheme holds 10% (ten percent) 
+or more of equity/ equity-linked securities issued by an investee company (on a fully-diluted 
+basis). The custodians shall compile and share the information with SEBI on or before May 7, 
+2025. 
+For details: https://www.sebi.gov.in/web/?file=https://www.sebi.gov.in/sebi_data/attachdocs/oct-
+
+
+===== PDF_PAGE 20 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+20 
+ 
+ 
+2024/1728389873479.pdf#page=1&zoom=page-width,-15,850  
+ 
+(8) Pro-rata and pari-passu rights of investors of AIFs (December 13, 2024) 
+SEBI has specified the requirements of maintaining investors’ rights pro-rata to their commitment 
+to the scheme, shall not be applicable in an investment of a scheme and distribution of proceeds 
+of the investment to the extent an investor has been excused or excluded from participating in the 
+said investment; or, an investor has defaulted on providing his/her pro-rata contribution for the 
+said investment. 
+Further, the requirement of maintaining pro-rata rights of investors in distribution of proceeds of 
+investments of a scheme, shall not be applicable to the extent returns or profit on the investments 
+is shared by an investor with the manager or sponsor   of   the   AIF in terms of contribution 
+agreement executed between them. 
+SEBI has also decided that the Standard Setting Forum for AIFs (‘SFA’) shall, in consultation 
+with SEBI, formulate the implementation standards for compliance with the provision of Pari-
+passu rights of investors of AIFs, prescribing the positive list of specific differential rights that 
+may be offered by AIFs.  Such list may be reviewed and updated by SFA, whenever necessary, in 
+consultation with SEBI.  
+ 
+The manager of the AIF shall report the details of differential right(s) which do not fall under the 
+implementation standards formulated by SFA, to SEBI in the prescribed format and shall 
+immediately terminate/discontinue those differential rights which are ascertained to be affecting 
+the rights of other investors. 
+ 
+Further, Large Value Fund for Accredited Investors (LVFs), whose Private Placement 
+Memorandums are filed with SEBI for launch of scheme post  the date  of issuance  of  this  
+circular, may avail  exemption  from  the  requirement  of maintaining  pari-passu  rights among 
+investors, by making appropriate disclosure in memorandum and obtaining undertaking from 
+accredited investor. 
+The trustee/sponsor of AIF, as the case may be, shall   ensure   that   the ‘Compliance Test Report’ 
+prepared by the manager includes compliance with the provisions of this circular. 
+For details: https://www.sebi.gov.in/legal/circulars/dec-2024/pro-rata-and-pari-passu-rights-of-
+investors-of-aifs_89945.html 
+ 
+(9) Classification of Corporate Debt Market Development Fund (CDMDF) as Category I 
+Alternative Investment Fund (December 13, 2024) 
+Corporate Debt Market Development Fund (CDMDF))  has  been  set-up  under  Chapter  III-C  
+of SEBI  (Alternative Investment  Funds)  Regulations,  2012 to  act  as  a  Backstop Facility  for  
+purchase  of  investment  grade  corporate  debt  securities,  to instill confidence amongst the 
+participants in the Corporate Debt Market during times of  stress  and  to  generally  enhance  
+secondary  market  liquidity  by  creating  a permanent institutional framework for activation in 
+times of market stress.  
+SEBI had received representation to provide clarity on classification of CDMDF under one of the 
+defined categories under the AIF Regulations.  While a separate framework has been laid down 
+for CDMDF under chapter III-C of Regulation 19 of AIF Regulations, the fund has been set-up 
+with the broader economic objective of development of corporate bond market, inter-alia, to act 
+as a Backstop facility during times of market stress. Accordingly, SEBI clarified that CDMDF 
+falls under Category I AIF in terms of Regulation 3(4)(a) of AIF Regulations. 
+
+
+===== PDF_PAGE 21 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+21 
+ 
+ 
+For details: https://www.sebi.gov.in/legal/circulars/dec-2024/classification-of-corporate-debt-
+market-development-fund-cdmdf-as-category-i-alternative-investment-fund_89928.html 
+ 
+(10) SEBI (Alternative Investment Funds) (Amendment) Regulations, 2025 (Notification No. 
+SEBI/LAD-NRO/GN/2025/248 dated May 21, 2025) 
+SEBI has notified the SEBI (Alternative Investment Funds) (Amendment) Regulations, 2025 
+which shall come into force on the date of their publication in the Official Gazette. Vide this 
+notification, clause (a) in regulation 17, relating to Conditions for Category II Alternative 
+Investment Funds, has been substituted as - 
+“(a) Category II Alternative Investment Funds shall invest in investee companies or in the units of 
+Category I or other Category II Alternative Investment Funds as may be disclosed in the Placement 
+Memorandum; 
+Explanation -Category  II  Alternative  Investment  Fund  shall  invest  primarily  in  unlisted  
+securities and/or listed debt securities (including securitised debt instruments) which are rated ‘A’ 
+or below by a  credit  rating  agency  registered  with  the  Board,  directly  or  through  investment  
+in  units  of  other Alternative Investment Funds, in the manner as may be specified by the Board;” 
+For details: https://www.sebi.gov.in/legal/regulations/may-2025/securities-and-exchange-board-
+of-india-alternative-investment-funds-amendment-regulations-2025_94132.html  
+ 
+ 
+
+
+===== PDF_PAGE 22 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+22 
+ 
+ 
+LESSON 13  
+AN OVERVIEW OF LISTING AND ISSUANCE OF SECURITIES IN 
+INTERNATIONAL FINANCIAL SERVICES CENTRE 
+  
+(1) 
+IFSCA (Listing) Regulations, 2024 (August 30, 2024) 
+The IFSCA (Listing) Regulations, 2024 (“New Listing Regulations”) providing a unified 
+regulatory framework for listing of securities and other permitted financial products. Highlights 
+of New Listing Regulations are as under: 
+Listing of Securities 
+(a) The IFSCA (Issuance and Listing of Securities) Regulations, 2024 enables the following type 
+of listing: 
+i. 
+an initial public offer of specified securities by an unlisted entity; 
+ii. 
+a follow-on public offer of specified securities by a Listed Entity; 
+iii. 
+an initial public offer of specified securities by a Special Purpose Acquisition Company; 
+iv. 
+a rights issue or a preferential issue or a qualified institutions placement of specified 
+securities by a Listed Entity; 
+v. 
+issuance and listing of depository receipts by an entity; 
+vi. 
+issue and listing of debt securities by an entity; 
+vii. 
+secondary listing of securities by an entity; 
+viii. 
+listing of Commercial Paper or Certificates of Deposit or other financial products as 
+permitted by the IFSCA. 
+(b) The following entities would be eligible for listing of securities on the recognised stock 
+exchanges in IFSC:  
+i. 
+A company incorporated in an IFSC;  
+ii. 
+A company incorporated in India; and  
+iii. 
+A company incorporated in a foreign jurisdiction.  
+ 
+(c) Further, in respect of listing of debt securities, the following entities are also eligible to list on 
+the recognised stock exchanges in IFSC: 
+i. 
+any supranational, multilateral or statutory institution. 
+ii. 
+any municipality or any similar body 
+iii. 
+An entity which offers or proposes to offer sovereign debt securities. 
+ 
+A. Listing of specified securities through IPO 
+The salient features for raising of capital through IPOs on a recognized stock exchange in IFSC 
+are as follows: 
+a) Eligibility 
+An issuer shall be eligible to make an initial public offer of specified securities, only if: 
+a) the issuer has an operating revenue, based on consolidated audited accounts, of at least USD 
+twenty million in the last financial year or averaged over the last three financial years;  
+b) the issuer has a pre-tax profit, based on consolidated audited accounts, of at least USD one 
+million in the last financial year or averaged over the last three financial years; or 
+c) The issuer has a post issue market capitalization of at least USD twenty five million; or 
+d) It qualifies under any other eligibility criteria specified by the IFSCA. 
+ 
+ 
+
+
+===== PDF_PAGE 23 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+23 
+ 
+ 
+b) Filing of Offer Document 
+ An Issuer is required to file offer document with IFSCA for observations. Issuers with issue size 
+of USD 50 million or less are exempted from filing offer document with IFSCA. 
+ 
+c) Offer Timing 
+The offer shall be made by the issuer within a period of not more than twelve months from the 
+date of issuance of observations by the Authority. 
+ 
+d) Offer Period 
+The initial public offer shall be kept open for at least one working day and not more than ten 
+working days. 
+ 
+e) Minimum Public Offer 
+2. Where the issuer is a company incorporated in India, including in an IFSC, such issuer shall 
+comply with the minimum offer and allotment to public and minimum public shareholding 
+norms prescribed under the Securities Contracts (Regulation) Rules, 1957. 
+3. Where the issuer is a company incorporated outside India, the minimum offer and allotment 
+to public shall be at least ten per cent. of the post issue capital and such issuer shall also 
+maintain the minimum public shareholding of ten per cent. of the post issue capital on a 
+continuous basis. 
+ 
+f) Minimum subscription 
+An offer shall be considered successful only if the minimum subscription as disclosed in the offer 
+document is received. 
+ 
+g) Lockup of securities 
+ The pre-issue shareholding of promoters and controlling shareholders of the issuer shall be 
+locked-up for a period of 180 days from the date of allotment in the initial public offer. 
+ 
+B. Further Public Offer 
+ 
+A Listed Entity may make a follow-on public offer of specified securities in the manner provided 
+in IFSCA ( Issuance and Listing of Securities) Regulations, 2024. 
+C. Listing of SPAC 
+A SPAC is eligible to raise capital through initial public offer of specified securities on the 
+recognised stock exchange(s), only where: 
+a) The target business combination has not been identified prior to the IPO; 
+b) The SPAC has the provisions for redemption and liquidation in line with these Regulations; 
+and 
+c) The sponsor of the SPAC has a good track record in SPAC transactions, business 
+combinations, fund management or investment banking activities and the same shall be 
+disclosed in the offer document. 
+Here, sponsor shall mean a person sponsoring the formation of the SPAC and shall include 
+
+
+===== PDF_PAGE 24 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+24 
+ 
+ 
+persons holding any specified securities of the SPAC prior to the IPO. 
+The salient features of the framework for listing of SPACs are as follows: 
+Offer size: Not less than USD 50 million or any other amount as may be specified by the Authority 
+from time to time. Further, the sponsors shall hold at least 15% and not more than 20% of the post 
+issue paid up capital; 
+Minimum Application Size: The minimum application size in an initial public offer of SPAC 
+shall be USD 100,000. Allotment to investors shall be on proportionate basis or discretionary 
+basis, as disclosed in the offer document 
+SPAC Specific Obligations: Requirements have also been prescribed with respect to maintenance 
+of escrow account, eligible investments pending utlisation, acquisition timeline of 3 years, right 
+of diseenting shareholders, liquidation provisions etc. 
+ 
+ 
+D. Rights Issue or a Preferential Issue or a Qualified Institutions Placement  
+A Listed Entity may make rights issues, preferential issues or qualified institutions placement of 
+specified securities, subject to compliance with the requirements that may be specified by the 
+IFSCA. 
+E. Public Offer of Depository Receipts 
+An issuer incorporated outside an IFSC shall be eligible to make an issue of depository receipts 
+only 
+if 
+- 
+(i) It is authorised to issue depository receipts as per the applicable laws of its home jurisdiction; 
+(ii) The underlying securities represented by such depository receipts is in dematerialised form, 
+fully paid and free from all encumbrances. 
+The salient features of the framework for Public Offer of Depository Receipts are as under: 
+Offer size: Not less than USD 7,00,000 on or any other amount as may be specified by the 
+Authority from time to time.  
+Minimum Subscription: The listing of DRs shall be permitted only if the subscription in the 
+offer is not less than USD 700,000 or any other amount as may be specified by IFSCA. 
+Pricing: The price of the DRs can be determined through consultation with the lead managers(s) 
+through fixed price or through book building process. 
+Allotment: The allotment, payments and refunds must be completed within 5 working days from 
+the date of closure of the issue. 
+F. Listing of Debt Securities 
+An issuer may list its debt securities on a recognised stock exchange: The debt securities proposed 
+to be issued and listed on a recognised stock exchange may be offered on a standalone basis or 
+through a series of issuances (including medium term note programme). 
+The minimum subscription amount for an investor in case of private placement shall be disclosed 
+in the offer document.  
+ 
+In respect of a public issue of debt securities on a recognised stock exchange, the issuer shall 
+comply with requirements such as appointment of trustee, creation of debenture redemption 
+reserve and such other requirements as may be specified by the Authority or the recognised stock 
+exchange(s). 
+G. Secondary Listing of Specified Securities 
+ 
+Secondary Listing without public offer  
+An issuer, having its specified securities listed in a jurisdiction outside IFSC, may list those 
+specified securities on a recognised stock exchange(s), without making public offer, subject to the 
+
+
+===== PDF_PAGE 25 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+25 
+ 
+ 
+following conditions: 
+(a) It shall file listing application, in the manner specified by the recognised stock exchange(s); 
+and 
+(b) It shall comply with the listing requirements of the recognised stock exchange(s) and such 
+other conditions as may be specified by the IFSCA. 
+Listing with public offer 
+1) An issuer, having its specified securities listed in a jurisdiction outside IFSC, may list the 
+specified securities on a recognised stock exchange(s) through a public offer. 
+2) The provisions relating to appointment of lead manager, in-principle approval from 
+recognised stock exchanges, filing of offer document, offer timing, disclosures in offer 
+document, reservations, pricing, offer period, minimum public offer, minimum 
+subscription, anchor investor, underwriting, monitoring agency, allotment, listing, post-
+issue report, price stabilisation through green shoe option, lockup of securities, other 
+responsibilities of lead manager and prohibition on payment of incentives provided for 
+Initial Public Offers under PART A of Chapter III shall mutatis mutandis apply to listing 
+by way of public offer. 
+3) A public Indian company, with dual listing in IFSC and in India, shall comply with the 
+additional regulatory requirements as may be specified by the Authority. 
+ 
+H. Listing of Commercial Paper or Certificates of Deposit or other financial products 
+An issuer may list commercial paper, certificate of deposit and other financial product on a 
+recognised stock exchange in such manner and subject to such conditions as may be specified by 
+the IFSCA. Further, an issuer may list a fund or an investment trust on a recognised stock exchange 
+in terms of IFSCA (Fund Management) Regulations, 2022. 
+a) Commerical Paper 
+Depository: The issuer shall ensure that the CP listed on a recognised stock exchange 
+in the IFSC is in demat form and held with a recognised depository in the IFSC or an international 
+central securities depository. 
+Maturity: The issuer shall ensure that the maturity of the CP proposed to be listed on 
+a recognized stock exchange in the IFSC is not less than 7 days and not more than 1 year. 
+Other conditions: 
+a. CP shall be issued at a discount to face value. 
+b. The issuance of a CP with options (call/put) is not permitted. 
+c. The issuance of a CP is not permitted to be underwritten or co-accepted. 
+Listing Application 
+An issuer desirous of listing its CP on a recognised stock exchange shall file the listing application 
+along with a copy of offer document or information memorandum, as applicable, with the 
+recognised stock exchange in accordance with the requirements specified by the exchange.  
+The application shall be accompanied with regulatory fee of USD 1000. The regulatory fees 
+received by the stock exchange shall be remitted to the Authority. 
+b) 
+Certificate of Deposits 
+Depository: The issuer shall ensure that the CD listed on a recognised stock exchange 
+in the IFSC is in demat form and held with a recognised depository in the IFSC or an 
+international central securities depository. 
+Listing Application 
+An issuer desirous of listing its CD on a recognised stock exchange shall file the listing 
+application along with a copy of the offer document or information memorandum, as 
+
+
+===== PDF_PAGE 26 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+26 
+ 
+ 
+applicable, with the recognised stock exchange in accordance with the requirements 
+specified by the exchange. The application shall be accompanied with regulatory fee of USD 1000. 
+The regulatory fees received by the stock exchange shall be remitted to the Authority 
+https://ifsca.gov.in/Viewer?Path=Document%2FLegal%2Fifsca-listing-regulations-
+202430082024045210.pdf&Title=%20IFSCA%20%28Listing%29%20Regulations%2C%20202
+4&Date=30%2F08%2F2024  
+ 
+(2) 
+Listing of Debt Securities on the recognised stock exchanges in the IFSC (September 11, 
+2024)  
+The IFSCA (Listing) Regulations, 2024 (“Listing Regulations”) have been notified providing the 
+regulatory framework inter alia for listing of debt securities on the recognised stock exchanges in 
+the IFSC. In terms of regulation 72 of the Listing Regulations, an issuer is required to obtain credit 
+rating for its debt securities proposed to be listed on a recognised stock exchange from a credit 
+rating agency registered either with IFSCA or with a regulator in a Foreign Jurisdiction.  
+The market participants have represented that there are some transactions wherein the issuers are 
+already at an advanced stage of getting their debt securities listed on the recognised stock 
+exchanges and it may be difficult for such issuers to obtain credit rating in a short time frame. 
+In view of the above, after careful consideration of the representations received, it has been 
+decided that it shall be mandatory for issuers to obtain credit rating for the debt securities proposed 
+to be listed on the recognised stock exchanges with effect from October 01, 2024. 
+https://ifsca.gov.in/Viewer?Path=Document%2FLegal%2Flisting-of-debt-securities-on-the-
+recognised-stock-exchanges-in-the-
+ifsc11092024111414.pdf&Title=Listing%20of%20Debt%20Securities%20on%20the%20recogn
+ised%20stock%20exchanges%20in%20the%20IFSC&Date=11%2F09%2F2024 
+ 
+(3) 
+Listing of Commercial Paper and Certificates of Deposit on the recognised stock exchanges 
+in the IFSC (October 17, 2024) 
+IFSCA has notified the IFSCA (Listing) Regulations, 2024 in August 2024 providing the 
+regulatory framework for listing of securities and other permitted financial products on the 
+recognised stock exchanges in the IFSC. Regulations 80 and 81 of the Listing Regulations enable 
+listing of Commercial Paper (CP) and Certificates of Deposit (CD) respectively in such manner 
+and subject to such conditions as may be specified by IFSCA. 
+Accordingly, IFSCA has issued this circular on “Listing of Commercial Paper and Certificates of 
+Deposit on the recognised stock exchanges in the IFSC” to enable listing of new products on the 
+stock exchanges in the IFSC for providing an opportunity to the investors to invest in short term 
+instruments in the IFSC. 
+The Circular provides the regulatory requirements for facilitating issuers to list CP and CD in an 
+efficient and transparent manner ensuring that adequate material information is made available to 
+the investors for making informed decision. The Circular, inter-alia, specifies the conditions for 
+issuance of CP and CD, eligible issuers, eligible investors, disclosures in the offer document, 
+continuous disclosures etc. 
+https://ifsca.gov.in/Legal/Index?MId=-fAcdq-6O6w=  
+ 
+(4) 
+Transition to IFSCA (Fund Management) Regulations, 2025 (April 08, 2025) 
+IFSCA on April 08, 2025, issued Transition to IFSCA (Fund Management) Regulations, 2025. 
+IFSCA (Fund Management) Regulations, 2025 notified on February 19, 2025, repealed the old 
+2022 regulations and introduced key changes including an increased validity period of 12 months 
+for PPMs (up from 6 months) and a reduced minimum corpus requirement of USD 3 million (down 
+
+
+===== PDF_PAGE 27 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+27 
+ 
+ 
+from USD 5 million) for Venture Capital and Restricted Schemes. Schemes recorded or extended 
+under the 2022 regulations as of February 19 2025, may operate under the new regime. A one-
+time opportunity is being offered to the Fund Management Entities to seek an extension of the 
+PPM of Venture Capital Schemes and Restricted Schemes whose validity has expired before 
+February 19, 2025. A one-time window allows expired PPMs to be re-filed within 3 months, 
+subject to conditions. No processing fee is required for filings prompted by regulatory changes or 
+Authority actions. 
+For details: https://ifsca.gov.in/Legal/Index?MId=W5sF6sVtP6c=  
+ 
+
+
+===== PDF_PAGE 28 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+28 
+ 
+ 
+LESSON 14 
+RAISING OF FUNDS FROM DEBTS AND PROCEDURAL ASPECTS 
+ 
+(1) 
+Reduction in denomination of debt securities and non-convertible redeemable preference 
+shares (July 03, 2024) 
+SEBI vide circular dated July 03, 2024 modifies the relevant clauses of Chapter V (Denomination 
+of issuance and trading of Non-convertible Securities) of the Master Circular no. 
+SEBI/HO/DDHS/PoD1/P/CIR/2024/54 dated May 22, 2024, (‘Master Circular’) issued by SEBI 
+which prescribes provisions pertaining to denomination of issuance and trading of non-convertible 
+securities. 
+Market participants have expressed that lower ticket size of debt securities may encourage more 
+non-institutional investors to participate in the corporate bond market which in turn may also 
+enhance liquidity. 
+SEBI vide this circular has made the following changes: 
+1. This amendment inserts a provision allowing the issuance of debt securities or non-convertible 
+redeemable preference shares at a face value of Rs. 10,000 on a private placement basis, 
+subject to specific conditions that include the appointment of at least one Merchant Banker, 
+ensuring the security is interest/dividend bearing with fixed maturity, and allowing various 
+credit enhancements like guaranteed bonds, SBLC backed securities, and others.  
+ 
+2. The amendment permits several credit enhancements to make these securities more attractive 
+to investors. These include guaranteed bonds, partially guaranteed bonds, SBLC backed 
+securities, debt backed by pledges of shares or other assets, and more. Credit Rating Agencies 
+(CRAs) are tasked with verifying the documentation related to these enhancements to ensure 
+they are unconditional, irrevocable, legally enforceable, and that the support provider has a 
+lower probability of default compared to the issuer.  
+ 
+3. For issuers with valid shelf placement memoranda or General Information Documents (GID) 
+as of the effective date of the circular, funds can be raised through tranche placement 
+memoranda or Key Information Documents at a face value of Rs. 10,000, provided due 
+diligence is carried out by a Merchant Banker.  
+ 
+Deletion of Clauses:  
+The circular deletes clauses 2.1 and 2.2 of Chapter V of the Master Circular, which previously 
+mandated face values of Rs. 1 lakh and Rs. 1 crore for listed securities traded on stock exchanges 
+or OTC basis, respectively. Clause 2.3 is modified to state that the trading lot of listed debt 
+securities and non-convertible redeemable preference shares issued on a private placement basis 
+will always be equal to their face value. 
+For details: https://www.sebi.gov.in/legal/circulars/jul-2024/reduction-in-denomination-of-debt-
+securities-and-non-convertible-redeemable-preference-shares_84573.html 
+ 
+(2) 
+SEBI (Issue and Listing of Non-Convertible Securities) (Amendment) Regulations, 2024 
+(Notification No. SEBI/LAD-NRO/GN/2024/190 dated July 8, 2024) 
+SEBI has notified the SEBI (Issue and Listing of Non-Convertible Securities) (Amendment) 
+Regulations, 2024 which shall come into force on the date of their publication in the Official 
+Gazette. Vide this Notification, the following amendments have been made in the SEBI (Issue and 
+
+
+===== PDF_PAGE 29 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+29 
+ 
+ 
+Listing of Non-Convertible Securities) Regulations, 2021: 
+Regulation 23(7) has been inserted which states that the issuer shall fix a record date for the 
+purposes of payment of interest, dividend and payment of redemption or repayment amount or for 
+such other purposes as specified by the SEBI. Such record date shall be fixed at 15 days prior to 
+the due date of payment interest or dividend, repayment of principal or any other corporate actions. 
+Regulation 40 and 44 (3) has been substituted pertaining to ‘Due Diligence Certificate by 
+Debenture Trustee’. New provisions specify the formats to be used in cases of secured and 
+unsecured debt securities at the time of filing the draft offer document and at the time of filing of 
+the listing application by the issuer. Also, the formats for due diligence certificate which is to be 
+submitted by debenture to the stock exchange has been specified. 
+Schedule I of the Regulations has been amended by adding a provision that the issuers whose non-
+convertible securities are listed on the date of filing of the offer document or placement 
+memorandum may provide a web link and a static QR code of the audited financial statements 
+subject to certain conditions. 
+Schedule IV has been amended which provides for the format of the due diligence certificate to 
+be given by the debenture trustee to be divided into two parts: Part A– provides the format in 
+which the Debenture Trustee has to give the Certificate of Due Diligence at the time of filing of 
+draft offer document and before opening of the issue. Part B- provides the format in which the 
+Debenture Trustee has to give the Certificate of Due Diligence at the time of filing of listing 
+application by issuer.  
+Also, Schedule IV-A has been inserted which provides for the format of the due diligence 
+certificate to be given by the debenture trustee: Part A: at the time of filing of draft offer document 
+and before opening of the issue. Part B: at the time of filing of listing applications by issuer. 
+For details: https://www.sebi.gov.in/legal/regulations/jul-2024/securities-and-exchange-board-of-
+india-issue-and-listing-of-non-convertible-securities-amendment-regulations-2024_84775.html 
+ 
+(3) 
+SEBI (Issue and Listing of Non-Convertible Securities) (Second Amendment) Regulations, 
+2024 (Notification No. SEBI/LADNRO/GN/2024/205 dated September 17, 2024)  
+SEBI has notified the SEBI (Issue and Listing of Non-Convertible Securities) (Second 
+Amendment) Regulations, 2024 which shall come into force on the date of their publication in the 
+Official Gazette. With a view to facilitate ease of doing business and provide flexibility to Issuers, 
+SEBI has amended the provisions of SEBI (Issue and Listing of Non-Convertible Securities) 
+Regulations, 2021 to streamline the public issue process for debt securities and Non-Convertible 
+Redeemable Preference share to provide:  
+• 
+Reduction in the period for seeking public comments on the draft offer documents from 7 
+working days to 5 days. 
+• 
+A proviso to Regulation 27 (2) has been inserted which states that the issuers whose specified 
+securities are listed on the recognized stock exchange and have nationwide trading terminals, 
+will post the draft offer document for 1 day immediately after the date of filing the draft offer 
+document with the stock exchange.  
+• 
+A proviso to Regulation 30 (1) has been inserted providing flexibility to issuers by providing 
+discretion to issuers with regard to advertisement of public issue through electronic modes 
+subject to containing a QR Code and Link to complete advertisement in newspapers.  
+• 
+Regulation 33 A relating to “Period of Subscription” has been revised. The period for which 
+the public issue of debt of securities or non-convertible redeemable preference shares were 
+kept open for a minimum of 3 working days has now been reduced to 2 working days.  
+
+
+===== PDF_PAGE 30 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+30 
+ 
+ 
+• 
+Also, in case of a revision in the price band or yield, the issuer shall extend the bidding (issue) 
+period is closed in the offer document for a minimum period of one working day. Earlier It 
+was 3 working days. 
+  
+(4) 
+Reduction in the timeline for listing of debt securities and Non-convertible Redeemable 
+Preference Shares to T+3 working days from existing T+6 working days [September 26, 
+2024]  
+SEBI vide this circular has reduced the timeline for listing of debt securities and Non-convertible 
+Redeemable Preference Shares to T+3 working days from existing T + 6 working days (as an 
+option to issuers for a period of one year and on a permanent basis thereafter such that all listings 
+occur on a T+3 basis). Further, to ensure ease of compliance for issuers, the listing timeline of 
+T+3 working days is introduced as an option to issuers for a period of one year and on a permanent 
+basis thereafter such that all listings occur on a T+3 basis. Accordingly, during the period of 
+voluntary applicability of the listing timeline of T+3 working days, the provisions of regulation 
+37 (2) of NCS Regulations shall become applicable only afterT+6 working day, even in cases 
+where issuer has chosen T+3 as the listing timeline but fails to meet the same. The provisions of 
+this circular shall be applicable on voluntary basis to public issues of debt securities and NCRPS 
+opening on or after November 01,2024 and mandatory for public issues of debt securities and 
+NCRPS opening on or after November 01, 2025. 
+For details: https://www.sebi.gov.in/web/?file=https://www.sebi.gov.in/sebi_data/attachdocs/sep-
+2024/1727346960726.pdf#page=1&zoom=page-width,-15,842  
+ 
+ 
+(5) 
+Introduction  of Liquidity  Window  facility for  investors  in  debt  securities through Stock 
+Exchange mechanism (October 16, 2024) 
+SEBI has introduced Liquidity Window facility for investors in debt securities through Stock 
+Exchange mechanism which allows investors holding listed debt securities to sell them back to 
+the issuer using a put option on specific dates, ensuring liquidity. It is felt that establishing a 
+framework of providing a Liquidity Window  facility by  the  issuers through use  of  put  options  
+exercisable  on  pre-specified dates  or  intervals  will  provide  uniform  norms  for such issuer(s)to  
+consider  adopting Liquidity Window  facility in  the  manner  specified. The provisions of this 
+circular shall be applicable on and from November 01, 2024 
+The circular inter-alia covers the following features and the conditions governing the Liquidity 
+Window facility: 
+Issuer Discretion and Prospective Applicability: The Liquidity Window can only be provided 
+at the discretion of the Issuer. Further, this option is only available for prospective issuances either 
+by way of public issue or private placement. 
+Eligible securities: All listed debt securities governed by the SEBI NCS Regulations are eligible 
+for the Liquidity Window Facility. 
+Prior approval of the board of directors of the issuer is required to provide the Liquidity 
+Window. 
+Stakeholders Relationship Committee (SRC): For entities which have listed their specified 
+securities, the implementation and outcome of the Liquidity Window shall be monitored by the 
+SRC. However, for entities which only have listed debt securities (for whom constitution of SRC 
+is not mandatory), the monitoring of the implementation and outcome of the Liquidity Window 
+shall be under the aegis of the board of directors, or such board-level committee as determined by 
+the board of directors. 
+Eligible Investors: The issuers have the option to specify the classes of investors for whom the 
+
+
+===== PDF_PAGE 31 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+31 
+ 
+ 
+Liquidity Window shall be provided. 
+Minimum Holding Period: The Liquidity Window can only be offered to investors after the 
+expiry of one year from the date of issuance of the debt securities. 
+Period of Liquidity Window: The issuers offering the Liquidity Window shall keep it open for 
+a minimum of three working days. The Liquidity Window facility can be provided on a monthly 
+or quarterly basis, but the schedule of such facility shall be provided upfront in the offer documents 
+Reporting and Disclosure Requirements: After closure of a Liquidity Window, the issuer is 
+required to submit a report to the stock exchanges on which such debt securities are listed. 
+However, the form and manner of such disclosures are yet to be specified by the stock exchanges 
+in consultation with SEBI. 
+For details: https://www.sebi.gov.in/web/?file=https://www.sebi.gov.in/sebi_data/attachdocs/oct-
+2024/1729080300145.pdf#page=1&zoom=page-width,-15,842  
+ 
+(6) 
+SEBI (Issue and Listing of Non-Convertible Securities) (Third Amendment) Regulations, 
+2024 [Notification No. SEBI/LAD-NRO/GN/2024/217 dated December 11, 2024)] 
+SEBI has notified the SEBI (Issue and Listing of Non-Convertible Securities) (Third Amendment) 
+Regulations, 2024 which shall come into force on the date of their publication in the Official 
+Gazette. Vide this notification, the following amendments have been made in the SEBI (Issue and 
+Listing of Non-Convertible Securities) Regulations, 2021: 
+• 
+A new definition of Environment, Social and Governance Debt Securities (“ESG Debt 
+Securities) is inserted which means green debt securities, social bonds, sustainability bonds, 
+sustainability-linked bonds, or any other type of bonds, by whatever name called, that are 
+issued in accordance with such international frameworks as adapted or adjusted to suit Indian 
+requirements that are specified by the Board from time to time, and any other securities as 
+specified by the Board.  
+• 
+An issuer desirous of issuing and listing of Environment, Social and Governance Debt 
+Securities shall comply with such conditions as may be specified by SEBI. [Insertion: 
+Regulation 12A] 
+• 
+Regulation 26 pertaining to issuance of green debt securities is omitted. 
+For details: https://www.sebi.gov.in/legal/regulations/dec-2024/securities-and-exchange-board-
+of-india-issue-and-listing-of-non-convertible-securities-third-amendment-regulations-
+2024_89762.html  
+ 
+ 
+
+
+===== PDF_PAGE 32 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+32 
+ 
+ 
+LESSON 17 
+ROLE OF INTERMEDIARIES IN FUND RAISING 
+ 
+(1) 
+SEBI (Research Analysts) (Second Amendment) Regulations, 2024 (Notification No. 
+SEBI/LAD-NRO/GN/ 2024/199 dated August 19, 2024)  
+SEBI has notified the SEBI (Research Analysts) (Second Amendment) Regulations, 2024 on 
+August 19, 2024, which shall come into force on the date of their publication in the Official 
+Gazette. Vide this notification, SEBI has inserted new regulation 15A prescribing the provisions 
+pertaining to fee and provides that the Research Analyst will be entitled to charge fees for 
+providing research services from a client including an accredited investor in the manner as 
+specified by SEBI. 
+For details: https://www.sebi.gov.in/legal/regulations/aug-2024/securities-and-exchange-board-
+of-india-research-analysts-second-amendment-regulations-2024_86005.html  
+ 
+(2) 
+Annual Compliance Certificate for Client Level Segregation by non-individual  Investment  
+Advisers and Timeline  for  submission  of  periodic reports (October 25, 2024) 
+SEBI has already specified that a non-individual investment adviser (IA) shall maintain on record 
+an  annual  certificate  from  its statutory  auditor  confirming  compliance  with  the    client    level  
+segregation requirements as specified in Regulation 22 of the IA Regulations. Now, it has been 
+decided to allow a non-individual IA to obtain annual compliance certificate from any auditor. 
+Further, SEBI has specified periodic reporting format for IAs. As a step towards ease of doing 
+business, it has been decided to grant  a  period  of  30  days  from the end of the half-yearly period 
+to  make  submission  of  periodic  reports  to  Investment Adviser Administration and Supervisory 
+Body (IAASB). 
+For details: https://www.sebi.gov.in/legal/circulars/oct-2024/annual-compliance-certificate-for-
+client-level-segregation-by-non-individual-investment-advisers-and-timeline-for-submission-of-
+periodic-reports_87975.html  
+ 
+(3) 
+SEBI (Investment Advisers) (Second Amendment) Regulations, 2024 [Notification No. 
+SEBI/LAD-NRO/GN/2024/219 dated December 16, 2024] 
+SEBI has notified the SEBI (Investment Advisers) (Second Amendment) Regulations, 2024 which 
+shall come into force on the date of their publication in the Official Gazette. Vide this notification, 
+the following amendments have been made in the SEBI (Investment Advisers) Regulations, 2013 
+pertaining to funding related aspects: 
+• The net-worth requirement for the investment adviser is substituted with deposit 
+requirements under regulation 6(e) and regulation 8. The regulation 8 is reproduced 
+below: 
+“Deposit.  
+8. (1) An investment adviser shall maintain a deposit of such sum, as specified by the Board 
+from time to time.  
+(2) The deposit shall be maintained with a scheduled bank marked as lien in favor of a body 
+or body corporate recognized by the Board for the purpose of administration and supervision 
+of investment advisers in accordance with regulation 14 of these regulations. 
+Provided that such deposit shall be available for utilization in case the investment adviser fails 
+to pay dues emanating out of arbitration and conciliation proceedings, if any, under the Online 
+Dispute Resolution Mechanism or such other mechanism as may be specified by the Board.” 
+
+
+===== PDF_PAGE 33 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+33 
+ 
+ 
+• 
+Regulation 20 relating to appointment of compliance officer is amended: 
+20(1) A non-individual investment adviser shall appoint either:  
+(i)   a compliance officer; or 
+(ii) an independent professional who is a member of Institute of Chartered Accountants 
+of India or Institute of Company Secretaries of India or Institute of Cost Accountants of 
+India or member of any other professional body as may be specified by the Board, 
+provided such a professional holds a relevant certification from NISM, as may be 
+specified by the Board; who shall be responsible for monitoring the compliance by the 
+investment adviser in respect of the requirements of the Act, regulations, notifications, 
+guidelines, instructions issued by the Board. 
+ 
+(2)Where independent professional referred in sub-regulation (1) of this regulation is 
+appointed for monitoring compliance, the principal officer shall submit an undertaking to the 
+Board or the body or body corporate recognized under regulation 14 of these regulations to the 
+effect that the principal officer shall be responsible for monitoring the compliance in respect 
+of the requirements of the Act, regulations, notifications, guidelines, instructions issued by the 
+Board. 
+ 
+For details: https://www.sebi.gov.in/legal/regulations/dec-2024/securities-and-exchange-board-
+of-india-investment-advisers-second-amendment-regulations-2024_89980.html 
+ 
+(2) SEBI (Research Analysts) (Third Amendment) Regulations, 2024 [Notification No. 
+SEBI/LAD-NRO/GN/2024/220 dated December 16, 2024] 
+SEBI has notified the SEBI (Research Analysts) (Third Amendment) Regulations, 2024 which 
+shall come into force on the date of their publication in the Official Gazette. Vide this notification, 
+the following amendments have been made in the SEBI (Research Analysts) Regulations, 2014 
+pertaining to funding related aspects: 
+• 
+The capital adequacy requirement for the research analyst is substituted with deposit 
+requirements under regulation 6(vi) and regulation 8. Regulation 8 is reproduced below: 
+“Deposit.  
+8. (1) A research analyst shall maintain a deposit of such sum as specified by the Board from 
+time to time. 
+(2) The deposit shall be maintained with a scheduled bank, marked as lien in favour of a body 
+or body corporate recognised by the Board for the purpose of administration and supervision 
+of research analysts in accordance with regulation 14 of these regulations. 
+Provided that such deposit shall be available for utilization in case the research analyst fails 
+to pay dues emanating out of arbitration and conciliation proceedings, if any, under the Online 
+Dispute Resolution Mechanism or such other mechanism as may be specified by the Board. 
+• 
+Regulation 26 relating to appointment of compliance officer is amended: 
+26. (1) A non-individual research analyst or research entity shall appoint either:  
+(i) a compliance officer; or  
+(ii) an independent professional who is a member of Institute of Chartered 
+Accountants of India or Institute of Company Secretaries of India or Institute of 
+Cost Accountants of India or member of any other professional body as may be 
+specified by the Board, provided that such a professional holds a relevant 
+certification from NISM, as specified by the Board who shall be responsible for 
+monitoring the compliance of the provisions of the Act, these regulations and 
+circulars issued by the Board.  
+ 
+
+
+===== PDF_PAGE 34 / 34: 034_ICSI__Supplement Dec 2025.pdf =====
+34 
+ 
+ 
+(2) Where independent professional referred in sub-regulation (1) of this regulation is 
+appointed for monitoring compliance, the principal officer shall submit an undertaking to the 
+Board or the body or body corporate recognised under regulation 14 of these regulations to 
+the effect that principal officer shall be responsible for monitoring the compliance in respect 
+of the requirements of the Act, regulations, notifications, guidelines, instructions issued by the 
+Board. 
+ 
+For details: https://www.sebi.gov.in/legal/regulations/dec-2024/securities-and-exchange-board-
+of-india-research-analysts-third-amendment-regulations-2024_89979.html  
+ 
+ 

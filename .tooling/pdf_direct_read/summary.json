@@ -1,0 +1,13 @@
+{
+  "pdf_count": 216,
+  "processed": 216,
+  "errors": 0,
+  "total_pages": 5802,
+  "total_text_chars": 11159178,
+  "total_words": 1730701,
+  "low_text_pdf_count": 56,
+  "low_text_page_count": 261,
+  "elapsed_sec": 94.42,
+  "text_dir": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\texts",
+  "manifest": "D:\\Exam_preparation\\.tooling\\pdf_direct_read\\manifest.json"
+}

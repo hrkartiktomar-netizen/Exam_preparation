@@ -23,6 +23,7 @@ from models import (
 def daily_law_revision(
     user_id: str = "default",
     days_back: int = 30,
+    lines_per_day: int = 80,
     force_local: bool = False,
 ) -> LawRevisionModel:
     """Generate daily law revision plan: high-yield, amendments, weak areas, spaced review.
@@ -64,24 +65,30 @@ def daily_law_revision(
             for item in due_items
         ]
 
-        # 5. Generate AI revision focus (optional, Gemini-powered)
-        ai_focus = None
+        # 5. Generate daily Act slice and AI revision focus.
+        act_slice = db.daily_ifsca_act_revision(lines_per_day=lines_per_day)
+        ai_plan = None
         if not force_local and gemini_available():
-            revision_data = {
-                "title": "Daily IFSCA Act & Regulation Revision",
-                "daily_text": "\n".join([p.get("title", "") for p in provisions[:3]]),
-                "line_start": 1,
-                "line_end": 100,
-            }
-            ai_plan = generate_law_revision_plan(revision_data, force_local=False)
-            ai_focus = ai_plan.get("revision_focus", "")
+            ai_plan = generate_law_revision_plan(act_slice, force_local=False)
+        else:
+            ai_plan = generate_law_revision_plan(act_slice, force_local=True)
 
         return LawRevisionModel(
+            title=act_slice.get("title"),
+            document=act_slice.get("document"),
+            line_start=act_slice.get("line_start"),
+            line_end=act_slice.get("line_end"),
+            daily_text=act_slice.get("daily_text"),
+            full_text=act_slice.get("full_text"),
+            total_lines=act_slice.get("total_lines"),
+            day_index=act_slice.get("day_index"),
+            total_days=act_slice.get("total_days"),
+            ai_revision=ai_plan,
             high_yield_provisions=high_yield,
             recent_amendments=recent_amend,
             weak_legal_areas=weak_legal,
             spaced_review_due=spaced_due,
-            ai_revision_focus=ai_focus,
+            ai_revision_focus=ai_plan.get("revision_focus") if ai_plan else None,
         )
 
     except Exception as exc:

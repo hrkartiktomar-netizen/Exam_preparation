@@ -1,0 +1,2377 @@
+
+
+===== PDF_PAGE 1 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+1 
+ 
+CONSULTATION PAPER ON PROPOSED INTERNATIONAL FINANCIAL SERVICES 
+CENTRES AUTHORITY (LISTING) REGULATIONS, 2024 
+ 
+Objective 
+1. The objective of this paper is to seek comments from the public on the draft IFSCA 
+(Listing) Regulations, 2024. 
+Statement of Object and Reasons 
+2. The purpose of the proposed IFSCA (Listing) Regulations, 2024 (“Listing 
+Regulations”) is to provide the revised regulatory framework for issue and listing 
+of various financial products, including specified securities, debt securities and 
+other financial products on the recognised stock exchanges in the international 
+financial services centres (“IFSC”) in India. 
+3. Further, the proposed Listing Regulations aim to facilitate raising of capital 
+through the stock exchanges in the IFSC, taking into consideration the global 
+standards specified by the International Organization of Securities Commissions 
+(“IOSCO”), and benchmarking with the best practices followed in other 
+jurisdictions. 
+Background 
+4. IFSCA has issued the IFSCA (Issuance and Listing of Securities) Regulations, 2021 
+(“ILS Regulations”) providing a unified regulatory framework for listing of various 
+securities by issuers incorporated in the IFSC, India and foreign jurisdictions1. 
+ 
+5. The Hon’ble Union Minister of Finance and Corporate Affairs of India on July 28, 
+2023, announced the decision of Government of India to allow direct listing of 
+equity shares of public Indian Companies on the international exchanges in the 
+IFSC (“Direct Listing”). 
+ 
+6. Subsequently, the Government of India has on January 24, 2024 notified Foreign 
+Exchange Management (Non-debt Instruments) Amendment Rules, 2024 and 
+the Companies (Listing of Equity Shares in Permissible Jurisdictions) Rules, 2024 
+enabling direct listing of equity shares by public Indian companies on the 
+international exchanges in the IFSC.  Additionally, the Government of India has 
+also released FAQs on the Direct Listing Scheme. 
+ 
+7. The Direct Listing Scheme provides an overarching framework for issuance and 
+listing of equity shares of public Indian companies on international exchanges. 
+Prior to this, Indian companies were not allowed to issue or list equity shares 
+abroad. This policy initiative, to enable listing of Indian companies in GIFT IFSC, is 
+ 
+1 As defined in the ILS regulations 
+
+
+===== PDF_PAGE 2 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+2 
+ 
+expected to reshape the Indian capital market landscape and offers Indian 
+companies, especially start-ups and companies in the sunrise and technology 
+sectors, an alternative avenue to access global capital beyond the domestic 
+exchanges. 
+ 
+8. Recently, RBI has issued the necessary amendments in the Foreign Exchange 
+Management (Foreign Currency Accounts by a person resident in India) 
+Regulations, 2015 and Foreign Exchange Management (Mode of Payment and 
+Reporting of Non-Debt Instruments) Regulations, 2019, providing the necessary 
+enablers inter alia for maintaining foreign currency account by Indian issuer in the 
+IFSC and remittance of proceeds of the issue from IFSC to India. 
+Review of ILS Regulations 
+9. IFSCA issued a Press Release on January 24, 2024 seeking suggestions from public 
+and regulated entities for reviewing the ILS Regulations. IFSCA has received 
+comments from various market participants including stock exchanges, law firms, 
+consultants, credit rating agency, investment bankers, etc. 
+ 
+10. IFSCA has constituted a Standing Committee on Primary Markets (“SCOP”) to 
+advise IFSCA on the various policy and regulatory matters to facilitate the 
+development of a vibrant and robust ecosystem for primary markets in GIFT IFSC.  
+ 
+11. The comments received from the stakeholders during public consultation were 
+presented and discussed in the SCOP. A sub-committee of the SCOP (“SCOP Sub-
+Committee”) studied the global best practices in other jurisdictions and proposed 
+recommendations for reviewing the ILS Regulations. Subsequent to comments 
+received from public and the discussions in the SCOP Sub-Committee, it has been 
+decided that several amendments may be required in the extant listing 
+framework.  
+ 
+12. Considering that several amendments were recommended, it has been decided 
+that the extant ILS regulations may be replaced with the new IFSCA (Listing) 
+Regulations, 2024. 
+Benchmarking with international best practices 
+13. The proposed Listing Regulations have been prepared, taking into consideration 
+Principles relating to the issuer (Principles 16 - 18) of the IOSCO Objectives and 
+Principles of Securities Regulation (“IOSCO Principles”), as mentioned below: 
+a) Principle 16 - There should be full, accurate and timely disclosure of financial 
+results, risk and other information which is material to investors’ decisions;  
+ 
+b) Principle 17 - Holders of securities in a company should be treated in a fair 
+and equitable manner; and 
+
+
+===== PDF_PAGE 3 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+3 
+ 
+ 
+c) Principle 18 - Accounting standards used by issuers to prepare financial 
+statements should be of a high and internationally acceptable quality. 
+ 
+14.  The best practices followed in other jurisdictions including USA2, UK3, Hong Kong4 
+and Singapore5 have been studied while proposing amendments in the new 
+regulations. The SCOP Sub-Committee has made recommendations on various 
+regulatory issues such as initial public offer, use of accounting standards, 
+disclosures, etc. based on comparative analysis of the practices followed in other 
+jurisdictions.  
+IFSCA (Listing) Regulations, 2024 
+15. The salient features of the proposed IFSCA (Listing) Regulations, 2024, include: 
+ 
+A. IPOs 
+ 
+1) Eligibility Criteria 
+ 
+An issuer shall be eligible to make an initial public offer only if: 
+(a) the issuer has an operating revenue, based on consolidated audited 
+accounts, of at least USD twenty million in the last financial year or 
+averaged over the last three financial years; or  
+(b) the issuer has a pre-tax profit, based on consolidated audited 
+accounts, of at least USD one million in the last financial year or 
+averaged over the last three financial years; or 
+(c) The issuer has a post issue market capitalization of at least USD 
+twenty-five million; or 
+(d) The issuer is a start-up or a small and medium-sized enterprise; or 
+(e) Any other eligibility criteria specified by the Authority. 
+2) Filing of Offer Document  
+ 
+The issuers shall be required to file offer document with IFSCA. The issuers 
+with proposed issue size of USD 100 million or less shall be exempted from 
+the requirement to seek observation letter from IFSCA. 
+ 
+3) Offer Timing 
+ 
+ 
+2 Rules | The Nasdaq Stock Market 
+3 https://www.handbook.fca.org.uk/handbook/LR.pdf  
+4 https://en-rules.hkex.com.hk/rulebook/main-board-listing-rules 
+5 https://rulebook.sgx.com/rulebook/mainboard-rules 
+
+
+===== PDF_PAGE 4 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+4 
+ 
+The offer shall be made by the issuers within a period of not more than 
+eighteen months from the date of issuance of observation letter by IFSCA. 
+In case the offer is not made within this period, the issuer will be required 
+to file a fresh offer document with IFSCA. 
+ 
+4) Disclosures in Offer Document  
+ 
+a. The offer document shall contain all material disclosures which are 
+true, correct and adequate to enable the investors to take an informed 
+investment decision. The list of mandatory disclosures has been 
+provided in the regulations.  
+ 
+b. The financial information of the issuers shall not be older than 135 
+days.  
+ 
+c. The issuer shall prepare its financial statements in accordance with 
+IFRS or US GAAP or Ind AS or accounting standards as applicable in its 
+jurisdiction of incorporation. However, in case an issuer is preparing 
+financial statements as per the accounting standards of its home 
+jurisdiction (other than IFRS, US GAAP and Ind AS), it shall be required 
+to reconcile the same with IFRS. 
+ 
+5) Pricing 
+ 
+The issuer shall determine pricing in consultation with the lead manager(s) 
+and may be through a fixed price mechanism or through book building 
+mechanism and the same shall be suitably disclosed in the offer document. 
+Further, in case of listing of equity shares by a public Indian company, the 
+issuer shall also comply with the requirements prescribed under schedule 
+XI of the Foreign Exchange Management (Non-debt Instruments) Rules, 
+2019. 
+ 
+6) Offer Period 
+ 
+The initial public offer shall be kept open for at least one working day and 
+not more than ten working days.  
+ 
+7) Minimum public offer 
+ 
+The minimum public offer shall not be less than 10% of the post issue paid-
+up capital of the issuer. 
+ 
+8) Anchor Investor 
+ 
+The issuer may offer a portion of the issue size for subscription by anchor 
+investors, subject to disclosures made in the offer document such as details 
+
+
+===== PDF_PAGE 5 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+5 
+ 
+of anchor investors, proposed maximum limit of allotment to anchor 
+investors, lock-up (if any), pricing etc.  
+ 
+9) Underwriting 
+ 
+A public issue of specified securities may be underwritten by an 
+underwriter and in such a case, adequate disclosures regarding 
+underwriting arrangements shall be disclosed in the offer document. 
+ 
+10) Lockup 
+ 
+The pre-issue shareholding of promoters and controlling shareholders of 
+the issuer shall be locked up for a period of 180 days from the date of 
+allotment in the initial public offer. 
+ 
+B. Listing of Debt Securities 
+ 
+The extant regulatory framework for listing of debt securities provided in the 
+ILS Regulations have largely been retained in the proposed new Listing 
+Regulations, particularly considering that there have been several listing of 
+debt securities on the stock exchanges in the IFSC. As on March 31, 2024, the 
+cumulative amount of debt securities listed on the stock exchanges in the IFSC 
+was USD 56.41 billion.6 
+ 
+The following are the key amendments proposed in the new Listing 
+Regulations for listing of debt securities: 
+1) Credit Rating 
+ 
+Credit ratings are a necessary part of the ecosystem in any financial market, 
+particularly for debt securities. Enabling ratings on the listed issuances 
+would enable a sound, safe, and transparent development of the entire 
+ecosystem at the IFSC. Presently, almost 92% of the debt securities listed 
+on the international exchanges in the IFSC are credit rated even though it 
+is not mandatory. Therefore, it has been proposed that credit rating may be 
+made mandatory for issuers of debt securities listed on IFSC exchanges.  
+ 
+Post the global financial crisis, IOSCO has also stressed upon the 
+importance of regulating Credit Rating Agencies (“CRA”). Accordingly, the 
+following Principle on regulating CRAs were introduced: 
+ 
+Credit rating agencies should be subject to adequate levels of oversight. The 
+regulatory system should ensure that credit rating agencies whose ratings 
+ 
+6 https://ifsca.gov.in/Document/Legal/IFSCA_Listing_Brochure.pdf  
+
+
+===== PDF_PAGE 6 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+6 
+ 
+are used for regulatory purposes are subject to registration and ongoing 
+supervision. 
+ 
+IFSCA is having the regulatory framework for registration and supervision 
+of CRAs under the IFSCA (Capital Market Intermediaries) Regulations, 
+2021.  
+ 
+In order to build the necessary ecosystem for CRAs in the IFSC, going 
+forward, the issuers may be mandated to have at least one rating from a 
+CRA registered with IFSCA. The issuer may at its discretion, obtain an 
+additional credit rating from any globally recognised rating agency. 
+However, there may be a need to provide a transition period for 
+implementation of this requirement. Accordingly, it has been proposed 
+that the mandatory requirement to obtain rating from a CRA registered 
+with IFSCA may be applicable from April 01, 2025 or such other date as 
+may be specified by IFSCA. 
+ 
+2) Private Placement 
+ 
+The mandatory requirement to have minimum subscription of USD 
+100,000/- in case of private placement has been proposed to be deleted in 
+the new regulations. 
+ 
+C. Continuous Obligations and Disclosure Requirements (Post Listing)  
+ 
+The detailed requirements for continuous obligations and post-listing 
+disclosure requirements have been specified in the regulations. The following 
+are the key amendments in the proposed new Listing Regulations: 
+ 
+1) Sustainability Reporting 
+ 
+The listed entities will have the option to provide sustainability reporting 
+based on: (a) internationally accepted reporting frameworks such as 
+Global Reporting Initiative, International Sustainability Standards Board, 
+Task Force on Climate-related Financial Disclosures; (b) Business 
+Responsibility and Sustainability Reporting; or (c) any other standards that 
+may be specified by IFSCA. 
+ 
+2) Whistleblower Mechanism 
+ 
+The listed entities will be required to establish a whistle-blower 
+mechanism for directors, employees and others to report genuine 
+concerns. The whistleblower mechanism shall provide for adequate 
+safeguards against victimisation of persons. 
+ 
+3) Disclosure of financial statements 
+
+
+===== PDF_PAGE 7 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+7 
+ 
+ 
+The timeline for disclosure of audited standalone and consolidated 
+financial statements for the full financial year has been proposed to be 
+reduced from six months to three months.  
+ 
+4) Accounting Standards 
+ 
+The listed entity shall prepare financial statements in accordance with IFRS 
+or US GAAP or Ind AS or accounting standards as applicable in its 
+jurisdiction of incorporation. However, in case a listed entity is preparing 
+financial statements as per the accounting standards of its home 
+jurisdiction (other than IFRS, US GAAP and Ind AS), it shall be required to 
+reconcile the same with IFRS. 
+ 
+D. Concept of Controlling Shareholder 
+ 
+Globally, the concept of controlling shareholder is more prevalent than the 
+term ‘promoter’. Accordingly, the new regulations have been proposed to be 
+amended to consider ‘promoter’ only in respect of Indian companies, whereas 
+the concept of controlling shareholder has been made applicable for foreign 
+companies.  
+ 
+E. Listing of other financial products 
+ 
+The applicability of the new Listing regulations has been proposed to be 
+expanded to cover other financial products such as Commercial Paper, 
+Certificate of Deposits and other financial products as may be specified by 
+IFSCA. 
+ 
+There are several other changes in the proposed new IFSCA (Listing) Regulations, 
+2024 compared to the ILS Regulations.  
+ 
+16. The draft IFSCA (Listing) Regulations, 2024 are attached at Annexure-I. 
+Regulatory Objective and expected Impact 
+17. The policy decision by Government of India to enable direct listing of equity shares 
+of Indian companies on the stock exchanges in the IFSC, will allow the Indian 
+companies to access global capital and contribute towards growth of the Indian 
+economy. This initiative will also benefit Indian companies having global 
+ambitions and looking for raising foreign capital to expand their presence in other 
+markets. GIFT IFSC is therefore well positioned to act as the gateway for attracting 
+untapped foreign capital into India; and integrating India with the global financial 
+system. 
+
+
+===== PDF_PAGE 8 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+8 
+ 
+18. Further, the aim of these regulations is to also enable foreign issuers to access 
+capital through issue and listing of securities on the stock exchanges in the IFSC. 
+19. Accordingly, the proposed new IFSCA (Listing) Regulations, 2024 is expected to 
+promote ease of doing business for the issuers, both domestic and foreign, to 
+access capital market through listing of securities on the stock exchanges in the 
+IFSC. The issuers will be able to access capital with greater flexibility and 
+efficiency.  
+20. The regulations are expected to give a fillip to the primary market activities in the 
+IFSC, across various financial instruments. A robust and vibrant primary market 
+is essential for the overall development of the capital market ecosystem. 
+21. Further, the regulatory objective is to ensure that capital raising by the issuers in 
+the IFSC is in a fair, orderly, efficient and transparent manner. The regulations aim 
+to protect the interests of investors by ensuring that there is full disclosure of 
+material information that are required for decision making by the investors. The 
+proposed regulations are expected to reduce any systemic risk in the primary 
+market activities in the IFSC. 
+Public Comments 
+22. In view of the above, comments and suggestions from public are invited on the 
+proposed IFSCA (Listing) Regulations, 2024 contained in Annexure-I. The 
+comments may be sent by email to consultation-cfd@ifsca.gov.in with a copy to 
+Shri Arjun Prasad, General Manager at arjun.pd@ifsca.gov.in with subject line 
+“Comments on draft IFSCA (Listing) Regulations, 2024” latest by May 25, 2024. 
+23. The comments should be provided in the following format: 
+Name and Designation  
+ 
+Contact No. and Email address 
+ 
+Name of Organisation 
+ 
+S. No. 
+Regulation 
+no./Sub 
+regulation no. 
+Text 
+of 
+the 
+Regulation/ 
+Sub-Regulation 
+Comments/ 
+Suggestions/ 
+Suggested 
+modifications 
+Detailed Rationale 
+ 
+ 
+ 
+ 
+ 
+ 
+May 03, 2024 
+Gandhinagar 
+***** 
+ 
+
+
+===== PDF_PAGE 9 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+9 
+ 
+Annexure – I 
+ 
+GAZETTE OF INDIA 
+EXTRAORDINARY 
+PART III, SECTION 4 
+PUBLISHED BY AUTHORITY 
+ 
+INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY 
+ 
+NOTIFICATION 
+ 
+Gandhinagar, _______ 
+ 
+ 
+International Financial Services Centres Authority (Listing) Regulations, 2024 
+ 
+No. _______ In exercise of the powers conferred by sub-section (1) of Section 28 read with 
+sub-section (1) of Section 12 and sub-section (1) of Section 13 of the International Financial 
+Services Centres Authority Act, 2019; and Section 30 and Section 11A read with Section 28C 
+of the Securities and Exchange Board of India Act, 1992, the International Financial Services 
+Centres Authority hereby makes the following regulations, namely:- 
+CHAPTER I: PRELIMINARY 
+1. Short title and commencement 
+ 
+(1) These regulations may be called the International Financial Services Centres Authority 
+(Listing) Regulations, 2024. 
+ 
+(2) They shall come into force on the date of publication in the Official Gazette. 
+ 
+2. Objective 
+ 
+These regulations provide the regulatory framework for issue and listing of various 
+financial products, including specified securities, debt securities and other financial 
+products on the recognised stock exchanges in the international financial services centres 
+in India.  
+ 
+3. Definitions 
+ 
+(1) In these regulations, unless the context otherwise requires, the terms defined herein 
+shall bear the meanings assigned to them below, and their cognate expressions shall 
+be construed accordingly, - 
+ 
+(a) “Act” means the International Financial Services Centres Authority Act, 2019 (50 
+of 2019); 
+
+
+===== PDF_PAGE 10 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+10 
+ 
+(b) “business combination” means a merger or amalgamation or acquisition of shares 
+or assets of one or more companies having business operations; 
+(c) “commercial paper” is an unsecured money market instrument issued in the form 
+of promissory note; 
+(d) “control” shall include the right to appoint majority of the directors or to control 
+the management or policy decisions exercisable by a person or persons acting 
+individually or in concert, directly or indirectly, including by virtue of their 
+shareholding or management rights or shareholders agreements or voting 
+agreements or in any other manner; 
+(e) “controlling shareholder” shall include a person or entity who has control over the 
+affairs of the issuer, directly or indirectly whether as a shareholder, director or 
+otherwise; 
+(f) “convertible debt instrument” means an instrument which creates or 
+acknowledges indebtedness and is convertible into equity shares of the issuer at a 
+later date with or without the option of the holder of the instrument, whether 
+constituting a charge on the assets of the issuer or not; 
+(g) “convertible securities” means securities which are convertible into or 
+exchangeable with equity shares of the issuer at a later date, with or without the 
+option of the holder of such securities and includes convertible debt instruments 
+and convertible preference shares; 
+(h) “debt securities” means non-convertible debt securities which create or 
+acknowledge indebtedness and includes debentures and bonds; 
+(i) “designated stock exchange” means a recognised stock exchange chosen by the 
+issuer on which securities of an issuer are listed or proposed to be listed for the 
+purpose of a particular issue of securities under these regulations; 
+(j) “DR” or “depository receipt” means a negotiable financial instrument representing 
+underlying securities of an issuer in another jurisdiction; 
+(k) "Foreign Jurisdiction" means a country, other than India, whose securities market 
+regulator is a signatory to International Organization of Securities Commission’s 
+Multilateral Memorandum of Understanding or a signatory to a bilateral 
+Memorandum of Understanding with the Authority, and which is not identified in 
+the public statement of Financial Action Task Force as: 
+(i) 
+a jurisdiction having a strategic Anti-Money Laundering or Combating 
+the Financing of Terrorism deficiencies to which counter measures 
+apply; or 
+(ii) 
+a jurisdiction that has not made sufficient progress in addressing the 
+deficiencies or has not committed to an action plan developed with the 
+Financial Action Task Force to address the deficiencies; 
+
+
+===== PDF_PAGE 11 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+11 
+ 
+(l) “follow-on public offer” or “FPO” or “further public offer” means an offer of 
+specified securities by a listed entity to the public for subscription and includes an 
+offer for sale of specified securities to the public by any existing holder of such 
+specified securities in a listed issuer; 
+(m) “green shoe option” means an option of allotting specified securities in excess of 
+the specified shares offered in the public issue as a post-listing price stabilizing 
+mechanism; 
+(n) “IFSCA” or “Authority” means the International Financial Services Centres 
+Authority established under sub-section (1) of section 4 of the Act;  
+(o) “information memorandum" means listing particulars or offering memorandum or 
+offering circular or any document that provides investors with certain information 
+about the issuer and the securities in connection with an application for listing of 
+securities; 
+(p) “initial public offer” or “IPO” means an offer of specified securities by an unlisted 
+issuer to the public for subscription and includes an offer for sale of specified 
+securities to the public by any existing holder of such specified securities in an 
+unlisted issuer; 
+(q) “issuer” is an entity that issues financial products under these regulations; 
+(r) "International Financial Services Centre” or “IFSC” shall have the same meaning as 
+assigned to it under clause (g) of sub-section (1) of Section 3 of the Act;  
+(s) “key managerial personnel”, in relation to a company, means  
+(i) 
+the Chief Executive Officer or the managing director or the manager; 
+(ii) 
+the company secretary; 
+(iii) a whole-time director; 
+(iv) the Chief Financial Officer; and 
+(v) 
+such other officer as may be designated as key managerial personnel by 
+the Board by the company: 
+Provided that, in relation to a company incorporated in India, the term “key 
+managerial personnel” shall have the same meaning as assigned to it under sub-
+section (51) of section 2 of the Companies Act, 2013; 
+(t) “lead manager” means an investment banker appointed by the issuer to manage 
+the issue and in case of a book built issue, the lead manager(s) appointed by the 
+issuer shall act as the book running lead manager(s) for the purposes of book 
+building; 
+
+
+===== PDF_PAGE 12 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+12 
+ 
+(u) “listed entity” means an entity whose specified securities or depository receipts 
+are listed on a recognised stock exchange in the IFSC;  
+(v) “promoter” shall have the same meaning as assigned to it under sub-section (69) 
+of section 2 of the Companies Act, 2013 
+Explanation: The references to “promoter” under these regulations shall apply 
+only in respect of companies incorporated under the Companies Act, 2013; 
+(w)  “offer document” means a red herring prospectus, prospectus, shelf prospectus, 
+letter of offer, tranche prospectus, placement memorandum, as applicable; 
+(x) “recognised stock exchange” means a stock exchange in the IFSC recognised by the 
+Authority; 
+(y) “Special Purpose Acquisition Company” or “SPAC” means a company which does 
+not have any operating business and has been formed with the primary objective 
+to effect a business combination; 
+(z) “specified securities” means equity shares and convertible securities; and 
+(aa) 
+“SR equity shares” means the equity shares of an issuer having superior voting 
+rights compared to all other equity shares issued by that issuer. 
+(2) Words and expressions used and not defined in these regulations but defined in the 
+Act, the Companies Act, 2013, the Securities Contracts (Regulation) Act, 1956, the 
+Securities and Exchange Board of India Act, 1992, the Depositories Act 1996, or any 
+rules or regulations made thereunder shall have the same meanings as respectively 
+assigned to them in those Acts, rules or regulations made thereunder or any statutory 
+modification or re-enactment thereto, as the case may be. 
+ 
+4. Applicability 
+ 
+These regulations shall apply to: 
+(a) an initial public offer of specified securities by an unlisted issuer; 
+(b) a follow-on public offer of specified securities by a listed issuer; 
+(c) an initial public offer of specified securities by a Special Purpose Acquisition 
+Company; 
+(d) a rights issue or a preferential issue or a qualified institutions placement of 
+specified securities by a listed issuer; 
+(e) issue and listing of depository receipts; 
+(f) issue and listing of debt securities;  
+(g) secondary listing of securities; and 
+
+
+===== PDF_PAGE 13 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+13 
+ 
+(h) listing of other financial products as permitted by the Authority.  
+ 
+ 
+
+
+===== PDF_PAGE 14 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+14 
+ 
+CHAPTER II: GENERAL CONDITIONS 
+5. General Principles 
+ 
+The underlying principles for an issuer to list its securities in the IFSC are: 
+(a) There should be true, correct and adequate disclosure of material information in 
+the offer document to enable the investors to take informed decision. 
+(b) There should be full, accurate and timely disclosure of financial results, risk and 
+other non-financial information which is material to investors’ decisions; 
+(c) All holders of listed securities shall be treated in a fair and equitable manner; 
+(d) The directors of an issuer shall ensure to act in the interests of shareholders as 
+well as other stakeholders. 
+6. General Eligibility Criteria 
+ 
+(1) An issuer shall be eligible to list its specified securities or debt securities or a financial 
+product under these regulations on a recognised stock exchange, if it is a body 
+corporate or a trust incorporated in the IFSC, India or a Foreign Jurisdiction: 
+Provided that,  
+(a) the issuer is duly incorporated or established according to the relevant laws of 
+its place of incorporation or establishment;  
+(b) the issuer is operating in conformity with its constitution; and 
+(c) the issuer is eligible to issue such securities or financial instruments that are 
+proposed to be listed in the IFSC, in conformity with the laws of its home 
+jurisdiction. 
+Provided further that a public Indian company shall be eligible to list its equity shares 
+on a recognised stock exchange only if it meets the eligibility criteria also provided 
+under Schedule XI of the Foreign Exchange Management (Non-debt Instruments) 
+Rules, 2019 and the Companies (Listing of equity shares in permissible jurisdictions) 
+Rules, 2024. 
+(2) Notwithstanding sub-regulation (1) above, an issuer shall be eligible to list its debt 
+securities on a recognised stock exchange, if the issuer is - 
+(a) a supranational or a multilateral or a statutory institution; or 
+(b) a municipality or any other entity which offers or proposes to offer municipal 
+debt securities; or 
+(c) an entity which offers or proposes to offer sovereign debt securities: 
+
+
+===== PDF_PAGE 15 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+15 
+ 
+Provided that the issuer is established or headquartered in an IFSC, India or a Foreign 
+Jurisdiction: 
+Provided further that the issuer is eligible to issue such debt securities that are 
+proposed to be listed in the IFSC, in conformity with the laws of its home jurisdiction. 
+(3) An issuer shall not be eligible to list securities under these regulations if the issuer or 
+any of its promoters or controlling shareholders or directors or selling shareholders is 
+- 
+(a) debarred from accessing the capital market; or 
+(b) a wilful defaulter; or 
+(c) a fugitive economic offender. 
+Explanation: For the purpose of these regulations, ‘wilful defaulter’ or ‘fugitive 
+economic offender’ means a person or an issuer who or which is categorized as such 
+as per laws of the home jurisdiction. 
+7. Dematerialised Form 
+ 
+The securities listed or proposed to be listed on a recognised stock exchange shall be 
+freely transferable and held in dematerialised form: 
+Provided that debt securities and such other financial products may be permitted to be 
+held with an international central securities depository as permitted in these regulations 
+or as permitted by the Authority from time to time. 
+8. Currency 
+ 
+The securities issued under these regulations shall be denominated for trading on a 
+recognised stock exchange in a foreign currency as permitted by the Authority under the 
+IFSCA (Banking) Regulations, 2020, as amended from time to time: 
+ 
+Explanation: For the purpose of these regulations, reference to USD/US Dollar, would 
+mean an equivalent amount in the currency in which such securities are issued.  
+ 
+ 
+ 
+
+
+===== PDF_PAGE 16 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+16 
+ 
+CHAPTER III: PUBLIC OFFER OF SPECIFIED SECURITIES (IPO AND FPO) 
+ 
+PART A: INITIAL PUBLIC OFFER 
+ 
+9. Eligibility criteria 
+ 
+An issuer shall be eligible to make an initial public offer only if: 
+(f) the issuer has an operating revenue, based on consolidated audited accounts, of 
+at least USD twenty million in the las financial year or averaged over the last three 
+financial years; or  
+(g) the issuer has a pre-tax profit, based on consolidated audited accounts, of at least 
+USD one million in the last financial year or averaged over the last three financial 
+years; or 
+(h) The issuer has a post issue market capitalization of at least USD twenty five million; 
+or 
+(i) The issuer is a start-up or a small and medium-sized enterprise: 
+Explanation: The issuer shall qualify as a start-up or a small and medium-sized 
+enterprise as per the applicable definition in the jurisdiction of its incorporation or 
+in the absence of the same, as may be specified by the Authority; or 
+(j) It qualifies as an issuer under other eligibility criteria specified by the Authority. 
+Explanation: “Financial year” for the purposes of these regulations shall mean 
+financial year followed by the issuer.  
+10. SR Equity Shares 
+ 
+If an issuer has issued SR equity shares or dual class shares to any shareholder, it shall be 
+allowed to do an initial public offer of ordinary shares for listing on the recognised stock 
+exchange(s) subject to compliance with the following: 
+ 
+(a) The issue of SR equity shares had been authorized by a resolution passed at a 
+general meeting of the shareholders of the issuer; 
+(b) The SR equity shares have been held for a period of at least three months prior to 
+the filing of the draft offer document; 
+ 
+11. Offer for Sale 
+ 
+In case of an offer for sale, the securities must have been held by the sellers for a period 
+of at least one year prior to the date of filing of the draft offer document: 
+
+
+===== PDF_PAGE 17 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+17 
+ 
+Provided that in case equity shares received on conversion or exchange of fully paid-up 
+compulsorily convertible securities including depository receipts are being offered for 
+sale, the holding period of such convertible securities, including depository receipts, as 
+well as that of resultant equity shares together shall be considered for the purpose of 
+calculation of the period of one year.  
+ 
+Explanation: If equity shares arising out of conversion or exchange of fully paid-up 
+compulsorily convertible securities are being offered for sale, such conversion or 
+exchange should have been completed prior to filing of the offer document, provided full 
+disclosures of the terms of conversion or exchange are made in the draft offer document. 
+Provided further that the requirement of holding equity shares for a period of one year 
+shall not apply: 
+(a) If the equity shares offered for sale were acquired pursuant to any scheme of 
+merger or amalgamation in lieu of business and invested capital which had been 
+in existence for a period of more than one year prior to approval of such scheme; 
+or 
+(b) If the equity shares offered for sale were issued under a bonus issue on securities 
+held for a period of at least one year prior to the filing of the draft offer document 
+with IFSCA and further subject to the following: 
+(i) such specified securities being issued out of free reserves and share 
+premium existing in the books of account as at the end of the financial year 
+preceding the financial year in which the draft offer document is filed with 
+IFSCA; and 
+(ii) such equity shares not being issued by utilisation of revaluation reserves 
+or unrealized profits of the issuer. 
+12. Lead manager 
+ 
+The issuer shall appoint one or more investment bankers as lead manager(s) to the issue 
+and other intermediaries in consultation with the lead manager(s). 
+ 
+13. In-principle approval from recognised stock exchange(s) 
+ 
+(1) The issuer shall file an application with a recognised stock exchange seeking in-
+principle approval: 
+Provided that where the application is made to more than one recognised stock 
+exchange, the issuer shall choose one of them as the designated stock exchange. 
+(2) The stock exchange shall grant an in-principle approval or reject the application for 
+the in-principle approval within fifteen days from the date of receipt of complete 
+information from the issuer. 
+
+
+===== PDF_PAGE 18 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+18 
+ 
+14. Filing of Offer Document 
+ 
+(1) Where size of the proposed issue is hundred million USD or below,  
+(a) the issuer, through the lead manager(s), shall file a draft offer document along 
+with fee with the Authority; 
+(b) the lead manager(s) shall submit a due diligence certificate along with the draft 
+offer document; 
+(c) the draft offer document shall be hosted on the websites of the Authority, 
+recognised stock exchange(s), issuer and the lead manager(s) of the issue. 
+(2) Where size of the proposed issue is more than hundred million USD,  
+(a) the issuer, through the lead manager(s), shall file a draft offer document along 
+with fee with the Authority; 
+(b) the lead manager(s) shall submit a due diligence certificate along with the draft 
+offer document; 
+(c) the draft offer document shall be made public by hosting it on the websites of 
+IFSCA, stock exchange(s), issuer and lead manager(s) for inviting comments from 
+public: 
+Provided that comments may be provided by the public within a period of seven 
+working days from the date of filing;  
+(d) the lead manager(s) shall file with the Authority details of material comments 
+received by them or the issuer from the public on the draft offer document during 
+that period and the consequential changes, if any, that are required to be made in 
+the draft offer document; 
+(e) the Authority may issue observations, if any, on the draft offer document within 
+twenty one working days from the later of the following dates:  
+(i) 
+the date of receipt of the draft offer document; or  
+(ii) 
+the date of receipt of satisfactory reply from the issuer and/or the lead 
+manager where IFSCA has sought any clarification or additional 
+information from them; or  
+(iii) the date of receipt of clarification or information from any regulator or 
+agency, where IFSCA has sought any clarification or information from 
+such regulator or agency; or  
+(iv) the date of receipt of a copy of in-principle approval letter issued by the 
+stock exchange(s). 
+
+
+===== PDF_PAGE 19 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+19 
+ 
+(f) the issuer shall carry out changes specified by IFSCA, if any, in the offer document. 
+(g) The issuer shall, through the lead manager(s), file the updated offer document 
+with the Authority and the stock exchange(s). 
+15. Offer Timing 
+ 
+The offer shall be made by the issuer within a period of not more than eighteen months 
+from the date of issuance of observations by IFSCA: 
+Provided that if the proposed size of the issue is hundred million USD or below, the period 
+of eighteen months shall be from the date of receipt of offer document by the Authority:  
+ 
+Provided further that if the offer is not made within the specified time period, a fresh draft 
+offer document shall be filed. 
+ 
+16.  Disclosures in Offer Document 
+ 
+(1) The offer document shall contain all material disclosures which are true, correct and 
+adequate to enable the investors to take an informed investment decision.  
+(2) The lead manager(s) shall exercise due diligence and satisfy themselves about all 
+aspects of the issue including materiality, veracity and adequacy of disclosures in the 
+offer document. 
+(3) The offer document shall contain disclosures relating to the public offer, including the 
+following: 
+(a) Offer Document Summary 
+(b) Risk factors 
+(c) Introduction providing a brief overview of the offer details including basis for offer 
+price 
+(d) General information 
+(e) Capital Structure  
+Explanation: Capital structure shall include details of all shareholders holding five 
+per cent or more of the pre-issue paid-up capital    
+(f) Particulars of the Issue   
+i. Objects of the Issue  
+ii. Requirement of Funds  
+
+
+===== PDF_PAGE 20 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+20 
+ 
+iii. Funding Plan  
+iv. Business/Project Appraisal, if any 
+v. Deployment of Funds 
+vi. Basis of Issue Price  
+(g) Underwriting 
+(h) Tax Implications for investors  
+(i) About the Issuer 
+i. Industry Description  
+ii. Business Description 
+iii. Organisational structure, Management and Remuneration 
+iv. Shareholders’ Agreements and Other material Agreements 
+v. Dividend Policy 
+(j) Financial Statements 
+(k) Material Related Party Transactions 
+(l) Legal and Other Information  
+i. Outstanding material litigation and material developments 
+ii. Pending material Government/Regulatory approvals 
+(m) Details of major group companies including business and management 
+(n) Other regulatory and statutory disclosures  
+(o) Any other material disclosures 
+Explanation: The issuer shall provide details about their materiality policy in the offer 
+document. 
+(4) Disclaimer: The offer document shall contain the following disclaimer in bold: 
+“It is to be distinctly understood that filing of the offer document with IFSCA is for the 
+purpose of record and should not in any way be deemed or construed that the same 
+has been cleared or approved by IFSCA. IFSCA does not take any responsibility either 
+for the financial soundness of the issuer or for the correctness of the statements made 
+or opinions expressed in the offer document. The issuer and the investment banker(s) 
+have certified that the disclosures made in the offer document are adequate and are 
+
+
+===== PDF_PAGE 21 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+21 
+ 
+in conformity with the IFSCA (Listing) Regulations, 2024. This requirement is to 
+facilitate investors to take an informed decision for making investment. The Issuer is 
+responsible for the correctness, adequacy and disclosure of all relevant information in 
+the offer document.” 
+(5) Audited financial information of the issuer for at least three financial years shall be 
+disclosed in the offer document: 
+Provided that where the issuer has been in existence for less than three years, audited 
+financial information shall be provided for such period of existence: 
+Provided further that  
+(i) financial information in any offer document shall not be older than 135 days; 
+(ii) financial information for part of the financial year can be limited reviewed. 
+Provided further that if the issuer has been in existence for less than one year, audited 
+financial information shall be provided.  
+(6) The issuer shall prepare its financial statements in accordance with IFRS or US GAAP 
+or Ind AS or accounting standards as applicable in its jurisdiction of incorporation: 
+Provided that an issuer preparing financial statements as per the accounting standards 
+of its home jurisdiction (other than IFRS, US GAAP and Ind AS) shall be required to 
+reconcile the same with IFRS. 
+17. Reservations 
+ 
+The issuer may choose to make reservations on a competitive basis out of the issue size 
+in favour of the following categories of persons and the same shall suitably be disclosed 
+in the offer document: 
+ 
+(a) employees; 
+(b) directors; and  
+(c) shareholders (other than controlling shareholders) of listed subsidiaries or listed 
+promoter companies: 
+ 
+18. Pricing 
+ 
+The issuer shall determine pricing in consultation with the lead manager(s) and may be 
+through a fixed price mechanism or through book building mechanism and the same shall 
+be suitably disclosed in the offer document: 
+
+
+===== PDF_PAGE 22 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+22 
+ 
+Provided that in case of listing of equity shares by a public Indian company, the issuer shall 
+also comply with the requirements prescribed under schedule XI of the Foreign Exchange 
+Management (Non-debt Instruments) Rules, 2019. 
+19. Offer period 
+ 
+The initial public offer shall be kept open for at least one working day and not more than 
+ten working days: 
+Provided that in case the issuer has made a simultaneous offer in any other jurisdiction, 
+the offer period may be for same period as applicable in the other jurisdiction.  
+20. Minimum public offer 
+ 
+The minimum public offer shall not be less than 10% of the post issue paid-up capital of 
+the issuer. 
+ 
+21. Minimum subscription 
+ 
+An offer shall be considered successful only if the minimum subscription as disclosed in 
+the offer document is received:  
+ 
+Provided that the concept of minimum subscription shall apply only to fresh issue of 
+specified securities and not for the Offer for Sale component of the public offer. 
+ 
+22. Anchor Investor 
+ 
+The issuer may offer a portion of the issue size for subscription by an anchor investor, 
+subject to disclosures made in the offer document such as details of anchor investor, 
+proposed maximum limit of allotment to anchor investor, lockup (if any), pricing etc.  
+ 
+23. Underwriting 
+ 
+A public issue of specified securities may be underwritten by an underwriter and in such 
+a case, adequate disclosures regarding underwriting arrangements shall be disclosed in 
+the offer document. 
+24. Allotment  
+ 
+(1) Allotment to investors shall be on proportionate basis or discretionary basis and shall 
+be disclosed in the offer document: 
+Provided that no single investor, other than an underwriter, shall be allotted more 
+than 10% of the post issue capital unless specifically disclosed in the offer document. 
+(2) The issuer and lead manager(s) shall ensure that the specified securities are allotted 
+and the payments and refunds are completed within 5 working days from the date of 
+
+
+===== PDF_PAGE 23 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+23 
+ 
+closing of the issue. 
+25. Listing 
+ 
+The specified securities shall list on the stock exchange(s) within the period, as specified 
+by the stock exchange(s): 
+Provided that in case the issuer has made a simultaneous offer in any other jurisdiction, 
+the specified securities shall be listed on the same date. 
+26. Post-issue report 
+ 
+The issuer, through the lead manager(s), issuer shall file a post-issue report with the 
+recognised stock exchange(s) giving details relating to number, value and percentage of 
+all applications received, allotments made, basis of allotment, subscription, details of 
+credit of specified securities, details relating to payments and refunds, date of filing of 
+listing application, etc. within ten working days from the date of closing the issue.  
+27. Price stabilisation through green shoe option  
+ 
+(1) An issuer may provide a green shoe option for stabilising the post listing price of its 
+specified securities, subject to the following conditions: 
+(a) the draft offer document and offer document shall contain all material disclosures 
+about the green shoe option; 
+(b) the issuer has appointed an investment banker as a stabilising agent, who shall be 
+responsible for the price stabilisation process; 
+(c) the maximum number of specified securities that may be borrowed for the 
+purpose of allotment or allocation of specified securities in excess of the issue size 
+shall not exceed 15% of the issue size. 
+(2) The stabilisation process shall be available for a period not exceeding ninety days from 
+the date on which trading permission is given by the stock exchanges in respect of the 
+specified securities allotted in the public issue. 
+(3) The stabilising agent shall open a special account, distinct from the issue account, with 
+a bank for crediting the monies received from the applicants against the over-
+allotment and a special account with a depository participant for crediting specified 
+securities to be bought from the market during the stabilisation period out of the 
+monies credited in the special bank account. 
+(4) The specified securities bought from the market shall be returned to the pre-issue 
+shareholders promptly and not later than two working days after the end of the 
+stabilization period. 
+(5) On expiry of the stabilisation period, if the stabilising agent has not been able to buy 
+
+
+===== PDF_PAGE 24 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+24 
+ 
+specified securities from the market to the extent of such securities over-allotted, the 
+issuer shall allot specified securities at issue price to the extent of the shortfall within 
+five working days of the closure of the stabilisation period and such specified securities 
+shall be returned to the pre-issue shareholders by the stabilising agent in lieu of the 
+specified securities borrowed from them and the account with the depository 
+participant shall be closed thereafter. 
+(6) The issuer shall make a listing application in respect of the further specified securities 
+allotted under sub-regulation (5), to all the stock exchanges where the specified 
+securities allotted in the public issue are listed. 
+(7) Any monies left in the special bank account after remittance of monies to the issuer 
+and deduction of expenses incurred by the stabilising agent for the stabilisation 
+process shall be transferred to the pre issue shareholders who lent their specified 
+securities towards the green shoe option, and the special bank account shall be closed 
+soon thereafter. 
+28. Lockup of securities 
+ 
+(1) The pre-issue shareholding of promoters and controlling shareholders of the issuer 
+shall be locked-up for a period of 180 days from the date of allotment in the initial 
+public offer: 
+Provided that the lockup provisions shall not apply with respect to the specified 
+securities lent to stabilising agent for the purpose of green shoe option, during the 
+period starting from the date of lending of such specified securities and ending on the 
+date on which they are returned to the lender. 
+(2) The shareholding of the SR Equity Shares shall be locked-up after the initial public 
+offering, until the later of: 
+a) their conversion to ordinary shares; and 
+b) One year from the date of allotment in the initial public offer. 
+(3) The specified securities held by the promoters or controlling shareholders and locked-
+up may be pledged as a collateral security for a loan granted by a scheduled 
+commercial bank or a public financial institution or a systemically important non-
+banking finance company or a housing finance company. 
+29. Other responsibilities of lead manager 
+ 
+(1) The lead manager(s) shall prepare a schedule, listing the activity-wise allocation of 
+responsibilities relating to the issue, the name of the lead manager responsible for 
+each set of activities or sub-activities, and disclose the same in the offer documents. 
+(2) A lead manager shall be designated for ensuring compliance with these regulations 
+
+
+===== PDF_PAGE 25 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+25 
+ 
+and coordinating with the Authority. 
+(3) The designated lead manager shall be responsible for ensuring that all intermediaries 
+fulfil their obligations and functions as specified in their agreements with the issuer. 
+(4) The responsibilities of the lead manager(s) shall continue until completion of the issue 
+process and for any issue related matter thereafter. 
+(5) The lead manager(s) shall continue to be responsible for post-issue activities till the 
+applicants have received the securities certificates, credit to their demat account or 
+refund of application monies and the listing agreement is entered into by the issuer 
+with the stock exchange and listing or trading permission is obtained.  
+30. Prohibition on payment of incentives 
+ 
+Any person connected with the issue shall not offer any incentive, whether direct or 
+indirect, in any manner, whether in cash or kind or services or otherwise to any person 
+for making an application in the public offer, except for fees or commission for services 
+rendered in relation to the issue. 
+ 
+ 
+
+
+===== PDF_PAGE 26 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+26 
+ 
+PART B: FOLLOW-ON PUBLIC OFFER 
+31. Applicability 
+ 
+An issuer listed on a recognised stock exchange may make a follow-on public offer of 
+specified securities in the manner provided in these regulations. 
+ 
+32. Offer for sale 
+ 
+In case of an offer for sale, the securities must have been held by the sellers for a period 
+of at least one year prior to the date of filing of the draft offer document: 
+ 
+Provided that in case the equity shares received on conversion or exchange of fully paid-
+up compulsorily convertible securities including depository receipts are being offered for 
+sale, the holding period of such convertible securities, including depository receipts, as 
+well as that of resultant equity shares together shall be considered for the purpose of 
+calculation of one year.  
+ 
+Explanation: If the equity shares arising out of the conversion or exchange of the fully 
+paid-up compulsorily convertible securities are being offered for sale, the conversion or 
+exchange should be completed prior to filing of the offer document, provided full 
+disclosures of the terms of conversion or exchange are made in the draft offer document. 
+Provided further that the requirement of holding equity shares for a period of one year 
+shall not apply: 
+a) If the equity shares offered for sale were acquired pursuant to any scheme of 
+merger or amalgamation in lieu of business and invested capital which had been 
+in existence for a period of more than one year prior to approval of such scheme; 
+or 
+b) If the equity shares offered for sale were issued under a bonus issue on securities 
+held for a period of at least one year prior to the filing of the draft offer document 
+with IFSCA and further subject to the following: 
+i. 
+such specified securities being issued out of free reserves and share 
+premium existing in the books of account as at the end of the financial year 
+preceding the financial year in which the draft offer document is filed with 
+IFSCA; and 
+ii. 
+such equity shares not being issued by utilisation of revaluation reserves 
+or unrealized profits of the issuer. 
+33. Lead manager 
+ 
+The issuer shall appoint one or more merchant bankers as lead manager(s) to the issue 
+and shall also appoint other intermediaries in consultation with the lead manager(s). 
+ 
+
+
+===== PDF_PAGE 27 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+27 
+ 
+34. In-principle approval from recognised stock exchange(s) 
+ 
+(1) The issuer shall file an application with the recognised stock exchange(s) seeking in-
+principle approval: 
+Provided that where the application is made to more than one recognised stock 
+exchange, the issuer shall choose one of them as the designated stock exchange.  
+(2) The stock exchange(s) shall grant or reject the application within fifteen days from the 
+date of receipt of complete information from the issuer. 
+35. Fast track follow-on public offer 
+ 
+(1) An issuer may make follow-on public offer through the fast track route, if the issuer 
+satisfies the following conditions: 
+(a) equity shares of the issuer have been listed on a recognised stock exchange 
+for a period of at least 18 months; 
+(b) issuer has complied with all the regulatory requirements specified by the 
+Authority and the recognised stock exchange(s) in the preceding three years; 
+(c) no show-cause notice has been issued by IFSCA which is pending against the 
+issuer or its promoters or controlling shareholders or whole-time directors; 
+(d) there is no adverse opinion, disclaimer of opinion, qualified opinion by the 
+auditors on the financial statements of the issuer, or any of the issuer's 
+subsidiaries or associated companies (having a material impact on the issuer's 
+consolidated accounts), in the preceding three years; 
+(e) there has not been any disclosure relating to irregularities in the issuer, 
+having a material impact on the issuer, by any director, key managerial 
+personnel or compliance officer: 
+Explanation: If the issuer is listed for a period of less than three years, the period 
+would be considered from the date of listing for the purpose of clauses (b) and 
+(d) above.  
+(2) The issuer, through the lead manager(s), shall file the offer document along with fee 
+to the Authority. 
+(3) The lead manager(s) shall submit a due diligence certificate along with the offer 
+document.  
+(4) The issuer shall simultaneously file the offer document with the recognised stock 
+exchange(s).  
+
+
+===== PDF_PAGE 28 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+28 
+ 
+(5) The offer document shall be hosted on the websites of the Authority, recognised stock 
+exchange(s) and the lead manager(s) of the issue. 
+36. Follow-on public offer without fast track 
+ 
+The issuer not meeting the conditions for a fast track follow-on public offer, may make 
+follow-on public offer by filing of offer document in the same manner as provided for 
+Initial Public Offers under Part A of this Chapter. 
+ 
+37. Disclosures in the offer document for a follow on public offer 
+ 
+(1) The offer document for a follow on offer shall contain all material disclosures which 
+are true, correct and adequate to enable the investors to take an informed investment 
+decision.  
+(2) The lead manager(s) shall exercise due diligence and satisfy themselves about all 
+aspects of the issue including the veracity and adequacy of disclosures in the offer 
+document. 
+(3) The offer document shall contain disclosures relating to the public offer, including the 
+following: 
+(a) Offer Document Summary 
+(b) Risk factors 
+(c) Introduction providing a brief overview of the offer details including basis for offer 
+price 
+(d) General information 
+(e) Capital Structure 
+Explanation: Capital structure shall include details of all shareholders with holding 
+of five per cent. or more of the paid-up capital    
+(f) Particulars of the Issue   
+i. Objects of the Issue  
+ii. Requirement of Funds  
+iii. Funding Plan  
+iv. Business/Project Appraisal, if any 
+v. Deployment of Funds 
+vi. Basis of Issue Price 
+
+
+===== PDF_PAGE 29 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+29 
+ 
+(g) Underwriting 
+(h) Tax Implications for investors  
+(i) Financial Statements 
+(j) Material Related Party Transactions 
+(k) Legal and Other Information  
+i. Outstanding material litigation and material developments 
+ii. Pending material Government/Regulatory approvals 
+(l) Details of major group companies including business and management 
+(m) Other regulatory and statutory disclosures  
+(n) Any other material disclosures 
+Explanation 1: The issuer may submit the disclosures in offer document by providing 
+references to a recent prospectus or other disclosures made on a recognised 
+exchange.  
+Explanation 2: The issuer shall provide details about their materiality policy in the offer 
+document. 
+(4) The offer document shall contain the following disclaimer in bold: 
+“It is to be distinctly understood that filing of the offer document with IFSCA is for the 
+purpose of record and should not in any way be deemed or construed that the same 
+has been cleared or approved by IFSCA. IFSCA does not take any responsibility either 
+for the financial soundness of the issuer or for the correctness of the statements made 
+or opinions expressed in the offer document. The issuer and the investment banker(s) 
+have certified that the disclosures made in the offer document are adequate and are 
+in conformity with the IFSCA (Listing) Regulations, 2024. This requirement is to 
+facilitate investors to take an informed decision for making investment. The Issuer is 
+responsible for the correctness, adequacy and disclosure of all relevant information in 
+the offer document.” 
+38. Issue Process 
+ 
+The provisions relating to offer timing, pricing, offer period, minimum subscription, 
+underwriting, allotment, listing, post-issue report, other responsibilities of lead manager 
+and prohibition on payment of incentives provided for Initial Public Offers under Part A of 
+this Chapter shall mutatis mutandis apply to follow-on public offer by a listed issuer.  
+ 
+CHAPTER IV: LISTING OF COMPANIES WITHOUT PUBLIC OFFER 
+
+
+===== PDF_PAGE 30 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+30 
+ 
+ 
+39. Listing of companies without public offer 
+ 
+An issuer may list its specified securities on a recognised stock exchange without a public 
+offer in the manner as may be specified by the Authority from time to time. 
+ 
+CHAPTER V: LISTING OF COMPANIES WITH SPECIFIED SECURITIES ALREADY LISTED IN 
+OTHER JURISDICTION 
+40. Secondary Listing without public offer 
+ 
+A company which is having its specified securities listed in a jurisdiction outside IFSC may 
+list its specified securities on a recognised stock exchange(s), without public offer, subject 
+to the following conditions: 
+(a) The company shall file listing application, in the manner specified by the 
+recognised stock exchange(s); and 
+(b) The company shall comply with the listing requirements of the stock exchange(s) 
+and other conditions as may be specified by IFSCA. 
+41. Listing with public offer 
+ 
+(1) An issuer which is having its specified securities listed in a jurisdiction outside IFSC may 
+list its specified securities on a recognised stock exchange(s) by undertaking a public 
+offer. 
+(2) The provisions relating to appointment of lead manager, in-principle approval from 
+recognised stock exchanges, filing of offer document, offer timing, initial disclosures 
+in offer document, pricing, offer period, issue size, minimum subscription, 
+underwriting, allotment, listing, post-issue report, other responsibilities of lead 
+manager and prohibition on payment of incentives provided for Initial Public Offers 
+under Part A of Chapter III shall mutatis mutandis apply to listing with public offer by 
+such issuer:  
+Explanation: For the purpose initial disclosures in offer document, the issuer may 
+submit the disclosures in offer document by providing references to a recent 
+prospectus or other disclosures made on the home exchange or regulatory body. 
+ 
+(3) A public Indian company with dual listing in IFSC and India shall comply with the 
+additional regulatory norms as may be specified by the Authority from time to time.  
+42. Listing for Qualified Institutions Placements  
+ 
+A public Indian company having its equity shares listed on a stock exchange in India may 
+be permitted to make a qualified institutions placement in the manner as may be specified 
+by the Authority from time to time.    
+
+
+===== PDF_PAGE 31 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+31 
+ 
+ 
+CHAPTER VI: LISTING OF SPECIAL PURPOSE ACQUISITION COMPANIES 
+43. Eligibility 
+ 
+(1) A Special Purpose Acquisition Company issuer shall be eligible to raise capital through 
+initial public offer of specified securities on the recognised stock exchange(s), only if: 
+(a) the target business combination has not been identified prior to the IPO; and 
+(b) The SPAC has the provisions for redemption and liquidation in line with these 
+Regulations.  
+(2) A sponsor of the SPAC issuer shall have a good track record in SPAC transactions or 
+business combinations or fund management or merchant banking activities, and the 
+same shall be disclosed in the offer document. 
+(3) For the purpose of this chapter, sponsor shall mean a person sponsoring the formation 
+of the SPAC and shall include persons holding any specified securities of the SPAC prior 
+to the IPO. 
+(4) An issuer shall not be eligible to list securities under these regulations if the issuer or 
+any of its sponsors is - 
+(a) debarred from accessing the capital market; or 
+(b) a wilful defaulter; or 
+(c) a fugitive economic offender. 
+44. IPO Process 
+ 
+(1) The provisions relating to appointment of lead manager, in-principle approval from 
+recognised stock exchange(s) and filing of offer document provided for Initial Public 
+Offers under Part A of Chapter III shall mutatis mutandis apply to initial public offer by 
+a SPAC issuer.  
+(2) IFSCA may consider the proposed listing of a SPAC issuer on a recognised stock 
+exchange on a case-by-case basis.  
+45. Offer Timing 
+ 
+The offer shall be made by the issuer within a period of not more than eighteen months 
+from the date of issuance of observations by IFSCA: 
+Provided that if the offer is not made within the specified time period, a fresh draft offer 
+document shall be filed. 
+
+
+===== PDF_PAGE 32 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+32 
+ 
+ 
+46. Initial disclosures in the Offer Document 
+ 
+(1) The offer document shall contain all material disclosures which are true, correct and 
+adequate to enable the investors to take an informed investment decision.  
+(2) The lead manager(s) shall exercise due diligence and satisfy themselves about all 
+aspects of the issue including the veracity and adequacy of disclosures in the offer 
+document. 
+(3) The offer document shall contain disclosures relating to the public offer, including the 
+following: 
+a) Offer Document Summary  
+b) Risk factors 
+c) Introduction 
+d) General information 
+e) Capital Structure 
+f) Redemption Rights 
+g) Liquidation 
+h) Particulars of the Issue  
+i. Objects of the Issue 
+ii. Use of proceeds 
+iii. Interim use of funds 
+iv. Expenses of the Issue 
+i) Underwriting 
+j) Tax implications for investors 
+k) About the Issuer 
+i. Organisational structure 
+ii. Details of sponsors and their track record 
+iii. The SPAC’s target business sector or geographic area for its business 
+combination, if applicable; 
+
+
+===== PDF_PAGE 33 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+33 
+ 
+Explanation: However, the target business combination shall not be 
+identified prior to the IPO and a declaration in this regard shall be 
+disclosed. 
+iv. Time period for completion of the business combination 
+v. The valuation method(s) intended to be used in valuing the business 
+combination, if known 
+vi. Management  
+vii. Remuneration and benefits 
+l) Financial Statements 
+m) Material Related Party Transactions 
+n) Legal and Other Information  
+i. Outstanding material litigations and material developments 
+ii. Material Government approvals 
+o) Information with respect to group companies 
+p) Other regulatory and statutory disclosures 
+q) Any other material disclosures. 
+Explanation: The issuer shall provide details about their materiality policy in the 
+offer document. 
+47. Issue size 
+ 
+(1) The issue shall be of size not less than USD fifty million or any other amount as may 
+be specified by IFSCA from time to time. 
+(2) The sponsors shall hold at least 15% and not more than 20% of the post issue paid up 
+capital: 
+Provided that the sponsors shall also have aggregate subscription (all securities) in 
+terms of amount in the SPAC company prior to or simultaneous to the IPO, amounting 
+to at least 2.5% of the issue size or USD 10 million, whichever is lower, or any other 
+amount as may be specified by the Authority. 
+48. Pricing 
+ 
+The issue shall be through a fixed price mechanism and the issuer shall determine the 
+price in consultation with the lead manager(s). 
+
+
+===== PDF_PAGE 34 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+34 
+ 
+49. Offer period 
+ 
+The initial public offer shall be kept open for at least one working day and not more than 
+ten working days. 
+50. Underwriting 
+ 
+(1) A public issue of specified securities may be underwritten by an underwriter and in 
+such a case adequate disclosure regarding underwriting arrangements shall be 
+disclosed in the offer document. 
+(2) At least 50% of the underwriting commission shall be deferred until successful 
+completion of the business combination, and shall be deposited in the escrow 
+account.  
+(3) In case of liquidation, the underwriter shall waive their rights on the deferred 
+commission deposited in the escrow account.  
+51. Application and Allotment  
+(1) The minimum application size in an initial public offer of SPAC shall be USD 100,000.  
+(2) Allotment to investors shall be on proportionate basis or discretionary basis, as 
+disclosed in the offer document.  
+(3) The issuer and lead manager(s) shall ensure that the specified securities are allotted 
+and the payments and refunds are completed within 5 working days from the date of 
+closing of the issue. 
+52. Other provisions 
+The provisions relating to listing, post-issue report, other responsibilities of lead manager 
+and prohibition on payment of incentives provided for Initial Public Offers under Part A of 
+Chapter III shall mutatis mutandis apply to initial public offer by a SPAC issuer. 
+53. SPAC specific obligations  
+(1) The SPAC issuer shall ensure that the entire proceeds of the IPO are kept in an interest-
+bearing escrow account controlled by an independent custodian until consummation 
+of the SPAC’s business combination. 
+(2) The escrow funds shall be invested only in instruments disclosed in the offer document 
+and shall include only short-term investment grade liquid instruments. 
+(3) The interest and other income derived from the amount placed in the escrow account 
+may be withdrawn by the SPAC issuer for the following purposes: 
+
+
+===== PDF_PAGE 35 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+35 
+ 
+(a) Payment of taxes; and 
+(b) General working capital expenses, subject to prior approval by way of special 
+resolution of the shareholders other than sponsors. 
+(4) The SPAC shall file a detailed prospectus with the recognised stock exchange(s) 
+containing all relevant disclosures regarding the proposed business combination, 
+while seeking shareholders’ approval, including the following disclosures: 
+(a) Information about the target company(ies) shall include overview of industry and 
+business, organisational structure, board of directors, management and key 
+managerial personnel (KMPs), major shareholders, material shareholders’ 
+agreements, audited financial statements for at least previous 3 financial years, 
+outstanding material litigations against the company and its directors and KMPs, 
+potential conflicts of interest and other material information; 
+(b) Information about the business combination transaction including valuation of the 
+entities and the methodologies used for valuation; 
+(c) Information about the process involved in the business combination and the 
+various regulatory and statutory approvals required for completion of the 
+transaction; 
+(d) Information about the resulting issuer company that would be formed after 
+completion of the business combination; and 
+(e) Any other information as may be specified by the recognised stock exchange(s) or 
+IFSCA from time to time.  
+(5) The SPAC shall seek prior approval by way of majority of shareholders other than 
+sponsors, for the proposed business combination. 
+(6) If a shareholder (other than sponsors) has voted against the proposed business 
+combination, he shall have the redemption right for converting his securities into a 
+pro rata portion of the aggregate amount held in the escrow account (net of taxes 
+payable). 
+Explanation: A shareholder who has not voted may not be afforded redemption right 
+by the SPAC issuer.  
+(7) In the event of change in control of the SPAC, the SPAC issuer shall provide the 
+redemption option to the shareholders (other than sponsors) for converting their 
+securities into a pro rata portion of the aggregate amount held in the escrow account 
+(net of taxes payable). 
+(8) The SPAC issuer shall complete the business combination within the timeline disclosed 
+in the offer document, not exceeding 36 months from the date of listing on the 
+recognised stock exchange(s). 
+
+
+===== PDF_PAGE 36 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+36 
+ 
+(9) If the business combination is not completed within the permitted time frame, the 
+escrow account shall be liquidated in terms of these regulations and disclosures in the 
+offer document: 
+Provided that, in the event of liquidation and delisting, the sponsors shall not 
+participate in the liquidation distribution. 
+(10) A sponsor shall not transfer or sell any of his specified securities prior to the 
+completion of a business combination. 
+(11) The SPAC issuer shall ensure that the businesses acquisition shall have an aggregate 
+fair market value equal to at least 80% of the aggregate amount deposited in the 
+escrow account, excluding deferred underwriting commissions held in escrow and any 
+taxes payable on the income earned on the escrowed funds. 
+(12) The SPAC and the sponsors shall ensure that there is no related party transaction or 
+connection of sponsor or any of their associates with the business combination.  
+(13) Where warrants have been issued in the IPO, the SPAC shall comply with the 
+following: 
+(a) Each unit may consist of one share and no more than one share purchase warrants; 
+(b) The exercise price of the warrants shall not be lower than the price of the equity 
+shares offered in the IPO; 
+(c) The warrants may be detached with the equity shares and traded separately on 
+the recognised stock exchanges provided that details have been appropriately 
+disclosed in the offer document; 
+(d) The warrants shall not be exercisable prior to the completion of the business 
+combination; 
+(e) In case of liquidation of SPAC, the warrants shall expire; and 
+(f) The warrants shall not have any entitlement to the funds lying in the escrow 
+account upon liquidation or redemption. 
+(14) The Authority may, from time to time, prescribe additional norms regarding listing 
+of SPACs on the recognised stock exchange(s). 
+54. Continuous disclosure requirements 
+The continuous disclosure requirements applicable for Listed entities provided under 
+Chapter XII of these regulations shall mutatis mutandis apply to a SPAC issuer.  
+55. Post business combination 
+
+
+===== PDF_PAGE 37 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+37 
+ 
+(1) The resulting issuer shall immediately disclose details regarding the completed 
+transaction to the recognised stock exchange(s). 
+Explanation: For the purpose of this chapter, the resulting issuer means the issuer 
+resulting from the completion of the business combination by the SPAC. 
+(2) The resulting issuer shall be required to meet the listing eligibility criteria set out in 
+these regulations within 180 days, in order to continue listing on the recognised stock 
+exchange(s).  
+(3) The resulting issuer shall comply with the listing obligations and continuous disclosure 
+requirements specified under Chapter XII of these regulations. 
+(4) The shareholding of the sponsors of the SPAC in the resulting issuer shall be locked up 
+for a period of one year from the date of closing of the business combination. 
+(5) The shareholding of the controlling shareholders, directors and key managerial 
+personnel of the resulting issuer shall be locked up for a period of one year from the 
+date of closing of the business combination. 
+ 
+ 
+
+
+===== PDF_PAGE 38 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+38 
+ 
+CHAPTER VII: RIGHTS ISSUE, PREFERENTIAL ISSUE AND QUALIFIED INSTITUTIONS 
+PLACEMENT 
+56.  Rights Issue, Preferential Issue and Qualified Institutions Placement 
+An issuer listed on a recognised stock exchange may make rights issues, qualified 
+institutions placement or preferential issues of specified securities, subject to compliance 
+with the requirements that may be specified by the Authority from time to time. 
+CHAPTER VIII: LISTING OF DEPOSITORY RECEIPTS 
+PART A: ELIGIBILITY 
+57. Eligibility 
+(1) An issuer incorporated outside an IFSC shall be eligible to make an issue of depository 
+receipts only if – 
+(a) the issuer is authorised to issue depository receipts; and 
+(b) the issuance of depository receipts by the issuer is in accordance with the 
+applicable laws of its home jurisdiction. 
+(2) The depository receipts shall be eligible to list only if the underlying securities which 
+the depository receipts represent are: 
+(a) freely transferable, in dematerialised form and rank pari passu with the existing 
+securities of the same class; and 
+(b) fully paid and free from all liens. 
+(3) All the depository receipts shall be freely negotiable. 
+(4) The issuer shall ensure that it has entered into an agreement with a depository for 
+dematerialisation of the DRs proposed to be issued. 
+PART B: PUBLIC OFFER OF DEPOSITORY RECEIPTS 
+58. Offer size 
+The issue of depository receipts shall be of size not less than USD 700,000 (or equivalent 
+in foreign currency), or any other amount as may be specified by the Authority from time 
+to time. 
+59. Filing of Offer Document 
+The filing of offer document shall be in the manner as provided for filing of offer document 
+for initial public offer provided under Chapter III of these Regulations.  
+60. Initial disclosures in the Offer Document 
+
+
+===== PDF_PAGE 39 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+39 
+ 
+(1) The offer document shall contain all material disclosures which are true, correct and 
+adequate to enable the investors to take an informed investment decision.  
+(2) The lead manager(s) shall exercise due diligence and satisfy themselves about all 
+aspects of the issue including the veracity and adequacy of disclosures in the offer 
+document. 
+(3) The offer document shall contain disclosures relating to the public offer, including the 
+following: 
+(a) Issuer Disclosure 
+i. General information 
+ii. Statutory auditor 
+iii. Risk factors 
+iv. Information about the issuer 
+v. Business Description 
+vi. Organisational structure, Management and Remuneration 
+vii. Capital structure 
+Explanation: Capital structure shall include details of all shareholders with 
+holding of five per cent. or more of the paid-up capital    
+viii. Material Related party transactions 
+ix. Financial information 
+x. Material contracts 
+xi. Material outstanding litigations and defaults 
+xii. Material approvals of the government/regulatory authorities, if applicable 
+xiii. Foreign investment and exchange controls of the jurisdiction of 
+incorporation/ where the underlying securities are listed. 
+Explanation: The issuer shall provide details about their materiality policy in 
+the offer document. 
+(b) Securities Disclosures 
+i. 
+Information about the underlying securities 
+ii. 
+Information about the DRs 
+
+
+===== PDF_PAGE 40 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+40 
+ 
+iii. 
+Rights of the DR holders including dividend rights, voting rights etc. 
+iv. 
+Information relating to the depository 
+(c) Issue related Disclosures 
+i. 
+Objects of the issue 
+ii. 
+Interim use of proceeds 
+iii. 
+Pricing 
+iv. 
+Plan of distribution and allotment 
+v. 
+Placing and Underwriting 
+vi. 
+Taxation 
+Explanation: Since the underlying securities of the issuer are listed on its home 
+exchange, the issuer may incorporate the information required in this clause by 
+providing references to a recent prospectus or other disclosures made on the home 
+exchange or regulatory body. 
+(4) The audited financial information of the issuer in the offer document shall be for at 
+least three financial years: 
+Provided that the financial information may be provided for a lesser period if the issuer 
+has not completed 3 years since incorporation: 
+Provided further that the latest financial statements provided in the offer document 
+shall not be more than 12 months old. 
+(5) The issuer shall prepare its financial statements in accordance with IFRS or US GAAP 
+or Ind AS or accounting standards as applicable in its home jurisdiction. 
+Provided that an issuer preparing financial statements as per the accounting standards 
+of its home jurisdiction (other than IFRS, US GAAP and Ind AS) shall be required to 
+reconcile the same with IFRS. 
+61. Pricing 
+The issuer may determine price of the DRs in consultation with the lead manager(s) or 
+through the book building process. 
+62. Offer period 
+The initial public offer of DRs shall be kept open for at least one working day and not more 
+than ten working days. 
+63. Minimum subscription 
+
+
+===== PDF_PAGE 41 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+41 
+ 
+The listing of DRs shall be permitted only if the subscription in the offer is not less than 
+USD 700,000 (or equivalent in foreign currency) or any other amount as may be specified 
+by IFSCA from time to time. 
+64. Allotment 
+The issuer and lead manager(s) shall ensure that the DRs are allotted and the payments 
+and refunds are completed within 5 working days from the date of closing of the issue. 
+65. Listing 
+The DRs shall list on the stock exchange(s) within the period, as specified by the stock 
+exchange(s). 
+PART C: SECONDARY LISTING WITHOUT PUBLIC OFFER 
+66. Secondary Listing without Public Offer 
+ 
+A company which is having its depository receipts listed in a jurisdiction outside IFSC may 
+list its depository receipts on a recognised stock exchange, subject to the following 
+conditions: 
+(a) The company shall file listing application, in the manner specified by the stock 
+exchange(s); and 
+(b) The company shall comply with the listing requirements of the stock exchange(s). 
+ 
+ 
+ 
+
+
+===== PDF_PAGE 42 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+42 
+ 
+CHAPTER IX: LISTING OF DEBT SECURITIES 
+67. Listing of Debt Securities 
+An issuer may list its debt securities on a recognised stock exchange: 
+Explanation: The debt securities listed on a recognised stock exchange may be a 
+standalone issuance or a series of issuances such as Medium Term Note programmes. 
+68. Filing of Documents  
+(1) The issuer desirous of listing its debt securities on a recognised stock exchange shall 
+file the listing application along with a copy of the prospectus, shelf prospectus or 
+information memorandum, as applicable, with the recognised stock exchange, in line 
+with the requirements specified by the recognised stock exchange. 
+(2) The issuer shall file the listing application with a recognised stock exchange along with 
+regulatory fee as may be specified by the Authority. 
+Explanation: The regulatory fee collected by a recognised stock exchange 
+shall be remitted to the Authority on a quarterly basis. 
+69. Initial Disclosures 
+(1) The prospectus, shelf prospectus, or information memorandum, as applicable, shall 
+contain all material disclosures which are true, correct and adequate to enable the 
+investors to take an informed investment decision. 
+(2) The issuer shall ensure that the following disclosures are made in the prospectus or 
+information memorandum: 
+a. Issuer Disclosures 
+i. 
+General information 
+ii. 
+Risk Factors 
+iii. 
+Information about the issuer 
+iv. 
+Business description 
+v. 
+Organisational structure 
+vi. 
+Management  
+vii. 
+Major / controlling shareholders 
+viii. 
+Audited Financial Statements 
+ix. 
+Statutory auditor 
+
+
+===== PDF_PAGE 43 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+43 
+ 
+x. 
+Material outstanding litigations and defaults 
+b. Securities Disclosures 
+i. 
+Details of debt securities 
+ii. 
+Risk factors 
+iii. 
+List of exchanges where the debt securities are listed or proposed to 
+be listed 
+iv. 
+Maximum amount of issuance (in case of medium term notes 
+programme) 
+(3) In addition to the disclosure requirements specified in sub-regulation (2), the issuer 
+shall disclose the requirements specified by the recognised stock exchange(s). 
+(4) In case of debt securities issued under a programme (including Medium Term Notes 
+programme), the recognised stock exchange may admit to trading the securities which 
+are issued under the programme. 
+(5) The issuer shall ensure that the pricing supplements, wherever applicable, are 
+submitted to the recognised stock exchange(s) before admission to trading. 
+(6) If the security is backed by a guarantee or letter of comfort or any other document 
+/letter with similar intent, the issuer shall ensure that the relevant details are 
+adequately disclosed in the prospectus or information memorandum. 
+(7) The exchange may provide exemption from certain disclosures in the prospectus, shelf 
+prospectus or information memorandum, subsequent to evaluation of the request 
+received from the issuer. 
+70. Credit Rating 
+(1) The issuer shall obtain credit rating for its debt securities listed on a recognised stock 
+exchange from a credit rating agency registered either with the Authority or with a 
+regulator in a Foreign Jurisdiction.  
+(2) It shall be mandatory to obtain a credit rating from at least one credit rating agency 
+registered with the Authority; and the issuer may at its discretion, obtain additional 
+credit rating(s) from any globally recognised rating agency which is registered with a 
+regulator in a Foreign Jurisdiction. 
+Explanation: The provisions of this sub-regulation shall come into effect from April 01, 
+2025 or such other date as may be specified by the Authority. 
+(3) The issuer shall disclose details of the credit ratings in the prospectus, shelf prospectus 
+
+
+===== PDF_PAGE 44 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+44 
+ 
+or information memorandum, as the case may be. 
+71. Public Issue 
+In respect of a public issue of debt securities on a recognised stock exchange, the issuer 
+shall comply with requirements such as appointment of trustee, creation of debenture 
+redemption reserve etc. that may be specified by the Authority or the recognised stock 
+exchange(s), from time to time.  
+72. Exempt Issuers 
+The recognised stock exchange(s) may relax some of the requirements from this chapter 
+or chapter X for the following issuers: 
+(a) Supranational, multilateral or statutory institutions /organizations /agencies; and 
+(b) Entities whose securities are irrevocably guaranteed by a Sovereign; and 
+(c) Any other entity as may be specified by the Authority from time to time. 
+ 
+ 
+
+
+===== PDF_PAGE 45 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+45 
+ 
+CHAPTER X: ENVIRONMENTAL, SOCIAL AND GOVERNANCE (ESG) LABELLED DEBT 
+SECURITIES 
+ 
+73. Applicability 
+(1) This chapter shall apply to “green”, “social”, “sustainability” or “sustainability linked” 
+listed on a recognised stock exchange in IFSC or any other ESG related labelled debt 
+securities as may be specified by the Authority. 
+(2) The requirements under this chapter shall be in addition to the requirements detailed 
+in Chapter IX for listing of debt securities on a recognised stock exchange in IFSC. 
+74. Recognised Frameworks 
+(1) The debt securities shall be labelled as “green”, “social” or “sustainability” if the funds 
+raised through the issuance of such debt securities are to be utilised for financing or 
+refinancing projects and/or assets aligned with any of the following recognised 
+frameworks: 
+(a) International Capital Market Association Principles / Guidelines; 
+(b) Climate Bonds Standard; 
+(c) ASEAN Standards; 
+(d) European Union Standards; 
+(e) Any framework or methodology specified by a competent authority or a financial 
+sector regulator in India; or 
+(f) Other international standards 
+Explanation: Other international standards may be considered on a case-by-case basis 
+by the recognised stock exchange(s) or IFSCA. 
+(2) The debt securities shall be labelled as “sustainability-linked” if aligned with any of the 
+recognised frameworks specified under sub-regulation (1) or any other such qualifying 
+criteria as may be specified by the Authority from time to time. 
+(3) The issuer shall appoint an independent external reviewer to ascertain that the ESG 
+debt securities are in alignment with any of the recognised framework(s) mentioned 
+at sub-regulation (1), in compliance with the following conditions: 
+(a) The reviewer shall be independent of the issuer, its directors, senior management, 
+key managerial personnel and advisers; 
+ 
+(b) The reviewer shall be remunerated in a way that prevents any conflicts of interest; 
+and 
+
+
+===== PDF_PAGE 46 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+46 
+ 
+ 
+(c) The reviewer shall have sufficient expertise in assessing ESG debt securities. 
+ 
+(4) The independent external review mentioned at sub-regulation (3) may take one or 
+more of the following forms recommended by International Capital Market 
+Association:  
+(a) Second Party Opinion 
+(b) Verification  
+(c) Certification 
+(d) Scoring / Rating 
+Note: A credit rating agency registered with the Authority is also eligible to act as an 
+external reviewer for the purpose of these regulations.  
+(5) The issuer shall ensure that the details regarding the independent external review are 
+disclosed and easily accessible to the investors. 
+75. Additional disclosures in Offer document / Information Memorandum 
+(1) The issuer shall make the following additional disclosures in the offer document or 
+information memorandum, as the case may be, in respect of ESG debt securities (other 
+than sustainability-linked debt securities): 
+(a) A statement on ESG objectives of the issue of debt securities; 
+(b) Details of process followed by the issuer for evaluating and selecting the 
+project(s) and/or asset(s);  
+(c) Proposed utilisation of the proceeds of the issue shall include details of the 
+project(s) and/or asset(s); and 
+(d) Details of the systems and procedures to be employed for tracking the 
+deployment of the proceeds of the issue. 
+(2) The issuer shall make the following additional disclosures in the offer document or 
+information memorandum, as the case may be, in respect of sustainability-linked debt 
+securities: 
+(a) The issuer shall disclose the rationale for issuance of sustainability-linked debt 
+securities and consistency with issuers’ overall sustainability and business 
+strategy. 
+(b) The issuer shall adhere to pre-issuance and post-issuance obligations in 
+accordance with the international standards that the securities are aligned 
+with: 
+
+
+===== PDF_PAGE 47 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+47 
+ 
+Explanation: Where the debt securities are aligned with ICMA Sustainability-
+Linked Bond Principles (2020), the guidelines related to 5 core components - 
+Selection of Key Performance Indicators, Calibration of Sustainability 
+Performance Targets, Bond characteristics, Reporting and Verification shall be 
+followed for all the disclosures and continuous obligations.  
+76. Additional Continuous Disclosure Requirements  
+(1) The issuer shall provide the following additional disclosures to the recognised stock 
+exchange(s), at least on an annual basis, until full allocation of the proceeds, in respect 
+of ESG debt securities (other than sustainability-linked debt securities): 
+(a) Utilisation of proceeds of the issue;  
+ 
+(b) Allocation: List of project(s) and/or asset(s) to which proceeds of the debt 
+securities have been allocated/invested including a brief description of such 
+project(s) and/or asset(s) and the amounts disbursed: 
+ 
+Explanation: However, where confidentiality agreements limit the amount of 
+detail that can be made available about specific project(s) and/or asset(s), 
+information shall be presented in generic terms or on an aggregated portfolio 
+basis; and 
+ 
+(c) Impact: Qualitative performance indicators and, where feasible, quantitative 
+performance measures of the expected/achieved ESG impact of the project(s) 
+and/or asset(s).  
+ 
+Explanations:  
+ 
+(i) If the quantitative benefits/impact cannot be ascertained, then the said 
+fact may be appropriately disclosed along with the reasons for non-
+ascertainment of the benefits/impact on the ESG.  
+(ii) The methods and the key underlying assumptions used in preparation of 
+the performance indicators and metrics shall be disclosed. 
+(2) The issuer of sustainability-linked debt securities shall provide the following additional 
+disclosures to the recognised stock exchange(s), at least on an annual basis, and in any 
+case for any date/period relevant for assessing the Sustainability Performance Targets 
+(SPT) performance leading to a potential adjustment of the debt securities’ financial 
+and/or structural characteristics: 
+(a) up-to-date information on the performance of the selected Key Performance 
+Indicator(s), including baselines where relevant; 
+ 
+(b) any information enabling investors to monitor the level of ambition of the 
+SPTs; and 
+ 
+
+
+===== PDF_PAGE 48 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+48 
+ 
+(c) a verification report by an independent external reviewer outlining the 
+performance against the SPTs and the related impact, and timing of such 
+impact, on the debt securities’ financial and/or structural characteristics. 
+ 
+ 
+ 
+
+
+===== PDF_PAGE 49 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+49 
+ 
+CHAPTER XI: LISTING OF OTHER FINANCIAL PRODUCTS 
+77. Listing of Funds and Investment Trusts 
+An issuer may list a fund or an investment trust on a recognised stock exchange in 
+accordance with IFSCA (Fund Management) Regulations, 2022, as amended from time to 
+time. 
+78.  Listing of Commercial Paper 
+An issuer may list commercial paper on a recognised stock exchange as per the norms 
+specified by the Authority from time to time. 
+79. Listing of Certificate of Deposit 
+An issuer may list certificate of deposit on a recognised stock exchange as per the norms 
+specified by the Authority from time to time. 
+80. Listing of other financial products 
+An issuer may list a financial product on a recognised stock exchange as per the norms 
+specified by the Authority from time to time. 
+ 
+CHAPTER XII: LISTING OBLIGATIONS AND DISCLOSURE REQUIREMENTS 
+PART A: GENERAL OBLIGATIONS 
+81. Applicability  
+The provisions of Part A of this Chapter shall apply to all listed securities on the recognised 
+stock exchange(s) under these regulations.  
+82. Principles governing disclosures and obligations 
+The listed entity which has listed securities shall make disclosures and abide by its 
+obligations under these regulations, in accordance with the following principles:  
+a) Information shall be prepared and disclosed in accordance with applicable accounting 
+standards for financial disclosure. 
+b) The listed entity shall implement the prescribed accounting standards in letter and 
+spirit in the preparation of financial statements taking into consideration the interest 
+of all stakeholders and shall also ensure that the annual audit is conducted by an 
+independent, competent and qualified auditor. 
+c) The listed entity shall refrain from misrepresentation and ensure that the information 
+provided to recognised stock exchange(s) and investors is not misleading. 
+
+
+===== PDF_PAGE 50 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+50 
+ 
+d) The listed entity shall provide adequate and timely information to recognised stock 
+exchange(s) and investors. 
+e) The listed entity shall ensure that disseminations made under provisions of these 
+regulations and circulars made thereunder, are adequate, accurate, explicit, timely 
+and presented in a simple language. 
+ 
+f) Channels for disseminating information shall provide for equal, timely and cost 
+efficient access to relevant information by investors. 
+ 
+g) The directors of the listed entity shall act in good faith in order to promote the objects 
+of the company for the benefit of its members as a whole, and in the best interests of 
+the listed entity, its employees, the shareholders, the society and for the protection 
+of environment. 
+ 
+h) The listed entity shall abide by all applicable laws of the home jurisdiction as well as 
+securities laws and also such other regulations as may be issued from time to time by 
+the Authority and the recognised stock exchange(s) in this regard. 
+ 
+i) The listed entity shall make the specified disclosures and follow its obligations in letter 
+and spirit taking into consideration the interest of all stakeholders. 
+ 
+j) Filings, reports, statements, documents and information which are event based or are 
+filed periodically shall contain relevant information and shall be filed within the 
+specified timelines. 
+ 
+k) Periodic filings, reports, statements, documents and information reports shall contain 
+information that shall enable investors to track the performance of a listed entity over 
+regular intervals of time and shall provide sufficient information to enable investors 
+to assess the current status of a listed entity. It shall include all material updates on 
+the business, financial performance, management, etc. 
+ 
+83. General obligation of compliance 
+The listed entity shall ensure that key managerial personnel, directors, promoters, 
+controlling shareholders or any other person dealing with the listed entity comply with 
+responsibilities or obligations, if any, assigned to them under these regulations. 
+84. Compliance Officer and Obligations 
+(1) A listed entity shall appoint a qualified company secretary as the compliance officer: 
+Provided that, in case the entity is incorporated outside of India, a company secretary 
+or equivalent shall be appointed as compliance officer. 
+(2) The compliance officer of the listed entity shall be responsible for- 
+
+
+===== PDF_PAGE 51 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+51 
+ 
+(a) ensuring conformity with the regulatory provisions applicable to the listed entity 
+in letter and spirit; 
+(b) co-ordination with and reporting to the Authority, recognised stock exchange(s) 
+and depositories with respect to compliance with rules, regulations and other 
+directives of these authorities in the manner as specified from time to time; and 
+(c) ensuring that the correct procedures have been followed that would result in the 
+correctness, authenticity and comprehensiveness of the information, statements 
+and reports filed by the listed entity under these regulations.  
+PART B: COMPANIES WITH SPECIFIED SECURITIES LISTED ON RECOGNISED STOCK 
+EXCHANGES AS A PRIMARY LISTING 
+85. Material or Price Sensitive Information 
+(1) The Listed Entity shall immediately make disclosure of any event or information 
+concerning it or any of its subsidiaries or associated companies which, in the opinion 
+of the board of directors of the Listed Entity, is material or price sensitive. 
+Explanation 1: The listed entity shall consider the following criteria for determination 
+of materiality of events/ information: 
+ 
+(a) the omission of an event or information, which is likely to result in 
+discontinuity or alteration of event or information already available publicly; 
+or 
+ 
+(b) the omission of an event or information is likely to result in significant market 
+reaction if the said omission came to light at a later date; or 
+ 
+(c) In case where the criteria specified in sub-clauses (a) and (b) are not applicable, 
+an event/information may be treated as being material if in the opinion of the 
+board of directors of listed entity, the event / information is considered 
+material. 
+ 
+Explanation 2: For the purpose of these regulations, immediately shall mean promptly 
+but not later than 24 hours.  
+ 
+(2) The Listed Entity shall frame a policy for determination of materiality, based on criteria 
+specified in these regulations, duly approved by its board of directors, which shall be 
+disclosed on its website. 
+86. Amendment to Memorandum or Articles of Association 
+The Listed Entity shall immediately disclose to the stock exchanges any amendment to 
+memorandum or articles of association of listed entity. 
+87. Intimation about Board Meeting 
+
+
+===== PDF_PAGE 52 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+52 
+ 
+The Listed Entity shall give prior intimation about the meeting of the board of directors 
+and immediately disclose outcome of the meeting of the board of directors, to the stock 
+exchange(s) in respect of any of the following proposals:  
+(a) dividends; 
+(b) buyback of securities; 
+(c) decision with respect to fund raising or change in capital; 
+(d) financial results; 
+(e) decision on voluntary delisting by the listed entity from stock exchange(s); 
+(f) any material business event such as acquisition, demerger, sale or purchase of 
+assets/ businesses/ companies; and 
+(g) material litigation 
+88. Annual and Extraordinary General Meetings 
+The Listed Entity shall immediately disclose to the stock exchanges the proceedings of 
+Annual and extraordinary general meetings. 
+89. Change in Director, KMP, Auditor or Compliance Officer 
+(1) The Listed Entity shall immediately disclose to the stock exchanges any change in 
+director, key managerial personnel, auditor or Compliance Officer. 
+(2) In case of a resignation of the auditor of the Listed Entity, detailed reasons for 
+resignation of auditor, as given by the said auditor, shall be disclosed by the Listed 
+Entity to the stock exchanges as soon as possible but not later than one working day 
+of receipt of such reasons from the auditor. 
+(3) In the case of a resignation of any director, key managerial personnel or compliance 
+officer, such person shall inform to the stock exchange(s), in writing if he is aware of 
+any irregularities in the Listed Entity which would have a material impact on the 
+company, including financial reporting, as soon as possible but not later than one 
+working day. 
+90. Adverse opinion by auditor 
+The Listed Entity shall immediately disclose to the stock exchanges any adverse opinion, 
+disclaimer of opinion, qualified opinion by the auditors on the financial statements of, - 
+i. 
+the Listed Entity; or 
+
+
+===== PDF_PAGE 53 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+53 
+ 
+ii. 
+any of the Listed Entity’s subsidiaries or associated companies, if the adverse 
+opinion, disclaimer of opinion, qualified opinion has a material impact on the 
+company’s consolidated accounts. 
+91. Investigation  
+(1) IFSCA or the stock exchange may require a Listed Entity to appoint a competent person 
+to review or investigate the company’s affairs and report its findings to the stock 
+exchange or the company’s Audit Committee.  
+(2) The Listed Entity may be required by IFSCA or the stock exchange to immediately 
+disclose the appointment of such party or disclose the findings. 
+92. Encumbrances  
+(1) The promoters and the controlling shareholders of the Listed Entity shall disclose 
+details of any encumbrance of specified securities of the Listed Entity created or 
+invoked or released, within two working days of such creation, or invocation or 
+release, as the case may be, to: 
+(a) The recognised stock exchange (s); and 
+(b) The Listed Entity. 
+(2) The Listed Entity shall ensure that the disclosures received under sub-regulation (1) 
+are immediately disclosed to the recognised stock exchange(s).  
+93. Shareholding Pattern 
+The Listed Entity shall submit to the stock exchange(s) shareholding pattern of the 
+company, in the format specified by the IFSCA or the stock exchange(s) on a quarterly 
+basis, within fifteen working days from the end of each quarter. 
+94. Financial Statements 
+(1) The Listed Entity shall disclose to the stock exchange(s) the audited standalone and 
+consolidated financial statements for the full financial year immediately after 
+finalisation of the accounts, but in any event not later than three months of the end 
+of financial year.  
+(2) The Listed Entity shall disclose to the stock exchange(s) the financial statements for 
+each of the first three quarters of its financial year immediately after the finalisation 
+of the accounts, but in any event not later than 45 days after the quarter end. 
+(3) The Listed Entity shall prepare its financial statements in accordance with IFRS or US 
+GAAP or Ind AS or accounting standards as applicable in its jurisdiction of 
+incorporation: 
+
+
+===== PDF_PAGE 54 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+54 
+ 
+Provided that a Listed Entity preparing financial statements as per the accounting 
+standards of its home jurisdiction (other than IFRS, US GAAP and Ind AS) shall be 
+required to reconcile the same with IFRS. 
+95. Annual Report 
+(1) The Listed Entity shall submit to the stock exchange and publish on its website a copy 
+of the annual report sent to the shareholders along with the notice of the annual 
+general meeting not later than the day of commencement of dispatch to its 
+shareholders. 
+(2) The annual report shall contain the following: 
+(a) Audited standalone and consolidated financial statements; 
+(b) Directors report 
+(c) Management discussion and analysis report 
+(d) Corporate Governance practices 
+(e) Sustainability Report, if applicable; and 
+(f) Mandatory requirements as specified in the laws of the jurisdiction of 
+incorporation 
+96. Statement of deviation(s) or variation(s) 
+(1) The Listed Entity shall submit to the stock exchange the statement(s) of deviation 
+(indicating category wise variation between projected utilisation of funds made by it 
+in its offer document), if any, in the use of proceeds from the objects stated in the 
+offer document on a quarterly basis for public issue: 
+Provided that a start-up or a SME company shall be required to submit the statement 
+of deviation(s) or variations(s) on half yearly basis. 
+ 
+(2) The statement(s) specified in sub-regulation (1), shall be continued to be given till such 
+time the issue proceeds have been fully utilised or the purpose for which these 
+proceeds were raised has been achieved. 
+(3) The statement(s) specified in sub-regulation (1), shall be placed before the audit 
+committee for review and after such review, shall be submitted to the stock 
+exchange(s). 
+(4) The Listed Entity shall furnish an explanation for the variation specified in sub-
+regulation (1), in the directors’ report in the annual report. 
+97. Corporate Governance 
+
+
+===== PDF_PAGE 55 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+55 
+ 
+The Listed Entity shall describe its corporate governance practices in its annual report, in 
+the manner specified by the laws of the jurisdiction of its incorporation.  
+98. Sustainability Report 
+(1) The Listed Entity shall disclose to the stock exchanges a sustainability report with 
+respect to environmental, social and governance factors for its financial year, no later 
+than 6 months after the end of the financial year: 
+Provided that this clause shall not apply to companies having market capitalisation 
+less than USD 50 million. 
+(2) The sustainability report specified in sub-regulation 1 shall be based on - 
+(a) internationally accepted reporting frameworks such as Global Reporting Initiative, 
+International Sustainability Standards Board, Task Force on Climate-related 
+Financial Disclosures; or 
+(b) Business Responsibility and Sustainability Reporting; or  
+(c) any other standards that may be specified by the Authority.  
+99. Corporate actions 
+(1) The Listed Entity shall inform the stock exchange(s) in advance of any proposed 
+corporate action like stock split, consolidation, dividend, bonus etc. 
+(2) The Listed Entity shall give notice of the record date to the stock exchange(s), 
+wherever applicable, in advance of at least three working days specifying the purpose 
+of the record date. 
+100. Meetings of shareholders and voting 
+(1) The Listed Entity shall provide the facility of remote e-voting facility to its 
+shareholders, in respect of all shareholders' resolutions. 
+(2) The Listed Entity shall submit to the stock exchange, within two working days of 
+conclusion of its General Meeting, details regarding the voting results. 
+(3) The Listed Entity shall send proxy forms to holders of securities in all cases mentioning 
+that a holder may vote either for or against each resolution. 
+(4) The Listed Company shall provide one-way live webcast of the proceedings of the 
+annual general meetings. 
+101. Whistle-blower mechanism 
+
+
+===== PDF_PAGE 56 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+56 
+ 
+The Listed Entity shall establish a whistle-blower mechanism for directors, employees and 
+others to report genuine concerns which shall provide for adequate safeguards against 
+victimisation of persons who use such mechanism. 
+102. Website 
+The Listed Entity shall maintain a functional website containing basic information about 
+the company including details about business, board of directors, key managerial 
+personnel, compliance officer, financial statements, e-mail address for grievance 
+redressal and annual reports. 
+103. Dissemination by stock exchanges 
+The stock exchanges shall ensure that the disclosures made by the Listed Entities are 
+immediately disseminated on their websites. 
+PART C: SECONDARY LISTING OF SPECIFIED SECURITIES 
+104. Disclosure by companies with secondary listing of specified securities in IFSC 
+The issuer with secondary listing of specified securities on a recognised stock exchange 
+shall comply with the following requirements: 
+a) maintain the listing of the specified securities on its home exchange and abide by 
+the listing (or other) rules of such exchange and regulator; 
+ 
+b) release all disclosures in English to the recognised stock exchange(s) at the same 
+time as they are released to its home exchange or regulator where it has a 
+primary listing; and 
+ 
+c) comply with such other requirements as may be specified by IFSCA or recognised 
+stock exchange(s) from time to time. 
+ 
+PART D - LISTING OBLIGATIONS AND DISCLOSURE REQUIREMENTS FOR COMPANIES 
+HAVING DEPOSITORY RECEIPTS LISTED ON RECOGNISED STOCK EXCHANGES 
+105. Financial Statements 
+(1) The Listed Entity shall disclose to the recognised stock exchange(s) the audited 
+financial statements for the full financial year immediately, but not later than 24 
+hours, after the finalisation of accounts, but in any event not later than six months of 
+the end of financial year. 
+(2) The Listed Entity shall disclose to the recognised stock exchange(s) the financial 
+statements for each of the first three quarters of its financial year immediately after 
+the finalisation of accounts, but in any event not later than 45 days after the quarter. 
+(3) The Listed Entity shall prepare its financial statements in accordance with IFRS or US 
+
+
+===== PDF_PAGE 57 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+57 
+ 
+GAAP or Ind AS or accounting standards as applicable in its jurisdiction of 
+incorporation: 
+Provided that a company preparing financial statements as per the accounting 
+standards of its home jurisdiction (other than IFRS, US GAAP and Ind AS) shall be 
+required to reconcile the same with IFRS. 
+106. Material or price sensitive events  
+The Listed Entity shall immediately disclose to the recognised stock exchange(s) all events 
+which are material or price sensitive. 
+107. Shareholding pattern 
+The Listed Entity shall submit to the recognised stock exchange(s) shareholding pattern of 
+the company, in the format specified by IFSCA or the stock exchange(s) on a quarterly 
+basis, within twenty one days from the end of each quarter. 
+108. Corporate Governance 
+The Listed Entity shall describe its corporate governance practices in its annual report, in 
+the manner specified by the laws in its home jurisdiction. 
+109. Change of depository 
+(1) Any change of depository by the Listed Entity shall be with the prior approval of the 
+recognised stock exchange(s).  
+(2) The Listed Entity shall disclose the change of depository within 24 hours, to the 
+recognised stock exchange(s). 
+110. Corporate actions 
+(1) The Listed Entity shall inform the recognised stock exchange(s) in advance of any 
+proposed corporate action pertaining to the depository receipts or the underlying 
+securities. 
+(2) The Listed Entity shall give notice of the record date to the recognised stock 
+exchange(s), wherever applicable, in advance of at least three working days specifying 
+the purpose of the record date. 
+111. Other compliances 
+The Listed Entity shall comply with the following requirements: 
+a) maintain the listing of the underlying specified securities on its home exchange 
+and abide by the listing (or other) rules of such exchange and regulator; 
+ 
+
+
+===== PDF_PAGE 58 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+58 
+ 
+b) release all disclosures in English to the stock exchange(s) at the same time as they 
+are released to its home exchange or regulator where it has a primary listing; and 
+ 
+c) comply with such other requirements as may be specified by the Authority or 
+stock exchange(s) from time to time. 
+ 
+112. Voting Rights 
+The voting rights of the DR holders shall be exercised in accordance with the depository 
+agreement.  
+113. Dissemination by stock exchanges 
+The recognised stock exchanges shall ensure that the disclosures made by the Listed 
+Entities are immediately disseminated on their websites. 
+ 
+PART E - LISTING OBLIGATIONS AND CONTINUOUS DISCLOSURE REQUIREMENTS FOR DEBT 
+SECURITIES  
+114. Material or price sensitive events  
+(1) The issuer shall immediately disclose to the stock exchange(s) all events which are 
+material or price sensitive. 
+(2) The issuer shall immediately disclose to the stock exchange(s) the following events: 
+(a) any redemption or cancellation of the debt securities; 
+(b) details of any interest payment(s) to be made (except if the debt securities are 
+fixed rate); 
+(c) any buy back or put option exercised;  
+(d) any delay in payment of principal and/or interest amount; and 
+(e) any modification in terms or structure of the issue viz. change in terms of 
+payment, change in interest pay-out, frequency etc. 
+115. Financial Statements 
+(1) The issuer shall disclose to the stock exchange(s) the audited financial statements for 
+the full financial year immediately after the finalisation of accounts, but in any event 
+not later than six months of the end of financial year.  
+(2) The issuer shall prepare its financial statements in accordance with IFRS or US GAAP 
+or Ind AS or accounting standards as applicable in its jurisdiction of incorporation: 
+
+
+===== PDF_PAGE 59 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+59 
+ 
+Provided that a company preparing financial statements as per the accounting 
+standards of its home jurisdiction (other than IFRS, US GAAP and Ind AS) shall be 
+required to reconcile the same with IFRS. 
+116. Annual Report 
+The issuer shall submit to the recognised stock exchange a copy of the annual report 
+immediately after the finalisation of the same, but in any event not later than six months 
+of the end of financial year. 
+117. Revision in Credit Rating 
+The issuer shall immediately disclose to the stock exchange any revision in the credit 
+rating. 
+118. Record Date 
+The issuer shall disclose the record date relevant for the holders of debt securities in a 
+timely manner. 
+119. Exempt Issuers 
+The recognised stock exchange(s) may relax some of the requirements from this chapter 
+for the following exempt issuers: 
+(a) Supranational, multilateral or statutory institutions /organizations /agencies; 
+and 
+(b) Entities whose securities are irrevocably guaranteed by a Sovereign; and 
+(c) Any other entity as may be specified by the Authority from time to time. 
+ 
+CHAPTER XIII: PERMITTED TO TRADE 
+120. Permitted to Trade 
+A recognised stock exchange may permit trading of securities without the involvement of 
+issuer, subject to the following conditions: 
+(a) Such trading of securities is in conformity with the applicable laws of the 
+jurisdictions in which the securities are listed; and 
+(b) The stock exchange(s) shall ensure clearing and settlement of the trades: 
+Provided that the recognised stock exchange has taken prior approval of the Authority 
+before introducing the product. 
+CHAPTER XIV: MISCELLANEOUS 
+
+
+===== PDF_PAGE 60 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+60 
+ 
+121. Listing agreement 
+The company desirous of listing its specified securities on a stock exchange(s) in IFSC shall 
+execute a listing agreement with such stock exchange(s), in the manner provided by the 
+stock exchange(s).  
+122. Refusal of admission to list 
+A recognised stock exchange, in its discretion, may reject an application for admission to 
+list securities if it considers that-  
+(a) listing of securities would be detrimental to investors' interests; or  
+(b) the issuer does not comply or will not comply with any requirement specified by 
+the Authority or the recognised stock exchange. 
+123. Suspension  
+(1) A recognised stock exchange may suspend the trading of securities where it appears 
+that: 
+(a) the issuer is in non-compliance with the regulatory provisions specified by the 
+Authority or the recognised stock exchange(s); or 
+(b) the issuer has been suspended for trading of its securities by any other exchange;  
+(c) the suspension is required for ensuring orderly operation of its market. 
+(2) A recognised stock exchange may restore trading of securities that have been 
+suspended if it considers that the suspension is no longer required. 
+124. Voluntary Delisting 
+A recognised stock exchange may delist securities, based on request received from the 
+company, in the manner that may be specified by the recognised stock exchange(s) or 
+IFSCA. 
+125. Compulsory Delisting 
+A recognised stock exchange may compulsorily delist securities of the issuer on the 
+following conditions: 
+(a) The securities have remained suspended for a period of more than six months; 
+(b) the securities have been compulsorily delisted from another exchange; 
+(c) if the exchange is satisfied that there are special circumstances that require 
+delisting of the securities; or 
+ 
+
+
+===== PDF_PAGE 61 / 61: 024_IFSCA publications__Listing Regulations Consultation 2024.pdf =====
+61 
+ 
+(d) it is directed to do so by IFSCA or any other relevant authority or any court order 
+of applicable jurisdiction. 
+ 
+126. Submission of information 
+The issuer shall provide any information sought by the Authority or the stock exchange(s) 
+relating to securities market. 
+127. Power to exempt / relax strict enforcement of the regulations 
+(1) The Authority may, in the interest of investors or for the development of the securities 
+market, exempt / relax the strict enforcement of any requirement of these 
+regulations. 
+(2) For seeking exemption/relaxation under sub-regulation (1), an application, giving 
+details and the grounds on which such exemption/relaxation has been sought, shall 
+be filed with IFSCA. 
+(3) The application referred to under sub-regulation (2) shall be accompanied by a non-
+refundable fee in the manner as may be specified by IFSCA. 
+128. Power to remove difficulty 
+In order to remove any difficulties in the application or interpretation of these regulations, 
+the Authority may issue clarifications through guidance notes or circulars after recording 
+reasons in writing. 
+129. Repeal and Savings 
+(1) On and from the commencement of these regulations, the provisions relating to 
+issuance and listing of specified securities and debt securities specified under the 
+International Financial Services Centres Authority (Issuance and Listing of Securities) 
+Regulations, 2021 shall stand superseded. 
+(2) Notwithstanding (1) above, anything done or any action taken or purported to have 
+been taken under the International Financial Services Centres Authority (Issuance and 
+Listing of Securities) Regulations, 2021 before the commencement of these 
+regulations shall be deemed to have been done or taken or commenced under the 
+corresponding provisions of these regulations. 
+ 

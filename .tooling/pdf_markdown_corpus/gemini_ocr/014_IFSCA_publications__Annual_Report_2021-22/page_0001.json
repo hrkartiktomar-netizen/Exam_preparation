@@ -1,0 +1,9 @@
+{
+  "pdf": "D:\\Exam_preparation\\source_documents\\pdfs\\014_IFSCA publications__Annual Report 2021-22.pdf",
+  "pdf_name": "014_IFSCA publications__Annual Report 2021-22.pdf",
+  "page": 1,
+  "model": "gemini-3.5-flash",
+  "image": "D:\\Exam_preparation\\.tooling\\pdf_markdown_corpus\\gemini_ocr\\014_IFSCA_publications__Annual_Report_2021-22\\page_0001.png",
+  "markdown": "D:\\Exam_preparation\\.tooling\\pdf_markdown_corpus\\gemini_ocr\\014_IFSCA_publications__Annual_Report_2021-22\\page_0001.md",
+  "response_text_chars": 94
+}

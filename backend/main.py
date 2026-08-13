@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 from contextlib import asynccontextmanager
 from datetime import datetime, timedelta
 import json
@@ -24,6 +25,9 @@ import recommendation_engine
 import readiness_engine
 import error_handling
 import input_validation
+import gemini_integration
+import pyq_parser
+import pyq_cache
 from gemini_integration import (
     PROMPT_CONTRACT_VERSION,
     USE_CASE_CATALOG,
@@ -150,6 +154,14 @@ async def lifespan(app: FastAPI):
         coalesce=True,
         max_instances=1,
     )
+    scheduler.add_job(
+        job_queue.process_queue,
+        CronTrigger(minute="*/15", timezone="UTC"),
+        id="job_queue_processor",
+        name="Job Queue Processor (every 15 min)",
+        coalesce=True,
+        max_instances=1,
+    )
     scheduler.start()
     app.state.scheduler = scheduler
 
@@ -175,12 +187,57 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-if FRONTEND_DIR.exists():
+
+# ============================================================================
+# GLOBAL ERROR HANDLING MIDDLEWARE - Applies to all 67 endpoints
+# ============================================================================
+
+@app.exception_handler(error_handling.GeminiRateLimitError)
+async def handle_gemini_rate_limit(request, exc):
+    """Handle 429 rate limit with graceful message."""
+    raise HTTPException(status_code=503, detail="Gemini API temporarily rate-limited. Please retry in a moment.")
+
+
+@app.exception_handler(error_handling.GeminiAuthError)
+async def handle_gemini_auth(request, exc):
+    """Handle 401/403 auth failure."""
+    raise HTTPException(status_code=503, detail="Gemini authentication failed. System administrator notified.")
+
+
+@app.exception_handler(error_handling.GeminiServerError)
+async def handle_gemini_server(request, exc):
+    """Handle 500+ server error from Gemini."""
+    raise HTTPException(status_code=503, detail="Gemini service temporarily unavailable. Please retry shortly.")
+
+
+@app.exception_handler(error_handling.DatabaseError)
+async def handle_database_error(request, exc):
+    """Handle database operation failures."""
+    raise HTTPException(status_code=503, detail="Database operation failed. Please retry.")
+
+
+@app.exception_handler(asyncio.TimeoutError)
+async def handle_timeout(request, exc):
+    """Handle timeout errors (essay grading, mock generation, etc)."""
+    raise HTTPException(status_code=504, detail="Request timed out. Please try again.")
+
+
+@app.exception_handler(ValueError)
+async def handle_value_error(request, exc):
+    """Handle value validation errors."""
+    raise HTTPException(status_code=422, detail=f"Invalid input: {str(exc)}")
+
+
+
     app.mount("/app", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="app")
 
 
 def _coerce_question(question: dict[str, Any]) -> QuestionModel:
     return QuestionModel.model_validate(question)
+
+
+def _resolve_mock_id(exam_id: str) -> str:
+    return exam_id.removeprefix("EXAM_")
 
 
 def _digest_profile() -> dict[str, Any]:
@@ -617,6 +674,35 @@ async def weak_topics():
     )
 
 
+@app.get("/api/topics/weak")
+async def get_weak_topics_by_user(user_id: str = Query(default="default")):
+    """Get weak topics for a user (topics with accuracy < 60%).
+
+    Per Context7 docs for SQLite: Use aggregate functions for accuracy calculation.
+    """
+    try:
+        topics = db.get_weak_topics(threshold=60.0)
+        return [{"topic": t.get("topic"), "accuracy": t.get("accuracy_pct"), "attempts": t.get("total_seen")} for t in topics]
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/topics/stats")
+async def get_topic_stats_by_user(
+    user_id: str = Query(default="default"),
+    topic: str | None = Query(default=None),
+):
+    """Get aggregate topic accuracy from production question_attempts."""
+    try:
+        stats = db.get_topic_stats_for_user(user_id)
+        if topic:
+            selected = next((item for item in stats if item.get("topic_id") == topic), None)
+            return selected or {"topic_id": topic, "accuracy_pct": 0.0, "total_attempts": 0}
+        return stats
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
 @app.get("/api/dashboard", response_model=DashboardStatsModel)
 async def dashboard(include_ai: bool = Query(default=True)):
     data = db.dashboard_data()
@@ -633,7 +719,7 @@ async def dashboard(include_ai: bool = Query(default=True)):
 
 
 @app.get("/api/dashboard/next-action")
-async def get_next_action():
+async def get_next_action(user_id: str = Query(default="default")):
     """Get next recommended action for default user (Phase 4 autonomy).
 
     Per PROJECT_REFACTOR_PLAN.xml Week 4: Auto-recommend next action based on accuracy.
@@ -645,7 +731,7 @@ async def get_next_action():
     - else → REVIEW
     """
     try:
-        recommendation = recommendation_engine.get_next_action_for_dashboard(user_id="default")
+        recommendation = recommendation_engine.get_next_action_for_dashboard(user_id=user_id)
         if recommendation is None:
             return {
                 "action": "NO_DATA",
@@ -671,7 +757,11 @@ async def get_next_action():
 
 
 @app.get("/api/dashboard/readiness")
-async def get_readiness(target_score: int = Query(default=130, ge=0, le=200)):
+async def get_readiness(
+    user_id: str = Query(default="default"),
+    target_score: int = Query(default=130, ge=0, le=200),
+    days_to_exam: int = Query(default=28, ge=1, le=365),
+):
     """Get readiness estimate for exam at current performance trajectory (Phase 4 autonomy).
 
     Per PROJECT_REFACTOR_PLAN.xml Week 4: Estimate probability of achieving target score.
@@ -685,9 +775,9 @@ async def get_readiness(target_score: int = Query(default=130, ge=0, le=200)):
             )
 
         estimate = readiness_engine.calculate_readiness_estimate(
-            user_id="default",
+            user_id=user_id,
             target_score=target_score,
-            days_to_exam=28
+            days_to_exam=days_to_exam,
         )
         estimate.validate()
 
@@ -711,6 +801,7 @@ async def get_readiness(target_score: int = Query(default=130, ge=0, le=200)):
 
 
 
+@app.get("/api/law/ifsca-act")
 async def ifsca_act():
     return db.ifsca_act_full_text()
 
@@ -719,11 +810,13 @@ async def ifsca_act():
 async def get_daily_law_revision(
     include_ai: bool = Query(default=True),
     days_back: int = Query(default=30, ge=7, le=90),
+    lines_per_day: int = Query(default=80, ge=30, le=180),
 ):
     """Get daily law revision plan: high-yield provisions, amendments, weak areas, spaced review due."""
     return law_revision_engine.daily_law_revision(
         user_id="default",
         days_back=days_back,
+        lines_per_day=lines_per_day,
         force_local=not include_ai,
     )
 
@@ -858,7 +951,13 @@ async def submit_mock(mock_id: str, request: MockSubmitRequestModel):
 
 @app.post("/api/exams/start")
 async def exam_start(request: SmartMockRequestModel | None = None):
-    """Start a new exam session with adaptive mock generation."""
+    """Start a new exam session with adaptive mock generation.
+
+    Per PROJECT_REFACTOR_PLAN.xml Phase 3: Return 50 questions with:
+    - Standard fields (question_text, options, difficulty)
+    - expected_time_sec: Time user should spend (~3 min default)
+    - negative_marking: Penalty for wrong answer (-1 points)
+    """
     try:
         request = request or SmartMockRequestModel()
         # Generate adaptive mock
@@ -869,6 +968,11 @@ async def exam_start(request: SmartMockRequestModel | None = None):
         exam_id = f"EXAM_{mock_id}"
 
         questions = [_coerce_question(q) for q in result["questions"]]
+
+        # Add missing Phase 3 fields per audit
+        for question in questions:
+            question["expected_time_sec"] = 180  # 3 minutes per question
+            question["negative_marking"] = -1    # -1 for wrong answer
 
         return {
             "exam_id": exam_id,
@@ -889,15 +993,10 @@ async def exam_time_remaining(exam_id: str):
     try:
         conn = db.get_connection()
         try:
-            # Try to find mock_id from exam_id (format: SM_YYYYMM_HHMM_<mock_id_suffix>)
-            # Or look up by mock_id directly if exam_id == mock_id
+            mock_id = _resolve_mock_id(exam_id)
             row = conn.execute(
-                """
-                SELECT started_at FROM mock_sessions
-                WHERE mock_id = ? OR mock_id LIKE ?
-                LIMIT 1
-                """,
-                (exam_id, f"%{exam_id[-4:]}%"),
+                "SELECT started_at FROM mock_sessions WHERE mock_id = ? LIMIT 1",
+                (mock_id,),
             ).fetchone()
 
             if not row or not row["started_at"]:
@@ -927,12 +1026,14 @@ async def exam_time_remaining(exam_id: str):
 async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
     """Submit exam with server-side time validation and scoring."""
     try:
+        mock_id = _resolve_mock_id(exam_id)
+        elapsed = 0.0
         conn = db.get_connection()
         try:
             # Look up mock session to get started_at and questions
             session_row = conn.execute(
-                "SELECT * FROM mock_sessions WHERE mock_id = ? OR mock_id LIKE ? LIMIT 1",
-                (exam_id, f"%{exam_id[-4:]}%"),
+                "SELECT * FROM mock_sessions WHERE mock_id = ? LIMIT 1",
+                (mock_id,),
             ).fetchone()
 
             if not session_row:
@@ -955,90 +1056,413 @@ async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
                     "message": f"Exam expired {elapsed - 3600:.0f} seconds ago",
                 }
 
-            # Load questions and answers from database
-            mock_id = session_row["mock_id"]
-            question_rows = conn.execute(
-                """
-                SELECT mq.question_number, q.question_id, q.correct_answer, q.topic_id
-                FROM mock_questions mq
-                JOIN questions q ON q.question_id = mq.question_id
-                WHERE mq.mock_id = ?
-                ORDER BY mq.question_number
-                """,
-                (mock_id,),
+        finally:
+            conn.close()
+
+        result = db.submit_mock(mock_id, [answer.model_dump() for answer in request.answers])
+        weak_areas = [
+            {
+                "topic": item["topic"],
+                "accuracy_pct": item["accuracy_pct"],
+                "correct": item["total_correct"],
+                "total": item["total_seen"],
+            }
+            for item in result.get("topic_breakdown", [])
+            if item.get("accuracy_pct", 100) < 60
+        ]
+        return {
+            "exam_id": exam_id,
+            "mock_id": mock_id,
+            "status": "submitted",
+            "code": 200,
+            "final_score": result["final_score"],
+            "raw_score": result["raw_score"],
+            "negative_marks": result["negative_marks"],
+            "total_questions": result["total_questions"],
+            "total_correct": result["total_correct"],
+            "total_wrong": result["total_wrong"],
+            "total_unanswered": result["total_unanswered"],
+            "accuracy_pct": result["accuracy_pct"],
+            "weak_areas": weak_areas,
+            "elapsed_seconds": int(elapsed),
+            "timestamp": datetime.now().isoformat(),
+        }
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+# ========== PYQ (PREVIOUS YEAR QUESTIONS) ENDPOINTS ==========
+
+@app.get("/api/pyq/list")
+async def list_pyq_papers():
+    """List available previous year question papers for attempt."""
+    try:
+        conn = db.get_connection()
+        try:
+            pyq_docs = conn.execute(
+                "SELECT doc_id, name FROM source_documents WHERE source_role = 'pyq_phase_paper' ORDER BY name"
             ).fetchall()
 
-            if not question_rows:
-                raise HTTPException(status_code=400, detail="No questions found for exam")
+            papers = []
+            for doc in pyq_docs:
+                # Extract metadata from document name
+                name = doc["name"]
+                # Pattern: "IFSCA_Grade_A_YYYY_Memory_Based_Phase_X_Paper_Y"
+                parts = name.lower().split("_")
+                year = None
+                phase = None
+                paper = None
 
-            # Build answer map from request
-            answer_map = {answer.question_id: answer for answer in request.answers}
+                for i, part in enumerate(parts):
+                    if part.isdigit() and len(part) == 4 and i > 0:
+                        year = int(part)
+                    if part == "phase" and i + 1 < len(parts):
+                        try:
+                            phase = int(parts[i + 1])
+                        except:
+                            pass
+                    if part == "paper" and i + 1 < len(parts):
+                        try:
+                            paper = int(parts[i + 1])
+                        except:
+                            pass
 
-            # Validate and score answers
-            correct_count = 0
-            wrong_count = 0
-            unanswered_count = 0
-            topic_breakdown = {}
+                papers.append({
+                    "pyq_doc_id": doc["doc_id"],
+                    "title": name,
+                    "year": year,
+                    "phase": phase,
+                    "paper": paper,
+                })
 
-            for row in question_rows:
-                question_id = row["question_id"]
-                topic = row["topic_id"]
-                correct_answer = row["correct_answer"]
+            return {"status": "ok", "papers": papers}
+        finally:
+            conn.close()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
-                if topic not in topic_breakdown:
-                    topic_breakdown[topic] = {"correct": 0, "total": 0}
 
-                topic_breakdown[topic]["total"] += 1
-                answer = answer_map.get(question_id)
+@app.post("/api/pyq/{doc_id}/load")
+async def load_pyq_paper(doc_id: int):
+    """Load a previous year question paper with its parsed questions."""
+    conn = None
+    try:
+        conn = db.get_connection()
 
-                if not answer or not answer.selected_answer:
-                    unanswered_count += 1
-                elif answer.selected_answer == correct_answer:
-                    correct_count += 1
-                    topic_breakdown[topic]["correct"] += 1
-                else:
-                    wrong_count += 1
+        # Get PYQ document metadata
+        doc = conn.execute(
+            "SELECT * FROM source_documents WHERE doc_id = ? AND source_role = 'pyq_phase_paper' LIMIT 1",
+            (doc_id,)
+        ).fetchone()
 
-            # Calculate score using database.py formula: +4 correct, -1 wrong, 0 unanswered
-            marks_per_question = round(100 / len(question_rows), 4)
-            negative_marking_per_wrong = round(marks_per_question * 0.25, 4)
-            raw_score = round(correct_count * marks_per_question, 2)
-            negative_marks = round(wrong_count * negative_marking_per_wrong, 2)
-            final_score = round(max(0.0, raw_score - negative_marks), 2)
+        if not doc:
+            raise HTTPException(status_code=404, detail="PYQ paper not found")
 
-            # Detect weak areas (accuracy < 60%)
-            weak_areas = []
-            for topic, stats in topic_breakdown.items():
-                accuracy_pct = (stats["correct"] / stats["total"] * 100) if stats["total"] > 0 else 0
-                if accuracy_pct < 60:
-                    weak_areas.append({
-                        "topic": topic,
-                        "accuracy_pct": round(accuracy_pct, 1),
-                        "correct": stats["correct"],
-                        "total": stats["total"],
-                    })
+        # Fetch all chunks for this document in order
+        chunks = conn.execute(
+            "SELECT chunk_text FROM source_chunks WHERE doc_id = ? ORDER BY chunk_sequence",
+            (doc_id,)
+        ).fetchall()
+
+        if not chunks:
+            raise HTTPException(status_code=400, detail="No content available for this PYQ paper")
+
+        # Combine all chunks into full text
+        # Per Context7 docs for Python: use ''.join() for efficient string concatenation
+        full_text = ''.join([chunk['chunk_text'] for chunk in chunks])
+
+        # Parse questions from full text
+        # Per Context7 docs: wrap in try/except for proper error handling
+        try:
+            parsed_questions = pyq_parser.parse_pyq_paper(full_text)
+        except ValueError as parse_err:
+            raise HTTPException(status_code=400, detail=f"Failed to parse PYQ paper: {str(parse_err)}")
+
+        if not parsed_questions:
+            raise HTTPException(status_code=400, detail="No valid questions found in PYQ paper")
+
+        # Create PYQ session ID and cache questions
+        pyq_id = f"PYQ_DOC{doc_id}"
+        pyq_cache.cache_pyq_questions(pyq_id, parsed_questions)
+
+        # Format questions for frontend response
+        # Note: Correct answers are stored in cache, not sent to frontend (blind submission)
+        formatted_questions = []
+        for pq in parsed_questions:
+            formatted_questions.append({
+                "question_id": f"PYQ_DOC{doc_id}_Q{pq.question_number}",
+                "question_number": pq.question_number,
+                "question_text": pq.question_text,
+                "options": [
+                    {"label": label, "text": text}
+                    for label, text in pq.options.items()
+                ],
+                # Correct answer NOT sent to frontend (blind submission)
+            })
+
+        return {
+            "status": "ok",
+            "pyq_id": pyq_id,
+            "title": doc["name"],
+            "total_questions": len(formatted_questions),
+            "time_limit_minutes": 60,
+            "marks_per_question": 2,
+            "negative_marking_per_wrong": 0.67,
+            "questions": formatted_questions[:50],  # Cap at 50 for performance
+        }
+
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Error loading PYQ paper: {str(exc)}") from exc
+    finally:
+        # Per Context7 docs for SQLite: use try/finally to ensure connection cleanup
+        if conn:
+            conn.close()
+
+
+@app.post("/api/pyq/{pyq_id}/submit")
+async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
+    """Submit a previous year question paper attempt."""
+    conn = None
+    try:
+        # Retrieve cached parsed questions
+        cached_questions = pyq_cache.get_pyq_questions(pyq_id)
+        if not cached_questions:
+            raise HTTPException(
+                status_code=400,
+                detail="PYQ session expired or not found. Please reload the paper and try again."
+            )
+
+        # Build a map of question_number -> correct_answer for quick validation
+        # Format of question_id from frontend is: "PYQ_DOC{doc_id}_Q{question_number}"
+        answer_map = {q.question_number: q.correct_answer for q in cached_questions}
+
+        conn = db.get_connection()
+
+        try:
+            # Create PYQ session record
+            session_id = pyq_id
+            conn.execute(
+                """
+                INSERT INTO pyq_sessions
+                (pyq_id, pyq_source_doc_id, pyq_title, started_at, submitted_at, status)
+                VALUES (?, 0, ?, datetime('now'), datetime('now'), 'completed')
+                ON CONFLICT DO UPDATE SET status = 'completed'
+                """,
+                (session_id, pyq_id)
+            )
+
+            # Process answers and calculate score
+            # Per Context7 docs for Python: use proper exception handling in loops
+            total_correct = 0
+            total_questions = len(request.answers) if request.answers else 0
+
+            for answer in request.answers:
+                question_id = answer.get("question_id", "")
+                selected = answer.get("selected_answer")
+                time_spent = answer.get("time_spent_seconds", 0)
+                marked_for_review = answer.get("marked_for_review", False)
+
+                # Extract question_number from question_id (PYQ_DOC1_Q5 -> 5)
+                try:
+                    q_num_str = question_id.split("_Q")[-1]
+                    q_number = int(q_num_str)
+                except (ValueError, IndexError):
+                    # Skip malformed question IDs
+                    continue
+
+                # Get the correct answer from cache
+                correct_answer = answer_map.get(q_number)
+                if not correct_answer:
+                    # Question not found in cache - skip
+                    continue
+
+                # Validate selected answer against real correct answer
+                is_correct = (selected == correct_answer)
+
+                if is_correct:
+                    total_correct += 1
+
+                # Record attempt with actual answer comparison
+                # Per Context7 docs for SQLite: use parameterized queries for safety
+                conn.execute(
+                    """
+                    INSERT INTO pyq_question_attempts
+                    (attempt_id, pyq_id, question_id, question_number, selected_answer, official_answer, is_correct, time_spent_seconds, marked_for_review)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        f"{pyq_id}_{question_id}",
+                        pyq_id,
+                        question_id,
+                        q_number,
+                        selected,
+                        correct_answer,
+                        is_correct,
+                        time_spent,
+                        marked_for_review
+                    )
+                )
+
+            final_score = total_correct * 2  # 2 marks per question
+            accuracy = (total_correct / total_questions * 100) if total_questions > 0 else 0
+
+            # Update session with results
+            conn.execute(
+                """
+                UPDATE pyq_sessions
+                SET score = ?, accuracy = ?, status = 'completed', submitted_at = datetime('now')
+                WHERE pyq_id = ?
+                """,
+                (final_score, accuracy, session_id)
+            )
+
+            conn.commit()
+
+            # Clear from cache after successful submission
+            pyq_cache.clear_pyq_cache(pyq_id)
 
             return {
-                "exam_id": exam_id,
-                "mock_id": mock_id,
+                "pyq_id": pyq_id,
                 "status": "submitted",
-                "code": 200,
                 "final_score": final_score,
-                "raw_score": raw_score,
-                "negative_marks": negative_marks,
-                "total_questions": len(question_rows),
-                "total_correct": correct_count,
-                "total_wrong": wrong_count,
-                "total_unanswered": unanswered_count,
-                "accuracy_pct": round((correct_count / len(question_rows) * 100), 2) if question_rows else 0,
-                "weak_areas": weak_areas,
-                "elapsed_seconds": int(elapsed),
-                "timestamp": datetime.now().isoformat(),
+                "total_questions": total_questions,
+                "total_correct": total_correct,
+                "total_wrong": total_questions - total_correct,
+                "total_unanswered": 0,
+                "accuracy_pct": accuracy,
+            }
+
+        finally:
+            # Per Context7 docs for SQLite: use try/finally for connection cleanup
+            if conn:
+                conn.close()
+
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Error submitting PYQ attempt: {str(exc)}") from exc
+
+
+@app.get("/api/pyq/analytics")
+async def get_pyq_analytics():
+    """Get analytics for all PYQ attempts."""
+    try:
+        conn = db.get_connection()
+        try:
+            attempts = conn.execute(
+                """
+                SELECT
+                    pyq.pyq_id,
+                    pyq.pyq_title,
+                    pyq.score,
+                    pyq.accuracy,
+                    COUNT(att.attempt_id) as questions_attempted,
+                    SUM(CASE WHEN att.is_correct = 1 THEN 1 ELSE 0 END) as correct_count
+                FROM pyq_sessions pyq
+                LEFT JOIN pyq_question_attempts att ON pyq.pyq_id = att.pyq_id
+                WHERE pyq.status = 'completed'
+                GROUP BY pyq.pyq_id
+                ORDER BY pyq.submitted_at DESC
+                LIMIT 10
+                """
+            ).fetchall()
+
+            return {
+                "status": "ok",
+                "attempts": [dict(att) for att in attempts],
+                "total_pyq_attempts": len(attempts),
             }
         finally:
             conn.close()
-    except HTTPException:
-        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+# ========== ADMIN: MATERIAL MANAGEMENT ENDPOINTS ==========
+
+@app.get("/api/admin/materials")
+async def list_materials():
+    """List all source materials with their categorization."""
+    try:
+        conn = db.get_connection()
+        try:
+            materials = conn.execute(
+                "SELECT doc_id, name, source_role FROM source_documents ORDER BY source_role, name"
+            ).fetchall()
+            return {
+                "status": "ok",
+                "materials": [dict(mat) for mat in materials],
+                "total": len(materials),
+            }
+        finally:
+            conn.close()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/admin/materials/{doc_id}/role")
+async def update_material_role(doc_id: int, request: dict):
+    """Update the categorization role for a source material."""
+    try:
+        new_role = request.get("source_role", "supporting_material")
+        valid_roles = ["pyq_phase_paper", "regulatory_core", "amendment_tracking", "essay_examples", "supporting_material"]
+
+        if new_role not in valid_roles:
+            raise HTTPException(status_code=400, detail=f"Invalid role. Must be one of: {valid_roles}")
+
+        conn = db.get_connection()
+        try:
+            conn.execute(
+                "UPDATE source_documents SET source_role = ? WHERE doc_id = ?",
+                (new_role, doc_id)
+            )
+            conn.commit()
+            return {"status": "ok", "doc_id": doc_id, "new_role": new_role}
+        finally:
+            conn.close()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/admin/analysis/grounding")
+async def material_grounding_analysis():
+    """Analyze source material grounding and categorization statistics."""
+    try:
+        conn = db.get_connection()
+        try:
+            # Count by role
+            by_role = {}
+            for role in ["pyq_phase_paper", "regulatory_core", "amendment_tracking", "essay_examples", "supporting_material"]:
+                count = conn.execute(
+                    "SELECT COUNT(*) FROM source_documents WHERE source_role = ?",
+                    (role,)
+                ).fetchone()[0]
+                by_role[role] = count
+
+            # Count grounded questions
+            grounded = conn.execute(
+                "SELECT COUNT(*) FROM generated_questions WHERE question_id IN (SELECT question_id FROM question_sources)"
+            ).fetchone()[0]
+            total_questions = conn.execute(
+                "SELECT COUNT(*) FROM generated_questions"
+            ).fetchone()[0]
+
+            grounding_rate = (grounded / total_questions * 100) if total_questions > 0 else 0
+
+            return {
+                "status": "ok",
+                "by_role": by_role,
+                "total_documents": sum(by_role.values()),
+                "grounded_questions": grounded,
+                "total_questions": total_questions,
+                "grounding_rate_pct": round(grounding_rate, 1),
+            }
+        finally:
+            conn.close()
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
@@ -1073,6 +1497,27 @@ async def essay_history(limit: int = Query(default=25, ge=1, le=100)):
     return {"essays": db.list_essays(limit=limit)}
 
 
+@app.get("/api/history/search")
+async def history_search(query: str = Query(..., min_length=1), limit: int = Query(default=20, ge=1, le=100)):
+    """Search the local study history and indexed source corpus."""
+    source_results = db.search_sources(query, limit=min(limit, 50))
+    essays = [
+        item for item in db.list_essays(limit=limit)
+        if query.lower() in f"{item.get('prompt', '')} {item.get('essay_text', '')} {item.get('topic_tags', '')}".lower()
+    ]
+    amendments = [
+        item for item in db.list_amendments(limit=limit)
+        if query.lower() in f"{item.get('title', '')} {item.get('topic_id', '')} {item.get('new_value', '')}".lower()
+    ]
+    return {
+        "query": query,
+        "total": len(source_results) + len(essays) + len(amendments),
+        "sources": source_results[:limit],
+        "essays": essays[:limit],
+        "amendments": amendments[:limit],
+    }
+
+
 # ============================================================================
 # PHASE 5: Law Revision & Spaced Review Endpoints
 # ============================================================================
@@ -1096,6 +1541,77 @@ async def mark_law_review_complete(
         return result
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/provisions/{provision_id}")
+async def get_provision_detail(provision_id: str = Path(..., description="Provision ID")):
+    """Get provision detail with sources and related questions (Phase 5 completeness).
+
+    Per PROJECT_REFACTOR_PLAN.xml Phase 5: Returns:
+    - provision_id, text, source_chunk_id
+    - source_document detail (title, page_num, authority_score)
+    - related_questions: recent questions mentioning this provision
+    - recent_amendments: amendments affecting this provision
+    """
+    try:
+        # Query provision from source chunks or review items
+        conn = db.get_connection()
+        conn.row_factory = __import__("sqlite3").Row
+
+        # Get provision text and source
+        provision = conn.execute(
+            """SELECT chunk_id, document_id, text, page_start
+               FROM document_chunks
+               WHERE chunk_id = ?""",
+            (provision_id,)
+        ).fetchone()
+
+        if not provision:
+            raise HTTPException(status_code=404, detail=f"Provision {provision_id} not found")
+
+        # Get document metadata
+        doc = conn.execute(
+            """SELECT document_id, title, category
+               FROM documents
+               WHERE document_id = ?""",
+            (provision["document_id"],)
+        ).fetchone()
+
+        # Get authority score
+        authority_score = db.get_source_authority_for_chunk(provision_id)
+
+        # Get related questions mentioning this provision
+        related_questions = conn.execute(
+            """SELECT DISTINCT q.question_id, q.question_text
+               FROM generated_questions q
+               JOIN question_sources qs ON q.question_id = qs.question_id
+               WHERE qs.source_chunk_id = ?
+               LIMIT 5""",
+            (provision_id,)
+        ).fetchall()
+
+        # Get amendments affecting this topic (rough: from title keywords)
+        recent_amendments = db.get_recent_amendments(days_back=30, limit=3)
+
+        conn.close()
+
+        return {
+            "provision_id": provision_id,
+            "text": provision["text"],
+            "source": {
+                "document_id": provision["document_id"],
+                "title": doc["title"] if doc else "",
+                "category": doc["category"] if doc else "",
+                "page_num": provision["page_start"],
+                "authority_score": authority_score,
+            },
+            "related_questions": [dict(q) for q in related_questions],
+            "recent_amendments": recent_amendments[:3],
+        }
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to retrieve provision: {str(exc)}") from exc
 
 
 @app.get("/api/law/weak-areas", response_model=list[WeakLegalAreaModel])
@@ -1268,95 +1784,69 @@ async def get_question_source(question_id: str):
     """Retrieve source citation details for a specific question."""
     conn = db.get_connection()
     try:
-        # Get question source link from question_sources table (Phase 0)
-        source_link = conn.execute(
+        citation = conn.execute(
+            "SELECT * FROM question_citations WHERE question_id = ? LIMIT 1",
+            (question_id,),
+        ).fetchone()
+        if citation:
+            source = db.get_source_chunk_detail(citation["chunk_id"])
+            if not source:
+                return {"status": "not_found", "question_id": question_id}
+            return {
+                "status": "found",
+                "question_id": question_id,
+                "source": source,
+                "authority_score": source.get("authority_score"),
+                "page_start": citation["page_start"],
+                "page_end": citation["page_end"],
+                "citation_note": citation["citation_note"] or source.get("citation_note"),
+            }
+
+        legacy_link = conn.execute(
             """
-            SELECT qs.source_chunk_id, qs.authority_score
-            FROM question_sources qs
-            WHERE qs.question_id = ? LIMIT 1
+            SELECT source_chunk_id, authority_score
+            FROM question_sources
+            WHERE question_id = ? LIMIT 1
             """,
             (question_id,),
         ).fetchone()
-
-        if not source_link:
+        if not legacy_link:
             return {"status": "not_found", "question_id": question_id}
-
-        chunk_id = source_link["source_chunk_id"]
-        authority_score = source_link["authority_score"] or 50
-
-        # Get source chunk and document details
-        chunk = conn.execute(
-            """
-            SELECT sc.chunk_id, sc.doc_id, sc.chunk_text, sc.page_num, sc.section_title,
-                   sd.name as document_name, sd.category, sd.doc_type
-            FROM source_chunks sc
-            JOIN source_documents sd ON sc.doc_id = sd.doc_id
-            WHERE sc.chunk_id = ? LIMIT 1
-            """,
-            (chunk_id,),
-        ).fetchone()
-
-        if not chunk:
+        source = db.get_source_chunk_detail(str(legacy_link["source_chunk_id"]))
+        if not source:
             return {"status": "not_found", "question_id": question_id}
-
-        # Format citation note
-        citation_note = db.format_citation_note(dict(chunk), page_num=chunk["page_num"])
-
         return {
             "status": "found",
             "question_id": question_id,
-            "source": dict(chunk),
-            "authority_score": authority_score,
-            "page_start": chunk["page_num"],
-            "page_end": chunk["page_num"],
-            "citation_note": citation_note,
+            "source": source,
+            "authority_score": legacy_link["authority_score"] or source.get("authority_score"),
+            "page_start": source.get("page_start"),
+            "page_end": source.get("page_end"),
+            "citation_note": source.get("citation_note"),
         }
     finally:
         conn.close()
 
 
+@app.get("/api/source-chunks/{chunk_id}", response_model=dict[str, Any])
+async def get_source_chunk(chunk_id: str):
+    """Retrieve a source chunk directly from the canonical document index."""
+    source = db.get_source_chunk_detail(chunk_id)
+    if not source:
+        return {"status": "not_found", "chunk_id": chunk_id}
+    return {"status": "found", "chunk_id": chunk_id, "source": source, "citation_note": source.get("citation_note")}
+
+
 @app.get("/api/questions/search", response_model=SourceSearchResponseModel)
 async def search_questions(query: str, topic_id: str | None = None, limit: int = 10):
     """Full-text search questions and return by authority score."""
-    results = []
-    conn = db.get_connection()
-    try:
-        # Validate query
-        if not query or not query.strip():
-            return {"query": query, "topic_id": topic_id, "total": 0, "results": []}
-
-        # FTS5 search on source chunks, ranked by authority
-        fts_results = conn.execute(
-            """
-            SELECT DISTINCT sc.chunk_id, sd.doc_id, sd.name, sd.category, sd.doc_type,
-                   sc.page_num, sc.chunk_text, COALESCE(qs.authority_score, 50) as authority_score
-            FROM source_chunks_fts fts
-            JOIN source_chunks sc ON fts.rowid = sc.rowid
-            JOIN source_documents sd ON sc.doc_id = sd.doc_id
-            LEFT JOIN question_sources qs ON sc.chunk_id = qs.source_chunk_id
-            WHERE source_chunks_fts MATCH ?
-            ORDER BY authority_score DESC, sc.page_num ASC
-            LIMIT ?
-            """,
-            (query, limit),
-        ).fetchall()
-
-        for row in fts_results:
-            results.append({
-                "chunk_id": str(row["chunk_id"]),
-                "document_id": str(row["doc_id"]),
-                "title": row["name"],
-                "category": row["category"],
-                "page_start": row["page_num"],
-                "excerpt": row["chunk_text"][:500] if row["chunk_text"] else "",
-                "authority_score": row["authority_score"],
-            })
-    finally:
-        conn.close()
-
+    if not query or not query.strip():
+        return {"query": query, "topic_id": topic_id, "total": 0, "results": []}
+    topic = topic_id.upper() if topic_id else None
+    results = db.search_sources(query, topic_id=topic, limit=limit)
     return {
         "query": query,
-        "topic_id": topic_id,
+        "topic_id": topic,
         "total": len(results),
         "results": results,
     }
@@ -1365,42 +1855,8 @@ async def search_questions(query: str, topic_id: str | None = None, limit: int =
 @app.get("/api/sources/distribution-by-topic", response_model=dict[str, Any])
 async def source_distribution_by_topic():
     """Get pie chart data for source distribution by topic."""
-    conn = db.get_connection()
-    try:
-        distribution = conn.execute(
-            """
-            SELECT
-                COALESCE(sd.category, 'Unknown') as source_type,
-                COUNT(DISTINCT sc.chunk_id) as chunk_count,
-                COUNT(DISTINCT qs.question_id) as question_count,
-                AVG(CAST(qs.authority_score AS REAL)) as avg_authority
-            FROM source_documents sd
-            LEFT JOIN source_chunks sc ON sd.doc_id = sc.doc_id
-            LEFT JOIN question_sources qs ON sc.chunk_id = qs.source_chunk_id
-            GROUP BY source_type
-            ORDER BY chunk_count DESC
-            """
-        ).fetchall()
-
-        pie_data = [
-            {
-                "label": row["source_type"],
-                "chunks": row["chunk_count"],
-                "questions": row["question_count"] or 0,
-                "avg_authority": round(row["avg_authority"] or 50, 1),
-            }
-            for row in distribution
-        ]
-
-        total_chunks = sum(item["chunks"] for item in pie_data)
-
-        return {
-            "status": "success",
-            "total_chunks": total_chunks,
-            "distribution": pie_data,
-        }
-    finally:
-        conn.close()
+    data = db.source_distribution_by_category()
+    return {"status": "success", **data}
 
 
 @app.post("/api/exams/{exam_id}/analytics", response_model=ExamAnalyticsResponseModel)
@@ -1442,8 +1898,8 @@ async def compare_topic_performance(topic_id: str):
         return {
             "topic_id": topic_id,
             "exam_count": len(topic_data),
-            "avg_accuracy": sum(a.get("avg_topic_acc", 0) for a in topic_data) / len(topic_data) if topic_data else 0,
-            "trend": "improving" if len(topic_data) > 1 and topic_data[-1].get("avg_topic_acc", 0) > topic_data[0].get("avg_topic_acc", 0) else "stable",
+            "avg_accuracy": sum(a.get("avg_topic_accuracy", 0) or 0 for a in topic_data) / len(topic_data) if topic_data else 0,
+            "trend": "improving" if len(topic_data) > 1 and (topic_data[-1].get("avg_topic_accuracy", 0) or 0) > (topic_data[0].get("avg_topic_accuracy", 0) or 0) else "stable",
             "history": topic_data[:5],
         }
     except Exception as exc:
@@ -1517,10 +1973,15 @@ async def generate_study_path_endpoint(weak_topics: list[str] = Query(default=[]
     """Generate personalized 12-week study path."""
     try:
         exam_date = (datetime.now() + timedelta(days=84)).isoformat()[:10]
+        # Generate study path via Gemini
         path_data = gemini_integration.generate_personalized_study_path(weak_topics, exam_date)
+
+        # Persist to database
+        path_id = db.create_study_path(exam_date, weak_topics)
+
         weeks = [StudyPathWeekModel(**w) for w in path_data.get("weeks", [])]
         return StudyPathModel(
-            path_id=path_data["path_id"],
+            path_id=path_id,
             exam_date=exam_date,
             weeks=weeks,
         )
