@@ -1592,7 +1592,7 @@
         <h2>Amendment List</h2>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Title</th><th>Topic</th><th>Effective</th><th>Priority</th><th>Status</th></tr></thead>
+            <thead><tr><th>Title</th><th>Topic</th><th>Effective</th><th>Priority</th><th>Status</th><th>Action</th></tr></thead>
             <tbody id="amendmentsTable"></tbody>
           </table>
         </div>
@@ -1808,7 +1808,7 @@
         { label: 'Documents', value: dashboardCache.ingestion.documents },
         { label: 'Chunks', value: dashboardCache.ingestion.chunks },
         { label: 'Attempts', value: dashboardCache.total_questions_attempted },
-        { label: 'Est. Score', value: dashboardCache.estimated_score }
+        { label: 'Mock Accuracy %', value: Number(dashboardCache.overall_accuracy || 0).toFixed(1) }
       ]);
       renderMetrics('ingestionMetrics', [
         { label: 'Documents', value: dashboardCache.ingestion.documents },
@@ -2426,6 +2426,9 @@
       }
     }
 
+    let currentDrill = null;
+    let drillSelections = {};
+
     async function generateDrill() {
       qs('drillStatus').textContent = 'Generating Gemini drill from exam/material corpus.';
       qs('drillOutput').innerHTML = '';
@@ -2440,14 +2443,62 @@
             drill_type: 'weakness'
           })
         });
-        qs('drillStatus').textContent = `${data.drill_id}: ${data.questions.length} questions.`;
+        currentDrill = data;
+        drillSelections = {};
+        qs('drillStatus').textContent = `${data.drill_id}: ${data.questions.length} questions. Answer, then submit to record the drill.`;
         qs('drillOutput').innerHTML = data.questions.map((q, index) => `
           <div class="source-box">
             <strong>${index + 1}. ${escapeHtml(q.question_text)}</strong>
-            ${q.options.map(opt => `<div>${opt.label}. ${escapeHtml(opt.text)}</div>`).join('')}
-            <div class="citation">Correct: ${q.correct_option}. ${escapeHtml(q.explanation)}<br>Source: ${escapeHtml(q.source || '')}</div>
+            ${q.options.map(opt => `
+              <label class="option-row" style="display:grid; grid-template-columns:32px 1fr; gap:10px; cursor:pointer;">
+                <input type="radio" name="drill_q_${index}" value="${opt.label}" onchange="drillSelect('${jsAttr(q.question_id)}', '${opt.label}')">
+                <span><strong>${opt.label}.</strong> ${escapeHtml(opt.text)}</span>
+              </label>
+            `).join('')}
+            <div class="citation">Source: ${escapeHtml(q.source || '')}</div>
           </div>
-        `).join('');
+        `).join('') + `
+          <div class="actions" style="margin-top:10px;">
+            <button class="btn primary" onclick="submitDrill()">Submit Drill</button>
+          </div>
+        `;
+      } catch (error) {
+        qs('drillStatus').textContent = error.message;
+      }
+    }
+
+    function drillSelect(questionId, label) {
+      drillSelections[questionId] = label;
+    }
+
+    async function submitDrill() {
+      if (!currentDrill) return;
+      const answers = currentDrill.questions.map(q => ({
+        question_id: q.question_id,
+        selected_answer: drillSelections[q.question_id] || null,
+        time_spent_seconds: 0,
+        marked_for_review: false
+      }));
+      qs('drillStatus').textContent = 'Submitting drill...';
+      try {
+        const result = await api(`/penalty-drill/${currentDrill.drill_id}/submit`, {
+          method: 'POST',
+          body: JSON.stringify({ answers })
+        });
+        qs('drillStatus').textContent = `Drill submitted: ${result.total_correct}/${result.total_questions} correct (${result.accuracy_pct}%). Recorded for the adaptive planner.`;
+        qs('drillOutput').innerHTML = currentDrill.questions.map((q, index) => {
+          const selected = drillSelections[q.question_id] || null;
+          const isCorrect = selected === q.correct_option;
+          return `
+            <div class="analysis-item ${isCorrect ? 'correct' : selected ? 'wrong' : 'skipped'}">
+              <strong>${index + 1}. ${escapeHtml(q.question_text)}</strong>
+              <div class="muted">Selected ${escapeHtml(selected || 'Not answered')} | Correct ${escapeHtml(q.correct_option)}</div>
+              <div class="citation">${escapeHtml(q.explanation)}</div>
+            </div>
+          `;
+        }).join('');
+        currentDrill = null;
+        await loadDashboard();
       } catch (error) {
         qs('drillStatus').textContent = error.message;
       }
@@ -2608,8 +2659,19 @@
           <td>${escapeHtml(item.effective_date || 'TBD')}</td>
           <td>${item.exam_priority}</td>
           <td><span class="badge ${badgeForStatus(item.mastery_status)}">${escapeHtml(item.mastery_status)}</span></td>
+          <td>${item.mastery_status !== 'MASTERED' ? `<button class="btn" onclick="masterAmendment('${jsAttr(item.amendment_id)}')">Mark Mastered</button>` : '<span class="muted">—</span>'}</td>
         </tr>
       `).join('');
+    }
+
+    async function masterAmendment(amendmentId) {
+      try {
+        await api(`/amendments/${amendmentId}/master`, { method: 'POST' });
+        await loadAmendments();
+        await loadDashboard();
+      } catch (error) {
+        alert(error.message);
+      }
     }
 
     async function recordAmendment() {

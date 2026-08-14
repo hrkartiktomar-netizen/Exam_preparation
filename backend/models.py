@@ -328,6 +328,7 @@ class DashboardStatsModel(BaseModel):
     total_questions_attempted: int = 0
     overall_accuracy: float = 0.0
     estimated_score: float = 0.0
+    resource_health: dict[str, Any] = {}
     confidence_band: str = "low confidence until more attempts are recorded"
     weak_topics: list[TopicStatsModel] = []
     topic_heatmap: list[TopicStatsModel] = []

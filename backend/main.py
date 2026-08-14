@@ -888,6 +888,9 @@ async def generate_penalty_drill(request: PenaltyDrillRequestModel):
             source_policy="exam_material",
         )
         drill_id = f"DRILL_{request.topic.upper()}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        # Persist the drill row so drill activity exists in history and the
+        # submit endpoint can validate against it.
+        db.record_penalty_drill(drill_id, request.topic.upper(), request.current_accuracy, len(questions))
         return PenaltyDrillResponseModel(
             drill_id=drill_id,
             topic=request.topic.upper(),
@@ -895,6 +898,22 @@ async def generate_penalty_drill(request: PenaltyDrillRequestModel):
             time_limit_minutes=max(10, request.question_count * 2),
             source_grounded=any(question.get("source_chunk_id") for question in questions),
         )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/penalty-drill/{drill_id}/submit")
+async def submit_penalty_drill(drill_id: str, request: MockSubmitRequestModel):
+    """Score a completed penalty drill.
+
+    Drill attempts are recorded into question_attempts so they feed topic
+    accuracy, weakness scoring, and the adaptive planner.
+    """
+    try:
+        result = db.submit_drill(drill_id, [answer.model_dump() for answer in request.answers])
+        return result
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
@@ -1804,6 +1823,19 @@ async def extract_amendment(request: AmendmentExtractRequestModel):
 async def pending_amendments():
     amendments_data = [item for item in db.list_amendments(limit=500) if item.get("mastery_status") != "MASTERED"]
     return {"amendments": amendments_data}
+
+
+@app.post("/api/amendments/{amendment_id}/master")
+async def master_amendment(amendment_id: str, mastered: bool = Query(default=True)):
+    """Mark an amendment mastered (or re-open it) so the amendment-backlog
+    signal used by weakness scoring and the targeting snapshot can change."""
+    if not db.set_amendment_mastery(amendment_id, mastered=mastered):
+        raise HTTPException(status_code=404, detail="Amendment not found")
+    return {
+        "status": "ok",
+        "amendment_id": amendment_id,
+        "mastery_status": "MASTERED" if mastered else "NEW",
+    }
 
 
 @app.get("/api/amendments/status")

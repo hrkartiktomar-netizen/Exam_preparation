@@ -199,7 +199,24 @@ Round 3 "fixed" PYQ scoring to apply the hardcoded `0.67` penalty — but the ap
 - **Score display inconsistencies** (result page shows /200, dashboard estimate is 0–100, exam modal says +4/−1) remain cosmetic until P0-3's per-paper config lands.
 - **`answers` and `question_attempts` duplicate each other** for smart mocks; consolidation is bundled with P0-2.
 
-### 6.4 Method correction for future rounds
+### 6.5 Deepest layer: the adaptive planner had only ONE live sensor (fixed in code)
+
+The next level below units and loops is *sensor wiring*: which signals actually reach the planner (`intelligent_targeting_snapshot` → weakness → allocation). The audit found the planner consumes exactly one live signal — `question_attempts` from mock submits — while **four advertised sensors were dead or frozen** (each verified with decisive greps, fixed, and re-verified):
+
+1. **Amendment mastery was frozen.** `amendment_events.mastery_status` had **zero UPDATE statements** in the codebase — seeded "NEW" once, never changed. The `amendment_recency` term in weakness scoring and `pending_amendments` in the targeting snapshot were therefore constants; the app could never adapt to a shrinking amendment backlog. Fixed: `POST /api/amendments/{id}/master` + `db.set_amendment_mastery` (writes `MASTERED`/`NEW` and `last_reviewed_at`), with a "Mark Mastered" button in the amendment table. Verified: 15 pending → 14 pending, DB row MASTERED.
+2. **The Penalty Drill Engine wrote nothing.** `penalty_drills` had **zero INSERTs** — the headline Module 3 generated questions, displayed them, and produced no data, so drills were invisible to the planner. Fixed: drill rows are persisted at generation, a new `POST /api/penalty-drill/{id}/submit` scores server-side against the recorded bank and writes attempts with `source=PENALTY_DRILL` (idempotent), `penalty_drills.completed/accuracy_after` are updated, and `calculate_topic_accuracy()` runs after submit so the drill immediately moves the weakness signal. Frontend: drills are now answerable with a submit flow and post-submit review. Verified: 4/4 attempts recorded, `topic_stats.total_seen` updated from the drill.
+3. **Essay scores never reached the planner** — `essay_scores` feeds only history and a bonus term. Documented as a P0 wiring item (essay rubric → topic evidence signal), not yet built (needs rubric→topic mapping design).
+4. **PYQ attempts never reached the planner** (separate tables by design). Documented: readiness/weakness must consume `pyq_question_attempts` in addition to `question_attempts`.
+5. **The dashboard headline metric summed incommensurables.** `estimated_score = 0.7×accuracy + library_bonus + amendment_count_bonus + essay_bonus` — a fresh user with zero attempts displayed an "Est. Score" of 19/100. Fixed: `estimated_score` is now performance-only (equals `overall_accuracy`, capped 100), resource health is reported separately as `resource_health` (and surfaced through `DashboardStatsModel`, which previously stripped it), and the UI metric now honestly reads "Mock Accuracy %".
+6. **SRS storage model contradicted the SM-2 algorithm.** `schedule_topic_review` appended a new row per call and `mark_topic_reviewed` bulk-updated *all* rows for the topic — one click destroyed the per-item scheduling state. Fixed: one row per topic (INSERT OR REPLACE), completion updates only the soonest-due row and removes stale duplicates. Verified: double-schedule → 1 row; completion → single `('success', 3)`.
+
+Also confirmed and left documented (data-quality, not wiring): the question bank has **no duplicate detection** — every mock writes ~50 new rows and near-duplicate stems accumulate forever; a `stem_hash` dedup column is the designed fix (P0-2 bundle). And `_sqlite_now_minus` uses local time vs SQLite UTC timestamps (boundary skew of a few hours in recency filters).
+
+### 6.6 The corrected mental model (for future rounds)
+
+The app is best understood as: **sensors → planner → generators → sensors**. Auditing any layer in isolation gives false confidence. Round 5's method — list every table the planner reads, grep for its writers, and treat zero-writer tables as dead sensors — found five real defects that endpoint tracing could never surface. This is now the standing checklist for any future pass.
+
+
 
 Any future pass must, before shipping, trace **units and feedback loops** end-to-end (score scale → history → projection; difficulty allocation → difficulty-blind metrics → ranking), not just endpoints. The three flaws above were each one unit-trace away and each survived because the tests assert *shape*, not *numbers*.
 

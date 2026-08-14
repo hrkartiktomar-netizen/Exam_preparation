@@ -4125,10 +4125,15 @@ def dashboard_data() -> dict[str, Any]:
         conn.close()
 
     ingestion = get_ingestion_status()
-    source_readiness = 10 if ingestion["documents"] >= 100 else 5 if ingestion["documents"] else 0
-    amendment_bonus = min(10, len(amendments) * 0.6)
-    essay_bonus = min(10, essay_avg * 0.10)
-    estimated_score = min(100, round((overall_accuracy * 0.70) + source_readiness + amendment_bonus + essay_bonus, 2))
+    # "Estimated score" must be a performance estimate, not a mixture of
+    # performance (0-100 accuracy) with library size, amendment counts and
+    # essay averages. Resource health is reported separately below.
+    estimated_score = round(min(100.0, overall_accuracy), 2)
+    resource_health = {
+        "source_readiness": 10 if ingestion["documents"] >= 100 else 5 if ingestion["documents"] else 0,
+        "amendment_bonus": min(10, len(amendments) * 0.6),
+        "essay_bonus": min(10, essay_avg * 0.10),
+    }
 
     if ingestion["documents"] == 0:
         action = "Ingest the source corpus before generating serious mocks."
@@ -4148,6 +4153,7 @@ def dashboard_data() -> dict[str, Any]:
         "total_questions_attempted": total_attempts,
         "overall_accuracy": overall_accuracy,
         "estimated_score": estimated_score,
+        "resource_health": resource_health,
         "confidence_band": "low" if total_attempts < 100 else "medium" if total_attempts < 500 else "higher",
         "weak_topics": weak_topics,
         "topic_heatmap": topic_heatmap,
@@ -4245,13 +4251,18 @@ def get_analytics_timeline(limit: int = 10) -> list[dict[str, Any]]:
 
 
 def schedule_topic_review(topic_id: str, interval_days: int = 1) -> str:
-    """Schedule topic for spaced repetition review."""
+    """Schedule topic for spaced repetition review.
+
+    One review row per topic: re-scheduling replaces the existing row instead
+    of appending duplicates (which previously let one "reviewed" click
+    complete every pending row for the topic at once).
+    """
     conn = get_connection()
     try:
-        review_id = f"SRS_{topic_id}_{int(datetime.now().timestamp())}"
+        review_id = f"SRS_TOPIC_{topic_id}"
         due_at = (datetime.now() + timedelta(days=interval_days)).isoformat()
         conn.execute(
-            """INSERT INTO review_items (review_id, item_type, item_id, topic_id, due_at, interval_days, ease)
+            """INSERT OR REPLACE INTO review_items (review_id, item_type, item_id, topic_id, due_at, interval_days, ease)
                VALUES (?, ?, ?, ?, ?, ?, ?)""",
             (review_id, "topic", topic_id, topic_id, due_at, interval_days, 2.5)
         )
@@ -4282,7 +4293,13 @@ def get_due_topics(conn: sqlite3.Connection | None = None) -> list[dict[str, Any
 
 
 def mark_topic_reviewed(topic_id: str, success: bool = True) -> None:
-    """Mark topic as reviewed and reschedule if needed. Per Context7 docs: proper error handling with try/finally."""
+    """Mark topic as reviewed and reschedule if needed.
+
+    Updates exactly the soonest-due review row for the topic (SM-2 state is
+    per-item) and removes stale duplicate rows created by earlier
+    schedule_topic_review calls, which otherwise made one click complete
+    every pending review for the topic at once.
+    """
     conn = get_connection()
     try:
         ease = 2.5
@@ -4291,14 +4308,160 @@ def mark_topic_reviewed(topic_id: str, success: bool = True) -> None:
             ease = 2.8
             next_interval = 3
         next_due = (datetime.now() + timedelta(days=next_interval)).isoformat()
+        earliest = conn.execute(
+            """SELECT review_id FROM review_items
+               WHERE topic_id = ? AND item_type = 'topic'
+               ORDER BY due_at ASC, review_id ASC LIMIT 1""",
+            (topic_id,),
+        ).fetchone()
+        if earliest is None:
+            return
         conn.execute(
             """UPDATE review_items SET due_at = ?, ease = ?, last_result = ?, interval_days = ?
-               WHERE topic_id = ? AND item_type = 'topic'""",
-            (next_due, ease, "success" if success else "retry", next_interval, topic_id)
+               WHERE review_id = ?""",
+            (next_due, ease, "success" if success else "retry", next_interval, earliest["review_id"]),
+        )
+        conn.execute(
+            """DELETE FROM review_items
+               WHERE topic_id = ? AND item_type = 'topic' AND review_id != ?""",
+            (topic_id, earliest["review_id"]),
         )
         conn.commit()
     finally:
         conn.close()
+
+
+def set_amendment_mastery(amendment_id: str, mastered: bool = True) -> bool:
+    """Mark an amendment as mastered (or re-open it).
+
+    This is the only writer of amendment_events.mastery_status in the app;
+    without it the amendment-backlog signal used by weakness scoring and the
+    targeting snapshot is frozen at its seeded value forever.
+    """
+    conn = get_connection()
+    try:
+        row = conn.execute(
+            "SELECT amendment_id FROM amendment_events WHERE amendment_id = ?",
+            (amendment_id,),
+        ).fetchone()
+        if not row:
+            return False
+        conn.execute(
+            """UPDATE amendment_events
+               SET mastery_status = ?, last_reviewed_at = ?
+               WHERE amendment_id = ?""",
+            ("MASTERED" if mastered else "NEW", datetime.now().isoformat(), amendment_id),
+        )
+        conn.execute(
+            "UPDATE amendments SET drilled = ? WHERE amendment_id = ?",
+            (1 if mastered else 0, amendment_id),
+        )
+        conn.commit()
+        return True
+    finally:
+        conn.close()
+
+
+def record_penalty_drill(drill_id: str, topic: str, current_accuracy: float, question_count: int) -> None:
+    """Persist a drill-generation row so drill activity exists in history."""
+    conn = get_connection()
+    try:
+        conn.execute(
+            """INSERT OR REPLACE INTO penalty_drills
+               (drill_id, topic, weak_threshold, current_accuracy, questions_in_drill, completed, accuracy_after, created_at, completed_at)
+               VALUES (?, ?, 60.0, ?, ?, 0, NULL, CURRENT_TIMESTAMP, NULL)""",
+            (drill_id, topic, current_accuracy, question_count),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def submit_drill(drill_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
+    """Score a completed penalty drill against the recorded question bank.
+
+    Drill attempts are recorded into question_attempts (source=PENALTY_DRILL)
+    so they feed calculate_topic_accuracy and the adaptive planner — the drill
+    module previously produced no data at all.
+    """
+    conn = get_connection()
+    try:
+        drill = conn.execute(
+            "SELECT * FROM penalty_drills WHERE drill_id = ?",
+            (drill_id,),
+        ).fetchone()
+        if not drill:
+            raise ValueError(f"Drill {drill_id} not found")
+        question_ids = [answer.get("question_id") for answer in answers if answer.get("question_id")]
+        if not question_ids:
+            raise ValueError("No answers submitted")
+        placeholders = ",".join("?" for _ in question_ids)
+        rows = conn.execute(
+            f"SELECT question_id, topic_id, correct_answer, difficulty, question_text FROM questions WHERE question_id IN ({placeholders})",
+            question_ids,
+        ).fetchall()
+        correct_by_id = {row["question_id"]: row for row in rows}
+
+        # Idempotent resubmission
+        conn.execute("DELETE FROM question_attempts WHERE mock_id = ?", (drill_id,))
+
+        total_correct = 0
+        total_answered = 0
+        for answer in answers:
+            question_id = answer.get("question_id")
+            row = correct_by_id.get(question_id)
+            if not row:
+                continue
+            selected = answer.get("selected_answer")
+            is_answered = bool(selected)
+            is_correct = bool(selected == row["correct_answer"])
+            if is_answered:
+                total_answered += 1
+            if is_correct:
+                total_correct += 1
+            conn.execute(
+                """INSERT INTO question_attempts
+                   (mock_id, question_id, topic, question_text, correct_option, your_option,
+                    is_correct, time_spent_seconds, attempt_date, source, difficulty)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    drill_id,
+                    question_id,
+                    row["topic_id"],
+                    row["question_text"],
+                    row["correct_answer"],
+                    selected,
+                    int(is_correct),
+                    int(answer.get("time_spent_seconds", 0) or 0),
+                    datetime.now().date().isoformat(),
+                    "PENALTY_DRILL",
+                    row["difficulty"] or "unknown",
+                ),
+            )
+
+        total_questions = len(answers)
+        accuracy_after = round((total_correct / total_questions * 100), 2) if total_questions else 0.0
+        conn.execute(
+            """UPDATE penalty_drills
+               SET completed = 1, accuracy_after = ?, completed_at = ?
+               WHERE drill_id = ?""",
+            (accuracy_after, datetime.now().isoformat(), drill_id),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    # Refresh weakness/topic stats so the drill immediately feeds the planner.
+    calculate_topic_accuracy()
+    return {
+        "drill_id": drill_id,
+        "status": "submitted",
+        "total_questions": total_questions,
+        "total_answered": total_answered,
+        "total_correct": total_correct,
+        "total_wrong": total_answered - total_correct,
+        "total_unanswered": total_questions - total_answered,
+        "accuracy_pct": accuracy_after,
+    }
 
 
 def create_study_path(
