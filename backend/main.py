@@ -6,7 +6,9 @@ import asyncio
 from contextlib import asynccontextmanager
 from datetime import datetime, timedelta
 import json
+import os
 from pathlib import Path as PathLib
+import re
 from typing import Any
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -179,13 +181,26 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+# CORS is restricted to the local dev origins the app is served from. The previous
+# wildcard + allow_credentials=True combination is rejected by browsers anyway, and it
+# left every localhost:8000 endpoint open to cross-site requests from any website.
+DEFAULT_CORS_ORIGINS = "http://localhost:8000,http://127.0.0.1:8000"
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        origin.strip()
+        for origin in os.getenv("CORS_ORIGINS", DEFAULT_CORS_ORIGINS).split(",")
+        if origin.strip()
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Static frontend mount. (Previously this line sat inside handle_value_error's body
+# after an unconditional raise, so it was dead code and /app never registered.)
+if FRONTEND_DIR.exists():
+    app.mount("/app", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="app")
 
 
 # ============================================================================
@@ -226,10 +241,6 @@ async def handle_timeout(request, exc):
 async def handle_value_error(request, exc):
     """Handle value validation errors."""
     raise HTTPException(status_code=422, detail=f"Invalid input: {str(exc)}")
-
-
-
-    app.mount("/app", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="app")
 
 
 def _coerce_question(question: dict[str, Any]) -> QuestionModel:
@@ -969,18 +980,23 @@ async def exam_start(request: SmartMockRequestModel | None = None):
 
         questions = [_coerce_question(q) for q in result["questions"]]
 
-        # Add missing Phase 3 fields per audit
+        # Add missing Phase 3 fields per audit.
+        # NOTE: item assignment (question["expected_time_sec"] = ...) on a Pydantic
+        # model raises TypeError, which made /api/exams/start fail with 500 every time.
+        question_payload = []
         for question in questions:
-            question["expected_time_sec"] = 180  # 3 minutes per question
-            question["negative_marking"] = -1    # -1 for wrong answer
+            payload = question.model_dump()
+            payload["expected_time_sec"] = 180  # 3 minutes per question
+            payload["negative_marking"] = -1    # -1 for wrong answer
+            question_payload.append(payload)
 
         return {
             "exam_id": exam_id,
             "mock_id": mock_id,
             "started_at": datetime.now().isoformat(),
             "time_limit_seconds": 3600,
-            "question_count": len(questions),
-            "questions": questions,
+            "question_count": len(question_payload),
+            "questions": question_payload,
             "allocation_summary": result.get("allocation_summary", {}),
         }
     except Exception as exc:
@@ -1089,6 +1105,9 @@ async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
         }
     except HTTPException:
         raise
+    except ValueError as exc:
+        # Duplicate submission / validation failures surfaced from db.submit_mock
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
@@ -1101,40 +1120,26 @@ async def list_pyq_papers():
     try:
         conn = db.get_connection()
         try:
+            # The legacy source_documents table is never populated by current
+            # ingestion (which writes to `documents`), so PYQ papers were invisible
+            # on fresh installations. Query the canonical documents table instead.
             pyq_docs = conn.execute(
-                "SELECT doc_id, name FROM source_documents WHERE source_role = 'pyq_phase_paper' ORDER BY name"
+                "SELECT document_id, title FROM documents WHERE source_role = 'pyq_phase_paper' ORDER BY title"
             ).fetchall()
 
             papers = []
             for doc in pyq_docs:
-                # Extract metadata from document name
-                name = doc["name"]
-                # Pattern: "IFSCA_Grade_A_YYYY_Memory_Based_Phase_X_Paper_Y"
-                parts = name.lower().split("_")
-                year = None
-                phase = None
-                paper = None
-
-                for i, part in enumerate(parts):
-                    if part.isdigit() and len(part) == 4 and i > 0:
-                        year = int(part)
-                    if part == "phase" and i + 1 < len(parts):
-                        try:
-                            phase = int(parts[i + 1])
-                        except:
-                            pass
-                    if part == "paper" and i + 1 < len(parts):
-                        try:
-                            paper = int(parts[i + 1])
-                        except:
-                            pass
-
+                # Extract metadata from document title
+                name = doc["title"]
+                year_match = re.search(r"(?:19|20)\d{2}", name)
+                phase_match = re.search(r"[Pp]hase[\s_-]*(\d)", name)
+                paper_match = re.search(r"[Pp]aper[\s_-]*(\d)", name)
                 papers.append({
-                    "pyq_doc_id": doc["doc_id"],
+                    "pyq_doc_id": doc["document_id"],
                     "title": name,
-                    "year": year,
-                    "phase": phase,
-                    "paper": paper,
+                    "year": int(year_match.group(0)) if year_match else None,
+                    "phase": int(phase_match.group(1)) if phase_match else None,
+                    "paper": int(paper_match.group(1)) if paper_match else None,
                 })
 
             return {"status": "ok", "papers": papers}
@@ -1145,15 +1150,15 @@ async def list_pyq_papers():
 
 
 @app.post("/api/pyq/{doc_id}/load")
-async def load_pyq_paper(doc_id: int):
+async def load_pyq_paper(doc_id: str):
     """Load a previous year question paper with its parsed questions."""
     conn = None
     try:
         conn = db.get_connection()
 
-        # Get PYQ document metadata
+        # Get PYQ document metadata from the canonical documents table
         doc = conn.execute(
-            "SELECT * FROM source_documents WHERE doc_id = ? AND source_role = 'pyq_phase_paper' LIMIT 1",
+            "SELECT * FROM documents WHERE document_id = ? AND source_role = 'pyq_phase_paper' LIMIT 1",
             (doc_id,)
         ).fetchone()
 
@@ -1162,7 +1167,7 @@ async def load_pyq_paper(doc_id: int):
 
         # Fetch all chunks for this document in order
         chunks = conn.execute(
-            "SELECT chunk_text FROM source_chunks WHERE doc_id = ? ORDER BY chunk_sequence",
+            "SELECT text FROM document_chunks WHERE document_id = ? ORDER BY line_start, chunk_id",
             (doc_id,)
         ).fetchall()
 
@@ -1171,7 +1176,7 @@ async def load_pyq_paper(doc_id: int):
 
         # Combine all chunks into full text
         # Per Context7 docs for Python: use ''.join() for efficient string concatenation
-        full_text = ''.join([chunk['chunk_text'] for chunk in chunks])
+        full_text = ''.join([chunk['text'] for chunk in chunks])
 
         # Parse questions from full text
         # Per Context7 docs: wrap in try/except for proper error handling
@@ -1185,12 +1190,18 @@ async def load_pyq_paper(doc_id: int):
 
         # Create PYQ session ID and cache questions
         pyq_id = f"PYQ_DOC{doc_id}"
-        pyq_cache.cache_pyq_questions(pyq_id, parsed_questions)
+
+        # Cache ONLY the questions actually shown to the user (capped at 50).
+        # Previously the full parsed set was cached while only 50 were displayed,
+        # so submissions could score hidden questions, and the displayed count and
+        # the scoring denominator could diverge.
+        displayed_questions = parsed_questions[:50]
+        pyq_cache.cache_pyq_questions(pyq_id, displayed_questions)
 
         # Format questions for frontend response
         # Note: Correct answers are stored in cache, not sent to frontend (blind submission)
         formatted_questions = []
-        for pq in parsed_questions:
+        for pq in displayed_questions:
             formatted_questions.append({
                 "question_id": f"PYQ_DOC{doc_id}_Q{pq.question_number}",
                 "question_number": pq.question_number,
@@ -1205,12 +1216,12 @@ async def load_pyq_paper(doc_id: int):
         return {
             "status": "ok",
             "pyq_id": pyq_id,
-            "title": doc["name"],
+            "title": doc["title"],
             "total_questions": len(formatted_questions),
             "time_limit_minutes": 60,
             "marks_per_question": 2,
             "negative_marking_per_wrong": 0.67,
-            "questions": formatted_questions[:50],  # Cap at 50 for performance
+            "questions": formatted_questions,
         }
 
     except HTTPException:
@@ -1225,7 +1236,15 @@ async def load_pyq_paper(doc_id: int):
 
 @app.post("/api/pyq/{pyq_id}/submit")
 async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
-    """Submit a previous year question paper attempt."""
+    """Submit a previous year question paper attempt.
+
+    Scoring is computed against the DISPLAYED question set (the 50-question cap
+    cached at load time), not against however many answers the client chose to send:
+    - unanswered questions count toward the denominator but not as wrong answers,
+    - negative marking (0.67 per wrong answer, as advertised at load time) applies,
+    - re-submitting the same attempt replaces the previous attempt instead of
+      duplicating rows or 500ing on a primary-key conflict.
+    """
     conn = None
     try:
         # Retrieve cached parsed questions
@@ -1239,11 +1258,14 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
         # Build a map of question_number -> correct_answer for quick validation
         # Format of question_id from frontend is: "PYQ_DOC{doc_id}_Q{question_number}"
         answer_map = {q.question_number: q.correct_answer for q in cached_questions}
+        total_questions = len(cached_questions)
 
         conn = db.get_connection()
 
         try:
-            # Create PYQ session record
+            # Create PYQ session record.
+            # pyq_source_doc_id stays 0 (placeholder): the legacy FK to
+            # source_documents was removed by _repair_pyq_schema in database.py.
             session_id = pyq_id
             conn.execute(
                 """
@@ -1255,16 +1277,22 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                 (session_id, pyq_id)
             )
 
+            # Idempotency: replace any previous attempt rows for this session
+            # (attempt_id is the PK; a plain INSERT would 500 on re-submission).
+            conn.execute("DELETE FROM pyq_question_attempts WHERE pyq_id = ?", (pyq_id,))
+
             # Process answers and calculate score
             # Per Context7 docs for Python: use proper exception handling in loops
             total_correct = 0
-            total_questions = len(request.answers) if request.answers else 0
+            total_answered = 0
+            total_wrong = 0
 
+            # request.answers is a list of AnswerModel (Pydantic) objects, not dicts
             for answer in request.answers:
-                question_id = answer.get("question_id", "")
-                selected = answer.get("selected_answer")
-                time_spent = answer.get("time_spent_seconds", 0)
-                marked_for_review = answer.get("marked_for_review", False)
+                question_id = answer.question_id
+                selected = answer.selected_answer
+                time_spent = answer.time_spent_seconds or 0
+                marked_for_review = answer.marked_for_review
 
                 # Extract question_number from question_id (PYQ_DOC1_Q5 -> 5)
                 try:
@@ -1274,17 +1302,22 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                     # Skip malformed question IDs
                     continue
 
-                # Get the correct answer from cache
+                # Get the correct answer from cache (only displayed questions exist here)
                 correct_answer = answer_map.get(q_number)
                 if not correct_answer:
-                    # Question not found in cache - skip
+                    # Question not in the displayed set - skip
                     continue
 
-                # Validate selected answer against real correct answer
-                is_correct = (selected == correct_answer)
+                answered = bool(selected)
+                if answered:
+                    total_answered += 1
 
+                # Validate selected answer against real correct answer
+                is_correct = answered and (selected == correct_answer)
                 if is_correct:
                     total_correct += 1
+                elif answered:
+                    total_wrong += 1
 
                 # Record attempt with actual answer comparison
                 # Per Context7 docs for SQLite: use parameterized queries for safety
@@ -1307,17 +1340,22 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                     )
                 )
 
-            final_score = total_correct * 2  # 2 marks per question
-            accuracy = (total_correct / total_questions * 100) if total_questions > 0 else 0
+            # 2 marks per correct answer, -0.67 per wrong answer (as advertised at load)
+            raw_score = total_correct * 2
+            negative_marks = round(total_wrong * 0.67, 2)
+            final_score = round(max(0.0, raw_score - negative_marks), 2)
+            total_unanswered = max(0, total_questions - total_answered)
+            accuracy = round((total_correct / total_questions * 100), 2) if total_questions > 0 else 0.0
 
             # Update session with results
             conn.execute(
                 """
                 UPDATE pyq_sessions
-                SET score = ?, accuracy = ?, status = 'completed', submitted_at = datetime('now')
+                SET score = ?, accuracy = ?, status = 'completed', submitted_at = datetime('now'),
+                    total_questions = ?
                 WHERE pyq_id = ?
                 """,
-                (final_score, accuracy, session_id)
+                (final_score, accuracy, total_questions, session_id)
             )
 
             conn.commit()
@@ -1329,10 +1367,13 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                 "pyq_id": pyq_id,
                 "status": "submitted",
                 "final_score": final_score,
+                "raw_score": raw_score,
+                "negative_marks": negative_marks,
                 "total_questions": total_questions,
+                "total_answered": total_answered,
                 "total_correct": total_correct,
-                "total_wrong": total_questions - total_correct,
-                "total_unanswered": 0,
+                "total_wrong": total_wrong,
+                "total_unanswered": total_unanswered,
                 "accuracy_pct": accuracy,
             }
 
@@ -1390,8 +1431,11 @@ async def list_materials():
     try:
         conn = db.get_connection()
         try:
+            # Canonical documents table: source_documents is a legacy table that
+            # current ingestion never populates, so listing it showed empty on
+            # fresh installations while /api/documents had 150 entries.
             materials = conn.execute(
-                "SELECT doc_id, name, source_role FROM source_documents ORDER BY source_role, name"
+                "SELECT document_id AS doc_id, title AS name, source_role FROM documents ORDER BY source_role, title"
             ).fetchall()
             return {
                 "status": "ok",
@@ -1405,7 +1449,7 @@ async def list_materials():
 
 
 @app.post("/api/admin/materials/{doc_id}/role")
-async def update_material_role(doc_id: int, request: dict):
+async def update_material_role(doc_id: str, request: dict):
     """Update the categorization role for a source material."""
     try:
         new_role = request.get("source_role", "supporting_material")
@@ -1416,14 +1460,18 @@ async def update_material_role(doc_id: int, request: dict):
 
         conn = db.get_connection()
         try:
-            conn.execute(
-                "UPDATE source_documents SET source_role = ? WHERE doc_id = ?",
+            updated = conn.execute(
+                "UPDATE documents SET source_role = ? WHERE document_id = ?",
                 (new_role, doc_id)
             )
+            if updated.rowcount == 0:
+                raise HTTPException(status_code=404, detail=f"Material {doc_id} not found")
             conn.commit()
             return {"status": "ok", "doc_id": doc_id, "new_role": new_role}
         finally:
             conn.close()
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
@@ -1434,18 +1482,23 @@ async def material_grounding_analysis():
     try:
         conn = db.get_connection()
         try:
-            # Count by role
+            # Count by role from the canonical documents table
             by_role = {}
             for role in ["pyq_phase_paper", "regulatory_core", "amendment_tracking", "essay_examples", "supporting_material"]:
                 count = conn.execute(
-                    "SELECT COUNT(*) FROM source_documents WHERE source_role = ?",
+                    "SELECT COUNT(*) FROM documents WHERE source_role = ?",
                     (role,)
                 ).fetchone()[0]
                 by_role[role] = count
 
-            # Count grounded questions
+            # Count grounded questions: the current flow writes question_citations;
+            # question_sources is only used by the legacy source_chunks flow.
             grounded = conn.execute(
-                "SELECT COUNT(*) FROM generated_questions WHERE question_id IN (SELECT question_id FROM question_sources)"
+                """
+                SELECT COUNT(*) FROM generated_questions
+                WHERE question_id IN (SELECT question_id FROM question_citations)
+                   OR question_id IN (SELECT question_id FROM question_sources)
+                """
             ).fetchone()[0]
             total_questions = conn.execute(
                 "SELECT COUNT(*) FROM generated_questions"
@@ -1916,7 +1969,7 @@ async def get_srs_due_topics():
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
-@app.post("/api/srs/schedule-topic", response_model=dict[str, str])
+@app.post("/api/srs/schedule-topic", response_model=dict[str, Any])
 async def schedule_srs_topic(request: SRSScheduleRequestModel):
     """Schedule a topic for spaced repetition review."""
     try:

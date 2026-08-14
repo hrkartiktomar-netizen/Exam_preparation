@@ -711,47 +711,70 @@ def _populate_source_role_on_documents(conn: sqlite3.Connection) -> None:
         conn.rollback()
 
 
-def _categorize_materials(conn: sqlite3.Connection) -> None:
-    """Categorize all source materials by role for smart Gemini routing.
+def _source_role_for_name(name: str) -> str:
+    """Assign a source_role based on document name markers.
 
-    Assigns source_role to each document:
-    - pyq_phase_paper: Previous year question papers
+    - pyq_phase_paper: Memory-based question papers (Grade A + Memory + Question + Paper)
     - regulatory_core: Official regulations, acts, ICSI materials
     - amendment_tracking: Recent regulatory amendments
     - essay_examples: Consulting reports, case studies
-    - supporting_material: General reads
+    - supporting_material: General reads (default)
+    """
+    name = (name or "").lower()
+    regulatory_markers = ("Regulation", "IFSCA", "ICSI", "Indiacode", "Act",  "Guidelines", "Circular")
+    amendment_markers = ("Amendment", "Notification", "Draft", "Consultation", "2025", "2026")
+    consulting_markers = ("PwC", "EY", "Grant Thornton", "KPMG", "Deloitte", "Analysis", "Report")
+
+    role = "supporting_material"  # default
+
+    if all(marker.lower() in name for marker in ["memory", "grade", "question", "paper"]):
+        role = "pyq_phase_paper"
+    elif any(m.lower() in name for m in regulatory_markers):
+        role = "regulatory_core"
+    elif any(m.lower() in name for m in amendment_markers):
+        role = "amendment_tracking"
+    elif any(m.lower() in name for m in consulting_markers):
+        role = "essay_examples"
+    return role
+
+
+def _categorize_materials(conn: sqlite3.Connection) -> None:
+    """Categorize all source materials by role for smart Gemini routing.
+
+    Categorizes BOTH the legacy source_documents table (if it has rows) and the
+    canonical documents table, because ingestion only populates `documents` and
+    source_documents stays empty on fresh installations.
     """
     try:
         cursor = conn.cursor()
 
-        # Categorization rules by document name patterns
-        pyq_markers = ("Grade A", "Memory Based", "Phase", "Paper", "2024", "2023")
-        regulatory_markers = ("Regulation", "IFSCA", "ICSI", "Indiacode", "Act",  "Guidelines", "Circular")
-        amendment_markers = ("Amendment", "Notification", "Draft", "Consultation", "2025", "2026")
-        consulting_markers = ("PwC", "EY", "Grant Thornton", "KPMG", "Deloitte", "Analysis", "Report")
-
+        # Legacy table (only populated on databases created by the old ingestion path)
         cursor.execute("SELECT doc_id, name FROM source_documents")
         docs = cursor.fetchall()
 
         for doc in docs:
             doc_id = doc["doc_id"]
-            name = (doc["name"] or "").lower()
-
-            # Determine role based on document name
-            role = "supporting_material"  # default
-
-            if all(marker.lower() in name for marker in ["memory", "grade", "question", "paper"]):
-                role = "pyq_phase_paper"
-            elif any(m.lower() in name for m in regulatory_markers):
-                role = "regulatory_core"
-            elif any(m.lower() in name for m in amendment_markers):
-                role = "amendment_tracking"
-            elif any(m.lower() in name for m in consulting_markers):
-                role = "essay_examples"
-
+            role = _source_role_for_name(doc["name"])
             cursor.execute(
                 "UPDATE source_documents SET source_role = ? WHERE doc_id = ?",
                 (role, doc_id)
+            )
+
+        # Canonical table used by ingestion, search, mock generation and citations.
+        # Only default/unset roles are overwritten so manual assignments made through
+        # POST /api/admin/materials/{doc_id}/role survive the next init_db() run.
+        cursor.execute(
+            "SELECT document_id, title, source_role FROM documents"
+        )
+        doc_rows = cursor.fetchall()
+        for doc in doc_rows:
+            current_role = doc["source_role"]
+            if current_role not in (None, "", "supporting_material"):
+                continue
+            role = _source_role_for_name(doc["title"])
+            cursor.execute(
+                "UPDATE documents SET source_role = ? WHERE document_id = ?",
+                (role, doc["document_id"]),
             )
 
         conn.commit()
@@ -761,6 +784,9 @@ def _categorize_materials(conn: sqlite3.Connection) -> None:
             cursor.execute("SELECT COUNT(*) FROM source_documents WHERE source_role = ?", (role,))
             count = cursor.fetchone()[0]
             print(f"  {role}: {count} documents")
+            cursor.execute("SELECT COUNT(*) FROM documents WHERE source_role = ?", (role,))
+            count = cursor.fetchone()[0]
+            print(f"  documents.{role}: {count}")
 
     except Exception as e:
         print(f"Material categorization error: {e}")
@@ -782,6 +808,17 @@ def _run_migration_004(conn: sqlite3.Connection | None = None) -> None:
 
         with open(migration_path, "r") as f:
             migration_sql = f.read()
+
+        # SQLite has no "ADD COLUMN IF NOT EXISTS"; on databases where the column was
+        # already added (or where documents.source_role already exists from
+        # _populate_source_role_on_documents), re-running the ALTER raises
+        # "duplicate column name: source_role" on every init_db() call.
+        if "source_role" in _table_columns(conn, "source_documents"):
+            migration_sql = "\n".join(
+                line
+                for line in migration_sql.splitlines()
+                if "ADD COLUMN source_role" not in line
+            )
 
         conn.executescript(migration_sql)
 
@@ -827,6 +864,13 @@ def init_db() -> None:
     except Exception as e:
         print(f"Phase 4 migration error: {e}")
 
+    # Rebuild PYQ attempt tables if they still carry the legacy unsatisfiable FKs.
+    try:
+        _repair_pyq_schema(conn)
+        conn.commit()
+    except Exception as e:
+        print(f"PYQ schema repair error: {e}")
+
     conn.close()
 
 
@@ -846,6 +890,100 @@ def _ensure_runtime_schema(conn: sqlite3.Connection) -> None:
     for column, column_type in additions.items():
         if column not in question_columns:
             conn.execute(f"ALTER TABLE questions ADD COLUMN {column} {column_type}")
+
+
+def _repair_pyq_schema(conn: sqlite3.Connection) -> None:
+    """Rebuild the PYQ attempt tables without unsatisfiable foreign keys.
+
+    The legacy migration 001/004 schema declared:
+    - pyq_sessions.pyq_source_doc_id  -> source_documents(doc_id)
+    - pyq_question_attempts.question_id -> questions(question_id)
+
+    Neither can be satisfied by the canonical flow:
+    - submit_pyq_attempt inserts pyq_source_doc_id = 0, and source_documents is not
+      populated on fresh installations (ingestion writes to documents), so the FK
+      fails on every submission.
+    - PYQ question ids (PYQ_DOC{id}_Q{n}) are never inserted into `questions`, so
+      the second FK also fails on every attempt row.
+
+    Rebuild both tables without those FKs. Rows (if any) are preserved. The rebuild
+    uses a scratch table (create -> copy -> drop old -> rename) so a failure in the
+    middle never strands the original table under a legacy name.
+    """
+    fk = conn.execute("PRAGMA foreign_key_list(pyq_sessions)").fetchall()
+    if fk:
+        conn.execute("PRAGMA foreign_keys = OFF")
+        try:
+            conn.execute("DROP TABLE IF EXISTS pyq_sessions_new")
+            conn.executescript(
+                """
+                CREATE TABLE pyq_sessions_new (
+                    pyq_id TEXT PRIMARY KEY,
+                    pyq_source_doc_id INTEGER NOT NULL,
+                    pyq_title TEXT NOT NULL,
+                    phase_number INTEGER,
+                    year INTEGER,
+                    paper_number INTEGER,
+                    started_at TEXT,
+                    submitted_at TEXT,
+                    total_questions INTEGER,
+                    score INTEGER,
+                    accuracy REAL,
+                    status TEXT,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+                """
+            )
+            conn.execute(
+                """
+                INSERT INTO pyq_sessions_new
+                (pyq_id, pyq_source_doc_id, pyq_title, phase_number, year, paper_number,
+                 started_at, submitted_at, total_questions, score, accuracy, status, created_at)
+                SELECT pyq_id, pyq_source_doc_id, pyq_title, phase_number, year, paper_number,
+                       started_at, submitted_at, total_questions, score, accuracy, status, created_at
+                FROM pyq_sessions
+                """
+            )
+            conn.execute("DROP TABLE pyq_sessions")
+            conn.execute("ALTER TABLE pyq_sessions_new RENAME TO pyq_sessions")
+        finally:
+            conn.execute("PRAGMA foreign_keys = ON")
+
+    fk = conn.execute("PRAGMA foreign_key_list(pyq_question_attempts)").fetchall()
+    if fk:
+        conn.execute("PRAGMA foreign_keys = OFF")
+        try:
+            conn.execute("DROP TABLE IF EXISTS pyq_question_attempts_new")
+            conn.executescript(
+                """
+                CREATE TABLE pyq_question_attempts_new (
+                    attempt_id TEXT PRIMARY KEY,
+                    pyq_id TEXT NOT NULL,
+                    question_id TEXT NOT NULL,
+                    question_number INTEGER,
+                    selected_answer TEXT,
+                    official_answer TEXT,
+                    is_correct BOOLEAN,
+                    time_spent_seconds INTEGER,
+                    marked_for_review BOOLEAN,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                );
+                """
+            )
+            conn.execute(
+                """
+                INSERT INTO pyq_question_attempts_new
+                (attempt_id, pyq_id, question_id, question_number, selected_answer,
+                 official_answer, is_correct, time_spent_seconds, marked_for_review, created_at)
+                SELECT attempt_id, pyq_id, question_id, question_number, selected_answer,
+                       official_answer, is_correct, time_spent_seconds, marked_for_review, created_at
+                FROM pyq_question_attempts
+                """
+            )
+            conn.execute("DROP TABLE pyq_question_attempts")
+            conn.execute("ALTER TABLE pyq_question_attempts_new RENAME TO pyq_question_attempts")
+        finally:
+            conn.execute("PRAGMA foreign_keys = ON")
 
 
 def _create_performance_indexes(conn: sqlite3.Connection) -> None:
@@ -3330,6 +3468,17 @@ def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_g
 def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
     conn = get_connection()
     try:
+        # Idempotency guard: re-submitting the same mock used to insert duplicate
+        # question_attempts rows on every call, silently double-counting attempts in
+        # topic accuracy/weakness calculations and skewing every downstream
+        # recommendation (next-action, readiness, mock allocation).
+        session = conn.execute(
+            "SELECT status FROM mock_sessions WHERE mock_id = ? LIMIT 1",
+            (mock_id,),
+        ).fetchone()
+        if session and session["status"] == "submitted":
+            raise ValueError(f"Mock {mock_id} has already been submitted; duplicate submissions are rejected to protect accuracy data.")
+
         question_rows = conn.execute(
             """
             SELECT mq.question_number, q.*
@@ -4125,18 +4274,21 @@ def get_weak_legal_areas(limit: int = 10) -> list[dict[str, Any]]:
     conn = get_connection()
     conn.row_factory = sqlite3.Row
     try:
+        # topic_stats has no display_name column; resolve it via the topics table
+        # (previously this query failed with "no such column: display_name").
         rows = conn.execute(
             """SELECT
-                   topic,
-                   display_name,
-                   total_seen,
-                   total_correct,
-                   accuracy_pct,
-                   status,
-                   last_tested
-               FROM topic_stats
-               WHERE accuracy_pct < 60.0 AND total_seen >= 3
-               ORDER BY accuracy_pct ASC
+                   ts.topic,
+                   COALESCE(t.display_name, ts.topic) AS display_name,
+                   ts.total_seen,
+                   ts.total_correct,
+                   ts.accuracy_pct,
+                   ts.status,
+                   ts.last_tested
+               FROM topic_stats ts
+               LEFT JOIN topics t ON t.topic_id = ts.topic
+               WHERE ts.accuracy_pct < 60.0 AND ts.total_seen >= 3
+               ORDER BY ts.accuracy_pct ASC
                LIMIT ?""",
             (limit,)
         ).fetchall()
