@@ -985,9 +985,11 @@ async def exam_start(request: SmartMockRequestModel | None = None):
         questions = [_coerce_question(q).model_dump() for q in result["questions"]]
 
         # Add missing Phase 3 fields per audit
+        marks_per_question = round(100 / max(1, len(questions)), 4)
         for question in questions:
             question["expected_time_sec"] = 180  # 3 minutes per question
-            question["negative_marking"] = -1    # -1 for wrong answer
+            # One-fourth negative marking of the per-question marks.
+            question["negative_marking"] = -round(marks_per_question * 0.25, 4)
             # Exam mode is blind: do not ship the answer key with the paper.
             # Scoring happens server-side against the recorded question bank.
             question.pop("correct_option", None)
@@ -1254,7 +1256,8 @@ async def load_pyq_paper(doc_id: str):
             "total_questions": len(formatted_questions),
             "time_limit_minutes": 60,
             "marks_per_question": 2,
-            "negative_marking_per_wrong": 0.67,
+            # Exam rule: one-fourth negative marking on 2-mark questions = 0.5
+            "negative_marking_per_wrong": round(2 * 0.25, 4),
             "questions": formatted_questions[:50],  # Cap at 50 for performance
         }
 
@@ -1366,7 +1369,8 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
 
             total_wrong = total_answered - total_correct
             raw_score = total_correct * 2
-            negative_marks = round(total_wrong * 0.67, 2)
+            # One-fourth negative marking on 2-mark questions: 0.5 per wrong.
+            negative_marks = round(total_wrong * 0.5, 2)
             final_score = round(max(0.0, raw_score - negative_marks), 2)
             accuracy = round((total_correct / total_questions * 100), 2) if total_questions > 0 else 0
             total_unanswered = max(0, total_questions - total_answered)

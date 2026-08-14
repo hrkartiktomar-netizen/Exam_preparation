@@ -77,26 +77,26 @@ def calculate_readiness_estimate(
                 confidence="LOW",
             )
 
-        # Calculate trend: delta_per_day
+        # History scores are on a consistent 0-100 scale (mock percentages).
+        # The exam total is 200, so the 0-200 estimate is percentage * 2.
+        # Previously mock scores were projected directly against the 0-200
+        # target, systematically halving strong users' readiness.
         earliest = history[0]
         latest = history[-1]
         earliest_date = datetime.fromisoformat(earliest["tested_at"])
         latest_date = datetime.fromisoformat(latest["tested_at"])
         days_elapsed = max(1, (latest_date - earliest_date).days)
 
-        initial_score = earliest["total_score"]
-        current_score = latest["total_score"]
+        initial_score = float(earliest["total_score"] or 0)
+        current_score = float(latest["total_score"] or 0)
         score_delta = current_score - initial_score
         delta_per_day = score_delta / days_elapsed
 
-        # Project forward: estimated_final_score = current_score + (delta_per_day × days_to_exam)
-        projected_score = current_score + (delta_per_day * days_to_exam)
+        # Project forward in 0-100 space, then scale to the 0-200 exam total.
+        projected_100 = current_score + (delta_per_day * days_to_exam)
+        final_score_estimate = max(0, min(200, int(projected_100 * 2)))
 
-        # Bound projection to 0-200 range
-        final_score_estimate = max(0, min(200, int(projected_score)))
-
-        # Readiness: P(final_score >= target_score)
-        # Simple heuristic: if projected > target, high confidence; if within 10%, medium; else low
+        # Readiness: P(final_score >= target_score) with target in 0-200 space
         if final_score_estimate >= target_score:
             readiness_pct = min(100, 50 + int(20 * (final_score_estimate - target_score) / 10))
             confidence = "HIGH" if final_score_estimate >= target_score + 20 else "MEDIUM"

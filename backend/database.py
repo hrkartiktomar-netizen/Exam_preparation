@@ -354,6 +354,7 @@ CREATE TABLE IF NOT EXISTS question_attempts (
     time_spent_seconds INTEGER,
     attempt_date TEXT,
     source TEXT,
+    difficulty TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -1065,6 +1066,12 @@ def _ensure_runtime_schema(conn: sqlite3.Connection) -> None:
     for column, column_type in additions.items():
         if column not in question_columns:
             conn.execute(f"ALTER TABLE questions ADD COLUMN {column} {column_type}")
+
+    # Record difficulty at attempt time so accuracy metrics can be computed
+    # per difficulty instead of being confounded by the adaptive mix.
+    attempt_columns = _table_columns(conn, "question_attempts")
+    if "difficulty" not in attempt_columns:
+        conn.execute("ALTER TABLE question_attempts ADD COLUMN difficulty TEXT")
 
 
 def _create_performance_indexes(conn: sqlite3.Connection) -> None:
@@ -2561,8 +2568,8 @@ def record_mock(mock_data: dict[str, Any]) -> None:
                 """
                 INSERT INTO question_attempts
                 (mock_id, question_id, topic, question_text, correct_option, your_option,
-                 is_correct, time_spent_seconds, attempt_date, source)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 is_correct, time_spent_seconds, attempt_date, source, difficulty)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     mock_id,
@@ -2575,6 +2582,7 @@ def record_mock(mock_data: dict[str, Any]) -> None:
                     question.get("time_spent_seconds", 0),
                     mock_data.get("date"),
                     mock_data.get("source", "QRE"),
+                    question.get("difficulty") or "unknown",
                 ),
             )
         total = len(mock_data["questions"])
@@ -3733,8 +3741,8 @@ def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
             conn.execute(
                 """
                 INSERT INTO question_attempts
-                (mock_id, question_id, topic, question_text, correct_option, your_option, is_correct, time_spent_seconds, attempt_date, source)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (mock_id, question_id, topic, question_text, correct_option, your_option, is_correct, time_spent_seconds, attempt_date, source, difficulty)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     mock_id,
@@ -3747,6 +3755,7 @@ def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
                     answer.get("time_spent_seconds", 0),
                     datetime.now().date().isoformat(),
                     "SMART_MOCK",
+                    row["difficulty"] or "unknown",
                 ),
             )
         total_questions = len(question_rows)
@@ -4612,6 +4621,12 @@ def get_user_performance_history(user_id: str, limit: int = 100) -> list[dict[st
     """Get user's historical mock performance (scores over time).
 
     Returns: list of {tested_at, total_score} ordered by date.
+    total_score is always on a consistent 0-100 scale: stored mock_sessions
+    scores are already percentages (submit_mock normalizes to 100), and the
+    fallback computes the session accuracy percentage from its attempts.
+    Previously the fallback mixed a +4/-1 (0-200 scale) formula with the
+    0-100 stored scores, which made readiness projections underestimate
+    strong users by ~2x.
     """
     conn = get_connection()
     conn.row_factory = sqlite3.Row
@@ -4621,7 +4636,11 @@ def get_user_performance_history(user_id: str, limit: int = 100) -> list[dict[st
                    COALESCE(ms.submitted_at, ms.generated_at, ms.started_at) as tested_at,
                    COALESCE(
                        ms.score,
-                       SUM(CASE WHEN qa.is_correct = 1 THEN 4 WHEN qa.is_correct = 0 THEN -1 ELSE 0 END),
+                       ROUND(
+                           100.0 * SUM(CASE WHEN qa.is_correct = 1 THEN 1 ELSE 0 END)
+                           / NULLIF(COUNT(qa.id), 0),
+                           2
+                       ),
                        0
                    ) as total_score
                FROM mock_sessions ms

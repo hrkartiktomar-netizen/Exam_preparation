@@ -4,6 +4,8 @@
 **Method:** every claim below is grounded in measured evidence (grep/wc counts, live endpoint behavior, test results), not impressions.
 **Purpose:** define the highest-leverage logical/coding improvements to move this codebase from "feature-complete skeleton" to the product it declares itself to be: an **AI-powered, source-grounded, daily adaptive study system** (per `memory/FINAL_MAXIMUM_EXTENSIVE_PROJECT_PLAN.md`).
 
+> **v2 addendum (deep re-analysis)** — see §6: three flaws in the *adaptive core itself* (difficulty-confounded weakness, readiness scale conflation, wrong penalty factor) that the first pass missed, with the corrected plan.
+
 ---
 
 ## 1. What the app wants to be (its own words)
@@ -114,6 +116,7 @@ attempt (mock/PYQ/drill) → analytics → weakness score → targeting snapshot
 ### P1-2. Adaptive math upgrades (from the code's own next-upgrade notes)
 **Why:** `_function_improvement_audit` already names these; they directly improve adaptation quality.
 **What:**
+- **Difficulty-adjusted accuracy FIRST** (the deepest adaptive flaw — see §6.1 Flaw 1): compute per-difficulty accuracy from the newly recorded `question_attempts.difficulty`, compare topics only within the same difficulty band, and rebalance the difficulty curve so "strong" topics stop being measured exclusively on easy questions.
 - Bayesian (beta-prior) accuracy smoothing in `calculate_weakness_score` instead of raw ratios (fixes 1/1=100 % noise).
 - Time-normalized per-topic penalty (already partially present via `time_pressure`; extend to trend over attempts).
 - Confidence intervals on weakness scores → `confidence_band` per topic in the snapshot.
@@ -163,8 +166,41 @@ attempt (mock/PYQ/drill) → analytics → weakness score → targeting snapshot
 
 ---
 
-## 5. Guardrails
+## 6. Deep re-analysis addendum (v2) — findings the first pass missed, and why
 
-1. Every phase ends with the 3-step verification used throughout this session (logic checkup → regression/unknown-bug audit → patch audit) before merge.
-2. Any schema change ships with an idempotent, ledgered migration + a data-merge step verified on both a cold-start and a legacy DB.
-3. No feature removal without a grep-verified zero-caller audit (the discipline that caught 3 of my own regressions this session).
+This section is the result of re-interrogating the blueprint *and my own earlier fixes* with the same adversarial standard applied to the original code. It is the most important part of this document: it corrects the plan where the first pass was wrong.
+
+### 6.1 What the first pass missed (self-criticism)
+
+Three critical flaws survived three rounds of bug-hunting because my hunting method was *path-tracing* (does this endpoint crash / return wrong values?) rather than *systems-tracing* (do the units and feedback loops compose?). All three are now fixed in code (see the `fix: adaptive-core correctness` commit) and verified live:
+
+**Flaw 1 — the adaptive loop has a confirmatory difficulty bias (fixed in code).**
+Measured on a fresh database: "weak" topics (pre-ranked by exam weight before any user data exists) are served **6 easy / 12 medium / 12 hard** questions per mock, while "strong" topics get **8 easy / 0 medium / 0 hard**. Accuracy is computed **difficulty-blind** (`question_attempts` had no difficulty column). Consequence: the engine measures weak topics under a harder question mix and strong topics under a trivially easy mix — so the weakness ranking *self-confirms and amplifies* regardless of true ability. This is a flaw in the app's core purpose, more consequential than any crash fixed in rounds 1–3.
+Fix shipped: `question_attempts.difficulty` now records per-question difficulty at attempt time (both smart-mock and uploaded-mock paths). This is the data foundation; §3 P1-2 now leads with difficulty-adjusted accuracy (per-difficulty scoring, or compare only within difficulty) before any Bayesian smoothing.
+
+**Flaw 2 — readiness engine conflated score scales (fixed in code).**
+`submit_mock` stores scores on a **0–100** scale (marks normalized to 100), but `get_user_performance_history` mixed that with a `+4/−1` formula (a **0–200** scale), and `calculate_readiness_estimate` projected the mixture directly against a **0–200** target. Measured: a user scoring 80–82/100 in every mock was told `final_score_estimate: 88/200, readiness: 34%, LOW` — an excellent user systematically told they were failing. Tests were green because no test asserted numeric correctness.
+Fix shipped: history is now uniformly 0–100 (stored scores, or session accuracy percentage as fallback), projected in 0–100 space, and scaled ×2 only at the 0–200 output boundary. Re-verified: the same strong user now gets `176/200, 100%, HIGH`.
+
+**Flaw 3 — PYQ negative marking applied a wrong constant (fixed in code).**
+Round 3 "fixed" PYQ scoring to apply the hardcoded `0.67` penalty — but the app's own exam contract says negative marking is **one-fourth**, and with `marks_per_question = 2` the correct penalty is **0.5**. I had made the code consistent with its own wrong constant instead of with the exam rule — exactly the "ignore the root problem" failure the audit was meant to prevent. Fix shipped: `0.5` advertised and applied (live-verified: 41 wrong → −20.5).
+
+### 6.2 Corrections to the plan
+
+- **§3 P1-2 reordered:** difficulty-adjusted accuracy is now item #1 (the confirmatory bias is the deepest adaptive flaw), ahead of Bayesian smoothing and wrong-answer replay.
+- **§4 sequencing corrected:** cost control (P1-1) must land **before** the adaptive scheduler (P0-1). Autonomous nightly generation without a prompt/response cache and backoff would silently drain API quota — autonomy without cost guardrails is a regression, not a feature.
+- **§2.3 "what is already good" amended:** readiness scoring and PYQ penalty math are no longer "good" — they were broken in ways the original test suite could not see (see Flaws 2–3).
+
+### 6.3 Known imprecisions that remain (honest, unfixed)
+
+- **`last_improved_at` semantics** in `get_weakest_topic_for_user` returns the date of the last *correct* answer, not the last accuracy improvement — an acceptable recency proxy but not what the field name claims; the MOCK decision rule inherits this imprecision.
+- **`mock_sessions.started_at` is set at generation**, not when the attempt begins; the `/api/exams/{id}/submit` timer (403 path) can therefore expire a mock that was generated but never started. Belongs to the P0-3 session-state work.
+- **PYQ attempts do not feed readiness/weakness** (separate tables by design); a candidate who only practices PYQs looks like a no-data user.
+- **Score display inconsistencies** (result page shows /200, dashboard estimate is 0–100, exam modal says +4/−1) remain cosmetic until P0-3's per-paper config lands.
+- **`answers` and `question_attempts` duplicate each other** for smart mocks; consolidation is bundled with P0-2.
+
+### 6.4 Method correction for future rounds
+
+Any future pass must, before shipping, trace **units and feedback loops** end-to-end (score scale → history → projection; difficulty allocation → difficulty-blind metrics → ranking), not just endpoints. The three flaws above were each one unit-trace away and each survived because the tests assert *shape*, not *numbers*.
+
+
