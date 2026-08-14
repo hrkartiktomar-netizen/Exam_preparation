@@ -37,10 +37,15 @@ REM Start backend server
 echo.
 echo Starting FastAPI server...
 echo Server will be available at: http://localhost:8000
-echo Frontend at: file:///D:\Exam_preparation\frontend\index.html
+echo Frontend at: http://localhost:8000
+echo.
+echo NOTE: Open http://localhost:8000 in your browser. The frontend must be served
+echo by the backend (same origin) because it calls the /api endpoints with
+echo relative URLs - opening frontend\index.html directly via file:// cannot reach them.
 echo.
 echo Press Ctrl+C to stop the server
 echo.
 
 cd backend
+start "" http://localhost:8000
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
