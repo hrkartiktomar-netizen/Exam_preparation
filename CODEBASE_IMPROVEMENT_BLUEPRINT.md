@@ -288,6 +288,81 @@ Correct build order is: **policy correctness → measurement → simulation → 
 
 Round 4 found the difficulty confounding and shipped **only the measurement half** (recording difficulty), leaving the difficulty *policy* biased — strong topics were still practiced 100% easy until this round. The rule this violated: *when a measurement reveals a policy defect, fix the policy in the same breath, or state explicitly why not.* The audit's own discipline must apply to the audit's fixes, not only to the original code.
 
+## 8. The epistemic layer — what the system can and cannot know (v4)
+
+### 8.1 The deepest flaw: the measurer constructs the instrument
+
+Trace the knowledge chain end-to-end:
+
+```
+generator (Gemini + heuristics) → questions → difficulty labels (prompt) →
+user answers → accuracy → weakness → policy → generator → ...
+```
+
+**Every link is model-constructed.** The system scores the user on questions it wrote, labeled by difficulty it assigned, then claims "readiness" for an exam it has never observed. This is a self-referential measurement loop: if the generator's notion of "hard" drifts from the real exam's difficulty — or if its questions drift from the real syllabus — the entire adaptive stack faithfully optimizes a fiction. All layers fixed so far (crashes, units, sensors, policy) assume the fiction is close to reality. This layer asks whether that assumption can be tested at all.
+
+**Answer: only against the one ground-truth proxy in the corpus — the keyed real past papers.** They are coaching recollections (imperfect), but they are the only performance evidence not produced by the system's own generator.
+
+### 8.2 What exists today vs. what is needed
+
+| Epistemic asset | Status before this round | Status now |
+|---|---|---|
+| Real-paper questions as a *holdout* (never used for generation, probed periodically as a calibration anchor) | Did not exist | Designed (§8.5); the 4 keyed papers are already separated from generation sources by the `pyq_phase_paper` role, so a holdout split is a data-policy change, not new machinery |
+| Topic labels on real-paper attempts (required to compare instruments per topic) | **Absent** — `pyq_question_attempts` had no topic column, so the ground-truth instrument could not even be compared to internal estimates | **FIXED this round** (commit `deeplink`): Phase-2 questions get their best `PH2_*` match deterministically; Phase-1 questions get `PHASE1_QUANT/REASONING/ENGLISH` pseudo topics (never misattributed to Phase-2 domains); unmatched → `UNCLASSIFIED`; attempts record the label |
+| Instrument cross-validation endpoint (mock accuracy vs real-paper accuracy per topic) | Did not exist | **FIXED this round**: `GET /api/analytics/calibration` returns per-topic mock vs PYQ accuracy, attempts, and `gap_points` (positive = generator overestimates real performance; negative = underestimates), with a ≥5-attempts-per-instrument noise floor. Live-verified on real papers |
+| PYQ calibration rules consumed by generators (`/api/ai/pyq-calibration` output) | **Dead sensor** — computed and thrown away | Wired as the next item (§8.5) — its `difficulty_rules`/`generation_guidelines` must be injected into the question-generation prompt |
+| Difficulty prior honesty | My round-6 "exam-like equal thirds" was asserted as fact | **Corrected this round**: `_difficulty_mix_for_topic` docstring now labels it a UNIFORM PRIOR pending calibration; the code comment no longer claims exam fact |
+
+### 8.3 Cross-validation semantics (the honest reading of the new endpoint)
+
+- `gap_points ≈ 0` on a topic → the generator's difficulty/content is **calibrated** for that topic; internal estimates are defensible.
+- `gap_points ≫ 0` → generated questions are easier than real papers → weakness is **under-reported**; the policy must up-weight that topic's practice and difficulty.
+- `gap_points ≪ 0` → generator is harder than the real exam → confidence is being destroyed (and the confirmatory bias from §7 could masquerade here).
+- Topics with <5 attempts per instrument are **excluded** — reporting a "gap" on noise would be worse than no gap.
+
+This single endpoint converts the app's central unverifiable claim ("readiness") into a verifiable, per-topic statement ("our instrument reads X points above/below the real papers on topic T"). That is the minimum epistemic bar a self-adaptive tutor must clear.
+
+### 8.4 Information-rate matching (why "daily adaptation" is over-promising)
+
+With ~1–2 generated questions per topic per 50-question mock, a per-topic accuracy estimate needs roughly 10–20 mocks to reach ±10% precision. The system's 3-decimal `weakness_score` is **spurious precision on a 4-attempt sample**. The honest architecture separates three timescales:
+
+- **Attention (daily):** what to surface today — driven by due amendments, decay (days since last attempt), SRS schedule. Cheap signals, high freshness.
+- **Estimate (weekly):** topic accuracies and uncertainty intervals recomputed from the week's attempts; UI shows credible intervals, not 3-decimal scalars.
+- **Policy (monthly):** allocation/difficulty parameters re-fit against the simulator + the calibration gaps.
+
+Decision frequency must never exceed estimation rate — otherwise the system reacts to noise and manufactures the very oscillation it then "adapts" to.
+
+### 8.5 Error attribution: what "adaptive" must mean
+
+One scalar (weakness) prescribes one treatment (more questions). But the recorded signals already distinguish five causes of a wrong answer:
+
+| Cause | Signal available today | Treatment |
+|---|---|---|
+| Content gap | wrong + no trap signal + normal time | more source-grounded exposure on the topic |
+| Speed deficit | wrong/correct with high `time_spent_seconds` (or unanswered at cutoff) | timed sets, time-normalized scoring |
+| Trap susceptibility | wrong where `trap_logic` exists and time is normal | discrimination drills over confusion pairs |
+| Forgetting | wrong + long `created_at` gap since last attempt | targeted spaced review (fitted λ, not generic SM-2) |
+| Guessing habit | correct/wrong with very low `time_spent_seconds` on hard questions | negative-marking strategy training (skip-vs-guess EV) |
+
+An attribution query over `question_attempts` (join to `questions.trap_logic`/`difficulty` + time + recency) yields per-cause counts per topic; the planner then prescribes the matching treatment instead of "more of the same." This is the single most differentiating feature the corpus and data already support.
+
+### 8.6 The product-truth re-ranking (self-critique entry #6)
+
+Two honest observations about the whole session's trajectory:
+
+1. **My round-6 "exam-like equal thirds" was an unfounded prior**, committed by me in the very round whose theme was "stop inventing constants." Corrected in code (docstring now says UNIFORM PRIOR) and in plan (calibration pipeline owns it).
+2. **The app's real moat is the curated 126-document corpus, not the adaptation math.** Every "adaptive" claim stands or falls on source quality: dedup (still missing), contradiction detection (missing), taxonomy depth (flat), and the generator's grounding (fixed in earlier rounds). The v1 roadmap put autonomy first; the corrected order is **content integrity → measurement validity → policy → autonomy**, because adapting brilliantly to a corrupt knowledge base is worse than not adapting at all.
+
+### 8.7 Standing checklist (all layers, cumulative)
+
+1. Endpoints: every path returns correct values (rounds 1–3).
+2. Units: scales compose (round 4).
+3. Sensors: every planner input has a live writer (round 5).
+4. Policy: controls conditioned on defensible state variables; priors labeled (rounds 6–7).
+5. Epistemics: the ground-truth instrument is labeled, compared, and the comparison drives calibration (this round).
+
+Any future change must clear all five before merge.
+
 ---
 
-*Blueprint version: v3 (policy layer). Next engineering stage per §7.4: fit the learner model from recorded history and backtest the heuristic policy — every subsequent policy change gets a quantified projected-score delta before it ships.*
+*Blueprint version: v4 (epistemic layer). Next engineering stage per §7.4/§8.5: fit the learner model from recorded history and backtest — plus the PYQ calibration pipeline as the anchor for every internal estimate.*

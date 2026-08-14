@@ -1073,6 +1073,14 @@ def _ensure_runtime_schema(conn: sqlite3.Connection) -> None:
     if "difficulty" not in attempt_columns:
         conn.execute("ALTER TABLE question_attempts ADD COLUMN difficulty TEXT")
 
+    # PYQ attempts carry topic labels so the ground-truth instrument can be
+    # cross-validated against internal estimates (epistemic layer).
+    pyq_attempt_tables = {row["name"] for row in conn.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
+    if "pyq_question_attempts" in pyq_attempt_tables:
+        pyq_cols = _table_columns(conn, "pyq_question_attempts")
+        if "topic_id" not in pyq_cols:
+            conn.execute("ALTER TABLE pyq_question_attempts ADD COLUMN topic_id TEXT")
+
 
 def _create_performance_indexes(conn: sqlite3.Connection) -> None:
     """Create indexes for performance optimization (Week 6).
@@ -1364,6 +1372,7 @@ def _run_migration_005(conn: sqlite3.Connection | None = None) -> None:
         "    pyq_id TEXT NOT NULL,\n"
         "    question_id TEXT NOT NULL,\n"
         "    question_number INTEGER,\n"
+        "    topic_id TEXT,\n"
         "    selected_answer TEXT,\n"
         "    official_answer TEXT,\n"
         "    is_correct BOOLEAN,\n"
@@ -1661,6 +1670,41 @@ def topic_tags_for_text(text: str, title: str = "", category: str = "") -> list[
 
 def topic_display(topic_id: str) -> str:
     return TOPIC_BY_ID.get(topic_id, {}).get("display_name", topic_id)
+
+
+def label_pyq_question_topic(question_text: str, paper_phase: int | None = None) -> str:
+    """Deterministic topic label for a previous-year question.
+
+    Phase-1 papers test quantitative aptitude, reasoning, and English —
+    outside the Phase-2 topic taxonomy — so they get phase-level pseudo
+    topics and are never misattributed to PH2_* domains. Phase-2 papers get
+    their best topic match from TOPIC_DEFINITIONS keywords; unmatched
+    questions are labeled UNCLASSIFIED rather than forced into a domain.
+    """
+    text = re.sub(r"\s+", " ", question_text or "").lower()
+    if not text:
+        return "UNCLASSIFIED"
+    if paper_phase == 1:
+        if re.search(r"[0-9]", text) and re.search(
+            r"[%√×÷+=]|approx|value of|ratio|average|interest|speed|time and work|profit|loss",
+            text,
+        ):
+            return "PHASE1_QUANT"
+        if any(
+            token in text
+            for token in [
+                "synonym", "antonym", "passage", "comprehension", "fill in the blank",
+                "spelling", "grammatically", "sentence correction", "cloze", "idiom",
+            ]
+        ):
+            return "PHASE1_ENGLISH"
+        return "PHASE1_REASONING"
+    scored = topic_tags_for_text(text)
+    # topic_tags_for_text returns a 0.2-confidence fallback when nothing
+    # matches; only accept a real keyword hit (>= 0.3 confidence).
+    if scored and scored[0][1] >= 0.3:
+        return scored[0][0]
+    return "UNCLASSIFIED"
 
 
 def ingest_documents(force: bool = False, limit: int | None = None) -> dict[str, Any]:
@@ -2812,7 +2856,14 @@ def _difficulty_mix_for_topic(topic_qs: int, attempts: int = 0) -> list[str]:
       - 1 question: medium
       - 2 questions: easy + (hard once the topic has history, else medium)
       - seen < 5: easy-heavy scaffold (2/3 easy, then medium, then hard)
-      - seen >= 5: exam-like equal thirds (easy/medium/hard)
+      - seen >= 5: equal thirds across easy/medium/hard
+
+    NOTE ON THE PRIOR: the real IFSCA exam's difficulty distribution is not
+    published. The equal-thirds mix for seen>=5 topics is a UNIFORM PRIOR —
+    an explicit modeling assumption, not an exam fact. It must be calibrated
+    from real-paper evidence via the PYQ calibration pipeline
+    (/api/ai/pyq-calibration output, currently unused by generators) and the
+    instrument cross-validation endpoint (/api/analytics/calibration).
 
     Conditioning on attempts (a real state variable) instead of weakness
     rank (a confounded scalar) removes the confirmatory bias where strong

@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS pyq_question_attempts (
     pyq_id TEXT NOT NULL,
     question_id TEXT NOT NULL,
     question_number INTEGER,
+    topic_id TEXT,
     selected_answer TEXT,
     official_answer TEXT,
     is_correct BOOLEAN,

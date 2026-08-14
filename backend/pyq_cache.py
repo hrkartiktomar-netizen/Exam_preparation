@@ -16,7 +16,7 @@ _cache: dict[str, dict[str, Any]] = {}
 _CACHE_TTL_SECONDS = 2 * 60 * 60  # 2 hours
 
 
-def cache_pyq_questions(pyq_id: str, questions: list[Any], title: str | None = None) -> None:
+def cache_pyq_questions(pyq_id: str, questions: list[Any], title: str | None = None, topics: dict[int, str] | None = None) -> None:
     """
     Store parsed questions in memory cache.
 
@@ -24,10 +24,13 @@ def cache_pyq_questions(pyq_id: str, questions: list[Any], title: str | None = N
         pyq_id: PYQ session identifier (e.g., "PYQ_doc_xxx")
         questions: List of ParsedQuestion objects
         title: Paper title, carried through to the submit endpoint for session records
+        topics: Optional {question_number: topic_label} map used to record
+            topic labels on attempts (epistemic cross-validation layer)
     """
     _cache[pyq_id] = {
         "questions": questions,
         "title": title,
+        "topics": topics or {},
         "timestamp": time.time(),
     }
 
@@ -62,6 +65,17 @@ def get_pyq_title(pyq_id: str) -> str | None:
         del _cache[pyq_id]
         return None
     return entry.get("title")
+
+
+def get_pyq_topics(pyq_id: str) -> dict[int, str]:
+    """Return the cached {question_number: topic_label} map, if present."""
+    entry = _cache.get(pyq_id)
+    if not entry:
+        return {}
+    if time.time() - entry["timestamp"] > _CACHE_TTL_SECONDS:
+        del _cache[pyq_id]
+        return {}
+    return entry.get("topics") or {}
 
 
 def clear_pyq_cache(pyq_id: str | None = None) -> None:

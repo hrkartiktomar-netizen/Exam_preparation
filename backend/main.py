@@ -6,6 +6,7 @@ import asyncio
 from contextlib import asynccontextmanager
 from datetime import datetime, timedelta
 import json
+import re
 from pathlib import Path as PathLib
 from typing import Any
 
@@ -1179,15 +1180,15 @@ async def list_pyq_papers():
                     if part.isdigit() and len(part) == 4 and i > 0:
                         year = int(part)
                     if part == "phase" and i + 1 < len(parts):
-                        try:
-                            phase = int(parts[i + 1])
-                        except (TypeError, ValueError):
-                            pass
-                    if part == "paper" and i + 1 < len(parts):
-                        try:
-                            paper = int(parts[i + 1])
-                        except (TypeError, ValueError):
-                            pass
+                        # Handle forms like "1-question" after "phase"
+                        digits = re.match(r"\d+", parts[i + 1])
+                        if digits:
+                            phase = int(digits.group(0))
+                    if (part == "paper" or part.endswith("-paper")) and i + 1 < len(parts):
+                        # Handle forms like "1.pdf" after "paper"/"question-paper"
+                        digits = re.match(r"\d+", parts[i + 1])
+                        if digits:
+                            paper = int(digits.group(0))
 
                 papers.append({
                     "pyq_doc_id": doc["document_id"],
@@ -1251,7 +1252,25 @@ async def load_pyq_paper(doc_id: str):
         # slugify lowercases the id, so the "_Q{n}" suffix in submit stays
         # unambiguous (no uppercase Q can appear inside the slug).
         pyq_id = f"PYQ_{db.slugify(doc_id)}"
-        pyq_cache.cache_pyq_questions(pyq_id, parsed_questions, title=doc["title"])
+
+        # Determine the paper phase from the title so Phase-1 papers
+        # (quant/reasoning/English) are labeled with phase-level pseudo
+        # topics instead of being forced into Phase-2 domain topics.
+        title_lower = (doc["title"] or "").lower()
+        paper_phase = None
+        if "phase 1" in title_lower or "phase_1" in title_lower:
+            paper_phase = 1
+        elif "phase 2" in title_lower or "phase_2" in title_lower:
+            paper_phase = 2
+
+        # Label every parsed question so attempts carry a topic label and the
+        # ground-truth instrument can be cross-validated against internal
+        # estimates (epistemic layer).
+        topic_labels = {
+            pq.question_number: db.label_pyq_question_topic(pq.question_text, paper_phase=paper_phase)
+            for pq in parsed_questions
+        }
+        pyq_cache.cache_pyq_questions(pyq_id, parsed_questions, title=doc["title"], topics=topic_labels)
 
         # Format questions for frontend response
         # Note: Correct answers are stored in cache, not sent to frontend (blind submission)
@@ -1261,6 +1280,7 @@ async def load_pyq_paper(doc_id: str):
                 "question_id": f"{pyq_id}_Q{pq.question_number}",
                 "question_number": pq.question_number,
                 "question_text": pq.question_text,
+                "topic": topic_labels.get(pq.question_number, "UNCLASSIFIED"),
                 "options": [
                     {"label": label, "text": text}
                     for label, text in pq.options.items()
@@ -1307,6 +1327,7 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
         # Format of question_id from frontend is: "PYQ_<slug>_Q{question_number}"
         answer_map = {q.question_number: q.correct_answer for q in cached_questions}
         paper_title = pyq_cache.get_pyq_title(pyq_id) or pyq_id
+        topic_labels = pyq_cache.get_pyq_topics(pyq_id)
         submitted_answers = [answer.model_dump() for answer in request.answers]
 
         conn = db.get_connection()
@@ -1370,14 +1391,15 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                 conn.execute(
                     """
                     INSERT OR REPLACE INTO pyq_question_attempts
-                    (attempt_id, pyq_id, question_id, question_number, selected_answer, official_answer, is_correct, time_spent_seconds, marked_for_review)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    (attempt_id, pyq_id, question_id, question_number, topic_id, selected_answer, official_answer, is_correct, time_spent_seconds, marked_for_review)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
                         f"{pyq_id}_Q{q_number}",
                         pyq_id,
                         question_id,
                         q_number,
+                        topic_labels.get(q_number),
                         selected,
                         correct_answer,
                         int(is_correct),
@@ -1461,11 +1483,88 @@ async def get_pyq_analytics():
                 "status": "ok",
                 "attempts": [dict(att) for att in attempts],
                 "total_pyq_attempts": len(attempts),
+                "topic_breakdown": [
+                    dict(row)
+                    for row in conn.execute(
+                        """SELECT topic_id, COUNT(*) AS total, SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) AS correct
+                           FROM pyq_question_attempts
+                           WHERE topic_id IS NOT NULL
+                           GROUP BY topic_id
+                           ORDER BY total DESC"""
+                    ).fetchall()
+                ],
             }
         finally:
             conn.close()
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/analytics/calibration")
+async def instrument_calibration():
+    """Cross-validate the internal instrument (generated mocks) against the
+    ground-truth instrument (real previous-year papers) per topic.
+
+    Returns per-topic accuracy from both instruments plus the gap. A large
+    positive gap (mock accuracy >> PYQ accuracy) means generated questions
+    overestimate real performance for that topic; a negative gap means the
+    generator underestimates. Topics need >= 5 attempts on each instrument
+    to be included — below that the estimates are noise.
+    """
+    conn = db.get_connection()
+    try:
+        mock_rows = {
+            row["topic"]: {
+                "total": row["total"],
+                "correct": row["correct"],
+                "accuracy": round(100.0 * row["correct"] / row["total"], 1) if row["total"] else 0.0,
+            }
+            for row in conn.execute(
+                """SELECT topic, COUNT(*) AS total, SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) AS correct
+                   FROM question_attempts
+                   WHERE topic IS NOT NULL
+                   GROUP BY topic"""
+            ).fetchall()
+        }
+        pyq_rows = {
+            row["topic_id"]: {
+                "total": row["total"],
+                "correct": row["correct"],
+                "accuracy": round(100.0 * row["correct"] / row["total"], 1) if row["total"] else 0.0,
+            }
+            for row in conn.execute(
+                """SELECT topic_id, COUNT(*) AS total, SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) AS correct
+                   FROM pyq_question_attempts
+                   WHERE topic_id IS NOT NULL
+                   GROUP BY topic_id"""
+            ).fetchall()
+        }
+    finally:
+        conn.close()
+
+    rows = []
+    for topic_id in sorted(set(mock_rows) & set(pyq_rows)):
+        mock = mock_rows[topic_id]
+        pyq = pyq_rows[topic_id]
+        if mock["total"] < 5 or pyq["total"] < 5:
+            continue
+        rows.append(
+            {
+                "topic_id": topic_id,
+                "mock_accuracy": mock["accuracy"],
+                "mock_attempts": mock["total"],
+                "pyq_accuracy": pyq["accuracy"],
+                "pyq_attempts": pyq["total"],
+                "gap_points": round(mock["accuracy"] - pyq["accuracy"], 1),
+            }
+        )
+    rows.sort(key=lambda row: abs(row["gap_points"]), reverse=True)
+    return {
+        "status": "ok",
+        "note": "Positive gap = generated mocks overestimate real-paper performance; negative = underestimate. Topics need >= 5 attempts per instrument.",
+        "comparable_topics": len(rows),
+        "topics": rows,
+    }
 
 
 # ========== ADMIN: MATERIAL MANAGEMENT ENDPOINTS ==========
