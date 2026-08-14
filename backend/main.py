@@ -26,7 +26,6 @@ import law_revision_engine
 import recommendation_engine
 import readiness_engine
 import error_handling
-import input_validation
 import gemini_integration
 import pyq_parser
 import pyq_cache
@@ -983,11 +982,26 @@ async def exam_start(request: SmartMockRequestModel | None = None):
         # Add missing Phase 3 fields per audit.
         # NOTE: item assignment (question["expected_time_sec"] = ...) on a Pydantic
         # model raises TypeError, which made /api/exams/start fail with 500 every time.
+        # The response is BLIND: the answer key (correct_option/explanation/source
+        # citation) is stripped so the exam cannot be answered from the payload.
         question_payload = []
         for question in questions:
             payload = question.model_dump()
             payload["expected_time_sec"] = 180  # 3 minutes per question
             payload["negative_marking"] = -1    # -1 for wrong answer
+            for answer_key_field in (
+                "correct_option",
+                "explanation",
+                "source",
+                "source_document_id",
+                "source_chunk_id",
+                "page_start",
+                "page_end",
+                "citation_note",
+                "tested_fact",
+                "trap_logic",
+            ):
+                payload.pop(answer_key_field, None)
             question_payload.append(payload)
 
         return {
@@ -1267,6 +1281,13 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
             # pyq_source_doc_id stays 0 (placeholder): the legacy FK to
             # source_documents was removed by _repair_pyq_schema in database.py.
             session_id = pyq_id
+            # Carry the paper title into the session row (PYQ_DOC{doc_id} -> documents.title)
+            doc_id = pyq_id.removeprefix("PYQ_DOC")
+            title_row = conn.execute(
+                "SELECT title FROM documents WHERE document_id = ? LIMIT 1",
+                (doc_id,),
+            ).fetchone()
+            pyq_title = title_row["title"] if title_row else pyq_id
             conn.execute(
                 """
                 INSERT INTO pyq_sessions
@@ -1274,7 +1295,7 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                 VALUES (?, 0, ?, datetime('now'), datetime('now'), 'completed')
                 ON CONFLICT DO UPDATE SET status = 'completed'
                 """,
-                (session_id, pyq_id)
+                (session_id, pyq_title)
             )
 
             # Idempotency: replace any previous attempt rows for this session
@@ -1790,8 +1811,10 @@ async def amendments_status():
             "SELECT MAX(polled_at) as last_polled FROM amendment_source_polls WHERE status = 'success'"
         ).fetchone()
 
-        # Count new amendments this week
-        week_ago = (datetime.now() - timedelta(days=7)).isoformat()
+        # Count new amendments this week.
+        # created_at is a SQLite TIMESTAMP ('YYYY-MM-DD HH:MM:SS'); an ISO 'T'
+        # cutoff string excluded boundary rows ('T' > ' ' in string comparison).
+        week_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d %H:%M:%S")
         new_count = conn.execute(
             "SELECT COUNT(*) as count FROM amendments WHERE created_at > ?",
             (week_ago,),
@@ -2029,10 +2052,13 @@ async def generate_study_path_endpoint(weak_topics: list[str] = Query(default=[]
         # Generate study path via Gemini
         path_data = gemini_integration.generate_personalized_study_path(weak_topics, exam_date)
 
-        # Persist to database
-        path_id = db.create_study_path(exam_date, weak_topics)
+        # Persist the EXACT weeks being returned (previously the deterministic
+        # fallback weeks were persisted while the Gemini weeks were returned, so
+        # /api/study-paths/current showed a different plan than the one generated).
+        weeks_data = path_data.get("weeks", [])
+        path_id = db.create_study_path(exam_date, weak_topics, weeks=weeks_data)
 
-        weeks = [StudyPathWeekModel(**w) for w in path_data.get("weeks", [])]
+        weeks = [StudyPathWeekModel(**w) for w in weeks_data]
         return StudyPathModel(
             path_id=path_id,
             exam_date=exam_date,

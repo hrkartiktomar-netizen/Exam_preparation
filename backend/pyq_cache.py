@@ -13,7 +13,10 @@ from typing import Any
 
 # Format: {pyq_id: {"questions": [ParsedQuestion...], "timestamp": unix_time}}
 _cache: dict[str, dict[str, Any]] = {}
-_CACHE_TTL_SECONDS = 900  # 15 minutes
+# The PYQ exam timer is 60 minutes; a 15-minute cache TTL expired sessions
+# mid-exam ("session expired, please reload"). 2h comfortably covers a full
+# attempt plus review time.
+_CACHE_TTL_SECONDS = 7200  # 2 hours
 
 
 def cache_pyq_questions(pyq_id: str, questions: list[Any]) -> None:

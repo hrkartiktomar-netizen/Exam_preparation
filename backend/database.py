@@ -624,6 +624,9 @@ def get_connection() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
+    # Avoid immediate "database is locked" errors under concurrent request handling
+    # (background job queue + scheduler + request handlers share one SQLite file).
+    conn.execute("PRAGMA busy_timeout = 30000")
     return conn
 
 
@@ -748,6 +751,28 @@ def _categorize_materials(conn: sqlite3.Connection) -> None:
     try:
         cursor = conn.cursor()
 
+        # Fast path: this function runs inside init_db(), which is invoked by many
+        # endpoints (search_sources, save_question, record_mock, dashboard_data, ...).
+        # When nothing is uncategorized, the no-op cost must stay at three COUNTs and
+        # zero UPDATEs, otherwise every request pays a 150-row scan plus updates.
+        #
+        # A pass is needed when:
+        #  - any document has no role (NULL/''), or
+        #  - documents exist but NONE has a non-default role. Fresh ingestion inserts
+        #    rows with the column DEFAULT 'supporting_material', so on a brand-new
+        #    database every document is 'supporting_material' and the first pass must
+        #    still run to assign the real roles (pyq papers, regulatory core, ...).
+        unset = cursor.execute(
+            "SELECT COUNT(*) FROM documents WHERE source_role IS NULL OR source_role = ''"
+        ).fetchone()[0]
+        total = cursor.execute("SELECT COUNT(*) FROM documents").fetchone()[0]
+        non_default = cursor.execute(
+            "SELECT COUNT(*) FROM documents WHERE source_role IN ('pyq_phase_paper', 'regulatory_core', 'amendment_tracking', 'essay_examples')"
+        ).fetchone()[0]
+        legacy_count = cursor.execute("SELECT COUNT(*) FROM source_documents").fetchone()[0]
+        if unset == 0 and legacy_count == 0 and not (total > 0 and non_default == 0):
+            return
+
         # Legacy table (only populated on databases created by the old ingestion path)
         cursor.execute("SELECT doc_id, name FROM source_documents")
         docs = cursor.fetchall()
@@ -779,11 +804,9 @@ def _categorize_materials(conn: sqlite3.Connection) -> None:
 
         conn.commit()
 
-        # Log categorization summary
+        # Log categorization summary (only reached when a real pass ran)
+        print("  Material categorization complete:")
         for role in ["pyq_phase_paper", "regulatory_core", "amendment_tracking", "essay_examples", "supporting_material"]:
-            cursor.execute("SELECT COUNT(*) FROM source_documents WHERE source_role = ?", (role,))
-            count = cursor.fetchone()[0]
-            print(f"  {role}: {count} documents")
             cursor.execute("SELECT COUNT(*) FROM documents WHERE source_role = ?", (role,))
             count = cursor.fetchone()[0]
             print(f"  documents.{role}: {count}")
@@ -835,7 +858,18 @@ def _run_migration_004(conn: sqlite3.Connection | None = None) -> None:
             conn.close()
 
 
+_INITIALIZED_DB_PATHS: set[str] = set()
+
+
 def init_db() -> None:
+    # Guard: migrations/schema work only needs to run once per database file.
+    # init_db() is called by many endpoints (search_sources, save_question,
+    # record_mock, dashboard_data, ...); without this guard every request re-ran
+    # migration scripts, index creation and topic seeding. If the DB file is
+    # deleted while the process lives, the exists() check forces a full re-init.
+    db_key = str(DB_PATH.resolve())
+    if db_key in _INITIALIZED_DB_PATHS and DB_PATH.exists():
+        return
     conn = get_connection()
     conn.executescript(SCHEMA)
     _ensure_runtime_schema(conn)
@@ -857,10 +891,19 @@ def init_db() -> None:
 
     # Run Phase 4 migration (material categorization)
     try:
-        # First populate source_role on documents table from source_documents
-        _populate_source_role_on_documents(conn)
-        # Then categorize source_documents itself
+        # Order matters: _run_migration_004 creates source_documents.source_role and
+        # categorizes BOTH tables. Running _populate_source_role_on_documents first
+        # used to fail on fresh databases ("no such column: sd.source_role"), roll
+        # back the ALTER it had just made, and leave documents uncategorized until
+        # the second init_db() call.
         _run_migration_004(conn)
+        # Legacy bridge: only meaningful when the legacy table actually has rows.
+        # On fresh installs source_documents is empty, and running it would NULL out
+        # documents.source_role for every doc still marked 'supporting_material'
+        # (empty scalar subquery -> NULL) on every init_db() call.
+        legacy_docs = conn.execute("SELECT COUNT(*) FROM source_documents").fetchone()[0]
+        if legacy_docs:
+            _populate_source_role_on_documents(conn)
     except Exception as e:
         print(f"Phase 4 migration error: {e}")
 
@@ -872,6 +915,7 @@ def init_db() -> None:
         print(f"PYQ schema repair error: {e}")
 
     conn.close()
+    _INITIALIZED_DB_PATHS.add(db_key)
 
 
 def _table_columns(conn: sqlite3.Connection, table_name: str) -> set[str]:
@@ -890,6 +934,14 @@ def _ensure_runtime_schema(conn: sqlite3.Connection) -> None:
     for column, column_type in additions.items():
         if column not in question_columns:
             conn.execute(f"ALTER TABLE questions ADD COLUMN {column} {column_type}")
+
+    # documents.source_role is consumed by _categorize_materials / the PYQ and admin
+    # endpoints. Creating it here (before the Phase 4 migration runs) makes the first
+    # init_db() on a fresh database fully successful instead of erroring once and
+    # self-healing only on the second call.
+    doc_columns = _table_columns(conn, "documents")
+    if "source_role" not in doc_columns:
+        conn.execute("ALTER TABLE documents ADD COLUMN source_role TEXT DEFAULT 'supporting_material'")
 
 
 def _repair_pyq_schema(conn: sqlite3.Connection) -> None:
@@ -997,6 +1049,9 @@ def _create_performance_indexes(conn: sqlite3.Connection) -> None:
     - question_id for source lookups
     """
     try:
+        before = conn.execute(
+            "SELECT COUNT(*) FROM sqlite_master WHERE type = 'index' AND name LIKE 'idx_%'"
+        ).fetchone()[0]
         # Dashboard load optimization: weak area detection
         conn.execute(
             "CREATE INDEX IF NOT EXISTS idx_attempts_topic_correct "
@@ -1047,7 +1102,14 @@ def _create_performance_indexes(conn: sqlite3.Connection) -> None:
         )
 
         conn.commit()
-        print("[OK] Performance indexes created successfully")
+        # Only log when new indexes were actually created; this function runs inside
+        # init_db() which is called by many endpoints, so unconditional logging
+        # spammed one line per request.
+        after = conn.execute(
+            "SELECT COUNT(*) FROM sqlite_master WHERE type = 'index' AND name LIKE 'idx_%'"
+        ).fetchone()[0]
+        if after > before:
+            print(f"[OK] Created {after - before} performance indexes")
     except sqlite3.OperationalError as e:
         # Indexes may already exist; this is not an error
         if "already exists" in str(e).lower():
@@ -1610,6 +1672,13 @@ def ingest_documents(force: bool = False, limit: int | None = None) -> dict[str,
             except Exception as exc:
                 errors.append(f"{txt_path.name}: {exc}")
         conn.commit()
+
+        # Categorize immediately so roles (pyq_phase_paper, regulatory_core, ...) are
+        # correct right after ingestion instead of waiting for the next init_db().
+        try:
+            _categorize_materials(conn)
+        except Exception as exc:
+            errors.append(f"material categorization: {exc}")
     finally:
         conn.close()
 
@@ -2677,8 +2746,25 @@ def get_smart_mock_config(total_questions: int = 50, mode: str = "balanced") -> 
     for item in strong_topics:
         topic = item["topic"]
         topic_qs = allocation.get(topic, 0)
-        # For strong topics: all easy (confidence building)
-        difficulty_curve[topic] = ["easy"] * topic_qs
+        # For strong topics: practice only "easy" questions confounds the weakness
+        # signal (accuracy looks high because the items are trivial). Topics with
+        # enough attempt history get an exam-like easy/medium/hard mix; low-attempt
+        # topics keep light scaffolding so measurement stays meaningful.
+        attempts = int(item.get("total_seen", 0) or 0)
+        if attempts >= 10:
+            easy_count = round(topic_qs * 0.3)
+            hard_count = round(topic_qs * 0.3)
+            medium_count = topic_qs - easy_count - hard_count
+            difficulty_curve[topic] = (
+                ["easy"] * easy_count
+                + ["medium"] * medium_count
+                + ["hard"] * hard_count
+            )
+        elif attempts >= 3:
+            easy_count = topic_qs // 2
+            difficulty_curve[topic] = ["easy"] * easy_count + ["medium"] * (topic_qs - easy_count)
+        else:
+            difficulty_curve[topic] = ["medium"] * topic_qs
 
     return {
         "ranked_topics": ranked,
@@ -3938,10 +4024,21 @@ def dashboard_data() -> dict[str, Any]:
         conn.close()
 
     ingestion = get_ingestion_status()
+    # estimated_score must be performance-only: the old formula summed accuracy
+    # with library/amendment/essay bonuses, so a user with ZERO attempts saw an
+    # "Est. Score" of ~19/100 purely from corpus size. Resource health is
+    # reported separately so the dashboard can distinguish the two.
+    estimated_score = round(overall_accuracy, 2)
     source_readiness = 10 if ingestion["documents"] >= 100 else 5 if ingestion["documents"] else 0
     amendment_bonus = min(10, len(amendments) * 0.6)
     essay_bonus = min(10, essay_avg * 0.10)
-    estimated_score = min(100, round((overall_accuracy * 0.70) + source_readiness + amendment_bonus + essay_bonus, 2))
+    resource_health = {
+        "source_readiness": source_readiness,
+        "amendment_bonus": round(amendment_bonus, 2),
+        "essay_bonus": round(essay_bonus, 2),
+        "documents_indexed": ingestion["documents"],
+        "amendments_tracked": len(amendments),
+    }
 
     if ingestion["documents"] == 0:
         action = "Ingest the source corpus before generating serious mocks."
@@ -3961,6 +4058,7 @@ def dashboard_data() -> dict[str, Any]:
         "total_questions_attempted": total_attempts,
         "overall_accuracy": overall_accuracy,
         "estimated_score": estimated_score,
+        "resource_health": resource_health,
         "confidence_band": "low" if total_attempts < 100 else "medium" if total_attempts < 500 else "higher",
         "weak_topics": weak_topics,
         "topic_heatmap": topic_heatmap,
@@ -4040,11 +4138,20 @@ def get_analytics_timeline(limit: int = 10) -> list[dict[str, Any]]:
 
 
 def schedule_topic_review(topic_id: str, interval_days: int = 1) -> str:
-    """Schedule topic for spaced repetition review."""
+    """Schedule topic for spaced repetition review.
+
+    Keeps exactly ONE row per topic: re-scheduling replaces the previous row.
+    Previously every call appended a row, so repeated scheduling accumulated
+    duplicate review items for the same topic.
+    """
     conn = get_connection()
     try:
         review_id = f"SRS_{topic_id}_{int(datetime.now().timestamp())}"
         due_at = (datetime.now() + timedelta(days=interval_days)).isoformat()
+        conn.execute(
+            "DELETE FROM review_items WHERE item_type = 'topic' AND topic_id = ?",
+            (topic_id,),
+        )
         conn.execute(
             """INSERT INTO review_items (review_id, item_type, item_id, topic_id, due_at, interval_days, ease)
                VALUES (?, ?, ?, ?, ?, ?, ?)""",
@@ -4077,7 +4184,12 @@ def get_due_topics(conn: sqlite3.Connection | None = None) -> list[dict[str, Any
 
 
 def mark_topic_reviewed(topic_id: str, success: bool = True) -> None:
-    """Mark topic as reviewed and reschedule if needed. Per Context7 docs: proper error handling with try/finally."""
+    """Mark topic as reviewed and reschedule if needed.
+
+    Only the soonest-due row for the topic is updated, and stale duplicate rows
+    are removed. Previously the UPDATE touched EVERY row for the topic, so one
+    completion wiped the per-item scheduling state of all duplicates.
+    """
     conn = get_connection()
     try:
         ease = 2.5
@@ -4086,39 +4198,65 @@ def mark_topic_reviewed(topic_id: str, success: bool = True) -> None:
             ease = 2.8
             next_interval = 3
         next_due = (datetime.now() + timedelta(days=next_interval)).isoformat()
-        conn.execute(
-            """UPDATE review_items SET due_at = ?, ease = ?, last_result = ?, interval_days = ?
-               WHERE topic_id = ? AND item_type = 'topic'""",
-            (next_due, ease, "success" if success else "retry", next_interval, topic_id)
-        )
+        target = conn.execute(
+            """SELECT review_id FROM review_items
+               WHERE topic_id = ? AND item_type = 'topic'
+               ORDER BY due_at ASC LIMIT 1""",
+            (topic_id,),
+        ).fetchone()
+        if target:
+            conn.execute(
+                """UPDATE review_items SET due_at = ?, ease = ?, last_result = ?, interval_days = ?
+                   WHERE review_id = ?""",
+                (next_due, ease, "success" if success else "retry", next_interval, target["review_id"])
+            )
+            conn.execute(
+                """DELETE FROM review_items
+                   WHERE topic_id = ? AND item_type = 'topic' AND review_id != ?""",
+                (topic_id, target["review_id"]),
+            )
         conn.commit()
     finally:
         conn.close()
 
 
-def create_study_path(exam_date: str, weak_topics: list[str], amendments_count: int = 0) -> str:
-    """Generate personalized 12-week study path based on weakness and exam date."""
+def create_study_path(exam_date: str, weak_topics: list[str], amendments_count: int = 0, weeks: list[dict[str, Any]] | None = None) -> str:
+    """Generate personalized 12-week study path based on weakness and exam date.
+
+    When `weeks` is provided (e.g. the plan returned by Gemini), it is persisted
+    EXACTLY as given so GET /api/study-paths/current matches what the generate
+    endpoint returned. Previously the endpoint returned Gemini weeks but the DB
+    stored a separate deterministic plan, so the dashboard showed a different
+    plan than the one just generated.
+    """
     conn = get_connection()
     try:
         path_id = f"PATH_{uuid.uuid4().hex[:12]}"
-        weeks_data = []
-        weak_list = list(weak_topics[:3])  # Convert to list, not set
+        if weeks:
+            weeks_data = []
+            for week in weeks:
+                normalized = dict(week)
+                normalized.setdefault("status", "not_started")
+                weeks_data.append(normalized)
+        else:
+            weeks_data = []
+            weak_list = list(weak_topics[:3])  # Convert to list, not set
 
-        for week in range(1, 13):
-            if week <= 4:
-                focus = weak_list + ["PH2_IFSCA_ACT", "PH2_BANKING"]
-            elif week <= 8:
-                focus = weak_list + ["PH2_FM_REGS", "PH2_CAPITAL"]
-            else:
-                focus = weak_list if weak_list else ["PH2_PAYMENT", "PH2_AML_KYC"]
+            for week_number in range(1, 13):
+                if week_number <= 4:
+                    focus = weak_list + ["PH2_IFSCA_ACT", "PH2_BANKING"]
+                elif week_number <= 8:
+                    focus = weak_list + ["PH2_FM_REGS", "PH2_CAPITAL"]
+                else:
+                    focus = weak_list if weak_list else ["PH2_PAYMENT", "PH2_AML_KYC"]
 
-            weeks_data.append({
-                "week": week,
-                "focus_topics": focus[:5],
-                "daily_questions": 20 + (week % 3) * 5,
-                "milestone": f"Complete {5 - (week // 3)} topics" if week < 12 else "Final revision",
-                "status": "not_started"
-            })
+                weeks_data.append({
+                    "week": week_number,
+                    "focus_topics": focus[:5],
+                    "daily_questions": 20 + (week_number % 3) * 5,
+                    "milestone": f"Complete {5 - (week_number // 3)} topics" if week_number < 12 else "Final revision",
+                    "status": "not_started"
+                })
 
         conn.execute(
             "INSERT INTO study_paths (path_id, exam_date, weeks_json, milestone_count) VALUES (?, ?, ?, ?)",
@@ -4260,7 +4398,9 @@ def get_high_yield_provisions(limit: int = 15) -> list[dict[str, Any]]:
                    questions_needed
                FROM amendments
                WHERE drilled = FALSE
-               ORDER BY created_at DESC, priority DESC
+               ORDER BY created_at DESC,
+                 CASE priority WHEN 'CRITICAL' THEN 0 WHEN 'HIGH' THEN 1
+                               WHEN 'NORMAL' THEN 2 WHEN 'LOW' THEN 3 ELSE 4 END
                LIMIT ?""",
             (limit,)
         ).fetchall()
@@ -4302,7 +4442,9 @@ def get_recent_amendments(days_back: int = 30, limit: int = 20) -> list[dict[str
     conn = get_connection()
     conn.row_factory = sqlite3.Row
     try:
-        cutoff_date = (datetime.now() - timedelta(days=days_back)).isoformat()
+        # created_at is a SQLite TIMESTAMP ('YYYY-MM-DD HH:MM:SS'); comparing against
+        # an ISO 'T' cutoff string used to exclude boundary rows ('T' > ' ').
+        cutoff_date = (datetime.now() - timedelta(days=days_back)).strftime("%Y-%m-%d %H:%M:%S")
         rows = conn.execute(
             """SELECT
                    amendment_id,
@@ -4317,7 +4459,10 @@ def get_recent_amendments(days_back: int = 30, limit: int = 20) -> list[dict[str
                    created_at
                FROM amendments
                WHERE created_at >= ?
-               ORDER BY priority DESC, created_at DESC
+               ORDER BY
+                 CASE priority WHEN 'CRITICAL' THEN 0 WHEN 'HIGH' THEN 1
+                               WHEN 'NORMAL' THEN 2 WHEN 'LOW' THEN 3 ELSE 4 END,
+                 created_at DESC
                LIMIT ?""",
             (cutoff_date, limit)
         ).fetchall()
@@ -4338,7 +4483,9 @@ def get_amendments_for_topic_count(topic: str) -> int:
     """
     conn = get_connection()
     try:
-        cutoff_date = (datetime.now() - timedelta(days=30)).isoformat()
+        # Match SQLite TIMESTAMP format ('YYYY-MM-DD HH:MM:SS'); ISO 'T' cutoffs
+        # excluded boundary rows created on the cutoff instant.
+        cutoff_date = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d %H:%M:%S")
         row = conn.execute(
             "SELECT COUNT(*) as cnt FROM amendments WHERE topic = ? AND created_at >= ?",
             (topic, cutoff_date)
