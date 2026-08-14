@@ -1771,6 +1771,13 @@ def ingest_documents(force: bool = False, limit: int | None = None) -> dict[str,
                     conn.commit()
             except Exception as exc:
                 errors.append(f"{txt_path.name}: {exc}")
+        # Classify source roles AFTER ingestion: on a first-ever boot init_db()
+        # runs before any documents exist, so categorizing there alone leaves
+        # every ingested row at the default role.
+        try:
+            _categorize_documents_by_name(conn)
+        except Exception as exc:
+            errors.append(f"role categorization: {exc}")
         conn.commit()
     finally:
         conn.close()

@@ -40,6 +40,33 @@ class QuestionModel(BaseModel):
     source_policy: str | None = None
 
 
+class ExamQuestionModel(BaseModel):
+    """Blind question payload for live exam papers.
+
+    Deliberately omits every answer-revealing field (correct_option,
+    explanation, tested_fact, trap_logic) so that a question delivered
+    through a response model typed with ExamQuestionModel can never leak
+    the answer key. Scoring happens server-side against the recorded bank.
+    """
+
+    question_id: str
+    topic: str
+    question_text: str = Field(min_length=1)
+    options: list[OptionModel] = Field(min_length=4, max_length=4)
+    source: str | None = None
+    source_document_id: str | None = None
+    source_chunk_id: str | None = None
+    page_start: int | None = None
+    page_end: int | None = None
+    citation_note: str | None = None
+    is_amendment_based: bool = False
+    difficulty: Difficulty = "medium"
+    recency_score: int = Field(default=0, ge=0, le=100)
+    created_by: str | None = None
+    quality_score: float | None = None
+    source_policy: str | None = None
+
+
 class AttemptModel(BaseModel):
     id: int | str
     topic: str
@@ -250,7 +277,9 @@ class SmartMockResponseModel(BaseModel):
     allocation: dict[str, int]
     allocation_summary: dict[str, Any]
     weakness_analysis: list[TopicStatsModel]
-    questions: list[QuestionModel]
+    # Exam papers are delivered blind: the response contract itself cannot
+    # carry answer-revealing fields.
+    questions: list[ExamQuestionModel]
     source_grounded: bool
     message: str
     time_limit_minutes: int = 60

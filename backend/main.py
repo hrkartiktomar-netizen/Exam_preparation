@@ -899,7 +899,7 @@ async def generate_penalty_drill(request: PenaltyDrillRequestModel):
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
-@app.post("/api/generate-smart-mock")
+@app.post("/api/generate-smart-mock", response_model=SmartMockResponseModel)
 async def generate_smart_mock(request: SmartMockRequestModel | None = None):
     request = request or SmartMockRequestModel()
     try:
@@ -910,14 +910,20 @@ async def generate_smart_mock(request: SmartMockRequestModel | None = None):
         gemini_questions = sum(1 for question in result["questions"] if question.get("created_by") == "gemini" or str(question.get("question_id", "")).startswith("Q_AI_"))
         local_questions = len(result["questions"]) - gemini_questions
         marks_per_question = round(100 / max(1, len(questions)), 4)
-        response = SmartMockResponseModel(
+        # SmartMockResponseModel.questions is typed as ExamQuestionModel, so the
+        # response contract itself strips the answer key (correct_option,
+        # explanation, tested_fact, trap_logic) during validation. Passing
+        # question dicts (rather than QuestionModel instances) lets Pydantic
+        # drop the answer fields while validating the rest. Scoring stays
+        # server-side against the recorded question bank.
+        return SmartMockResponseModel(
             status="success",
             mock_id=result["mock_id"],
             total_questions=len(questions),
             allocation=result["allocation"],
             allocation_summary=result["allocation_summary"],
             weakness_analysis=[TopicStatsModel.model_validate(item) for item in result["weakness_analysis"]],
-            questions=questions,
+            questions=[question.model_dump() for question in questions],
             source_grounded=any(question.source_chunk_id for question in questions),
             message=f"Smart mock generated with Gemini structured output: {gemini_questions} Gemini questions, {local_questions} local fallback questions.",
             time_limit_minutes=60,
@@ -931,23 +937,13 @@ async def generate_smart_mock(request: SmartMockRequestModel | None = None):
                 "generation": "Gemini structured JSON output; no local fallback for mocks",
             },
         )
-        # This endpoint feeds the live exam UI, so the paper is delivered
-        # blind: strip every answer-revealing field before sending it to the
-        # browser. Scoring happens server-side against the recorded bank.
-        payload = response.model_dump()
-        for question in payload["questions"]:
-            question.pop("correct_option", None)
-            question.pop("explanation", None)
-            question.pop("tested_fact", None)
-            question.pop("trap_logic", None)
-        return payload
     except HTTPException:
         raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
-@app.post("/api/mocks/generate")
+@app.post("/api/mocks/generate", response_model=SmartMockResponseModel)
 async def generate_mock_alias(request: SmartMockRequestModel | None = None):
     return await generate_smart_mock(request)
 
@@ -1117,25 +1113,39 @@ async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
 
 @app.get("/api/pyq/list")
 async def list_pyq_papers():
-    """List available previous year question papers for attempt."""
+    """List available previous year question papers for attempt.
+
+    Role-first: documents classified pyq_phase_paper (or matching memory/PYQ
+    title patterns) are candidates, but only papers whose text actually
+    contains an answer key are listed — recollected papers without keys
+    cannot be scored and would only fail at load time.
+    """
     try:
         conn = db.get_connection()
         try:
             docs = conn.execute(
-                "SELECT document_id, title, category FROM documents ORDER BY title"
+                """
+                SELECT d.document_id, d.title, d.category
+                FROM documents d
+                WHERE (
+                    d.source_role = 'pyq_phase_paper'
+                    OR lower(d.title) LIKE '%memory based%'
+                    OR lower(d.title) LIKE '%previous year%'
+                    OR lower(d.title) LIKE '%question paper%'
+                    OR lower(d.title) LIKE '%question-paper%'
+                )
+                AND EXISTS (
+                    SELECT 1 FROM document_chunks c
+                    WHERE c.document_id = d.document_id AND c.text LIKE '%Answer:%'
+                )
+                ORDER BY d.title
+                """
             ).fetchall()
 
             papers = []
             for doc in docs:
                 name = doc["title"] or ""
                 lower = name.lower()
-                is_pyq = (
-                    doc["category"] == "Exam Papers (Memory-based)"
-                    or any(term in lower for term in ["memory based", "previous year", "question paper", "question-paper"])
-                    or ("phase" in lower and "paper" in lower and "grade a" in lower)
-                )
-                if not is_pyq:
-                    continue
 
                 # Extract metadata from document name
                 # Pattern: "IFSCA_Grade_A_YYYY_Memory_Based_Phase_X_Paper_Y"
