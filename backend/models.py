@@ -307,6 +307,7 @@ class DashboardStatsModel(BaseModel):
     recent_amendments: list[dict[str, Any]] = []
     ingestion: IngestionStatusModel
     next_recommended_action: str
+    resource_health: dict[str, Any] = {}
     ai_status: dict[str, Any] = {}
     focus_plan: dict[str, Any] | None = None
     amendment_watchlist: list[dict[str, Any]] = []

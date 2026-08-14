@@ -103,8 +103,11 @@ def test_repair_pyq_schema_preserves_rows(temp_db):
     )
     conn.commit()
     conn.close()
-    # A subsequent init_db repair must preserve the row
-    db.init_db()
+    # A re-run of the repair must preserve existing rows
+    conn = _conn()
+    db._repair_pyq_schema(conn)
+    conn.commit()
+    conn.close()
     conn = _conn()
     row = conn.execute("SELECT pyq_title, status FROM pyq_sessions WHERE pyq_id = 'PYQ_X'").fetchone()
     conn.close()
@@ -150,6 +153,50 @@ def test_categorize_materials_does_not_clobber_manual_roles(temp_db):
     role = conn.execute("SELECT source_role FROM documents WHERE document_id = 'd1'").fetchone()[0]
     conn.close()
     assert role == "essay_examples"  # manual assignment survives
+
+
+def test_categorize_materials_fast_path_skips_fully_categorized_db(temp_db):
+    """When every document already has a role and source_documents is empty,
+    _categorize_materials must be a no-op (it runs inside init_db on hot paths)."""
+    conn = _conn()
+    # Give every topic a role so the fast path triggers
+    conn.execute("UPDATE documents SET source_role = 'regulatory_core'")
+    conn.commit()
+    conn.close()
+
+    class _CountingCursor:
+        def __init__(self, real, owner):
+            self._real = real
+            self._owner = owner
+
+        def execute(self, sql, parameters=()):
+            if isinstance(sql, str) and sql.strip().upper().startswith("UPDATE"):
+                self._owner.updates += 1
+            return self._real.execute(sql, parameters)
+
+        def __getattr__(self, name):
+            return getattr(self._real, name)
+
+    class _CountingConn:
+        def __init__(self, real):
+            self._real = real
+            self.updates = 0
+
+        def cursor(self):
+            return _CountingCursor(self._real.cursor(), self)
+
+        def __getattr__(self, name):
+            return getattr(self._real, name)
+
+    original_get_connection = db.get_connection
+    counter = _CountingConn(original_get_connection())
+    db.get_connection = lambda: counter
+    try:
+        db._categorize_materials(counter)
+    finally:
+        db.get_connection = original_get_connection
+
+    assert counter.updates == 0, f"fast path issued {counter.updates} UPDATEs"
 
 
 # ---------------------------------------------------------------------------
@@ -278,7 +325,9 @@ def test_exam_start_returns_expected_time_and_negative_marking(temp_db):
             question = data["questions"][0]
             assert question["expected_time_sec"] == 180
             assert question["negative_marking"] == -1
-            assert question["correct_option"] == "B"
+            # Blind exam payload: the answer key must NOT be shipped to the browser
+            assert "correct_option" not in question
+            assert "explanation" not in question
 
 
 # ---------------------------------------------------------------------------
@@ -301,3 +350,104 @@ def test_question_model_round_trip():
     )
     dumped = question.model_dump()
     assert QuestionModel.model_validate(dumped).question_id == "Q1"
+
+
+# ---------------------------------------------------------------------------
+# 8. PR #1 cross-check regressions (study path, SRS, recency, priority, keys)
+# ---------------------------------------------------------------------------
+
+def test_study_path_persists_returned_weeks(temp_db):
+    """generate endpoint must persist the exact weeks it returns."""
+    weeks = [
+        {"week": 1, "focus_topics": ["PH2_FM_REGS"], "daily_questions": 25, "milestone": "Gemini milestone"},
+        {"week": 2, "focus_topics": ["PH2_BANKING"], "daily_questions": 30, "milestone": "Gemini milestone 2"},
+    ]
+    path_id = db.create_study_path("2026-11-06", ["PH2_FM_REGS"], weeks=weeks)
+    active = db.get_active_study_path()
+    assert active is not None
+    assert active["path_id"] == path_id
+    stored = active["weeks_json"]
+    assert stored[0]["milestone"] == "Gemini milestone"
+    assert stored[0]["status"] == "not_started"  # default added
+    assert len(stored) == 2
+
+
+def test_srs_schedule_keeps_one_row_per_topic(temp_db):
+    db.schedule_topic_review("PH2_FM_REGS", interval_days=1)
+    db.schedule_topic_review("PH2_FM_REGS", interval_days=3)
+    db.schedule_topic_review("PH2_FM_REGS", interval_days=7)
+    conn = _conn()
+    count = conn.execute(
+        "SELECT COUNT(*) FROM review_items WHERE item_type='topic' AND topic_id='PH2_FM_REGS'"
+    ).fetchone()[0]
+    conn.close()
+    assert count == 1, f"expected 1 row per topic, got {count}"
+
+
+def test_srs_mark_reviewed_touches_only_soonest_row(temp_db):
+    db.schedule_topic_review("PH2_BANKING", interval_days=5)
+    db.mark_topic_reviewed("PH2_BANKING", success=True)
+    conn = _conn()
+    rows = conn.execute(
+        "SELECT last_result, interval_days FROM review_items WHERE item_type='topic' AND topic_id='PH2_BANKING'"
+    ).fetchall()
+    conn.close()
+    assert len(rows) == 1
+    assert rows[0]["last_result"] == "success"
+    assert rows[0]["interval_days"] == 3
+
+
+def test_amendment_recency_cutoff_matches_sqlite_timestamp_format(temp_db):
+    """created_at is 'YYYY-MM-DD HH:MM:SS'; ISO 'T' cutoffs excluded boundary rows."""
+    conn = _conn()
+    conn.execute(
+        "INSERT INTO amendments (amendment_id, topic, rule_name, created_at) VALUES ('A1', 'PH2_FM_REGS', 'r1', datetime('now', '-1 day'))"
+    )
+    conn.execute(
+        "INSERT INTO amendments (amendment_id, topic, rule_name, created_at) VALUES ('A2', 'PH2_FM_REGS', 'r2', datetime('now'))"
+    )
+    conn.commit()
+    conn.close()
+    recent = db.get_recent_amendments(days_back=30, limit=10)
+    ids = {item["amendment_id"] for item in recent}
+    assert "A2" in ids
+    # A1 is within 30 days too (created_at is a valid space-format timestamp)
+    assert "A1" in ids
+
+
+def test_amendment_recent_ordering_critical_first(temp_db):
+    conn = _conn()
+    for priority in ("NORMAL", "CRITICAL", "HIGH"):
+        conn.execute(
+            "INSERT INTO amendments (amendment_id, topic, rule_name, priority, created_at) VALUES (?, 'PH2_FM_REGS', ?, ?, datetime('now'))",
+            (f"AMN_{priority}", priority, priority),
+        )
+    conn.commit()
+    conn.close()
+    recent = db.get_recent_amendments(days_back=30, limit=10)
+    priorities = [item["priority"] for item in recent]
+    assert priorities[0] == "CRITICAL", f"CRITICAL must sort first, got {priorities}"
+
+
+def test_available_gemini_keys_respect_cooldown(monkeypatch):
+    import gemini_integration
+
+    # refresh_gemini_keys() reloads keys from the environment, so the env must
+    # match the injected state.
+    monkeypatch.setenv("GEMINI_KEY_1", "k1")
+    monkeypatch.setenv("GEMINI_KEY_2", "k2")
+    gemini_integration.refresh_gemini_keys()
+    gemini_integration.GEMINI_STATE["rate_limited_until"] = {
+        "k1": 10 ** 12,  # far future -> rate limited
+        "k2": 10 ** 12,
+    }
+    assert gemini_integration.available_gemini_keys() == []
+    # mixed: only the available key is returned
+    gemini_integration.GEMINI_STATE["rate_limited_until"]["k2"] = 0
+    assert gemini_integration.available_gemini_keys() == ["k2"]
+
+
+def test_pyq_cache_ttl_covers_full_exam():
+    import pyq_cache
+
+    assert pyq_cache._CACHE_TTL_SECONDS >= 3600, "cache must outlive the 60-minute exam timer"

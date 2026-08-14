@@ -172,7 +172,11 @@ def available_gemini_keys() -> list[str]:
     now = time.time()
     keys = GEMINI_STATE["keys"]
     available = [key for key in keys if GEMINI_STATE["rate_limited_until"].get(key, 0) <= now]
-    return available or keys
+    # Do NOT fall back to rate-limited keys: the old `available or keys` bypassed
+    # the 60s (429) / 24h (401/403) cooldowns and hammered the API right after a
+    # rate limit. call_json() treats an empty result as "no keys available" and
+    # falls back to local logic instead.
+    return available
 
 
 def next_gemini_key() -> str | None:
