@@ -2804,6 +2804,36 @@ def allocate_question_slots(ranked_topics: list[dict[str, Any]], total_questions
     return {topic: count for topic, count in allocation.items() if count > 0}
 
 
+def _difficulty_mix_for_topic(topic_qs: int, attempts: int = 0) -> list[str]:
+    """Practice difficulty is exogenous to strength: the exam does not get
+    easier for strong topics, so weakness rank must never change the mix.
+
+    Only attempt history conditions scaffolding:
+      - 1 question: medium
+      - 2 questions: easy + (hard once the topic has history, else medium)
+      - seen < 5: easy-heavy scaffold (2/3 easy, then medium, then hard)
+      - seen >= 5: exam-like equal thirds (easy/medium/hard)
+
+    Conditioning on attempts (a real state variable) instead of weakness
+    rank (a confounded scalar) removes the confirmatory bias where strong
+    topics were measured only on trivially easy questions.
+    """
+    if topic_qs <= 0:
+        return []
+    if topic_qs == 1:
+        return ["medium"]
+    if topic_qs == 2:
+        return ["easy", "hard"] if attempts >= 5 else ["easy", "medium"]
+    if attempts < 5:
+        easy = max(1, topic_qs * 2 // 3)
+        rest = topic_qs - easy
+        medium = rest // 2
+        return ["easy"] * easy + ["medium"] * medium + ["hard"] * (rest - medium)
+    easy = topic_qs // 3
+    mid = (topic_qs * 2) // 3
+    return ["easy"] * easy + ["medium"] * (mid - easy) + ["hard"] * (topic_qs - mid)
+
+
 def get_smart_mock_config(total_questions: int = 50, mode: str = "balanced") -> dict[str, Any]:
     ranked = [item for item in rank_topics_by_weakness() if item["topic"] in OBJECTIVE_MOCK_TOPIC_IDS]
     targeting = intelligent_targeting_snapshot()
@@ -2824,38 +2854,16 @@ def get_smart_mock_config(total_questions: int = 50, mode: str = "balanced") -> 
     medium_topics = ranked[len(weak_topics) : max(len(weak_topics) + 1, math.ceil(len(ranked) * 0.67))]
     strong_topics = ranked[len(weak_topics) + len(medium_topics) :]
 
-    # Build difficulty progression per topic
+    # Build difficulty progression per topic. Difficulty is conditioned on
+    # ATTEMPT HISTORY only (scaffold early, exam-like afterwards) — never on
+    # weakness rank, because the exam does not test strong topics more easily.
     difficulty_curve: dict[str, list[str]] = {}
-    for item in weak_topics:
+    for item in ranked:
         topic = item["topic"]
-        # For weak topics: scaffold difficulty progression
-        topic_qs = allocation.get(topic, 0)
-        if topic_qs >= 3:
-            # Distribute: ~1/3 easy, ~1/3 medium, ~1/3 hard
-            easy_count = topic_qs // 3
-            medium_mid = (topic_qs * 2) // 3
-            hard_count = topic_qs - medium_mid
-            difficulty_curve[topic] = ["easy"] * easy_count + ["medium"] * (medium_mid - easy_count) + ["hard"] * hard_count
-        elif topic_qs == 2:
-            difficulty_curve[topic] = ["easy", "hard"]
-        else:
-            difficulty_curve[topic] = ["medium"]
-
-    for item in medium_topics:
-        topic = item["topic"]
-        topic_qs = allocation.get(topic, 0)
-        if topic_qs >= 2:
-            # For medium topics: half easy, half hard
-            easy_count = topic_qs // 2
-            difficulty_curve[topic] = ["easy"] * easy_count + ["hard"] * (topic_qs - easy_count)
-        else:
-            difficulty_curve[topic] = ["medium"]
-
-    for item in strong_topics:
-        topic = item["topic"]
-        topic_qs = allocation.get(topic, 0)
-        # For strong topics: all easy (confidence building)
-        difficulty_curve[topic] = ["easy"] * topic_qs
+        difficulty_curve[topic] = _difficulty_mix_for_topic(
+            allocation.get(topic, 0),
+            attempts=int(item.get("total_seen", 0) or 0),
+        )
 
     return {
         "ranked_topics": ranked,

@@ -166,6 +166,13 @@ attempt (mock/PYQ/drill) → analytics → weakness score → targeting snapshot
 
 ---
 
+## 5. Guardrails
+
+1. Every phase ends with the 3-step verification used throughout this session (logic checkup → regression/unknown-bug audit → patch audit) before merge.
+2. Any schema change ships with an idempotent, ledgered migration + a data-merge step verified on both a cold-start and a legacy DB.
+3. No feature removal without a grep-verified zero-caller audit (the discipline that caught several of this session's own regressions).
+4. When a measurement reveals a policy defect, fix the policy in the same breath — or state explicitly why not (see §7.6).
+
 ## 6. Deep re-analysis addendum (v2) — findings the first pass missed, and why
 
 This section is the result of re-interrogating the blueprint *and my own earlier fixes* with the same adversarial standard applied to the original code. It is the most important part of this document: it corrects the plan where the first pass was wrong.
@@ -199,6 +206,10 @@ Round 3 "fixed" PYQ scoring to apply the hardcoded `0.67` penalty — but the ap
 - **Score display inconsistencies** (result page shows /200, dashboard estimate is 0–100, exam modal says +4/−1) remain cosmetic until P0-3's per-paper config lands.
 - **`answers` and `question_attempts` duplicate each other** for smart mocks; consolidation is bundled with P0-2.
 
+### 6.4 Method correction for future rounds
+
+Any future pass must, before shipping, trace **units and feedback loops** end-to-end (score scale → history → projection; difficulty allocation → difficulty-blind metrics → ranking), not just endpoints. The three flaws above were each one unit-trace away and each survived because the tests assert *shape*, not *numbers*.
+
 ### 6.5 Deepest layer: the adaptive planner had only ONE live sensor (fixed in code)
 
 The next level below units and loops is *sensor wiring*: which signals actually reach the planner (`intelligent_targeting_snapshot` → weakness → allocation). The audit found the planner consumes exactly one live signal — `question_attempts` from mock submits — while **four advertised sensors were dead or frozen** (each verified with decisive greps, fixed, and re-verified):
@@ -212,12 +223,71 @@ The next level below units and loops is *sensor wiring*: which signals actually 
 
 Also confirmed and left documented (data-quality, not wiring): the question bank has **no duplicate detection** — every mock writes ~50 new rows and near-duplicate stems accumulate forever; a `stem_hash` dedup column is the designed fix (P0-2 bundle). And `_sqlite_now_minus` uses local time vs SQLite UTC timestamps (boundary skew of a few hours in recency filters).
 
-### 6.6 The corrected mental model (for future rounds)
+### 6.6 The corrected mental model
 
 The app is best understood as: **sensors → planner → generators → sensors**. Auditing any layer in isolation gives false confidence. Round 5's method — list every table the planner reads, grep for its writers, and treat zero-writer tables as dead sensors — found five real defects that endpoint tracing could never surface. This is now the standing checklist for any future pass.
 
+## 7. The policy layer — the missing middle (v3)
 
+### 7.1 Diagnosis: a heuristic pile without an objective
 
-Any future pass must, before shipping, trace **units and feedback loops** end-to-end (score scale → history → projection; difficulty allocation → difficulty-blind metrics → ranking), not just endpoints. The three flaws above were each one unit-trace away and each survived because the tests assert *shape*, not *numbers*.
+Auditing the levels below endpoints revealed the deepest structural truth about this app: **the system has no objective function.** Every component optimizes its own hand-tuned scalar:
 
+- weakness score: a weighted sum of error rate, recency, attempt-confidence, exam weight, amendment count, and time pressure — coefficients chosen by intuition (`0.35/0.25/0.15/0.10/0.10/0.05`).
+- allocation: 60/25/15 weak/medium/strong split — ratio never derived from anything.
+- difficulty: previously conditioned on weakness rank (now fixed — see below).
+- SRS: SM-2 applied to topics it was never designed for (content-agnostic).
 
+"Self-adaptive" so far meant "self-reallocating by fixed heuristics." A self-adaptive system requires a *stated objective* and policies chosen to optimize it. This is not a polish item — it is the definition of the product.
+
+### 7.2 The formal model
+
+**Objective.** Maximize expected exam score subject to a practice-time budget:
+
+> E[exam score] = Σ_topics w_t · P_t(correct | exam difficulty)
+> maximize over weekly policies π: (allocation_t, difficulty_t, revision_t) for each topic
+> subject to Σ practice minutes ≤ budget
+
+This is a **restless multi-armed bandit**: each topic's state decays without practice (forgetting), so the optimal policy is not "drill the weakest" but "allocate where marginal expected-score gain per minute is highest."
+
+**State per topic** (all derivable from data already recorded): accuracy estimate with uncertainty (from `question_attempts` incl. difficulty and `time_spent_seconds`), attempts, exam weight `w_t`, amendment sensitivity, days-since-last-attempt.
+
+**Policy hierarchy** (what each control variable may depend on):
+1. **Difficulty** — depends on *attempt history only* (exogenous: the exam doesn't get easier for your strengths). ✅ FIXED in commit `d1c3b21` (this round): `_difficulty_mix_for_topic`; locked in by `tests/test_adaptive_policy.py`.
+2. **Allocation** — depends on (uncertainty, weight, decay, remaining budget). Currently a fixed 60/25/15; a per-topic minimum-observation floor is required for measurement sufficiency (see the 1-question-per-topic evidence below) but its value must come from the simulator, not from another hand-tuned constant.
+3. **Revision timing** — depends on a fitted forgetting curve per topic, not generic SM-2 intervals.
+4. **Content selection** — amendment/contradiction injection into the topics the policy selects.
+
+### 7.3 The five policy primitives and their status
+
+| # | Primitive | Status |
+|---|---|---|
+| P1 | Exogenous difficulty (attempt-conditioned scaffolding → exam-like mix) | **FIXED this round**, with contract tests |
+| P2 | Allocation floor for measurement sufficiency (currently strong topics get 1 question — binary accuracy, max variance, zero maintenance) | Deferred to simulator (parameter, not intuition) |
+| P3 | Per-topic forgetting curves — fit λ_t from existing `created_at` timestamps; readiness and revision timing should consume decay, not linear extrapolation | Designed, data already present |
+| P4 | Time-based difficulty calibration — `time_spent_seconds` is the most reliable *per-user* difficulty signal (single user ⇒ classical IRT can't calibrate items); use time-normalized accuracy and per-question time distributions | Designed |
+| P5 | Difficulty-label validation — verify easy<medium<hard pass rates in recorded data once attempts exist; if labels don't validate, fall back to P4's time signal | Designed |
+
+### 7.4 Simulator-first methodology (the next engineering stage)
+
+**Why a simulator before any more heuristics:** the current policy's cost has never been quantified. A simulator turns "this heuristic looks biased" into "this heuristic costs the user X projected marks."
+
+1. **Learner model per topic** (fit from the user's own history, which is already in the DB):
+   - knowledge k_t ∈ [0,1]; decay k ← k·exp(−λ_t·days_since)
+   - practice gain k ← k + η_t·(1−k)·g(difficulty), where g(hard) > g(medium) > g(easy)
+   - answer model: P(correct | k, difficulty) = k · base(difficulty)
+2. **Fit:** λ_t, η_t by maximum likelihood over the recorded attempt sequence (timestamps + is_correct + difficulty are all logged since round 4).
+3. **Backtest:** replay history; compare (a) current heuristic policy vs (b) simulator-optimal allocation/difficulty/revision on projected E[exam score]. The delta is the quantified cost of the heuristics — and the budget justification for every subsequent policy change.
+4. **Deploy:** weekly planner runs the simulator over candidate policies (grid search over allocation vectors is trivially cheap at 17 topics, 1 user) and schedules the winner through the job queue (P0-1).
+
+### 7.5 Sequencing correction (v3 — supersedes v1/v2 ordering)
+
+Correct build order is: **policy correctness → measurement → simulation → autonomy.** The adaptive scheduler (blueprint P0-1) must ship only *after* the policy it automates is simulator-validated — automating a biased policy makes the bias autonomous. (v2 already fixed the cost-guardrail order; v3 fixes the policy order.)
+
+### 7.6 Self-critique log (entry #5)
+
+Round 4 found the difficulty confounding and shipped **only the measurement half** (recording difficulty), leaving the difficulty *policy* biased — strong topics were still practiced 100% easy until this round. The rule this violated: *when a measurement reveals a policy defect, fix the policy in the same breath, or state explicitly why not.* The audit's own discipline must apply to the audit's fixes, not only to the original code.
+
+---
+
+*Blueprint version: v3 (policy layer). Next engineering stage per §7.4: fit the learner model from recorded history and backtest the heuristic policy — every subsequent policy change gets a quantified projected-score delta before it ships.*
