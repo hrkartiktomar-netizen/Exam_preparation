@@ -14,6 +14,8 @@ from pathlib import Path
 from typing import Any
 
 BACKEND_DIR = Path(__file__).resolve().parent
+# Kept for compatibility; all connections go through database.get_connection()
+# so tests that patch database.DB_PATH (and PRAGMA busy_timeout) apply here too.
 DB_PATH = BACKEND_DIR / "ifsca_exam.db"
 
 # Job types and their executors
@@ -28,11 +30,31 @@ JOB_STATUS_RUNNING = "running"
 JOB_STATUS_COMPLETE = "complete"
 JOB_STATUS_FAILED = "failed"
 
+STALE_RUNNING_MINUTES = 30
+
+
+def _connect() -> sqlite3.Connection:
+    """Open a queue connection with the same PRAGMA busy_timeout as the rest of the app."""
+    conn = db.get_connection()
+    # get_connection already sets row_factory = sqlite3.Row
+    return conn
+
+
+def _parse_started_at(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    text = str(value).strip()
+    for candidate in (text, text.replace(" ", "T")):
+        try:
+            return datetime.fromisoformat(candidate)
+        except ValueError:
+            continue
+    return None
+
 
 def init_job_queue_schema() -> None:
     """Create job queue tables if not exist."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
+    conn = _connect()
     try:
         conn.executescript("""
             CREATE TABLE IF NOT EXISTS job_queue (
@@ -68,8 +90,7 @@ def enqueue_job(
 ) -> str:
     """Enqueue a new job."""
     job_id = str(uuid.uuid4())
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
+    conn = _connect()
     try:
         conn.execute(
             """
@@ -93,8 +114,7 @@ def enqueue_job(
 
 def get_pending_jobs(limit: int = 10) -> list[dict[str, Any]]:
     """Get pending jobs."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
+    conn = _connect()
     try:
         rows = conn.execute(
             """
@@ -110,26 +130,27 @@ def get_pending_jobs(limit: int = 10) -> list[dict[str, Any]]:
         conn.close()
 
 
-def mark_job_running(job_id: str) -> None:
-    """Mark job as running."""
-    conn = sqlite3.connect(DB_PATH)
+def mark_job_running(job_id: str) -> bool:
+    """Atomically claim a pending job. Returns True iff this caller won the claim."""
+    conn = _connect()
     try:
-        conn.execute(
+        cur = conn.execute(
             """
             UPDATE job_queue
             SET status = ?, started_at = ?
-            WHERE job_id = ?
+            WHERE job_id = ? AND status = ?
             """,
-            (JOB_STATUS_RUNNING, datetime.now().isoformat(), job_id),
+            (JOB_STATUS_RUNNING, datetime.now().isoformat(), job_id, JOB_STATUS_PENDING),
         )
         conn.commit()
+        return cur.rowcount == 1
     finally:
         conn.close()
 
 
 def mark_job_complete(job_id: str, result: dict[str, Any]) -> None:
     """Mark job as complete."""
-    conn = sqlite3.connect(DB_PATH)
+    conn = _connect()
     try:
         conn.execute(
             """
@@ -146,7 +167,7 @@ def mark_job_complete(job_id: str, result: dict[str, Any]) -> None:
 
 def mark_job_failed(job_id: str, error_message: str) -> None:
     """Mark job as failed."""
-    conn = sqlite3.connect(DB_PATH)
+    conn = _connect()
     try:
         row = conn.execute(
             "SELECT retry_count, max_retries FROM job_queue WHERE job_id = ?",
@@ -180,6 +201,46 @@ def mark_job_failed(job_id: str, error_message: str) -> None:
         conn.close()
 
 
+def reap_stale_running_jobs(max_age_minutes: int = STALE_RUNNING_MINUTES) -> int:
+    """Return stuck running jobs to pending so process_queue can see them again.
+
+    started_at is stored via datetime.now().isoformat(); parse in Python because
+    SQLite datetime() comparisons against mixed ISO strings are unreliable.
+    """
+    conn = _connect()
+    reaped = 0
+    try:
+        rows = conn.execute(
+            "SELECT job_id, started_at, retry_count FROM job_queue WHERE status = ?",
+            (JOB_STATUS_RUNNING,),
+        ).fetchall()
+        cutoff_ts = datetime.now().timestamp() - max_age_minutes * 60
+        for row in rows:
+            started = _parse_started_at(row["started_at"])
+            if started is not None and started.timestamp() > cutoff_ts:
+                continue
+            retry_count = (row["retry_count"] or 0) + 1
+            conn.execute(
+                """
+                UPDATE job_queue
+                SET status = ?, retry_count = ?, error_message = ?, started_at = NULL
+                WHERE job_id = ? AND status = ?
+                """,
+                (
+                    JOB_STATUS_PENDING,
+                    retry_count,
+                    "reaped stale running job",
+                    row["job_id"],
+                    JOB_STATUS_RUNNING,
+                ),
+            )
+            reaped += 1
+        conn.commit()
+        return reaped
+    finally:
+        conn.close()
+
+
 async def execute_amendment_questions(target_resource: str, payload: dict[str, Any]) -> dict[str, Any]:
     """
     Execute amendment question generation job.
@@ -208,6 +269,7 @@ async def execute_amendment_questions(target_resource: str, payload: dict[str, A
 
 async def process_queue() -> dict[str, Any]:
     """Process all pending jobs."""
+    reap_stale_running_jobs()
     pending = get_pending_jobs(limit=10)
     results = {
         "processed": 0,
@@ -218,7 +280,8 @@ async def process_queue() -> dict[str, Any]:
 
     for job in pending:
         job_id = job["job_id"]
-        mark_job_running(job_id)
+        if not mark_job_running(job_id):
+            continue
 
         try:
             job_type = job["job_type"]
