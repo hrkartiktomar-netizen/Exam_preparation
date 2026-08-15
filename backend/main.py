@@ -50,3 +50,48 @@ from gemini_integration import (
     grade_essay,
     initialize_gemini_runtime,
 )
+from models import (
+    AmendmentExtractRequestModel,
+    AmendmentModel,
+    AmendmentResponseModel,
+    AnalyticsTimelineModel,
+    DashboardStatsModel,
+    EssayGradingResponseModel,
+    EssayPromptModel,
+    EssaySubmissionModel,
+    ExamAnalyticsModel,
+    ExamAnalyticsResponseModel,
+    HealthResponseModel,
+    IngestResponseModel,
+    IngestionStatusModel,
+    MockSubmitRequestModel,
+    MockSubmitResponseModel,
+    MockUploadModel,
+    PenaltyDrillRequestModel,
+    PenaltyDrillResponseModel,
+    QuestionGenerationRequestModel,
+    QuestionModel,
+    SmartMockRequestModel,
+    SmartMockResponseModel,
+    SourceSearchResponseModel,
+    SRSScheduleRequestModel,
+    SRSTopicModel,
+    StudyPathModel,
+    StudyPathProgressModel,
+    StudyPathWeekModel,
+    StudySessionRequestModel,
+    TopicModel,
+    TopicStatsModel,
+    WeakTopicsResponseModel,
+    LawRevisionModel,
+    SpacedReviewItemModel,
+    HighYieldProvisionModel,
+    RecentAmendmentModel,
+    WeakLegalAreaModel,
+)
+
+
+PROJECT_ROOT = PathLib(__file__).resolve().parents[1]
+FRONTEND_DIR = PROJECT_ROOT / "frontend"
+DIGEST_PATH = PROJECT_ROOT / "COMPLETE_PDF_DIGEST.txt"
+PLAN_PATH = PROJECT_ROOT / "memory" / "FINAL_MAXIMUM_EXTENSIVE_PROJECT_PLAN.md"
