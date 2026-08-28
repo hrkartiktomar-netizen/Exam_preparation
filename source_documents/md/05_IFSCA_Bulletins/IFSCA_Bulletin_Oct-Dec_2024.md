@@ -1,0 +1,1749 @@
+# 019_IFSCA publications__Bulletin Oct-Dec 2024 — OCR transcription (Gemini)
+
+# IFSCA
+# BULLETIN
+
+[photo: city buildings and flag]
+
+OCT-DEC
+2024
+
+[logo: INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY]
+
+**INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY**
+
+🌐 www.ifsca.gov.in
+
+*[Page 1 of 42]*
+
+---
+
+The IFSCA Bulletin is issued by the Division of Economic Policy and Analysis, International Financial Services Centres Authority. The source of data/ information is the periodic reports submitted by the regulated entities to IFSCA.
+
+IFSCA has no objection to the material published herein being reproduced, provided an acknowledgement of the same is made.
+
+The soft copy of IFSCA Bulletin in PDF format can be freely downloaded from Reports and Publications section in IFSCA website (https://ifsca.gov.in)
+
+Any comments and suggestions on any of the features/ sections may be sent to the email id: dept-epa@ifsca.gov.in
+
+*[Page 2 of 42]*
+
+---
+
+[logo: IFSCA]
+
+# CHAIRPERSON'S DESK
+
+# GIFT IFSC –
+## *An emerging wealth management hub for HNIs*
+
+[photo: K Rajaraman]
+**K Rajaraman**  
+<u>Chairperson, IFSCA</u>
+
+> *“We would be keen to host all major sovereign funds, pension funds and endowment funds apart from Insurance and Family Investment Funds in the IFSC in India.”*
+
+Vision of Hon'ble Prime Minister of India for ViksitBharat@2047 and India's economic stability and consistent growth track record have inspired foreign and domestic investors alike. The continuous and clear reform agenda in replacing ageing laws with modern business friendly laws, upgradation of financial sector regulations to meet global standards, etc., have provided greater trust and certainty in Indian markets.
+
+HNIs and UHNIs among India's diaspora numbering 15 million Non-Resident Indians (NRIs) and over 19 million Persons of Indian Origin (PIOs) are key stakeholders in the India Growth Story. In 2024, NRIs sent USD 129 billion as remittances to banks in domestic India. The Indian Diaspora see great value in investing in India. NRIs and PIOs investing in GIFT IFSC can save in USD or in any of the 14 freely convertible currencies permitted in GIFT IFSC. NRIs and PIOs can benefit from the special tax regime and nominations for succession under Indian law.
+
+GIFT IFSC is also a key instrumentality in facilitating inbound investments into India as AIFs in IFSC can accept investments from NRIs and Overseas Citizens of India (OCIs) of up to 100%*. Additionally, investors in Category III AIFs are exempt from tax on distribution and redemption.<sup>1</sup>
+
+---
+
+<sup>1</sup> <ins>Asset-wealth-management-GIFT IFSC, PwC</ins>  
+\* Provided some conditions are met
+
+Hon'ble Finance Minister has announced tax treatment under the specified fund regime for Retail Funds and Exchange Traded Funds in the Budget for 2024-25. As a consequence, a few fund managers have registered Retails funds in the last quarter. In the recent Budget for 2025-26, Hon'ble Finance Minister also announced exemption from tax on life insurance policies issued by IFSC Insurance offices on premium paid if the premium does not exceed 10% of the sum assured.
+
+India is also currently home to over 850,000 resident High Net Worth Individuals (HNIs), and this is projected to double to 1.65 million by 2027<sup>2</sup>. In 2023, there was a steep rise in number of HNIs in India, in fact, it was one of the best performers in the Asia Pacific region in terms of HNI wealth growth (12.4%) as well as HNI population growth (12.2%).
+
+Many resident HNIs prefer diversified investing in global avenues, including Global stock markets. IFSC is home to outbound funds pooling resident Indian contributions for investments in Global opportunities. The following routes are available for resident entities and individuals for investing overseas:
+
+i. Reserve Bank of India's **Liberalized Remittance Scheme (LRS)**, which enables *resident individuals* to transfer of amounts annually for overseas investments, including foreign bank accounts, stocks, bonds, and real estate, however it has an upper limit of USD 250,000 (around ₹1.87 crore). Outward remittances under LRS were over USD 2400 Million (as of Oct 2024).<sup>3</sup>
+
+ii. **Overseas Direct Investment (ODI)** enables investing by *resident entities* in unlisted foreign entities through equity capital acquisition or subscription as per RBI regulations. The automatic route for ODI caps the investments at USD 1 billion. The actual ODI outflow from India
+
+---
+
+<sup>2</sup> <ins>Rise of HNIs in 2024, The Hindu</ins>  
+<sup>3</sup> <ins>RBI Bulletin, December 2024</ins>
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+*[Page 3 of 42]*
+
+---
+
+[logo: IFSCA]
+
+# CHAIRPERSON'S DESK
+
+in 2024-25 (as of November) was USD 12,195 Million.4
+
+IFSCA regulations enable manufacture of investment products in Global currencies in forms such as Alternative Investment Funds (AIFs), Private Equity, structured deposits, bonds, unit-linked insurance policies, etc. by Regulated entities authorized by IFSCA. In addition to alternative investments, NRI HNIs often diversify their portfolio by investing in multiple avenues like commodities (like gold and silver), real estate and REITs, offshore funds, ETFs, international equities, ESG funds, etc.
+
+Fund Managers (FMEs) in GIFT IFSC are authorised to provide a plethora of wealth management schemes through the IFSCA Fund Management regulations, these, for instance,
+
+* Venture Capital Schemes (including Angel Schemes) – to facilitate investments by Accredited Investors / High Net worth investors in start-ups, emerging or early-stage venture capital undertakings.
+* Restricted Schemes (Non-Retail Scheme) – to facilitate investments by Accredited Investors / High Net worth investors in a variety of strategies, broadly classified as Category I AIFs, Category II AIFs and Category III AIFs and
+* Retail Schemes – to facilitate investments of retail investors in Mutual Funds.
+
+The last quarter witnessed the culmination of the review exercise for IFSCA's regulations for fund management activities. As one of the fastest-growing areas in IFSC, which has seen a robust growth in a short period, the industry today stands strong with 139 Fund Management Entities (FMEs) that have set up 198 schemes, of which 116 are Category III AIFs, 70 are Category I & Category II AIFs, while the remaining 12 are VC & Angel schemes. Across these categories of schemes, fund managers in IFSC now host a wide bouquet of investment offerings to meet the appetite of global investors. The confidence in this jurisdiction and its regulatory architecture is visible in the participation by 2576 investors from more than 50 countries. With Retail Schemes now on the horizon, these numbers are expected to grow further, creating wider recognition of GIFT IFSC amongst the
+
+global investor community. The funds in IFSC have invested USD 5.88 Billion into India and many other countries, which demonstrates a healthy growth of 25.5% over the previous quarter. We are also glad to witness the phenomenon of relocation of foreign schemes to GIFT IFSC picking up pace.
+
+The seamless and tax neutral relocation facilitated by the Government of India for AIFs has led 14 schemes to redomicile to the IFSC from foreign jurisdictions. In the recent budget, the scheme of relocation has been further expanded to allow the Retail Schemes and ETFs to relocate to IFSC. Along with the globally benchmarked regulatory framework and competitive taxation treatment available to funds in IFSC, the relocation scheme is expected to further lead to the enhancement of the IFSC funds ecosystem.
+
+In order to support India's NetZero@2070 agenda, IHSCA has waived the fee on the first ten ESG funds for FMEs. IFSCA is committed to not only attracting foreign and domestic fund managers to GIFT IFSC but also promoting ESG principles in investment decisions. As sustainable finance continues to grow globally, this initiative will allow GIFT IFSC to be at the forefront of this evolving financial trend5.
+
+IFSCA has, in December 2024, approved an updated Fund Management Entity Regulations. These regulations have the following key updates that will support greater traction for wealth management:
+
+i. Minimum size of scheme is reduced from USD 5 Mn to USD 3 Mn.
+ii. Minimum investment amount for PMS is reduced from USD 150,000 to USD 75,000.
+iii. Validity of scheme documents expanded from 6 months to 12 months along with provision for a one-time option for further extension.
+iv. Waiver from 10% ceiling on FME contribution subject to certain conditions.
+v. Several relaxations for Fund of funds schemes, such as the requirement for valuation, appointment of custodian, diversification norms, etc., where such requirements are met by the master funds.
+vi. Simplification and streamlining of the eligibility criteria of KMPs and process of their appointment
+
+---
+4 [Dept of Economic Affairs](_link_)
+
+5 [IFSCA Press Release](_link_)
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+*[Page 4 of 42]*
+
+---
+
+[logo: IFSCA]
+
+# CHAIRPERSON'S DESK
+
+As the evolving landscape of HNIs preferences is explored, it is also observed that they entrust private firms known as 'Family Offices' to manage and grow their wealth. These offices are either run by a single wealthy family or by professional managers who serve multiple rich clients. In India, there are around 140 family offices that cater to extremely wealthy individuals, defined as those with a net worth of over USD 30 million$^{6}$. Many of these families operate family offices in multiple foreign jurisdictions to manage their wealth. GIFT IFSC can offer a cost-effective solution for running a family fund *with wealth pooled from international jurisdictions*. Compared to Dubai, Mauritius, or Singapore, GIFT IFSC has lower living costs, rentals, and labour expenses. This makes it a cost-efficient home for family offices.
+
+International Banking Units (IBUs) in GIFT IFSC also offer term and structured deposits, besides providing FPI services for HNIs investing into India. As on December 31, 2024, there were 6897 Non-resident Indians and Foreigners who have deposited over USD 1 billion in retail demand and term deposits in GIFT IFSC IBUs. One IBU has created an exclusive Wealth Management Platform to serve non-residents. We expect more IBUs to follow the suit. Most IBUs have now launched web-applications that enable Non-residents or Resident Indians to open accounts in IBUs and carry out transaction banking facilities.
+
+IFSCA has also licensed 16 Insurance Offices that currently offer retail insurance products to NRIs. These products include Unit Linked Insurance Policies, term life, health, travel, student education, etc.
+
+GIFT IFSC presents a compelling opportunity for Resident and Non-Resident HNIs seeking to diversify their investments and optimize returns. Amidst rising currency volatility, the investor focus is increasingly shifting towards GIFT IFSC as a safeguard against currency depreciation risk, owing to the use of freely convertible foreign currency.
+
+Coupled with strategic location, business-friendly ecosystem, and favorable tax regime, the GIFT IFSC offers a unique advantage for investors looking to tap into India's growth story and global opportunities.
+
+IFSCA is scaling up its supervisory systems and implements a supervision plan that covers Regulated Entities on risk-based principles. FATF compliant AML and CFT guidelines have been notified to ensure that proceeds of financial crime do not find way into the GIFT ecosystem.
+
+IFSCA also expects Regulated Entities, that provide financial services, to be sensitive to the needs of investors and respond promptly on consumer/investor complaints. A complaint redressal process with recourse to IFSCA in case their complaints are not redressed has been put in place. ([https://ifsca.gov.in/Pages/Contents/Complaints](https://ifsca.gov.in/Pages/Contents/Complaints))
+
+---
+$^{6}$ ['Turning Ideas to Gold' - Praxis Global](https://www.praxisglobalalliance.com/turning-ideas-to-gold-private-wealth-and-family-office-report-2023/)
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+*[Page 5 of 42]*
+
+---
+
+# IFSC BUSINESS HIGHLIGHTS
+
+Total IFCA
+Registrations
+766
+
+Banking Sector
+| Banking Assets | Cumulative Banking Transaction | Cumulative Derivatives trade (including NDF) |
+| --- | --- | --- |
+| USD ($) **78.2 Bn** *(as on Dec 2024)* | USD ($) **120 Bn** *(During Oct-Dec 2024)* | USD ($) **107.3 Bn** *(During Oct-Dec 2024)* |
+
+Capital Market
+| Monthly Turnover (IFSC Exchanges) | Cumulative Debt Listing on Exchanges | Aggregate Open Interest of all Derivatives Contract |
+| --- | --- | --- |
+| USD ($) **85.99 Bn** *(Dec 2024)* | USD ($) **63.68 Bn** *(upto Dec 2024)* | USD ($) **11.16 Bn** *(month ended Dec 2024)* |
+
+Fund Management
+| No. of Fund Management Entities | No. of Funds/Schemes Registered | Total Commitments Raised |
+| --- | --- | --- |
+| **139** *(upto Dec 2024)* | **198** *(upto Dec 2024)* | USD ($) **14.88 Bn** *(upto Dec 2024)* |
+
+Sustainable Finance
+| Total Sustainable Credit by Banks | Cumulative ESG labelled Debt Listing on IFSC Exchanges | No. of Debt Listings on IFSC Exchanges |
+| --- | --- | --- |
+| USD ($) **1549 Mn** *(During Apr - Sep 2024)* | USD ($) **15.43 Bn** *(as on Dec 2024)* | **10** *(During Oct-Dec 2024)* |
+
+Bullion
+| No. of Qualified Suppliers/Jewelers | GOLD Traded on IIBX | SILVER Traded on IIBX |
+| --- | --- | --- |
+| **33/153** *(as on Dec 2024)* | **25.88 t** *(During Oct-Dec 2024)* | **1.61 t** *(During Oct-Dec 2024)* |
+
+Insurance Sector
+| No. of Insurance Firms/Intermediaries | Premium written by IFSC Insurance Office | Premium transacted by IFSC Insurance Intermediary Office |
+| --- | --- | --- |
+| **16/25** *(as at end of Dec 2024)* | USD ($) **49 Mn** *(During Oct-Dec 2024)* *(provisional)* | USD ($) **59 Mn** *(During Oct-Dec 2024)* *(provisional)* |
+
+Aircraft/Ship Leasing
+| No. of Registered Aircraft/Ship Lessors | No. of Aviation Assets Leased | No. of Ships Leased |
+| --- | --- | --- |
+| **30/15** *(as at end of Dec 2024)* | **196** *(month ended Dec 2024)* | **13** *(month ended Dec 2024)* |
+
+*[Page 6 of 42]*
+
+---
+
+# Contents
+
+Chairperson's Desk ........................................................................................................................................ 1
+
+IFSC Business Highlights .............................................................................................................................. 4
+
+List of Tables .................................................................................................................................................... 6
+
+Regulatory Updates .......................................................................................................................................... 8
+
+Public Consultation .......................................................................................................................................... 14
+
+Events and Outreach Activities ................................................................................................................... 15
+
+Current Statistics .............................................................................................................................................. 27
+
+*[Page 7 of 42]*
+
+---
+
+# List of Tables
+
+Table 1: Licenses/ Registrations issued by IFSCA based on SEZ LOAs...................................................................................27
+
+Table 2: Approvals by SEZ Unit Approval Committee (prior to issue of IFSCA authorization)......................................................27
+
+Table 3: Number of IBUs..........................................................................................................................................................28
+
+Table 4: Assets of IBUs.............................................................................................................................................................28
+
+Table 5: Liabilities of IBUs.......................................................................................................................................................28
+
+Table 6: Customer Deposits (in USD Mn)..................................................................................................................................28
+
+Table 7: Non-Resident Deposits................................................................................................................................................29
+
+Table 8: Derivative Outstanding of IBUs (USD Mn) (Notional)..................................................................................................29
+
+Table 9: ODI Outstanding of IBUs (USD Mn)............................................................................................................................29
+
+Table 10: Industry wise credit exposure of IBUs.......................................................................................................................29
+
+Table 11: Country wise exposure of IBUs.................................................................................................................................31
+
+Table 12: Number of Payment Service Providers (PSP).............................................................................................................31
+
+Table 13: IFSC Stock Exchanges Turnover (Traded Value in USD Mn).......................................................................................31
+
+Table 14: Aggregate Open Interest (OI) of all derivatives contracts on IFSC Stock Exchanges....................................................32
+
+Table 15: India INX Global Access..........................................................................................................................................32
+
+Table 16: Trading in Global Exchanges through India INX Global Access (Traded Value: USD Mn).................................................32
+
+Table 17: Trading in Global Exchanges through India INX Global Access (Oct-Dec 2024: USD Mn)...............................................32
+
+Table 18: Capital Market Intermediaries as on Dec 31, 2024.....................................................................................................32
+
+Table 19: Listing of debt securities at IFSC Exchanges (In USD Bn).........................................................................................33
+
+Table 20: Listing of debt securities at IFSC Exchanges.............................................................................................................33
+
+Table 21: Overall Sustainable Financing by IBUs......................................................................................................................33
+
+Table 22: Sector-wise classification of Sustainable Financing by IBUs.....................................................................................34
+
+Table 23: Written/ Transacted premium by IFSC Insurance Offices (IIOs) and Intermediary Offices (IIIOs)................................34
+
+Table 24: Line of Business wise Direct Insurance Business (Life and General)...........................................................................34
+
+Table 25: Line of Business wise Re-insurance Business...........................................................................................................35
+
+Table 26: Claims data (Retail / Re-insurance)..........................................................................................................................35
+
+Table 27: Number of Fund Management Entities (FMEs) and Funds.........................................................................................35
+
+Table 28: Investments by Fund Management Schemes at GIFT IFSC as on Dec 31, 2024..........................................................36
+
+*[Page 8 of 42]*
+
+---
+
+Table 29: Investors in IFSC Funds as on Dec 31, 2024 .........................................................................................................36
+
+Table 30: Trends of Fund Management Activity .......................................................................................................................36
+
+Table 31: Portfolio Management Services (PMS) as on Dec 31, 2024 ...................................................................................36
+
+Table 32: Finance Companies/ Finance Units during Oct-Dec 2024 ..................................................................................... 37
+
+Table 33: Assets leased by AOL/ Ship Leasing Entities ........................................................................................................... 37
+
+Table 34: Transactions financed by ITFS Platforms .................................................................................................................. 37
+
+Table 35: Business details of Global/Regional Corporate Treasury Centres (GRCTC) ......................................................... 37
+
+Table 36: Business details of Core Finance Companies (e.g. Lending, Export financing) ..................................................... 37
+
+Table 37: Participants on India International Bullion Exchange (IIBX) .................................................................................... 37
+
+Table 38: Regulated Entities/ Intermediaries on IIBX ..............................................................................................................38
+
+Table 39: Product-wise summary of trades on IIBX ................................................................................................................38
+
+Table 40: FinTech Ecosystem in IFSC .......................................................................................................................................38
+
+Table 41: Activity-wise break up of ancillary services entities...................................................................................................39
+
+Table 42: Activity-wise break up of BATF entities approved including in-principal approval...................................................39
+
+*[Page 9 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Regulatory Updates
+8
+
+# Regulatory Updates
+
+## Authority Meeting
+
+21st IFSC Authority meeting was held on December
+19, 2024. During the meeting, following Agenda
+items were placed and approved by the Authority:
+
+i. IFSCAN (Bullion Market) Regulations, 2025
+ii. IFSCAN (Fund Management) Regulations, 2025
+
+## Banking
+
+### Format for providing information by a Payment
+Service Provider (PSP) (October 08, 2024)
+
+Pursuant to regulation 32 of the IFSCAN (Payment
+Services) Regulations, 2024, the Authority has
+specified the information that shall be submitted by
+the Payment Service Provider(s) (PSP) authorised
+by the Authority in relation to its operations as a
+PSP.
+
+### Directions to IBUs for operations of the Foreign
+Currency Accounts (FCA) of Indian resident
+individuals opened under the Liberalised
+Remittance Scheme (LRS) (October 10, 2024)
+
+The revised Directions to IBUs for operations of the
+FCA of Indian Resident Individuals (RI) opened
+under the Liberalised Remittance Scheme (LRS)
+was issued on December 13, 2024, so as to
+streamline the operations of the foreign currency
+accounts, as per requirement under the applicable
+FEMA Directions. The direction specifies the
+compliances required by the IBU while operating
+the FCA.
+
+Under this direction, IBUs are enabled to permit RI
+to open FCA for remitting funds from onshore India
+and from locations other than onshore India, under
+the Liberalised Remittance Scheme of the RBI,
+subject to applicable provisions. The remitted
+amount may be further deployed by the RI for
+availing financial products or financial services, as
+defined in section 3 (1) (d) and 3(1) (e), respectively,
+of the IFSCA Act, 2019 (IFSCA Act), within IFSCs
+and/ or for undertaking all permitted current or
+
+capital account transactions, in any foreign
+jurisdiction (i.e. other than IFSCs).
+
+### IFSCAN (Payment and Settlement Systems)
+Regulations, 2024 (October 14, 2024)
+
+Using its powers under the Payment and Settlement
+Systems Act, 2007, the Authority notified the IFSCAN
+(Payment and Settlement Systems) Regulations,
+2024 on October 14, 2024. The regulations inter
+alia specifies the authorisation requirement for the
+system provider for commencing or carrying on a
+Payment System in an IFSC. Additionally, the
+regulations mandate the system provider to comply
+with the Principles for Financial Market
+Infrastructures (PFMI) issued by Committee on
+Payments and Market Infrastructures (CPMI) and
+International Organization of Securities
+Commissions (IOSCO).
+
+### Format and manner of seeking authorisation to
+commence or carry on a Payment System in an IFSC
+(October 23, 2024)
+
+Pursuant to the notification of the IFSCAN (Payment
+and Settlement Systems) Regulations, 2024 on
+October 14, 2024, the Authority has released the
+application form that is required to be submitted by
+any applicant desirous of commencing or carrying
+on a Payment System in an IFSC. The application
+form has 2 parts. Schedule-I is a general
+information form that is required to be filled by any
+applicant for getting registered with the Authority.
+Schedule II contains the specific requirements
+relating to the provision of payment systems by the
+system provider in IFSC.
+
+### IFSCAN (Registration of Factors and Registration of
+Assignment of Receivables) Regulations, 2024
+(November 22, 2024)
+
+IFSCA (Registration of Factors and Registration of
+Assignment of Receivables) Regulations, 2024 were
+notified on November 22, 2024. The objective of the
+regulations is to provide for the manner of granting
+certificate of registration to Factors and filing of
+
+*[Page 10 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Regulatory Updates | 9
+
+particulars of transactions with the Central Registry by a Trade Receivable Discounting System (TReDS) on behalf of the Factors under sub-section (1A) of section 19 of the Factoring Regulation Act, 2011 (12 of 2012).
+
+Directions to IBUs for operations of the Foreign Currency Accounts (FCA) of Indian resident individuals opened under the Liberalised Remittance Scheme (LRS) (December 13, 2024)
+
+IFSCA, in exercise of the powers conferred by Section 13 of the IFSC Act, 2019, read with Regulation 20 of the IFSCA (Banking) Regulations, 2020 (as amended), issued a circular which is applicable to IBUs opening FCA of resident individuals as permitted vide A.P. (DIR Series) Circular No.15 pertaining to 'Remittances to International Financial Services Centres (IFSCs) under the Liberalised Remittance Scheme (LRS)' dated July 10, 2024, issued by the RBI.
+
+IBUs as participants on International Trade Financial Services platform (December 23, 2024)
+
+The ITFS guidelines dated July 9, 2021, were reviewed and new guidelines have been issued for further ease of business for participants on ITFS platform which includes IBUs. IBUs can undertake Factoring, Reverse Factoring, Bill discounting under Letter of Credit, Supply Chain Financing, Pre-shipment Credit and Forfaiting on the ITFS platform. Further IBUs can undertake secondary market transactions for these activities.
+
+# Capital Markets
+
+Master Circular for Credit Rating Agencies (October 01, 2024)
+
+IFSCA issued the Master Circular for Credit Rating Agencies, consolidating the operational guidelines for permitted activities by the registered CRAs.
+
+The master circular supersedes various circulars issued earlier by IFSCA on credit rating agencies and all the circulars and guidelines issued by SEBI (prior to October 01, 2020) in respect of credit rating agencies registered with IFSCA. The process of drafting of the circular has taken into account
+
+global best practices and the principles laid out by IOSCO.
+
+The master circular spells out comprehensive regulatory requirements on various aspects such as registration process, permissible activities, credit rating activities, governance, ESG Ratings and Data Products Providers, Valuation and Reporting.
+
+Listing of Commercial Paper and Certificates of Deposit on the recognised stock exchanges in the IFSC (October 17, 2024)
+
+The key objective of the Circular is to enable listing of new products on the stock exchanges in the IFSC for providing an opportunity to the investors to invest in short term instruments in the IFSC. This will contribute towards development of the capital market ecosystem in the IFSC.
+
+Framework for ESG Ratings and Data Products Providers in the IFSC (October 30, 2024)
+
+IFSCA issued a circular specifying the regulatory framework as a new category of intermediary under the IFSCA (Capital Market Intermediaries) Regulations, 2021. The regulatory norms have been laid down pursuant to benchmarking the global best practices, IOSCO report and Code of Conduct published by ICMA.
+
+The circular has details regarding various aspects such as applicability, registration, net worth, fit and proper, permissible activities, code of conduct, ESG rating process, continuing disclosures etc. The regulatory framework for ERDPPs is an important step towards developing the ecosystem for sustainable finance within GIFT IFSC in a transparent and regulated manner.
+
+IFSCA (Market Infrastructure Institutions) (Amendment) Regulations, 2024 (November 01, 2024)
+
+Amendments in IFSCA (Market Infrastructure Institutions) Regulations, 2021, primarily to strengthen governance norms of the MIIs. MIIs are vested with regulatory responsibilities, while pursuing commercial interests like other profit-oriented entities.
+
+*[Page 11 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+It is important that the MIIs, in pursuance of their business objectives, should not lose sight of their regulatory roles. The MIIs are also the first line regulators for the CMIs such as Broker-Dealers, Clearing Members and Depository Participants. Because of the conflicting nature of the MII's role, it is felt that governance standards of MIIs need to be robust to enhance and maintain market confidence and deter malpractices. Corporate Governance becomes even more significant in an IFSC context, where MIIs engage in global connect arrangement. Therefore, to ensure accountability and mitigate potential conflict between regulatory and business-development roles of employees of the MIIs, the amended regulations have incorporated provisions for MIIs to ring-fence the functions and personnel pertaining to regulatory, compliance, risk management, and investor grievances from the rest of the functions.
+
+Also, a more comprehensive code of conduct for the MIIs and their governing board, directors, committee members, and key management personnel has been specified. Other key amendments include the provisions for the appointment of a Chief Risk Officer, Chief Legal Officer, and Chief Information Security Officer, and a requirement for a recognised clearing corporation to develop a framework for the orderly winding down of its operations.
+
+## Complaint Handling and Grievance Redressal by Regulated Entities in the IFSC (December 02, 2024)
+
+IFSCA issued a circular specifying the norms and requirements for handling of complaints and redress of grievances of financial consumers by regulated entities in the IFSC in a fair, transparent, professional and impartial manner.
+
+The regulatory framework has been issued with the objective to safeguard the interests of financial consumers in the IFSC, which is essential for building confidence of consumers and fostering trust and credibility in the financial markets in the IFSC.
+
+The framework provides detailed norms and requirements inter alia relating to having a policy for complaint handling and grievance redressal, procedure for complaint handling along with timelines, appeal mechanism, complaint before
+
+Regulatory Updates 10
+
+IFSCA, maintenance of records, disclosures on website and annual report, reporting and maintenance of online system for complaint handling. The circular comes into force with effect from April 01, 2025.
+
+## Insurance
+
+### Consolidated IFSCA (Investment by IIO) Regulations, 2022 (November 05, 2024)
+
+Subsequent to the IFSCA (Investment by IFSC Insurance Office) (Amendment) Regulations, 2024, a consolidated version of the said regulations was placed on the website of the IFSCA, keeping in view the ease of doing business for Regulated Entities (REs).
+
+### Consolidated IFSCA (Registration of Insurance Business) Regulations, 2021 (November 12, 2024)
+
+Subsequent to the amendment to IFSCA (Registration of Insurance Business) Regulations, 2021 in light of the amendments notified by the IRDAI on August 22, 2023, to its (Re-insurance) Regulations, 2018 and the launch of Single Window IT System (SWITS) platform with common application form, a consolidated version of the said regulations was placed on the website of the IFSCA, keeping in view the ease of doing business for REs.
+
+## Finance Company
+
+### Guidelines for utilisation of office space or manpower or both by Finance Company(ies)/ Unit(s) undertaking ship leasing activity in the IFSC (October 04, 2024)
+
+The Ministry of Commerce and Industry vide Gazette Notification dated March 14, 2024, had amended rule 21B of the SEZ Rules 2006, to enable ship leasing unit in IFSC to utilise the office space or manpower or both of another unit in IFSC for the purpose of ship leasing, with the approval of the Authority. Pursuant to the above notification, the Authority issued these guidelines specifying the condition and processes by which an FC/FU undertaking ship leasing in IFSC may avail this facility as issued in case of aircraft leasing entities.
+
+*[Page 12 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Regulatory Updates 11
+
+Amendment to the 'Framework for Aircraft Lease' with regard to transactions with person (s) resident in India (October 30, 2024)
+
+IFSCA revised the 'Framework for Aircraft Lease' by inclusion of an additional clause which clarified nature of transactions that IFSC lessors can undertake with Indian residents. Accordingly, the revised framework clarifies that no person(s) resident in India may sell, transfer, lease, or otherwise dispose ('disposal') any asset(s) covered under the said framework, or any right or interest related to such assets, to a Finance Company engaged in aircraft leasing activity, in circumstances where such assets, on or after its disposal, will be operated or used solely by person(s) resident in India or to provide services to person(s) resident in India. However, the restrictions mentioned above will not apply in situations where: (i) the disposal is made to a Lessor who is not a 'Group Entity' of the individual(s) involved as per the said Framework and (ii) such disposal is to a Lessor as part of sale and leaseback arrangement of such assets which are being imported into India for the first time.
+
+Guidelines on setting up and operation of International Trade Finance Service Platform (ITFS) (December 23, 2024)
+
+Replacing the earlier guidelines for ITFS, the updated guidelines introduce several enhancements, including streamlined eligibility criteria for setting up ITFS, the adoption of on-tap registration instead of a fixed application window, and the expansion of permissible activities to include secondary market transactions of TFUs and the facilitation of clearing and settlement of funds. Additionally, the list of eligible participants now includes payment service providers. Stakeholders can refer to the press release on the revised guidelines for a detailed understanding of the key changes *here*.
+
+# Fund Management
+
+Clarifications in relation to Investment Restrictions on Retail Schemes set up in IFSCs (October 29, 2024)
+
+IFSCA issued clarification regarding investment restrictions for retail schemes under the Fund Management Regulations, 2022. To support retail schemes, the Authority exempts certain limits on investments in unlisted securities, including the 15% ceiling for open-ended schemes, USD 10,000 minimum for close-ended schemes, and the 50% ceiling for unlisted securities in close-ended schemes. FMEs managing fund-of-funds must disclose details of underlying schemes and any association with their managers. This circular takes effect immediately under the IFSCA Act, 2019, and regulation 146 of the Fund Management Regulations, 2022.
+
+Review of IFSCA (Fund Management) Regulations, 2022 (December 21, 2024)
+
+In the ongoing efforts to strengthen the regulatory framework for fund management within the IFSC while simplifying processes and reducing compliance costs, IFSCA issued a consultation paper on August 05, 2024, inviting public comments on the proposed amendments to the IFSCA (Fund Management) Regulations, 2022.
+
+Following a thorough review and analysis of the feedback received, the proposed changes were discussed in the meeting of the Fund Management Advisory Committee (FMAC) held on November 26, 2024. The revised regulations were deliberated at the Authority meeting held on December 19, 2024, and subsequently a summary of the key decisions of the Authority were informed through a press release.
+
+The new Fund Management Regulations 2025, which incorporate the approved changes, will be notified in the gazette shortly.
+
+*[Page 13 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Regulatory Updates | 12
+
+# AML/CFT
+
+## Exempting certain entities/activities from the applicability of IFSCA (Anti Money Laundering, Counter-Terrorist Financing and Know Your Customer) Guidelines, 2022 (November 18, 2024)
+
+This Circular exempt certain entities/activities from the applicability of the IFSCA (AML/CTF/KYC) Guidelines, 2022, subject to the condition that such entities shall conduct and document a Business Risk Assessment. Where such assessment envisages any AML/CTF risks, the entities shall comply with the Prevention of Money Laundering Act, 2002, and the rules made thereunder, as well as the IFSCA (AML/CTF/KYC) Guidelines, 2022. Furthermore, all Financial Institutions are required to transact or receive monetary consideration only through an account maintained with a Banking Unit in IFSC.
+
+## Procedure for implementation of Section 51A of the Unlawful Activities (Prevention) Act, 1967- Change in the details of the Central [Designated] Nodal Officer (November 18, 2024)
+
+This Circular is issued to bring to the notice of the Regulated Entities in IFSC about the Corrigendum dated April 22, 2024, issued by Ministry of Home Affairs, CTCR Division/ CFT Cell. The Corrigendum updates the details of the Central [Designated] Nodal Officer responsible for implementing Section 51A of the Unlawful Activities (Prevention) Act, 1967.
+
+## Modifications under the IFSCA (Anti Money Laundering, Counter-Terrorist Financing and Know Your Customer) Guidelines, 2022 (November 22, 2024)
+
+This Circular is issued to modify certain provisions of the IFSCA (AML/CTF/KYC) Guidelines 2022 with respect to Requirements/ Obligations under International Agreements Communications from International Agencies (Chapter XI) and Group-wide Programmes (clause12.2).
+
+# Sustainable Finance
+
+## Principles to mitigate the Risk of Greenwashing in ESG labelled debt securities in the IFSC (November 21, 2024)
+
+While there is no universally accepted definition/taxonomy of greenwashing, the term "Greenwashing" generally refers to the deceptive practice of making unsubstantiated, false, vague, exaggerated or misleading claims regarding the sustainability benefits of a product, service, or business operation. It also includes practices such as concealing, omitting, or hiding relevant information in sustainability claims and use of words, labels, symbols, and imagery placing emphasis on positive environmental aspects while downplaying or concealing harmful attributes.
+
+There is growing concern globally amongst stakeholders, including investors, regarding the accuracy and reliability of claims made by issuers about the sustainability benefits of the projects or assets they invest in. With the growing listing of ESG-labelled Debt Securities on the IFSC exchanges, establishing a robust framework to address the issue of greenwashing is imperative.
+
+This circular is issued in order to promote transparency, accountability and adequacy of disclosures to investors, which prescribed the following five principles for the issuers of ESG labelled Debt Securities.
+
+i. Being True to Label - Avoid misleading labels and terminology
+ii. Screen the Green - Transparency in methodology for project selection and
+iii. evaluation
+iv. Walk the talk - Managing and tracking use of proceeds
+v. Overall Impact - Quantification of Negative Externalities
+vi. Be alert - Monitoring and Disclose
+
+*[Page 14 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+13
+
+# Office of Administrator (IFSCA)
+
+## Submission of Monthly Performance Report (MPR) and Services Export Reporting Form (SERF) by IFSC Units (December 23, 2024)
+
+The office of Administrator (IFSCA) issued PUBLIC NOTICE No. 03/2024-25 dated December 23, 2024, whereby the IFSC units have been directed to submit their complete and accurate MPR and SERF data in the SEZ Online portal as on the last day of every month by the $5^{\text{th}}$ of the succeeding month. Failure to submit the reports in the portal shall be viewed seriously and may invite appropriate penal action.
+
+# Others
+
+## IFSCA Informal Guidance) Scheme, 2024 (December 02, 2024)
+
+The Scheme is aimed at providing a mechanism for seeking clarity and guidance inter-alia on various issues pertaining to a potential business activity and transactions, which are under the regulatory ambit of the IFSCA and on other legal issues emanating from the acts administered by IFSCA.
+
+*[Page 15 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Public Consultation 14
+
+# Public Consultation
+
+## Capital Markets
+
+Consultation paper on Principles to mitigate the risk of greenwashing in ESG labelled debt securities in the IFSC (October 04, 2024)
+
+IFSCA has issued a consultation paper to seek comments and suggestions from the public and stakeholders on Principles to mitigate the risk of greenwashing in ESG labelled debt securities in the IFSC.
+
+Consultation paper on the proposed IFSCA (Capital Market Intermediaries) Regulations, 2024 (November 21, 2024)
+
+IFSCA issued a consultation paper on Nov 21, 2024, to seek comments and suggestions from the public and stakeholders on the draft IFSCA (Capital Market Intermediaries) Regulations, 2024. The purpose of the proposed new regulations is to provide the revised regulatory framework for registration, regulation and supervision of capital market intermediaries set up in the IFSC. Earlier, the regulatory framework for capital market intermediaries in the IFSC have been issued under the IFSCA (Capital Market Intermediaries) Regulations, 2021.
+
+The draft regulations have been proposed based on the global best practices and have taken into account the IOSCO Principles relating to regulation of intermediaries.
+
+The salient features of the New CMI Regulations, include:
+
+i. The new regulations provide the regulatory framework for "Research Entity" as a new category of Intermediary
+
+ii. It also provides for new regulatory approach for distributors, ESG Ratings and Data Products Provider and Broker Dealers desirous of accessing global markets only
+iii. The minimum net worth requirements for various categories of intermediaries have been rationalized
+iv. The new regulations provide more clarity on appointment of Principal Officer, Compliance Officer and other human resources in the IFSC
+v. There are several other changes, including alignment of definitions of "key managerial personnel", "control", "fit and proper" criteria with other regulations notified by the Authority.
+
+The new regulations aim to promote ease of doing business for the entities participating in the capital markets by simplifying and rationalizing the requirements based on feedback and suggestions received from the stakeholders.
+
+Consultation Paper on proposed IFSCA (KYC Registration Agency) Regulations, 2024 (December 06, 2024)
+
+The purpose of the proposed IFSCA (KYC Registration Agency) Regulations, 2024 ("KRA Regulations") is to provide the regulatory framework for the registration, regulation, and supervision of KRAs set up in the IFSC. The objective is to enable the KRAs to set up in the IFSC and to centralize the KYC records of the clients/customers onboarded by various types of regulated entities to facilitate smooth onboarding of the clients/customers by Regulated Entities and enhance their efficiency with respect to Customer Due-Diligence (CDD).
+
+*[Page 16 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities | 15
+
+# Events and Outreach Activities
+
+## Developmental Activities
+
+GIFT IFSC New York Conference 2024: Fund Management and Capital Market Opportunities in GIFT IFSC
+
+During the IFSCA high-level delegation visit to the US, a conference was organised in New York to highlight the opportunities for Fund management and Capital Market in Gift IFSC. During the conference, the Chairperson, of IFSCA addressed the participants by highlighting significant achievements of India in critical sectors such as infrastructure, green energy, asset monetization, trade and investments, etc. He also emphasized the latest regulatory and business developments in GIFT IFSC, which have opened compelling opportunities for US institutions.
+
+[Photograph: A man speaking at a podium with a presentation screen in the background and an audience seated in chairs]
+
+Later, Dr. Dipesh Shah, Executive Director, IFSCA made a detailed presentation on IFSC business opportunities across banking, funds industry, capital markets, fintech, etc. He highlighted various facets of IFSCA Fund Management Regulations and gave insights on the overall fund management ecosystem in GIFT IFSC.
+
+[Photograph: A man speaking at a podium with a presentation screen showing statistics]
+
+Roundtable Conference: Opportunities for US Institutions in GIFT IFSC
+
+During the IFSCA high-level delegation visit to the US, a roundtable conference was organized in collaboration with the Consulate General of India in New York and ICAI and was attended by 50+ professionals from the financial services industry including CA professionals. Chairperson, IFSCA emphasised on the vision of Government to make GIFT IFSC a “Global Finance and Accounting hub” and highlighted the outsourcing opportunities available for US Accounting Professionals under the recently notified IFSCA (Book-keeping, Accounting, Taxation and Financial Crimes Compliance Services) Regulation 2024.
+
+[Photograph: A conference room with people seated around a table and screens displaying participant names]
+
+Dr. Dipesh Shah, Executive Director, IFSCA made a detailed presentation on the IFSCA Regulations and Frameworks such as BATF, FinTech Entity Framework, Fund Management Regulations, etc.
+
+[Photograph: A man standing at a podium with the Indian flag and the logo of the Consulate General of India New York in the background]
+
+*[Page 17 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities | 16
+
+## IFSCA delegation visit to UAE and Qatar
+
+IFSCA delegation led by Mr. K. Rajaraman, Chairperson, IFSCA visited Qatar and UAE from November 10-13, 2024. During the visit, several conferences, roundtable meetings and one-to-one meetings were held with Banks, Fund Managers, Insurance firms, including:
+
+**Interaction with Dr Tamy Ahmed Ali Al Boutamy Al Binali, CEO, Qatar Financial Markets Authority (QFMA) in presence of Mr. Sandeep Kumar, Deputy Chief of Mission, Embassy of India, Doha, Qatar**
+
+[Photograph: Three men holding a framed artwork in an office setting]
+
+**Interaction with Qatari Businesses and Indian Diaspora in presence of Shri Vipul, Ambassador of India to Qatar in Doha.**
+
+[Photograph: A large group of men posing for a formal photograph inside an embassy conference room]
+
+**Meeting with Abu Dhabi Global Market's Financial Services Regulatory Authority (ADGM'S FSRA)**
+
+[Photograph: Five men standing in front of an ADGF conference backdrop]
+
+**Meeting with Dr. Maryam Alsuwaidi, CEO, Securities & Commodities Authority (UAE – SCA)**
+
+[Photograph: A woman in a black abaya and a man in a suit exchanging a book titled INDIA]
+
+**Meeting with Mr. Arif Amiri, CEO, Dubai International Financial Centre**
+
+[Photograph: Two men holding a framed artwork in front of a DIFC logo wall]
+
+*[Page 18 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities | 17
+
+**Interaction organised by Shri Sunjay Sudhir, Ambassador of India in UAE, with Abu Dhabi based businesses and HNIs**
+
+[photograph: Interaction organised by Shri Sunjay Sudhir, Ambassador of India in UAE, with Abu Dhabi based businesses and HNIs]
+
+**Interaction organised by the Embassy of India with Indian Businesses and HNIs organised by the CG of India to Dubai**
+
+[photograph: Interaction organised by the Embassy of India with Indian Businesses and HNIs organised by the CG of India to Dubai]
+
+**Interaction on GIFT IFSC Investment Funds opportunities**
+
+During the IFSCA delegation visit to Dubai, a session was organized with Fund Managers, Wealth Managers, and Family Offices in which the Chairperson, IFSCA, provided an overview of GIFT IFSC, describing it as a global platform for investments into and out of India, aligned with the country's "2047 Vision." Key highlights included financial sector reforms, ease of doing business, and the development of green bonds, capital markets, and leasing ecosystems.
+
+[photograph: Attendees at the session]
+
+Dr. Dipesh Shah, ED, IFSCA, elaborated on opportunities for financial services businesses in GIFT IFSC, particularly focusing on fund
+management. The discussion covered various fund structures and the applicable tax regime.
+
+**Interaction with Shipping Entities in Dubai**
+
+[photograph: Attendees of the interaction with Shipping Entities in Dubai]
+
+**Conference on 'Booking Accounting Taxation & Financial Compliance Services (BATF) Opportunities in GIFT IFSC'**
+
+During the IFSCA delegation visit to Dubai, the ICAI (Dubai) Chapter - NPIO organised an engaging session to explore professional opportunities within India's IFSC.
+
+[photograph: Chairperson, IFSCA addressing the conference]
+
+Chairperson, IFSCA addressed ICAI members emphasizing the role of the IFSC in building a New India, Mr. Satish Sivan, Consul General of India in Dubai, highlighted the growing India-UAE relations and Dr. Dipesh Shah, ED, IFSCA presented the promising business opportunities for the professional community in IFSC.
+
+[photograph: Speaker at the conference with presentation screen]
+
+*[Page 19 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities 18
+
+[Photograph: Shri Harsh Sanghavi speaking at the podium with presentation backdrop behind him]
+
+# IFSCA Talent Vista 2024
+
+IFSCA, supported by Quality Control of India (QCI) and University of Wollongong, organized 1st edition of its “IFSCA Talent Vista 2024: Reimagining Future of Finance at GIFT IFSC” on November 15, 2024, at GIFT City Club, GIFT City, Gandhinagar, Gujarat.
+
+This was an Academia-Industry Collaboration platform for talent development in GIFT IFSC. The purpose of the event was to enable effective collaboration of academia and corporates for getting the cutting-edge talent ready to cater to industry demand in GIFT IFSC with a vision to transform the city into a “New Age Global Financial Centre”.
+
+[Photograph: Stage event with dignitaries seated on chairs in front of a large screen reading "IFSCA TALENT VISTA 2024"]
+
+The event was graced by the Chief Guest, Shri Harsh Sanghavi, Hon’ble Minister of State – Home and Industries, Government of Gujarat, and included Key addresses by renowned speakers from industry and academia.
+
+---
+
+**Shri Harsh Sanghavi, Hon’ble Minister of State – Home and Industries, Government of Gujarat speaking at the IFSCA Talent Summit**
+
+[Photograph: Shri Harsh Sanghavi addressing an audience from the stage with a large presentation screen behind him]
+
+The event also witnessed three enriching panel discussions on various themes associated with talent management in GIFT IFSC, by distinguished moderators and panelists. The details of the Panel discussions are as follows:
+
+i. The inaugural panel discussion talked about various facets involved in fostering industry-academia collaboration.
+
+[Photograph: Panelists seated on a stage with a screen displaying "FOSTERING INDUSTRY-ACADEMIA COLLABORATION: BUILDING ROBUST TALENT PIPELINE IN GIFT IFSC"]
+
+ii. The second panel discussed ways to meet talent needs in GIFT IFSC, a growing center for sectors like fintech, aircraft & ship leasing, and sustainable finance, among others.
+
+[Photograph: Panel discussion session with seated panelists and audience in the foreground]
+
+*[Page 20 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+iii. Dr. Dipesh Shah, ED, IFSCA, moderated the session on **Enhancing the Competitiveness: Attracting Global Talent to GIFT IFSC** as part of the IFSCA Talent Vista 2024. During the session, the panellist discussed on how companies and startups can harness GIFT City's ecosystem for scaling their operations. The panel also emphasized the critical role of skill development, mentorship, and upskilling, along with innovative educational models to support these efforts.
+
+[photo: Panel discussion at IFSCA Talent Vista 2024]
+
+## Business Standard BFSI Insight Summit
+
+Dr. Dipesh Shah, ED, IFSCA, participated as a panellist in the panel discussion ‘**How prepared is GIFT City in giving a boost to India's financial sector?**’ held during the Business Standard BFSI Insight Summit on November 8, 2024, at the Jio World Convention Centre, Mumbai. Business Standard BFSI Insight Summit brings the entire industry together to discuss the here & now and after, Insight Out!
+
+[photo: Business Standard BFSI Insight Summit panel discussion]
+
+During the discussion, Dr. Shah highlighted the notable advancement in GIFT IFSC including that the number of registered firms increased from 129 to over 725 after the government established the IFSCA, the unified regulator for GIFT City. He also emphasised that with the GIFT IFSC offering firms the benefits of offshore havens within India,
+
+Events and Outreach Activities 19
+
+companies now no longer feel the need to move operations abroad.
+
+## India Management Research Conference: IIM Ahmedabad (IMRC)
+
+IIM Ahmedabad organized a conference in behavioural science with the theme “The Psychology of Risk-taking: A Review of behavioural aspects in financial decision-making.” Dr. Dipesh Shah, Executive Director, IFSCA participated in the "India Management Research Conference 2024" (IMRC 2024) at IIM Ahmedabad and shared his views on the importance of decision-making in the mega projects in the sphere of psychology of risk-taking.
+
+[photo: IIM Ahmedabad conference]
+
+## India Business Forum 2024
+
+Dr. Dipesh Shah, ED, IFSCA, was a keynote speaker in the “Unlocking Opportunities: The Strategic Potential of GIFT City” session at the Inaugural India Business Forum 2024 held on December 17, 2024, at Goa organized by Allinial Global. Allinial Global is a renowned association of independent accounting and advisory firms, consisting of 268 member firms across 109 countries with a combined revenue exceeding $6 billion. During the keynote session, Dr. Shah made a detailed presentation on the overall opportunities at GIFT IFSC, with a specific focus on BATF opportunities.
+
+[photo: India Business Forum 2024 keynote presentation]
+
+*[Page 21 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities 20
+
+## Global Treasury Centre and Fintech Opportunities: GIFT City
+
+Dr. Dipesh Shah, Executive Director, IFSCA, participated in the event "Global Treasury Centre and Fintech Opportunities: GIFT City" organized by Axis Bank on December 9, 2024, in Mumbai. As part of the event, Dr. Shah delivered a special note on the "Opportunities at GIFT City IFSC" and highlighted various initiatives taken by IFSCA to develop GIFT IFSC as a hub for Global Treasury Centres and Fintech.
+
+[photo: Dr. Dipesh Shah and audience at the event]
+
+## Next Billion Forum
+
+Suzuki Group hosted the "Next Billion Forum" at GIFT City on December 23, 2024. A large delegation from Japan, senior Government officials, industry leaders as well as experts participated in the event. The event was organized to mark the launch of Next Bharat Venture Fund-I from GIFT IFSC by the Suzuki Group.
+
+As part of the event, a presentation on GIFT IFSC was made at the forum by Dr. Dipesh Shah, Executive Director, IFSCA, highlighting various business opportunities available in GIFT IFSC for Japanese institutions and investors.
+
+[photo: Dr. Dipesh Shah speaking at the Next Billion Forum podium]
+
+## Taiwanese delegation visit to GIFT City
+
+On December 4, 2024, a 31-member Taiwanese delegation, led by Mr. D.C. Lei, visited GIFT City to explore business opportunities for Taiwanese financial institutions and understand the financial services ecosystem at GIFT IFSC.
+
+The delegation comprised senior officials from TABF, the Central Bank of Taiwan, the Bankers Association of R.O.C., the Financial Supervisory Commission, and leading Taiwanese banks.
+
+During the visit, IFSCA officials delivered a detailed presentation on the business opportunities available within GIFT IFSC. Following the presentation, a Q&A session was held, addressing questions from the delegation.
+
+The delegation then interacted with select market participants from units already operating within GIFT IFSC. Market participants shared their experiences, challenges, and the support ecosystem in GIFT IFSC, highlighting the array of opportunities available.
+
+[photo: Group photograph of the Taiwanese delegation at GIFT City]
+
+The delegation participated in a tour of GIFT City, visiting world class infrastructure features such as Automated Waste Collection System (AWCS), b) Utility Tunnel, District Cooling System (DCS) and City Control and Command Centre (C4).
+
+The delegation then visited India INX, where a presentation was made by the India INX team highlighting its business operations, growth, and prospects for Taiwanese capital market intermediaries within the GIFT ecosystem.
+
+## 3^rd India-UK Financial Markets Dialogue
+
+The third meeting of India-UK Financial Markets Dialogue was hosted by Department of Economic Affairs, Ministry of Finance in GIFT City, Gujarat on December 12, 2024.
+
+*[Page 22 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities 21
+
+The Dialogue was led by senior officials from the Indian Ministry of Finance and HM Treasury, with participation from Indian and UK regulatory agencies, including the Reserve Bank of India (RBI), the Securities and Exchange Board of India (SEBI), International Financial Services Centre Authority (IFSCA), Insurance Regulatory and Development Authority of India (IRDAI), Pension Fund Regulatory and Development Authority (PFRDA), the Bank of England (BoE) and the Financial Conduct Authority (FCA).
+
+The Dialogue opened with reflections on developments since the last meeting in April 2023, including the opportunity presented by India's intention to release a financial sector vision and strategy and the UK's commitment to publishing a financial services growth and competitiveness strategy. Both sides agreed to work to maximise synergies.
+
+[photo: Delegates group photograph]
+
+Delegates from India and the UK shared perspectives on priorities and ongoing reforms within their respective jurisdictions. The Dialogue focused on collaboration in evolving fields of financial regulation, noting the areas of mutual interest in both markets for increasing bilateral trade and investment between the financial sectors.
+
+Innovation was a key theme throughout the dialogue, acknowledging the importance of Fintech, and the key role of financial data in enabling business activity. Both parties highlighted priorities identified in the IUKFP Fintech and Data Paper published last year and agreed to host the next meeting of the India-UK Fintech Joint Working Group in early 2025 to take forward agreed priorities. Participants discussed related priorities, including the G20 payments roadmap, digital payment connectivity, regulatory sandbox collaboration, collaboration on Central Bank Digital Currencies, and future cooperation on other emerging technologies including AI and Quantum computing.
+
+# Capital Markets
+
+## Celebration of the IOSCO World Investor Week, 2024
+
+IFSCA celebrated the IOSCO World Investor Week, 2024 (WIW) during the week starting October 14, 2024.
+
+The IOSCO WIW is a global week-long campaign to raise awareness about the importance of investor education and protection and highlight the various initiatives of securities regulators. IFSCA, in coordination with the stock exchanges and other market participants celebrated the IOSCO World Investor Week and participated in a series of events (webinars, physical events, interaction with students, short videos, messages on social media etc.) with the objectives to create awareness about the various opportunities in the IFSC for investors and to highlight the regulatory initiatives taken by IFSCA in the areas of securities regulation. The key themes for the WIW revolved around sustainable finance and technology.
+
+The various activities conducted were as under:
+
+### Opening Bell Ringing Ceremony
+
+Shri Pradeep Ramakrishnan, ED, IFSCA rang the opening bell at NSE IX, on October 15, 2024, to commence the celebration of IOSCO World Investor Week, 2024.
+
+### Release of short video series by IFSCA
+
+IFSCA released a series of nine short videos on creating awareness about "GIFT IFSC - The Gateway to India" covering the following themes:
+
+- Message from Chairperson, IFSCA on the occasion of IOSCO that threw light on how IFSCA is committed towards protecting the interests of investors
+- The IFSC Ecosystem - Then, now and the future
+- What makes the IFSC a hotbed for innovation in financial technology
+- Sustainable Finance
+- IFSCA's Impact on Industry: Aircraft & Ship Leasing (Case Study)
+- New Age Exchanges at the IFSC: India INX, NSE IX & IIBX
+
+*[Page 23 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities 22
+
+• Raising Debt Capital: A New Era for Indian Businesses
+• Direct Listing: A New Chapter for Indian Companies
+• International Banking Units at GIFT IFSC: A Gateway to Global Finance
+
+# Social Media Campaign on a smart investor
+
+A social media campaign about WIW messages for a smart investor on the themes related to sustainable finance, investor resilience, frauds and scams prevention etc. was conducted during the WIW week.
+
+## Webinars during WIW
+
+i. Shri Pradeep Ramakrishnan, ED, IFSCA, participated in a webinar organized by NSE IX and CII on "Fund Raising and Investment Opportunities at GIFT City". He provided an overview about the regulatory framework in IFSC along with key features of new Listing Regulations.
+
+[photo: World Investor Week Webinar]
+
+ii. Shri Pradeep Ramakrishnan, ED, IFSCA, participated in a webinar organized by NSE IX on "Innovators in Climate Finance". He shared insights about the regulatory measures by IFSCA for developing GIFT IFSC as a Climate Finance Hub.
+
+[photo: Webinar: Innovators in climate finance]
+
+iii. Shri Pradeep Ramakrishnan, ED, IFSCA addressed a seminar by ICSI in coordination with India INX on "Direct Listing, Investment Opportunities in GIFT IFSC" at Ahmedabad.
+
+[photo: Seminar on the theme of "Direct Listing in GIFT-IFSC"]
+
+iv. Shri Arjun Prasad, GM, IFSCA, participated in a webinar organized by INDIA INX in collaboration with MFIN on "International Capital Market Opportunities in GIFT IFSC".
+
+[photo: International Capital Market Opportunities in GIFT IFSC during the "World Investor Week 2024"]
+
+v. Shri Shubham Goyal, AGM, IFSCA participated in a webinar organised by ANMI in coordination with NSEI- X on "GIFT IFSC - Bridge for Indian and Global Investors" and provided an overview of the regulatory framework at GIFT IFSC.
+
+[photo: World Investor Week Webinar]
+
+*[Page 24 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities 23
+
+# Closing Bell Ceremony WIW
+
+Shri Arjun Prasad, GM, IFSCA rang the closing bell during the ceremony organised by India INX and IHM Ahmedabad Alumni Association. He shared insights on the various opportunities in GIFT IFSC through an interactive session with IIMA Alumni and Angel/VC investors.
+
+[photo: Closing Bell Ceremony WIW]
+
+# Panel Discussion on "Leadership Dialogue: Sustainable Finance Regulation and Policy"
+
+Shri Pradeep Ramakrishnan, ED, IFSCA participated in a Panel Discussion on “Leadership Dialogue: Sustainable Finance Regulation and Policy” during the 8th Annual ICMA & JSDA Conference held in Tokyo on November 22, 2024. The Panel delved into best practices followed by regulators in Asian jurisdictions on Sustainable Finance. Shri Pradeep Ramakrishnan shared insights on the various initiatives taken by IFSCA to develop GIFT IFSC as a hub for sustainable finance. Shri Arjun Prasad, GM, IFSCA also participated in the discussions and meetings.
+
+[photo: Panel Discussion at ICMA & JSDA Annual Sustainable Bond Conference]
+
+# Event on "Unlocking the GIFT City Opportunity" at Bengaluru
+
+An event was organized today by HDFC Bank on “Unlocking the GIFT City Opportunity” in Bengaluru on December 10, 2024. Shri K. Rajaraman, Chairperson, and other senior officials of IFSCA participated in the event and interacted
+
+with senior officials of various financial institutions, fund managers, and PE/VC investors on the opportunities in GIFT IFSC.
+
+[photo: Interactive session on 'Navigating GIFT City Issuances', Mumbai]
+
+Interactive session on 'Navigating GIFT City Issuances', Mumbai
+
+IFSCA is association with CareEdge and NSE International Exchange (NSE IX), held 'The Dialogue', an exclusive interactive session on 'Navigating GIFT City Issuances', in Mumbai on December 16, 2024.
+
+[photo: The Dialogue - Navigating GIFT City Issuances banner]
+
+# Panel Discussion on “Strategic Insights into the Future of Debt Markets”
+
+Shri Pradeep Ramakrishnan, ED, IFSCA and Shri Akash Boddeda, AM, IFSCA attended the India Debt Capital Market Summit 2024 on November 29, 2024. Shri Pradeep Ramakrishnan participated in the Panel Discussion on “Strategic Insights into the Future of Debt Markets” and shared his insights on the growth of the debt market including listing of GSS+ bonds in GIFT IFSC.
+
+[photo: Strategic Insights Into The Future Of Debt Markets panel discussion]
+
+*[Page 25 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities 24
+
+# Insurance
+
+## 20th Singapore International Reinsurance Conference
+
+The 20th Singapore International Reinsurance Conference (SIRC) 2024 saw over 3,300 participants, with nearly 2,000 joining in from overseas. The event was attended by stakeholders from insurance industry like insurance/reinsurance companies, intermediaries, bankers, insure tech companies, CAT modelling companies, cyber expert, credit rating agencies, insurance/reinsurance consultants and solution provide, exchanging platform etc.
+
+During the conference, IFSCA team led by the Executive Director (Insurance) had various meetings to discuss the GIFT IFSC Insurance proposition with global reinsurers / intermediaries and various stakeholders. During these interactions, the team highlighted key regulatory enablers, business incentives, and the ease of doing business offered by IFSCA to attract international players.
+
+## IFSCA Delegation visit to the USA
+
+IFSCA Delegation led by Chairperson, IFSCA, with the various stakeholders during the visit to the United States of America (New York and San Francisco) from October 21-25, 2024, during the course of various conferences, meetings and roundtable interactions, met with various industry players including Berkshire Hathaway Insurance Company, Starr Insurance Holdings Inc, Berkley Insurance Company etc. During these interactions, the team highlighted key regulatory enablers, business incentives, and the ease of doing business offered by IFSCA to attract international players.
+
+## IAIS Annual Conference
+
+The Conference took place on December 5-6, 2024, in Cape Town, South Africa. The conference brought together over 500 participants from more than 105 jurisdictions and speakers, engaging panel discussions and interactive roundtables to explore pivotal topics around the theme **“Licence to operate: the role of insurance to strengthen**
+
+societal resilience”. Shri K Bhaskar, General Manager, IFSCA, represented IFSCA at the event.
+
+[photo: IAIS AGM, Annual Conference 2024 and Committee Meetings banner]
+
+# Sustainable Finance
+
+## IVCA GreenReturns Summit, 2024
+
+The GreenReturns Summit 2024, was organized by the Indian Venture and Alternate Capital Association (IVCA) on December 2 and 3, 2024, in New Delhi. The Summit aimed to address the pressing need for climate finance and to identify innovative solutions to drive sustainable development. Shri K Rajaraman, Chairperson, IFSCA participated in a Fireside Chat on **"Mobilizing Climate Finance: IFSC as a Global Climate Finance Hub"** at the IVCA GreenReturns Summit 2024.
+
+During the discussion, Chairperson highlighted the numerous opportunities that GIFT IFSC offers to global investors. He discussed various initiatives undertaken by IFSCA to support sustainable finance, including the promotion of ESG funds and sustainable lending by IFSC Banking Units (IBUs). He also emphasized the critical role of IFSCA's regulatory framework in developing a robust green bond market within the GIFT IFSC. Furthermore, the Chairperson extended an invitation to Fintech and Greentech startups to establish their presence at GIFT IFSC and leverage global market opportunities.
+
+[photo: Shri K. Rajaraman, Chairperson, International Financial Services Centres Authority (IFSCA) and Vipul Roongta, Managing Director & CEO, HDFC Capital Advisors speaking at the event]
+
+*[Page 26 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Events and Outreach Activities 25
+
+Shri Pradeep Ramakrishnan, Executive Director,
+IFSCA also participated in a panel discussion on
+"**Strategies for Increasing Climate Adaptation
+Investments**" at the GreenReturns Summit 2024.
+In his remarks during the panel discussion, he
+emphasized the critical need for increased
+investments in climate adaptation, particularly in
+developing countries facing significant financing
+gaps. He also shared valuable insights on policy
+frameworks that can stimulate such investments.
+He further highlighted the robust ESG ecosystem at
+GIFT IFSC, including the attractive incentives
+available for ESG funds.
+
+[photograph: Four panelists seated on a stage with a screen behind them showing their names and titles]
+
+## The Asia Climate Summit (ACS 2024)
+
+Asia Climate Summit (ACS), 2024 is being
+organised by International Emissions Trading
+Association (IETA), in collaboration with the
+Federation of Indian Chambers of Commerce &
+Industry (FICCI) and International Carbon Action
+Partnership (ICAP) from October 22, 2024, to
+October 24, 2024, in Delhi.
+
+Shri Pradeep Ramakrishnan, ED, IFSCA
+participated as lead discussant in the session on
+‘**Investor - Corporate dialog on climate risk
+mitigation and management; State of Sector-
+Climate Action by India Inc 2024**’ organised by
+cKinetics on the sidelines of the ACS2024.
+
+## IOSCO Growth and Emerging Markets Committee -
+Network for Adoption or Other Use of ISSB
+Standards
+
+IFSCA on December 18, 2024, participated in the
+launch of a dedicated network to support the
+adoption and other use of IFRS Sustainability
+Disclosure Standards (ISSB Standards), held in
+Ankara, Turkey, with the support of the
+International Sustainability Standards Board
+(ISSB). The Network started with a group of 32
+
+IOSCO members of its Growth and Emerging
+Markets Committee (GEMC), representing 31
+jurisdictions. The network aimed at supporting the
+adoption and use of the IFRS Foundation's
+sustainability reporting standards in emerging
+markets.
+
+[photograph: A group photo of attendees at the IOSCO GEMC Annual Meeting and Public Conference]
+
+## Finance Company
+
+Quarterly meeting was organized with registered
+Core Finance Companies, aircraft and ship leasing
+entities to understand their business progress and
+address any issues related to market development.
+
+## FinTech
+
+### Singapore FinTech Festival 2024
+
+IFSCA participated in the Singapore FinTech
+Festival (SFF) held in Singapore on November 6,
+2024. The event was attended by the Chairperson,
+IFSCA, who engaged in various bilateral meetings,
+roundtable discussions, and panel sessions.
+
+[photograph: Panelists seated on a stage at the Singapore FinTech Festival]
+
+### Session at European Union Supervisory Digital
+Finance Academy (EU-SDFA)
+
+Shri Joseph Joshy, CTO & CGM was invited to
+speak at the European Union Supervisory Digital
+Finance Academy (EU-SDFA), Florence, Italy
+established by the European Commission –
+Directorate General (DG) Reform. 37
+representatives from 25 Countries representing 31
+
+*[Page 27 of 42]*
+
+---
+
+IFSCA BULLETIN | OCT-DEC 2024
+
+Regulators (namely 14 Central Banks and 17 Market, Pension and Payment Supervisors) apart from representatives from European Banking Authority (EBA), European Securities and Markets Authority (ESMA), European Insurance and Occupational Pensions Authority (EIOPA) and EU-SDFA attended the Sessions.
+
+Session 1 titled "Digital Finance Experiences from non-European Jurisdiction" focussed on India Stack, IFSC Ecosystem including the FinTech Entity Framework and Sandboxes. Session 2 titled "Cross-sectoral trends and priorities in Digital Finance" was delivered by IFSCA in partnership with World Economic Forum (WEF) and ESMA.
+
+Events and Outreach Activities
+26
+
+[photograph of a panel discussion at a conference, with a projection screen in the background]
+
+*[Page 28 of 42]*
+
+---
+
+# Current Statistics
+
+---
+
+## Authorisation by IFSCA
+
+**Table 1: Licenses/ Registrations issued by IFSCA based on SEZ LOAs**
+
+| Segment | Category | Number of Licenses/ Registrations issued |
+| --- | --- | --- |
+| During Oct-Dec 2024 | As on Dec 31, 2024 |
+| **Banking** | IBUs | 0 | 28 |
+| GAO | 0 | 2 |
+| **Finance Company** | Aircraft Lessors | 3 | 30 |
+| Ship Lessors | 3 | 15 |
+| Finance Company – Core/ Non-core (Including ITFS) | 3 | 13 |
+| **Capital Market** | MII | 0 | 5 |
+| Broker Dealer | 0 | 82 |
+| Depository Participant | 0 | 10 |
+| Clearing Member | 0 | 22 |
+| Registered Distributors | 1 | 11 |
+| Investment Advisors | 0 | 3 |
+| Custodian | 0 | 5 |
+| Debenture Trustee | 0 | 4 |
+| Investment Banker | 0 | 4 |
+| **Funds** | FMEs | 11 | 139 |
+| AIFs | 30 | 198 |
+| **Insurance** | IIOs | 1 | 16 |
+| Intermediaries | 1 | 25 |
+| **Ancillary Services** | Ancillary Services Entities | 4 | 68 |
+| **Bullion** | Bullion MII | 0 | 1 |
+| Bullion Intermediaries | 0 | 19 |
+| Vault Managers | 0 | 3 |
+| **FinTech** | Direct | 3 | 14 |
+| Sandbox | 1 | 44 |
+| **GIC** | GIC | 0 | 3 |
+| **Foreign University** | International Branch Campus | 0 | 2 |
+| | **Total** | **61** | **766** |
+
+## Office of Administrator (IFSCA)
+
+**Table 2: Approvals by SEZ Unit Approval Committee (prior to issue of IFSCA authorization)**
+
+| Particulars | During Oct-Dec 2024 | Till Dec 2024 |
+| :--- | :---: | :---: |
+| **UAC Meetings** | 13 | 32 |
+| **New Unit Applications considered** | 85 | 280 |
+| **New Unit Applications approved** | 84 | 276 |
+| **LOA issued** | 74 | 261 |
+
+*[Page 29 of 42]*
+
+---
+
+# Banking
+
+### Table 3: Number of IBUs
+
+| Particulars | As on Sep 30,2024 | As on Dec 31,2024 |
+| :--- | :---: | :---: |
+| No. of IBUs | 28 | 28 |
+
+### Table 4: Assets of IBUs
+
+| Month ended | Oct 2024 | Nov 2024 | Dec 2024 |
+| :--- | ---: | ---: | ---: |
+| Particulars | **USD Mn** | | |
+| Investments | 3834.72 | 3708.07 | 3924.03 |
+| *Sovereign securities* | *1907.79* | *1704.11* | *2033.44* |
+| *Corporate Bonds* | *1717.29* | *1709.62* | *1667.35* |
+| *Other investments* | *209.64* | *294.34* | *223.24* |
+| Trade Finance | 14178.91 | 14013.83 | 15184.29 |
+| Commercial Loans | 32237.84 | 33538.26 | 35544.96 |
+| *External Commercial Borrowing (ECB)* | *18429.76* | *19640.49* | *21007.81* |
+| *Commercial Loans other than (ECB)* | *13808.08* | *13897.77* | *14537.15* |
+| Retail loans | 97.30 | 96.32 | 94.69 |
+| Other loans | 761.76 | 770.75 | 838.91 |
+| Interbank/Interbranch placements | 15007.82 | 14723.86 | 18754.92 |
+| Others | 3076.78 | 4087.12 | 3855.83 |
+| **Total** | **69195.13** | **70938.21** | **78197.63** |
+
+### Table 5: Liabilities of IBUs
+
+| Month ended | Oct 2024 | Nov 2024 | Dec 2024 |
+| :--- | ---: | ---: | ---: |
+| Particulars | **USD Mn** | | |
+| Customer deposits | 5461.70 | 5949.64 | 6317.05 |
+| Interbank/Interbranch borrowings | 47752.90 | 48731.97 | 55002.35 |
+| Bilateral Borrowings | 6939.94 | 6915.57 | 6986.23 |
+| Multilateral Borrowings | 0.00 | 0.00 | 300.00 |
+| MTN Borrowings and other debt instruments | 2997.22 | 2929.96 | 3037.52 |
+| Others | 6043.37 | 6411.07 | 6554.48 |
+| **Total** | **69195.13** | **70938.21** | **78197.63** |
+
+### Table 6: Customer Deposits (in USD Mn)
+
+| Month ended | Oct 2024 | Nov 2024 | Dec 2024 |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Deposits** | **Demand** | **Time** | **Demand** | **Time** | **Demand** | **Time** |
+| Retail deposits | 487.94 | 442.26 | 564.00 | 446.60 | 736.76 | 339.32 |
+| Corporate deposits | 428.30 | 4103.20 | 472.56 | 4466.46 | 636.19 | 4604.78 |
+
+*[Page 30 of 42]*
+
+---
+
+Table 7: Non-Resident Deposits
+
+| Month Ended | Category<br><br>(Amount in USD Mn) | Accounts<br>held by<br>Resident<br>Indians | Accounts held<br>by<br>Non-Resident<br>Indians (NRIs) | Accounts held<br>by<br>Non-Residents<br>(Other Countries) |
+| :--- | :--- | :--- | ---: | ---: |
+| **Oct 2024** | Retail | No. of accounts | 42 | 5460 | 652 |
+| Amount | 1.26 | 838.38 | 90.56 |
+| Corporate | No. of accounts | 2153 | 591 | 1707 |
+| Amount | 1196.93 | 1250.46 | 2084.11 |
+| **Nov 2024** | Retail | No. of accounts | 42 | 5822 | 630 |
+| Amount | 1.44 | 913.68 | 95.48 |
+| Corporate | No. of accounts | 2182 | 579 | 1831 |
+| Amount | 1205.33 | 1387.24 | 2346.45 |
+| **Dec 2024** | Retail | No. of accounts | 53 | 6192 | 705 |
+| Amount | 0.98 | 979.24 | 95.86 |
+| Corporate | No. of accounts | 2248 | 622 | 1979 |
+| Amount | 1328.20 | 1520.96 | 2391.81 |
+
+Table 8: Derivative Outstanding of IBUs (USD Mn) (Notional)
+
+| Month ended | Oct 2024 | Nov 2024 | Dec 2024 |
+| :--- | ---: | ---: | ---: |
+| FCY-INR Derivatives (to be settled in FCY) | 31162.67 | 28496.53 | 38092.93 |
+| FCY-FCY Derivatives (to be settled in FCY) | 15385.79 | 17207.95 | 20238.10 |
+| INR Interest Rate Derivatives (to be settled in FCY) | 72941.98 | 78198.26 | 81084.61 |
+| FCY Interest Rate Derivatives (to be settled in FCY) | 118864.51 | 112427.30 | 108980.67 |
+| Others | 1463.65 | 1270.81 | 475.11 |
+| **Total** | **239818.60** | **237600.85** | **248871.42** |
+
+Table 9: ODI Outstanding of IBUs (USD Mn)
+
+| Month Ended | Oct 2024 | Nov 2024 | Dec 2024 |
+| :---: | :---: | :---: | :---: |
+| **Total ODI amount** | 709.23 | 234.38 | 355.98 |
+
+Table 10: Industry wise credit exposure of IBUs
+
+| Month ended | Oct 2024 | Nov 2024 | Dec 2024 |
+| :--- | :--- | :--- | :--- |
+| Sector | Industries | **Amount Outstanding (USD Mn)** |
+| Auto Components | 174.31 | 170.09 | 152.73 |
+| Automobile | 768.55 | 731.12 | 725.26 |
+| Capital Goods | 244.63 | 265.62 | 283.23 |
+| Cement and Cement Products | 1196.53 | 1199.36 | 1200.06 |
+| Electronic Systems | 691.60 | 497.34 | 824.21 |
+| Food Processing | 802.38 | 936.08 | 1028.30 |
+| Glass and Glassware | 17.19 | 21.04 | 22.16 |
+| Iron & Steel | 681.10 | 708.49 | 622.91 |
+| Laminates/ Plywood/ Boards | 8.91 | 12.94 | 13.02 |
+| Leather and Leather Products | 2.09 | 2.11 | 1.87 |
+
+*[Page 31 of 42]*
+
+---
+
+| | Medical and Medical Equipment | 289.08 | 287.72 | 285.06 |
+| --- | --- | --- | --- | --- |
+| | Metals | 1928.86 | 1791.18 | 1843.37 |
+| | Paper and Packaging | 66.19 | 65.58 | 67.62 |
+| | Petrochemicals | 4055.60 | 4027.18 | 4792.72 |
+| | Plastic and Plastic Products | 77.14 | 108.09 | 100.69 |
+| | Textiles and Apparels | 148.89 | 164.46 | 170.70 |
+| | Vehicles, Vehicle Parts, and Transport Equipment | 141.70 | 184.97 | 179.70 |
+| **Services** | Banking and Finance | 14399.36 | 14908.43 | 15436.81 |
+| | Clearing Corporation | 262.07 | 262.19 | 252.27 |
+| | Education | 163.98 | 165.06 | 162.79 |
+| | Financial Services | 2655.05 | 2836.84 | 3059.41 |
+| | Healthcare | 41.34 | 73.40 | 75.67 |
+| | IT and Software Industry | 379.92 | 367.73 | 395.94 |
+| | Logistics | 79.91 | 103.22 | 120.23 |
+| | NBFC | 6961.72 | 8212.49 | 9195.22 |
+| | Professional Services | 53.55 | 52.91 | 51.89 |
+| | Retail and e-commerce | 297.89 | 336.64 | 373.87 |
+| | Telecommunication | 1308.33 | 1409.47 | 1273.28 |
+| | Tourism & Hospitality | 220.14 | 219.35 | 223.87 |
+| | Trade/Distributor | 424.93 | 558.55 | 591.20 |
+| **Infrastructure** | Construction | 147.35 | 63.48 | 63.15 |
+| | Mining | 281.67 | 288.61 | 269.87 |
+| | Oil and Gas | 2453.52 | 2438.89 | 2279.01 |
+| | Ports and Shipping | 969.50 | 968.34 | 976.26 |
+| | Power Sector | 1559.41 | 1521.35 | 1606.73 |
+| | Renewable Energy | 436.61 | 452.47 | 509.41 |
+| | Roads and Highways | 58.01 | 32.47 | 36.74 |
+| **Agriculture and Forestry** | | 424.41 | 447.44 | 463.46 |
+| **Aviation** | | 423.60 | 410.01 | 336.50 |
+| **Chemicals** | | 1628.52 | 1701.76 | 1846.46 |
+| **Jewelry** | | 272.66 | 306.23 | 386.42 |
+| **Paints** | | 0.00 | 0.00 | 0.00 |
+| **Pharmaceuticals** | | 583.53 | 665.64 | 671.84 |
+| **Other Sectors** | | 3215.96 | 3157.29 | 3575.47 |
+| **Total** | | **50997.71** | **53133.65** | **56547.41** |
+
+*[Page 32 of 42]*
+
+---
+
+Table 11: Country wise exposure of IBUs
+
+| Oct 2024 | Nov 2024 | Dec 2024 |
+| :---: | :---: | :---: |
+| Country Name | %age of total exposure | Country Name | %age of total exposure | Country Name | %age of total exposure |
+| India | 73.18 | India | 70.89 | India | 74.39 |
+| USA | 5.00 | USA | 6.72 | USA | 5.62 |
+| Mauritius | 3.83 | UAE | 3.33 | UAE | 3.34 |
+| Singapore | 3.44 | Mauritius | 3.32 | Mauritius | 3.09 |
+| UAE | 3.06 | Singapore | 3.00 | UK | 3.09 |
+| UK | 3.04 | UK | 3.02 | Singapore | 2.96 |
+| Netherlands | 2.48 | Italy | 2.71 | Netherlands | 2.06 |
+| Bahrain | 1.05 | Netherlands | 1.54 | Bahrain | 0.99 |
+| Hong Kong | 0.81 | Bahrain | 1.10 | Hong Kong | 0.69 |
+| Saudi Arabia | 0.55 | Hong Kong | 0.63 | Saudi Arabia | 0.40 |
+| Others | 3.56 | Others | 3.65 | Others | 3.37 |
+
+Payment and Settlement
+
+Table 12: Number of Payment Service Providers (PSP)
+
+| Particulars | Total |
+| :--- | :---: |
+| In-principle Approval Granted as on December 31, 2024 | 4 |
+
+Capital Markets
+
+Table 13: IFSC Stock Exchanges Turnover (Traded Value in USD Mn)
+
+| Month | Oct 2024 | Nov 2024 | Dec 2024 | Total |
+| :---: | :---: | :---: | :---: | :---: |
+| Particulars | No. of contracts | Traded Value | No. of contracts | Traded Value | No. of contracts | Traded Value | No. of contracts | Traded Value |
+| Commodity Futures | 1612 | 139.62 | 1605 | 136.88 | 70 | 5.92 | **3287** | **282.42** |
+| Index Futures | 2071584 | 101415.86 | 1823240 | 87018.76 | 1777407 | 84966.00 | **5672231** | **273400.62** |
+| Index Options | 200865 | 27.73 | 159079 | 17.73 | 137744 | 25.66 | **497688** | **71.12** |
+| Depository Receipts on US stocks | 66701 | 0.31 | 130833 | 0.68 | 138458 | 0.76 | **335992** | **1.75** |
+| Total | **2340762** | **101583.52** | **2114757** | **87174.05** | **2053679** | **84998.34** | **6509198** | **273755.91** |
+
+*[Page 33 of 42]*
+
+---
+
+Table 14: Aggregate Open Interest (OI) of all derivatives contracts on IFSC Stock Exchanges
+
+| As on last trading day of the month | Open Interest (no. of contracts) | Value (USD Mn) |
+| :--- | :---: | ---: |
+| Oct 2024 | 274158 | 13351.64 |
+| Nov 2024 | 247105 | 11976.79 |
+| Dec 2024 | 235359 | 11156.39 |
+
+Table 15: India INX Global Access
+
+| Particulars | During Oct-Dec 2024 (Accounts Opened) | As on Dec 31, 2024 |
+| :--- | :---: | :---: |
+| Total Number of Accounts | 234 | 4403 |
+
+Table 16: Trading in Global Exchanges through India INX Global Access (Traded Value: USD Mn)
+
+| Entity Type | Particulars | Oct-Dec 2024 | Till Dec 31, 2024 |
+| :--- | :--- | ---: | ---: |
+| **LRS**<br>**(Residents)** | Equity, ETFs, Funds, Bonds, and other products | 2.82 | 21.07 |
+| **IFSC Entities** | Equity, ETFs, Funds, and other products | 41.73 | 552.50 |
+| | Derivatives Products | 1469.49 | 3,196.43 |
+| **Non-residents**<br>**outside IFSC** | Equity, ETFs, Funds, and other products | 34.11 | 49.94 |
+| | Derivatives Products | 5.11 | 1.82 |
+| **Total** | **1,553.26** | **3,276.96** |
+
+Table 17: Trading in Global Exchanges through India INX Global Access (Oct-Dec 2024: USD Mn)
+
+| Exchange | Total trading<br>value | Trading in<br>Derivatives | Trading in non-<br>derivatives |
+| :--- | ---: | ---: | ---: |
+| SGX | 545.48 | 545.48 | 0.00 |
+| HKEX | 400.09 | 400.09 | - |
+| KSE* | 330.84 | 330.84 | - |
+| CME | 122.62 | 122.62 | - |
+| NASDAQ | 46.92 | - | 46.92 |
+| COMEX | 33.20 | 33.20 | - |
+| ARCA | 23.42 | - | 23.42 |
+| NYMEX | 20.61 | 20.61 | - |
+| CBOE | 19.79 | 19.79 | - |
+| Others | 10.30 | 1.98 | 8.32 |
+| **Total** | **1,553.26** | **1,474.60** | **78.66** |
+
+\*KSE stand for Korea Stock Exchange. the acronym 'KSE' is used for korea stock exchange as same is used by our overseas broker partner (Interactive Brokers LLC).
+
+Table 18: Capital Market Intermediaries as on Dec 31, 2024
+
+| Type of Entity | No. of entities |
+| :--- | :---: |
+| Broker-Dealers | 82 |
+| Clearing Members | 22 |
+| Custodians | 5 |
+| Depository Participants | 10 |
+
+*[Page 34 of 42]*
+
+---
+
+| Investment Bankers | 4 |
+| --- | --- |
+| Investment Advisers | 3 |
+| Debenture Trustees | 4 |
+| Distributors of Capital Market Products & Services | 11 |
+
+# Sustainable Finance
+
+**Table 19: Listing of debt securities at IFSC Exchanges (In USD Bn)**
+
+| Particulars | As on Sep 30, 2024 | As on Dec 31, 2024 |
+| :--- | :--- | :--- |
+| Cumulative debt listings | 61.90^7 | 63.68 |
+| Cumulative ESG labelled debt listing | 14.78 | 15.43 |
+
+**Table 20: Listing of debt securities at IFSC Exchanges**
+
+| Sr No | Name of the issuer | Listing Date | Labels | Amount (USD Mn) |
+| :---: | :--- | :---: | :---: | ---: |
+| 1 | Shriram Finance Limited | 07-10-2024 | Social | 500.00 |
+| 2 | Muthoot Finance Limited | 25-10-2024 | - | 400.00 |
+| 3 | Satin Credit care Network Limited | 07-10-2024 | - | 7.50 |
+| 4 | Piramal Capital & Housing Finance Limited | 14-10-2024 | Sustainable | 150.00 |
+| 5 | IRB Infrastructure Developers Limited | 18-10-2024 | - | 200.00 |
+| 6 | Muthoot Microfin Limited | 08-11-2024 | - | 3.00 |
+| 7 | State Bank of India | 26-11-2024 | - | 500.00 |
+| 8 | TruCap Finance Limited | 30-12-2024 | - | 5.00 |
+| 9 | Namdev Finvest Private Limited | 11-12-2024 | - | 3.00 |
+| 10 | Varthana Finance Private Limited | 30-12-2024 | - | 15.00 |
+
+**Table 21: Overall Sustainable Financing by IBUs**
+
+| Classification | During Apr-Sep 2024 | Cumulative in FY 2024-25 (USD Mn) |
+| :---: | :---: | :---: |
+| Medium / Long Term Loans (USD Mn) | Short term Loans (USD Mn) |
+| Trade Finance | Working Capital/ Supply Chain Finance | Others |
+| Green | 617.15 | 79.53 | 12.35 | 31.55 | 740.59 |
+| Social | 230.68 | 366.28 | 4.05 | 0.00 | 601.01 |
+| Sustainable | 44.63 | 116.60 | 0.00 | 0.00 | 161.23 |
+| Sustainability Linked | 46.51 | 0.00 | 0.00 | 0.00 | 46.51 |
+| Others | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 |
+| Total | 938.97 | 562.41 | 16.40 | 31.55 | 1549.34 |
+
+7 The data of Cumulative debt securities changed to USD 61.90 Bn from USD 63.90 Bn (previously reported) for Q2 of 2024 on account of the revised reporting by the Stock Exchanges.
+
+*[Page 35 of 42]*
+
+---
+
+Table 22: Sector-wise classification of Sustainable Financing by IBUs
+
+| Sector (List is Indicative) | During Apr-Sep 2024 | |
+| --- | --- | --- |
+| | **Amount (USD Mn)** | **Total No. of Transactions** |
+| Renewable Energy | 813.85 | 219 |
+| Energy Efficiency | 0.50 | 5 |
+| Pollution Prevention and Control | 5.50 | 6 |
+| Sustainable Water and Wastewater Management | 0.00 | 0 |
+| Clean Transportation | 12.35 | 2 |
+| Climate Change Adoption | 0.00 | 0 |
+| Green Buildings | 4.50 | 2 |
+| Affordable Basic Infrastructure | 47.00 | 1 |
+| Affordable Housing | 1.23 | 4 |
+| Food Security and Sustainable Food Systems | 0.00 | 0 |
+| Social Project as per Framework | 150.00 | 1 |
+| Sustainable Project as per Framework | 0.00 | 0 |
+| Health Care | 18.78 | 37 |
+| Social Education | 0.00 | 0 |
+| Social Loan | 13.64 | 0 |
+| MSME | 266.83 | 3253 |
+| Others | 215.16 | 870 |
+| **Total** | **1549.34** | **4400** |
+
+# Insurance
+
+Table 23: Written/ Transacted premium by IFSC Insurance Offices (IIOs) and Intermediary Offices (IIIOs)
+
+| Particulars | FY 2023-24 | Apr-Sep 2024 (Unaudited) | Oct-Dec 2024 (Unaudited) |
+| --- | --- | --- | --- |
+| | **Number of Offices\*** | **Written/ Transacted Premium (USD Mn)** | **Number of Offices\*** | **Written/ Transacted Premium (USD Mn)** | **Number of Offices\*** | **Written/ Transacted Premium (USD Mn)** |
+| IIOs | 12 | 149 | 15 | 97 | 16 | 49 |
+| IIIOs | 23 | 276 | 24 | 118 | 25 | 59 |
+
+\*Number of offices are as at the end of the particular period
+
+Table 24: Line of Business wise Direct Insurance Business (Life and General)
+
+| Class of Business | Gross Written Premium (in USD Mn) | | |
+| --- | --- | --- | --- |
+| | **Apr-Jun 2024** | **Jul-Sep 2024** | **Oct-Dec 2024** |
+| Aviation | 0.17 | 0.54 | 0.13 |
+| Fire | 1.46 | 0.00 | 1.32 |
+| Health + PA | 0.34 | 1.05 | 1.41 |
+| Life | 0.46 | 0.82 | 0.90 |
+| Marine Cargo | 0.00 | 0.00 | 0.01 |
+| Trade credit | 0.00 | 0.00 | 0.19 |
+| **Total** | **2.43** | **2.42** | **3.96** |
+
+Note: The data for FY 2024-25 is unaudited
+
+*[Page 36 of 42]*
+
+---
+
+Table 25: Line of Business wise Re-insurance Business
+
+| Line of Business | Gross Written Premium (in USD Mn) |
+| --- | --- |
+| Apr-Jun 2024 | Jul-Sep 2024 | Oct-Dec 2024 |
+| Engineering | 1.07 | 1.14 | 2.11 |
+| Fire | 8.86 | 9.78 | 9.50 |
+| Health + PA | 20.16 | 24.85 | 26.48 |
+| Health Insurance | 0.01 | 0.00 | 0.00 |
+| Liability | 0.26 | 0.29 | 0.37 |
+| Marine Cargo | 1.10 | 0.51 | 1.18 |
+| Marine Hull | 1.28 | 0.31 | 0.31 |
+| Motor | 9.13 | 8.34 | 2.06 |
+| Other Misc. | 0.15 | 0.43 | 0.87 |
+| Other Miscellaneous | 2.52 | 2.34 | 1.88 |
+| Personal Accident | 0.00 | 0.01 | 0.00 |
+| **Total** | **44.54** | **48.00** | **44.76** |
+
+Note: The data for FY 2024-25 is unaudited
+
+Table 26: Claims data (Retail / Re-insurance)
+
+| Particulars | Apr-Jun 2024 | Jul-Sep 2024 | Oct-Dec 2024 |
+| --- | --- | --- | --- |
+| (Amount in USD Mn) | No. of Claims | Claim Amount | No. of Claims | Claim Amount | No. of Claims | Claim Amount |
+| Claims pending at the beginning | 43 | 14.98 | 25 | 16.58 | 27 | 21.93 |
+| New Claims registered | 30 | 12.32 | 43 | 14.98 | 25 | 15.20 |
+| Claims settled | 38 | 6.82 | 21 | 28.15 | 21 | 27.50 |
+| Claims rejected | 10 | 0.00 | 20 | 0.00 | 15 | 0.00 |
+| Claims outstanding | 25 | 9.48 | 27 | 30.60 | 16 | 34.23 |
+
+Note: 1) The data for FY 2024-25 is unaudited 2) No. of Claims and Claim amount includes for retail insurance business and re-insurance recoveries
+
+# Fund Management
+
+Table 27: Number of Fund Management Entities (FMEs) and Funds
+
+| Particulars | As on Sep 30, 2024 | As on Dec 31, 2024 |
+| :--- | :---: | :---: |
+| FMEs | 128* | 139* |
+| Funds | 168 | 198 |
+
+*Excluding in-principle approvals
+
+*[Page 37 of 42]*
+
+---
+
+Table 28: Investments by Fund Management Schemes at GIFT IFSC as on Dec 31, 2024
+
+| Particulars | No. of Schemes Registered | Total Commit- ments raised | Total funds raised | In USD Mn | Complaints/ Legal Disputes outstanding |
+| --- | --- | --- | --- | --- | --- | --- |
+| Investments into India | Investments made in Foreign Jurisdiction | Total Investments made |
+| (A) | (B) | (A+B)* |
+| Venture Capital Schemes (including Angel Schemes) | 12 | 207.90 | 43.14 | 23.85 | 9.56 | 33.41 | 0 |
+| Category I and II AIFs | 70 | 9,959.75 | 4,186.12 | 3,184.42 | 611.55 | 3,795.97 | 0 |
+| Category III AIFs | 116 | 4,713.34 | 2,777.81 | 1,900.13 | 156.85 | 2,056.98 | 0 |
+| Total | 198 | 14,880.99 | 7,007.07 | 5,108.40 | 777.96 | 5,886.36 | 0 |
+
+\*This reflects the investments made by the FMEs as on the end of the quarter, excluding exposure towards derivative contracts, cash equivalents, etc. In the case of schemes which are in the nature of fund of funds, cash maintained, and expenses incurred by the master fund are also excluded. The cumulative investments made as at the end of quarter stand at USD 6538.83 million.
+
+Table 29: Investors in IFSC Funds as on Dec 31, 2024
+
+| Type of Scheme | No. of Investors* |
+| :--- | :---: |
+| Venture Capital Schemes (including Angel Schemes) | 434 |
+| Category I and II AIFs | 962 |
+| Category III AIFs | 1180 |
+| Total | 2576 |
+
+\*Investors from more than 50 jurisdictions have contributed across schemes.
+
+Table 30: Trends of Fund Management Activity
+
+| Particulars | USD Mn | QoQ Growth (%) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Q4 FY 2023-24 | Q1 FY 2024-25 | Q2 FY 2024-25 | Q3 FY 2024-25 |
+| Cumulative commitments raised | 8410.49 | 11693.91 | 12134.41 | 14880.99 | 22.63 |
+| Cumulative funds raised | 3948.02 | 5319.11 | 5581.24 | 7007.07 | 25.55 |
+
+Table 31: Portfolio Management Services (PMS) as on Dec 31, 2024
+
+| Type of Services | Number of Investors | AUM (in USD Mn) |
+| :--- | :---: | :---: |
+| Discretionary & Non- Discretionary PMS | 113 | 834.35 |
+| Advisory Services | 31 | 430.74 |
+| Total | 144 | 1265.09 |
+
+*[Page 38 of 42]*
+
+---
+
+# Finance Companies/ Finance Units
+
+**Table 32: Finance Companies/ Finance Units during Oct-Dec 2024**
+
+| Type of Finance Company | Aircraft Lease | Ship Lease | FC (Core) | FC (Non-Core) | Total |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Provisional Registration Granted | 1 | 5 | 1 | 0 | 7 |
+| Final CoR Granted | 3 | 3 | 3 | 0 | 9 |
+| **Registration till Dec 31, 2024** | **30** | **15** | **8** | **5** | **58** |
+
+**Table 33: Assets leased by AOL/ Ship Leasing Entities**
+
+| Type of asset | As on Sep 30, 2024 | As on Dec 31, 2024 |
+| :--- | :---: | :---: |
+| **By Aircraft Leasing entities** | | |
+| Aircraft | 44 | 63 |
+| Engines | 47 | 53 |
+| Aircraft Auxiliary Power Units (APU) | 68 | 80 |
+| **Total** | **159** | **196** |
+| **By Ship Leasing entities** | | |
+| Ship | 12 | 13 |
+
+**Table 34: Transactions financed by ITFS Platforms**
+
+| Particulars | As on Sep 30, 2024 | As on Dec 31, 2024 |
+| :--- | :---: | :---: |
+| Number of Transactions | 544 | 602 |
+| Value of Transactions (USD Mn) | 25.68 | 30.56 |
+
+**Table 35: Business details of Global/Regional Corporate Treasury Centres (GRCTC)**
+
+| Particulars | As on Sep 30, 2024 | As on Dec 31, 2024 |
+| :--- | :---: | :---: |
+| Loans & Advances (USD Mn) | 132.04 | 1707.15 |
+| Total Investments (USD Mn) | 78.31 | 78.31 |
+
+**Table 36: Business details of Core Finance Companies (e.g. Lending, Export financing)**
+
+| Particulars | As on Sep 30, 2024 | As on Dec 31, 2024 |
+| :--- | :---: | :---: |
+| Loans & Advances (USD Mn) | 1.09 | 2.95 |
+| Total Investments (USD Mn) | 4.87 | 4.94 |
+
+# Metals and Commodities
+
+**Table 37: Participants on India International Bullion Exchange (IIBX)**
+
+| Participants | As on Sep 30, 2024 | As on Dec 31, 2024 |
+| :--- | :---: | :---: |
+| **Qualified Jewellers** | **142** | **153** |
+| *Clients* | 90 | 102 |
+| *'Special category' Clients* | 52 | 51 |
+| **Qualified Suppliers** | **28** | **33** |
+| *Clients* | 26 | 31 |
+| *'Special category' Clients* | 02 | 02 |
+| **Valid India UAE CEPA TRQ Holders** | **357** | **418** |
+
+*[Page 39 of 42]*
+
+---
+
+Table 38: Regulated Entities/ Intermediaries on IIBX
+
+| Regulated Entities | As on Sep 30, 2024 | As on Dec 31, 2024 |
+| :--- | :---: | :---: |
+| Bullion Trading Members | 6 | 6 |
+| Bullion Trading Cum Self Clearing Members | 3 | 3 |
+| Bullion Trading Cum Clearing Members | 8 | 8 |
+| Bullion Professional Clearing Members | 2 | 2 |
+| Vault Managers | 3 | 3 |
+
+Table 39: Product-wise summary of trades on IIBX
+
+| Product | During FY 2023-24 | During FY 2024-25 | During Oct – Dec 2024 |
+| :---: | :---: | :---: | :---: |
+| Traded Value (USD Mn) | Traded Volume (in kg) | Traded Value (USD Mn) | Traded Volume (in kg) | Traded Value (USD Mn) | Traded Volume (in kg) |
+| LBMA 1 kg Gold 995 | 4.52 | 75.00 | 0.00 | 0 | 0.00 | 0 |
+| LBMA 100 gm Gold 999 | 0.00 | 0.00 | 0.00 | 0 | 0.00 | 0 |
+| UAE GD 1 kg Gold 995 | 2.22 | 34.00 | 8.00 | 101 | 4.22 | 50 |
+| UAE GD 100 gm Gold 999 | 7.24 | 114.80 | 10.97 | 135.5 | 7.27 | 85.5 |
+| UAEGD TRQ 1 kg Gold 995 | 252.91 | 3957.00 | 2021.56 | 24818 | 1004.19 | 11,763.00 |
+| UAEGD TRQ 100 gm Gold 999 | 238.38 | 3747.40 | 2934.45 | 36019.4 | 1198.32 | 13,977.70 |
+| Total (Gold) | 505.27 | 7928.20 | 4974.99 | 61073.5 | 2214.01 | 25,876.20 |
+| UAEGDCEPA SILVER GRAINS | 698.48 | 908800.00 | 217.91 | 228060 | 0.00 | 0 |
+| UAEGD SILVER GRAINS | 0.00 | 0.00 | 1.10 | 1100 | 0.99 | 980 |
+| SILVER GRAINS | 0.00 | 0.00 | 0.00 | 0 | 0.00 | 0 |
+| UAEGD SILVER BAR | 0.00 | 0.00 | 0.00 | 0 | 0.00 | 0 |
+| SILVER BAR | 0.00 | 0.00 | 9.29 | 10020 | 0.61 | 630 |
+| Total (Silver)\* | 698.48 | 908800.00 | 228.31 | 239180 | 1.60 | 1,610.00 |
+
+*\*The trading of silver started on IIBX from December 13, 2023*
+
+# FinTech
+
+Table 40: FinTech Ecosystem in IFSC
+
+| Sr. No. | Particulars | Till Dec 31, 2024 |
+| :---: | :--- | :---: |
+| 1 | Number of Sandbox Entities | 44 |
+| | *In Innovation Sandbox* | *30\** |
+| | *In Regulatory Sandbox* | *14* |
+| 2 | Number of FinTech/ TechFin Entities Authorized | 12 |
+| 3 | Number of Accelerators Authorized | 2 |
+| 4 | Number of Entities exited from Sandbox | 6 |
+
+*\*Including accelerators*
+
+*[Page 40 of 42]*
+
+---
+
+Ancillary Services
+
+**Table 41: Activity-wise break up of ancillary services entities**
+
+| S. No. | Core Activity | No. of Authorized Entities\* |
+| --- | --- | --- |
+| As on Sep 30, 2024 | As on Dec 31, 2024 |
+| 1 | Legal, Compliance and Secretarial | 10 | 10 |
+| 2 | Professional & Management Consulting Services | 12 | 12 |
+| 3 | Auditing, Accounting, Bookkeeping and Taxation Services | 22 | 23 |
+| 4 | Administration, Asset Management Support Services and Trusteeship Services | 20 | 23 |
+| **Total** | **64** | **68** |
+
+\*Excluding in-principle approvals
+
+BATF
+
+**Table 42: Activity-wise break up of BATF entities approved including in-principal approval**
+
+| S. No. | Core Activity | No. of Authorized <sup>8</sup>Entities as on Dec 31, 2024 |
+| :---: | :--- | :---: |
+| 1 | Accounting Services | 2 |
+| 2 | Bookkeeping Services | 0 |
+| 3 | Taxation Services | 1 |
+| 4 | Financial Crime Compliances | 0 |
+| **Total** | **3** |
+
+---
+
+<sup>8</sup> Fresh application (other than transfer of existing Ancillary Services Entities)
+
+*[Page 41 of 42]*
+
+---
+
+[logo: IFSCA]
+
+# INTERNATIONAL FINANCIAL
+# SERVICES CENTRES AUTHORITY
+
+2nd & 3rd Floor, PRAGYA Tower, Block 15, Zone 1,
+Road 1C, GIFT SEZ, GIFT City, Gandhinagar, Gujarat – 382 355
+
+www.ifsca.gov.in
+
+*[Page 42 of 42]*

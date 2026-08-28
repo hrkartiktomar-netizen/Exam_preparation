@@ -39,3 +39,11 @@ source_documents/pdfs/_ocr_pyq_2026/
 # Large personal PDF (redacted version kept if needed)
 Kartik.pdf
 Kartik_redacted.pdf
+
+# Runtime server logs
+backend/uvicorn.err.log
+backend/uvicorn.out.log
+
+# Transient OCR/tooling artifacts
+.firecrawl/
+_ocr_pages/

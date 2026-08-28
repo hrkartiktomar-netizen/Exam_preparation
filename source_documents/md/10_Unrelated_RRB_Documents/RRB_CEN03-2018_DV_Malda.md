@@ -1,0 +1,210 @@
+# discovered_035_Malda — OCR transcription (Gemini)
+
+[seal: सत्यमेव जयते] | Government of India<br>Ministry of Railways<br>**RAILWAY RECRUITMENT BOARD, MALDA**<br>KALIBARI RAILWAY COLONY, P.O JHALJHALIA, MALDA - 732102 | [logo: INDIAN RAILWAYS]
+---|---|---
+
+Website : http://rrbmalda.gov.in | Email: rrbmalda-wb@nic.in | Phone No: 03512-264567
+
+**CEN 03/2018: Recruitment of Junior Engineer (JE), Junior Engineer (Information Technology)**<br>**Depot Material Superintendent (DMS) and Chemical &Metallurgical Assistant (CMA))**
+
+**LIST OF CANDIDATES SHORTLISTED FOR DOCUMENT VERFICATION & MEDICAL EXAMINATION**
+
+1. Based on the performance of candidates in the 2nd stage Computer Based Test (CBT) conducted from 28-08-2019 to 01-09-2019 & on 19.09.2019 for the Junior Engineer(JE), Junior Engineer (Information and Technology), Depot Material Superintendent (DMS) and Chemical & Metallurgical Assistant (CMA) notified against Centralized Employment Notification (CEN 03/2018), candidates bearing the Roll Numbers listed (in ascending order and not in merit) herein under have been provisionally shortlisted for the Document Verification (DV)& Medical Examination.
+
+2. Short listing for Document verification has been done as per CEN duly considering community wise cutoff marks for various categories of posts while screening the candidates for $2^{\text{nd}}$ stage CBT, their post preferences and Merit Index in $2^{\text{nd}}$ stage CBT.
+
+3. Merit Index has been generated for all the candidates, whose normalized score in multi-session exam group and raw score for single session exam group of $2^{\text{nd}}$ Stage CBT more than or equal to their community qualifying marks, as per the formula given in CEN vide Paras 14.1, 2 & 3 of CEN 03/2018.
+
+4. Candidates are advised to refer to the community-wise cut off for each post declared while publishing the list of the candidates shortlisted for $2^{\text{nd}}$ stage CBT to know their eligibility for allocation of their preferred post on the basis of Merit Index. The candidates would be eligible for the posts for which his/her community-wise cut off in $1^{\text{st}}$ Stage CBT is less than or equal to his/her $1^{\text{st}}$ Stage CBT Score subject to opting the same while submitting their applications.
+
+5. This list of shortlisted candidates for DV also includes 50% additional candidates (subject to availability of eligible candidates) for the posts over and above the notified/revised vacancies published on the websites of RRBs.
+
+6. The cut off Merit Index for candidates shortlisted for DV is also notified here with.
+
+7. Document Verification (DV) will be held at the premises indicated in the e-call letter for DV. After scheduling the candidates for DV, they will be sent an email and SMS to download their e call letter over and above publishing the DV Schedule on RRB websites. E-Call letter with details of date, time and session (FN/AN) along with the instructions for Document verification and Medical Examination can be downloaded from the websites of RRBs.
+
+8. Candidates may note that after completion of DV, they will be sent for Medical Examination at the nominated Railway hospitals located in the jurisdiction of RRBs on the next day of DV. Accordingly, Candidates have to come prepared for DV and Medical examination for more than two to four days.
+
+9. The shortlisted candidates for DV should produce all the original documents along with two sets of Xerox copies in A4 size as detailed in the CEN and e-call letter.
+
+10. Candidature of all the shortlisted candidates for Document verification is purely provisional and is liable to be cancelled, at any stage of recruitment or thereafter, in case of any inconsistency/deficiency in the data furnished by them in their online application or any malpractice on the part of candidates coming to the notice of RRB at any stage of the recruitment process. It may be noted that merely calling a candidate for Document Verification does not entitle him/her in any way to an appointment in the Railways.
+
+11. While every care has been taken in preparing the list of candidates shortlisted for Document Verification, RRB reserves the right to rectify any inadvertent error or typographical/printing mistakes. RRB regrets inability to entertain any correspondence from unsuccessful candidates.
+
+12. The Roll Numbers of the provisionally shortlisted candidates for Document Verification are arranged horizontally in ascending order and not in order of merit for each category/post.
+
+*[Page 1 of 4]*
+
+---
+
+13. Regarding Medical Examination, candidates are advised that after completion of DV, medical examination
+will be carried out by Railway Hospital/Health Unit. Candidates have to pay the prescribed medical fee of
+Rs 24/- only. There are no other charges to be paid to the Hospitals/Health Unit for the medical
+examination. In rare cases, where the investigation like CT Scan, Ultra Sound, tests to rule out refractive
+eye surgery etc., have to be carried out for which necessary facility is not available in the Railway
+Hospital/Health Unit, then for such investigation, candidates may have to make the requisite payment to
+the concerned laboratory/hospital.
+14. Candidates may note that all the recruitment related activities by Railways is purely on merit basis only
+and candidates are not required to make any payment to any authorities other than the prescribed
+Medical Examination fee of Rs.24/-
+15. Important: Beware of the touts who may misguide the candidates with false promises of getting them
+selected for the job on illegal consideration. The recruitment process in the RRB exams is fully
+computerized and the selection is based purely on the merit of candidates.
+16. Candidates are advised to regularly visit RRB's official website for the updates.
+
+**Combined List of candidates shortlisted for DV for the posts of JE, DMS & CMA**
+
+| | | | | |
+| --- | --- | --- | --- | --- |
+| 233812292251136 | 233812294051087 | 233812295271114 | 233812297071029 | 233812298141215 |
+| 233812298211167 | 233812298271164 | 233812299031209 | 233812299231032 | 233812300021056 |
+| 233812300061036 | 233812300311030 | 233812300351028 | 233812301281066 | 233812302261090 |
+| 233812302281101 | 233812303031148 | 233812303101139 | 233812312301300 | 233812436281246 |
+| 233813220271024 | 233813363271083 | 233813364291178 | 233813365311205 | 233813377231035 |
+| 233813378141095 | 233813379301138 | 233813381331217 | 233813382041042 | 233813383181005 |
+| 233813400181109 | 233813400181355 | 233813448111090 | 233814197241003 | 233815218141091 |
+| 233815222351029 | 233815430291170 | 233816281191185 | 233816285201223 | 233816287101123 |
+| 233816435221107 | 233816456241232 | 233817157041017 | 233817159201172 | 233817159201179 |
+| 233817163091059 | 233817163191064 | 233817164291138 | 233817168041078 | 233817168291037 |
+| 233817169011148 | 233817170051140 | 233817176181307 | 233819373031101 | 233819389011190 |
+| 233819390101218 | 233819392181052 | 233819393091073 | 233819395181048 | 233819396151101 |
+| 233819398311124 | 233819398341111 | 233822279181011 | 233822405021002 | 233822405021063 |
+| 233822405041085 | 233822405051123 | 233822405071029 | 233822405081029 | 233822405111103 |
+| 233822405131036 | 233822405141052 | 233822405161141 | 233822405201008 | 233822405211079 |
+| 233822405211178 | 233822405231152 | 233822405231191 | 233822405271139 | 233822405281140 |
+| 233822405281143 | 233822405341032 | 233822405341077 | 233822409181344 | 233822409201038 |
+| 233822409211065 | 233822409241296 | 233822409261417 | 233822409281129 | 233822409291093 |
+| 233822409301126 | 233822409331105 | 233822409341236 | 233822409341453 | 233822410051052 |
+| 233822410101282 | 233822410131038 | 233822410151249 | 233822410181239 | 233822410221105 |
+| 233822410251059 | 233822410261124 | 233822410301262 | 233822410311200 | 233822410311251 |
+| 233822412041275 | 233822412051212 | 233822412051222 | 233822412131016 | 233822412131178 |
+| 233822412141020 | 233822412161101 | 233822412181238 | 233822412201246 | 233822412261090 |
+| 233822412281296 | 233822412291269 | 233822412321015 | 233822413041215 | 233822413131022 |
+| 233822413151243 | 233822413251219 | 233822413261096 | 233822413281191 | 233822413321062 |
+| 233822413351245 | 233822415051126 | 233822415071046 | 233822415091054 | 233822415101173 |
+| 233822415211176 | 233822415241020 | 233822415241197 | 233822415271006 | 233822415351166 |
+| 233822416021356 | 233822416031074 | 233822416051004 | 233822416051008 | 233822416051079 |
+| 233822416051123 | 233822416081263 | 233822416151359 | 233822416161119 | 233822416171201 |
+| 233822416181152 | 233822416181414 | 233822416201180 | 233822416201385 | 233822416211116 |
+| 233822416251136 | 233822416251375 | 233822416261127 | 233822416271094 | 233822416291398 |
+| 233822416311369 | 233822416331024 | 233822416341051 | 233822416341116 | 233822416341408 |
+| 233822416341422 | 233822426011262 | 233822426011346 | 233822426231165 | 233822426251098 |
+| 233822426261041 | 233822426261192 | 233822426291159 | 233822426341023 | 233822446201100 |
+
+*[Page 2 of 4]*
+
+---
+
+| | | | | |
+| --- | --- | --- | --- | --- |
+| 233822446321065 | 233822446321071 | 233822446331047 | 233822449071052 | 233822449131046 |
+| 233822449131099 | 233822449191118 | 233822450231094 | 233822450241108 | 233822450321060 |
+| 233822451051030 | 233822451071054 | 233822451071121 | 233822451271009 | 233822451281007 |
+| 233822455211018 | 233822455221087 | 233822455251138 | 233822455281077 | 233822455311034 |
+| 233822455321032 | 233823406031066 | 233823406331090 | 233823407081030 | 233823417241017 |
+| 233823417251031 | 233823417271074 | 233823417271090 | 233824235191127 | 233824253111203 |
+| 233824266231457 | 233824266311243 | 233826131131288 | 233826131141184 | 233826131171249 |
+| 233826131191061 | 233826131201133 | 233826131221070 | 233826131231234 | 233826132011029 |
+| 233826132011249 | 233826132021084 | 233826132031198 | 233826132051233 | 233826132101110 |
+| 233826132101123 | 233826132111183 | 233826132311073 | 233826132331255 | 233826133031002 |
+| 233826133131101 | 233826133211148 | 233826133231153 | 233826133251064 | 233826133251087 |
+| 233826133321166 | 233826133331047 | 233826134031077 | 233826134121143 | 233826134161045 |
+| 233826134161167 | 233826134171159 | 233826134191027 | 233826134201116 | 233826134251072 |
+| 233826134261137 | 233826134271266 | 233826134291285 | 233826135111067 | 233826135141035 |
+| 233826135241258 | 233826135251289 | 233826135261063 | 233826135291039 | 233826136091002 |
+| 233826136141006 | 233826136151096 | 233826136151103 | 233826136201017 | 233826136261236 |
+| 233826136271199 | 233826136271218 | 233826136321158 | 233826137031136 | 233826137141018 |
+| 233826137141158 | 233826137231051 | 233826137331138 | 233826138031235 | 233826138061118 |
+| 233826138081026 | 233826138101169 | 233826138121126 | 233826138131037 | 233826138141188 |
+| 233826138151061 | 233826138221189 | 233826138241209 | 233826138311187 | 233826139191013 |
+| 233826139251215 | 233826139351130 | 233826140091164 | 233826140241168 | 233826141051028 |
+| 233826141091032 | 233826141131136 | 233826141171014 | 233826141171017 | 233826141231082 |
+| 233826141231171 | 233826141251132 | 233826141261003 | 233826141271178 | 233826141321054 |
+| 233826141321076 | 233826141331059 | 233826142071001 | 233826142091002 | 233826142271174 |
+| 233826142311072 | 233826142321279 | 233826142341103 | 233826143101132 | 233826143121129 |
+| 233826143131126 | 233826143141021 | 233826143191122 | 233826143221028 | 233826143251139 |
+| 233826143351150 | 233826144011009 | 233826144031052 | 233826144041200 | 233826144111205 |
+| 233826144131005 | 233826144161161 | 233826144181022 | 233826145051139 | 233826145071410 |
+| 233826145091134 | 233826145111409 | 233826145221406 | 233826145241154 | 233826145241263 |
+| 233826145321314 | 233826146081088 | 233826146231245 | 233826146291238 | 233827181031115 |
+| 233827181151058 | 233827181151159 | 233827181241266 | 233827181331288 | 233827181351282 |
+| 233827182341013 | 233827182341162 | 233827183161292 | 233827183181283 | 233827183221150 |
+| 233827183271038 | 233827183331299 | 233827184051054 | 233827184101202 | 233827184231327 |
+| 233827184261201 | 233827184321044 | 233827184331308 | 233827185061052 | 233827185071112 |
+| 233827185091133 | 233827185141021 | 233827185211058 | 233827185241014 | 233827185261027 |
+| 233827186011220 | 233827186181233 | 233827186331181 | 233827187011202 | 233827187201016 |
+| 233827187211057 | 233827187321054 | 233827187341209 | 233827188031248 | 233827188111060 |
+| 233827188111171 | 233827188171056 | 233827188211377 | 233827188241376 | 233827188271443 |
+| 233827188281095 | 233827188281108 | 233827188281177 | 233827188301318 | 233827188311204 |
+| 233827188311394 | 233827189061237 | 233827189091119 | 233827189201106 | 2338271892906112 |
+| 233827429061119 | 233827429071138 | 233827429191105 | 233827429341180 | 233828110281167 |
+| 233828121341135 | 233828122341095 | 233830152121092 | 233831408141106 | 233831408191005 |
+| 233831408191084 | 233831408221046 | 233831418061059 | 233831418141097 | 233831418201067 |
+| 233831418261053 | 233831418351026 | 233831424081008 | 233831424151076 | 233831424191103 |
+| 233831424241005 | 233831424251117 | | | |
+
+<br>
+
+End of the list
+
+Total number of candidates shortlisted: **392**
+
+*[Page 3 of 4]*
+
+---
+
+# Cut off Merit Index for Various Categories of Posts
+
+## Community & ESM Cut off Merit Index for Various Categories of Posts
+
+| CAT_NO | RAILWAY/PU | UR | SC | ST | OBC | ESM |
+| --- | --- | --- | --- | --- | --- | --- |
+| UR | SC | ST | OBC |
+| 2 | ER | 557.36525 | 432.15153 | | 534.77982 | | | | |
+| 2 | SER | 560.43693 | 425.73735 | | 525.04583 | | | | |
+| 3 | ER | 531.11475 | 412.90873 | 303.86626 | 525.15843 | | | | |
+| 3 | SER | 528.19800 | 406.84925 | 294.86001 | 518.35940 | | | | |
+| 12 | ER | 542.78162 | 426.11276 | 316.69475 | 545.69837 | | | | |
+| 12 | SER | 578.23171 | 424.93214 | | 542.78162 | | | | |
+| 15 | ER | 627.95028 | 526.02533 | 447.39746 | 623.83384 | | | | 301.79048 |
+| 15 | SER | 622.04321 | 537.67398 | 450.30973 | 620.53553 | | | | |
+| 17 | SER | 622.12596 | | | 619.21390 | | | | |
+| 18 | ER | 648.33521 | 534.76171 | | | | | | |
+| 40 | SER | 638.43679 | | | 619.30695 | | | | |
+| 44 | ER | 621.59879 | 538.66352 | 440.01576 | 620.53553 | | | | 489.97348 |
+| 44 | SER | 623.07806 | | | 643.41822 | | | | |
+| 53 | ER | 623.07806 | 536.63201 | 437.47324 | | | | | |
+| 53 | SER | 631.13542 | 529.00444 | | 635.79066 | | | | |
+| 54 | ER | 623.07806 | 531.34850 | 465.63523 | | | | | |
+| 63 | ER | 620.80092 | 526.46192 | 448.31239 | 618.96619 | | | | |
+| 63 | SER | 620.53553 | 521.61331 | 435.99175 | | | | | |
+| 64 | SER | 618.83884 | 521.37688 | 480.23818 | 616.69411 | 424.58849 | | | |
+
+## PwBD -Regular Cut off Merit Index for Various Categories of Posts
+
+| CAT_NO | RAILWAY/ PU | R-VI | R-HI | R-LD | R-OD | R-MD |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| UR | SC | ST | OBC | UR | SC | ST | OBC | UR | SC | ST | OBC | UR | SC | ST | OBC | UR | SC | ST | OBC |
+| 2 | ER | | | | | | | | | | | | | | | | | | | | |
+| 2 | SER | | | | | | | | | | | | | | | | | | | | |
+| 3 | ER | | | | | | | | | | | | | | | | | | | | |
+| 3 | SER | | | | | | | | | | | | | | | | | | | | |
+| 12 | ER | | | | | | | | | | | | | | | | | | | | |
+| 12 | SER | | | | | | | | | | | | | | | | | | | | |
+| 15 | ER | | | | | | | | | | | 503.57912 | | 473.06876 | | | | | | | |
+| 15 | SER | | | | | | | | | | | | | | | | | | | | |
+| 17 | SER | | | | | | | | | | | | | | | | | | | | |
+| 18 | ER | | | | | | | | | | | | | | | | | | | | |
+| 40 | SER | | | | | | | | | | | | | | | | | | | | |
+| 44 | ER | | | | | 317.17192 | | | | | | | | | | | | | | | |
+| 44 | SER | | | | | | | | | | | | | | | | | | | | |
+| 53 | ER | | | | | | | | | | | | | | | | | | | | |
+| 53 | SER | | | | | | | | | | | | | | | | | | | | |
+| 54 | ER | | | | | | | | | | | | | | | | | | | | |
+| 63 | ER | | | | | | | | | | | | | | | | | | | | |
+| 63 | SER | | | | | | | | | | | | | | | | | | | | |
+| 64 | SER | | | | | | | | | | | | | | | | | | | | |
+
+END
+
+*[Page 4 of 4]*

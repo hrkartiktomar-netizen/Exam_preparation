@@ -1,0 +1,1524 @@
+# discovered_006_CurrentTap-1st-to-7th-March-2026 — OCR transcription (Gemini)
+
+[logo: EduTap]
+
+# CurrentTap
+
+March 2026 – 1st to 7th
+
+# Comprehensive
+Current Affairs Magazine
+Covering
+
+GA ESI FINANCE
+
+NEWS
+
+NEWS
+DAILY NEWS
+
+🌐 www.edutap.in 📞 +91 8146207241 ✉️ hello@edutap.co.in Download EduTap app
+
+*[Page 1 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+**Contents**
+
+1. GA IN NEWS ....................................................................................................................................................... 4
+
+PIB IN NEWS ................................................................................................................................................................ 4
+
+FIRST IN NEWS ...................................................................................................................................................... 4
+
+SUMMITS AND CONFERENCES ................................................................................................................................ 4
+
+MOUs AND AGREEMENTS ........................................................................................................................................ 4
+
+DAYS IN NEWS ........................................................................................................................................................ 4
+
+OTHER NEWS ............................................................................................................................................................... 5
+
+FIRST IN NEWS ...................................................................................................................................................... 5
+
+GOVERNMENT INITIATIVES ...................................................................................................................................... 7
+
+SUMMITS AND CONFERENCES ................................................................................................................................ 7
+
+BANKING AND FINANCE ......................................................................................................................................... 7
+
+SCIENCE & TECHNOLOGY ....................................................................................................................................... 8
+
+DEFENCE EXERCISES/ INITIATIVES/ TECHNOLOGY ................................................................................................. 8
+
+ENVIRONMENT ........................................................................................................................................................ 9
+
+AWARDS ................................................................................................................................................................. 9
+
+PERSONS IN NEWS ................................................................................................................................................... 9
+
+FAIRS AND FESTIVALS .......................................................................................................................................... 10
+
+PLACES IN NEWS ................................................................................................................................................... 10
+
+DAYS IN NEWS ...................................................................................................................................................... 10
+
+MISCELLANEOUS ................................................................................................................................................... 11
+
+2. GA + ESI ............................................................................................................................................................ 12
+
+PIB IN NEWS .............................................................................................................................................................. 12
+
+SOCIAL SECTOR IN INDIA - HEALTH ....................................................................................................................... 12
+
+2.1 NITI Aayog–UNICEF Pact for Nutrition in Aspirational Regions ................................................................... 12
+
+SOCIAL SECTOR IN INDIA - EDUCATION ................................................................................................................ 13
+
+2.2 Centre Opens Registrations for Yuva Sangam Phase VI ......................................................................... 13
+
+OTHER NEWS ............................................................................................................................................................. 13
+
+SUSTAINABLE DEVELOPMENT AND ENVIRONMENTAL ISSUES .............................................................................. 13
+
+2.3 Carbon Credit Trading Scheme (CCTS) ......................................................................................................... 13
+
+2.4 India-Germany Climate Resilience Initiative .................................................................................................... 14
+
+INDIAN POLITICAL SYSTEM ....................................................................................................................................... 15
+
+2.5 Census 2027 Mascots ....................................................................................................................................... 15
+
+2 | Page
+
+*[Page 2 of 34]*
+
+---
+
+[logo: EduTap]  
+hello@edutap.co.in  
++91 8146207241
+
+GLOBALISATION ......................................................................................................................... 17
+
+2.6 India–EU Most Favoured Nation (MFN) Status in Trade Deal ........................................................... 17
+
+2.7 Raisina Dialogue 2026 ................................................................................................................ 18
+
+MEASUREMENT OF GROWTH .............................................................................................................. 18
+
+2.8 GST Collections Rise 8.1% in February 2026 .................................................................................... 18
+
+2.9 India’s PMI in February ............................................................................................................... 19
+
+2.10 New Series of Annual and Quarterly National Accounts Estimates with the base year 2022–23 ........... 19
+
+BALANCE OF PAYMENT ......................................................................................................................... 21
+
+2.11 FPIs Inflow ................................................................................................................................ 21
+
+2.12 India’s Industrial Production grows 4.8% in January 2026 ................................................................. 22
+
+BALANCE OF PAYMENT ......................................................................................................................... 23
+
+2.13 India’s CAD widens to 1.3% of GDP in Q3FY26 .............................................................................. 23
+
+INTERNATIONAL ECONOMIC ISSUES .................................................................................................... 23
+
+2.14 India-Japan renews $75 billion currency swap pact ........................................................................ 23
+
+3. GA + FINANCE .................................................................................................................................... 24
+
+OTHER NEWS........................................................................................................................................... 24
+
+RECENT DEVELOPMENT IN FINANCIAL SECTOR ...................................................................................... 24
+
+3.1 IRDAI announced Ind AS Adoption for Insurance Sector .................................................................. 24
+
+3.2 Employee Provident Fund Organization .................................................................................... 27
+
+PRIMARY AND SECONDARY MARKET IN INDIA ...................................................................................... 30
+
+3.3 ‘Sudarshan’: SEBI’s AI Tool to Monitor Digital Investment Advice ........................................................ 30
+
+3.4 Global Access platform .............................................................................................................. 30
+
+3.5 Custodians to Offer Unregulated Financial Services ......................................................................... 31
+
+3.6 Mutual Fund Scheme ................................................................................................................ 32
+
+3.7 SEBI Check ................................................................................................................................ 33
+
+3 | Page
+
+*[Page 3 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in 📞 +91 8146207241
+
+# 1. GA IN NEWS
+
+## PIB IN NEWS
+
+### FIRST IN NEWS
+
+| S.No | News | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [India's first Ocean Thermal Energy Conversion (OTEC)- powered desalination plant](#) | • Being developed at **Kavaratti, the capital of the Lakshadweep Islands.**<br>• Developed by the **National Institute of Ocean Technology (NIOT).**<br>• It is recognized as the **world's first integrated facility to simultaneously generate both electricity and drinking water using the ocean's thermal gradient.** |
+
+### SUMMITS AND CONFERENCES
+
+| S.No | Summit/Conference | Key Outcomes |
+| :---: | :--- | :--- |
+| **1.** | [Mobile World Congress 2026](#) | • **World's largest gathering for the mobile and technology industry.**<br>• Venue: **Barcelona, Spain.**<br>• Organizer: **Global System for Mobile Communications Association (GSMA).**<br>• Theme: **The IQ Era.** |
+
+### MOUs AND AGREEMENTS
+
+| S.No | Signing Entities | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [Unique Identification Authority of India (UIDAI) and Google](#) | • **Objective:** To enable the display of authorised Aadhaar centres on Google Maps. |
+
+### DAYS IN NEWS
+
+| S.No | Day in News | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [70th Foundation Day of Central Warehousing Corporation (CWC)<br>(March 2)](#) | • **Central Warehousing Corporation (CWC)** is a Central Public Sector Enterprise under the **Ministry of Consumer Affairs, Food & Public Distribution.** |
+| **2.** | [World Wildlife Day 2026<br>(March 3)](#) | • Theme: **“Medicinal and Aromatic Plants: Conserving Health, Heritage and Livelihoods”** .<br>• **Observed annually to mark the adoption of CITES (Convention on International Trade in Endangered Species of Wild Fauna and Flora).** |
+| | | **Additional Information**<br>• **India** is **one of 17 mega biodiversity-rich countries.**<br>• **India** has **7% of the world's bio-diversity.** |
+
+4 | Page
+
+*[Page 4 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+# OTHER NEWS
+
+## FIRST IN NEWS
+
+| S.No | News | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [First World Leader to receive ‘Speaker of the Knesset Medal’](#) | • **Prime Minister Narendra Modi** was conferred with the **"Speaker of the Knesset Medal"**, the **highest honour of the Knesset — the Israeli Parliament**.<br>• Awarded in recognition of his **exceptional contribution to strengthening strategic relations between India and Israel**.<br>• PM Modi is the **first Indian Prime Minister to address the Knesset**.<br>• PM Modi remains **one of the few global leaders to have received the highest honours from both Israel and Palestine** (having received the *Grand Collar of the State of Palestine* in **2018**). |
+| **2.** | [World’s first Sovereign Financial Cloud Services Infrastructure (SFCSI)](#) | • Launched by **Central Bank of the United Arab Emirates (CBUAE)**.<br>• Developed in partnership with **Core42**. |
+| **3.** | [Delhi Open 2026 (Tennis)](#) | • **Stefanos Sakellaridis (Greece)** won the **Delhi Open 2026 singles title** on the **ATP Challenger Tour**.<br>• He **defeated Oliver Crawford (Great Britain)** in the final.<br>• Sakellaridis secured his **first ATP Challenger Tour singles title**.<br>• In doubles, **India’s Siddhant Banthia and Bulgaria’s Alexander Donski won the title**.<br>• It was the **third time an Indian player won the Delhi Open doubles title**.<br>• **Earlier Indian doubles winners include Saketh Myneni & Sanam Singh (2015) and Yuki Bhambri & Mahesh Bhupathi (2016)**.<br>• **Somdev Devvarman** remains the **only Indian singles champion, winning in 2014 and 2015**. |
+| **4.** | [First village in India to officially declare itself "caste-free"](#) | • Name: **Soundala village**, Ahilyanagar district of Maharashtra. |
+| **5.** | [International Military Adventure Challenge Cup (IMACC) 2026 – First Edition](#) | • Hosted by **the Indian Army in the foothills of the Eastern Himalayas**.<br>• The **Nepali Army** emerged as a **primary winner in the event**. |
+| **6.** | [IIFL Home Finance’s first syndicated External Commercial Borrowing (ECB)](#) | • **IIFL Home Finance** signed a **$300 million loan agreement** with the **Asian Development Bank (ADB)** to expand affordable housing finance in India.<br>• The financing package includes **$150 million from ADB and $150 million from partner banks**. |
+| **7.** | [India's first AI-powered ecosystem specifically designed to preserve and promote Bharatiya Gyan Parampara (Indian Knowledge Systems)](#) | • Name: **BharatiyaGPT**.<br>• Developed by **ImmverseAI’s BharatiyaAI Foundry Lab**.<br>• The platform focuses on correcting Western-centric biases in AI by training on a massive corpus of indigenous data. |
+
+5 | Page
+
+*[Page 5 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+| S. | Topic / Event | Details |
+| :---: | :---: | :---: |
+| 8. | [First Indian to receive the GSMA (GSM Association) Lifetime Achievement Award](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • **Sunil Bharti Mittal**, Founder and Chairman of **Bharti Enterprises**, was conferred the **Lifetime Achievement Award by GSMA** at the **Mobile World Congress 2026 in Barcelona**.<br>• Recognized for leading **Bharti Airtel to become a top-three global operator with over 500 million customers**.<br>• Mittal was earlier honoured with the **GSMA Chairman's Award in 2008 and 2016**. |
+| 9. | [India's first fully integrated, one-stop digital platform dedicated to the welfare of persons with disabilities (PwDs)](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • Name: **Divyang Sahayak Portal**.<br>• Launched by the **Government of Maharashtra**.<br>• **Aim**: To eliminate manual paperwork and physical visits to government offices, streamlining the delivery of benefits under the Rights of Persons with Disabilities (RPwD) Act, 2016. |
+| 10. | [India's first indigenous advanced long-range strike drone designed for deep-penetration missions](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • Name: **Project KAL**.<br>• Initiative of **IG Defence**.<br>• Similar to the **Iranian Shahed-class** drones. |
+| 11. | [First Indian state to announce a ban on social media for children under the age of 16](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • Name: **Karnataka**. |
+| 12. | [Khelo India Tribal Games (KITG)-1st edition](https://www.youtube.com/watch?v=dQw4w9WgXcQ)<br>[youtube logo] | • Host State: **Chhattisgarh**.<br>• Host Cities: **Raipur, Jagdalpur, and Surguja**.<br>• Mascot: '**Morveer**'.<br>• Theme: "**Tribal Pride, Sporting Glory**". |
+| 13. | [IBM's first Infrastructure Innovation Center](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • Name: **Sangam Infrastructure Innovation Center**.<br>• Housed with **IBM's India Systems Development Lab (ISDL) campus** in **Bengaluru, Karnataka**.<br>• The facility is designed to accelerate the development and deployment of secure, scalable, and responsible enterprise-scale Artificial Intelligence (AI) and hybrid cloud solutions. |
+| 14. | [World's first franchise-based road cycling league](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • Name: **Cycling League of India (CLI)**.<br>• Primary host city: **Ahmedabad, Gujarat**.<br>• The league will **feature eight city or region-based teams**. |
+| 15. | [UNESCO's World Engineering Day for Sustainable Development (WED) 2026 (March 4)](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • Theme: "**Smart Engineering for a Sustainable Future Through Innovation and Digitalization**".<br>• Host: **Jakarta, Indonesia**.<br>• **Adani Group** was named an **Official Partner for the event by the World Federation of Engineering Organizations (WFEO)**.<br>&nbsp;&nbsp;&nbsp;&nbsp;○ This marks the **first time an Indian organisation has been selected by WFEO as a partner for this global platform**.<br>&nbsp;&nbsp;&nbsp;&nbsp;○ The partnership highlights the Adani's **Khavda Renewable Energy Project in Gujarat** as a major example of India's energy transition.<br><br>**Additional Information**<br>• The **Khavda Renewable Energy Park**, located in the **Kutch district of Gujarat**, is currently the **world's largest renewable energy project under construction**. |
+
+6 | Page
+
+*[Page 6 of 34]*
+
+---
+
+[logo: EduTap] | [envelope: hello@edutap.co.in] [phone: +91 8146207241]
+---|---
+
+| | | • Planned capacity: **30 GW by 2029.** |
+| :---: | :--- | :--- |
+| **16.** | [First lighthouse infrastructure to be established on an inland waterway in India](https://www.youtube.com/watch?v=...) | • **Four riverine lighthouses** to be set up at **Bogibeel (Dibrugarh), Pandu (Guwahati) Silghat (Nagaon) Biswanath Ghat (Biswanath district)** along the **Brahmaputra River** in **Assam** on **National Waterway-2 (NW-2).**<br>• **Being implemented** by the **Directorate General of Lighthouses and Lightships (DGLL)** in collaboration **with the Inland Waterways Authority of India (IWAI).** |
+| **17.** | **Tamil Nadu's first Dark Sky Park** | • Set up at the **Ariyur Shola Reserve Forest in Kolli Hills, Namakkal district.**<br><br>**Additional Information**<br>• The **Pench Tiger Reserve** in **Maharashtra** is **India's first** and **Asia's fifth Dark Sky Park.** |
+| **18.** | **India's first AI-powered skill census** | • Name: **Saksham Skill Survey.**<br>• Launched by the **Government of Maharashtra,** in partnership with **Sapio Analytics (execution partner).** |
+| **19.** | **First lender in India to offer loan tenures of up to 10 years for premium electric vehicles** | • Name: **Axis Bank.**<br>• **Axis Bank** has been named a **preferred financing partner for Tesla in India.** |
+
+# GOVERNMENT INITIATIVES
+
+| S.No | Initiative | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | **MeHEALTH** | • A digital healthcare platform launched by **Kerala Government.**<br>• Designed to serve as a comprehensive **digital directory**, it allows citizens to easily locate and access government healthcare facilities and services within their vicinity. |
+
+# SUMMITS AND CONFERENCES
+
+| S.No | Summit/Conference | Key Outcomes |
+| :---: | :--- | :--- |
+| **1.** | **4th World Ocean Science Congress (WOSC 2026)** | • Venue: **CSIR-National Institute of Oceanography (NIO), Dona Paula, Panaji, Goa.**<br>• Theme: **"Ocean Health and Sustainable Future"** |
+
+# BANKING AND FINANCE
+
+| S.No | Program/Initiative | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | **Gnani.ai & Razorpay** | • **Objective:** To launch an agentic AI platform enabling UPI payments during live customer calls. |
+| **2.** | **Spoorthi** | • Launched by **L&T Finance (LTF).**<br>• A specialised financing programme. |
+
+7 | Page
+
+*[Page 7 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+| | | • Designed to empower women entrepreneurs by providing easier access to mortgage-based finance for personal and professional needs. |
+
+# SCIENCE & TECHNOLOGY
+
+| S.No | Technology in News | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [Nano Banana 2](#) | • **Google's new image generation and editing model**, based on **Gemini 3.1 Flash Image Preview**. |
+| **2.** | [America-India Connect (AIC)](#) | • **$15 billion subsea cable and AI infrastructure initiative** announced by **Google**. <br> • The project aims to **create high-capacity "digital trade routes" connecting India with the United States, Africa, Australia, and Southeast Asia** to support the rapid growth of AI and cloud computing. <br><br> **Additional Information** <br><br> • The **Singapore-India-Gulf (SING) subsea cable project** aims to connect **Singapore, India and the Middle East** through a high-capacity fibre-optic network. <br> • The project is led by **Cyprus-based Datawave Networks**. |
+| **3.** | [States/UTs as hotspots for mule accounts used in cyber fraud](#) | • Data compiled by the **Indian Cyber Crime Coordination Centre (I4C) under the Ministry of Home Affairs (MHA)** has identified **Maharashtra, Uttar Pradesh, and Rajasthan** as major hubs **for "mule accounts" used by cybercriminals to launder stolen funds**. <br> • A mule account refers to a **bank account that is knowingly or unknowingly controlled by an individual**--commonly referred to as a **"money mule"**--to **receive, transfer or launder illicit funds on behalf of criminals.** |
+
+# DEFENCE EXERCISES/ INITIATIVES/ TECHNOLOGY
+
+| S.No | Exercise/Technology | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [Exercise Kalari Leap](#) | • A high-tempo, joint maritime-air military exercise conducted by the Southern Air Command (SAC) of the Indian Air Force. <br> • Venue: **Lakshadweep and Minicoy archipelago.** |
+| **2.** | [Operation Epic Fury](#) | • The **codename for a major, ongoing U.S. military offensive against Iran.** <br> • The operation is being conducted in close coordination with Israel's **Operation Roaring Lion** to **dismantle Iran's nuclear and ballistic missile capabilities.** |
+| **3.** | [Operation True Promise](#) | • The **16th wave of Operation True Promise 4** was launched as part of **Iran's escalating military campaign against Israel and U.S. forces.** <br> • This specific wave utilized a massive deployment of missiles and drones, including **Fattah-2 hypersonic missiles**, targeting the "heart" of Israeli territory. |
+| **4.** | [Operation Sankalp](#) | • An **ongoing maritime security operation** by the **Indian Navy.** <br> • Goal: To ensure the safe passage of Indian-flagged merchant vessels through the **Strait of Hormuz**, the **Gulf of Oman**, and the **Persian Gulf** amidst rising regional tensions. |
+
+8 | Page
+
+*[Page 8 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+- Recently, the **operation has taken on renewed importance** due to escalating conflicts in **West Asia**.
+- Two warships are stationed in the **Gulf of Aden** and the **Gulf of Oman**.
+
+# ENVIRONMENT
+
+| S.No | News | Key Facts |
+| :--- | :--- | :--- |
+| 1. | [Healing and Nurturing Units for Monitoring, Aid and Nursing of Wildlife (HANUMAN) Project](#) | - Launched by the **Government of Andhra Pradesh**.<br>- Aim: To **reduce human-wildlife conflict** and **strengthen wildlife conservation**. |
+
+# AWARDS
+
+| S.No | Award/Milestone | Key Facts |
+| :--- | :--- | :--- |
+| 1. | [TIME Women of the Year 2026](#) | - The list features **three women of Indian origin** among the **16 global honorees**.<br>- **Safeena Husain**: The founder of the Mumbai-based non-profit **Educate Girls**, recognized for mobilizing community volunteers to **enroll over two million out-of-school girls in remote regions of India**.<br>- **Reshma Kewalramani**: The President and CEO of Vertex Pharmaceuticals, Under her leadership, Vertex launched the **world’s first CRISPR-based gene-editing therapy for sickle cell disease**.<br>- **Reshma Saujani**: The founder and CEO of Moms First and the founder of Girls Who Code, recognized for advocating solutions to the **"care crisis" through affordable childcare and paid leave policies**.<br><br>**Additional Information**<br>- In 2025, **Safeena Hussain's organization** became the **first Indian non-profit** to receive the **Ramon Magsaysay Award**, often called **"Asia's Nobel Prize"**. |
+
+# PERSONS IN NEWS
+
+| S.No | Person in News | Key Facts |
+| :--- | :--- | :--- |
+| 1. | [Narendra Modi](#) | - Crossed **30 million subscribers on YouTube**, becoming the **most-followed world leader on the platform**.<br>- **Jair Bolsonaro, former Brazilian President**, is the **second most followed world leader in YouTube**. |
+
+# OBITUARIES
+
+| S.No | Person in News | Key Facts |
+| :--- | :--- | :--- |
+| 1. | [Ayatollah Ali Khamenei](#) | - Killed in a **joint US-Israeli airstrike**. |
+
+9 | Page
+
+*[Page 9 of 34]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+- Served as **Iran's Supreme Leader since 1989**, succeeding **Ayatollah Ruhollah Khomeini**.
+
+# FAIRS AND FESTIVALS
+
+| S.No | Fair/Festival Name | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [Hatti Risala festival](link) | • Celebrated annually in **Jalna, Maharashtra**, on the occasion of **Dhulivandan (the day after Holi)**. |
+
+# PLACES IN NEWS
+
+| S.No | Place in News | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [Rajasthan government renamed three historic places](link) | • **Mount Abu to Abu Raj, Jahazpur to Yajnapur and Kaman to Kamvan** — to preserve cultural heritage. |
+| **2.** | [Strait of Hormuz](link) | • A **strategic maritime chokepoint** connecting the **Persian Gulf with the Gulf of Oman and the Indian Ocean**. <br> • **Iran temporarily shut parts of the Strait of Hormuz** amid rising tensions with the United States and ongoing nuclear talks in Geneva. <br> • The route is the **primary export corridor for oil and gas from Gulf producers such as Saudi Arabia, UAE, Kuwait, Iraq, Qatar and Iran**. |
+| **3.** | [Noida International Airport (NIA)](link) | • The **Directorate General of Civil Aviation (DGCA)** officially granted the **aerodrome licence to Noida International Airport (NIA) in Jewar**. <br> • NIA is being developed by **Zurich Airport International AG** through its wholly owned Indian subsidiary, **Yamuna International Airport Private Limited**. |
+| **4.** | [Echinus Geyser](link) | • **World's largest acidic geyser**. <br> • Located in **Yellowstone National Park's Norris Geyser Basin** in **United States**. <br> • **Recently erupted after about six years of dormancy**. |
+
+# DAYS IN NEWS
+
+| S.No | Day in News | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [Rare Disease Day 2026 (February 28)](link) | • Theme: **"More Than You Can Imagine"**. |
+| **2.** | [World Civil Defence Day 2026 (March 1)](link) | • Theme: **"A Safe Environment ... for a Sustainable Future."** <br> • **World Civil Defence Day 2026 exhibition** held at **Dahran in Saudi Arabia** |
+| **3.** | [Zero Discrimination Day 2026 (March 1)](link) | • Theme: **"People First"**. |
+| **4.** | [World Obesity Day 2026 (March 4)](link) | • Theme: **"8 Billion Reasons to Act on Obesity"**. |
+
+10 | Page
+
+*[Page 10 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+| | [logo: youtube] | |
+| --- | --- | --- |
+| 5. | [International Day for Disaramament and Non-Proliferation Awareness (March 5)](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | -- |
+
+# MISCELLANEOUS
+
+| S.No | News | Key Facts |
+| :---: | :---: | :--- |
+| 1. | [E20 & RON](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • The **Government of India mandated the sale of ethanol-blended petrol (E20) with up to 20% ethanol and minimum Research Octane Number (RON) 95 from April 1, 2026 across all States and Union Territories.**<br>• **RON (Research Octane Number)** measures a fuel's resistance to engine knocking or pre-ignition.<br><br>**Additional Information**<br>• **India achieved 10% ethanol blending in petrol in 2022**, five months ahead of the target.<br>• The government advanced the target of **20% ethanol blending from 2030 to 2025-26.** |
+| 2. | [Consumer Protection Act, 2019](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • **Consumer complaints** must be filed **within two years from the date of the last cause of action** under the **Consumer Protection Act, 2019**.<br>• **District Consumer Commission** handles cases where the **consideration paid does not exceed ₹50 lakh.**<br>• **State Consumer Commission** handles cases where the **consideration exceeds ₹50 lakh but does not exceed ₹2 crore.**<br>• **National Consumer Commission (NCDRC)** handles cases where the consideration exceeds ₹2 crore. |
+| 3. | [Board of Peace](https://www.youtube.com/watch?v=dQw4w9WgXcQ) | • **India** participated as an **observer in the first meeting** of **'Board of Peace'** initiative.<br>• The Board of Peace initiative has been **proposed by Donald Trump to rebuild Gaza and promote lasting peace.** |
+
+11 | Page
+
+*[Page 11 of 34]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+# 2. GA + ESI
+
+# PIB IN NEWS
+
+# SOCIAL SECTOR IN INDIA - HEALTH
+
+## 2.1 **NITI Aayog–UNICEF Pact for Nutrition in Aspirational Regions**
+
+### **Why in News**
+
+* NITI Aayog and UNICEF India have signed a **Statement of Intent (SoI)** to strengthen **nutrition and health outcomes in Aspirational Districts and Aspirational Blocks** across India.
+
+### **Key Features of Pact**
+
+* The collaboration seeks to **improve maternal and child nutrition outcomes in underserved regions**.
+* UNICEF India will provide **technical expertise and support multi-stakeholder engagement** involving businesses, public sector enterprises, and industry associations.
+* Through UNICEF's **IMPAct4Nutrition (I4N) platform**, the partnership will help channel **corporate social responsibility (CSR) investments** into nutrition-focused initiatives.
+* The initiative will focus on:
+    * Strengthening **Anganwadi infrastructure**
+    * Promoting **nutrition awareness and literacy**
+    * Improving uptake of **Integrated Child Development Services (ICDS)**
+    * **Capacity building of frontline workers** such as Anganwadi and health staff.
+* The collaboration will also promote **knowledge sharing, community engagement and dissemination of scalable best practices** in aspirational regions.
+
+---
+
+### **IMPAct4Nutrition (I4N) Platform**
+
+---
+
+* **IMPAct4Nutrition** (Initiative to Mobilize Private Action for Nutrition) is the **UNICEF supported** platform designed to encourage businesses to participate in the **Jan Andolan** movement for nutrition and connecting them with the broader **POSHAN 2.0** initiative.
+* **Core Objectives:**
+    * **Economic Potential:** Promoting good health to increase productivity and reduce sick days.
+    * **Knowledge Hub:** Serving as a central resource for nutrition literacy.
+* The platform utilizes the **ACE** framework to accelerate behavior change:
+
+| Component | Focus Area | Example |
+| :--- | :--- | :--- |
+| **A – Assets** | Leveraging company infrastructure. | Using supply chains or office spaces to promote nutrition. |
+| **C – CSR/Cash** | Financial and social investment. | Funding nutrition-specific programs or fortifying food products. |
+| **E – Employees** | Internal workforce engagement. | Promoting nutrition literacy and healthy dietary habits for staff. |
+
+12 | Page
+
+*[Page 12 of 34]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
++91 8146207241
+
+---
+
+# SOCIAL SECTOR IN INDIA - EDUCATION
+
+## 2.2 Centre Opens Registrations for Yuva Sangam Phase VI
+
+### Why in News
+
+* The **Ministry of Education** has started **online registrations for Yuva Sangam Phase VI** under the *Ek Bharat Shreshtha Bharat (EBSB)* initiative.
+
+---
+
+### Yuva Sangam
+
+* **Yuva Sangam** is a **flagship youth exchange programme** of the **Department of Higher Education, Government of India**.
+* It aims to strengthen **emotional bonding** and **mutual understanding** among youth from different **States and Union Territories**.
+* **Eligible age group: 18–30 years**.
+* Eligible participants include:
+    * students of **Higher Education Institutions**,
+    * **National Service Scheme (NSS)** volunteers,
+    * **Nehru Yuva Kendra Sangathan (NYKS)** volunteers,
+    * young professionals.
+* **22 Higher Education Institutions (HEIs)** have been selected as **nodal institutions** for Phase VI.
+* Selected youth will undertake **5 to 7 day educational and cultural tours** to paired States/UTs, excluding travel days.
+    * Some notable **State/UT pairings** mentioned in **Phase VI** include:
+        * ✓ **Andhra Pradesh – Maharashtra**
+        * ✓ **Delhi – Chhattisgarh**
+        * ✓ **Karnataka – Rajasthan**
+        * ✓ **Punjab – Bihar**
+        * ✓ **Jammu & Kashmir and Ladakh – Kerala & Lakshadweep**
+
+| Yuva Sangam is based on the 5 Ps |
+| --- |
+| ☐ **Paryatan** (Tourism)<br>☐ **Parampara** (Traditions & Culture)<br>☐ **Pragati** (Development & Governance)<br>☐ **Paraspar Sampark** (People-to-People Connect)<br>☐ **Prodyogiki** (Technology & Innovation) |
+
+---
+
+# OTHER NEWS
+
+# SUSTAINABLE DEVELOPMENT AND ENVIRONMENTAL ISSUES
+
+## 2.3 Carbon Credit Trading Scheme (CCTS)
+
+### Why in News
+
+---
+
+13 | Page
+
+*[Page 13 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+* The Government is planning to make **carbon trading compliance mandatory for the steel sector** under the Carbon Credit Trading Scheme (CCTS).
+
+# Carbon Credit Trading Scheme (CCTS)
+
+* **Launch Year:** 2023
+* **Ministry:** Ministry of Power
+* **Implementing Agency:** Bureau of Energy Efficiency (BEE)
+* **Aim/Objective:**
+    * To reduce **greenhouse gas emissions** by introducing a **market-based carbon pricing mechanism.**
+    * To support India's **climate commitments under the Paris Agreement** and help achieve long-term decarbonisation goals.
+* The **National Steering Committee for the Indian Carbon Market (NSC-ICM)** oversees the functioning of the carbon market.
+* Carbon trading is regulated by the **Central Electricity Regulatory Commission (CERC).**
+* **Features:**
+    * The scheme establishes a **national carbon market** known as the **Indian Carbon Market (ICM).**
+    * It operates through **two mechanisms:**
+        * **Compliance mechanism** – mandatory for specified industrial sectors.
+        * **Offset mechanism** – voluntary participation for emission-reduction projects.
+    * Under the compliance mechanism, industries receive **GHG emission-intensity targets** measured as **tonnes of CO₂ equivalent per unit of output.**
+    * Entities performing **better than their emission targets** receive **Carbon Credit Certificates (CCCs).**
+    * Entities failing to meet targets must **purchase credits** from the carbon market to offset excess emissions.
+
+---
+**DID YOU KNOW**
+The steel sector is among the **largest emitters of carbon in India**, making it a key focus area for emission reduction efforts.
+---
+
+### **Energy-Intensive Sectors Covered Under CCTS**
+* Chlor-Alkali
+* Aluminium
+* Cement
+* Steel
+* Fertiliser
+* Petrochemicals
+* Petroleum Refining
+* Pulp and Paper
+* Textile
+
+## 2.4 **India–Germany Climate Resilience Initiative**
+
+**Why in News**
+
+* India and Germany have strengthened climate cooperation through a **new EUR 20 million climate resilience initiative by** Germany under the **International Climate Initiative (IKI).**
+* **Objective:**
+    * To strengthen **climate resilience and adaptation in vulnerable ecosystems in India.**
+    * To support the **implementation of India’s forthcoming National Adaptation Plan (NAP).**
+
+14 | Page
+
+*[Page 14 of 34]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+## International Climate Initiative (IKI)
+
+The **International Climate Initiative (IKI)** is a **global climate finance programme of the Government of Germany** that supports projects aimed at **climate change mitigation, adaptation, biodiversity conservation, and sustainable land use** in developing and emerging economies.
+
+* **Launched:** 2008
+* **Funding Source:** **European Union Emissions Trading System (EU ETS)**.
+* **Objectives:** The initiative aims to:
+  * Support **global climate protection efforts**.
+  * Help countries **adapt to the impacts of climate change**.
+  * Promote **biodiversity conservation** and sustainable ecosystems.
+  * Facilitate **climate-friendly economic development**.
+* **Key Focus Areas** funds projects under four main thematic pillars:
+  1. **Mitigation of Greenhouse Gas Emissions**
+  2. **Adaptation to Climate Change**
+  3. **Conservation and Restoration of Natural Carbon Sinks** (such as forests and wetlands)
+  4. **Protection of Biodiversity**
+
+**Implementation**
+* Projects are implemented through **international organisations, research institutions, NGOs, development agencies, and government bodies**.
+* **Global Reach** It is considered one of the **largest bilateral climate finance programmes globally**.
+
+# INDIAN POLITICAL SYSTEM
+
+## 2.5 Census 2027 Mascots
+
+### Why in News
+
+* The **Government unveiled the official mascots for Census 2027** during the launch of digital tools for India's upcoming census exercise.
+
+### Key Highlights
+
+* The official mascots are **"Pragati" (female enumerator)** and **"Vikas" (male enumerator)**.
+* **Features:**
+  * **"Pragati"** represents a **female enumerator** participating in the census process.
+  * **"Vikas"** represents a **male enumerator** involved in the census enumeration exercise.
+
+[photograph: Two census enumerators, male and female, holding mobile devices]
+
+15 | Page
+
+*[Page 15 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+- The mascots highlight **gender equality and inclusive participation** in national data collection efforts.
+- They will be used in **public outreach campaigns to disseminate information about Census 2027** across different sections of society.
+
+Other Key digital tools launched
+
+- Along with unveiling the mascots for Census 2027, the Minister launched **four digital platforms**
+  - **Houselisting Block Creator (HLBC) web application:** It is a web-map application that enables Charge Officers to digitally create houselisting blocks using satellite imagery, ensuring standardized geographic coverage across the country.
+  - **Self-Enumeration (SE) portal** enables citizens to submit their census details digitally on their own.
+  - **Census Management and Monitoring System (CMMS) portal** is meant for registration, management, and monitoring of census functionaries and operations
+  - **HLO mobile application** is a secure offline mobile application for enumerators to collect and upload houselisting data.
+
+### HLO mobile application
+
+- **Only enumerators registered** on the CMMS portal can access the HLO app.
+- The HLO app enables **direct field-to-server data transmission**, thereby removing the need for traditional paperwork.
+- All houselisting data will be collected through this app, which can be operated only through **registered mobile numbers.**
+- The application can be operated in **16 regional languages.**
+
+---
+
+### Census 2027
+
+- The **Census 2027** will be conducted in **two phases**:
+  - **Houselisting and Housing Census**: April to September 2026
+  - **Population Enumeration (PE)**: February 2027
+    - For **UT of Ladakh, Jammu & Kashmir**, and the **snow-bound states** of **Himachal Pradesh** and **Uttarakhand**, PE will be conducted in **September 2026** due to weather constraints.
+- This will be the **16th Census overall** and the **8th since Independence**.
+- **Legal Framework**
+  - Census 2027 is governed under the **Census Act, 1948** and **Census Rules, 1990**.
+  - It will collect **micro-level primary data** on various socio-economic and demographic parameters.
+- It will be **India's first-ever digital Census**, with data collection done using **mobile applications**.
+- A significant update in **Census 2027** is the **electronic capture of caste data**, which will be done in the **second phase (Population Enumeration)**.
+- **Data Dissemination & Utility**
+  - The Census will follow a **"Census-as-a-Service (CaaS)"** model to provide clean, machine-readable, actionable data to various ministries.
+  - **User-friendly data dissemination** tools will be introduced for easier access and faster availability of census data across various administrative levels (up to **village/ward level**).
+  - Efforts will be made to publish results with **customized visualization tools**.
+
+### Demographic parameters
+
+- Housing condition
+- Amenities & assets
+- Demography
+- Religion
+- SC & ST
+- Language
+- Literacy & education
+- Economic activity
+- Migration
+- Fertility
+
+16 | Page
+
+*[Page 16 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+- **Employment & Capacity Building**
+  - Around **18,600 technical personnel** will be hired for around **550 days** for local-level census work.
+  - This is estimated to generate approximately **1.02 crore man-days** of employment.
+  - The tasks assigned will contribute to **capacity building in digital data handling and coordination**, improving future employability of the technical staff.
+- **Human Resource & Field Workforce**
+  - Around **30 lakh field functionaries** (enumerators, supervisors, trainers, charge officers, etc.) will participate.
+  - Honorarium will be paid to all census workers as they will perform duties **in addition to their regular work.**
+
+# GLOBALISATION
+
+## 2.6 India–EU Most Favoured Nation (MFN) Status in Trade Deal
+
+### Why in News
+
+- India and the European Union (EU) have agreed to grant each other **Most Favoured Nation (MFN) treatment for five years** under **Free Trade Agreement (FTA)**, enhancing reciprocal tariff and market access commitments.
+  - During this period, **neither party can offer better tariffs or trade terms to other WTO partners** without extending the same to the other party.
+
+---
+
+### Most Favoured Nation (MFN) Status
+
+- MFN is a rule under the **World Trade Organization (WTO)** that requires a country to treat **all trading partners equally.**
+  - If India gives a trade benefit (like lower tariffs) to one country, it must give the same benefit to other WTO members.
+- **Purpose: To ensure non-discrimination in international trade** and create fair competition between countries.
+- **India's general policy:** India grants **MFN status to most WTO member countries**, meaning they receive the same tariff treatment in Indian markets.
+- **Benefit for India:**
+- Indian exports **get equal treatment in foreign markets.**
+- Helps **increase trade and market access** for Indian goods.
+- Creates a **stable and predictable trade system.**
+  - **When MFN rules may not apply:**
+  - **Free Trade Agreements (FTAs)** where countries give special tariff benefits to each other.
+  - **Security or strategic reasons.**
+  - **Special treatment for developing countries** is allowed under WTO rules.
+
+| India's MFN Status - Examples |
+| :--- |
+| **SAARC Countries** |
+| Bangladesh Nepal Sri Lanka Maldives |
+| **Major WTO Members** |
+| United States China Japan Germany France |
+| **Bilateral Example** |
+| Malawi |
+| **Exception** |
+| Pakistan<br>MFN Withdrawn in 2019 |
+
+17 | Page
+
+*[Page 17 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+2.7 Raisina Dialogue 2026 [play button]
+
+**Why in News**
+
+* The **11th edition of the Raisina Dialogue** was held **recently**, bringing together global leaders and experts to discuss key geopolitical and geoeconomic issues.
+* Theme: **"Samskāra - Assertion, Accommodation, Advancement."**
+
+# Key Discussion Pillars
+
+* Contested Frontiers: Power, Polarity, and Periphery
+* Repairing the Commons: New Groups, New Guardians, New Avenues
+* White Whale: The Pursuit of Agenda 2030
+* The Eleventh Hour: Climate, Conflict, and the Cost of Delay
+* Tomorrowland: Towards a Tech-Topia
+* Trade in the Time of Tariffs: Recovery, Resilience, Reinvention
+
+## Raisina Dialogue
+
+* **Launch Year:** 2016
+* **Ministry:** Ministry of External Affairs (MEA)
+* **Organised by:** Observer Research Foundation (ORF) in partnership with the Ministry of External Affairs.
+* **Objective:**
+  * To provide a global platform for dialogue on **geopolitics, geo-economics, and international strategic issues.**
+  * To bring together **global leaders, policymakers, scholars, and industry experts** to discuss emerging global challenges and cooperation.
+* **Features:**
+  * It is **India's flagship conference on geopolitics and geo-economics.**
+  * Held **annually in New Delhi** and named after **Raisina Hill**, the seat of the Government of India.
+  * The dialogue follows a **multi-stakeholder format**, involving heads of state, ministers, military officials, business leaders, academics, media, and civil society representatives.
+  * The theme reflects a global environment where nations **assert sovereignty, build cooperative partnerships, and advance through technological and economic innovation.**
+
+### DID YOU KNOW
+
+The Raisina Dialogue is often compared with major global strategic forums such as the **Munich Security Conference (Germany)** and the **Shangri-La Dialogue (Singapore)**.
+
+# MEASUREMENT OF GROWTH
+
+2.8 **GST Collections Rise 8.1% in February 2026**
+
+**Why in News**
+
+States showing negative GST growth
+* Tamil Nadu: -6%
+* Madhya Pradesh: -8%
+* Rajasthan: -1%
+
+18 | P a g e
+
+*[Page 18 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+* India’s gross GST collection rose by 8.1% year-on-year to about ₹1.83 trillion in February 2026. The rise was mainly driven by **stronger import-related GST revenues** and **improved domestic sales**.
+
+Key Highlights
+
+* **Gross domestic revenue:** about ₹1.36 trillion, up **5.3%** YoY in 2026
+* **Gross import revenue:** ₹47,837 crore, up **17.2%**.
+* **Net GST collection:** over ₹1.61 trillion, up **7.9% YoY**.
+* **Net cess revenue:** ₹5,063 crore, sharply lower than ₹13,481 crore in February last year.
+
+## 2.9 India’s PMI in February
+
+### Why in News
+
+* India’s **Purchasing Managers’ Index (PMI)** for **February 2026 are:**
+  * **Manufacturing: 56.9 (the highest level in four months)**
+  * **Services: 58.1**
+
+| Purchasing Managers' Index (PMI) |
+| :--- |
+| * PMI is a monthly survey-based indicator that measures the health of the manufacturing and services sectors. <br>* **Released by: HSBC India and compiled by S&P Global** <br><br>* It is based on responses from **purchasing managers of companies** regarding changes in: <br>  * production, <br>  * new orders, <br>  * employment, <br>  * supplier delivery times, <br>  * inventory levels. <br>* PMI is considered a **leading indicator** because it signals economic trends **before official production or GDP data is released.** |
+
+| PMI's Measurement Scale |
+| :--- |
+| The index ranges from **0 to 100.** <br>* **Above 50:** expansion in economic activity. <br>* **Below 50:** contraction. <br>* **50:** no change |
+
+## 2.10 New Series of Annual and Quarterly National Accounts Estimates with the base year 2022–23
+
+### Why in News
+
+* MoSPI has released the **New Series of Annual and Quarterly National Accounts Estimates**. This revision changes the base year for Gross Domestic Product (GDP) calculations from 2011–12 to **2022–23**.
+
+### Key Estimates
+
+| Sectoral Real GVA Growth <br> (FY 2024-25 vs FY 2023-24) |
+| :--- |
+| **Primary Sector** <br>(Agriculture, Mining, etc.) | 🟢 Grew by 4.9% <br> up from 2.6% |
+| **Secondary Sector** <br> (Manufacturing, Construction, Utilities) | 🔴 Grew by 8.0% <br> down from 11.6% |
+| **Tertiary Sector** <br> (Services) | 🟢 Grew by 7.9% <br> up from 7.3% |
+
+19 | Page
+
+*[Page 19 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+* Quarterly Estimates (Q3 FY 2025-26)
+  * Real GDP grew by **7.8%** (₹84.54 lakh crore).
+  * Nominal GDP grew by **8.9%** (₹90.91 lakh crore).
+
+Fig. 3: Composition and Growth Rates of Annual GVA in Broad Sectors
+
+| Composition (%) of Nominal GVA | Annual GDP & GVA Estimates |
+| :--- | :--- |
+
+| 100% | | | | | | FY 2023-24 | FY 2024-25 <br> 1st Revised Estimate | FY 2025-26 <br> 2nd Advance Estimate |
+| :---: | :---: | :---: | :---: | :---: | :--- | :---: | :---: | :---: |
+| 90% | | | | | **Real GDP Growth** <br> (Constant Prices) | 7.2% | 7.1% <br> ₹299.89 Lakh Crore | 7.6% <br> ₹322.58 Lakh Crore |
+| 80% | 51.9 | 52.4 | 52.8 | 54.3 | | | | |
+| 70% | | | | | | | | |
+| 60% | | | | | **Nominal GDP Growth** <br> (Current Prices) | 11.0% | 9.7% <br> ₹318.07 Lakh Crore | 8.6% <br> ₹345.47 Lakh Crore |
+| 50% | | | | | | | | |
+| 40% | 26.0 | 26.1 | 25.8 | 25.9 | | | | |
+| 30% | | | | | **Real GVA Growth** | 7.2% | 7.3% <br> ₹273.36 Lakh Crore | 7.7% <br> ₹294.40 Lakh Crore |
+| 20% | 22.1 | 21.5 | 21.4 | 19.8 | | | | |
+| 10% | | | | | **Nominal GVA Growth** | 10.7% | 9.6% <br> ₹288.54 Lakh Crore | 8.7% <br> ₹313.61 Lakh Crore |
+| 0% | 2022-23 | 2023-24 | 2024-25 FRE | 2025-26 SAE | | | | |
+
+■ Primary Sector ■ Secondary Sector ■ Tertiary Sector
+
+---
+
+# Savings, Investment, and Consumption (FY 2024-25)
+
+[illustration: piggy bank with money]
+
+**Gross Saving**
+Estimated at **₹111.3 lakh crore.**
+• Household sector contributed the major share at **62.1%**
+• Non-financial corporations at **28.9%**
+
+[illustration: construction crane and buildings]
+
+**Gross Capital Formation (GCF)**
+**₹109.25 lakh crore**
+• GCF to GDP ratio: **34.3%** at current prices (and **34.6%** at constant prices)
+
+[illustration: shopping cart with groceries]
+
+**Private Final Consumption Expenditure (PFCE)**
+Stood at **56.5%** of GDP at current prices
+
+**Per Capita Income**
+Per Capita Net National Income at current prices reached **₹1,92,774**
+
+[illustration: stack of coins and banknotes]
+
+---
+
+20 | Page
+
+*[Page 20 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+# GVA by Economic Activities
+
+Agriculture, Livestock, Forestry & Fishing
+18%
+
+Mining & Quarrying
+2%
+
+Manufacturing
+15%
+
+Electricity, Gas, Water
+Supply & Other Utility Services
+3%
+
+Construction
+8%
+
+Financial, Real Estate, IT,
+Professional Services & Ownership of dwelling
+27%
+
+Trade, Hotels, Transport,
+Communication &
+Services related to Broadcasting,
+Storage
+14%
+
+Public Administration,
+Defence & Other
+Services
+13%
+
+Note: Kindly refer to CurrentTap 23rd to 28th February 2026 (Article 2.14) for more information on Methodological changes in National Account Estimates.
+
+# BALANCE OF PAYMENT
+
+## 2.11 FPIs Inflow
+
+### Why in News
+
+* Foreign Portfolio Investors (FPIs) infused ₹22,615 crore into Indian equities in February, marking the **highest monthly inflow in 17 months.**
+  * The February inflow was the **largest since September 2024**, when FPIs invested ₹57,724 crore.
+* Major factors supporting the inflow include:
+  * **Interim India-US trade agreement**
+  * **Correction on domestic market valuations**
+  * **Strong corporate earnings growth.**
+
+> **Note: Overall, FPIs had withdrawn about ₹1.66 lakh crore from Indian equities in 2025.**
+
+# Foreign Portfolio Investors (FPIs)
+
+21 | Page
+
+*[Page 21 of 34]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+- FPIs are **overseas investors who invest in financial assets of another**
+  **country without direct control over businesses.**
+- Investments are typically made in:
+  - Equity shares
+  - Government securities
+  - Corporate bonds
+  - Derivatives and other financial instruments.
+- **Regulated by:** Securities and Exchange Board of India (SEBI)
+
+## 2.12 India's Industrial Production grows 4.8% in January 2026
+
+### Why in News
+
+- The **Index of Industrial Production (IIP)** recorded **4.8% year-on-year growth in January 2026**, according
+  to data released by the **Ministry of Statistics and Programme Implementation (MoSPI).**
+
+### Key Highlights
+
+- **General IIP index: 169.4 in January 2026**, compared to **161.6 in January 2025**.
+
+- Sector-wise growth in January 2026:
+  - **Mining: 4.3%**
+  - **Manufacturing: 4.8%**
+  - **Electricity: 5.1%**
+
+- Top 3 contributors to manufacturing growth:
+  - **Basic metals: 13.2%**
+  - **Motor vehicles, trailers and semi-trailers: 10.9%**
+  - **Other non-metallic mineral products (e.g., cement):**
+    **9.9%**
+
+**Use-Based** (Industrial goods grouped based on how they are used in
+the economy) **Industry Growth**
+
+- **Primary goods:** 3.1%
+- **Capital goods:** 4.3%
+- **Intermediate goods:** 6.0%
+- **Infrastructure / construction goods: 13.7% (highest growth)**
+- **Consumer durables:** 6.3%
+- **Consumer non-durables: −2.7% (decline)**
+
+| FPI vs FDI |
+| :--- |
+| FPIs differ from **Foreign Direct**<br>**Investment (FDI)** as they **do not**<br>involve management control in<br>companies. |
+
+| Index of Industrial Production (IIP) |
+| :--- |
+| IIP measures the **performance of the**<br>**industrial sector** in India.<br>- It tracks changes in production in **three**<br>  **major sectors**: <br>  - **Mining**<br>  - **Manufacturing**<br>  - **Electricity**<br>- The index is released **monthly by**<br>  **MoSPI.**<br>- **Base year: 2011–12 = 100.**<br>- IIP is important because it:<br>  - shows short-term industrial<br>    growth trends,<br>  - help policymakers assess<br>    economic momentum,<br>  - is used by **RBI for monetary**<br>    **policy analysis** |
+
+22 | Page
+
+*[Page 22 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in
++91 8146207241
+
+BALANCE OF PAYMENT
+
+## 2.13 India's CAD widens to 1.3% of GDP in Q3FY26
+
+### Why in News
+* India's **current account deficit (CAD)** widened to **US$ 13.2 billion**, or **1.3% of GDP**, in **Q3FY26 (October–December 2025)**.
+
+### Key Highlights
+* **Merchandise trade deficit:** widened to **US$ 93.6 billion** from **US$ 79.3 billion** a year ago. This was the main reason behind the wider CAD.
+* **Net services receipts:** rose to **US$ 57.5 billion** from **US$ 51.2 billion**, supported by computer services and other business services exports.
+* **Personal remittances:** increased to **US$ 36.9 billion** from **US$ 35.1 billion**.
+* **FDI:** recorded a **net outflow of US$ 3.7 billion**, compared with **US$ 2.8 billion** net outflow in Q3FY25.
+* **FPI:** recorded a **net outflow of US$ 0.2 billion**, lower than **US$ 11.4 billion** net outflow a year ago.
+* **Forex reserves on BoP basis:** depleted by **US$ 24.4 billion** in Q3FY26, compared with **US$ 37.7 billion** depletion in Q3FY25.
+
+### Additional details:
+* RBI noted that **services exports rose on a year-on-year basis in major categories such as computer services and other business services**.
+* Even though CAD widened in Q3FY26, **higher services receipts, lower primary income outgo, and stronger remittances** acted as stabilizers.
+
+---
+
+# INTERNATIONAL ECONOMIC ISSUES
+
+## 2.14 India-Japan renews $75 billion currency swap pact
+
+### Why in News
+* India and Japan have **renewed their US$ 75 billion Bilateral Swap Arrangement (BSA)**, reinforcing an important **liquidity and confidence support mechanism** for the external sector.
+  * The arrangement is a **two-way currency swap framework**. Under it, **both authorities can swap their local currencies for the US dollar**.
+
+### Key Highlights
+* The **Bank of Japan**, acting as agent for Japan's **Ministry of Finance**, and the **Reserve Bank of India** signed the **third Amendment and Restatement Agreement** of the BSA.
+* BSA serves as a **financial backstop** during periods of external stress, helping support **liquidity, confidence, and market stability**.
+
+23 | Page
+
+*[Page 23 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+# 3. GA + FINANCE
+## OTHER NEWS
+
+---
+
+### RECENT DEVELOPMENT IN FINANCIAL SECTOR
+
+---
+
+## 3.1 IRDAI announced Ind AS Adoption for Insurance Sector
+
+### Why in News
+
+* IRDAI has announced **mandatory adoption** of Indian Accounting Standards (Ind AS) for all insurers by April 2026 to align with global financial **reporting** framework with **International Financial Reporting Standards (IFRS)**.
+  * The proposal will apply to **life insurers, general insurers, health insurers, and reinsurers to improve transparency, comparability, and credibility** in insurers' financial reporting.
+
+### Key Announcements
+
+* The current **actuarial-based liability measurement system** will be replaced by **market-consistent liability valuation**.
+
+* And the present **incurred-loss model** for investments will be replaced by the **Expected Credit Loss (ECL)** methodology.
+
+| Market-consistent liability valuation: Method of calculating an **insurer's future payment obligations** based on current **market conditions**, so the liability value shown is more realistic and up to date. | Actuarial-based liability measurement system is a method used by insurance companies to estimate **how much money they may have to pay in the future** for claims, benefits, and other policy obligations. |
+| :--- | :--- |
+
+| International Financial Reporting Standards |
+| :--- |
+| These are a set of accounting rules designed to ensure that financial statements are consistent, transparent, and comparable across the globe. <br> ❑ Issued by: London-based **International Accounting Standards Board (IASB).** |
+| **Ind AS 117**, dealing with insurance contracts, is aligned with **IFRS 17.** |
+
+| Expected Credit Loss (ECL): Under **Ind AS 109** is a method where companies **estimate possible future losses on loans** or investments in **advance** and record them **early**, instead of waiting for the loss to **happen**. | Incurred-loss model: It is a method where a company **records a loss** on an investment **only after there is clear evidence** that the loss has happened. |
+| :--- | :--- |
+
+### Benefits of the changes
+
+* This will help **reflect liabilities more realistically** according to current economic conditions.
+* It will also make financial reports clearer by **showing the results of the insurance business separately from the earnings that come from investments.**
+
+---
+
+24 | Page
+
+*[Page 24 of 34]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+**Other Changes to be Implemented under the Ind AS Framework**
+
+**1. Financial Statement Structure and Fund Segregation**
+
+*   Under the new Ind AS accounting rules, insurers will prepare **financial statements at the entity level**.
+*   However, insurers handle two different types of funds:
+    *   **Policyholders' funds** (premiums paid by customers)
+    *   **Shareholders' funds** (capital invested by owners).
+*   Even though accounts will be prepared at the entity level, **policyholders' and shareholders' funds must continue to be disclosed separately**.
+*   A **separate account for policyholders' funds** will be maintained as required under the **Insurance Act, 1938**, ensuring transparency and preventing misuse of policyholder money.
+
+**2. Profit Recognition and Surplus Distribution**
+
+**(a) Change in Profit Recognition**
+
+*   Under earlier **Indian GAAP**, insurers could recognise a significant portion of profit **soon after selling a policy**.
+*   Under **Ind AS 117**, profits must be **recognised gradually over the entire duration of the insurance contract**, reflecting the service provided over time.
+
+**(b) Determination of Distributable Surplus**
+
+*   Some insurance products allow **policyholders to share in profits** that would otherwise belong to shareholders.
+*   The accounting profit reported **under Ind AS** does **not necessarily represent the amount available for distribution**.
+    *   Actuaries calculate a **“true surplus”**, considering Premiums collected, Claims paid, and Operating expenses.
+    *   This actuarial surplus represents the **actual distributable amount**, which is allocated between policyholders and shareholders.
+    *   Insurers must provide **transparent disclosures explaining the relationship between accounting profit and actuarial surplus**.
+
+**3. Insurance Contract Grouping (Annual Cohort Principle)**
+
+---
+
+**Generally Accepted Accounting Principles**
+
+GAAP is a **rulebook that tells companies how to record and report their financial information**, such as income (profit), expenses, assets and liabilities. **GAAP is mainly followed in India** by certain entities that have **not shifted to Indian Accounting Standards**
+
+---
+
+**Indian Accounting Standards (Ind AS)**
+
+Ind AS is a **modern** set of accounting rules used by companies in India to prepare their financial statements.
+
+Ind AS is based on global accounting standards called **International Financial Reporting Standards (IFRS)**.
+
+---
+
+**Ind AS 117**
+
+Ind AS 117 provides **rules for how insurance companies should calculate and report their income, expenses, liabilities, and profits** from insurance policies.
+
+**IFRS 17** are the international accounting standard for the same.
+
+---
+
+25 | Page
+
+*[Page 25 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+* Under **Ind AS 117**, insurers must follow the **annual cohort principle**.
+	* This requires insurance policies **issued in the same year to be grouped together** and accounted for separately from policies issued in other years.
+	* This improves transparency in measuring profitability of different policy groups over time.
+
+4. **Accounting and Reporting for Special Products**
+* Life insurers offering **linked insurance products (such as ULIPs)** must prepare **separate financial statements for each segregated fund**.
+	* These funds are maintained specifically for **policyholder investments**, where the **investment risk is borne by the policyholders**.
+
+5. **Segment Reporting**
+* Insurance companies must report their **financial results separately for different business segments**, such as Life insurance, General insurance, and Health insurance.
+
+6. **Disclosure and Transparency Requirements**
+Ind AS significantly expands the **disclosure requirements in financial statements**.
+
+**(a) Accounting and Valuation Disclosures**
+
+Insurers must disclose:
+* Methods used for **valuation of insurance contracts**
+* **Discount rates and adjustments** used to recognise profits over time
+* Treatment of future obligations through the **Contractual Service Margin (CSM)**.
+
+**(b) Risk Disclosures**
+* Companies must provide detailed information on Insurance risk, Credit risk, Liquidity risk, and Market risk.
+
+**(c) Reinsurance Disclosures**
+* Insurers must disclose how **risk is transferred and managed through reinsurance arrangements**.
+
+7. **Transition to the New Framework**
+* To facilitate a smooth transition, IRDAI has announced **one year of parallel reporting**. During this period, insurers will prepare financial statements under both: **Ind AS** and **Indian GAAP**
+
+Annual Cohort Rule
+(Ind AS 117)
+Insurance Company sells policies
+Policies issued in 2025
+Profit = ₹ 10 crore
+Policies issued in 2026
+Loss = ₹ 8 crore
+If policies are MIXED
+₹ 10 crore – ₹ 8 crore
+Company shows ₹ 2 crore profit
+(Loss of 2026 gets hidden)
+
+So that IRDAI mandated for reporting separately for 2025 and 2026.
+
+Contractual Service Margin
+
+* When an insurer sells a policy, it receives premiums but also has future obligations such as paying claims and covering expenses.
+* After estimating these expected costs and risks, any **remaining expected profit is not recognized immediately**.
+* Instead, under **Ind AS 117**, this **expected profit** is recorded as the Contractual Service Margin and is **released gradually** as the insurer provides insurance coverage **over the policy period**.
+
+26 | Page
+
+*[Page 26 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+## 3.2 Employee Provident Fund Organization
+
+### Why in News
+
+* To simplify the regulation of establishments exempted from depositing provident fund contributions with the **Employees' Provident Fund Organisation (EPFO), the Exempted Establishment Committee** proposed a new **Standard Operating Procedure (SOP) that consolidates four existing SOPs and one manual into a single framework.**
+* The proposal has been **approved by the Central Board of Trustees**, the apex decision-making body of EPFO.
+	* The new SOP cover **online surrender of exemption, risk-based online audits, third-party audits, and improved grievance redressal systems.**
+
+### What are Exempted Establishments?
+
+* These are companies that are **permitted to manage their own provident fund (PF) trusts** instead of depositing PF contributions with the EPFO, provided that the benefits offered to employees are at least equal to Employees' Provident Funds and Miscellaneous Provisions Act, 1952.
+* In such establishments, **the employer manages the PF corpus through a board of trustees.**
+* For exempted establishments, the **contribution rates to PF fund remain the same** as those prescribed under the **statutory scheme**, with **only the management of the funds shifting from the EPFO to the employer-run trust.**
+
+| Provident Fund |
+| --- |
+| * It is a retirement **savings scheme** where both the **employee and employer contribute** a portion of the employee's salary every month to a fund managed by the **EPFO.** <br>* **The money earns interest and is paid to the employee** when they retire, leave their job, or in certain other specified situations. |
+
+### Key Provisions of EPFO's New SOP on Exempted Establishments
+
+* **Online Surrender of Company-Managed PF Trusts to EPFO**
+	* Some companies manage their **employees' provident fund (PF) through their own trust** instead of depositing the PF contributions with the EPFO.
+	* Earlier, if a company wanted to **give up** managing the PF through its own trust, the process was **manual, slow, and paper-based.**
+	* Now, if a company wants to **give up managing the PF** through its own trust, it can surrender this **exemption online and return to the EPFO system.**
+	* When this happens, the **PF money that was being managed by the company's trust is transferred to EPFO** through internet banking, and from then on EPFO will manage the employees' PF funds.
+
+| Key Provisions of EPFO's New SOP on Exempted Establishments |
+| --- |
+
+| Online Surrender of Exemption | Transfer of Inoperative / Non-KYC Accounts | Risk-Based Online Audit | Third-Party Audits of Exempted Establishments | Periodic Review of SOP |
+| --- | --- | --- | --- | --- |
+
+| Employer-run PF trust can surrender exemption to EPFO | PF corpus held by the trust is transferred to EPFO | Balance + interest in such accounts must be transferred to EPFO | Online audits of exempted establishments by EPFO based on risk level | By CA firms empanelled with the CAG | Implementation issues handled by the Central Provident Fund Commissioner |
+
+27 | Page
+
+*[Page 27 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+- **Transfer of Inoperative and Non-KYC Accounts to EPFO**
+    - Under the new SOP, if an exempted establishment has **inoperative provident fund accounts** (accounts with no activity for a long period) or **non-KYC accounts** (accounts where identity details are not properly verified), the **funds** in such accounts **cannot remain with the employer-managed PF trust** indefinitely.
+    - Instead, the **entire balance, along with the interest** accumulated on it, must be **transferred to the EPFO**.
+- **Risk-based online audit system:**
+    - Currently, the **EPFO conducts annual physical audits** of **exempted establishments** through its officers to ensure provident fund rules are being followed.
+        - Under the new SOP, this will be **replaced by a risk-based online audit system**, where establishments (companies) will be **audited digitally** based on their **risk level**.
+- **Third-party audits:**
+    - To **strengthen** the **oversight** further, the SOP also allows **external audits** of exempted establishments **by Chartered Accountant firms empanelled with the Comptroller and Auditor General of India (CAG)** to strengthen oversight.
+- **Periodic Review of SOP:**
+    - The **SOP** will be **reviewed periodically**. The **Central Provident Fund Commissioner** will be the **designated authority** to **resolve** any **operational issues** arising in its implementation.
+
+## News 2
+
+- Recently, the **239th meeting of the Central Board of Trustees** of the Employees' Provident Fund (EPF) Organization was held in which several decisions were taken.
+- These included **retention of the EPF interest rate**, approval of an **amnesty scheme for exempted establishments**, and a pilot project for **auto-settlement of small inoperative EPF accounts**.
+- The Board **aligned** the existing **EPF, Employees' Pension Scheme (EPS) and Employees' Deposit Linked Insurance (EDLI) schemes with** the provisions of the **Code on Social Security, 2020**, and also approved **SOPs for corporate actions** and **investments in equity ETFs and liquid mutual funds.**
+
+[Employee Provident Fund]
+
+It is a **retirement savings scheme** for **salaried workers** in India. Both **employees** and **employers** contribute to it every month, and the **money earns interest** until retirement. The scheme is **managed by the EPFO.**
+
+[Equity ETF]
+
+**Equity ETFs** are investment funds that track a group of company shares and are traded on stock exchanges.
+
+## Key Decisions Announced at the Meeting
+
+### Member Benefits and Account Management
+
+- **EPF Interest Rate Unchanged:**
+    - **EPF interest rate** (the annual return earned on employees' provident fund savings) has been retained at **8.25% for FY 2025–26**, for the third consecutive year.
+- **Auto-Settlement of Small Inoperative Accounts**
+
+28 | Page
+
+*[Page 28 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+- These are accounts where no contributions have been received for a long period, often after the member retires or leaves a job.
+- Under this **pilot project**, EPFO will automatically process claims for accounts with **₹1,000 or less**, transferring the balance directly to the member's bank account without requiring any paperwork.
+- **Alignment of existing EPF, EPS & EDLI Schemes with the provisions of Code on Social Security, 2020:**
+  - Earlier, the **Employees' Provident Fund (EPF), Employees' Pension Scheme (EPS), and Employees' Deposit Linked Insurance (EDLI)** operated under older rules that were not fully aligned with the new **Code on Social Security, 2020**.
+  - Now, **CBT** has approved the **EPF Scheme, 2026, EPS, 2026, and EDLI Scheme, 2026**. Thes updated schemes will take the place of the current ones once they are implemented.
+
+**Compliance Reform**
+
+- **Amnesty Scheme for Exempted Establishments:**
+  - The Board approved a **one-time compliance relief** to help certain organisations comply with EPF rules.
+  - Some **companies manage their own provident fund trusts** instead of depositing contributions directly with EPFO. These **trusts must** either **be formally recognised under the Employees' Provident Fund & Miscellaneous Provisions Act, 1952**, or obtain official exemption from EPFO.
+  - However, some **income-tax-recognised provident fund trusts** have not yet completed this process.
+    - These trusts and organizations are given **six months** to come into compliance.
+
+**Investment Governance & Financial Management**
+
+- **SOP for Safe and Timely Investment Decisions:**
+  - The EPFO manages a huge amount of money from workers' provident fund contributions.
+  - This money is invested in **government bonds, company bonds, and other approved funds**.
+  - Sometimes, the companies where EPFO has put money do special things, like **taking back some of their own shares** from buyers (buyback) or giving people a **chance to buy or sell it in the future (call/put options)**. These actions can change the value of EPFO's money, so EPFO has to act quickly and carefully to protect workers' savings."
+  - The **SOP** provides for an **Investment Monitoring Cell (IMC)** overseeing all EPFO's decisions, making investment actions transparent and safe.
+- **SOP for Investment in Equity Exchange Traded Fund (ETF) & Liquid Mutual Funds (LMF)**
+  - To ensure investments are monitored properly, it set up a **special team called the Investment Monitoring Cell (IMC)**.
+  - The SOP directs EPFO to put money in **Equity ETFs** (baskets of company shares) using a **systematic annual investment plan** (SIP), which spreads the money over the year to reduce risk.
+  - At the same time, EPFO invests in **Liquid Mutual Funds (LMF)**, which are safe and can be quickly converted into cash, supporting member withdrawals whenever needed.
+  - To handle any urgent cash requirements, the SOP provides an **overdraft facility**, ensuring liquidity is always available.
+
+The SOP requires EPFO to sends **regular reports to its Central Board**, so all investments remain transparent and follow the rules.
+
+29 | Page
+
+*[Page 29 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+---
+
+# PRIMARY AND SECONDARY MARKET IN INDIA
+
+## 3.3 ‘Sudarshan’: SEBI’s AI Tool to Monitor Digital Investment Advice
+
+### Why in News
+
+* SEBI has deployed an **AI-based surveillance tool named “Sudarshan”** and removed **over 1.2 lakh misleading social media posts by unregistered financial influencers (finfluencers)**.
+
+---
+
+### AI Tool “Sudarshan”
+
+* **Developed by:** Securities and Exchange Board of India (SEBI)
+* **Objective:**
+    * To strengthen **digital surveillance of financial markets**.
+    * Improve **misleading investment advice and regulatory violations on digital platforms**.
+* **Features:**
+    * The tool can track **multilingual content across various formats**, including:
+        * Audio
+        * Video
+        * Text posts.
+    * It scans content across **social media platforms and digital channels** to detect potential violations of securities regulations.
+    * The system helps identify cases where **unregistered individuals provide investment advice or make misleading profit claims**.
+    * Once violations are detected, SEBI can **direct platforms to remove such content**.
+    * The tool enables **real-time monitoring and faster regulatory action** against digital market misconduct
+
+---
+
+## 3.4 Global Access platform
+
+### Why in News
+
+* Recently, **National Stock Exchange International Exchange** (NSE IX) launched the **'Global Access' platform** to enable **Indian retail investors** to directly trade in **international** shares, bonds, and exchange-traded funds (ETFs), marking a significant step in connecting domestic retail investors with global capital markets.
+    * The platform will initially provide access to **US markets**, with plans to expand to **up to 30 international markets** over the next three to six months.
+
+---
+
+<u>**KEY TERMS**</u>
+
+### **GIFT City**
+
+Gujarat International Finance Tec-City is a special city in India that helps banks, companies, and investors carry out international financial and commercial activities.
+
+---
+
+30 | Page
+
+*[Page 30 of 34]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+## Key Features of the Global Access Platform
+
+* **Digital Onboarding:** Investors can open an account on Global Access Platform online mode through a secure digital Know Your Customer (KYC) process, without visiting any office.
+* **Fund Transfer Process on Global Access Platform:** When an investor uses the Global Access platform to invest in foreign markets, the process works as follows:
+  * The investor first sends money in **Indian rupees** to a designated **GIFT City based bank account** linked to the platform.
+  * The **rupees** in the GIFT City bank account are **converted into US dollars**.
+  * Using these funds, investors can **buy or sell international stocks**, with **ViewTrade**, a foreign broker in GIFT City, handling execution and settlement efficiently.
+* **Fractional investing:** On the platform, investors can buy a **part of a high-priced share instead of the whole share.**
+* **Liberalised Remittance Scheme (LRS) compliant:** The Platform allows Indian investors to invest abroad within the RBI's LRS limit of **$250,000** per year.
+* **Assets Not Permitted for Trading:** The Global Access platform **does not allow** trading in **cryptocurrencies**, **Bitcoin, or derivatives** (contract whose value depends on the underlying asset).
+
+### Additional Information:
+
+* NSE IX has partnered with **ViewTrade**, a foreign broker in GIFT City, to **execute and settle overseas stock trades on behalf of Indian investors**, ensuring that all transactions are completed securely and efficiently.
+
+# 3.5 Custodians to Offer Unregulated Financial Services
+
+## Why in News
+
+* Securities and Exchange Board of India (SEBI) has issued a new framework allowing custodians (except those backed by banks) to offer certain financial services outside SEBI's regulatory oversight.
+
+## Key Highlights of the Framework
+
+* SEBI has **allowed custodians to undertake financial services** that are **outside SEBI's** regulatory jurisdiction. However, **bank-backed custodians** are **excluded** from this permission.
+* To keep regulated and unregulated activities separate, SEBI has required custodians to carry out such services through a **separate Strategic Business Unit (SBU)**.
+
+---
+
+Exchange Traded Fund (ETF)
+
+An ETF is like a **big basket of different investments** (such as stocks or bonds) that an investor can buy or sell on the stock market, just like a single stock.
+
+---
+
+Liberalized Remittance Scheme (LRS)
+
+* The **LRS** is a rule by RBI that lets Indian residents send money abroad for certain purposes, like investing, studying, or buying property etc.
+* Under this scheme, **each person can send up to $250,000 per year.**
+
+---
+
+Custodian
+
+A **custodian** is an **institution** that **safely holds** and **manages investors' securities** like shares and bonds in electronic form.
+
+**Custodian responsibilities** include holding securities safely, settling trades, record keeping, and reporting to regulators
+
+31 | Page
+
+*[Page 31 of 34]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+* If a client uses the custodian's **unregulated services**, SEBI protection **will not apply**.
+* To implement the new framework, a body called the **Custodians and DDPs Standards Setting Forum (CDSSF) will be responsible for publishing **a list of specific financial services** that custodians will be permitted to undertake outside SEBI's regulatory purview.
+
+# 3.6 Mutual Fund Scheme
+
+## Background
+
+* Mutual fund companies often launch many schemes such as **sector-based funds** (which invest in a particular sector like banking or technology) or **theme-based funds** (which invest based on a broader idea such as infrastructure or consumption).
+* Ideally, each scheme should follow a **different investment approach and invest in different companies**.
+* However, in many cases, different schemes of the same fund house were **investing in almost the same set of companies**, leading to a high level of similarity between schemes.
+* When this happens, investors do **not get real diversification**, even if they invest in multiple schemes.
+
+[Mutual Fund Scheme box:]
+A **mutual fund scheme** is a pool of money collected from investors that is invested according to a specific investment strategy.
+
+## Why in News
+
+* To solve this problem and ensure that schemes are clearly different from each other, the Securities and Exchange Board of India has introduced a rule that **two equity mutual fund schemes of the same fund house cannot invest more than 50% of their money in the same companies**.
+  * **Exception:** Large-cap mutual funds are not covered under this rule because they are required to invest mainly in the **top 100 companies by market capitalisation**, so similarity between them is natural.
+* The **level of similarity** between schemes will be **checked by the fund house every quarter**.
+
+## Impact of the Rule
+
+* According to an analysis by Elara Securities, about **51 sectoral and thematic mutual fund** schemes currently **invest more than the 50% allowed in the same companies**.
+* These schemes will be given **three years to gradually change their investments and reduce the similarity**.
+* If they still **fail to meet the rule after three years**, they will be required to **merge with another scheme**.
+
+| Period | Realignment expected |
+| :--- | :--- |
+| Year 1 | 35% of the excess overlap |
+| Year 2 | Additional 35% |
+| Year 3 | Remaining 30% |
+
+32 | Page
+
+*[Page 32 of 34]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+## 3.7 SEBI Check
+
+### Why in News
+
+* The chairman of Securities and Exchange Board of India (SEBI) said that the SEBI is increasing the **use of technology, to stop scams** that **target small investors.**
+* To **protect investors from rising online investment frauds**, the SEBI is promoting a verification tool called **SEBI Check.**
+
+[SEBI Check (Verification Tool)]
+
+[Verifies if a person/company is SEBI-registered]
+
+[Verify authorised platforms & valid UPI handles]
+
+[Encourages verification of details by investors before payment]
+
+33 | Page
+
+*[Page 33 of 34]*
+
+---
+
+"Hello Students, this is a sneak peak of the CurrentTap
+Magazine of 1st to 7th of the month. To read the full monthly
+document you can *subscribe to our courses*."
+
+In case you have a suggestion or feedback, kindly drop us
+an email at **hello@edutap.co.in.**
+
+*[Page 34 of 34]*

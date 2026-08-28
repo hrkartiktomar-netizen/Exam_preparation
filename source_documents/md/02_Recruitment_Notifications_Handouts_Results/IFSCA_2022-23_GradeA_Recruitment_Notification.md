@@ -1,0 +1,472 @@
+# INTERNATIONAL FINANCIAL SERVICES CENTRES AUTHORITY
+
+## Recruitment of Officer Grade A (Assistant Manager) - 2023
+
+International Financial Services Centres Authority (IFSCA) is a statutory regulatory body established by an Act of Parliament, to develop and regulate the financial services market in the International Financial Services Centres in India. GIFT IFSC in GIFT City, Gandhinagar is the maiden IFSC in the country. The IFSC Authority has been empowered to exercise the powers of RBI, SEBI, IRDAI and PFRDA in respect of financial products, financial services, and financial institutions in the IFSC.
+
+### IMPORTANT DATES TO REMEMBER
+
+| Activity | Important Dates |
+|---|---|
+| On-Line Application and Payment of fee On-Line | 11.02.2023 to 03.03.2023 |
+| Availability of Call Letters on IFSCA website (for On-Line Examinations) | Will be intimated by email/SMS one week before the exam |
+| Phase I On-Line Examination | March/ April 2023 |
+| Phase II On-Line Examination* | April/ May 2023 |
+| Phase III Interview | Dates will be intimated |
+
+**Applicants desirous of applying for job at IFSCA are hereby cautioned not to fall prey to any unscrupulous elements who may try to deceive candidates/public by false promises of securing jobs in IFSCA. In case any candidate comes across such offer/ practice, the same may be immediately brought to the notice of IFSCA at manager-adm@ifsca.gov.in with full details, such as name and contact details, of the elements indulging in such practice.**
+
+**I. IFSCA invites applications from Indian citizens for the post of Officer Grade A (Assistant Manager) for the General Stream. IFSCA reserves the right to fill up the posts or not to fill up the posts at all.**
+
+| Stream | UR | OBC | SC | ST | EWS | Total | Educational Qualification |
+|---|---|---|---|---|---|---|---|
+| General | 10 | 5 | 3 | 1 | 1 | 20 | Master's Degree with specialization in Statistics/ Economics/ Commerce/ Business Administration (Finance) / Econometrics. or Bachelor's degree in Information Technology/ Computer Science/ Master's in Computer Application/ Information Technology. or Bachelor's degree in commerce with CA, CFA, CS, ICWA. or Bachelor's degree in Law or in any other discipline from a recognized University. |
+
+a. Candidates belonging to OBC category but falling in the 'Creamy Layer' are not entitled to OBC reservation. Reservations for Economically Weaker Sections (EWSs) in recruitment is governed by Office Memorandum No.36039/1/2019-Estt (Res) dated 31.01.2019 of Department of Personnel & Training, Ministry of Personnel, Public Grievances & Pensions, Government of India.
+
+*[Page 1 of 13]*
+
+---
+
+*Disclaimer: "EWSs vacancies are tentative and subject to further directives of Government of India and outcome of any litigation. The appointment shall be provisional and shall be subject to the Income & Asset certificate being verified through proper channels". Benefit of reservation under EWSs category can be availed upon production of an 'Income and Asset Certificate' for Financial Year 2021-22 issued by a Competent Authority on the format prescribed by the Government of India.*
+
+**Note 1:** A Post Graduate Diploma in any discipline will be acceptable as educational requirement for General stream, provided the same is recognized as equivalent to a Master' Degree in that discipline by Govt. of India. The onus to provide necessary document in this regard shall be on the candidates.
+
+**b. Age Limit (as on 01.02.2023):**
+
+(i) A candidate must not have exceeded the age of 30 years as on February 1, 2023.
+(ii) The upper age-limit prescribed above will be relaxable:
+   a. up to a maximum of five years for candidates belonging to a Scheduled Caste or a Scheduled Tribe if the posts are reserved for them;
+   b. up to a maximum of three years in the case of candidates belonging to Other Backward Classes who are eligible to avail of reservation applicable to such candidates if the posts are reserved for them;
+(iii) Only those candidates belonging to 'Non-Creamy Layer' are eligible to apply under OBC Category. The OBC candidates who belong to 'Creamy Layer' are not entitled to apply under OBC Category. Candidates belonging to OBC category but coming in the 'Creamy Layer' are not entitled to OBC reservation. They should indicate their category as 'Unreserved'. Candidates belonging to the OBC
+   a. (NCL) category should have OBC (NCL) valid certificate but earlier than the due date (closing date) of the application.
+(iv) Relaxation of 10 (ten) years for PwBD candidates shall be applicable whether the post is reserved or not. Relaxation of 13 (thirteen) years for PwBD (OBC) candidates where vacancies are reserved for OBC candidates. Relaxation of 15 (fifteen) years for PwBD (SC/ST) candidates where vacancies are reserved.
+(v) Candidates belonging to the Scheduled Castes and the Scheduled Tribes and the Other Backward Classes who are also covered under the category of Persons with Benchmark Disabilities will be eligible for grant of cumulative age-relaxation.
+
+Where there is no vacancy reserved for OBC/SC/ST category candidates, such candidates can still apply. However, they will not be eligible for any relaxation. SC/ ST candidates are exempt from payment of application fee even in such case but will have to pay specified intimation charges. OBC/ PwBD candidates should possess a latest certificate to this effect issued by the Competent Authority in the prescribed Format.
+
+**II. MODE OF SELECTION:** Mode of selection shall be a three-stage process i.e. Phase I (on-line screening examination consisting of two papers of 100 marks each), Phase II (on-line examination consisting of two papers of 100 marks each) and Phase III (Interview).
+
+**a. Phase I On-Line Examination:**
+
+An online screening examination consisting of two papers (Multiple Choice questions of 100 marks each) will be held in March/April 2023 (tentatively). The exam will consist of:
+
+| Paper | Streams/ Subjects | Maximum Marks | Duration | Cut off |
+|---|---|---|---|---|
+| **Paper 1** | Multiple choice questions General awareness (financial sector) -25 questions X 1 mark each English language – 25 questions X 1 mark each Quantitative Aptitude – 25 questions X 1 mark each Test of Reasoning- 25 questions X 1 mark each | 100 | 60 minutes | 30% |
+| **Paper 2** | Multiple choice questions on General knowledge, Current events of national and international importance, Economic and social development (sustainable development, poverty, inclusion, and demographics), Commerce, Accountancy, Management, Finance and costing, Indian | 100 | 60 minutes | 40% |
+
+*[Page 2 of 13]*
+
+---
+
+| | Economy, Global Economy, Five-year plans, Central Government's initiatives/ Schemes in the financial sector. (50 questions X 2 marks each) | | | |
+|---|---|---|---|---|
+| **Aggregate Cut off** | | | | **40%** |
+
+(i) There shall be negative marking (1/4th of marks assigned to the question) for the Paper 1 and Paper 2 in Phase I.
+(ii) There shall be a cut-off of minimum 30% for Paper 1 (no sectional cut-off shall be there) and a cut-off of minimum 40% for Paper 2 in Phase I.
+(iii) Candidates would need to secure separate cut-off in each paper as mentioned at (ii) above as well as aggregate cut-off marks of 40% in Phase I exam to be shortlisted for Phase II. Marks obtained in Phase I shall be used only for shortlisting the candidates for Phase II examination process and will not be counted for final selection of the candidates.
+(iv) Subject to the criteria mentioned at (iii) above, all the candidates who clear Phase I shall be shortlisted for Phase II. List of candidates shortlisted for Phase II will be made available on IFSCA website.
+
+**b. Phase II On-Line Examination:**
+
+An on-line examination consisting of two papers of 100 marks each will be held in April/May 2023 (tentatively). The papers shall be as follows:
+
+| Paper | | Maximum Marks | Duration | Cut off | Weightage |
+|---|---|---|---|---|---|
+| **Paper 1** | English (Descriptive Test) (a) Precis Writing – 35 marks (b) Essay writing – 30 marks (c) Comprehension- 35 marks | 100 | 60 minutes | 30% | 1/3rd |
+| **Paper 2** | Multiple choice questions on subjects like IFSCA Act, Union Budget, Economic Survey, Banking, Capital Market, Insurance, Pension Funds, Bullion, GIFT City, GIFT IFSC, IFSCA, Global Financial Centres etc. (50 questions X 2 marks each) | 100 | 60 minutes | 40% | 2/3rd |
+| **Aggregate Cut off** | | | | **40%** | |
+
+(i) Candidates shortlisted for Phase II will be issued new Hall Tickets.
+(ii) There shall be negative marking (1/4th of marks assigned to the question) for Paper 2 in Phase II
+(iii) There shall be a cut-off of minimum 30% for Paper 1 and a cut-off of minimum 40% for Paper 2 in Phase II.
+(iv) Candidates would need to secure separate cut-off in each paper as mentioned above as well as aggregate cut-off marks of 40% in Phase II exam (weightage of 1/3rd for Paper 1 and 2/3rd for Paper 2) to be shortlisted for Phase III.
+(v) Subject to the criteria mentioned above, candidates equaling 3 times the number of vacancies shall be shortlisted, in order of merit, for Phase III i.e. the Interview. List of candidates shortlisted for Interview will be made available on IFSCA website.
+
+**Note:** All question papers (in both the Phases, except the test of English) will be set bilingually in Hindi and English.
+
+**c. Interview:**
+
+Only the shortlisted candidates will be called for interview. Application fee shall not be refunded to the candidates not shortlisted for Phase II and Interview. Weightage of marks obtained in Phase II will be 85%, while marks obtained in interview shall be given a weightage of 15%.
+
+IFSCA reserves the right to modify the selection procedure, if deemed fit.
+
+*[Page 3 of 13]*
+
+---
+
+**III. SERVICE CONDITIONS/ PAY AND ALLOWANCES:**
+
+**a. Probation:**
+The successful candidates recruited for the post of Officer Grade 'A' shall undergo probation of two years. The candidates shall be confirmed in the services of IFSCA subject to their satisfactory performance during the probation period.
+
+**b. Pay:**
+The pay scale of officers in Grade A is Rs. 44500-2500(4)-54500-2850(7)-74450-EB-2850(4)-85850-3300(1)-89150 (17 years).
+
+Presently, the gross emolument including IFSCA's Contribution towards National Pension Scheme (NPS), Grade Allowance, Special Allowance, Dearness Allowance, Family Allowance, Local Allowance etc. at the minimum of this scale is approx. Rs. 1,43,000/- p.m..
+
+**c. Benefits:**
+Other benefits viz., Leave Fare Concession, Medical Expenses, Eye Refraction, Education Allowance, Financial Dailies, Book Grant, Briefcase, Conveyance Expenses, House Cleaning Allowance, Staff Furnishing Scheme, Scheme for Purchasing Computers, Subsidized Lunch Facility and all other benefits as admissible to an Officer in Grade A in IFSCA.
+
+**d. Posting:**
+The incumbent may be posted and transferred to any location in India or abroad where IFSCA has its Offices. The recruited officers may be posted to any department of IFSCA.
+
+**IV. EXAMINATION CENTRES:**
+
+a. The Phase I and Phase II on-Line examination will be held at the following centres:
+
+| | | |
+|---|---|---|
+| Ahmedabad/ Gandhinagar | Hyderabad/ Rangareddy | Nasik |
+| Agartala | Indore | New Delhi-NCR |
+| Aurangabad (MH) | Jaipur | Panaji |
+| Bengaluru | Kanpur | Patna |
+| Bhubaneswar | Kochi/ Ernakulam | Prayagraj |
+| Chandigarh/ Mohali | Kolkata/ Greater Kolkata | Pune |
+| Chennai | Lucknow | Raipur |
+| Coimbatore | Madurai | Ranchi |
+| Dehradun | Meerut | Siliguri |
+| Guwahati | Mumbai/Greater Mumbai/Navi Mumbai/Thane | Surat |
+| Haldwani | Muzzafarpur | Vijayawada |
+| Hubli - Dharwad | Nagpur | Vishakhapatnam |
+
+Candidates can provide their preference of upto three centers for Phase I and one center for Phase II in the online application. The choice of Center by candidates for Phase I and Phase II Examinations can be different and must be indicated in the online application. Candidates will appear for the examination at an Examination Centre at their own risks and expenses. IFSCA does not make any arrangements for boarding/lodging of candidates. IFSCA will not be responsible for any injury or losses etc. of any nature during the course of Examination.
+
+NB: Notwithstanding the aforesaid provision, IFSCA reserves the right to change the Centres at its discretion. Candidates admitted to the examination will be informed of the timetable and place or places of examination. The candidates should note that no request for change of centre will be entertained.
+
+b. The venue for the Interview will be intimated to the shortlisted candidates in their interview call letters.
+
+*[Page 4 of 13]*
+
+---
+
+**V. APPLICATION FEE (NON-REFUNDABLE)**
+
+| Category of Applicant | Amount of Fee (Non-refundable) |
+|---|---|
+| Unreserved/OBC/EWSs | Rs. 1000/- as application fee cum intimation charges |
+| SC/ ST | Rs. 100/- as intimation charges |
+
+**VI. GENERAL INSTRUCTIONS:**
+
+a. Candidate who is eligible and desires to apply for the above post should submit an **ON-LINE application** with requisite fee/ intimation charges (wherever applicable). No other means/mode of application will be accepted.
+
+b. Fees sent in any other manner not prescribed in this advertisement and / or the application submitted without depositing the fee/ intimation charges would be rejected and no correspondence shall be entertained in this regard.
+
+c. Candidates should be satisfied with their eligibility for the post applied for. Candidates seeking reservation/ relaxation benefits available for SC/ST/OBC/EWS or any other category must ensure that they are entitled to such reservation/ relaxation as per eligibility prescribed. At the time of the interview, they should also be in possession of all the requisite valid certificates in the prescribed format in support of their claim as stipulated for such benefits and these certificates should be dated earlier than the due date (closing date) of the application.
+
+d. If the candidates are not eligible or have knowingly or willfully furnished incorrect or false particulars or suppressed material information, their candidature will be liable to be cancelled at any stage of the selection. If the candidate qualifies in the selection process and subsequently it is found that he/she does not fulfill the eligibility criteria, his/her candidature will be cancelled and if appointed, the appointment would be terminated without any notice or compensation.
+
+e. Candidates who are already in service of Govt./ Quasi-Govt. Organizations and Public Sector Banks/ Undertakings will have to produce a "No Objection Certificate' from their employer, at the time of Interview. Before appointment in IFSCA, a proper discharge certificate from the employer will have to be produced.
+
+f. Outstation candidates called for Interview will be reimbursed single AC Three Tier return railway fare for journey by the shortest route, subject to submission of necessary documentary evidence.
+
+g. IFSCA does not assume any responsibility for the candidates not being able to submit their applications within the last date.
+
+h. In all matters regarding eligibility, conduct of examinations, interviews, assessment, prescribing minimum qualifying standards in both the Examination and Interview, in relation to number of vacancies and communication of result, IFSCA's decision shall be final and binding on the candidates and no correspondence shall be entertained in this regard. Further, IFSCA reserves the right to relax any of the requirements for the candidates in deserving cases. IFSCA also reserves the right to cancel the advertisement, fully or partly on any grounds.
+
+i. Canvassing in any form will disqualify the candidate.
+
+j. Please note that Corrigendum, if any, issued on the above advertisement, will be published only on IFSCA's website www.ifsca.gov.in .
+
+k. Any resultant dispute arising out of this advertisement shall be subject to the jurisdiction of the Courts situated at Gandhinagar only.
+
+**VII. DOWNLOAD OF CALL LETTERS**
+
+Candidates will have to visit the website www.ifsca.gov.in for downloading call letters for online examination. Intimation for downloading call letter will also be sent through email/SMS. Once the candidate clicks the relevant
+
+*[Page 5 of 13]*
+
+---
+
+link, he/she can access the window for call letter download. The candidate is required to use (i) Registration Number/Roll Number, (ii) Password/Date of Birth for downloading the call letter. Candidate needs to affix recent recognizable photograph on the call letter which should be the same as provided during registration and appear at the examination centre with (i) Call Letter (ii) Photo Identity Proof as stipulated in this advertisement and also specified in the call letter and (iii) Photocopy of the same Photo Identity Proof as brought in original.
+
+**VIII. CENTRE INSTRUCTIONS**
+
+a. The examination will be conducted online in venues given in the respective call letters. The addresses of the venue will be given in the call letter. Candidates are required to indicate the preferred test centre in the application form. IFSCA however, reserves the right to cancel any of the Examination Centres and/ or add some other Centres, depending upon the response, administrative feasibility, etc.
+
+b. As far as possible candidates will be allotted to a centre of his/her choice. However, IFSCA, reserves the right to allot the candidate to any centre other than the one he/she has opted for.
+
+c. No request for change of centre/venue/date/ session for Examination shall be entertained.
+
+d. Choice of centre once exercised by the candidate will be final. If sufficient number of candidates do not opt for a particular centre for "Online" examination, IFSCA reserves the right to allot any other adjacent centre to those candidates OR if the number of candidates is more than the capacity available for online exam for a centre, IFSCA reserves the right to allot any other centre to the candidate.
+
+e. Candidate will appear for the examination at an Examination Centre at his/her own risk and expenses and IFSCA will not be responsible for any injury or losses etc., of any nature.
+
+**A. IDENTITY VERIFICATION**
+
+In the examination hall as well as at the time of interview, the call letter along with original and a photocopy of the candidate's currently valid photo identity (bearing exactly the same name as it appears on the call letter) such as PAN Card/ Passport/ Driving License/ Voter's Card with photograph/ Bank Passbook with photograph/ Photo identity proof issued by a Gazetted Officer on official letterhead along with photograph/ Photo identity proof issued by a People's Representative on official letterhead along with photograph/ valid recent Identity Card issued by a recognized College/ University/ Aadhaar card with a photograph/ E-Aadhaar card with a photograph/ Employee ID in original/ Bar Council Identity Card with photograph should be submitted to the invigilator for verification. The candidate's identity will be verified with respect to his/her details on the call letter, in the Attendance List and requisite documents submitted. If identity of the candidate is in doubt the candidate may not be allowed to appear for the Examination.
+
+Ration Card and Learner's Driving license are **not** a valid ID proof.
+
+**Note:** Candidates have to produce in original the photo identity proof and submit photocopy of the photo identity proof along with Examination Call Letter as well as the Interview Call Letter while attending the examination/ interview respectively, without which they will not be allowed to take up the examination/ interview. Candidates must note that the name as appearing on the call letter (provided during the process of registration) should exactly match the name as appearing on the photo identity proof. Female candidates who have changed first/last/middle name post marriage must take special note of this. If there is any mismatch between the name indicated in the Call Letter and Photo Identity Proof, the candidate will not be allowed to appear for the examination. In case of candidates who have changed their name, will be allowed only if they produce original Gazette notification / their original marriage certificate / affidavit in original. Photo ID should be valid as on the day of the examination.
+
+**B. BIOMETRIC DATA – Capturing and Verification**
+
+It has been decided to capture the biometric data (thumb impression) and the photograph of the candidates on the day of the Online Examination (Phase II) for the candidates who appear for the examination.
+
+The biometric data and photograph will be verified subsequently. Decision of the Biometric data verification authority with regard to its status (matched or mismatched) shall be final and binding upon the candidates.
+
+*[Page 6 of 13]*
+
+---
+
+Candidates are requested to take care of the following points in order to ensure a smooth process.
+
+- If fingers are coated (stamped ink/ mehndi/ coloured, etc.), ensure to thoroughly wash them so that coating is completely removed before the exam / interview / joining day.
+- If fingers are dirty or dusty, ensure to wash them and dry them before the fingerprint (biometric) is captured.
+- Ensure fingers of both hands are dry. If fingers are moist, wipe each finger to dry them.
+- If the primary finger (thumb) to be captured is injured/damaged, immediately notify the concerned authority in the test centre.
+
+**C. ACTION AGAINST CANDIDATES FOUND GUILTY OF MISCONDUCT**.
+
+Candidates are advised in their own interest that they should not furnish any particulars that are false, tampered with or fabricated and should not suppress any material information while submitting online application.
+
+At the time of examination, interview or in a subsequent selection procedure, if a candidate is (or has been) found guilty of
+
+i. Using unfair means or
+ii. Impersonating or procuring impersonation by any person or
+iii. Misbehaving in the examination/interview hall or disclosing, publishing , reproducing, transmitting, storing or facilitating transmission and storage of contents of the test(s) or any information therein in whole or part thereof in any form or by any means, verbal or written, electronically or mechanically for any purpose or
+iv. Resorting to any irregular or improper means in connection with his/her candidature or
+v. Obtaining support for his/her candidature by any unfair means or
+vi. The use of any mobile phone (even in switched off mode), pager or any electronic equipment or programmable device or storage media like pen drive, smart watches etc. or camera or blue tooth devices or any other equipment or related accessories either in working or switched off mode capable of being used as a communication device during the examination is strictly prohibited. Such a candidate may in addition to rendering himself/herself liable to criminal prosecution, be liable:
+   a. To be disqualified from the examination for which he/she is a candidate.
+   b. To be debarred, either permanently or for a specified period, from any examination conducted by IFSCA.
+   c. For termination of service, if he/she has already joined IFSCA.
+
+**IX. GENERAL INFORMATION:**
+
+Not more than one application should be submitted by any candidate. In case of multiple applications, only the latest valid (completed) application will be retained, and the application fee/ intimation charges paid for the other multiple registration(s) will stand forfeited.
+
+**Notes:**
+
+- After completing the procedure of applying on-line including payment of fees, the candidate should take a printout of the system generated on-line application form, ensure that the particulars filled in are accurate andretain it along with Registration Number and Password for future reference. They should not send this printoutto the IFSCA. If the online transaction has been successfully completed a Registration Number and Passwordwill be generated. Candidates should note their Registration Number and Password for future reference.
+
+- Please note that all the particulars mentioned in the online application including Name of the Candidate, Category, Date of Birth, Address, Mobile Number, Email ID, Centre of Examination, etc., will be considered as final and no change/modifications will be allowed after submission of the online application form. Candidates are hence requested to fill in the online application form with the utmost care as no correspondence regarding change of details will be entertained. The IFSCA will not be responsible for any consequences arising out of furnishing of incorrect and incomplete details in the application or omission to provide the required details in the application
+
+*[Page 7 of 13]*
+
+---
+
+form.
+
+- An email/ SMS intimation with the Registration Number and Password generated on successful registration of the application will be sent to the candidate's email ID/ Mobile Number specified in the online application form as a system generated acknowledgement. **If candidates do not receive the email and SMSintimations at the email ID/ Mobile number specified by them, they may consider that their online application has not been successfully registered.**
+
+- An online application which is **incomplete in any respect such as without photograph and signature uploaded in the online application form/ unsuccessful fee payment will not be considered as valid.**
+
+- Candidates are advised in their own interest to apply on-line much before the closing date and not to wait tillthe last date for depositing the fee to avoid the possibility of disconnection/ inability/ failure to log on to the website on account of heavy load on internet/website jam.
+
+- IFSCA does not assume any responsibility for the candidates not being able to submit their applications withinthe last date on account of the aforesaid reasons or for any other reason beyond the control of the IFSCA.
+
+- Please note that the above procedure is the only valid procedure for applying. No other mode of application or incomplete steps would be accepted, and such applications would be rejected.
+
+- Any information submitted by an applicant in his/ her application shall be binding on the candidate personallyand he/she shall be liable for prosecution/ civil consequences in case the information/details furnished by him/ her are found to be false at a later stage.
+
+**Helpline: In case of any problem experienced in filling up the form, payment of fees/intimation charges, queries may be made at http://cgrs.ibps.in/. Do not forget to mention 'IFSCA - Officer Grade A2023' in the subject of the email.**
+
+**X. OTHER TERMS AND CONDITIONS**
+
+The decision of IFSCA in all matters relating to recruitment will be final and binding on the candidate. No correspondence or personal enquiries shall be entertained by the IFSCA in this behalf.
+
+**CANDIDATES REPORTING LATE** i.e. after the reporting time specified on the call letter for Examination will not be permitted to take the examination. The reporting time mentioned on the call letter is prior to the Start time of the test. Candidates may be required to be at the venue for about 4 hours prior to the start of examination for completion of various formalities such as verification and collection of various requisite documents, logging in, giving of instructions.
+
+**GUIDELINES FOR PERSONS WITH DISABILITIES USING A SCRIBE**
+(i) The visually impaired candidates and candidates whose writing speed is adversely affected permanently for any reason can use their own scribe at their cost during the online examination, subject to limits as in (ii) and (iii) below. In all such cases where a scribe is used, the following rules will apply:
+
+- The candidate will have to arrange his/her own scribe at his/her own cost.
+- The scribe arranged by the candidate should not be a candidate for the same examination. If violation of the above is detected at any stage of the process, candidature of both the candidate and the scribe will be cancelled. Candidates eligible for and who wish to use the services of a scribe in the examination should invariably carefully indicate the same in the online application form. Any subsequent request may not be favourably entertained.
+- A person acting as a scribe for one candidate cannot be a scribe for another candidate.
+- The scribe may be from any academic stream. However, for Specialist Officers' posts the scribe should be from an academic stream different from that prescribed for the post.
+
+*[Page 8 of 13]*
+
+---
+
+- Both the candidate as well as scribe will have to give a suitable undertaking confirming that the scribe fulfils all the stipulated eligibility criteria for a scribe mentioned above. Further in case it later transpires that he/she did not fulfill any laid down eligibility criteria or suppressed material facts the candidature of the applicant will stand cancelled, irrespective of the result of the online examination.
+- Those candidates who use a scribe shall be eligible for compensatory time of 20 minutes for every hour of the examination or as otherwise advised.
+- Scribe should not answer on his/her own. Any such behaviour observed will result in cancellation of candidature.
+- Only candidates registered for compensatory time will be allowed such concessions since compensatory time given to candidates shall be system based, it shall not be possible for the test conducting agency to allow such time if he / she is not registered for the same. Candidates not registered for compensatory time shall not be allowed such concessions.
+- During the exam, at any stage, if it is found that scribe is independently answering the questions, the exam session will be terminated, and candidate's candidature will be cancelled. The candidature of such candidates using the services of a scribe will also be cancelled if it is reported after the examination by the test administrator personnel that the scribe independently answered the questions.
+
+(ii) Guidelines for Candidates with locomotor disability and cerebral palsy
+
+A compensatory time of twenty minutes per hour or otherwise advised shall be permitted for the candidates with locomotor disability and cerebral palsy where dominant (writing) extremity is affected to the extent of slowing the performance of function (minimum of 40%impairment).
+
+(iii) Guidelines for Visually Impaired candidates
+
+- Visually Impaired candidates (who suffer from not less than 40% of disability) may opt to view the contents of the test in magnified font and all such candidates will be eligible for compensatory time of 20 minutes for every hour or otherwise advised of examination.
+- The facility of viewing the contents of the test in magnifying font will be available to Visually Impaired candidates.
+
+These guidelines are subject to change in terms of GOI guidelines/ clarifications, if any, from time to time.
+
+**XI. OTHER CLAUSES**
+
+1. The possibility of occurrence of some problem in the administration of the examination cannot be ruled out completely which may impact test delivery and/or result from being generated. In that event, every effort will be made to rectify such problem, which may include movement of candidates, delay in test. Conduct of a re-exam is at the absolute discretion of test conducting body. Candidates will not have any claim for a re-test. Candidates not willing to move or not willing to participate in the delayed process of test delivery shall be summarily rejected from the process.
+
+2. Decision of IFSCA in all matters relating to recruitment will be final and binding on the candidate. No correspondence or personal enquiries shall be entertained by the IFSCA in this behalf.
+
+3. If the examination is held in more than one session, the scores across various sessions will be equated to adjust for slight differences in difficulty level of different test batteries used across sessions. More than one session are required if the nodes capacity is less or some technical disruption takes place at any center or for any candidate.
+
+4. IFSCA would be analyzing the responses (answers) of individual candidates with those of other candidates to detect patterns of similarity of right and wrong answers. If in the analytical procedure adopted by IFSCA in this
+
+*[Page 9 of 13]*
+
+---
+
+regard, it is inferred/ concluded that the responses have been shared and scores obtained are not genuine/ valid, IFSCA reserves right to cancel the candidature of the concerned candidates and the result of such candidates (disqualified) will be withheld.
+
+5. Instances for providing incorrect information and/or process violation by a candidate detected at any stage of the selection process will lead of disqualification of the candidate from the selection process and he/she will not be allowed to appear in any IFSCA recruitment process in the future. If such instances go undetected during the current selection process but are detected subsequently, such disqualification will take place with retrospective affect.
+
+6. Process for Arriving at Scores :
+The Scores of Online Examination are obtained by adopting the following procedure:
+   i. Number of questions answered correctly by a candidate in each objective test is considered for arriving at the Corrected Score after applying penalty for wrong answers.
+   ii. The Corrected Scores so obtained by a candidate are made equivalent to take care of the minor difference in difficulty level, if any, in each of the objective tests held in different sessions to arrive at the Equated Scores*
+   * Scores obtained by candidates on any test are equated to the base form by considering the distribution of scores of all the forms.
+   iii. Test wise scores and scores on total is reported with decimal point up to two digits.
+
+Note: Cutoffs are applied in two stages:
+   i. on scores in individual tests
+   ii. on Total Score
+
+**XII. HOW TO APPLY**
+**DETAILED GUIDELINES/PROCEDURES FOR**
+**A. APPLICATION REGISTRATION**
+**B. PAYMENT OF FEES**
+**C. DOCUMENT SCAN AND UPLOAD**
+
+Candidates are required to apply On-Line through the website www.ifsca.gov.in from 11.02.2023 to 03.03.2023 and no other mode of application will be accepted. Candidates need not **submit the system generated print out of the ON-LINE application to IFSCA's office.**
+
+**IMPORTANT POINTS TO BE NOTED BEFORE REGISTRATION**
+Before applying online, candidates should-
+**(i) scan their :**
+- **photograph (4.5cm × 3.5cm)**
+- **signature (with black ink)**
+- **left thumb impression (on white paper with black or blue ink)**
+- **a handwritten declaration (on a white paper with black ink) (text given below)**
+- **ensuring that all these scanned documents adhere to the required specifications as given in XIII C.**
+
+**(ii) Signature in CAPITAL LETTERS will NOT be accepted.**
+(iii) **The left thumb impression should be properly scanned and not smudged.** (If a candidate is not having left thumb, he/she may use his/ her right thumb for applying.)
+
+**(iv) The text for the handwritten declaration is as follows –**
+***"I, _______ (Name of the candidate), hereby declare that all the information submitted by me in the application form is correct, true and valid. I will present the supporting documents as and when required."***
+
+(v) **The above-mentioned handwritten declaration has to be in the candidate's handwriting and in English only. If it is written and uploaded by anybody else or in any other language, the application will be**
+
+*[Page 10 of 13]*
+
+---
+
+**considered as invalid.** (In the case of Visually Impaired candidates who cannot write may get the text of declaration typed and put their left-hand thumb impression below the typed declaration and upload the document as per specifications.)
+
+**(vi) Keep the necessary details/documents ready to make Online Payment of the requisite application fee/ intimation charges.**
+
+**(vii) Have a valid personal email ID and mobile no., which should be kept active till the completion of this Recruitment Process. IFSCA may send intimation to download call letters for the Examination etc. through the registered e-mail ID. In case a candidate does not have a valid personal e-mail ID, he/she should create his/her new e-mail ID and mobile no. before applying on-line and must maintain that email account and mobile number.**
+
+**XIII. APPLICATION FEES/ INTIMATION CHARGES (NON-REFUNDABLE) PAYMENT OF FEE ONLINE: 11.02.2023 TO 03.03.2023**
+
+Bank Transaction charges for Online Payment of application fees/intimation charges will have to be borne by the candidate.
+
+**A. Application Registration**
+1. Candidates to go to the **IFSCA** website www.ifsca.gov.in click on the option "**APPLY ONLINE**" which will open a new screen.
+2. To register application, choose the tab "**Click here for New Registration**" and enter Name, Contact details and Email-id. A Provisional Registration Number and Password will be generated by the system and displayed on the screen. Candidate should note down the Provisional Registration Number and Password. An Email & SMS indicating the Provisional Registration number and Password will also be sent.
+3. In case the candidate is unable to complete the application form in one go, he / she can save the data already entered by choosing "SAVE AND NEXT" tab. Prior to submission of the online application candidates are advised to use the "SAVE AND NEXT" facility to verify the details in the online application form and modify the same if required. Visually Impaired candidates should fill the application form carefully and verify/ get the details verified to ensure that the same are correct prior to final submission.
+4. Candidates are advised to carefully fill and verify the details filled in the online application themselves as no change will be possible/ entertained after clicking the COMPLETE REGISTRATION BUTTON.
+5. The Name of the candidate or his /her father/ Husband etc. should be spelt correctly in the application as it appears in the Certificates/ Mark sheets/Identity proof. Any change/alteration found may disqualify the candidature.
+6. Validate your details and save your application by clicking the 'Validate your details' and 'Save & Next' button.
+7. Candidates can proceed to upload Photo & Signature as per the specifications given in the Guidelines for Scanning and Upload of Photograph and Signature detailed under point "C".
+8. Candidates can proceed to fill other details of the Application Form.
+9. Click on the Preview Tab to preview and verify the entire application form before 'COMPLETE REGISTRATION'.
+10. Modify details, if required, and click on 'COMPLETE REGISTRATION' ONLY after verifying and ensuring that the photograph, signature uploaded, and other details filled by you are correct.
+11. Click on 'Payment' Tab and proceed for payment.
+12. Click on 'Submit' button.
+
+**B. PAYMENT OF FEES**
+
+**ONLINE MODE**
+
+1. The application form is integrated with the payment gateway and the payment process can be completed by following the instructions.
+2. The payment can be made by using Debit Cards (RuPay/Visa/MasterCard/Maestro), Credit Cards, Internet Banking, IMPS, Cash Cards/ Mobile Wallets.
+
+*[Page 11 of 13]*
+
+---
+
+3. After submitting your payment information in the online application form, PLEASE WAIT FOR THE INTIMATION FROM THE SERVER. DO NOT PRESS BACK OR REFRESH BUTTON IN ORDER TO AVOID DOUBLE CHARGE
+4. On successful completion of the transaction, an e-Receipt will be generated.
+5. Non-generation of 'E-Receipt' indicates PAYMENT FAILURE. On failure of payment, Candidates are advised to login again using their Provisional Registration Number and Password and repeat the process of payment.
+6. Candidates are required to take **a printout of the e-Receipt** and online Application Form containing fee details. **Please note that if the same cannot be generated, online transaction may not have been successful**.
+7. For Credit Card users: All charges are listed in Indian Rupee. If you use a non-Indian credit card, your bank will convert to your local currency based on prevailing exchange rates.
+8. To ensure the security of your data, please close the browser window once your transaction is completed.
+9. **There is facility to print application form containing fee details after payment of fees.**
+
+**C. Guidelines for scanning and Upload of Documents**
+
+Before applying online, a candidate will be required to have a scanned (digital) image of his/her photograph, signature, left thumb impression and the hand written declaration as per the specifications given below.
+
+Photograph Image: (4.5cm × 3.5cm)
+- Photograph must be a recent passport style colour picture.
+- Make sure that the picture is in colour, taken against a light-coloured, preferably white, background.
+- Look straight at the camera with a relaxed face
+- If the picture is taken on a sunny day, have the sun behind you, or place yourself in the shade, so that you are not squinting and there are no harsh shadows
+- If you have to use flash, ensure there's no "red-eye"
+- If you wear glasses make sure that there are no reflections and your eyes can be clearly seen.
+- Caps, hats and dark glasses are not acceptable. Religious headwear is allowed but it must not cover your face.
+- Dimensions 200 x 230 pixels (preferred)
+- Size of file should be between 20kb–50 kb
+- Ensure that the size of the scanned image is not more than 50kb. If the size of the file is more than 50 kb, then adjust the settings of the scanner such as the DPI resolution, no. of colours etc., during the process of scanning.
+
+Signature, left thumb impression and hand-written declaration Image:
+- The applicant has to sign on white paper with Black Ink pen.
+  - Dimensions 140 x 60 pixels (preferred)
+  - Size of file should be between 10kb – 20kb for signature and 20kb - 50kb for left thumb impression.
+  - Ensure that the size of the scanned image is not more than 20kb
+- The applicant has to put his left thumb impression on a white paper with black or blue ink.
+  - File type: jpg / jpeg
+  - Dimensions: 240 x 240 pixels in 200 DPI (Preferred for required quality) i.e 3 cm * 3 cm (Width * Height)
+  - File Size: 20 KB – 50 KB
+- The applicant has to write the declaration in English clearly on a white paper with black ink.
+  - File type: jpg / jpeg
+  - Dimensions: 800 x 400 pixels in 200 DPI (Preferred for required quality) i.e 10 cm * 5 cm (Width * Height)
+  - File Size: 50 KB – 100 KB
+- The signature, left thumb impression and the hand written declaration should be of the applicant and not by any other person.
+
+*[Page 12 of 13]*
+
+---
+
+- If the Applicant's signature on the attendance sheet or Call letter, signed at the time of the examination, does not match the signature uploaded, the applicant will be disqualified.
+- Signature / Handwritten declaration in CAPITAL LETTERS shall NOT be accepted.
+
+Scanning the documents:
+- Set the scanner resolution to a minimum of 200 dpi (dots per inch)
+- Set Colour to True Colour
+- File Size as specified above
+- Crop the image in the scanner to the edge of the photograph/signature/ left thumb impression / handwritten declaration, then use the upload editor to crop the image to the final size (as specified above).
+- The image file should be JPG or JPEG format. An example file name is: image01.jpg or image01.jpeg. Image dimensions can be checked by listing the folder files or moving the mouse over the file image icon.
+- Candidates using MS Windows/MSOffice can easily obtain documents in .jpeg format by using MS Paint or MSOffice Picture Manager. Scanned documents in any format can be saved in .jpg / .jpeg format by using 'Save As' option in the File menu. Size can be adjusted by using crop and then resize option.
+
+Procedure for Uploading the documents.
+- While filling in the Online Application Form the candidate will be provided with separate links for uploading Photograph, signature, left thumb impression and hand written declaration
+- Click on the respective link "Upload Photograph / signature / Upload left thumb impression / hand written declaration"
+- Browse and select the location where the Scanned Photograph / signature / left thumb impression / handwritten declaration file has been saved.
+- Select the file by clicking on it.
+- Click the 'Open/Upload'
+- If the file size and format are not as prescribed, an error message will be displayed.
+- Preview of the uploaded image will help to see the quality of the image. In case of unclear / smudged, the same may be re-uploaded to the expected clarity /quality.
+
+Your Online Application will not be registered unless you upload your Photograph, signature, left thumb impression and handwritten declaration as specified.
+Note:
+(1) In case the face in the photograph or signature or left thumb impression or the handwritten declaration is unclear / smudged the candidate's application may be rejected.
+(2) After uploading the Photograph / signature / left thumb impression / handwritten declaration in the online application form candidates should check that the images are clear and have been uploaded correctly. In case the photograph or signature or left thumb impression or the handwritten declaration is not prominently visible, the candidate may edit his/ her application and re-upload his/ her photograph or signature or left thumb impression or the hand written declaration, prior to submitting the form.
+(3) Candidate should also ensure that photo is uploaded at the place of photo and signature at the place of signature. If photo in place of photo and signature in place of signature is not uploaded properly, candidate will not be allowed to appear for the exam.
+(4) Candidate must ensure that Photo to be uploaded is of required size and the face should be clearly visible.
+(5) If the photo is not uploaded at the place of Photo Admission for Examination will be rejected/denied. Candidate him/herself will be responsible for the same.
+(6) Candidates should ensure that the signature uploaded is clearly visible.
+(7) After registering online candidates are advised to take a printout of their system generated online application forms.
+
+******
+
+*[Page 13 of 13]*

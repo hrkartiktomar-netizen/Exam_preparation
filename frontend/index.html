@@ -1794,7 +1794,7 @@
         { label: 'Documents', value: dashboardCache.ingestion.documents },
         { label: 'Chunks', value: dashboardCache.ingestion.chunks },
         { label: 'Attempts', value: dashboardCache.total_questions_attempted },
-        { label: 'Est. Score', value: dashboardCache.estimated_score }
+        { label: 'Mock Accuracy %', value: dashboardCache.estimated_score }
       ]);
       renderMetrics('ingestionMetrics', [
         { label: 'Documents', value: dashboardCache.ingestion.documents },
@@ -1805,7 +1805,6 @@
       renderRuntime(dashboardCache.ai_status || {});
       renderFocusPlan(dashboardCache.focus_plan, dashboardCache.next_recommended_action);
       renderWatchlist('amendmentWatchlist', dashboardCache.amendment_watchlist || []);
-      await loadAmendmentRadar();
       qs('weakTopics').innerHTML = dashboardCache.weak_topics?.length ? dashboardCache.weak_topics.map(topic => `
         <div class="source-box">
           <strong>${escapeHtml(topic.display_name || topic.topic)}</strong><br>
@@ -2209,22 +2208,26 @@
 
     let currentPYQ = null;
     let pyqState = null;
+    let pyqPapers = [];
 
     async function loadPYQList() {
       qs('pyqStatus').textContent = 'Loading available papers...';
       try {
         const data = await api('/pyq/list');
         qs('pyqStatus').textContent = `Found ${data.papers.length} available papers`;
-
-        qs('pyqPaperGrid').innerHTML = data.papers.map(paper => `
-          <div class="panel" style="cursor: pointer; border: 2px solid #cfd8e3;" onclick="startPYQPaper(${paper.pyq_doc_id}, '${escapeHtml(paper.title)}')">
+        // Cards reference papers by INDEX, not by interpolating the id/title into
+        // an inline handler: document ids are strings (doc_...) and titles can
+        // contain apostrophes, both of which broke the unquoted inline calls.
+        pyqPapers = data.papers;
+        qs('pyqPaperGrid').innerHTML = data.papers.map((paper, idx) => `
+          <div class="panel" style="cursor: pointer; border: 2px solid #cfd8e3;" onclick="startPYQPaper(${idx})">
             <h3>${escapeHtml(paper.title)}</h3>
             <div class="muted">
               ${paper.year ? `Year: ${paper.year}<br>` : ''}
               ${paper.phase ? `Phase: ${paper.phase}<br>` : ''}
               ${paper.paper ? `Paper: ${paper.paper}` : ''}
             </div>
-            <div style="margin-top: 0.5rem;"><button class="btn primary" onclick="event.stopPropagation(); startPYQPaper(${paper.pyq_doc_id}, '${escapeHtml(paper.title)}')">Attempt</button></div>
+            <div style="margin-top: 0.5rem;"><button class="btn primary" onclick="event.stopPropagation(); startPYQPaper(${idx})">Attempt</button></div>
           </div>
         `).join('');
       } catch (error) {
@@ -2232,10 +2235,15 @@
       }
     }
 
-    async function startPYQPaper(docId, title) {
+    async function startPYQPaper(index) {
+      const paper = pyqPapers[index];
+      if (!paper) return;
+      const docId = paper.pyq_doc_id;
+      const title = paper.title;
       qs('pyqStatus').textContent = `Loading ${title}...`;
       try {
-        currentPYQ = await api(`/pyq/${docId}/load`);
+        // POST: /api/pyq/{id}/load is a POST-only route (GET returned 405)
+        currentPYQ = await api(`/pyq/${docId}/load`, { method: 'POST' });
         pyqState = {
           currentIndex: 0,
           answers: {},
@@ -2674,7 +2682,7 @@
           <tr>
             <td>${escapeHtml(mat.name)}</td>
             <td>
-              <select onchange="updateMaterialRole(${mat.doc_id}, this.value)">
+              <select onchange="updateMaterialRole('${mat.doc_id}', this.value)">
                 <option value="pyq_phase_paper" ${mat.source_role === 'pyq_phase_paper' ? 'selected' : ''}>PYQ Phase Paper</option>
                 <option value="regulatory_core" ${mat.source_role === 'regulatory_core' ? 'selected' : ''}>Regulatory Core</option>
                 <option value="amendment_tracking" ${mat.source_role === 'amendment_tracking' ? 'selected' : ''}>Amendment Tracking</option>

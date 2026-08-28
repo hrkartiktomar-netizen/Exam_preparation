@@ -1,9 +1,0 @@
-{
-  "pdf": "D:\\Exam_preparation\\source_documents\\pdfs\\013_IFSCA publications__Annual Report 2020-21.pdf",
-  "pdf_name": "013_IFSCA publications__Annual Report 2020-21.pdf",
-  "page": 1,
-  "model": "gemini-3.5-flash",
-  "image": "D:\\Exam_preparation\\.tooling\\pdf_markdown_corpus\\gemini_ocr\\013_IFSCA_publications__Annual_Report_2020-21\\page_0001.png",
-  "markdown": "D:\\Exam_preparation\\.tooling\\pdf_markdown_corpus\\gemini_ocr\\013_IFSCA_publications__Annual_Report_2020-21\\page_0001.md",
-  "response_text_chars": 145
-}

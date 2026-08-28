@@ -1,0 +1,2195 @@
+# 081_EY__GIFT City Advantage Dec 2025 - newsroom — OCR transcription (Gemini)
+
+# The GIFT City advantage
+
+Doing business in India's
+International Financial
+Services Centre (IFSC)
+
+December 2025
+
+[logo: EY]
+Shape the future
+with confidence
+
+[logo: HSBC]
+
+■ ■ ■
+The better the question.
+The better the answer.
+The better the world works.
+
+*[Page 1 of 68]*
+
+---
+
+[illegible: out of focus photographic background with warm orange, yellow, and red light streaks]
+
+*[Page 2 of 68]*
+
+---
+
+# Message
+# IFSCA Chairman
+
+The IFSC at GIFT City represents India's bold vision to emerge as a global financial hub, and the IFSCA is proud to play a central role in this journey. As the unified regulator for financial services in the GIFT IFSC, our mission is to foster a world-class regulatory environment that promotes innovation, promotes investor confidence, and facilitates seamless international financial operations. Our approach has been guided by the twin principles of trust and transparency, ensuring that investor and consumer interests are always protected. Over the last five years, GIFT IFSC has made rapid progress across multiple domains such as banking, capital markets, fund management, insurance, FinTech, aircraft leasing, and ancillary services, creating an integrated platform that connects India to the global markets.
+
+Since its inception, IFSCA has worked towards harmonizing regulatory approaches and simplifying compliance for institutions operating within the IFSC. Today, with more than 1,000¹ registered entities (REs), GIFT IFSC is steadily emerging as a vibrant hub for cross-border financial activities. With a periodic cycle of review and global benchmarking following a process of market consultations and recommendations by standing committees with domain experts, IFSCA's regulations continue to offer a world-class regulatory and business environment.
+
+At the same time, we continue to enhance the ease of doing business through digital transformation. The Single Window IT System (SWIT) embodies this "digital-first" approach, enabling streamlined registration, faster approvals, and end-to-end online processing for entities in GIFT IFSC.
+
+IFSCA's efforts are equally directed toward strengthening investor protection and market integrity. The forthcoming Stewardship Code and Consumer Charter will reinforce our commitment to responsible intermediation, ethical governance, and investor education. These initiatives reflect our belief that the sustainable growth of the GIFT City IFSC must rest on integrity, fairness, and long-term trust.
+
+We continue to work in close coordination with domestic regulators such as RBI, SEBI, IRDAI, and PFRDA, under the guidance of the Ministry of Finance to ensure coherence and complementarity in policies across the financial ecosystem.
+
+We remain deeply committed to mobilizing global capital for India's growth, in alignment with the national vision of Viksit Bharat@2047. Guided by our motto, " आ नो भद्राः क्रतवो यन्तु विश्वतः "(let noble thoughts come to us from all directions), we continue to welcome innovative ideas and collaborative efforts from all stakeholders as part of our next-generation reform journey.
+
+[photo: Shri K. Rajaraman]
+
+**Shri K. Rajaraman**  
+IFSCA Chairperson
+
+*[Page 3 of 68]*
+
+---
+
+<span style="font-size: 85px; font-weight: bold; writing-mode: vertical-lr; transform: rotate(180deg);">Contents</span>
+
+○ Foreword
+
+○ Executive summary
+
+○ SECTION 1  
+GIFT City, IFSC at a glance
+
+○ SECTION 2  
+Market presence in GIFT City, IFSC
+
+○ SECTION 3  
+Opportunities for Financial Services  
+players in GIFT City, IFSC
+
+- Banking
+- Fund management
+- Insurance or re-insurance
+- Capital market intermediaries
+- Finance company
+    - Aircraft leasing
+    - Ship leasing
+    - International Trade Financial Service  
+      (ITFS) Platform
+
+*[Page 4 of 68]*
+
+---
+
+◯ SECTION 4
+
+Opportunities for corporates/ non-financial services players in GIFT City, IFSC
+
+- Global Treasury Centers
+- Fintech
+
+◯ SECTION 5
+
+Centre of Excellence
+
+- Global in-house centres
+- Book-keeping, accounting, taxation and financial crime compliance services
+- Techfins and ancillary services
+- Foreign university
+- Presence of talent in Gujarat
+- Gujarat state incentives in IFSC
+
+◯ SECTION 6
+
+Opportunities for individuals in GIFT City, IFSC
+
+◯ SECTION 7
+
+Overview of GIFT City, IFSC's regulatory and legal landscape
+
+- Indian legal and exchange control regulations
+- Incentives or benefits for unit set up in GIFT City, IFSC
+
+◯ SECTION 8
+
+How to set-up your business in GIFT City, IFSC
+
+◯ Glossary
+
+*[Page 5 of 68]*
+
+---
+
+# Foreword
+
+## HSBC
+
+In today's globalized economy, international capital plays a pivotal role in propelling economic growth and fostering development. The establishment of the IFSC at GIFT City marks India's strategic move to attract global capital and provide a world-class platform for international financial services. This development is a testament to India's ambition to integrate into the global financial system.
+
+We are proud to present this comprehensive report on the IFSC at GIFT City–a landmark initiative that is transforming India's financial landscape. I extend my sincere thanks to the entire team at EY and HSBC for their invaluable contributions and efforts in developing this compendium. As a leading global financial institution, HSBC has consistently championed innovation and inclusive growth. GIFT City's emergence as a dynamic hub for cross-border banking, asset management, insurance, fintech, and other sectors underscores India's commitment to building globally competitive infrastructure and regulatory frameworks.
+
+HSBC is well-positioned to leverage the opportunities presented by the IFSC, offering enhanced product offerings and seamless international financial services for our clients. We believe that the IFSC at GIFT City is more than a milestone - it is a gateway to the future of finance. We invite you to delve into the insights presented in this report and join us in unlocking the full potential of this transformative ecosystem.
+
+[photograph: Hitendra Dave]
+
+**Hitendra Dave**
+CEO, HSBC India
+
+*[Page 6 of 68]*
+
+---
+
+
+
+*[Page 7 of 68]*
+
+---
+
+# Executive summary
+
+The IFSC at GIFT City marks a pivotal milestone in India's journey to becoming a global financial powerhouse. Conceived as a world-class financial district, IFSC at GIFT City offers a robust regulatory framework, innovative infrastructure, and a liberalized business environment under the stewardship of its unified regulator, IFSCA. **With over 1000 entities³** now registered, the IFSC is contributing significantly to India's economic growth, positioning itself as a magnet for global capital and cross-border financial services.
+
+As countries around the world develop dedicated financial centers to enhance their global market presence, the IFSC at GIFT City represents India's strategic initiative to strengthen its position in international finance. It is rapidly emerging as a preferred destination for international financial institutions, offering a competitive alternative to established centers like London, Singapore, and Dubai. The IFSC at GIFT City boasts a strategic location with connectivity to international airport and highways, smart infrastructure, SEZ benefits, global financial access and a skilled talent pool– ideal for finance, tech, and innovation-driven businesses.
+
+The presence of **international exchanges, banks, insurers, fund managers, financial intermediaries, FinTechs, and professional service providers** reflects the depth and diversity of its ecosystem. This report presents a comprehensive overview of the IFSC at GIFT City, covering its concept, development, ecosystem, regulatory framework, and setup process. It highlights sectoral opportunities across banking, fund management, insurance, capital markets, leasing, trade finance, fintech, professional services, education, and ancillary services.
+
+A key differentiator for the IFSC at GIFT City is its treatment under India's exchange control regime. Entities registered with the IFSC are considered non-residents for India's exchange control norms, enabling them to **transact freely in foreign currencies** and benefit from exemptions that facilitate seamless cross-border operations. This regulatory clarity, coupled with a streamlined approval process, underscores the government's commitment to enhancing the ease of doing business in India through the IFSC framework.
+
+Taxation and state incentives further strengthen the IFSC's appeal. Units enjoy a 10-year tax holiday, exemptions from capital gains tax on specified securities, and relief from transaction taxes such as securities transaction tax (STT) and commodities transaction tax (CTT) for securities traded through the IFSC exchange. Offshore services are exempt from GST, and customs duty waivers enhance operational efficiency. These fiscal benefits, combined with simplified compliance procedures, make IFSC at GIFT City a compelling destination for financial innovation and global service delivery.
+
+With a combination of a robust domestic economy and government's strong support, the GIFT City, IFSC will play a pivotal role in India's and the global financial services landscape in the coming years and decades. HSBC and EY are pleased to present this report, which provides a bird's eye view into the breadth and depth of the financial services ecosystem at GIFT City, IFSC.
+
+*[Page 8 of 68]*
+
+---
+
+
+
+*[Page 9 of 68]*
+
+---
+
+SECTION 1
+
+# GIFT City, IFSC at a glance
+
+*[Page 10 of 68]*
+
+---
+
+## What is IFSC?
+
+An International Financial Services Centre (IFSC) is a specialized jurisdiction designed to facilitate and promote cross-border financial services. It offers a globally aligned regulatory environment, enabling institutions to conduct international banking, insurance, asset management, and capital market activities with enhanced efficiency and flexibility. IFSCs serve as strategic gateway for global capital flows, fostering innovation, competitiveness, and integration with international financial systems.
+
+As of today, there are over 120 financial centers⁴ across the globe, with new centers such as GIFT City in India is rapidly expanding.
+
+## India's need for an IFSC
+
+India's need for an IFSC arises from a compelling paradox: while Indian talent and institutions have significantly contributed to global finance, much of the high-value financial activity has historically occurred outside its borders. This situation has resulted in capital outflows and limited access to global financial markets from within India. The establishment of GIFT City as India's first IFSC aims to address these challenges. It is a strategic move to:
+
+*   **Repatriate financial services** that were previously conducted offshore
+*   **Provide a globally competitive platform** for both Indian and international institutions
+*   **Support India's ambition** to become a US$5 trillion economy and a developed nation by 2047
+
+Globally, IFSCs in locations such as Dubai (DIFC), Singapore and London have become hubs for international capital and financial innovation. India's foray into the international financial services landscape is inspired by a vision to build a globally competitive ecosystem that attracts cross-border capital, fosters innovation, and positions the country as a premier destination for global financial activity.
+
+## Genesis of GIFT City
+
+The idea of GIFT City was born out of a clear and forward-looking vision articulated by the Hon'ble Prime Minister of India, Shri Narendra Modi:
+
+> To tie up with technology, to create a hub complete with infrastructure, meet the needs of modern Gujarat, modern India and to create a space in the global financial world... that is my dream.
+
+To lead its development, the government established the Gujarat International Finance Tec-City Company Limited (GIFTCL) through the Gujarat Urban Development Company Limited (GUDCL). Designed with efficient land use and a focus on sustainable, integrated infrastructure, GIFT City aims to match the scale and sophistication of leading global financial centers such as New York, London, Hong Kong and Singapore.
+
+## Key advantages of the IFSC at GIFT City:
+
+1. IFSC at GIFT City is a separate financial jurisdiction within India, treated as a non-resident zone under India's Foreign Exchange Management Act.
+
+2. The IFSC at GIFT City enables global investors and financial services companies to access India's large and growing hinterland economy in a more efficient manner.
+
+3. IFSC at GIFT City is regulated by IFSCA, which has been set up as an agile, unified and dedicated authority for the development and regulation of financial markets.
+
+4. IFSC at GIFT City offers globally aligned regulatory architecture across banking, capital markets, insurance, fintech, aircraft leasing, professional services, ship leasing, etc.
+
+5. The centre offers globally competitive tax regime and special incentives.
+
+6. Beneficial cost of operation compared to other overseas financial centres.
+
+7. The geo-strategic location of GIFT City, IFSC allows it to serve different time zones from Japan to the United States of America.
+
+Doing business in India's International Financial Services Centre (IFSC) | 11
+
+*[Page 11 of 68]*
+
+---
+
+New York
+
+London
+
+San
+Francisco
+
+Los
+Angeles
+
+Chicago
+
+Boston
+
+Seoul
+
+Tokyo
+
+Shanghai
+
+Hong Kong
+
+Singapore
+
+GIFT City
+
+DIFC
+
+Sydney
+
+GIFT City: A strategic location
+
+Geographically located along the banks of the
+Sabarmati River, GIFT City is poised to realize the
+benefits inherent in the business hub of
+Ahmedabad and the political capital of
+Gandhinagar, in the state of Gujarat. Its well-
+planned infrastructure offers seamless internal
+transportation, and its proximity to Ahmedabad
+International Airport, located just 20 kilometers
+away, provides global connectivity. GIFT City
+hosts India's maiden IFSC, representing best-in-
+class infrastructure and the financial future of
+India, while exemplifying its emergence as a
+global hub for finance, innovation, and
+sustainable urban development.
+
+Spread across 886 acres, GIFT City consists of a
+Multi-Service Special Economic Zone (SEZ),
+which has been notified as India's maiden IFSC,
+and an exclusive Domestic Tariff Area (DTA). An
+area of 261 acres has been demarcated as SEZ,
+and an additional 625 acres has been
+demarcated as DTA.
+
+[photograph: GIFT City skyline and surrounding infrastructure]
+
+*[Page 12 of 68]*
+
+---
+
+Voyage of advancement of the GIFT City
+
+2014
+
+The Prime Minister operationalized the first set of regulations on IFSC in the SEZ, specifically targeting GIFT City.
+
+Various regulatory bodies, such as the Reserve Bank of India (RBI), Securities and Exchange Board of India (SEBI), Insurance Regulatory and Development Authority of India (IRDAI) and Pension Fund Regulatory and Development Authority (PFRDA), facilitated the entry of a diverse range of participants into the financial services sector.
+
+2015
+
+2019
+
+The International Financial Services Centres Authority Act, 2019, was passed by the Indian Parliament.
+
+The Government of India established the IFSCA—a unified regulatory authority for the GIFT City, IFSC.
+
+2020
+
+2025
+
+The IFSCA notified over 40 frameworks for various financial services and more than 1000 entities are now registered with the IFSCA, reflecting growing industry participation and regulatory maturity.
+
+*[Page 13 of 68]*
+
+---
+
+[photo: utility tunnels with pipes and cables]
+
+[photo: aerial view of GIFT City buildings and landscape]
+
+# IFSCA: A unified regulator
+
+To further promote ease of doing business and provide dedicated regulatory intervention, the Government of India, through an Act of Parliament in 2019, set up the GIFT City, IFSC as a unified regulator for the development and regulation of financial markets in the IFSCs in India. From 1 October 2020, IFSCA assumed the powers of four domestic sectoral regulators, namely RBI, SEBI, IRDAI and PFRDA, in so far as the development and regulation of financial products, financial institutions and financial services within the IFSC are concerned.
+
+Furthermore, in Budget 2023, the Hon'ble Finance Minister announced that the powers of SEZ authorities in the IFSC would be delegated to the IFSCa to avoid dual regulatory control and enhance ease of operations in the GIFT City, IFSC.
+
+### Vision⁵
+
+To provide a globally benchmarked regulatory environment and develop GIFT City, IFSC with a primary focus on accelerating India's economic development, while serving as a regional and global financial hub.
+
+### Mission⁵
+
+To develop GIFT City, IFSC into well-diversified and globally competitive financial hubs for international banking, insurance, capital markets, and other allied financial activities through a pro-business environment, supported by a progressive regulatory architecture, advanced technology and infrastructure, and talented financial professionals, serving both the Indian economy and the region as a whole.
+
+## Goals and objectives⁵
+
+[graphic: target with arrows hitting the bullseye, pointing to numbered goal bars]
+
+1. To facilitate the development of a strong base of international financial services in India
+
+2. To promote GIFT City, IFSCs as a dominant gateway for international capital flows into and out of India
+
+3. To emerge as a regional and global hub for international financial services
+
+4. To provide a conducive unified regulatory framework, with robust regulation and supervisory technology aligned with international best practices
+
+5. To develop a strong global connection with leading international financial jurisdictions
+
+14 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 14 of 68]*
+
+---
+
+[photograph: Modern cityscape with wide paved road and streetlights]
+
+[photograph: Modern glass facade building exterior]
+
+## Strategic advantages and
+distinct features at GIFT City
+
+The state-of-the-art infrastructure development at GIFT City has won several awards and accolades at various forums. Key advantages include integrated development (commercial, residential and institutional premises) that supports 'walk-to-work culture.' It is worth mentioning the 'quality of life' that GIFT City offers. The social infrastructure in GIFT City includes:
+
+* Schools and universities, including foreign universities
+* Medical facilities
+* International business hotels
+* The GIFT City business club, which offers indoor and outdoor sports facilities
+* Well-planned housing projects
+
+Furthermore, the infrastructure developed in GIFT City, such as the District Cooling System (DCS), Automated Waste Collection System (AWCS), water treatment plant, underground utility tunnel, contributes to making the city a leading smart city.
+
+The Education Corridor in IFSC at GIFT City is rapidly emerging as a transformative hub for global higher education in India. Universities like Deakin University and University of Wollongong have already established their campuses in GIFT City, IFSC.
+
+GIFT City enjoys **excellent connectivity** to major urban centers and transport hubs:
+
+* Located between Ahmedabad and Gandhinagar
+* Close to Sardar Vallabhbhai Patel International Airport
+* Upcoming Mumbai-Ahmedabad High-Speed Rail Corridor
+* Robust road and metro infrastructure
+
+Together, these features make the IFSC at GIFT City a future-ready destination for global finance, education, and urban living.
+
+---
+
+Doing business in India's International Financial Services Centre (IFSC) 
+15
+
+*[Page 15 of 68]*
+
+---
+
+## Business avenues in IFSC at GIFT City
+
+**GIFT City currently has 1000+ registered entities**
+
+| Banks | Capital market | Emerging activites |
+| :--- | :--- | :--- |
+| • Indian banks<br>• Foreign banks | • Stock/commodity exchanges<br>• Clearing corporations/<br>members<br>• Credit rating agencies<br>• Debenture trustees<br>• Depository participants<br>• Distributors<br>• Broker-dealers (including<br>global market access)<br>• Direct listing of Indian public<br>companies<br>• Listing by foreign companies<br>• Investment advisers<br>• Investment bankers<br>• Custodians | • Global fintech hubs<br>• Global in-house centers<br>• International bullion exchanges<br>• Foreign universities<br>• Payment system operators<br>• TechFin and ancillary services<br>• Payment services<br>• Book-keeping, accounting,<br>taxation and financial crime<br>compliance services |
+
+[photograph: cityscape of GIFT City with modern buildings and highways]
+
+*[Page 16 of 68]*
+
+---
+
+| Insurance | Asset management | Other financial institutions |
+| --- | --- | --- |
+| ■ Indian insurers/ reinsurers<br>■ Foreign insurers/ reinsurers<br>■ Insurance intermediaries | ■ Alternate investment funds<br>■ Investment advisers/ managers<br>■ Pension fund services<br>■ Family investment funds<br>■ Portfolio managers<br>■ Custodial services<br>■ Trust services<br>■ Wealth management | ■ Finance companies<br>■ Aircraft and ship leasing and<br>financing<br>■ Global Corporate Treasury<br>Centres<br>■ International trade financial<br>services platforms |
+
+[photo: Modern high-rise office building with glass facade, set in a developing landscape]
+
+*[Page 17 of 68]*
+
+---
+
+[photograph: two business professionals reviewing documents at a desk]
+
+# SECTION 2
+
+Market presence in
+GIFT City, IFSC
+
+*[Page 18 of 68]*
+
+---
+
+| S. No. | Sector | Key business activities⁶ | No. of players³ | Key volumes as of Sept 2025³ |
+| --- | --- | --- | --- | --- |
+| 1 | Banking | • Foreign currency loans and trade finance<br>• Offshore derivative instruments and OTC derivatives<br>• Non-deliverable forwards<br>• Retail banking products<br>• Global administrative offices | • 18 Foreign banks<br>• 17 Indian banks | • Banking asset size: US$100 billion<br>• Cumulative banking transactions: US$143 billion (July - Sep)<br>• Cumulative derivative transactions (including NDF): US$70 billion (July - Sep) |
+| 2 | Fund management | • Alternative Investment Funds (inbound as well as outbound funds)<br>• Retail Funds<br>• Family Investment Funds<br>• Exchange Traded Funds<br>• Portfolio Management Services<br>• REITs/InvITs<br>• Feeder Funds | • 194 Fund management entities<br>• 310 Funds<br>• 5 Investment advisers<br>• 25 Portfolio managers | Amount committed to Alternative Investment Funds: US$26 billion (up to September) |
+| 3 | Capital markets intermediaries | • Dollar denominated products<br>• Broking services<br>• Proprietary trading<br>• Depositories<br>• Distributor of capital market products<br>• Credit rating agencies<br>• Investment banking | • 3 Operational international stock exchanges<br>• 2 Clearing corporations<br>• 23 Clearing members<br>• 10 Depository participants<br>• 92 Broker dealers<br>• 17 Distributors<br>• 6 Investment bankers | • IFSC exchanges - Avg monthly turnover: US$90 billion<br>• Cumulative debt listing on exchanges: US$67 billion<br>• Cumulative ESG labeled debt listing on IFSC exchange: US$16 billion |
+| 4 | Insurance and intermediaries | • Insurance, reinsurance business<br>• Insurance intermediaries | • 22 Insurance and reinsurance companies<br>• 30 Insurance intermediaries | Premium written by IFSC Insurance Office and Premium transacted by IFSC Insurance Intermediary Office (during July-Sept 2025): US$322 million |
+
+Doing business in India's International Financial Services Centre (IFSC) 19
+
+*[Page 19 of 68]*
+
+---
+
+| S. No. | Sector | Key business activities⁶ | No. of players³ | Key volumes as of Sept 2025³ |
+| :--- | :--- | :--- | :--- | :--- |
+| 5 | Finance companies | • Lending in form of loans<br>• Global/Regional Corporate Treasury Centers<br>• Aircraft and ship leasing<br>• Trade finance and ITFS platform | • 20 Core/non-core finance companies (including GRCTC other than AL, SL and ITFS)<br>• 37 Registered aircraft lessors<br>• 34 Registered ship lessors<br>• 4 ITFS platforms | • Number of aviation assets leased: 303<br>• Number of ships leased: 28<br>• Total 1,800+ transactions financed by ITFS platforms |
+| 6 | Global in-house centers | • Captives for financial services group | 3 Global in-house centers | |
+| 7 | Fintech | • Fintech<br>• Sandbox regime | 8 Sandbox Limited Use Authorization⁷ | |
+| 8 | BATF services | • Accounting service<br>• Book- keeping service<br>• Financial crime compliance service<br>• Taxation service | 10 BATF Service Providers | |
+| 9 | TechFin and ancillary service providers | • Legal, compliance and secretarial service entities<br>• Auditing services entities<br>• Professional and management consulting<br>• Administration, asset management support services and trusteeship services | • 88 Ancillary Services Provider⁸<br>• 23 TechFin Entities⁹<br>• 9 TechFin and Ancillary Services (TAS) Providers¹⁰ | |
+| 10 | Foreign universities | • International branch campuses<br>• Offshore education centers | 4 International branch campuses of foreign universities | |
+| 11 | Bullion trading | • Qualified jewelers<br>• Bullion exchange/<br>clearing corporations<br>• Vault managers<br>• Clearing members | • 1 Bullion exchange<br>• 185 Qualified Jewelers<br>• 21 bullion intermediaries<br>• 3 Vault managers | |
+| 12 | Payment services | • Account issuance services<br>• E-money issuance services<br>• Escrow services<br>• Cross border money transfer services<br>• Merchant acquisition services | 9 Payment service providers<br>1 Payment service operator | |
+
+20 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 20 of 68]*
+
+---
+
+[photograph: Two modern high-rise office buildings under a cloudy sky. The building in the foreground has "IBFC" and "BRIGADE" signage. A multi-lane highway runs along the bottom foreground.]
+
+*[Page 21 of 68]*
+
+---
+
+SECTION 3
+
+Opportunities for
+Financial Services players
+in GIFT City, IFSC
+
+*[Page 22 of 68]*
+
+---
+
+Banking in GIFT City, IFSC¹¹
+
+## Key highlights
+
+Banking in GIFT City facilitates the following:
+
+**Flexible supervision:** IFSCA allows banks to adapt their home country prudential requirements, easing regulatory and supervisory obligations.
+
+**Tax incentives:** The central government has provided a 10-year tax holiday and exemptions on transactions with non-residents, along with other incentives.
+
+**No withholding tax:** Banks operating from GIFT City can lend to Indian corporates without any withholding tax on interest income.
+
+**Tax-efficient investment and derivative activities:** Banks are permitted to engage in tax-efficient investment activities and derivative contracts (benchmarked tax rates with those in popular tax treaties), enhancing their overall profitability and competitiveness.
+
+**Over-the-counter derivatives activites:** Banks can offer over-the-counter derivatives for gold hedging purposes-this is the only offshore zone permitted by India to undertake such activities.
+
+**Non-deliverable forward contracts:** Available for foreign currency risk hedging or liquidity management.
+
+**Financing for ship and aircraft leasing:** Foreign banks can provide financing for ship leasing and aircraft leasing activities.
+
+## Permitted business activities
+
+* Borrowing and lending (retail and corporate)
+* Investment activities - investment division of a banking unit
+* Investing as Foreign Portfolio Investors
+* Issuance of offshore derivative instruments
+* Acceptance of deposits
+* Equipment leasing, referral services, factoring, and forfaiting
+* Investment banking, loan asset transfers, and negotiation of letters of credit
+* Trust services and credit enhancement
+* Underwriting and portfolio management services
+* Investment advisory
+* Bullion trading, custodial services, and OTC derivatives
+* FX prime brokerage, remittances, and foreign exchange transactions
+* Establishment of global administrative offices
+* Distribution of capital market products and payment services
+* Insurance intermediaries
+
+## Regulatory framework
+
+* Minimum capital requirement of US$20 million¹² (for a branch structure) and US$50 million (for a subsidiary structure).
+* Non-applicability of PSL norms.
+* Exemption from CRR and SLR requirements. LCR and NSFR can be maintained at the parental level with IFSCA approval.
+
+Doing business in India's International Financial Services Centre (IFSC)
+
+23
+
+*[Page 23 of 68]*
+
+---
+
+India income-tax incentive
+
+Basic tax incentives
+* 10-year income tax holiday out of a block of 15 years
+* Concessional MAT13 and AMT14 rate of 9%15
+* Concessional withholding tax rate of 10% on dividends paid to non-resident shareholders for subsidiary structure
+* Income-tax exemption on interest payments by an IFSC unit to a non-resident
+* No capital gains tax on the transfer of certain notified capital assets on the IFSC stock exchange by non-residents
+
+Specific tax incentive
+* Interest income earned by a non-resident or a person not ordinarily resident in India from deposits made in a banking unit in IFSC is exempt from tax.
+* Investment activities by an '**Investment division of a banking unit in IFSC holding a registration as a Category I Foreign Portfolio Investor (FPI) issued by SEBI**'. The tax exemptions available are:
+  * Exemption from capital gains tax on the transfer of securities (other than shares in a company resident in India16)
+  * Concessional tax rate of 10% with respect to interest and dividend on securities
+* Non-residents entering into ODIs or NDFs or OTC derivatives with a banking unit in IFSC, such non-resident investors are exempt from tax: (a) on distribution of income, and (b) on transfer of ODIs or NDFs or OTC derivatives.
+
+Key statistics³
+
+Current market players
+
+Foreign banks
+18
+17
+Indian banks
+
+24
+Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 24 of 68]*
+
+---
+
+Key business volumes (in US$ million)
+
+| Particulars | Sept 2024 | Sept 2025 | YoY % Growth |
+| --- | --- | --- | --- |
+| Trade finance, commercial loans, retails loans and other loans | 47,323 | 70,085 | 48% |
+| Investments | 3,852 | 5,961 | 55% |
+| Interbank/ interbranch placements and others | 19,758 | 24,097 | 22% |
+| Derivative outstanding of IBUs (notional) | 2,26,659 | 1,98,549 | - |
+
+Key liabilities (in US$ million)
+
+| Particulars | Sept 2024 | Sept 2025 | YoY % Growth |
+| --- | --- | --- | --- |
+| Customer deposits | 5,474 | 7,935 | 45% |
+| Interbank/ interbranch borrowings | 49,490 | 72,441 | 46% |
+| Bilateral borrowings | 7,054 | 9,463 | 34% |
+
+GIFT City has the potential to become a global financial and technology hub, competing with London, Singapore, and New York. Our policies are designed to foster innovation, green finance, and inclusive fintech growth.²
+
+*Smt. Nirmala Sitharaman,*
+*Finance Minister*
+
+Doing business in India's International Financial Services Centre (IFSC) 25
+
+*[Page 25 of 68]*
+
+---
+
+## Fund management¹⁷
+
+### Key highlights
+
+- Best in class regulations that provide **flexibility to fund managers** to launch products across multiple strategies.
+- Inbound funds: Invest in Indian markets from offshore jurisdictions, channeling foreign capital into domestic opportunities.
+- Outbound funds: Allow Indian investors to invest in global markets under the LRS/OPI route.
+- NRI/ OCI/ PIOs funds: 100% participation of NRIs allowed in GIFT City at IFSC-funds for inbound investments in Indian capital markets.
+
+- **Feeder funds:** Pool capital offshore and route it into master funds, often used to efficiently aggregate international investor participation.
+- Third-party fund management services permitted (**Platform Play**).
+- Tax-neutral **relocation of offshore funds**.
+- An **attractive tax regime** with benefits benchmarked to India's tax treaties with various countries (e.g., Singapore).
+
+### Regulatory framework
+
+**Fund Management Entity (FME)**
+
+| Parameters | Authorized FME | Registered FME (non-retail) | Registered FME (retail) |
+| :--- | :--- | :--- | :--- |
+| Minimum net worth | US$75,000 | US$500,000 | US$1,000,000 |
+| Minimum number of KMPs | 1 (Principal officer) | 2 (Principal officer + Compliance and Risk officer) | 3 (Principal officer + Compliance and Risk officer + an additional KMP) |
+| | 1 additional KMP assigned with the responsibility of fund management needs to be appointed where AUM exceeds US$1 billion |
+
+### Categories of schemes
+
+| Parameters | Venture capital schemes | Restricted schemes (non-retail) | Retail schemes |
+| :--- | :--- | :--- | :--- |
+| Launched by | Any FME | Registered FME | Registered FME (Retail) |
+| Permissible investments | Listed as well as unlisted securities, debt, securitized debt instruments, money market instruments, investment in LLP¹⁸, etc. |
+| Units of venture capital schemes, restricted, retail schemes or AIF (subject to disclosure in PPM) | Units of any investment schemes (subject to disclosure in PPM) and derivatives (including commodity derivatives only for hedging) |
+| Corpus of the scheme | Min: US$3 million<br>Max: US$200 million | Min: US$3 million<br>Max: NA |
+| Types of investors | Pooling of monies from accredited investors or investors investing above US$250,000 | Pooling of monies from accredited investors or investors investing above US$150,000 | All investors including retail investors |
+
+26 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 26 of 68]*
+
+---
+
+- Other attractive activities: Portfolio management services, family offices, third-party fund management services, exchange-traded funds, business trusts, etc.
+
+## India Income-tax incentives
+
+Basic tax incentives
+(for fund management entities)
+
+- Refer basic tax incentives discussed in the Section on "Banking in GIFT City, IFSC"
+
+Specific tax incentives
+
+- 'Specified fund' tax regime
+Specified fund are discussed below (to the extent attributable to non-resident unitholders, in case of funds: Category III AIFs or Retail Scheme or Exchange Traded Funds located in IFSC at GIFT City where all the units in such fund or scheme (other than units held by a sponsor or manager) are held by non-residents.
+
+The tax exemptions available to a specified fund are discussed below (to the extent attributable to non-resident unitholders, in case of funds):
+
+- Exemption from capital gains tax on transfer of securities (other than shares in a company resident in India¹⁹)
+
+- Concessional tax rate of 10% with respect to interest and dividend on securities
+
+- Non-resident unitholders of 'specified fund'
+
+- Exemption with respect to the income received on such units or on transfer of such units
+
+- Exempted from the requirement of: (a) obtaining an India tax ID, and (b) filing a tax return (where income is limited to investments in specified funds)
+
+- Relocation of 'Offshore Fund' to GIFT City, IFSC
+
+- Tax neutral transfer of capital assets from the original fund²⁰ (i.e., offshore fund) to the resultant fund²⁰ (i.e., GIFT City fund) in the relocation²⁰ process
+
+- Exemption from capital gains tax on the transfer of shares, units or interests held by an investor in the original fund in consideration for shares, units or interests in the resultant fund
+
+- Capital gains earned by a non-resident or the resultant fund on a subsequent transfer of shares of an Indian company are tax-exempt if the exemption was available prior to the relocation
+
+## Key statistics³
+
+Current market players
+
+| FMEs²¹ | Funds²² | | | |
+| :--- | :--- | :--- | :--- | :--- |
+| Venture Capital Schemes (including Angel Schemes | Category I and II AIFs | Category III AIFs | Retail Scheme |
+| 194 | 18 | 100 | 188 | 4 |
+
+Investments by schemes set up in GIFT City
+
+| Particulars | No. of investors²³ | In US$ million | | |
+| :--- | :--- | :--- | :--- | :--- |
+| Total commitments raised | Total funds raised | Total investment made |
+| 30 September 2024 | Not available | 12,134 | 5,581 | 4,612²⁴ |
+| 30 September 2025 | 4,733 | 26,302 | 12,273 | 11,373²⁵ |
+
+Doing business in India's International Financial Services Centre (IFSC) 27
+
+*[Page 27 of 68]*
+
+---
+
+# Insurance or reinsurance activities in GIFT City, IFSC26
+
+## Key highlights
+
+* GIFT City allows insurance companies to offer international insurance products, such as cross-border insurance, reinsurance, and specialty insurance, catering to global clients and businesses.
+* Insurance companies can access a broader range of investment opportunities in GIFT City, IFSC and outside India, including infrastructure projects and international funds, allowing them to create investment-linked insurance products.
+* GIFT City, IFSC, is positioned to become a reinsurance hub by allowing global reinsurers a better order of preference vis-à-vis Indian cedents.
+* Ranked second in reinsurance cession preference, IFSC-based insurers enjoy a competitive edge over foreign reinsurance branches and offshore reinsurers in global risk markets.
+* GIFT City, IFSC, eliminates the requirement of Letters of Credit for certain reinsurance transactions, streamlining capital efficiency and ease of doing business for insurers and reinsurers.
+
+## Permitted activities
+
+* Life insurance business
+* General insurance business
+* Health insurance business
+* Reinsurance business
+
+## Key statistics³
+
+GIFT City IFSC witnessed a 47% year-on-year increase in the number of IFSC Insurance Offices by September 2025, signaling robust growth in the sector's market interest.
+
+## Regulatory framework
+
+| Capital requirements | Branch²⁷ | Subsidiary |
+| :--- | :--- | :--- |
+| Direct insurance business | US$1.5 million | US$11.63 million²⁸ (INR100 crore) |
+| Reinsurance business* | US$23.26 million²⁸ (INR200 crore) |
+
+*\* Foreign company engaged in the reinsurance business through a branch established in IFSC at GIFT City shall comply with net owned funds of US$116.3 million²⁸ (INR1,000 crore at the home country level).*
+
+### Direct insurance business²⁹ can be
+
+* within IFSC at GIFT City
+* from other SEZs
+* mainland India³⁰
+* from outside India
+
+### Reinsurance business can be
+
+* insurers from mainland India (in accordance with order of preference for cession³¹)
+* The introduction of the Managing General Agent (MGA) framework in IFSC offers a transformative opportunity for global insurers and reinsurers to operate with enhanced flexibility, innovation, and cost efficiency in India's premier international financial hub.
+
+## India Income-tax incentives
+
+### Basic tax incentives
+Refer to the basic tax incentives discussed in the section on "Banking in GIFT City"
+
+### Specific tax incentives
+
+Any sum received under a traditional life insurance policy or Unit Linked Insurance Policies (ULIPs) issued by an IFSC Insurance Office in IFSC is fully exempt from income tax, irrespective of premium thresholds of US$5,814²⁸ (INR5,00,000) and US$2,907²⁸ (INR250,000), respectively, provided the premium payable in any year during the term of the policy does not exceed 10% of the actual capital sum assured.
+
+---
+28 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 28 of 68]*
+
+---
+
+[icon] Insurance intermediaries in GIFT City, IFSC³²
+
+### Key highlights
+
+- GIFT City, IFSC empowers insurance intermediaries to seamlessly **facilitate international transactions between offshore insurers and the insured**, positioning the IFSC as a gateway to global markets with regulatory clarity and operational efficiency.
+- GIFT City, IFSC offers a **liberalized and globally competitive platform** for insurance intermediaries to support cross-border risk management and insurance solutions.
+- With regulatory flexibility, access to international markets, and a growing ecosystem, GIFT City, IFSC is **attracting top domestic and global players.**
+
+### Permitted activities
+
+- Insurance distributor:
+  - Composite broker
+  - Corporate agent
+  - Direct broker
+  - Reinsurance broker
+- Insurance claim service provider:
+  - Surveyor and loss assessor
+  - Third-party administrator
+
+### Regulatory framework
+
+- Minimum capital requirement ranges from US$7,500 to US$67,500 (for a branch structure) and ranges from US$75,000 to US$6,75,000 (for other than branch structure).
+
+- **India Income-tax incentives:**
+
+**Basic tax incentives**
+Refer to the basic tax incentives discussed in the section on "Banking in GIFT City"
+
+Gujarat already has a GIFT City, whose relevance is increasing every day.
+GIFT City reflects our whole of government approach. Here the Centre, State and IFSC authorities work together to create the best regulatory environment in the world²
+
+[icon]
+
+Shri Narendra Modi,
+*Hon'ble Prime Minister of India*
+
+Doing business in India's International Financial Services Centre (IFSC) 29
+
+*[Page 29 of 68]*
+
+---
+
+Capital market intermediaries in GIFT City, IFSC33
+
+## Key highlights
+
+- 2 active stock exchanges and 1 bullion exchange
+- GIFT City, IFSC offers global investors seamless access to Indian equity markets through **GIFT Nifty**-transitioned from SGX Nifty-and **US$-denominated BSE Sensex derivatives**.
+- **Direct listing is enabled on GIFT exchanges for Indian unlisted companies**
+- Permissibility for brokers to undertake proprietary and client trading in global securities, offering **access to international markets**
+- Overseas brokers can engage as **remote trading participants**
+- Permissibility to carry out credit ratings, sovereign ratings, valuation services, research, rating assessment or evaluation services and monitoring agency.
+- **Gold trading on IIBX** reached a significant milestone with a total value of **US$2.9 billion³ during first quarter of 2025**, underscoring the growing depth and global relevance of GIFT City, IFSC's bullion ecosystem.
+
+## Permitted activities
+
+Entities can register in GIFT City to undertake the following roles:
+
+- Broker-dealer
+- Clearing member
+- Credit rating agency
+- Custodian
+- Depository participant
+- Distributor
+- Investment banking
+- Investment advisory
+- ESG rating and data product provider
+- Inspecting authority
+- Research entity
+- Debenture trustee
+
+## Regulatory framework34
+
+- Net worth requirement ranges from US$25,000 to US$1.5 million
+- Broker-dealers in IFSC at GIFT City can access exchanges outside IFSC through any of the following:
+  - Cross-border arrangements with foreign brokers regulated outside India
+  - Registering as a trading member of an exchange outside IFSC at GIFT City
+
+## India Income-tax incentives
+
+### Basic tax incentives
+Refer to the basic tax incentives discussed in the section on "Banking in GIFT City"
+
+- **Specific tax incentive**
+- **Bonds listed on IFSC Exchange**
+  - Concessional tax rate of 9% for non-residents on interest receipts in respect of any long-term bonds or rupee denominated bonds that are listed35 only on a recognized stock exchange in GIFT City, IFSC
+- **Capital markets**
+  - Tax exemption on income received by a non-resident from a portfolio of securities, financial products or funds managed or administered by any portfolio manager on behalf of such non-resident, in an account maintained with an offshore banking unit in GIFT City, IFSC
+- **Exemption from the levy of STT, CTT and stamp duty**
+  - The levy of Securities Transaction Tax (STT) and Commodity Transaction Tax (CTT) on transactions in securities undertaken on a recognized stock exchange located in an IFSC in foreign currency has been exempted
+  - The levy of stamp duty has been exempted for instruments listed on recognized stock exchanges and depositories established in an IFSC in India. Additionally, any instrument executed in favor of, or between, the developer or unit, or in connection with the purposes of the SEZ, is exempt from the levy of stamp duty
+
+30 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 30 of 68]*
+
+---
+
+Key statistics³
+
+IFSC stock exchanges turnover
+
+| Particulars | Traded value (in US$ million) |
+| --- | --- |
+| | July-Sept 2024 | July-Sept 2025 |
+| Features/ options/ depository receipts | 2,99,651 | 2,69,025 |
+
+Trading in global exchanges³⁶ through India INX global access
+
+| Particulars | Traded value (in US$ million) |
+| --- | --- |
+| | Up to Sept 2024 | Up to Sept 2025 |
+| Total trading | 32,091 | 39,386 |
+
+Doing business in India's International Financial Services Centre (IFSC) 31
+
+*[Page 31 of 68]*
+
+---
+
+# Finance companies in GIFT City, IFSC³⁷
+
+## Key highlights
+
+* Finance companies in GIFT City, IFSC are poised to take advantage of opportunities in traditional lending, investment activities, leasing (aircraft and ships), treasury functions, and more.
+* GIFT City, IFSC permits both **finance and operating leases for aircraft and ships**, offering a strategic base for aviation and maritime financing with international reach.
+* There are opportunities also for non-financial sector entities to establish a finance company in GIFT City, IFSC. Global and Indian corporates in non-financial sectors can set up a **Global Treasury Centre.**
+* Tax holiday, exemptions and relaxations have helped create a cost-efficient environment for financing activities.
+* Governance and prudential requirements follow a progressive approach, allowing **ease of operations.**
+
+## Regulatory framework
+
+* Allowed to have a Company as well as branch³⁹ structure
+* Capital requirement ranges from US$0.2 million to US$3 million depending upon the nature of the activity, with a capital adequacy ratio of 8% and a concentration norm of 25%
+
+## India Income-tax incentives
+
+**Basic tax incentives**
+Refer basic tax incentives discussed in the section on “Banking in GIFT City”
+
+**Specific tax incentive**
+Exemption from the applicability of thin capitalization provisions, inter alia, no cap (30% on EBIDTA) on interest payment to associated enterprises
+
+---
+
+## Permitted activities³⁸
+
+**Core activities:**
+* Lend in the form of loans, commitments and guarantees, credit enhancement, financial lease, securitization and sale and purchase of portfolios
+* Factoring and forfaiting of receivables
+* Investment in securities/permitted instruments
+* Buy or sell derivatives
+* Global/ Regional Corporate Treasury Centre
+
+**Non-core activities:**
+* Merchant banking
+* Authorized person
+* Registrar and share transfer agent
+* Trusteeship services
+* Investment advisory services
+* Portfolio management services
+* Operating lease of any products including aircraft lease, ship lease or any other equipment
+* International Trade Financing Services Platform
+* Distribution of financial products
+* Function as trading and clearing members or professional clearing member of exchanges and clearing corporations set up in IFSCs
+* Asset management support services
+* Facilitators of permissible activities
+
+---
+
+My vision is that in 10 years from now, GIFT City should become the price setter for at least a few of the largest traded instruments in the world, whether in commodities, currencies, equities, interest rates or any other financial instrument.
+
+**Smt. Nirmala Sitharaman,**  
+*Finance Minister*
+
+32 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 32 of 68]*
+
+---
+
+Aircrafts leasing in GIFT City, IFSC40
+
+## Key highlights
+
+- India is the world's third-largest domestic aviation market41 with a fleet expected to nearly double to 1,60042 aircrafts in the next decade. With ~80% of the fleet leased (vs. 53% globally) 43, there is a strong demand for localized leasing solutions.
+
+- The Government of India has created a supportive regulatory and tax framework in GIFT City, IFSC to onshore aircrafts leasing, including initiatives like the Ude Desh ka Aam Naagrik (UDAN) scheme and targeted reforms to match global leasing hubs.
+
+## Permitted business activities
+
+### Operating lease
+
+- Operating lease of:
+  - aircrafts
+  - helicopters
+  - engines of aircrafts or helicopter or any other part thereof
+  - aircrafts ground support equipments
+  - aviation training simulation devices
+
+- Asset management support services for assets owned or leased
+
+- Sale and lease back, purchase, novation, transfer, assignment, and such other similar transactions in relation to aircrafts lease
+
+### Financial lease
+
+- Financial lease or a hybrid of financial and operating lease for
+  - aircrafts
+  - helicopters
+  - engines of aircrafts or helicopter or any other part thereof
+  - aircrafts ground support equipments
+  - aviation training simulation devices
+
+- Sale and lease back, purchase, novation, transfer, assignment
+
+- Permissible activities under operating lease
+
+## Regulatory framework
+
+- Aircrafts leasing entity is required to maintain minimum owned funds of US$0.2 million for operating lease and US$3 million for financial lease or a hybrid of financial and operating lease
+
+- Entities solely engaged in carrying on aircrafts operating lease are exempted from certain applicable prudential regulations, Corporate Governance and Disclosure Requirements subject to having Board approved prudential policy and Fit & Proper criteria set out by IFSCA.
+
+## India Income-tax incentives
+
+**Basic tax incentives**
+Refer basic tax incentives discussed in the section on "Banking in GIFT City"
+
+**Specific tax incentive**
+
+- Exemption from capital gains tax on transfer of aircrafts44 leased by a unit in IFSC to any person during the tax holiday period (subject to the condition that the business operations of the IFSC unit is commenced on or before 31 March 2030)
+
+- Exemption from capital gains tax on transfer of aircrafts leased by a unit in IFSC to any person during the tax holiday period (subject to the condition that the business operations of the IFSC unit is commenced on or before 31 March 2030)
+
+- Exemption for a non-resident earning royalty or interest on lease of an aircrafts paid by an IFSC unit (subject to the condition that the business operations of the IFSC unit is commenced on or before 31 March 2030)
+
+- Exemption from withholding tax on payment of lease/ supplemental lease rentals by an India resident to an IFSC entity engaged in leasing of aircrafts, for the years in which the tax holiday will be claimed
+
+- Capital gains shall be exempt to non-residents or IFSC units engaged in aircrafts leasing on transfer of equity shares of a domestic company which is an IFSC unit engaged in aircrafts leasing and has commenced its operation on or before 31 March 2030. The capital gains exemption is applicable for 10 years from the commencement of operations of the IFSC unit which is the investee unit.
+
+Doing business in India's International Financial Services Centre (IFSC) 33
+
+*[Page 33 of 68]*
+
+---
+
+Key statistics³
+
+IFSC in GIFT City is rapidly emerging as a key hub for aircrafts leasing with aviation assets worth more than US$1 billion deployed within just three years
+
+| Particulars | As of 30 Sept 2024 | As of 30 Sept 2025 |
+| :--- | :--- | :--- |
+| Number of entities undertaking aircrafts leasing⁴⁵ | 27 | 37 |
+| aircrafts leased | 44 | 134 |
+| aircrafts engines leased | 47 | 84 |
+| aircrafts auxiliary power units | 68 | 85 |
+
+Similarly, India needs many financial innovations from aircrafts leasing, ship financing, carbon trading, digital currency, and IP rights to investment management. IFSCA should work in this direction. Your aim should be to turn IFSCA into a leader in terms of regulations, set high standards for rule of law, and emerge as the preferred arbitration centre for the world.
+
+Shri Narendra Modi,
+*Hon'ble Prime Minister of India²*
+
+[photograph: Indian National Flag and buildings in GIFT City]
+
+*[Page 34 of 68]*
+
+---
+
+# Ship leasing in GIFT City, IFSC$^{46}$
+
+## Key highlights
+
+- In order to advance India's status as a global maritime and financial hub, IFSC has notified ship leasing as a financial product in 2022.
+
+- The ship leasing framework within the IFSC at GIFT City is designed to bring to life the vision and to make the theme of Greening the Blue Ocean possible.
+
+## Permitted business activities
+
+### Operating lease
+
+- Operating lease, voyage charters, contract of affreightments, employment in shipping pools and all other legal and commercial transactions for employment of ships$^{47}$
+
+- Asset management support services for assets owned or leased out by the applicant or by any of its group entities set up in IFSCs in India
+
+- Sale and lease back, purchase, novation, transfer, assignment, and such other similar transactions in relation to ship lease
+
+- Any other related activity with the prior approval of the IFSCA
+
+### Financial lease
+
+- Financial lease
+
+- Hybrid of financial and operating lease
+
+- Activities permitted under operating lease
+
+- Any other related activity with the prior approval of the IFSCA
+
+*[Page 35 of 68]*
+
+---
+
+## Regulatory framework
+
+* Permitted legal form: Company, LLP, Trust or Branch
+* Capital requirement of US$3 million in case of finance lease and US$0.2 million in case of operating lease
+* Promoters/ stakeholders to be from FATF compliant jurisdiction
+
+## India Income-tax incentives
+
+**Basic tax incentives**
+Refer basic tax incentives discussed in the section on "Banking in GIFT City"
+
+**Specific tax incentive**
+* Exemption from capital gains tax on transfer of ship$^{48}$ leased by a unit in IFSC to any person during the tax holiday period (subject to the condition that the business operations of IFSC unit are commenced on or before 31 March 2030)
+
+* Exemption for a non-resident earning royalty or interest on lease of a ship paid by an IFSC unit (subject to the condition that business operations of IFSC unit are commenced on or before 31 March 2030)
+* Exemption from withholding tax on payment of lease/supplemental lease rentals by a resident to an IFSC entity engaged in leasing of ship for the years for which the tax holiday has been claimed
+* Capital gains shall be exempt to non-residents or IFSC unit engaged in ship leasing on transfer of equity shares of a domestic company that is an IFSC unit engaged in ship leasing and has commenced its operation on or before 31 March 2030, provided that the capital gains are realized within 10 years of investee units commences operations
+* Exemption on dividend paid by an IFSC unit engaged in ship leasing to another IFSC unit engaged in ship leasing
+
+## Key statistics$^{3}$
+
+| Particulars | As of 30 Sept 2024 | As of 30 Sept 2025 |
+| :--- | :--- | :--- |
+| Number of entities undertaking ship leasing$^{45}$ | 12 | 34 |
+| Total number of ships leased | 12 | 28 |
+
+36 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 36 of 68]*
+
+---
+
+# International Trade Finance Services (ITFS) Platform49
+
+## Key highlights
+
+* The ITFS platform is a first of its kind regulated platform to facilitate access for trade finance services digitally to global exporters and importers at competitive prices via a bidding mechanism. These trade finance services inter-alia include factoring, forfaiting, bill discounting and supply chain financing.
+* The overarching principle of allowing ITFS in IFSC is to help bridge the financing gap for exporters and importers both in India and globally.
+
+## Permitted business activities
+
+ITFS shall act as a facilitator for transactions such as:
+
+* Factoring
+* Reverse factoring
+* Bill discounting under Letter of Credit
+* Supply chain finance for exporters
+* Pre shipment credit
+* Forfeiting
+
+## Key statistics3
+
+Transactions financed by ITFS platforms
+
+## Regulatory framework
+
+* The entities undertaking trade financing activities in GIFT City are required to be set up as a Finance Company. Accordingly, the regulatory considerations applicable to a Finance Company in GIFT City shall be applicable to Trade Finance entities.
+* Entity can be set up in an incorporated form.
+* Parent of the entity must have a minimum experience of three years in operating trading infrastructure in financial market or operating a fintech platform.
+* Mandatory office in GIFT City with sound technological infrastructure.
+* Minimum net owned funds requirement of US$0.2 million.
+
+## India Income-tax incentives
+
+**Basic tax incentives**
+Refer basic tax incentives discussed in the section on "Banking in GIFT City"
+
+| Particulars | As of 30 Sept 2024 | As of 30 Sept 2025 | YoY Growth |
+| :--- | :--- | :--- | :--- |
+| Number of transactions | 544 | 1,849 | 240 % |
+| Value of transactions (in US$ million) | 26 | 74 | 185 % |
+
+Doing business in India's International Financial Services Centre (IFSC) 37
+
+*[Page 37 of 68]*
+
+---
+
+SECTION 4
+
+# Opportunities for corporates in GIFT City, IFSC
+
+*[Page 38 of 68]*
+
+---
+
+Global/ Regional Corporate Treasury Centres (GRCTCs)50
+
+## Key highlights
+
+* **Centralization of all financing activities** of a group in a single entity (i.e., GRCTCs) can result in cost savings, cash management, risk management, etc.
+* Opportunity to **optimize finance costs** on account of withholding tax benefit and tax holidays offered at IFSC in GIFT City.
+* Non-applicability of Indian exchange control regulation on inbound transaction from overseas entities to GRCTCs in GIFT City.
+* The ability to maintain books in permitted foreign currencies acts as **natural hedging** for the corporates.
+* Inclusion of **Holding Company** as permitted activity.
+* GRCTC can act as a **blocker entity** for managing the liquidity of group as a whole.
+* GRCTC can undertake **cash pooling** (including notional pooling) activities to optimize the liquidity requirements within the group.
+
+## Permitted business activities
+
+* Raising capital by issuance of equity shares
+* Borrowing including in the form of inter-company deposits
+* Credit arrangements (lending, guarantees, etc.)
+* Transacting or investing in financial instruments issued in IFSC or outside IFSC
+* Undertaking derivative transactions
+* Foreign exchange transactions in such currencies as specified by the IFSCA
+* Factoring and forfaiting
+* Acting as a re-invoicing center
+* Liquidity management
+* Maintaining relationships with financial counterparties
+* Management of obligations of its service recipients towards insurance and pension related commitments
+* Advisory service related to activities specified above, and relating to: a) financial management including financial risk management b) funding and capital market activities
+* Acting as a holding company
+
+## Regulatory framework
+
+* As per IFSCA regulation, GRCTCs can be set up as a subsidiary or branch of Indian or foreign companies
+* A minimum owned fund of US$0.2 million is required
+* GRCTCs should serve only to its group entities or of its parent or branches of such parent and group entities ('service recipients'). Service recipients should be registered under any law in their home jurisdiction
+
+## India Income-tax incentives
+
+**Basic tax incentives**
+Refer basic tax incentives discussed in the section on "Banking in GIFT City"
+
+**Specific tax incentives:**
+* Deemed dividend provisions relaxed in cases where loan or advances are made by GRCTCs to their group entities, provided parent or principal entity of such group is listed on a stock exchange outside India.
+* Exemption from the applicability of thin capitalization provisions, inter alia, no cap (30% on EBIDTA) on interest payment to associated enterprises
+
+Doing business in India's International Financial Services Centre (IFSC) 39
+
+*[Page 39 of 68]*
+
+---
+
+Fintech51
+
+## Key highlights
+
+* GIFT City's Fintech and TechFin ecosystem is evolving into a structured innovation hub, supported by a dedicated regulatory framework and sandboxes for experimentation, which have been discussed below:
+* **Direct authorization:** For entities with deployable, revenue-generating tech solutions.
+* **Sandbox entry:** For testing innovative models in a controlled environment (Regulatory Sandbox, Innovation Sandbox, Interoperable Sandbox)
+* Under the fintech incentive scheme, applicants can apply for grants like fintech start-up grant, Proof of Concept grant, Sandbox grant, Green Fintech grant, etc.
+
+## Permitted business activities
+
+* **Fintech activities:**
+
+These involve delivering new business models, applications, processes, or products in financial services regulated by IFSCA.
+
+| Banking sector | Capital market and fund management | Insurance sector |
+| :--- | :--- | :--- |
+| * Remittance and payments<br>* Digital lending<br>* Buy Now Pay Later<br>* Crowd lending<br>* Digital banking (Neo banking / Challenger bank)<br>* Open banking | * Crowd funding<br>* Personal finance<br>* Wealth Tech<br>* Robo Advisory<br>* Sustainable Finance products<br>* Alternate trading platforms | * InsurTech<br>* Innovative technologies for insurance life cycle underwriting, claims management of life/ health products, etc.)<br>* Digital innovation for global health insurance cover<br>* Innovation in commercial insurance<br>* Digital platform for settlement of balances between insurance companies<br>* Open insurance<br>* Embedded insurance<br>* Cyber insurance |
+
+40 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 40 of 68]*
+
+---
+
+## Regulatory framework
+
+* Activity must be connected to financial products, financial services, or financial institutions regulated by IFSCA
+* Fintech entities may participate in52:
+  * **Regulatory Sandbox (FRS):** Live testing with real customers
+  * **Innovation Sandbox (FIS):** Testing in a controlled environment using market data made available by regulated entities in IFSC
+  * **Inter-operable Sandbox (IoRS):** For products falling under more than one domestic financial sector regulator seeking entry into India
+
+* **Overseas regulatory referral/ Fintech bridges:** For cross-border testing and cooperation with overseas regulators
+
+* **India Income-tax incentives:**
+**Basic tax incentives**
+Refer basic tax incentives discussed in the section on "Banking in GIFT City"
+
+## Key statistics3
+
+| S.No. | Particulars | Cumulative till 30 Sept 2025 |
+| :--- | :--- | ---: |
+| 1 | Number of sandbox entities | 8 |
+| | In Innovation Sandbox | 5 |
+| | In Regulatory Sandbox | 3 |
+| 2 | Number of entities exited from sandbox | 42 |
+
+> Finance was being increasingly married to technology. It was becoming very clear to us that finance combined with technology, or "fintech" as it is sometimes called, would be an important part of India's future development.
+
+Shri Narendra Modi,
+*Hon'ble Prime Minister of India2*
+
+Doing business in India's International Financial Services Centre (IFSC) | 41
+
+*[Page 41 of 68]*
+
+---
+
+SECTION 5
+
+Centre of excellence
+
+*[Page 42 of 68]*
+
+---
+
+## Global In-house Centres (GICs)53
+
+With an extensive base of skilled talent, India offers high-quality professional services at advantageous costs, making it a cost-effective destination for support operations. With a strong emphasis on STEM education and a growing number of English-speaking graduates, India provides a highly capable workforce for IT and business process services. In recent times, India has seen a large numbers of players in banking, insurance and other financial service providers set up their global capability centers or shared services centers for IT and support services here.
+
+### Key highlights
+
+- GIFT City allows global financial services groups to set up their GICs for supporting global operations and conduct cross-border operations with minimal friction, under globally benchmarked regulations governed by the IFSCA.
+- Access to a talent pool in finance, analytics, engineering, and digital services stems from proximity to top institutes in India and Gujarat, which enables a steady pipeline of skilled professionals.
+- The GCC Policy 2025–2030 offers special incentives to attract GICs in Gujarat. (Refer section on page 48)
+
+### Permitted business activities
+
+Provide various non-core, support services, which inter alia includes:
+
+- IT & infrastructure management,
+- Data processing and analytics,
+- Compliance and legal support,
+- Treasury and finance functions,
+- Human resources and training,
+- Risk management,
+- Audit and financial reporting;
+- Research and documentation
+
+### Regulatory framework
+
+- The services mentioned above can be provided (directly or indirectly) only to non-resident financial services group entities (e.g., banks, insurers, funds).
+- "Financial Services Group" means any entity which is regulated by a financial services regulator/ competent body regulating financial services activities in its home jurisdiction and include its holding, subsidiary or associate companies, branch, or subsidiary of a holding company to which it is also a subsidiary.
+- Employee relocation from Indian domestic units is capped at 20% of total supervisory staff category within the GIC, with prior IFSCA approval.
+- India Income-tax incentives:
+
+**Basic tax incentives**  
+Refer basic tax incentives discussed in the section on "Banking in GIFT City"
+
+Doing business in India's International Financial Services Centre (IFSC) 43
+
+*[Page 43 of 68]*
+
+---
+
+# Book-keeping, accounting, taxation and financial crime compliance services54
+
+GIFT City, IFSC is emerging as a hub for high-quality professional services, with book-keeping, accounting, taxation, and financial crime compliance (BATF) providers playing a critical role in supporting global financial operations. Towards this, GIFT City seeks to leverage and source the mass accounting talent base of population that is available in the western belt of India comprising of states like Gujarat, Rajasthan and Maharashtra.
+
+## Key highlights
+
+- Services can be rendered to non-financial services group entities outside India
+- Competitive talent cost structure
+- Availability of infrastructure
+- Wider target market in GIFT City ecosystem
+- Cross-border business enablement
+- Support multiple FS groups globally
+- Income-tax holiday and state-level incentives
+
+## Permitted business activities55
+
+- **Book-keeping services:** Classification and recording of transactions; excludes payroll and tax return services
+- **Accounting services:** Compilation, review, preparation of financial statements (non-assurance), financial analysis, valuation support
+- **Taxation services:** Tax advisory, computation, and filing for all tax types
+- **Financial Crime Compliance (FCC) services:** AML/CFT compliance, FATF-aligned KYC, suspicious transaction monitoring, customer due diligence, fraud management
+
+## Regulatory framework
+
+- An applicant can set up a unit under BATF regulations in the form of a Company or LLP
+- The applicant shall ascertain that their business in IFSC is not set up either by
+  - splitting up of business already in existence in India; or
+  - reconstructing of business already in existence in India; or
+  - reorganizing of a business already in existence in India.
+- The BATF Service Provider shall not offer BATF Services by way of transferring or receiving of existing contracts or work arrangements from their Group Entities in India.
+- **Workforce requirements:**
+  - Key Managerial Personnel (KMP) must hold appropriate qualifications;
+  - Employee relocation from Indian group entities capped at 20% of total employees in the BATF unit.
+
+## India Income-tax incentives
+
+**Basic tax incentives**
+Refer basic tax incentives discussed in the section on "Banking in GIFT City"
+
+44 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 44 of 68]*
+
+---
+
+## TechFin and Ancillary services$^{56}$
+
+IFSCA's published TechFin and Ancillary services Regulation, 2025 which have formalized the role of TechFin and Ancillary service providers in GIFT-City, IFSC.
+
+### Key highlights
+
+- Aims to provide a regulatory framework for supporting activities and TechFin units in GIFT City, IFSC
+
+- Services can be rendered to financial services clients outside India or in GIFT City, IFSC.
+
+### Permitted business activities
+
+| TechFin activities | Ancillary activities |
+| :--- | :--- |
+| - Agri tech <br>- Big Data and analytics, <br>- Cloud computing, <br>- Cyber security and Cyber Risk Management, Robotic Process Automation, ERP Systems, <br>- Technology-solution supporting trade finance, digital banking <br>- Space tech <br>- R&D support in technology <br>- Solutions/services for BFSI domain leveraging$^{57}$ | - Actuarial services, advisory services, Auditing, <br>- Business/ Knowledge/ Legal Process Outsourcing, <br>- Legal services, <br>- Customer care support, Management Consulting, <br>- Human Resource and payroll processing, secretarial services, <br>- Valuation services |
+
+### Regulatory framework
+
+- **Legal form:** Company, LLP, Registered Partnership Firms (for professionals), and Branch Offices of company or LLP incorporated outside India.
+
+- **Personnel requirement:** Mandatory appointment of Principal officer$^{58}$ and Compliance Officer as full-time employees and must be based out of GIFT City.
+
+- Services should be provided to non-residents directly or through intermediaries.
+
+- **India Income-tax incentives:**
+
+**Basic tax incentives**
+Refer basic tax incentives discussed in the section on "Banking in GIFT City"
+
+Doing business in India's International Financial Services Centre (IFSC) 45
+
+*[Page 45 of 68]*
+
+---
+
+Foreign universities59
+
+## Key highlights
+
+* The regulatory framework allows foreign universities to operate independently of domestic education laws, enabling academic autonomy, global curriculum standards, and direct degree offerings within a globally competitive environment.
+* Domestic education regulations are not applicable and hence no fee regulation/ reservations in admissions.
+* Lower cost of foreign education for India students.
+
+## Permitted business activities
+
+* International Branch Campus (IBC)60
+* Offshore Education Centre (OEC)61
+
+**Permissible subjects and type of courses:**
+Certificate, diploma and degree courses, in the field of financial management, fintech, science, technology, engineering and mathematics
+
+## Eligibility criteria
+
+* In case the applicant is a foreign university, it should have secured a position within Top 500 in global overall ranking and/or subject ranking in the **latest QS World Universities ranking** and in the case of Foreign Educational Institution, the applicant should be a reputed institution in its home jurisdiction.
+* An IBC or OEC shall not act as representative office of the parent entity for the purposes of undertaking promotional activities for their programs in their home jurisdiction or any other jurisdiction outside IFSC at GIFT City.
+
+## Regulatory framework
+
+* Mandatory availability of adequate funds to meet capital and operational expenditure requirements of the IBC or OEC at least for five years.
+* Courses or programs offered by a registered entity in IFSC at GIFT City must be identical to those of the parent entity abroad, including curriculum and the degree, diploma, or certificate awarded.
+* Student and faculty selection processes must mirror those of the parent entity, with any deviations requiring prior approval and justification from the Authority.
+
+## India Income-tax incentives
+
+**Basic tax incentives**
+Refer basic tax incentives discussed in the section on "Banking in GIFT City"
+
+GIFT City can also work on preparing a good roadmap and ground rules for this by looking at the performance of private players. This year's budget announcement regarding foreign universities in GIFT City will also benefit it.
+
+Shri Narendra Modi,  
+*Hon'ble Prime Minister of India2*
+
+*[Page 46 of 68]*
+
+---
+
+## Presence of talent in Gujarat
+
+Gujarat has emerged as the new center for IT-BPM industry in the western region, for both supply of and demand for talent. At present, there are about 5,000 IT firms in Gujarat, with an annual turnover of nearly INR6,000 crore, providing employment to nearly 2.5 lakh people across the state. The state has also seen an increase in the number of Research and Development institutes, accounting for 700+ institutes and making Gujarat rank 4th in the top 10 list of R&D institutes in India^62^.
+
+GIFT City is strategically positioned within a knowledge corridor that includes premier Indian and international educational institutions such as Indian Institute of Management (IIM) Ahmedabad, Indian Institute of Technology (IIT) Gandhinagar, Deakin University, and the University of Wollongong. Ahmedabad is home to top-tier institutions like the Indian Institute of Management (IIM), Mudra Institute of Communications, Ahmedabad (MICA), National Institute of Design (NID), National Institute of Fashion Technology (NIFT), Nirma University, and Centre for Environmental Planning and Technology (CEPT) University, which produce graduates with specialization across disciplines.
+
+Gandhinagar, the state capital, complements this with a focus on technical and administrative skills, supported by institutions such as Gujarat Maritime University (GMU) and Gujarat National Law University (GNLU).
+
+This talent-rich environment, strengthened by Gujarat's focus on industrial and technological innovation, makes the state a prime destination for businesses and investors. Companies establishing or expanding in GIFT City have access to a diverse pool of skilled professionals, enabling growth across various sectors.
+
+With over 100,000 engineering graduates annually and approximately 50,000 IT/ITeS professionals, Gujarat is a hub for engineering and tech talent^63^.
+
+The state's proximity to talent-rich regions like Maharashtra and Rajasthan further enhances its talent pool, providing businesses in GIFT City access to graduates from renowned institutions. This regional synergy creates a competitive edge, supporting enterprises in GIFT City in being well-equipped to meet the evolving needs of global industries.
+
+*[Page 47 of 68]*
+
+---
+
+Gujarat state incentives in IFSC
+
+To promote faster and inclusive growth in the IT/ITeS sector, the Government of Gujarat announced the Gujarat State IT Policy 2022-27^64, which is valid from 7 February 2022 to 31 March 2027. The policy needs to be applied together with the implementation guidelines introduced by the state authorities. The policy focuses on attracting fresh investment and generating employment across the state, along with propelling growth through incentives and facilitation. The IT/ITeS policy is likely to enable an innovative ecosystem, establish a robust infrastructure and develop IT talent in the state.
+
+## Eligible units
+
+* Emerging or Deep Technologies such as AI, IoT, blockchain, quantum computing, Augmented Reality, Virtual Reality and Mixed Reality
+* Back office operation/ Business Process Outsourcing (BPO)/ Knowledge Process Outsourcing (KPO)
+* Web/ digital content development/ ERP/ software and application development
+* Bioinformatics
+* Banking, Financial Services and Insurance services
+* Depository and security registration and dematerialization services
+* GIS-enabled services, IT support centers, website services
+* Global In-House Center (GIC), Global Capability Center
+
+Note:
+Companies engaged in the manufacture of hardware related to IT, Telecom, or fields mentioned above are not eligible under this scheme.
+
+* Policy also offers special incentives for Data Centres, Co-working space, IT Parks, IT City/ Township.
+* Eligible unit means any new IT/ITeS unit/ GCC with a minimum of 50 employees on its payroll or an expansion unit having a minimum of 75 employees after expansion on its payroll. These schemes are applicable to new IT /ITeS unit/ GCC and existing IT/ ITeS unit/ GCC undertaking expansion.
+
+On similar lines, the Government of Gujarat has announced the Gujarat Global Capability Center Policy 2025-30, which is valid from 11 February 2025 to 31 March 2030, in order to foster innovation and enable a world-class ecosystem that promotes sustainable growth, employment generation and global competitiveness.
+
+## Mega projects
+
+Investment in the set-up of IT/ITeS unit/GCC with a minimum GFCI of US$3 million for generating a minimum direct employment of 500 IT positions on its payroll in the state.
+
+An existing unit outside Gujarat state carrying out new investment in set up of IT/ITeS unit/ GCC at any location in Gujarat and commencing commercial operation during the operative period shall be considered a new unit. A new unit shall be eligible for assistance for maximum one-time expansion during the operative period.
+
+An expansion unit means an existing unit in Gujarat undertaking expansion such that the total headcount of employees on its payroll increases by 50% of the existing head count or by 1,000 employees, whichever is lower during the operative period of policy. It shall be applicable for incentives only once during the operative period of the policy. To be eligible for incentives, the new investment made for the expansion must be brought into commercial operations during the operative period of the policy within prescribed timelines.
+
+## Gross Fixed Capital Investments
+
+Gross Fixed Capital Investment (GFCI) means expenditure made in construction of building, purchase of building, computers, software, networking related hardware and other related fixed assets, excluding the cost of land required to produce products or services by the eligible unit. Thus, typically, an applicant is required to complete investment i.e., GFCI, within two years of commencement of operation/productions.
+
+48 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 48 of 68]*
+
+---
+
+Fiscal benefits available under the policy to eligible units⁶⁵
+
+| Project category | Description of benefits |
+| :--- | :--- |
+| Category I (Non-Mega) - GFCI less than INR250 crore- US$2,90,69,767²⁸ | • **Capex support:** One-time reimbursement in the range of 20-30% of eligible Capex with maximum cap of INR50 crore<br>• **Opex support:** Up to 15% of annual eligible opex with maximum cap of INR20 crore per year (incentive on bandwidth and cloud rental expenses capped to 35% of annual eligible opex or INR7 crore per year) |
+| Category II⁶⁶ (Mega) - GFCI more than or equal to INR250 crore- US$2,90,69,767²⁸ | • **Capex support:** One-time reimbursement in the range of 20-30% of eligible Capex with maximum cap of INR200 crore<br>• **Opex support:** Up to 15% of annual eligible opex with maximum cap of INR40 crore per year (incentive on bandwidth and cloud rental expenses capped to 35% of annual eligible opex or INR14 crore per year) |
+
+Eligible opex expenditure means lease rental expenditure, bandwidth expenditure, cloud rental, power tariff, patent expenditure - computed as per table below:
+
+| Nature of benefits | Description of benefits | Period of benefit⁶⁷ |
+| :--- | :--- | :--- |
+| Lease rental expenditure | Maximum up to INR50/sq. ft. of build-up area per month or actual expenditure whichever is less | 5 years |
+| Bandwidth expenditure | Actual expenditure incurred on subscribing or leasing bandwidth from the licensed ISP with valid GST number | 5 years |
+| Cloud rental expenditure | Actual expenditure incurred on subscribing or leasing bandwidth from the licensed CSP with valid GST number | 5 years |
+| Power tariff expenditure | Actual expenditure incurred on energy units consumed. | 5 years |
+| Patent expenditure | Actual expenditure incurred up to INR5 lakh per patent | 5 years |
+
+Special Incentives that can be claimed by a unit
+
+| Nature of benefits | Description of benefits | Period of benefit⁶⁷ |
+| :--- | :--- | :--- |
+| Employment generation incentives | For every new and unique job created in the state and working in the state.<br>Applicable for new local employees hired and retained for a minimum period of one year at 50% of one month's CTC up to INR50,000 for male employees and INR60,000 per female employees | One-time |
+| Atmanirbhar Gujarat Rojgar Sahay Yojana | EPF reimbursement up to 100% for female employees and 75% for male employees. EPF has to be deposited with Gujarat EPFO office. Incentive restricted to employees working from the state of Gujarat. | 5 years |
+| Electricity duty incentive | 100% of the Electricity Duty paid to the Gujarat government | 5 years |
+| Interest assistance | Interest subsidy at 7% on term loan or actual interest paid whichever is less with maximum cap of INR1 crore per annum | 5 years |
+
+Doing business in India's International Financial Services Centre (IFSC) 49
+
+*[Page 49 of 68]*
+
+---
+
+[photograph: two business professionals reviewing documents]
+
+SECTION 6
+
+# Opportunities for individuals in GIFT City, IFSC
+
+*[Page 50 of 68]*
+
+---
+
+## Non-resident individuals
+
+Non-resident individuals can participate as unit holders in a wide range of fund structures established in GIFT City:
+
+* **NRI Funds:** These funds primarily attract foreign capital into India. SEBI has permitted 100% NRI/ OCI/ PIO participation in GIFT City Funds for obtaining FPI license.
+* **Family Office Funds:** GIFT City enables the setup of family offices that pool wealth for multi-generational planning and global diversification. NRIs and other non-residents can participate in these structures for strategic wealth management.
+* **Category III AIF, Retail Funds and Exchange Traded Funds:** Non-residents can place their money in such funds for investing in India and globally, without any tax compliance requirements in India provided the the income is only from such funds).
+* **GIFT Insurance Office:** NRIs can take or invest in life insurance products offered by IFSC Insurance Offices, with transactions conducted in global currencies.
+
+### Bank accounts with GIFT City, IFSC banks
+
+* Non-residents can operate bank accounts with banking units in GIFT City, IFSC for various purposes like investments, availing portfolio management services, etc.
+* Non-residents can place deposits with banking units in GIFT City, IFSC and interest income earned thereon is exempt from tax.
+
+## Resident individuals
+
+IFSC at GIFT City offers resident Indian individuals a range of global financial avenues within a regulated and tax-efficient ecosystem. Some of them are:
+
+* **Outbound investments via GIFT City Funds**
+  * Resident individuals can invest in global markets via GIFT City-based outbound funds, using the Liberalised Remittance Scheme (LRS) route, gaining exposure to international equities, debt, US equity, funds, fund of funds, units of mutual fund directly or through various offshore investment vehicles or through OPI in only GIFT Funds.
+* **Direct investments through Global Access Route**
+  * Individuals can invest in global markets directly through Global Access Service providers.
+  * Global Access provides single-window digital access to major global exchanges across multiple asset classes (equities, ETFs, bonds, mutual funds, etc.)
+* **Deposits with GIFT City banks**
+  * Resident Indians can open offshore deposit accounts with IFSC Banking Units in GIFT City, denominated in major foreign currencies like US$, GBP, EUR, and AUD.
+
+---
+
+Doing business in India's International Financial Services Centre (IFSC) 51
+
+*[Page 51 of 68]*
+
+---
+
+SECTION 7
+
+Overview of GIFT City, IFSC's
+regulatory and legal landscape
+
+*[Page 52 of 68]*
+
+---
+
+## Indian exchange control regulations
+
+### Navigating the regulatory landscape: Status under exchange control regulations
+
+As per the Indian Exchange Control Regulations68, any financial institution or its branch operating from the IFSC at GIFT City is treated as a ‘person resident outside India’. Furthermore, the provisions of the Foreign Exchange Management Act or any regulations made thereunder shall not apply to a financial institution or branch of a financial institution set
+
+up in IFSC at GIFT City, unless there is a specific and express provision to that effect in IFSC regulations or other regulations. Hence, from an exchange control regulations perspective, IFSC at GIFT City is considered an offshore69 financial center.
+
+### Dive into growth: Investing opportunities in GIFT City units
+
+In the previous section, we discussed the business opportunities that GIFT City offers along with permissible activities and capital requirements. In this section, we have discussed the exchange control regulations applicable to non-residents and residents (including individuals) investing in an IFSC unit.
+
+| Transaction | Description |
+| --- | --- |
+| Investment by a non-resident or IFSC unit dealing with a non-resident | Any transaction between an entity set up in IFSC at GIFT City and an overseas entity (i.e., in foreign jurisdiction) should be outside the purview of Indian exchange control regulations |
+| Investment by resident entities | A person resident in India can make overseas investments in IFSC - Refer Foreign Exchange Management (Overseas Investment) Regulations, 2022 [*refer discussion below*] |
+| | Additionally, a person resident in India may make contribution to an investment fund or vehicle set up in GIFT City, IFSC as an OPI (as permissible) |
+| Investment by resident individual | RBI has permitted a resident individual to make remittances under the Liberalised Remittance Scheme (LRS) up to US$250,000 per financial year per individual |
+| Investment by IFSC units in Indian entities | **Foreign Portfolio Investment (FPI) route:** Any portfolio investments (equity, debt, etc.) by an IFSC unit in Indian capital markets are required to comply with SEBI’s FPI norms |
+| | **Foreign Direct Investment (FDI) route:** An equity investment (not covered in the FPI route) by an IFSC unit is governed by FDI norms or as determined by DPIIT guidelines in specific sectors |
+| | **Foreign Venture Capital Investment:** An investment in Indian start-up companies. |
+| | **External Commercial Borrowing (ECB) route:** Any lending or debt related investments (not covered in FPI route) is required to be made in adherence to the ECB framework of RBI. |
+
+Doing business in India’s International Financial Services Centre (IFSC) 53
+
+*[Page 53 of 68]*
+
+---
+
+Foreign Exchange Management (Overseas Investment) Regulations, 2022
+
+Broad framework
+
+ Overseas investment
+
+Financial commitment
+
+Overseas Portfolio Investment
+(OPI)
+
+Other than ODI
+
+Overseas Direct
+Investment (ODI)
+
+Others
+
+Acquisition of:
+1. Unlisted equity
+2. Listed entity -
+Investment ≥10% equity
+or control
+
+Debt instruments,
+guarantee, pledge
+
+ODI
+
+up to 400% of its net
+worth (as per the last
+audited Balance Sheet)
+
+Under the regulations, subject
+to prescribed conditions, an
+Indian entity is allowed to
+make investment as under:
+
+OPI
+
+up to 50% of its net
+worth (as per the last
+audited Balance Sheet)
+
+Entity engaged in the financial sector
+
+An Indian entity (engaged in financial sector)
+seeking to invest (or make a financial
+commitment) in IFSC at GIFT City is required to
+fulfill the following additional conditions:
+
+- Be registered with or regulated by the
+financial services regulator in India
+- Have earned a net profit during the preceding
+three financial years
+- Obtained approval from the regulatory
+authorities concerned in both India and
+abroad
+
+If approval from home country is not received
+within 45 days, it will be considered as deemed
+approved.
+
+Entity engaged in the non-financial sector
+
+The Overseas Investment Rules provides
+relaxation to an Indian entity not engaged in
+financial services activity in India to make ODI in
+foreign entities in IFSC at GIFT City engaged in
+financial services (except banking or insurance)
+without meeting the 3 years net-profits
+requirement.
+
+**An Indian entity setting up a branch**
+
+A person resident in India, being a firm or
+company or body corporate registered in India, is
+eligible to set up a branch in IFSC at GIFT City
+(subject to prescribed conditions) and open a
+foreign currency bank account with an IFSC
+banking unit by making remittances from India
+for the purpose of normal business operations of
+the branch.
+
+54 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 54 of 68]*
+
+---
+
+# Currency for business transactions
+
+All units in IFSC at GIFT City are required to conduct business in permissible foreign currency (other than Indian Rupee) by opening a foreign currency account with banks operating in the IFSC at GIFT City.
+
+Financial institutions in IFSC at GIFT City (being persons resident outside India) shall be eligible to open and maintain a Special Non-resident Rupee account (SNRR) with a bank in India (i.e., outside IFSC) in accordance with FEMA (Deposits) Regulations, 201670 for defraying expenses in INR outside GIFT City, IFSC.
+
+IFSCA has notified the following 15 specified foreign currencies for undertaking business in GIFT City, IFSC:
+
+* US Dollar (US$)
+* Euro (EUR)
+* UK Pound Sterling (GBP)
+* Japanese Yen (JPY)
+* Swiss Franc (CHF)
+* Singapore Dollar (SGD)
+* Australian Dollar (AUD)
+* Canadian Dollar (CAD)
+* Hong Kong Dollar (HKD)
+* UAE Dirham (AED)
+* Russian Rouble (RUB)
+* Swedish Krona (SEK)
+* Danish Krone (DKK)
+* Norwegian Krone (NOK)
+* New Zealand Dollar (NZD)
+
+# International Arbitration Centre
+
+In the Union Budget 2022-23, the Hon'ble Finance Minister announced that "An International Arbitration Centre will be set up in the GIFT City for timely settlement of disputes under international jurisprudence". Consequently, an Expert Committee was formulated for drafting institutional arbitral rules for the proposed International Arbitration Centre at GIFT City, IFSC. IFSCA released a press release on 16 July 2024, providing the report of the Expert Committee71.
+
+## Highlights from the Expert Committee report
+
+* The Centre will follow global best practices in arbitration and mediation.
+* It will offer technology-enabled services like virtual hearings and e-filing.
+* The legal framework is to be aligned with Indian laws while incorporating international standards.
+* A broader Alternative Dispute Resolution Centre (ADRC) is proposed instead of a standalone arbitration centre, to include mediation and hybrid models.
+
+Pursuant to the above Expert Committee Report, IFSCA organized a conference on "Developing Alternative Dispute Resolution (ADR) and International Arbitration Centre (IAC) in GIFT-IFSC" on 28 September 2024. The press release in relation to the said conference concluded as follows:
+
+"*Participants expressed optimism about the future of ADR in GIFT-IFSC, besides highlighting the need for continuous dialogue and adequate legal enablers for enabling the establishment of International Arbitration Centre under international jurisprudence.*"
+
+---
+Doing business in India's International Financial Services Centre (IFSC) 55
+
+*[Page 55 of 68]*
+
+---
+
+# Foreign Currency Settlement System (FCSS)73
+
+FCSS has been officially launched by IFSCA, authorized under the Payment and Settlement Systems Act 2007 and the International Financial Services Centres Authority Act 2019.
+
+The system, operated by CCIL IFSC Limited (CIL) in collaboration with Standard Chartered Bank as the designated settlement bank, is designed to support the settlement of transactions conducted in foreign currencies, initially focusing on the United States dollar (USD). FCSS will follow a gross settlement procedure for payment obligations and settlement instructions among participants, operating from 08:00 to 20:00 IST on all business days.
+
+The system is also compatible with ISO 20022 messaging standards to enable modern and efficient transaction processing. Membership is open to IBUs subject to the access criteria outlined in the bye-laws, rules and regulations issued by CIL.
+
+[photograph: Hands cupped around a glowing holographic globe with various currency symbols floating above it]
+
+*[Page 56 of 68]*
+
+---
+
+# Incentives or benefits for unit set up in GIFT City, IFSC
+
+## Incentives/ facilities for a unit in GIFT City, IFSC (SEZ unit)
+
+- Upfront exemption of customs duty on the import of capital goods, office equipment, DG sets, etc., for authorized operations of the SEZ unit without any license or specific approval
+- Zero-rating of GST on eligible domestic procurement of goods and services for authorized operations of the SEZ unit
+- Exemption from payment of GST for financial intermediary services from IFSC units to customers located outside India
+- Exemption from payment of GST under reverse charge on the import of services or procurement of notified services domestically for authorized operations of the SEZ unit
+- Goods imported or procured locally duty-free could be utilized over the approval period of five years
+
+## Company law exemptions
+
+- Corporate Social Responsibility (CSR) provisions are not applicable for five years from the date of commencement of business
+- Internal audit is applicable only if provided for in the Articles of Association (AOA)
+- There is no mandatory requirement to set up an Audit Committee or a Nominations and Remuneration Committee
+- Companies in GIFT City, IFSC can adopt the same financial year as their holding companies without requiring any prior approval
+- The limits on managerial remuneration are not applicable
+- An Extraordinary General Meeting (EGM) can be held at any location within or outside India, subject to the approval of all shareholders
+- Companies in an IFSC are exempt from several prospectus and securities-related compliances that normally apply under the Companies Act, 2013
+- Board meeting rules have been relaxed, allowing the Board of Directors to pass certain resolutions through circular resolutions without specifically holding board meeting
+- The composition and appointment of directors on the Board have been relaxed and the Board of Directors is required to meet only once in each half of the calendar year.
+
+[photograph: hand with currency symbols]
+
+ernational Financial Services Centre (IFSC)
+
+57
+
+*[Page 57 of 68]*
+
+---
+
+SECTION 8
+
+How to set-up your business in GIFT City, IFSC
+
+*[Page 58 of 68]*
+
+---
+
+How to set up your business at GIFT City, IFSC
+
+The Single Window IT System (SWIT) for the International Financial Services Centres Authority has emerged as a transformative digital gateway, significantly enhancing the ease of doing business within GIFT City. By integrating regulatory approvals, entity registration, and compliance workflows into a unified, paperless platform, SWIT improves operational agility for setting up a unit in GIFT City, IFSC. It enables stakeholders to seamlessly navigate multi-agency processes– ranging from SEZ unit approvals to financial service licenses–through a centralized dashboard with real-time tracking and automated validations.
+
+This digital infrastructure not only accelerates time-to-market for financial institutions but also reinforces GIFT City’s positioning as a globally competitive financial hub, aligned with India's vision of becoming a premier destination for international finance.
+
+A broad overview of the set up process is provided below
+
+Identification of space in IFSC and application for PLOA | **Step 1**
+---|---
+ | **Step 2** | Apply for a name (for company/ LLP set up)
+Initiate the incorporation process | **Step 3**
+ | **Step 4** | Submit an application to IFSCA and SEZ for approval and to obtain a certificate of registration; the application is to be filed via the SWIT portal of IFSCA
+Applicant to execute bond cum legal undertaking with SEZ and customs authorities | **Step 5**
+ | **Step 6** | Applicant to apply for GST and Import Export Code registration
+Applicant to open a bank account with IFSC banking units | **Step 7**
+ | **Step 8** | Start business operations in IFSC at GIFT City
+
+For further reference
+For detailed FAQs and clarifications, please refer to the official IFSCA resource at:
+**IFSCA FAQs**
+
+Doing business in India's International Financial Services Centre (IFSC) | 59
+
+*[Page 59 of 68]*
+
+---
+
+# Acknowledgement
+
+We gratefully acknowledge the valuable contributions of the core team in shaping this compendium on GIFT City, IFSC. Special thanks to our research and editorial teams for their dedication, and to all stakeholders, especially IFSCA and GIFT authorities, who supported us with timely information, thoughtful feedback and strategic guidance throughout the process.
+
+## EY India
+
+### Leadership and guidance
+
+**Pratik Shah**
+*Finance Services Leader*
+
+**Sameer Gupta**
+*Regional Tax Leader - India and Africa*
+
+**Saurabh Chandra**
+*Financial Services - Consulting Leader*
+
+**Tejas Desai**
+*Financial Services - Tax Leader*
+
+### Content development and Editorial team
+
+**Jaiman Patel**
+*Partner, GIFT City*
+
+**Jugal Kajaria**
+*Partner, Tax and Regulatory Services*
+
+**Darshil Shah**
+*Manager, Tax and Regulatory Services*
+
+### Sector specific experts
+
+**Hemal Shah**
+*Partner, Treasury Centres*
+
+**Amitabh Jhingan**
+*Partner, Education*
+
+**Rajeev Arora**
+*Partner, Insurance*
+
+**Toral Doshi**
+*Partner, Banking*
+
+**Vishal Madia**
+*Partner, Wealth and Asset Management*
+
+**Amit Gouri**
+*Partner, Tax and Regulatory Services*
+
+**Amit Bothra**
+*Partner, Indirect Tax and SEZ*
+
+8th Floor, 805, Brigade International Financial Centre, Building No. 14A, Block
+14, Zone 1, GIFT City, SEZ, Gandhinagar - 382 355Gujarat, India
+
+**Email address:**
+
+EY Gift City: EYGIFTCITY@in.ey.com
+Jaiman Patel: jaiman.patel@in.ey.com
+
+60 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 60 of 68]*
+
+---
+
+# Acknowledgement
+
+We gratefully acknowledge the valuable contributions of the core team in shaping this compendium on GIFT City, IFSC. Special thanks to our research and editorial teams for their dedication, and to all stakeholders, especially IFSCA and GIFT authorities, who supported us with timely information, thoughtful feedback and strategic guidance throughout the process.
+
+## HSBC India
+
+Leadership and guidance
+
+Ranjan Bhattacharya
+*MD and Head of Strategy, Middle East*
+*and India*
+
+Ajay Sharma
+*MD and Head of Banking*
+
+Raghav Handa
+*Director and Head of Public Affairs*
+
+Sector specific experts
+
+Sourav Sanyal
+*Head Corporate Sales India, GB Corp, GPS*
+
+Suvir Davda
+*MD & Head of Corporate Sales, MSS*
+
+Divya Aggarwal
+*Director & Regional Head North & East,*
+*GPS India*
+
+Content development and
+Editorial team
+
+Ashish Tripathi
+*Head HSBC GIFT City IBU*
+
+Saibal Ghosh
+*Head Investments & Wealth Solutions,*
+*IWPB*
+
+Shalaka Kagathra
+*Head of Communications*
+
+Snehha Madhyani
+*Sr. Communications Manager*
+
+Aditi Puri
+*Head of B2B marketing*
+
+Brigade International Finance Centre BIFC, Unit no 202, 2nd floor, Building no 14A,
+Block 14, Zone 1, Gift City SEZ, Gandhinagar, Gujarat - 382355
+
+Email address:
+
+HSBC Gift City: giftbusiness@noexternalmail.hsbc.com;
+
+Ashishkumar Tripathi: ashishkumar.tripathi@hsbc.co.in
+
+Doing business in India's International Financial Services Centre (IFSC) 61
+
+*[Page 61 of 68]*
+
+---
+
+# Glossary
+
+| | |
+| --- | --- |
+| AD | Authorised Dealer |
+| ADR | Alternative Dispute Resolution |
+| ADRC | Alternative Dispute Resolution Centre |
+| AI | Artificial Intelligence |
+| AIF | Alternative Investment Fund |
+| AL | Aircraft Leasing Entities |
+| AML | Anti-Money Laundering |
+| AMT | Alternate Minimum Tax |
+| ARCA | NYSE Arca (formerly Archipelago Exchange) |
+| AUD | Australian Dollar |
+| AUM | Assets Under Management |
+| Avg. | Average |
+| AWCS | Automated Waste Collection System |
+| BATF | Book-keeping, Accounting, Taxation and Financial Crime Compliance |
+| BFSI | Banking, Financial Services, and Insurance |
+| BSE | Bombay Stock Exchange |
+| CAGR | Compound Annual Growth Rate |
+| CBOE | Chicago Board Options Exchange |
+| CEPT | Centre for Environmental Planning and Technology |
+| CFE | CBOE Futures Exchange |
+| CME | Chicago Mercantile Exchange |
+| COMEX | Commodity Exchange Inc. (a division of CME Group) |
+| CRR | Cash Reserve Ratio |
+
+| | |
+| --- | --- |
+| CSP | Cloud Service Provider |
+| CSR | Corporate Social Responsibility |
+| CTT | Commodity Transaction Tax |
+| DCS | District Cooling System |
+| DIFC | Dubai International Finance City |
+| DPIIT | Department for Promotion of Industry and Internal Trade |
+| DTA | Domestic Tariff Area |
+| EBITDA | Earnings Before Interests, Taxes, Depreciation, and Amortization |
+| ECB | External Commercial Borrowing |
+| EGM | Extraordinary General Meeting |
+| EPF | Employee Provident Fund |
+| ERP | Enterprise Resource Planning |
+| ESG | Environmental, Social, and Governance |
+| ETFs | Exchange Traded Funds |
+| EUR | EURO |
+| EY | Ernst & Young |
+| FATF | Financial Action Task Force |
+| FCC | Financial Crime Compliance |
+| FDI | Foreign Direct Investment |
+| FE | Fintech Entity |
+| FIS | FinTech Innovation Sandbox |
+| FME | Fund Management Entity |
+| FPI | Foreign Portfolio Investor |
+
+62 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 62 of 68]*
+
+---
+
+| FRS | FinTech Regulatory Sandbox | IoRS | Inter-operable Sandbox |
+| --- | --- | --- | --- |
+| GBP | Great Britain Pound | IP | Intellectual Property |
+| GCC | Global Capability Center | IRDAI | Insurance Regulatory and Development Authority of India |
+| GFCI | Gross Fixed Capital Investment | ISP | Internet Service Provider |
+| GIC | Global In-house Centres | IT/ITeS | Information Technology and Information Technology Enabled Services |
+| GIFT City | Gujarat International Finance Tec-City | ITFS | International Trade Financing Services Platform |
+| GIFTCL | Gujarat International Finance Tec-City Company Limited | InvITs | Infrastructure Investment Trusts |
+| GMU | Gujarat Maritime University | IWA | Insurance Web Aggregator |
+| GoI | Government of India | JV | Joint Venture |
+| GRCTC | Global/Regional Corporate Treasury Centre | KMP | Key Managerial Person |
+| GST | Goods and Services Tax | KSE | Karachi Stock Exchange (now part of Pakistan Stock Exchange - PSX) |
+| GUDCL | Gujarat Urban Development Company Limited | KYC | Know Your Customer |
+| HKEK | Hong Kong Exchanges and Clearing Limited | LCR | Liquidity Coverage Ratio |
+| HPC | High Powered Committee | LLP | Limited Liability Partnership |
+| HSBC | Hongkong and Shanghai Banking Corporation | LRS | Liberalised Remittance Scheme |
+| IAC | International Arbitration Centre | MAT | Minimum Alternate Tax |
+| ITA | Income Tax Act, 1961 | MF | Mutual Fund |
+| IBC | International Branch Campus | MGA | Managing General Agent |
+| IBU | IFSC Banking Unit | mn | Million |
+| IFSC | International Financial Services Centres | NA | Not Applicable |
+| IFSCA | International Financial Services Centres Authority | NASDAQ | National Association of Securities Dealers Automated Quotations |
+| IIBX | Indian International Board of Exchange | NDF | Non-Deliverable Fund |
+| IIO | IFSC Insurance Office | NID | National Institute of Design |
+| INR | Indian Rupee | | |
+
+Doing business in India's International Financial Services Centre (IFSC) 63
+
+*[Page 63 of 68]*
+
+---
+
+NIFT | National Institute of Fashion Technology | SEZ | Special Economic Zone
+--- | --- | --- | ---
+NOC | No Objection Certificate | SGX | Singapore Exchange
+NRI | Non-Resident Indian | SL | Ship Leasing Entities
+NSE | National Stock Exchange | SLR | Statutory Liquidity Ratio
+NSE IFSC | National Stock Exchange International Financial Services Centre | SNRR | Special Non-Resident Rupee Account
+NSFR | Net Stable Funding Ratio | STEM | Science, Technology, Engineering and Mathematics
+NYMEX | New York Mercantile Exchange (also part of CME Group) | STT | Security Transaction Tax
+ODI | Overseas Direct Investment | SWIT | Single Window IT System
+OEC | Off-Shore Education Centre | UDAN | Ude Desh ka Aam Naagrik
+OPI | Overseas Portfolio Investment | ULIPs | Unit Linked Insurance Plans
+OTC | Over the Counter | US$ | United States Dollar
+PFRDA | Pension Fund Regulatory and Development Authority of India | YoY | Year-over-Year
+PPM | Private Placement Memorandum | | 
+PMS | Portfolio Management Services | | 
+PSL | Priority Sector Lending | | 
+RBI | Reserve Bank of India | | 
+REIT | Real Estate Investment Trust | | 
+REs | Registered Entities | | 
+SEBI | Securities and Exchange Board of India | | 
+
+64 Doing business in India's International Financial Services Centre (IFSC)
+
+*[Page 64 of 68]*
+
+---
+
+# Footnotes
+
+1. Including all entities registered, licensed, authorised, and notified by IFSCA.
+2. All Press Release: Press Information Bureau
+3. IFSCA Bulletin published for Q2 (July-September 2025) and IFSCA website
+4. The Global Financial Centres Index
+5. IFSCA Annual Report 2024-25
+6. Any transaction with Indian entity and / or person is subject to Indian exchange control regulations i.e., FEMA and rules and regulations made thereunder
+7. 42 entities have exited FinTech sandbox
+8. Under the earlier IFSCA (Ancillary Services) Framework, 2021
+9. Under the earlier Fintech Entity (FE) Framework, 2022
+10. Under the new IFSCA (TAS) regulations, 2025
+11. For detailed regulations, frameworks, guidelines relevant to the banking sector, please refer the IFSCA website at: [IFSCA - Banking Units](#)
+12. to be maintained at the parent bank on an unimpaired basis, i.e., not weakened or diminished
+13. The ITA levies MAT on the company if the amount of income-tax payable under the normal provisions of the ITA is less than 15% of the company's 'book-profits'.
+14. The ITA levies AMT on persons other than a company if the amount of income-tax payable under the normal provisions of the ITA is less than 18% of the person's 'adjusted total income'.
+15. MAT may not apply to a domestic company which has opted for the concessional tax regime
+16. Capital gains on equity shares of Indian company shall be chargeable to tax at prescribed rates.
+17. For detailed regulations, frameworks, guidelines relevant to the fund management sector, please refer the IFSCA website at: [IFSCA - Fund management](#)
+18. Retail investors cannot invest in LLPs
+
+19. Capital gains on equity shares of Indian company shall be chargeable to tax at prescribed rates.
+20. As defined in Explanation to section 47(viiac) and (viiad) of the ITA
+21. Excluding in-principle approvals
+22. Excluding surrendered funds
+23. Investors from more than 65 jurisdictions have contributed across schemes.
+24. Excluding the exposure towards derivatives contracts. In the case of fund of fund, cash maintained, and expenses incurred by the master fund are also excluded. This reflects the investments made by the FMEs as on the end of the quarter, excluding exposure towards derivative contracts, cash equivalents, etc. In the case of schemes which are in the nature of fund of funds, cash maintained, and expenses incurred by the master fund are also excluded. The cumulative investments made as at the end of quarter stand at US$ 5148.01 million.
+25. This excludes exposure towards derivative contracts, cash equivalents, etc. In the case of fund of funds schemes, cash maintained, and expenses incurred by the underlying fund are also excluded.
+26. For detailed regulations, frameworks, guidelines relevant to the insurance sector, please refer the IFSCA website at: [IFSCA - Insurance Office](#)
+27. In case of branch structure, minimum capital mandate and solvency margin to be maintained as per Home Country regulations
+28. The above amounts have been converted at 1 US$ = INR 86
+29. Direct Insurance business means Life insurance business, General insurance business, Health insurance business
+30. subject to approvals
+31. As per IRDAI (Re-insurance) Regulations, 2018
+32. For detailed regulations, frameworks, guidelines relevant to the insurance intermediaries, please refer the IFSCA website at: [IFSCA - Insurance Intermediary Office](#)
+
+Doing business in India's International Financial Services Centre (IFSCA) 65
+
+*[Page 65 of 68]*
+
+---
+
+# Footnotes
+
+33 | For detailed regulations, frameworks, guidelines relevant to the capital market intermediaries, please refer the IFSCA website at: IFSCA - Capital Market Intermediaries
+---|---
+34 | IFSCA has constituted a 'Standing Committee on Primary Markets' for seeking suggestions and recommendations from the market experts on the various policy and regulatory matters to facilitate the development of a vibrant and robust ecosystem for primary markets in GIFT City, IFSC
+35 | For bonds listed on or after 1 July 2023, prior to which it was 4%
+36 | HKEX, SGX, CME, KSE, COMEX, NASDAQ, CBOE, NYMEX, ARCA, CFE and others
+37 | For detailed regulations, frameworks, guidelines relevant to the finance companies, please refer the IFSCA website at: IFSCA - Finance Company (Core)
+38 | Finance Company shall not undertake or fund any speculative transaction. Not allowed to accept public deposits
+39 | If regulated by a finance services sector regulator in home country jurisdiction
+40 | For detailed regulations, frameworks, guidelines relevant to the aircraft leasing, please refer the IFSCA website at: IFSCA - Aircraft Leasing
+41 | An Overview of Civil Aviation in India | knowIndia.net
+42 | Global aircraft fleet to double in next 2 decades led by India: Airbus
+43 | A boost to aviation leasing - Opinion News | The Financial Express
+44 | "aircraft" means an aircraft or a helicopter, or an engine of an aircraft or a helicopter, or any part thereof
+45 | Including provisional registrations
+46 | For detailed regulations, frameworks, guidelines relevant to the ship leasing, please refer the IFSCA website at: IFSCA - Ship Leasing
+47 | An Applicants can undertake these activities only if such applicant has absolute or lease hold right over the ship/ocean vessel
+
+48 | "ship" means a ship or an ocean vessel, engine of a ship or ocean vessel, or any part thereof;
+---|---
+49 | For detailed regulations, frameworks, guidelines relevant to the ITFS, please refer the IFSCA website at: IFSCA - ITFS
+50 | For detailed regulations, frameworks, guidelines relevant to the treasury centres, please refer the IFSCA website at: IFSCA - GRCTC
+51 | For detailed regulations, frameworks, guidelines relevant to the FinTech, please refer the IFSCA website at: IFSCA - FinTech
+52 | IFSCA may allow temporary relaxation of certain requirements for sandbox testing such as net worth criteria, track record requirements, registration fees and some operational conditions
+53 | For detailed regulations, frameworks, guidelines relevant to the GICs, please refer the IFSCA website at: IFSCA - Global In house Centres
+54 | For detailed regulations, frameworks, guidelines relevant to the BATF segment, please refer the IFSCA website at: IFSCA - BATF Service
+55 | Services to Indian residents, audit or assurance services, subcontracting to domestic Indian entities and legal representation or activities conflicting with AML principles are not permitted.
+56 | For detailed regulations, frameworks, guidelines refer the IFSCA website at: IFSCA - TechFin and IFSCA - Ancillary Service
+57 | Such as Artificial Intelligence/Machine Learning/ Big Data, Biometrics, Chatbots, Cyber security, Digital Identity/KYC/AML/CFT, Distributed Ledger Technology, Fraud detection/prevention, Internet of Things (IoT), Longevity Finance, Metaverse including Augmented Reality and /or Virtual Reality, Quantum Tech, Web 3.0
+58 | In the case of a TechFin and Ancillary Service Provider providing services exclusively to its Group Entities located in the IFSC, the appointment of a principal officer is optional subject to the approval of the Authority
+
+66 | Doing business in India's International Financial Services Centre (IFSC)
+---|---
+
+*[Page 66 of 68]*
+
+---
+
+59 | For detailed regulations, frameworks, guidelines relevant to the IFSCA website at: <br> _IFSCA - International Branch Campus or Offshore Education Centre in IFSC framework_ | 65 | GIFT SEZ - FAQs on Gujarat IT/ ITeS Policy 2022-2027 |
+|---|---|---|---|
+60 | IBC shall mean a campus set up as a branch by a Foreign University on stand-alone basis, or in such other form as may be permitted by the Authority in the IFSC at GIFT City for the purpose of delivering courses including research programs in the permissible subject areas, that are duly accredited under the relevant framework in their respective home jurisdiction, and is registered with the Authority. | 66 | Enhanced Incentive Components - High Powered Committee (HPC) may include other incentives or relax any conditions mentioned under policy based on the scale of investment, employment generation, high-value addition and potential for attracting further investment. Such an incentive package will be tailored in consultation with all the stakeholders involved. |
+61 | OEC shall mean a center set up as a branch by a Foreign Educational Institution (other than a Foreign University) in the IFSC at GIFT City on stand-alone basis or in such other form as may be permitted by the Authority for the purpose of delivering courses including research programs in the permissible subject areas, that are duly accredited under the relevant framework in their respective home jurisdiction, and is registered with the Authority. | 67 | Opex and special incentives are available for the period of 5 years from date of commencement of operations [except Employment Generation Grant which has sunset clause of 31 March 2027] |
+| | | 68 | Reference to Regulation 5 of Foreign Exchange Management (International Financial Services Centre) Regulations, 2015 |
+| 62 | _giftgujarat guide_ | 69 | Unlike Income-tax Act which considers IFSC as part of India for tax purposes |
+| 63 | _GIFT City - Thriving Hub for Leading Tech & Finance Talent_ | 70 | Dated 1 April 2016 |
+| 64 | Announced vide G.R. No: ITP/10/2021/583612/IT dated 07 February 2022 | 71 | https://ifsca.gov.in/Legal/Index?MId=TPh 1fyzWxB0= |
+| | | 72 | https://ifsca.gov.in/Legal/Index?MId=P4q EkTGu64w= |
+| | | 73 | _IFSCA - Foreign Currency Settlement System (Circular)_ |
+
+Doing business in India's International Financial Services Centre (IFSC) | 67
+
+*[Page 67 of 68]*
+
+---
+
+Ernst & Young LLP
+
+**EY | Building a better working world**
+
+EY is building a better working world by creating new value for clients, people, society and the planet, while building trust in capital markets.
+
+Enabled by data, AI and advanced technology, EY teams help clients shape the future with confidence and develop answers for the most pressing issues of today and tomorrow.
+
+EY teams work across a full spectrum of services in assurance, consulting, tax, strategy and transactions. Fueled by sector insights, a globally connected, multi-disciplinary network and diverse ecosystem partners, EY teams can provide services in more than 150 countries and territories.
+
+**All in to shape the future with confidence.**
+
+EY refers to the global organization, and may refer to one or more, of the member firms of Ernst & Young Global Limited, each of which is a separate legal entity. Ernst & Young Global Limited, a UK company limited by guarantee, does not provide services to clients. Information about how EY collects and uses personal data and a description of the rights individuals have under data protection legislation are available via ey.com/privacy. EY member firms do not practice law where prohibited by local laws. For more information about our organization, please visit ey.com.
+
+Ernst & Young LLP is one of the Indian client serving member firms of EYGM Limited. For more information about our organization, please visit www.ey.com/en_in.
+
+Ernst & Young LLP is a Limited Liability Partnership, registered under the Limited Liability Partnership Act, 2008 in India, having its registered office at Ground Floor, Plot No. 67, Institutional Area, Sector - 44, Gurugram - 122 003, Haryana, India.
+
+© 2025 Ernst & Young LLP. Published in India.  
+All Rights Reserved.
+
+EYIN2512-003  
+ED None
+
+This publication contains information in summary form and is therefore intended for general guidance only. It is not intended to be a substitute for detailed research or the exercise of professional judgment. Neither EYGM Limited nor any other member of the global Ernst & Young organization can accept any responsibility for loss occasioned to any person acting or refraining from action as a result of any material in this publication. On any specific matter, reference should be made to the appropriate advisor.
+
+SA
+
+### About HSBC India
+
+HSBC India offers a full range of banking and financial services through 27 branches across 15 cities. HSBC is one of India's leading financial services groups, with around 44,000 employees in its banking, investment banking and capital markets, asset management, insurance, software development and global resourcing operations in the country. It is a leading custodian in India. The Bank is at the forefront in arranging deals for Indian companies investing overseas and foreign investments into the country.
+
+### HSBC Holdings plc
+
+HSBC Holdings plc, the parent company of HSBC, is headquartered in London. HSBC serves customers worldwide from offices in 57 countries and territories. With assets of US$3,234bn at 30 September 2025, HSBC is one of the world's largest banking and financial services organisations.
+
+### Disclaimer
+
+This policy compendium has been developed by HSBC GIFT City branch and Ernst & Young LLP (collectively referred to as "HSBC" and "EY") for general informational and reference purposes only. The information contained in this policy compendium has been taken from publicly available sources.
+
+This document does not constitute definitive advice and should not be relied upon. While efforts have been made to ensure the accuracy and completeness of the information contained herein, HSBC and EY, along with their respective representatives, make no express or implied warranties regarding the accuracy, feasibility or suitability for any particular purpose, and are not liable for any errors or omissions.
+
+This document should not be interpreted as an inducement to enter into any agreement, arrangement or contractual relationship with HSBC and/or EY. HSBC and/or EY are not obligated to provide additional information or updates regarding the compendium.
+
+The issuance of this document does not establish an adviser/client relationship. Such a relationship is only formed upon the execution of an engagement letter on mutually agreed terms.
+
+The information has not been independently verified by HSBC and EY. Further, HSBC and EY, along with their representatives, disclaim any liability for the accuracy or sufficiency of this document or any related information, and for any loss or damage arising from reliance on it. HSBC and EY are not liable to third parties for any losses, damages or liabilities.
+
+The contents of this document shall not be copied, distributed or disclosed, in whole or in part, without the prior written consent of HSBC and EY, respectively. By accessing or using this policy compendium, you acknowledge and agree to the terms of this disclaimer.
+
+© Copyright HSBC
+
+ALL RIGHTS RESERVED
+
+*[Page 68 of 68]*

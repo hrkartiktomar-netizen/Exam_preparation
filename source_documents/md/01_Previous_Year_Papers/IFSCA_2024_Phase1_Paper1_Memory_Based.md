@@ -1,0 +1,1822 @@
+# IFSCA-Grade-a-2024-Memory-Based-Phase-1-Paper-1 — OCR transcription (Gemini)
+
+[logo: Adda 247] [logo: GET IT ON Google Play]
+
+# IFSCA Grade A 2024 Phase 1 Paper 1 Questions
+
+## Section - Quantitative Aptitude
+
+Direction (1-5): What is the approximate value should come in place of question mark in the following questions?
+
+**Q1.** $55.55\%$ of $305.98 + 6.08 \times 11.98 - \sqrt{960.89} =?$
+
+A. 211  
+B. 215  
+C. 220  
+D. 110  
+E. 105  
+
+**Answer: A**
+
+**Q2.** $\frac{1}{5} \times 699.9845 - 43.002 \times 5 + 594.012 \times 2 = ?$
+
+A. 845  
+B. 934  
+C. 1023  
+D. 1256  
+E. 1113  
+
+**Answer: E**
+
+**Q3.** $11.18 \times \sqrt{170.02} =? \times \sqrt{48.902} + 19.034 \times 1.908$
+
+A. 10  
+B. 15  
+C. 20  
+D. 25  
+E. 5  
+
+**Answer: B**
+
+**Q4.** $44.44\%$ of $198.109 + \sqrt{224.98} \times 2.087 - 218.190 =?$
+
+A. -120  
+B. -110  
+C. -100  
+D. -90  
+E. -130  
+
+**Answer: C**
+
+**Q5.** $419.98 \div 6.97 + 8.12 \times 13.108 - 629.912 \div \sqrt{441.01} = ?$
+
+A. 130  
+B. 134  
+C. 138  
+D. 142
+
+*[Page 1 of 38]*
+
+---
+
+Adda 247
+Test Prime
+
+ALL EXAMS, **ONE SUBSCRIPTION**
+
+[icon: test paper]
+**80,000+**
+**Mock Tests**
+
+[icon: report card]
+**Personalised**
+**Report Card**
+
+[icon: re-attempt]
+**Unlimited**
+**Re-Attempt**
+
+[icon: book]
+**600+**
+**Exam Covered**
+
+[icon: document]
+**20,000+ Previous**
+**Year Papers**
+
+[icon: rupee]
+**500%**
+**Refund**
+
+[logo: IBPS]
+[logo: SBI]
+[logo: NABARD]
+[seal]
+
+[logo: Indian Railways]
+[logo: Ashok Stambha]
+[seal]
+[seal]
+
+**ATTEMPT FREE MOCK NOW**
+
+*[Page 2 of 38]*
+
+---
+
+[logo: Adda 247] [logo: GET IT ON Google Play]
+
+E. 146
+Answer: B
+
+A. **Q6. The percentage loss incurred by selling the product at Rs. 1350 is equal to one-half of the percentage profit earned by selling the same product at Rs. 3450. At what price should the product be sold to make a profit of 10%?** Rs. 2255
+
+B. Rs. 2400
+C. Rs. 2500
+D. Rs. 2350
+E. None of these
+Answer: A
+
+**Q7. In still water, boat 'B' is twice as fast as boat 'A'. Boats 'A' and 'B' are 300 km apart in a stream, and are travelling towards each other and will meet each other in 5 hours. What is the speed of boat 'A' in still water given that they started to travel towards each other at same time?**
+
+A. 20 km/h
+B. 24 km/h
+C. 40 km/h
+D. 30 km/h
+E. 15 km/h
+Answer: A
+
+**Q8. 'A' and 'B' started a business by investing their capitals in the ratio of 4:3, respectively. Seven months later, 'C' joins them by investing Rs. 10,000. If at the end of the year, profit share of 'C' is Rs. 5,000 out of total profit of Rs. 21,800, then find the difference between initial investments of 'A' and 'B'.**
+
+A. Rs. 4,000
+B. Rs. 3,000
+C. Rs. 2,000
+D. Rs. 2,500
+E. None of these
+Answer: A
+
+**Q9. Ratio of the number of boys and girls in the class is 11:14. If 8 boys and 4 girls joined the class, then the ratio of the boys and girls becomes 15:16. Find the percentage increase in the strength of the class?**
+
+A. 15%
+B. 18%
+C. 20%
+D. 22%
+E. 24%
+Answer: E
+
+*[Page 3 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+A. Q10. The income of 'A' is Rs. 12,500 while the income of 'B' is 16% more than that of 'A'. The ratio of expenditure and savings of 'A' is 2:3, respectively. 'B' spends Rs. 1,700 more than he saves. The expenditure of 'B' is how much percent of the savings of 'A'? 112%
+
+B. 120%
+
+C. 108%
+
+D. 96%
+
+E. 124%
+
+Answer: C
+
+Direction (11-15): Read the following information carefully and answer the questions. 
+Three friends Mayank, Isha and Lalit prepared for an exam to get their dream job. Each dedicated certain hours of time in three domains such as technical, non-technical and general knowledge in a month. Mayank spent 60 hours totally on non-technical preparation which is 30 hours less than the time he spent on technical preparation. The ratio of the number of hours spent by Lalit on technical preparation to the number of hours spent by Mayank on general knowledge is 7: 5. The total number of hours dedicated by Mayank on total is 200 hours which is $\frac{5}{6}$ th of the number of hours dedicated by Isha on total. The number of hours spent by Isha on non-technical preparation is 40 hours more than the number of hours spent by Mayank on general knowledge. The number of hours spent by Isha on technical preparation is 20% more than the number of hours spent by Lalit on same preparation. The ratio of the number of hours spent by Isha and Lalit on general knowledge is 3:2. Three friends spent totally 190 hours on non-technical preparation.
+
+Q11. How many hours totally did the three friends spend on technical preparation?
+
+A. 244 hrs
+
+B. 284 hrs
+
+C. 254 hrs
+
+D. 224 hrs
+
+E. None of these
+
+Answer: A
+
+Q12. Mayank and Lalit spent $\frac{3}{5}$ th and $\frac{3}{4}$ th of the number of hours spent on non-technical preparation for maths. What is the ratio of the total number of hours spent by them on maths to others?
+
+A. 51:13
+
+B. 54:11
+
+C. 44:15
+
+D. 33:17
+
+*[Page 4 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+E. None of these
+Answer: D
+
+Q13. The total number of hours spent by Lalit is what percentage more or less than the total number of hours spent by three friends on general knowledge?
+A. 5.33 % more
+B. 3.55 % less
+C. 2.66 % more
+D. 3.75 % less
+E. None of these
+Answer: D
+
+Q14. What is the average number of hours spent by three friends on all three domains?
+A. 133 hours
+B. 198 hours
+C. 164 hours
+D. 129 hours
+E. None of these
+Answer: B
+
+[logo: Adda247 watermark]
+
+Q15. Among the total hours spent by the three friends on general knowledge, they involved in interviewing each other for 45 minutes on every turn among them. Find the total time they spent exclusively on general knowledge.
+A. 133.4 hrs
+B. 155.5 hrs
+C. 266.6 hrs
+D. 322.2 hrs
+E. None of these
+Answer: B
+
+Direction (16 - 20): What value should come in place of (?) in the following number series?
+Q16. 169, 289, ?, 469, 529, 569, 589
+A. 367
+B. 389
+C. 373
+D. 390
+E. None of these
+Answer: B
+
+*[Page 5 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+Q17. 12, 86, 226, ?, 830, 1372
+A. 462
+B. 478
+C. 456
+D. 469
+E. 472
+Answer: A
+
+Q18. 124, 131, ?, 146, 157, 170
+A. 138
+B. 135
+C. 140
+D. 136
+E. 142
+Answer: D
+Q19. 24, ?, 18, 45, 157.5, 708.75
+A. 20
+B. 28
+C. 36
+D. 12
+E. 18
+Answer: D
+
+Q20. 15, 27, 49, ?, 115, 155
+A. 60
+B. 56
+C. 76
+D. 68
+E. 79
+Answer: E
+Directions (21-25): Answer the questions based on the information given below.
+The given table shows the average number of spoons (wooden and plastic) and percentage
+of wooden spoons sold out of total number of spoons sold, by five different sellers. Total
+number of spoons = Number of (wooden + plastic) spoons.
+
+Q21. Find the ratio of the number of wooden spoons sold by 'E' to the number of plastic
+spoons sold by 'C'.
+A. 5:3
+B. 4:1
+C. 7:4
+D. 8:5
+
+*[Page 6 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+E. 9:4  
+Answer: A  
+
+Q22. The number of plastic spoons sold by 'B' is how much percent more/less than the  
+number of wooden spoons sold by 'D'?  
+A. 12%  
+B. 15%  
+C. 10%  
+D. 18%  
+E. 20%  
+Answer: C  
+
+Q23. 'A' sold each plastic and wooden spoon for Rs. 4 and Rs. 15, respectively. Find the total  
+amount earned by him.  
+A. Rs. 3000  
+B. Rs. 2600  
+C. Rs. 1800  
+D. Rs. 2400  
+E. Rs. 2100  
+Answer: E  
+
+Q24. Find the average of number of plastic spoons sold by 'D' and 'E'.  
+A. 410  
+B. 240  
+C. 380  
+D. 300  
+E. 290  
+Answer: C  
+
+Q25. Find the difference between total number of wooden spoons sold by 'B' and 'C'  
+together and average number of spoons sold by 'E'.  
+A. 12  
+B. 32  
+C. 26  
+D. 18  
+E. 24  
+Answer: C
+
+*[Page 7 of 38]*
+
+---
+
+[logo: Adda247] [logo: Google Play]
+
+# Section – Logical Reasoning
+
+**Directions (1-5): Answer the questions based on the information given below.**
+**Eight persons A, B, C, D, E, F, G and H are sitting in a circular table but not necessarily in the same order. Some are facing inside the circle while others are facing outside the circle. Not more than two persons sitting together are facing same direction. D is sitting second right of H and vice versa. E is sitting fourth left of F. E is sitting immediate left of A, who is facing inside the circle. H is sitting second left of G. B is sitting fourth left of C. Both F and E are facing same direction. C is not an immediate neighbor of H and is not facing inside the circle. G is sitting immediate right of B.**
+**Q1. Who sits immediate right of G?**
+A. A
+B. E
+C. B
+D. C
+E. D
+**Answer: B**
+
+**Q2. Who sits opposite to A?**
+A. H
+B. E
+C. B
+D. G
+E. D
+**Answer: A**
+
+**Q3. How many persons sit between B and A, if counted from the right of B?**
+A. One
+B. Two
+C. Three
+D. Five
+E. None
+**Answer: B**
+
+**Q4. What is the position of C with respect to H?**
+A. Third to left
+B. Immediate right
+C. Third to right
+D. Second to right
+E. Second to left
+**Answer: C**
+
+*[Page 8 of 38]*
+
+---
+
+[logo: Adda 247] [logo: GET IT ON Google Play]
+
+Q5. Who sits third to the right of F?
+A. A
+B. E
+C. B
+D. C
+E. D
+Answer: A
+
+Directions (6-10): Answer the questions based on the information given below.
+A, E, G, H, K, M, R and V are sitting in a row that runs from East to West, all facing North, but not necessarily in the same order. V is sitting 2nd to the left of G. Only one person is sitting between V and K. M is sitting beside V. G is sitting 2nd to the left of H. M is sitting second to right of E. The number of persons sitting to the left of K is same as the number of persons sitting to the right of A. R is not sitting at any extreme end.
+
+Q6. Who sits immediate right of R?
+A. A
+B. V
+C. M
+D. K
+E. G
+Answer: E
+
+Q7. How many persons sit between V and A?
+A. One
+B. Two
+C. Three
+D. Five
+E. None
+Answer: B
+
+[logo watermark: Adda 247]
+
+A. Q8. How many persons sit between M and H? One
+B. Two
+C. Four
+D. Five
+E. None
+Answer: C
+
+Q9. Which among the following is the right combination of persons sitting at the left and right end of the respectively?
+A. K, R
+B. V, M
+C. M, A
+
+*[Page 9 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+D. E, H
+E. None of these
+**Answer: D**
+**Q10. Find the odd one out?**
+A. EK
+B. RG
+C. HA
+D. MR
+E. VR
+**Answer: D**
+
+**Directions (11-13): In the given questions, the relationship between different elements is shown in the statements followed by some conclusions. Find the conclusion which is definitely true.**
+**Q11. Statements:**
+**R > K ≤ G = C < Z; C ≤ E = A ≥ S**
+**Conclusions:**
+**I) K ≤ A**
+**II) Z > S**
+**III) E > K**
+A. Only conclusion I is true
+B. Only conclusion III is true
+C. Only conclusions I and III are true
+D. Either conclusion I or III is true
+E. None is true
+**Answer: A**
+
+**Q12. Statements:**
+**S > I = W ≥ C ≥ A = U; B > W ≤ Y = E**
+**Conclusions:**
+**I) E ≥ A**
+**II) U < B**
+**III) Y > S**
+A. Only conclusion I is true
+B. Only conclusion III is true
+C. Only conclusions I and II are true
+D. Either conclusion I or III is true
+E. None is true
+**Answer: C**
+
+**Q13. Statements**
+
+*[Page 10 of 38]*
+
+---
+
+[logo: Adda 247] [logo: GET IT ON Google Play]
+
+Q≥W<E≤Y<P≥D; W=T>U>L≤V=A≥M
+**Conclusions**
+**I) L<P**
+**II) Y>V**
+**III) Q>L**
+A. Only conclusion I is true
+B. Only conclusion III is true
+C. Only conclusions I and III are true
+D. Either conclusion I or III is true
+E. None is true
+**Answer: C**
+
+**Directions (14-15): Answer the questions based on the information given below.**
+**There are seven members G, Q, D, E, T, U, and H in the family with three generations. There is a couple in each generation. Q is the daughter-in-law of G, who has two children. U is the son of D and does not have any siblings. U is married to H. E is unmarried. There is no single parent in the family.**
+**Q14. How is T related to E if G is a female?**
+A. Father
+B. Mother
+C. Son-in-law
+D. Sister-in-law
+E. None of these
+**Answer: A**
+
+```
+   (+/-) G === T (+/-)
+         |
+  Q(-) == D(+) === E(+/-)
+         |
+       U(+) === H(-)
+```
+
+| Male | (+) |
+| :--- | :--- |
+| Female | (-) |
+| Sibling | |
+| Couple | |
+| Generation gap | ↓ |
+
+**Q15. How is Q related to H?**
+A. Father-in-law
+
+*[Page 11 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+B. Mother
+C. Son-in-law
+D. Mother-in-law
+E. None of these
+**Answer: D**
+
+(+/-) G === T (+/-)
+  |
+Q(-) === D(+) === E(+/-)
+  |
+U(+) === H(-)
+
+| Male | (+) |
+| --- | --- |
+| Female | (-) |
+| Sibling | — |
+| Couple | === |
+| Generation gap | ↓ |
+
+[logo: Adda247 watermark]
+
+**Q16.** How many such pairs of letters are there in the word "DESTINATION" each of which has as many letters between them as there in the English alphabetical series (Both forward and backward directions)?
+A. Three
+B. Four
+C. Five
+D. More than six
+E. Two
+**Answer: C**
+
+**Directions (17-20):** Answer the questions based on the information given below.
+A girl started walking from point A towards east for 7m to reach point B. Then, she walks for 4m towards south to reach point C. Then, she takes left turn and walks for 9m to reach point D. After this she walks for 5m in north direction to reach point E.
+A boy started walking towards north from point F for 14m to reach point G. Then, he takes a right turn and walks for 7m to reach point I. Then finally he takes a right turn and walks for 10m to reach point E.
+**Q17.** What is the shortest distance between point G and D?
+A. $\sqrt{204}\text{ m}$
+B. $\sqrt{274}\text{ m}$
+
+*[Page 12 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+C. $\sqrt{174}\text{ m}$
+D. $\sqrt{74}\text{ m}$
+E. $\sqrt{114}\text{ m}$
+Answer: B
+
+```
+     G         I
+       7m
+    ┌─────────┐
+    │         │
+    │         │10m
+    │         │
+    │         │
+    │         E
+    │         │
+B   │         │5m
+┌───┘         │
+│7m     F     │
+│4m           │
+└─────────┘   │
+ C     9m    D
+```
+
+**Q18. What is the direction of the girl's current position with respect to the boy's starting**
+**position?**
+A. Northeast
+B. Southeast
+C. East
+D. West
+E. Southwest
+Answer: A
+
+[logo: Adda247 watermark]
+
+```
+     G         I
+       7m
+    ┌─────────┐
+    │         │
+    │         │10m
+    │         │
+    │         │
+    │         E
+    │         │
+B   │         │5m
+┌───┘         │
+│7m     F     │
+│4m           │
+└─────────┘   │
+ C     9m    D
+```
+
+**Q19. What is the direction of point C with respect to point I?**
+A. Northeast
+
+*[Page 13 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+B. Southeast
+C. East
+D. West
+E. Southwest
+Answer: E
+
+```
+                  I
+         G        ┌────────┐
+                  │        │
+                  │        │
+             14m  │        │ 10m
+                  │        │
+                  │        │
+                  │        E
+                  │        │
+          B       │        │
+  A───────┐       │        │ 5m
+      7m  │       │        │
+          └─┐     │        │
+            │     │        │
+            C     └──┬─────┘
+                     D
+                     9m
+```
+
+**Q20. What is the shortest distance between point B and I?**
+A. $\sqrt{202}\text{ m}$
+B. $\sqrt{204}\text{ m}$
+C. $\sqrt{104}\text{ m}$
+D. $\sqrt{74}\text{ m}$
+E. $\sqrt{111}\text{ m}$
+Answer: A
+
+```
+                  I
+         G        ┌────────┐
+                  │        │
+                  │        │
+             14m  │        │ 10m
+                  │        │
+                  │        │
+                  │        E
+                  │        │
+          B       │        │
+  A───────┐       │        │ 5m
+      7m  │       │        │
+          └─┐     │        │
+            │     │        │
+            C     └──┬─────┘
+                     D
+                     9m
+```
+
+[watermark: Adda247]
+
+**Q21. Directions: In the question given below, there are two statements (I) and (II). These statements may be either independent causes or may be effects of independent causes or**
+
+*[Page 14 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+a common cause. One of these statements may be the effect of the other statement. Read both statements and decide which of the following answer choices correctly depicts the relationship between these two statements.
+I. The number of road accidents has increased significantly in the last few weeks and the everyday activities of people are affected.
+II. Recent heavy rainfall has caused significant disruption in Andhra Pradesh and Telangana.
+A. Statement I is the cause and Statement II is the effect.
+B. Statement II is the cause and Statement I is the effect.
+C. Both Statements I and II are independent causes.
+D. Both Statements I and II are effects of independent causes.
+E. Both Statements I and II are effects of some common cause.
+**Answer: B**
+
+**Q22. Directions: A situation/problem statement is given followed by three statements. Choose the one/s which is/are the correct course of action/s to be followed from the problem statement.**
+**Despite only a small fraction of people using online forums, these platforms wield significant influence over public opinion and discourse. Issues such as misinformation, harassment, and manipulation on these forums can have serious repercussions, including affecting individual safety, public health, and the democratic process.**
+**Course of Action:**
+I. Online forums should implement stricter user verification processes to ensure authenticity and accountability.
+II. Algorithms used by online forums to curate content should be regularly audited for bias and effectiveness.
+III. Forums should provide users with clear and accessible tools to report and address harmful content and behavior.
+A. Only III follows
+B. Both I and II follow
+C. Both II and III follow
+D. Only I follows
+E. All follows
+**Answer: E**
+**Q23.Directions: The question given below consists of a statement, followed by two arguments numbered I and II. You have to decide which of the arguments is 'strong' and choose your answer accordingly.**
+**Statement: Implementing strict environmental regulations can significantly reduce pollution and protect natural resources, leading to long-term sustainability.**
+**Arguments:**
+I. Yes, strict regulations ensure that companies adhere to best practices in waste management and emissions control, which directly reduces pollution.
+
+*[Page 15 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+II. No, strict environmental regulations might increase operational costs for companies, which
+could lead to reduced economic growth and potential job losses.
+A. Only I is strong
+B. Only II is strong
+C. Either I or II is strong
+D. Neither I or II is strong
+E. Both I and II are strong
+**Answer: A**
+
+**Q24. Find the odd one out?**
+A. LNQ
+B. OQT
+C. UWT
+D. FHK
+E. KMP
+**Answer: C**
+
+**Q25. If in the number “1437456689” all the digits are arranged in ascending order from left**
+**to right, how many digits will remain at the same position?**
+A. Four
+B. Two
+C. Three
+D. Five
+E. None
+**Answer: A**
+
+# **Section - General English**
+
+**Instructions (1-5): Identify the pair of words that need to be swapped to make the sentence**
+**correct.**
+**Q1. The professor's (A) profound research on (B) historical artifacts (C) shed light on the (D)**
+**significance of ancient cultures.**
+A. (A-B)
+B. (A-C)
+C. (B-D)
+D. (C-D)
+E. No swap needed
+**Answer: C**
+**Q2. During the (A) negotiation, the company's (B) stringent terms were (C) challenged by**
+**the (D) representatives of the union.**
+A. (A-B)
+
+*[Page 16 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+B. (A-C)  
+C. (B-C)  
+D. (C-D)  
+E. No swap needed  
+
+**Q3. The novel's (A) intricate plot (B) delves into the (C) intricate emotions of its (D) deeply flawed characters.**  
+A. (A-B)  
+B. (A-C)  
+C. (B-C)  
+D. (C-D)  
+E. No swap needed  
+**Answer: A**  
+
+**Q4. The conference (A) provided a platform for (B) discussing the latest (C) advances in technology and (D) highlighted key challenges facing the industry.**  
+A. (A-B)  
+B. (A-C)  
+C. (B-C)  
+D. (C-D)  
+E. No swap needed  
+**Answer: B**  
+
+**Q5. Her (A) meticulous attention to (B) detail in preparing the (C) financial report was (D) noted by the audit team.**  
+A. (A-B)  
+B. (A-C)  
+C. (B-C)  
+D. (C-D)  
+E. No swap needed  
+**Answer: A**  
+
+**Instruction (6-12): Read the given passage and answer the questions based on the passage. The rise of technology has profoundly influenced nearly every aspect of modern life, fundamentally reshaping industries and transforming daily routines. Over the past few decades, technological advancements such as automation, artificial intelligence (AI), and machine learning have become central to many sectors, from manufacturing to healthcare. These innovations have introduced remarkable efficiencies, enabling businesses to streamline operations and reduce costs. For instance, automated systems in factories can perform repetitive tasks with high precision, minimizing human error and enhancing productivity.**
+
+*[Page 17 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+AI has also made significant strides, with applications ranging from virtual assistants to sophisticated data analysis tools. In healthcare, AI algorithms can analyze medical images to detect diseases at early stages, often with greater accuracy than traditional methods. This has the potential to revolutionize patient care by enabling earlier and more accurate diagnoses. Machine learning, a subset of AI, has similarly transformed industries by allowing systems to learn and improve from data without explicit programming.
+However, these technological advances are not without their challenges. One major concern is job displacement. As machines and algorithms become more capable, there is a growing fear that human workers may be replaced by automated systems, leading to unemployment and economic disruption. Additionally, the ethical implications of AI and automation raise questions about privacy, bias, and the extent to which decisions should be entrusted to machines.
+Organizations and policymakers face the task of balancing the benefits of these technological innovations with their potential drawbacks. It is crucial for stakeholders to implement strategies that not only embrace technological advancements but also address the associated risks. This includes investing in workforce retraining programs to help workers transition to new roles and developing ethical guidelines to govern the use of AI and automation.
+In conclusion, while technology offers substantial advantages in terms of efficiency and capability, it also presents significant challenges that must be carefully managed. The future will depend on how well society adapts to these changes and harnesses the potential of technology while safeguarding against its risks.
+
+Q6. What are some benefits of technological advancements mentioned in the passage?
+A. Increased productivity and early disease detection
+B. Job displacement and economic disruption
+C. Privacy issues and bias
+D. Reduced efficiency and higher costs
+E. None of the above
+**Answer: A**
+
+**Q7.** What is one major concern associated with technological advances according to the passage?
+A. Increased productivity
+B. Early disease detection
+C. Job displacement
+D. Improved data analysis
+E. Enhanced virtual assistants
+**Answer: C**
+
+**Q8.** How does AI impact healthcare as described in the passage?
+A. By replacing human doctors entirely
+
+*[Page 18 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+B. By analysing medical images for early disease detection
+C. By increasing costs of medical care
+D. By reducing the accuracy of diagnoses
+E. By automating routine administrative tasks
+**Answer: B**
+
+**Q9. What challenge is associated with automation mentioned in the passage?**
+A. Decreased efficiency
+B. Job creation
+C. Ethical concerns
+D. Enhanced data analysis
+E. Higher productivity
+**Answer: C**
+
+**Q10. According to the passage, what should organizations and policymakers do in response to technological changes?**
+A. Focus solely on developing new technologies
+B. Implement strategies to embrace technology while managing risks
+C. Ignore ethical concerns
+D. Avoid investing in workforce retraining
+E. Disregard the benefits of technology
+**Answer: B**
+
+A. **Q11. How does machine learning contribute to industry transformation as per the passage?** By performing tasks without explicit programming
+B. By increasing job displacement
+C. By reducing productivity
+D. By replacing human workers
+E. By creating privacy issues
+**Answer: A**
+
+**Q12. What is suggested as a solution to the risks posed by technological advancements?**
+A. Eliminating technological innovations
+B. Investing in workforce retraining and developing ethical guidelines
+C. Ignoring the potential drawbacks
+D. Reducing the use of AI in industries
+E. Allowing unrestricted use of automation
+**Answer: B**
+
+**Instruction (13-15): Choose the correct pair of words from the given Options which can fit the blanks aptly.**
+
+*[Page 19 of 38]*
+
+---
+
+[logo: Adda247] [logo: Google Play]
+
+Q13. The new policy was designed to _____ both the inefficiencies in the process and the _____ it had on employee morale.
+A. rectify, improvement
+B. address, impact
+C. ignore, consequence
+D. exacerbate, benefit
+E. enhance, confusion
+**Answer: B**
+
+Q14. Despite the _____ of the project, the team managed to deliver it on time and within budget, demonstrating their _____ and dedication.
+A. simplicity, indifference
+B. complexity, commitment
+C. redundancy, hesitation
+D. novelty, resistance
+E. ease, procrastination
+**Answer: B**
+
+Q15. The CEO's speech was intended to _____ the employees' concerns and _____ confidence in the company's future.
+A. amplify, diminish
+B. address, restore
+C. confuse, erode
+D. overlook, amplify
+E. neglect, highlight
+**Answer: B**
+
+[logo: Adda247 watermark]
+
+**Instructions (16-19): Choose the word from the Options that best substitutes the underlined word or phrase in the sentence.**
+
+**Q16. The committee's decision was met with widespread approval and was seen as a highly _commendable_ move.**
+A. controversial
+B. admirable
+C. questionable
+D. ambiguous
+E. negligible
+**Answer: B**
+
+Q17. The new software program is designed to significantly _enhance_ productivity and efficiency in the workplace.
+A. reduce
+
+*[Page 20 of 38]*
+
+---
+
+[logo: Adda247] [logo: Google Play]
+
+B. decrease
+C. improve
+D. obscure
+E. hinder
+**Answer: C**
+
+**Q18. Her approach to solving complex problems is both **innovative** and practical, making her a valuable asset to the team.**
+A. traditional
+B. outdated
+C. creative
+D. ineffective
+E. irrelevant
+**Answer: C**
+
+**Q19. The government introduced a series of measures aimed at **mitigating** the adverse effects of the economic downturn.**
+A. exacerbating
+B. enhancing
+C. reducing
+D. ignoring
+E. celebrating
+**Answer: C**
+
+**Instructions (20-22): Choose the word that best completes the sentence to convey the intended meaning.**
+
+**Q20. The team was able to \_\_\_\_ the project ahead of schedule due to their effective management and coordination.**
+A. delay
+B. advance
+C. hinder
+D. undermine
+E. obstruct
+**Answer: B**
+
+**Q21. To ensure the accuracy of the research findings, it is important to \_\_\_\_\_ all sources of data before drawing any conclusions.**
+A. fabricate
+B. disregard
+C. validate
+D. ignore
+
+*[Page 21 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+E. distort
+
+Answer: C
+
+Q22. Her presentation was filled with detailed information and _____ arguments that convinced the audience of her point of view.
+
+A. weak
+
+B. irrelevant
+
+C. compelling
+
+D. superficial
+
+E. vague
+
+Answer: C
+
+Instructions (23-25): Identify the part of the sentence that contains an error.
+
+Q23. The company have introduced a new set of guidelines to ensure all employees comply with the latest regulations.
+
+A. The company
+
+B. have introduced
+
+C. a new set
+
+D. comply with
+
+E. the latest regulations
+
+Answer: B
+
+Q24. Neither the manager nor the employees were aware of the changes that was implemented last week.
+
+A. Neither the manager
+
+B. nor the employees
+
+C. were aware
+
+D. of the changes
+
+E. that was implemented
+
+Answer: E
+
+Q25. Despite of the challenges, the team managed to meet the project deadlines and exceed expectations.
+
+A. Despite of
+
+B. the challenges
+
+C. the team managed
+
+D. to meet
+
+E. exceed expectations
+
+Answer: A
+
+*[Page 22 of 38]*
+
+---
+
+[logo: Adda 247] [logo: GET IT ON Google Play]
+
+# Section – General Awareness
+
+**Q1. Which of the following is not a part of the Bima Trinity introduced by IRDAI?**
+A. Bima vistaar
+B. Bima Sugam
+C. Bima Jeevan
+D. Bima vahak
+E. All of the above
+**Answer: C**
+
+**Q2. Which country's bank, in collaboration with the International Finance Corporation (IFC), issued the world's first biodiversity bond in the financial sector?**
+A. Brazil
+B. Colombia
+C. Spain
+D. India
+E. Mexico
+**Answer: B**
+
+**Q3. In India, a Super Senior Citizen is defined as an individual resident who is of what age or above during the previous year?**
+A. 75 years
+B. 85 years
+C. 70 years
+D. 80 years
+E. 65 years
+**Answer: D**
+
+**Q4. In July 2024, which company was approved by the Reserve Bank of India (RBI) for conversion from a Non-Banking Financial Company (NBFC) to a Core Investment Company (CIC)?**
+A. TATA Capital
+B. Aditya Birla Finance
+C. Bajaj FinServ
+D. Jio Financial Services
+E. Mahindra Finance
+**Answer: D**
+
+**Q5. What is the new minimum paid-up capital requirement for Asset Reconstruction Companies (ARCs) as per the RBI's regulations effective from April 24, 2024?**
+A. ₹100 crore
+B. ₹200 crore
+C. ₹300 crore
+
+*[Page 23 of 38]*
+
+---
+
+[logo: Adda 247] [logo: GET IT ON Google Play]
+
+D. ₹500 crore
+E. ₹3000 crore
+**Answer: C**
+**Q6. Under the Union Budget 2024, how many youth are expected to be skilled over a 5-year period through the skilling programme?**
+A. 10 lakh
+B. 15 lakh
+C. 20 lakh
+D. 25 lakh
+E. 30 lakh
+**Answer: C**
+
+[box]
+**02 EMPLOYMENT AND SKILLING**
+
+**PM's Package ( 4th scheme):** A new **centrally sponsored scheme for skilling.**
+- **20 lakh youth** will be skilled over a **5-year** period.
+- **1,000 Industrial Training Institutes** will be upgraded in hub and spoke arrangements with outcome orientation.
+- Course content & design aligned as per **skill needs of** industry.
+[/box]
+
+[watermark: Adda 247]
+
+**Q7. Which bank is listed as the top Global Systemically Important Bank (G-SIB) with a 2.5% additional capital buffer, as per the November 2023 list by the Financial Stability Board (FSB)?**
+A. Bank of America
+B. HSBC
+C. Citigroup
+D. JPMorgan Chase & Co.
+E. Wells Fargo
+**Answer: D**
+**Q8. The Prime Minister of India addressed which edition of the Global Fintech Fest (GFF) in 2024?**
+A. $2^{\text{nd}}$
+B. $3^{\text{rd}}$
+C. $4^{\text{th}}$
+D. $5^{\text{th}}$
+E. $6^{\text{th}}$
+**Answer: D**
+
+*[Page 24 of 38]*
+
+---
+
+[logo: Adda 247] [logo: GET IT ON Google Play]
+
+Q9. Which depository service provider in India has the largest proportion of new Demat accounts as of March 2024?
+A. NSDL
+B. SEBI
+C. CDSL
+D. RBI
+E. BSE
+**Answer: C**
+
+Q10. After how many years of remaining unpaid and unclaimed are dividends, deposits, or debentures credited to the Investor Education and Protection Fund (IEPF)?
+A. 3 years
+B. 5 years
+C. 7 years
+D. 10 years
+E. 12 years
+**Answer: C**
+
+Q11. Which of the following is NOT an eligibility criterion for opening a National Pension System (NPS) account?
+A. Must be between 18 and 70 years of age
+B. Must comply with Know Your Customer (KYC) norms
+C. Must be a citizen of India, including Overseas Citizens of India (OCI)
+D. Can be opened on behalf of a third person
+E. Cannot be a Hindu Undivided Family (HUF) **Answer: D**
+
+Q12. What is the name of India's first-ever multinational air exercise to be hosted by the Indian Air Force (IAF)?
+A. Vayu Shakti
+B. Indra Dhanush
+C. Tarang Shakti
+D. Garuda
+E. Desert Eagle
+**Answer: C**
+
+[logo: Tarang Shakti-2024]
+9.
+- **First ever Indian multinational air exercise.**
+- To be hosted by the **IAF** in **two phases.**
+- **10 countries invited to participate in the exercise.**
+
+Q13. What percentage of its stake does State Bank of India (SBI) aim to sell in Yes Bank by the end of March 2024?
+A. 15%
+B. 20%
+C. 24%
+
+*[Page 25 of 38]*
+
+---
+
+[logo: Add247] [logo: GET IT ON Google Play]
+
+D. 18%
+E. 30%
+Answer: C
+
+Q14. What is the annual fee that broker-dealers need to pay to IFSCA, as per the June 2024 clarificatory circular, if they access global markets directly through their own arrangements from the IFSC?
+A. USD 500
+B. USD 1,000
+C. USD 2,000
+D. USD 1,500
+E. USD 5,000
+Answer: B
+
+Q15. The Reserve Bank of India (RBI) has approved an increase in the promoter's stake to 26% in which of the following banks?
+A. Yes Bank
+B. HDFC Bank
+C. ICICI Bank
+D. IndusInd Bank
+E. Axis Bank
+Answer: D
+
+Q16. Who was appointed as the protem Speaker of the 18th Lok Sabha?
+A. Om Birla
+B. Bhartruhari Mahtab
+C. Sumitra Mahajan
+D. Meira Kumar
+E. Suresh Prabhu
+Answer: B
+
+Q17. Muthoot Finance was selected for which international report in 2023-24?
+A. IMF Financial Stability Report
+B. FATF Mutual Evaluation Report
+C. World Bank Economic Report
+D. UN Climate Report
+E. BIS Financial Market Report
+Answer: B
+
+| 19. | **FATF Mutual Evaluation Report 2023-24** | • **Muthoot Finance only Indian NBFC to be selected for the report.** Note: FATF discussed in GA+Finance section in CurrentTap June 2024 (News 2.61). |
+
+Q18. Which bank is the second-highest credit card issuer in India in terms of market share?
+
+*[Page 26 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+A. HDFC Bank
+B. SBI Card
+C. ICICI Bank
+D. Axis Bank
+E. Bank of Baroda
+**Answer:** B
+**Q19. Reserve Bank of India (RBI) announced a revised currency swap framework for South Asian Association of Regional Cooperation (SAARC) nations for the period 2024-2027. When was the SAARC currency swap facility first introduced?**
+A. 2008
+B. 2010
+C. 2012
+D. 2014
+E. 2016
+**Answer:** C
+
+[box: DID YOU KNOW?
+SAARC currency swap facility was first introduced in 2012.]
+
+[watermark: Adda247]
+
+**Q20. What was India's rank in the UNDP Human Development Report for the year 2022?**
+A. 135
+B. 134
+C. 136
+D. 133
+E. 137
+**Answer:** B
+**Q21. As per the recent SEBI guidelines, what is the maximum aggregate contribution allowed by NRIs, OCIs, and Resident Indians in the corpus of Foreign Portfolio Investors (FPIs) based out of an International Financial Services Centre (IFSC)?**
+A. 50%
+B. 60%
+C. 75%
+D. 90%
+E. 100%
+**Answer:** E
+**Q22. UPI-PayNow was launched between India and which country?**
+A. UAE
+
+*[Page 27 of 38]*
+
+---
+
+[logo: Adda247] [logo: Google Play]
+
+B. Singapore
+C. USA
+D. Vietnam
+E. Bangladesh
+**Answer: B**
+**Q23. Who is the current Chairperson of the International Financial Services Centres**
+**Authority (IFSCA)?**
+A. Shri Ajay Tyagi
+B. Shri K. Rajaraman
+C. Shri Subhash Chandra Garg
+D. Shri S. K. Mohanty
+E. Shri Rama Nambiar
+**Answer: B**
+**Q24. How many registered International Insurance Offices (IIOs) are there in the Life**
+**Segment after IFSCA granted Certificate of Registration (CoR) to Canara HSBC Life Insurance**
+**Company Ltd. in June 2024?**
+A. 3
+B. 5
+C. 7
+D. 12
+E. 15
+**Answer: B**
+**Q25. Which phase of the Pradhan Mantri Gram Sadak Yojana (PMGSY) was announced in**
+**the Union Budget 2024?**
+A. Phase I
+B. Phase II
+C. Phase III
+D. Phase IV
+E. Phase V
+**Answer: D**
+IFSCA Grade A 2024 Phase 1 – Paper 2 Questions
+
+## Section – Finance
+**Q1. What is the maximum tenor of Treasury Bills (T-bills)?**
+A. 91 days
+B. 182 days
+C. 364 days
+D. 270 days
+120 days**Answer: C**
+
+*[Page 28 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+Q2. Cash Management Bill (CMB) is issued for?
+A. More than 91 days
+B. Exactly 91 days
+C. Less than 91 days
+D. 120 days
+E. Between 91 and 182 days
+Answer: C
+
+Q3. What is the minimum amount required to issue a Zero Principal Zero Coupon Bond, which is a fundraising instrument used by registered non-profit organizations on the social stock exchange?
+A. 50 thousand
+B. 25 lacs
+C. 50 crore
+D. 50 lacs
+E. 75 lacs
+Answer: D
+
+Q4. Which organization prepared the National Strategy for Financial Inclusion (NSFI) for the period 2019-2024?
+A. Securities and Exchange Board of India (SEBI)
+B. Ministry of Finance
+C. Reserve Bank of India (RBI)
+D. Insurance Regulatory and Development Authority of India (IRDAI)
+E. Bi Bank for Agriculture and Rural Development (NABARD)
+Answer: C
+
+Q5. What is the permissible deviation from the inflation target set by the RBI's Monetary Policy Committee (MPC)?
+A. Plus or minus 2%
+B. Plus or minus 3%
+C. Plus or minus 1%
+D. Plus or minus 4%
+E. Plus or minus 5%
+Answer: A
+
+Q6. Which scheme provides refinancing Options for small and micro units?
+A. Stand-Up India
+B. Pradhan Mantri MUDRA Yojana (PMMY)
+C. Deen Dayal Upadhyaya Grameen Kaushalya Yojana
+D. Pradhan Mantri Jan Dhan Yojana
+E. National Urban Livelihoods Mission
+Answer: B
+
+Q7. When does a forward contract mature?
+A. On the contract initiation date
+
+*[Page 29 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+B. On the trade date
+C. On the execution date
+D. On the maturity date
+E. On the contract revision date
+**Answer: D**
+**Q8. What is the maximum subscription limit of Sovereign Gold Bonds (SGBs) for a trust?**
+A. 10 kg
+B. 15 kg
+C. 20 kg
+D. 25 kg
+E. 5 kg
+**Answer: C**
+**Q9. What is the free limit under the Liberalised Remittance Scheme (LRS)?**
+A. $100,000
+B. $150,000
+C. $200,000
+D. $250,000
+E. $300,000
+**Answer: D**
+**Q10. The Stand-Up India scheme aims to help Scheduled Caste (SC), Scheduled Tribe (ST), and women entrepreneurs establish new businesses in which sectors?**
+A. Trading
+B. Manufacturing
+C. Services
+D. Agriculture and allied activities
+E. All of the above
+**Answer: E**
+**Q11. What is the maximum number of partners allowed in a partnership firm in India?**
+A. 10
+B. 30
+C. 50
+D. 75
+E. 100
+**Answer: C**
+**Q12. Under which type of issue will an FPO (Follow-on Public Offer) be classified?**
+A. Private Placement
+B. Rights Issue
+C. Preferential Issue
+D. Public Issue
+E. Bonus Issue
+**Answer: D**
+
+*[Page 30 of 38]*
+
+---
+
+[logo: Adda247] [logo: Google Play]
+
+Q13. Which of the following is NOT one of the 'Panchsutra' followed by Self Help Groups
+(SHGs)?
+A. Regular meetings
+B. Regular savings
+C. Regular inter-loaning
+D. Timely repayment
+E. Election of members for every 2 years.
+**Answer: E**
+
+## Section – Management
+
+Q14. Feedforward control is essentially ___ in nature.
+A. Corrective
+B. Certain
+C. Diagnostic
+D. Predictive
+E. Reactive
+**Answer: D**
+
+Q15. Who proposed the Path-Goal theory?
+A. Fred Fiedler
+B. Robert House
+C. Douglas McGregor
+D. Elton Mayo
+E. Victor Vroom
+**Answer: B**
+
+Q16. What type of informal communication involves an individual communicating with
+selective people whom they trust?
+A. Single Strand Communication
+B. Grapevine Communication
+C. Chain Communication
+D. Cluster Communication
+E. Wheel Communication
+**Answer: D**
+
+Q17. Which of the following terms, refers to harmony and mutual understanding among
+members in an organization?
+A. Division of Work
+B. Unity of Command
+C. Scalar Chain
+D. Esprit de Corps
+E. Authority and Responsibility
+**Answer: D**
+
+*[Page 31 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+### **Section – Commerce and Accounts**
+
+**Q18. Which accounting concept guides that a firm shows expenses and income of the same accounting period at the same time?**
+
+A. Going Concern
+
+B. Consistency
+
+C. Matching
+
+D. Accrual
+
+E. Materiality
+
+**Answer: C**
+
+**Q19. Which of the following is an example of current assets?**
+
+A. Accounts Receivable
+
+B. Patents
+
+C. Buildings
+
+D. Land
+
+E. Machinery
+
+**Answer: A**
+
+**Q20. A high inventory turnover ratio indicates _____**
+
+A. Overstocking of inventory
+
+B. Inefficient sales
+
+C. Effective inventory management
+
+D. Increased holding costs
+
+E. Low demand
+
+**Answer: C**
+
+**Q21. What does a low price-to-earnings (P/E) ratio with high growth typically indicate about a firm?**
+
+A. Overvalued
+
+B. Undervalued
+
+C. Highly leveraged
+
+D. Under-leveraged
+
+E. Stable earnings
+
+**Answer: B**
+
+**Q22. Calculate the current ratio from the following data:**
+
+* Current Assets = ₹5,00,000
+
+* Stock = ₹2,00,000
+
+* Current Liabilities = ₹7,00,000
+
+**What is the current ratio?**
+
+A. 0.71
+
+*[Page 32 of 38]*
+
+---
+
+[logo: Adda247] [logo: Google Play]
+
+B. 1.14
+C. 0.86
+D. 1.00
+E. 0.57
+
+**Answer: A**
+
+**Q23. What changes does the fund flow statement show?**
+A. Changes in cash position
+B. Changes in net income
+C. Changes in the position of working capital
+D. Changes in shareholders' equity
+E. Changes in liabilities
+
+**Answer: C**
+
+**Q24. What is the formula for the Time Interest Earned (TIE) Ratio?**
+A. Net Profit / Interest Expense
+B. Operating Income / Total Debt
+C. EBITDA / Interest Expense
+D. EBIT / Interest Expense
+E. Revenue / Interest Expense
+
+**Answer: D**
+
+**Q25. What is the maximum percentage of sweat equity shares that can be issued by a company at any point in time?**
+A. 25%
+B. 15%
+C. 20%
+D. 10%
+E. 30%
+
+**Answer: A**
+
+**Q26. When can a debenture trustee appoint a nominee director to the board after a company defaults?**
+A. After 1 default
+B. After 2 consecutive defaults
+C. After 3 consecutive defaults
+D. After any default
+E. After 4 consecutive defaults
+
+**Answer: B**
+
+**Q27. What is required for the second reappointment of an independent director?**
+A. Ordinary resolution
+B. Board approval
+C. Special resolution
+D. Unanimous vote
+E. Audit committee approval
+
+*[Page 33 of 38]*
+
+---
+
+[logo: Adda 247] [logo: GET IT ON Google Play]
+
+Answer: C
+
+Q28. What will happen if a right issue is not subscribed and not renounced?
+
+A. Shares will be allotted anyway
+
+B. Contract will lapse
+
+C. Shares will be transferred to another shareholder
+
+D. Board of directors will decide
+
+E. Underwriter will buy the shares
+
+Answer: B
+
+Q29. According to Ind AS 16, till when is depreciation charged on an asset that has been revalued?
+
+A. End of the financial year
+
+B. When the asset is fully depreciated
+
+C. Till the asset is sold
+
+D. Until the end of its useful life
+
+E. Until the end of its economic life
+
+Answer: D
+
+[logo: Adda 247]
+
+## Section - Costing
+
+Q30. How is the cost of production calculated?
+
+A. Direct Material + Indirect Labour + Administrative Overheads
+
+B. Direct Material + Direct Labour + Factory Overhead
+
+C. Direct Material + Factory Overhead + Selling Expenses
+
+D. Direct Labour + Indirect Expenses + Depreciation
+
+E. Direct Material + Selling Expenses + Indirect Overhead
+
+Answer: B
+
+*[Page 34 of 38]*
+
+---
+
+[logo: Adda247] [logo: Google Play]
+
+**Q31. What is the size of the batch of production where total cost of setup and holding costs are minimized?**
+A. Economic Order Quantity
+B. Maximum Production Quantity
+C. Just-in-Time Production
+D. Minimum Stock Level
+E. Economic Batch Quantity
+**Answer: E**
+
+**Q32. What type of process loss is not allowed to affect the cost of good units?**
+A. Normal Loss
+B. Scrap Loss
+C. Abnormal Loss
+D. Wastage Loss
+E. Rework Loss
+**Answer: B**
+
+**Q33. Given the following data:**
+* Break-Even Point (BEP) = ₹1,50,000
+* Fixed Costs (FC) = ₹60,000
+* Variable Cost per unit (VC) = ₹12
+
+**Calculate the Profit-Volume (PV) Ratio.**
+A. 20%
+B. 30%
+C. 40%
+D. 50%
+E. 60%
+**Answer: C**
+
+**Q34. Which of the following is used in Margin of Safety calculation?**
+A. Sales at breakeven point
+B. Actual sales over breakeven sales
+C. Sales minus variable costs
+D. Fixed costs divided by contribution margin
+E. Total sales minus total costs
+**Answer: B**
+
+## Section – Economics and Social Development
+
+**Q35. Which of the following is an indicator measured in the Periodic Labour Force Survey (PLFS)?**
+A. Labour Force Participation Rate (LFPR)
+B. Unemployment Rate (UR)
+C. Worker Population Ratio (WPR)
+
+*[Page 35 of 38]*
+
+---
+
+[logo: Adda247] [logo: Google Play]
+
+D. Both A and B
+E. All of the above
+**Answer: E**
+
+**Q36. What factors influence the demand for money in the goods market?**
+A. Disposable income only
+B. Inflation rate
+C. Interest rate and disposable income
+D. Money supply
+E. Exchange rate
+**Answer: C**
+
+**Q37. In which market structure is there a single seller with high barriers to entry?**
+A. Perfect competition
+B. Monopolistic competition
+C. Oligopoly
+D. Monopoly
+E. Duopoly
+**Answer: D**
+
+**Q38. Which of the following is a role of the World Bank?**
+A. Providing financial and technical assistance to developing countries
+B. Reducing poverty by lending money to governments of poorer countries
+C. Improving the standard of living in developing countries
+D. Offering policy advice to support development activities
+E. All of the above
+**Answer: E**
+
+**Q39. What issue does the Beti Bachao Beti Padhao (BBBP) scheme specifically address as part of its objectives?**
+A. Maternal Mortality Rate
+B. Child Education
+C. Declining Child Sex Ratio (CSR)
+D. Women Employment Rate
+E. Infant Mortality Rate
+**Answer: C**
+
+**Q40. What age group does the All-India Survey on Higher Education (AISHE) focus on for calculating the gross enrolment ratio (GER) in higher education?**
+A. 15-20 years
+B. 18-23 years
+C. 20-25 years
+D. 17-22 years
+E. 19-24 years
+**Answer: B**
+
+**Q41. Where was the 49th meeting of IOSCO held?**
+
+*[Page 36 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+A. New York
+B. Paris
+C. Tokyo
+D. Athens
+E. London
+**Answer: D**
+
+## Section – General Knowledge
+
+**Q42. Which eight-time Olympic gold medallist has been chosen as the ambassador for the ICC Men's T20 World Cup 2024?**
+A. Michael Phelps
+B. Usain Bolt
+C. Mo Farah
+D. Carl Lewis
+E. Simone Biles
+**Answer: B**
+
+**Q43. Which health insurance scheme in India aims to achieve Universal Health Coverage (UHC)?**
+A. Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)
+B. Pradhan Mantri Suraksha Bima Yojana (PMSBY)
+C. Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)
+D. Rashtriya Swasthya Bima Yojana (RSBY)
+E. Atal Pension Yojana (APY)
+**Answer: C**
+
+**Q44. What is the name of the Reusable Launch Vehicle for which ISRO conducted the third Landing Experiment (LEX) on June 23 at the Aeronautical Test Range (ATR) in Chitradurga, Karnataka?**
+A. Vikas
+B. Pushpak
+C. Gaganyaan
+D. Vikram
+E. Chandrayaan
+**Answer: B**
+
+**Q45Which organization recognized the name "Statio Shiv Shakti" for the landing site of Chandrayaan-3's Vikram lander?**
+A. International Astronomical Union (IAU)
+B. International Astronomical Center
+C. United Nations Office for Outer Space Affairs (UNOOSA)
+D. NASA
+E. European Space Agency (ESA)
+**Answer: A**
+
+*[Page 37 of 38]*
+
+---
+
+[logo: Adda247] [logo: GET IT ON Google Play]
+
+Q46. India secured the 134th rank in the 2022 Human Development Index. In which category was India placed?
+A. High
+B. Medium
+C. Low
+D. Very high
+E. Below average
+**Answer: B**
+
+Q47. Which of the following is NOT a Social Security Welfare Scheme by the Government of India?
+A. Pradhan Mantri Shram Yogi Maan-Dhan Yojana (PM-SYM)
+B. Pradhan Mantri Jeevan Jyoti Yojana (PMJJBY)
+C. Pradhan Mantri Suraksha Bima Yojana (PMSBY)
+D. National Social Assistance Programme (NSAP)
+E. Pradhan Mantri Kaushal Vikas Yojana (PMKVY)
+**Answer: E**
+
+Q48. PMJAY focuses on which levels of healthcare in India?
+A. Primary and Secondary levels only
+B. Primary, Secondary, and Tertiary levels
+C. Secondary and Tertiary levels only
+D. Primary level only
+E. Tertiary level only
+**Answer:** CQ49. **The Aspirational Blocks Programme (ABP) launched by the Prime Minister in January 2023 aims to improve 500 blocks across how many states and Union territories?**
+A. 25 states and 5 Union territories
+B. 27 states and 4 Union territories
+C. 28 states and 3 Union territories
+D. 30 states and 2 Union territories
+E. 26 states and 6 Union territories
+**Answer: B**
+
+Q50. What was the growth rate of India's Real GDP during the financial year 2022-23?
+A. 8.2%
+B. 7.5%
+C. 9.6%
+D. 7.0%
+E. 6.8%
+**Answer: D**
+
+*[Page 38 of 38]*

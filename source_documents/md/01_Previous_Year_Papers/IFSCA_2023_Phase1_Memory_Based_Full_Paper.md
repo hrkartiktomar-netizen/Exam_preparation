@@ -1,0 +1,1813 @@
+# Phase-1-IFSCA-Grade-a-2023-Memory-Based-Paper — OCR transcription (Gemini)
+
+[logo: EduTap]
+
+# IFSCA Grade A
+# 2023
+## Previous Year Papers
+### Phase 1 - Paper 1 and Paper 2
+
+#beexamready
+
+*[Page 1 of 50]*
+
+---
+
+# IFSCA Grade A 2023 Phase 1 - Paper 1 Recollected Questions
+
+*[Page 2 of 50]*
+
+---
+
+[logo: EduTap] 3
+
+# Quantitative Aptitude
+
+Directions (1-5): What is the approximate value should come in place of question mark in the following questions?
+
+Q1. 37.5% of 239.90 + √99.99 =?
+
+A. 100
+
+B. 600
+
+C. 500
+
+D. 400
+
+E. 200
+
+
+Q2. 840.98 ÷ 28.99 +? = 112.08
+
+A. 73
+
+B. 83
+
+C. 53
+
+D. 63
+
+E. 43
+
+
+Q3. 14.98 × 8.04 + 21.07 × 30.05 =?
+
+A. 675
+
+B. 900
+
+C. 600
+
+D. 780
+
+E. 750
+
+
+Q4. 1653.04 ÷ 57.01 × 39.93 =? + 19.98
+
+A. 1185
+
+B. 1260
+
+C. 1140
+
+D. 1050
+
+E. 1035
+
+
+Q5. 18.95 × √224.95 =? × √25.03
+
+A. 63
+
+B. 69
+
+C. 57
+
+D. 42
+
+E. 60
+
+*[Page 3 of 50]*
+
+---
+
+[logo: EduTap] 4
+
+Q6. Ratio of the speed of the car to bike is 4:3 and the bike travels 40 km less than the car in the same time duration. What is the distance travelled by car during that time?
+
+A. 120 km
+B. 140 km
+C. 160 km
+D. 180 km
+E. None of these
+
+Q7. A shopkeeper bought two articles A and B such that he had a Profit of 15% and 20% on selling article, A and B respectively. Selling price of articles, A and B is Rs.230 and Rs.420 respectively. At what price must that items be sold together in order to gain 30%?
+
+A. Rs.686
+B. Rs.695
+C. Rs.700
+D. Rs.740
+E. None of these
+
+Q8. A boat can travel 90 km upstream and 120 km downstream in 12 hours 30 minutes. What is the speed of the stream, if the boat can travel 60 km downstream in 2 hours 30 minutes?
+
+A. 5 kmph
+B. 6 kmph
+C. 8 kmph
+D. 10 kmph
+E. None of these
+
+Q9. If the product of the present ages of A and B is 864 and the ratio of the ages of A to B is 2:3, then what is A's age after 20 years?
+
+A. 40 years
+B. 44 years
+C. 48 years
+D. 52 years
+E. None of these
+
+Q10. A milkman has the mixture of milk and water in the ratio of 3:2. When he sold 20 Liters of the mixture and then added 5 litres of water, then the ratio of the milk to water becomes 8: 7. Find the initial quantity of the mixture?
+
+A. 45 L
+B. 30 L
+C. 60 L
+D. 24 L
+
+*[Page 4 of 50]*
+
+---
+
+[logo: EduTap] 5
+
+E. None of these
+
+**Directions (11-15): The following question contains two equations as I and II. You have to**
+**solve both equations and determine the relationship between them and give the answer**
+**as,**
+**Q11. (I) x2 – 10x – 24 = 0**
+**(II) y2 + 4y + 4 = 0**
+A. x > y
+B. x ≥ y
+C. x = y or relationship can't be determined
+D. x < y
+E. x ≤ y.
+
+**Q12. (I) x2 -17x + 52 =0**
+**(II) y2 -14y + 45 =0**
+A. x = y or relationship cannot be determined
+B. x ≥ y
+C. x < y
+D. x > y
+E. x ≤ y
+
+**Q13. (I) x2 – 25x + 84 = 0**
+**(II) y2 – 28y + 147 = 0?**
+A. x = y or relationship cannot be determined
+B. x ≥ y
+C. x < y
+D. x > y
+E. x ≤ y
+
+**Q14. (I) x2 – 5x + 6 = 0**
+**(II) y2–8y + 15 = 0**
+A. x > y
+B. x ≥ y
+C. x = y or relationship can't be determined
+D. x < y
+E. x ≤ y
+
+*[Page 5 of 50]*
+
+---
+
+[logo: EduTap] 6
+
+Q15. x2 − 8x + 15 = 0
+(II) y2 + y − 12 = 0
+
+A. x > y
+B. x ≥ y
+C. x = y or relationship can't be determined
+D. x < y
+E. x ≤ y
+
+**Directions (16-20): Read the following information carefully and answer the questions. The given pie chart shows the percentage distribution of total number of orders delivered by Amazon in five different years i.e., 2001, 2002, 2003, 2004 and 2005.**
+**Total number of orders delivered=600**
+
+% distribution of total number of orders delivered
+
+[Pie chart showing percentage distribution: 25% (2001), 2002 (orange), 2003 (grey), 10% (2004), 15% (2005), 20% (green), 30% (blue)]
+
+Q16. Total number of orders delivered in 2005 is how much more/less than total number of orders delivered in 2002?
+
+A. 120 more
+B. 150 less
+C. 100 more
+D. 180 less
+E. None of these.
+
+Q17. Find the ratio of total number of orders delivered in 2001 and total number of orders delivered in 2004?
+
+A. 7:4
+B. 3:5
+C. 1:2
+D. 5:4
+E. None of these
+
+*[Page 6 of 50]*
+
+---
+
+[logo: EduTap] 7
+
+Q18. Total number of orders delivered in 2003 is what percentage of total number of orders delivered in 2001?
+
+A. 30%  
+B. 15%  
+C. 60%  
+D. 25%  
+E. None of these  
+
+Q19. Find the difference between the total number of orders delivered in 2003 and total number of orders delivered in 2005?
+
+A. 70  
+B. 90  
+C. 50  
+D. 80  
+E. None of these  
+
+Q20. If the ratio of number of orders delivered in 2002 and 2006 is 3:5 and then find the average number of orders delivered in 2004 and 2006 together?
+
+A. 150  
+B. 170  
+C. 110  
+D. 190  
+E. None of these.  
+
+Q21. A can complete the work in 18 days and A and B together can complete the half of the work in 6 days. C is 20% more efficiency than B. In how many days A, B and C together can complete the 84% of the work?
+
+A. 6.5 days  
+B. 7.2 days  
+C. 8.1 days  
+D. 4.5 days  
+E. None of these.  
+
+Q22. There are three sections (A, B and C) in class 6. The average marks scored by 25 students in Section A is 42, average marks scored by 20 students of section B is 39 and average marks scored by 15 students of section C is 30. Find the average of marks of students of 3 sections of class 6?
+
+A. 36  
+B. 38  
+C. 34  
+D. 32
+
+*[Page 7 of 50]*
+
+---
+
+[logo: EduTap] 8
+
+E. 40
+
+Q23. In a bank examination, the number of passed candidates was five times the number of failed candidates. If there had been 40 less candidates appeared and 20 more candidates had failed, then the ratio of passed and failed candidates would have been 3: 1. Then find the total number of failed candidates in the bank examination.
+A. 70
+B. 60
+C. 50
+D. 300
+E. None of these
+
+Q24. A wire is looped in the form of rectangle whose area is 96 cm2 and the ratio of the length to breadth of the rectangle is 3:2. If the same wire is looped in the form of circle, what is the area of the circle?
+A. $1400/11\text{ cm}2$
+B. $1300/11\text{ cm}2$
+C. $1500/11\text{ cm}2$
+D. $1200/11\text{ cm}2$
+E. None of these
+
+Q25. Three pipes A, B and C can fill a tank in 12 hours. After working at it together for 3 hours, C is closed and A and B can fill the remaining part of the tank in 15 hours. How much time will the pipe C alone taken to fill the tank?
+A. 24 hours
+B. 26 hours
+C. 32 hours
+D. 30 hours
+E. None of these.
+
+*[Page 8 of 50]*
+
+---
+
+[logo: EduTap] 9
+
+## Logical Reasoning
+
+Directions (26-30): Answer the questions based on the information given below.
+Eight persons Alice, Bob, Carol, David, Emily, Frank, George, and Hannah are seated in a linear row, some of them are facing North while others are facing South. Hannah sits second to the left of Emily, who sits at the end of the row. David sits to the immediate right of Alice, who faces the South. Carol sits second to the left of David, who faces the same direction as Emily. Hannah, who is not an immediate neighbor of Alice, faces the opposite direction of Emily. Frank, who is not a neighbor of Emily or Hannah, faces the opposite direction of Carol. Bob faces the South. George sits second to the right of Bob. Emily and George face the same direction. Carol and David do not face the same direction. Emily and George do not sit adjacent to each other
+
+**Q26. Who sits immediate right of G?**
+A. Carol
+B. Frank
+C. Hannah
+D. David
+E. George
+
+**Q27. Which one sits at one end of the row?**
+A. David
+B. Bob
+C. Frank
+D. Carol
+E. None of these
+
+**Q28. How many people are facing south in a row?**
+A. four
+B. two
+C. one
+D. five
+E. three.
+
+**Q29. Who faces the same direction as Emily?**
+A. Alice
+B. Frank
+C. Hannah
+D. Carol
+E. Bob
+
+*[Page 9 of 50]*
+
+---
+
+EduTap
+10
+
+Q30. Who is an immediate neighbor of Alice?
+A. Emily
+B. Carol
+C. Frank
+D. George
+E. Bob
+
+Directions (31–35): Answer the questions based on the information given below.
+Ten persons, X, Y, Z, M, N, O, P, Q, R, and S, are staying in two different flats, namely Flat Alpha and Flat Beta, in a five-storey building. The lowermost floor is numbered as 1, and the floor immediately above it is numbered as 2, and so on.
+Z stays on an odd-numbered floor in Flat Alpha and two floors above R but in different flats. Two floors are between Y and M, who stays in Flat Beta on the topmost floor where both stay in the same flat. Both X and S stay on the same floor, where S neither stays in the same flat as Z nor stays below Y. The number of floors above N is the same as the number of floors below Q. S stays above O, who stays on the adjacent floor of P.
+
+Q31. Who among the following person stays immediately above N?
+A. The one who stays immediately below X
+B. S
+C. R
+D. The one who stays west of Y
+E. None of these
+
+Q32. On which of the following floor and flat does P stay?
+A. Flat Beta, floor 3
+B. Flat Alpha, floor 2
+C. Flat Beta, floor 1
+D. Flat Alpha, floor 5
+E. Flat Beta, floor 4
+
+Q33. Four of the following five are alike in a certain way as per the given arrangement and hence form a group. Find the one who doesn't belong to that group
+A. Q
+B. N
+C. Z
+D. P
+E. X
+
+*[Page 10 of 50]*
+
+---
+
+[logo: EduTap] 11
+
+Q34. What is the position of Z with respect to N?
+A. Two floors above
+B. Immediately below
+C. Three floors above
+D. Immediately above
+E. None of these.
+
+Q35. How many floors are between Q and O?
+A. One
+B. three
+C. two
+D. More than three
+E. As many floors between Y and R
+
+Directions (36-40): Study the following statements and decide which of the given conclusions logically follows from the given statements disregarding the commonly known facts.
+Q36. Statements:
+All bread is butter.
+No butter is cream.
+All cream is bad.
+Conclusions:
+I. All bread are bad
+II. Some bad are butter
+A. If only conclusion I follow
+B. If only conclusion II follow
+C. If neither conclusion I nor conclusion II follows
+D. If both the conclusions follow
+E. If either conclusion I or conclusion II follows
+
+Q37. Statements:
+A few plants are not green.
+All green are colorful.
+No colorful is black.
+Conclusions:
+I. No black is green.
+II. No plant is black
+A. If only conclusion I follow
+B. If only conclusion II follow
+C. If neither conclusion I nor conclusion II follows
+D. If both the conclusions follow
+
+*[Page 11 of 50]*
+
+---
+
+[logo: EduTap] 12
+
+E. If either conclusion I or conclusion II follows
+
+**Q38. Statements:**
+**No tiger is a dog.**
+**Some rats are tigers.**
+**All domestic are dogs.**
+**Conclusions:**
+**I. No tiger is a rat.**
+**II. All dogs are definitely not tigers.**
+A. If only conclusion I follow
+B. If only conclusion II follow
+C. If neither conclusion I nor conclusion II follows
+D. If both the conclusions follow
+E. If either conclusion I or conclusion II follows
+
+**Q39. Statements:**
+**Some music is videos.**
+**No book is bad.**
+**All books are music.**
+**Some bad are not videos.**
+**Conclusions:**
+**I. All bad being a book is a possibility.**
+**II. Some music is bad.**
+**III. All videos being music is a possibility.**
+**IV. Some books are videos**
+A. If only conclusion I follow
+B. If only conclusion III follow
+C. If only Conclusion I, II, IV follow
+D. If both the conclusions I and IV follow
+E. None follows
+
+**Q40. Statements:**
+**Some metros are trains.**
+**Some metros are lucky.**
+**All lucky is great.**
+**No human is lucky.**
+**All wise are humans.**
+**Conclusions:**
+**I: All metros can be humans.**
+**II: Some lucky are trains**
+**III: Some great that are lucky being wise are a possibility.**
+
+*[Page 12 of 50]*
+
+---
+
+[logo: EduTap] 13
+
+IV: Some humans that are wise can be trains
+A. If only conclusion I follow
+B. If only conclusion II follow
+C. If only Conclusion I, II, IV follow
+D. If only conclusion III, IV follow
+E. If only IV follows
+
+**Directions (41-44): Answer the questions based on the information given below.**
+**Eight persons – Harper, Zane, Nova, Orion, Luna, Atlas, Vega, and Lyra – consist of a family of three generations. There are three females and two married couples in the family. For every person in the family, either both or none of the parents are alive.**
+**Zane's sister-in-law is the mother of Atlas. Vega is an unmarried female. Atlas's mother doesn't have any siblings. Harper is the mother-in-law of Orion, who is the mother of two children. Nova is the grandfather of Atlas, who is the nephew of Luna.**
+
+**Q41. Who is the sister-in-law of Zane?**
+A. Luna
+B. Veg
+C. Orion
+D. Harper
+E. None of these
+
+**Q42. How is Luna related to Harper?**
+A. Daughter
+B. Son
+C. daughter-in-law
+D. nephew
+E. cannot be determined
+
+**Q43. Who is the husband of Orion?**
+A. Zane
+B. Luna
+C. Lyra
+D. Nova
+E. Atlas
+
+**Q44. How many children does Lyra have?**
+A. None
+B. Three
+C. One
+D. Two
+E. None of these
+
+*[Page 13 of 50]*
+
+---
+
+[logo: EduTap] 14
+
+**Direction(45-49): Study the information carefully and study the following question.**
+**10 persons Ethan, Olivia, Rohan, Liam, Norah, Mia, Harper, Isabella, Daniel and Ava performed in a competition on 12th and 23rd of each month among June, July, August, September and October such that only one person performed on a date of a month.**
+**Mia and Liam performed on the same dates but in different months. Ethan's performance was immediately after that of Liam. Only three performances happened between the performances of Ethan and Olivia, who performed on an even-numbered date of the month having only 30 days. Olivia performed before Liam. Four performances happened in between the performances of Ava and Mia. Harper performed on an odd-numbered date of the month having 31 days but not in August. Three performances happened between the performances of Harper and Noah. Daniel and Isabella performed on consecutive turns but in different months. Daniel did not perform in a month whose total number of days is even.**
+
+**Q45. How many performances happened between the performances of Daniel and Harper?**
+A. Two
+B. Four
+C. None
+D. One
+E. three
+
+**Q46. In which month did Harper inform?**
+A. June
+B. October
+C. September
+D. July
+E. None of these.
+
+**Q47. Who performed immediately after Noah?**
+A. Harper
+B. Ethan
+C. Isabella
+D. Ava
+E. Mia
+
+**Q48. How many persons performed before Olivia?**
+A. three
+B. four
+C. one
+D. none
+E. two
+
+*[Page 14 of 50]*
+
+---
+
+[logo: EduTap] 15
+
+Q49. Find the odd one out?
+A. Ava
+B. Harper
+C. Noah
+D. Liam
+E. Mia
+
+Q50. If it is possible to make a meaningful word without repetition of the letter with the second, fifth, sixth and seventh letter of the word 'PERMUTATION' which would be the second letter of the word from right. If more than one such word can be formed, give X as the answer. If no such word is formed, give Z as the answer?
+A. E
+B. U
+C. A
+D. X
+E. Z
+
+*[Page 15 of 50]*
+
+---
+
+[logo: EduTap] 16
+
+## General English
+
+Instructions (51-56): The economy of India is the sixth-largest in the world measured by nominal GDP and the third-largest by purchasing power parity (PPP). The country is classified as a newly industrialised country, and one of the G-20 major economies, with an average growth rate of approximately 7% over the last two decades. India's economy became the world's fastest growing major economy in the last quarter of 2014, surpassing the People's Republic of China. However, the country ranks 141st in per capita GDP (nominal) with $1723 and 123rd in per capita GDP (PPP) with $6,616 as of 2016.
+
+The long-term growth prospective of the Indian economy is positive due to its young population, corresponding low dependency ratio, healthy savings and investment rates, and increasing integration into the global economy. India topped the World Bank's growth outlook for the first time in fiscal year 2015–16, during which the economy grew 7.6%. Growth is expected to have declined slightly to 7.1% for the 2016–17 fiscal year. According to the IMF, India's growth is expected to rebound to 7.2% in the 2017–18 fiscal and 7.7% in 2018–19. The combination of protectionist, import-substitution, Fabian socialism, and social democratic-inspired policies governed India for some time after the end of British occupation. The economy was then characterised by extensive regulation, protectionism, public ownership of large monopolies, pervasive corruption and slow growth. Since 1991, continuing economic liberalisation has moved the country towards a market-based economy. By 2008, India had established itself as one of the world's fastest-growing economies.
+
+The citizens of the Indus Valley Civilisation, a permanent settlement that flourished between 2800 BC and 1800 BC, practised agriculture, domesticated animals, used uniform weights and measures, made tools and weapons, and traded with other cities. Evidence of well-planned streets, a drainage system and water supply reveals their knowledge of urban planning, which included the first-known urban sanitation systems and the existence of a form of municipal government.
+
+Maritime trade was carried out extensively between South India and Southeast and West Asia from early times until around the fourteenth century AD. Both the Malabar and Coromandel Coasts were the sites of important trading centres from as early as the first century BC, used for import and export as well as transit points between the Mediterranean region and Southeast Asia. Over time, traders organised themselves into associations which received state patronage. Historians Tapan Raychaudhuri and Irfan Habib claim this state patronage for overseas trade came to an end by the thirteenth century AD, when it was largely taken over by the local Parsi, Jewish, Syrian Christian and Muslim communities, initially on the Malabar and subsequently on the Coromandel Coast. Other scholars suggest trading from India to West Asia and Eastern Europe was active between the 14th and 18th centuries. During this period, Indian traders settled in Surakhani, a suburb of greater Baku, Azerbaijan. These traders built a Hindu temple, which suggests commerce was active and prosperous for Indians by the 17th century.
+
+*[Page 16 of 50]*
+
+---
+
+[logo: EduTap] 17
+
+Q51. Which of these is the reason for the positive long term growth prospective of the Indian economy?
+A. young population
+B. corresponding low dependency ratio
+C. healthy savings and investment rates
+D. increasing integration into the global economy
+E. All of the above
+
+Q52. Which sites were used as transit points between the Mediterranean region and Southeast Asia in the 14th century AD?
+A. Andaman and Nicobar Islands
+B. New Delhi
+C. Burma coast
+D. the Malabar and Coromandel Coasts
+E. Port Blair
+
+Q53. According to the above passage, which of the following have moved India towards a market-based economy?
+A. Capitalism
+B. Socialism
+C. Economic liberalization
+D. Demonetization
+E. Centralization of banks
+
+Q54. According to the passage, which historic evidence suggest that commerce Indians had active and prosperous commerce in the 17th century?
+A. The ruins of Indus valley civilization
+B. Hindu temple in Azerbaijan
+C. The Taj Mahal
+D. Involvement of Indian soldiers in world war 2
+E. None of these
+
+Q55. According to the passage which of the following was a catalyst for slow economic growth after the end of British occupation?
+A. Corruption
+B. Demonetization
+C. Floods
+D. Communism
+E. None of these
+
+*[Page 17 of 50]*
+
+---
+
+[logo: EduTap] 18
+
+Q56. On the basis of your reading choose an appropriate title for the passage.
+A. Communism in India
+B. End of poverty in Indian
+C. Indian economy in tatters
+D. Economy of India
+E. None of these
+
+Q57. Choose the word/group of words which is MOST SIMILAR to the word/group of words printed in bold as used in the passage.
+**SUBSEQUENTLY**
+A. Previously
+B. Thereafter
+C. Alarmingly
+D. Diseased
+E. None of these
+
+Q58. Choose the word/group of words which is MOST SIMILAR to the word/group of words printed in bold as used in the passage.
+**PATRONAGE**
+A. Liberal
+B. Narcissistic
+C. Decentralized
+D. Nepotism
+E. Colony
+
+**Direction (59-63): In the given question, a part of the sentence is printed in bold. Below the sentence alternatives to the bold part are given at (A), (B), (C) and (D) which may help improve the sentence. Choose the correct alternative. In case the given sentence is correct, your answer is (E) i.e., 'No correction required'.**
+Q59. The recent strike has put the airline company in a **mouse potato.**
+A. Raptures
+B. Warm Potato
+C. Tight Spot
+D. Much ado about nothing
+E. No correction required
+
+Q60. We need to get to the **last straw** - and know what caused the accident.
+A. Heart of the matter
+B. Piece of cake
+C. Whole nine yards
+D. Heart of the issue
+
+*[Page 18 of 50]*
+
+---
+
+[logo: EduTap] 19
+
+E. No correction required
+
+Q61. I haven’t been to the theatre in a **long run.**
+A. Best of both worlds
+B. Method to my madness
+C. Cry over spilt milk
+D. In the month of Sundays
+E. None of these
+
+Q62. We need to know if he’s qualified for the job. The fact that he plays golf is **beside the point.**
+A. Miss the boat
+B. Keeping something at bay
+C. Drastic times call for drastic measures
+D. Miss the train
+E. No correction required
+
+Q63. The president was greeted with **much brainwash**, a gesture that was appreciated by the whole global community.
+A. Best of both worlds
+B. Brain drain
+C. Ballpark figure
+D. Bowing and scraping
+E. No correction required
+
+**Direction: In the given question, a statement with a blank has been given, followed by three words out of which more than one can complete the sentence grammatically and contextually. Find the word (s) which can fill the blank and choose the option accordingly.**
+**Q64. Thoughts may**, but it’s within your power to return to your focus to a religious icon, a helpful saying, or the simple rise and fall of your chest.
+**I) Wander**
+**II) Wonder**
+**III) Distracts.**
+A. Only II
+B. Only I
+C. Only III
+D. Both I & II
+E. Both I & III
+
+*[Page 19 of 50]*
+
+---
+
+[logo: EduTap] 20
+
+Q65. Distraction is the process of the attention of an individual or group from a desired area of focus and thereby blocking or diminishing the reception of desired information.
+I) Diverting
+II) Distancing
+III) Deviating
+A. Only II
+B. Only I
+C. Only III
+D. Both I & II
+E. Both I & III
+
+Q66. _________ web surfing, watching videos, playing games, or checking news feeds can lead to lower productivity at work or school and isolate you for hours at a time.
+I) Compulsive
+II) Obsessive
+III) Narcotic
+A. Only II
+B. Only I
+C. Only III
+D. Both I & II
+E. Both I & II
+
+Q67. Mr K.C. Paul is _________ in his belief that the sun is spinning around the earth.
+I) Firm
+II) Confident
+III) Hasten.
+A. Only II
+B. Only I
+C. Only III
+D. Both I & II
+E. Both III & II
+
+Q68. After much thought, Manisha _________ not to travel abroad this summer.
+I) resolved
+II) decided
+III) concluded.
+A. Only II
+B. Only I
+C. Only III
+D. Both I & II
+E. All I, II & III
+
+*[Page 20 of 50]*
+
+---
+
+[logo: EduTap] 21
+
+**Direction: A sentence divided into three parts (I, II and III) is given. There may be an error in one or more parts. Determine the part(s) which requires correction and mark the relevant option as your answer.**
+
+**Q69. Literature often has a tendency to portray (I)/ the women as either the good protagonist or the villain, (II)/ but in reality, women are mostly grey by nature. (III).**
+
+A. Only I  
+B. Only II  
+C. Only III  
+D. Both I & III  
+E. Both II & II  
+
+**Q70. Can the French be so enormously superior than (I)/ us that when we had surrounded them with superior forces, (II)/ we could not beat them?(III).**
+
+A. Only I  
+B. Only II  
+C. Only III  
+D. Both I & III  
+E. Both II & II  
+
+**Q71. One night he left the big, beautiful palace (I)/ which his father had gave to him and went out into the world (II)/ to do good and to help his fellow men. (III).**
+
+A. Only I  
+B. Only II  
+C. Only III  
+D. Both I & III  
+E. Both I & II  
+
+**Q72. Miss Sullivan and others who live constantly with the deaf (I)/ can spell very rapidly - fast enough to get a slow lecture, (II)/ but not very enough to get every word of a rapid speaker. (III).**
+
+A. Only I  
+B. Only II  
+C. Only III  
+D. Both I & III  
+E. Both I & II
+
+*[Page 21 of 50]*
+
+---
+
+[logo: EduTap] 22
+
+Q73. Majority of the Delhites, alarmed by the recent events are saying that (I)/ they will not bursting crackers and (II)/ farther pollute the environment which is harming their progeny the most. (III).
+
+A. Only I
+
+B. Only II
+
+C. Only III
+
+D. Both II & III
+
+E. Both I & II
+
+Direction: In this question, two columns, I and II and three sentences are given, which are divided into two parts. Column I (A, B and C) consists of the first half of each sentence and Column II (D, E and F) consists of the second half of each sentence. Match column I with column II, so that the sentences formed are both meaningful and grammatically correct. Choose the option as your answer.
+
+Q74.
+
+I.
+
+A) The company will now attempt to get back the value invested in those schemes either
+
+B) After an organized abandonment of the unorganized workforce, the employers want the state t
+
+C) What we are witnessing today bears a horrifying
+
+II.
+
+D) by selling the underlying assets and waiting for them to reach maturity.
+
+E) reintroduce laissez-faire and a system of indenture for the organized workforce too.
+
+F) resemblance to what happened over 150 years ago in British India.
+
+A. B-E and C-F
+
+B. C-E
+
+C. A-F and C-E
+
+D. B-F and C-D
+
+E. A-D
+
+Q75.
+
+I.
+
+A) The investigation established that Movianto had temporarily stored
+
+B) Amid complaints of dire shortages in hospitals, the company was
+
+C) The stockpile was relocated to a warehouse in Merseyside,
+
+II.
+
+D) the emergency pandemic equipment in a smoke-damaged warehouse.
+
+E) where it was kept in a very unorganised and dismal manner.
+
+F) order to begin providing equipment to healthcare centres.
+
+*[Page 22 of 50]*
+
+---
+
+[logo: EduTap] 23
+
+A. B-E and C-F
+B. C-E
+C. A-F and C-D
+D. B-F
+E. A-D and C-E
+
+*[Page 23 of 50]*
+
+---
+
+[logo: EduTap] 24
+
+# General Awareness
+
+Q76. A penalty of _______ has been imposed by SEBI on Multi Commodity Exchange (MCX) for flouting norms related to data entries of Sikkim-based clients?
+A. ₹2 lakh
+B. ₹4 lakh
+C. ₹5 lakh
+D. ₹6 lakh
+E. None of these
+
+Q77. How many complaints against companies and market intermediaries received through SCORES platform was disposed of in February according to the data provided by SEBI?
+A. 2672
+B. 2699
+C. 2782
+D. 2790
+E. None of these
+
+Q78. An ‘Infrastructure Finance Company (IFC)’ status has been granted to which renewable energy company by Reserve Bank of India (RBI)?
+A. State Bank of India
+B. Indian Overseas Bank
+C. Punjab National Bank
+D. Bank Of India
+E. Bank of Baroda
+
+Q79. In July 2024, which company was approved by the Reserve Bank of India (RBI) for conversion from a Non-Banking Financial Company (NBFC) to a Core Investment Company (CIC)?
+A. Indian Renewable Energy Development Agency (IREDA)
+B. Solar Energy Corporation of India (SECI)
+C. National Institute of Wind Energy (NIWE)
+D. National Institute of Solar Energy (NISE)
+E. None of these
+
+Q80. How much liquidity has been infused into the banking system by Reserve Bank of India (RBI) via the 14-day Variable Repo Rate (VRR) auction amid tightening liquidity.
+A. Rs.81,630 crore
+B. Rs.82,650 crore
+C. Rs.80,600 crore
+D. Rs.86,650 crore
+E. None of the above
+
+*[Page 24 of 50]*
+
+---
+
+[logo: EduTap] 25
+
+Q81. A fine of ₹3.06 crores imposed by RBI on which company?
+
+A. PhonePe  
+B. Paytm  
+C. Slice  
+D. Amazon Pay  
+E. None of the above  
+
+Q82. As per Centre for Monitoring Indian Economy, all India unemployment rate remained elevated in February 2023 and rose to ______ from 7.14% in the previous month  
+
+A. 7.25 %  
+B. 7.45 %  
+C. 8.50 %  
+D. 6.75 %  
+E. None of the above  
+
+Q83. According to data provided by the Ministry of Statistics and Programme Implementation (MoSPI), the indian economy grew at ______ between October and December 2022 (Q3FY23).  
+
+A. 4.4 %  
+B. 4.0 %  
+C. 4.6 %  
+D. 5.3 %  
+E. 6 %  
+
+Q84. According to Reserve Bank of India, the bank credit growth stood at ______ for 3 months ending December 2022.  
+
+A. 14.5 %  
+B. 16.8 %  
+C. 14.8 %  
+D. 17.1 %  
+E. None of the above  
+
+Q85. Wholesale price index (WPI)-based inflation rate fell to ______ in February, according to the data by the Ministry of Commerce and Industry.  
+
+A. 3.14 %  
+B. 3.25 %  
+C. 4.85 %  
+D. 3.85 %  
+E. 2.95 %
+
+*[Page 25 of 50]*
+
+---
+
+[logo: EduTap] 26
+
+Q86. As per UK-based Brand Finance list, which telecom brand is ranked as the most valuable brand globally?
+
+A. Reliance Jio
+B. Airtel
+C. Swisscom
+D. Singtel
+E. Verizon
+
+Q87. Moody's Investors Service has revised India's growth estimate for 2022 to ________ from 7 per cent pegged in November 2022.
+
+A. 6.8 %
+B. 6.4 %
+C. 7.2 %
+D. 7.8 %
+E. 7.0 %
+
+Q88. ________ and Federal Bank will partner with association of microfinance institutions Sa-Dhan and Delhi-based fintech solutions provider NextGen to promote digital payments by feature phone users.
+
+A. IDFC First Bank
+B. Kotak Mahindra Bank
+C. Yes Bank
+D. Bank of Maharashtra
+E. None of these
+
+Q89. Multilateral exercise La Perouse (3rd Edition) is being organized from 13 to 14 March 2023 in the Indian Ocean region. Which among the following countries organized the third edition of the 'La Perouse' Exercise?
+
+A. India
+B. Germany
+C. France
+D. Japan
+E. Italy
+
+Q90. State the theme of World Wildlife Day 2023?
+
+A. Youth Effort for Wildlife Conservation
+B. Partnership for Wildlife Conservation
+C. Partnership for Green Wildlife
+D. Wildlife Conservation for Earth
+E. Only One Earth
+
+*[Page 26 of 50]*
+
+---
+
+[logo: EduTap] 27
+
+**Q91. Who has been elected as the new President of Vietnam?**
+A. Vo Van Thuong
+B. Nguyen Xuan Phuc
+C. Pham Minh Chinh
+D. Vuong Dinh Hue
+E. None of the above
+
+**Q92. ____ partnered with Aadhar Housing Finance to offer home loans for salaried employees, loan for plot purchase and construction, home improvement loan, loan against residential commercial property etc.**
+A. Bank of Baroda
+B. Yes Bank
+C. HDFC Bank
+D. Axis Bank
+E. Union Bank of India
+
+**Q93. Badri Narayan received the prestigious literary award Sahitya Akademi Award, 2022 for?**
+A. Seven Moons of Maali Almeida
+B. Tomb of Sand
+C. Rashmirathi
+D. Malgudi Days
+E. Tumadi Ke Shabd
+
+**Q94. Who among the following has been honoured with the 'Player of the Year Award' by the Asian Chess Federation?**
+A. Praggnanandhaa R
+B. Krishnan Sasikiran
+C. D Gukesh
+D. Vidit Gujrathi
+E. Nihal Sarin
+
+**Q95. As per direction of SEBI the summary document for filing papers pertaining to IPO and for further issue of securities in XBRL format which is to be done in a phased manner starting ____**
+A. March 31, 2023
+B. December 1, 2023
+C. July 1, 2023
+D. March 1, 2023
+E. January 1, 2023
+
+*[Page 27 of 50]*
+
+---
+
+[logo: EduTap] 28
+
+Q96. PM Modi releases the 13th installment of financial benefits worth ______ to over eight crore eligible farmers under the flagship PM-KISAN scheme.
+
+A. Rs.16,800 crore  
+B. Rs.14,200 crore  
+C. Rs.12,800 crore  
+D. Rs.10,200 crore  
+E. Rs.19,200 crore  
+
+Q97. Second global hackathon -- 'HARBINGER 2023 - Innovation for Transformation' announced by Reserve Bank of India with the theme —
+
+A. Inclusive Digital Stimulation  
+B. Inductive Digital Solution  
+C. Inclusive Machine Solution  
+D. Inclusive Digital Services  
+E. Good Financial Behaviour - Your Saviour  
+
+Q98. Name the first private sector bank to take up a service that allows customers to use RuPay credit cards on UPI with BHIM and other UPI - enabled apps.
+
+A. Axis Bank  
+B. Kotak Mahindra Bank  
+C. HDFC Bank  
+D. ICICI Bank  
+E. IDBI Bank  
+
+Q99. Financial Literacy Week 2023 organized by Reserve Bank of India will be held from ______?
+
+A. 10th to 14th February 2023  
+B. 11th to 18th February 2023  
+C. 12th to 15th February 2023  
+D. 10th to 17th February 2023  
+E. 13th to 17th February 2023  
+
+Q100. Direct Tax Collections for F.Y. 2022 - 23 at ₹15 .67 lakh crore – which is ______ % higher than gross collections for corresponding period of last year as on 10.02. 2023.
+
+A. 20.32  
+B. 24.09  
+C. 25.05  
+D. 24.80  
+E. 25.04
+
+*[Page 28 of 50]*
+
+---
+
+IFSCA Grade
+A 2023 Phase
+1 - Paper 1
+Recollected
+Questions'
+Answer Key
+
+*[Page 29 of 50]*
+
+---
+
+[logo: EduTap] 30
+
+## Quantitative Aptitude
+
+| Question | Answer | Question | Answer |
+| :---: | :---: | :---: | :---: |
+| 1 | A | 14 | E |
+| 2 | B | 15 | B |
+| 3 | E | 16 | A |
+| 4 | C | 17 | D |
+| 5 | C | 18 | C |
+| 6 | C | 19 | B |
+| 7 | E | 20 | C |
+| 8 | B | 21 | B |
+| 9 | B | 22 | B |
+| 10 | C | 23 | B |
+| 11 | B | 24 | A |
+| 12 | A | 25 | D |
+| 13 | A | | |
+
+## Logical Reasoning
+
+| Question | Answer | Question | Answer |
+| :---: | :---: | :---: | :---: |
+| 26 | E | 39 | B |
+| 27 | D | 40 | E |
+| 28 | A | 41 | C |
+| 29 | B | 42 | B |
+| 30 | D | 43 | C |
+| 31 | D | 44 | D |
+| 32 | A | 45 | C |
+| 33 | D | 46 | B |
+| 34 | A | 47 | D |
+| 35 | C | 48 | D |
+| 36 | C | 49 | A |
+| 37 | A | 50 | E |
+| 38 | B | | |
+
+*[Page 30 of 50]*
+
+---
+
+[logo: EduTap] 31
+
+## General English
+
+| Question | Answer | Question | Answer |
+| :---: | :---: | :---: | :---: |
+| 51 | E | 64 | B |
+| 52 | D | 65 | E |
+| 53 | C | 66 | D |
+| 54 | B | 67 | D |
+| 55 | A | 68 | E |
+| 56 | D | 69 | B |
+| 57 | B | 70 | A |
+| 58 | D | 71 | E |
+| 59 | C | 72 | C |
+| 60 | A | 73 | D |
+| 61 | D | 74 | A |
+| 62 | E | 75 | E |
+| 63 | D | | |
+
+## General Awareness
+
+| Question | Answer | Question | Answer |
+| :---: | :---: | :---: | :---: |
+| 76 | D | 89 | C |
+| 77 | A | 90 | B |
+| 78 | C | 91 | A |
+| 79 | A | 92 | B |
+| 80 | B | 93 | E |
+| 81 | D | 94 | C |
+| 82 | B | 95 | D |
+| 83 | A | 96 | A |
+| 84 | B | 97 | D |
+| 85 | D | 98 | C |
+| 86 | E | 99 | E |
+| 87 | A | 100 | B |
+| 88 | A | | |
+
+*[Page 31 of 50]*
+
+---
+
+IFSCA Grade
+A 2023 Phase
+1 - Paper 2
+Recollected
+Questions
+
+*[Page 32 of 50]*
+
+---
+
+[logo: EduTap] 33
+
+# Commerce and Accounts
+
+**Q1. From which of the following financial statement can the financial position of an organization be determined?**
+A. Income Statement
+B. Cash Flow Statement
+C. Balance Sheet
+D. Statement of Retained Earnings
+E. None of the above
+
+**Q2. Under which accounting concept should an asset be valued "at lower of net realizable value or fair value"?**
+A. Prudence Concept
+B. Entity Concept
+C. Matching Concept
+D. Accrual Concept
+E. None of the above
+
+**Q3. Donation and Legacy credited to which of the following account?**
+A. Reserves and Surplus
+B. Capital Fund
+C. Bank Account
+D. Revenue Account
+E. None of the above
+
+**Q4. In the working capital turnover ratio the relation of working capital is checked with which other variable?**
+A. Profit
+B. Assets
+C. Liabilities
+D. Sales
+E. None of the above
+
+**Q5. Which of the following is the method to compute the working capital of an entity?**
+A. Excess of Total Assets over Current Liabilities
+B. Excess of Current Assets over Current Liabilities
+C. Excess of Current Assets over Total Liabilities
+D. Excess of Current Liabilities over Current Assets
+E. None of the above
+
+*[Page 33 of 50]*
+
+---
+
+[logo: EduTap] 34
+
+**Q6. Which of the following measures the amount of profit a company makes per share?**
+A. Net Income
+B. Revenue
+C. Expenses
+D. Earnings per Share
+E. Dividend Yield Ratio
+
+**Q7. Under which category of assets is inventory classified?**
+A. Current Assets
+B. Non-Current Asset
+C. Fictious Asset
+D. Intangible Asset
+E. None of the above
+
+**Q8. Which of the following assets does not depreciate?**
+A. Plant and Machinery
+B. Land
+C. Patent
+D. Vehicle
+E. Furniture
+
+**Q9. Which of the following method for calculation of inventory should be used in case there are large fluctuations in purchase price?**
+A. FIFO Method
+B. LIFO Method
+C. Weighted Average Method
+D. Specific Identification Method
+E. All of the above
+
+**Q10. Subsidy provided for working capital by the government is part of?**
+A. Capital Receipt
+B. Aid
+C. Tax
+D. Revenue Receipt
+E. None of the above
+
+**Q11. In the domain of finance which formula is used to calculate the operating leverage?**
+Operating leverage = contribution/EBIT
+A. Operating leverage = Revenue / Variable costs
+B. Operating leverage = Fixed costs / Variable costs
+C. Operating leverage = EBIT / Variable costs
+
+*[Page 34 of 50]*
+
+---
+
+[logo: EduTap] 35
+
+D. Operating leverage = EBIT / Fixed costs
+
+**Q12. What is the main objective of Financial Management?**
+A. Profit maximization
+B. Cost minimization
+C. Risk minimization
+D. Shareholder wealth maximization
+E. All of the above
+
+*[Page 35 of 50]*
+
+---
+
+[logo: EduTap] 36
+
+### **Costing**
+
+Q13. In terms of cost classification, advertising expenditure can be categorized as:
+A. Selling Overheads
+B. Fixed Cost
+C. Administration Overheads
+D. Factory Overheads
+E. None of the above.
+
+Q14. Opportunity cost is what kind of cost?
+A. Incremental Cost
+B. Sunk Cost
+C. Explicit Cost
+D. Implicit Cost
+E. None of the above
+
+Q15. Which of the following is the correct term for the interest cost associated with an organization's own funds?
+A. Capitalized Costs
+B. Explicit Costs
+C. Implicit Cost
+D. Notional Cost
+E. None of the above
+
+Q16. The pricing structure of a rickshaw driver, charging a fixed rate of 120 Rs and an additional 15 Rs per kilometer, exemplifies which type of cost?
+A. Fixed Cost
+B. Variable cost
+C. Direct Cost
+D. Indirect Cost
+E. Semi-variable cost
+
+Q17. Batch Costing is a type of __________.
+A. Job Costing
+B. Process Costing
+C. Marginal Costing
+D. Standard Costing
+E. None of the above
+
+*[Page 36 of 50]*
+
+---
+
+[logo: EduTap] 37
+
+**Q18. When a product does not have any realizable value then the cost of by product is?**
+A. It is treated as a gain.
+B. It is carried forward to the next accounting period.
+C. It is borne by good units.
+D. It doesn't affect anything.
+E. None of the above
+
+*[Page 37 of 50]*
+
+---
+
+[logo: EduTap] 38
+
+## Finance
+
+**Q19. Which government agency is responsible for overseeing and regulating limited liability partnerships (LLPs)?**
+A. Ministry of Rural Development
+B. Ministry of Finance
+C. Ministry of Corporate Affairs
+D. Ministry of Housing Affairs and Urban Development
+E. None of the above
+
+**Q20. Which financial institution or organization is responsible for safeguarding and managing a country's foreign exchange reserves?**
+A. Reserve Bank of India
+B. Securities and Exchange Board of India
+C. Pension Fund Regulatory Authority of India
+D. Insurance Regulatory Development Authority of India
+E. National Bank of Agriculture and Rural Development
+
+**Q21. Which sector in India primarily receives loan refinancing from NABARD?**
+A. Private Sector in India
+B. Public Sector in India
+C. Urban India in India
+D. Rural Sector in India
+E. Forest Sector in India
+
+**Q22. Which regulatory body issues guidelines for the issuance of commercial paper?**
+A. Securities and Exchange Board of India
+B. Pension Fund Regulatory Authority of India
+C. Insurance Regulatory Development Authority of India
+D. Reserve Bank of India
+E. National Bank of Agriculture and Rural Development
+
+**Q23. As per the Income Tax Act of 1961, who is considered the head of the Hindu Undivided Family?**
+A. Main Person
+B. Karta
+C. User
+D. Head
+E. Informed person
+
+*[Page 38 of 50]*
+
+---
+
+[logo: EduTap] 39
+
+Q24. What is the methodology used to calculate the Sensex and Nifty indices?
+A. Mixed float market capitalization
+B. Free fixed float market capitalization
+C. fixed float market capitalization
+D. Free float market capitalization
+E. None of the above
+
+Q25. Minimum paid-up capital required to be held by the government in a company to make such a company a government company?
+A. 51%
+B. 50%
+C. 75%
+D. 100%
+E. None of the above
+
+*[Page 39 of 50]*
+
+---
+
+[logo: EduTap] 40
+
+## Management
+
+**Q26. Which of the following plans is intended to be achieved over a long period of time?**
+A. Strategic Planning
+B. Tactical Planning
+C. Policy Planning
+D. Operating Planning
+E. Corporate Planning
+
+**Q27. Which leadership style involves seeking input from employees in the decision-making process?**
+A. Autocratic Leadership
+B. Democratic Leadership
+C. Delegative Leadership
+D. Transactional Leadership
+E. Transformational Leadership
+
+**Q28. The authority of a manager, which is derived from his position in an organization is known as____________________.**
+A. Formal position
+B. Informal Position
+C. Derived Position
+D. Grapevine Position
+E. None of the above
+
+**Q29. In which role does the manager lead and guide?**
+A. Supervisor
+B. Leader
+C. Communicator
+D. Motivator
+E. Conflict Resolver
+
+**Q30. Manager makes employees work by force which may lead to punishment for non-compliance under which power?**
+A. Coercive Power
+B. Rewarding Power
+C. Static Power
+D. Expert Power
+E. Legal Power
+
+*[Page 40 of 50]*
+
+---
+
+[logo: EduTap] 41
+
+**Q31. Data that is valuable for facilitating decision-making is known as:**
+A. Final Data
+B. Useful Data
+C. System
+D. Information
+E. Catalyst
+
+**Q32. The process of recruiting and onboarding suitable candidates for the organization.**
+**(Topic- HRD)**
+A. Recruitment
+B. Selection
+C. Passiveness
+D. Orientation
+E. None of the above
+
+**Q33. What function of a manager is where he identifies the problem and then takes decisions?**
+A. Diagnostic analysis
+B. Alternative Generation
+C. Choice Selection
+D. Designing
+E. None of the above
+
+**Q34. What does the acronym SMART stand for?**
+A. Suitable, measurable, actionable, rewarded and timely
+B. Specific, measurable, actionable, resourced and timely
+C. Standardized, measurable, achievable, rewarded, and timely
+D. Specific, Measurable, Achievable, Realistic and Timely
+E. None of the above
+
+*[Page 41 of 50]*
+
+---
+
+[logo: EduTap] | 42
+---|---
+
+## **Economics and Social Development**
+
+**Q35. Which of the following sustainable development goals strives to achieve gender equality?**
+A. SDG 8
+B. SDG 5
+C. SDG 12
+D. SDG 7
+E. SDG 10
+
+**Q36. What are the core components that form the domain of population studies?**
+A. Birth, Death and Migration
+B. Health, Education and Gender Ratio
+C. Fertility, Mortality and Population Density
+D. Population Growth, Age Structure and Employment
+E. Population Projections, Urbanization, and Household Size
+
+**Q37. Which age group's population is factored into the calculation of India's literacy rate?**
+A. 5 years and above
+B. 6 years and above
+C. 7 years and above
+D. 8 years and above
+E. 9 years and above
+
+*[Page 42 of 50]*
+
+---
+
+[logo: EduTap] 43
+
+# General Awareness
+
+Q38. As per a newspaper report published in January 2023, NASA's James Webb Telescope has discovered an exoplanet, LHS-47b, which is almost the same size as planet ________, matching the extent of 99% in terms of diameter.
+A. Jupiter
+B. Earth
+C. Mars
+D. Neptune
+E. Venus
+
+Q39. India holds G20 Presidency from 1st December 2022- 30th November 2023. Identify which of the following countries will form the "G20 Troika"?
+i) Brazil
+ii) Germany
+iii) Indonesia
+iv) Italy
+v) Saudi Arabia
+A. Only I and II
+B. Only I, II, and III
+C. Only III
+D. Only I and III
+E. Only III and V
+
+Q40. The 13th instalment of Rs 2000 under PM-Kisan was credited to the bank accounts of the beneficiaries in February 2023. Which is NOT one of the categories of farmers that are ineligible to receive the benefits under the PM-KISAN scheme?
+A. Former and present holders of constitutional posts
+B. All persons who paid tax in the last assessment year
+C. Former and present ministers
+D. Families with cultivable land of 10 ha and more
+E. Former and present members of the State legislative assembly and state legislative council.
+
+Q41. What is the total gross enrolment ratio in higher educational targets under the National Educational Policy 2020?
+A. 50% by 2035
+B. 60% by 2035
+C. 40% by 2032
+D. 80% by 2030
+
+*[Page 43 of 50]*
+
+---
+
+[logo: EduTap] 44
+
+E. 95% by 2040
+
+**Q42. Which of the following companies is not a foreign Company?**
+A. Coca-Cola
+B. ITC
+C. Samsung
+D. Hindustan Unilever
+E. Nestle
+
+**Q43. David Malpass is the president of _________.**
+A. IMF
+B. World Bank
+C. International Development
+D. International Finance Corporation
+E. European Investment Bank
+
+**Q44. As per the NFHS-5, 5 states had a higher TFR than 2.1. Which among the following is not among them?**
+A. Meghalaya
+B. Madhya Pradesh
+C. Uttar Pradesh
+D. Bihar
+E. Jharkhand
+
+**Q45. World's longest railway station hubbali is in which railway zone?**
+A. Central Railway Zone
+B. Northern Railway Zone
+C. Eastern Railway Zone
+D. Southwestern Railway Zone
+E. Southeastern Railway Zone
+
+**Q46. According to SDG India Index, which is released by NITI Aayog, what is the criteria for the front-runner category?**
+A. 0-49
+B. 50-64
+C. 65-99
+D. 100
+E. None of the above
+
+*[Page 44 of 50]*
+
+---
+
+[logo: EduTap] 45
+
+Q47. What is the Name and the Price Money given in the K.K Birla Foundation to Noted Hindi writer Dr Gyan Chaturvedi?
+A. Vyas Samman ; 4 lakh
+B. Hindi Samman ; 5 lakh
+C. Pujya Samman ; 6 lakh
+D. Vishnu Samman ; 7 lakh
+E. Saraswati Samman ; 10 lakh
+
+Q48. As per NEP 2020, Teaching up to at least Grade 5 to be in mother tongue/ regional language/ As per National Education Policy, a mother tongue will be the medium of instruction at least which class?
+A. 5th
+B. 6th
+C. 7th
+D. 8th
+E. 9th
+
+Q49. World Economic Outlook predicts global slowdown in 2023 because of ____________.
+1. Increasing of interest rate by developed economies to counter inflation
+2. Because of slowdown due to developing economies
+3. War in Ukraine
+A. Only 1
+B. Only 2
+C. Only 3
+D. Both 1 and 2
+E. Both 1 and 3
+
+Q50. What is the minimum amount of premium to be paid by a member under Pradhan Mantri Shram Yogi Maandhan Yojana who is joining the scheme at the age of 29 years and when he has to pay the premium?
+A. Rs. 100 and 60 years
+B. Rs. 500 and 60 years
+C. Rs. 100 and 58 years
+D. Rs. 500 and 58 years
+E. None of the above
+
+*[Page 45 of 50]*
+
+---
+
+# IFSCA Grade
+A 2023 Phase
+1 - Paper 2
+Recollected
+Questions'
+Answer Key
+
+*[Page 46 of 50]*
+
+---
+
+[logo: EduTap] 47
+
+## Commerce and Accounts
+
+| Question | Answer |
+| :---: | :---: |
+| 1 | C |
+| 2 | A |
+| 3 | B |
+| 4 | D |
+| 5 | B |
+| 6 | D |
+| 7 | A |
+| 8 | B |
+| 9 | C |
+| 10 | D |
+| 11 | A |
+| 12 | D |
+
+## Management
+
+| Question | Answer |
+| :---: | :---: |
+| 13 | A |
+| 14 | D |
+| 15 | D |
+| 16 | E |
+| 17 | A |
+| 18 | C |
+
+## Finance
+
+| Question | Answer |
+| :---: | :---: |
+| 19 | C |
+| 20 | A |
+| 21 | D |
+| 22 | D |
+| 23 | B |
+| 24 | D |
+
+*[Page 47 of 50]*
+
+---
+
+[logo: EduTap] 48
+
+| 25 | A |
+|---|---|
+
+## Management
+
+| Question | Answer |
+| :---: | :---: |
+| 26 | A |
+| 27 | B |
+| 28 | A |
+| 29 | B |
+| 30 | A |
+| 31 | D |
+| 32 | B |
+| 33 | A |
+| 34 | D |
+
+## Economic and Social Development
+
+| Question | Answer |
+| :---: | :---: |
+| 35 | B |
+| 36 | A |
+| 37 | C |
+
+## General Awareness
+
+| Question | Answer |
+| :---: | :---: |
+| 38 | B |
+| 39 | D |
+| 40 | D |
+| 41 | A |
+| 42 | B |
+| 43 | B |
+| 44 | B |
+| 45 | D |
+| 46 | C |
+| 47 | A |
+| 48 | A |
+| 49 | E |
+| 50 | A |
+
+*[Page 48 of 50]*
+
+---
+
+[logo: EduTap] 49
+
+# What Next?
+
+1. **Identify Right Source:** Follow the best study resources (books, online courses, videos, etc.) for each topic on the list. Do not follow multiple sources for the same topic but rather follow good sources multiple times.
+2. **Topic Prioritization:** Review the document to identify key topics that require special attention. Prioritize your study schedule based on the significance of each topic in the syllabus. Ensure a balanced approach, allocating more time to critical subjects.
+3. **Width of Syllabus:** Merely going through the syllabus is not enough; Regularly revisit the document to reassess what topics actually need to be covered.
+4. **Depth of Understanding:** Recognize the varying depths at which topics should be covered. While some concepts demand a broad understanding, others require a more in-depth analysis. Tailor your study approach, accordingly, allocating more time to complex topics that demand deeper comprehension.
+
+*[Page 49 of 50]*
+
+---
+
+[logo: EduTap]
+
+# About Us
+
+We are a passionate team of experienced professionals who understand the challenges of aspirants preparing for government jobs. Our vision is to *"create a nurturing ecosystem for the aspirants so that they can feel safe, guided, and mentored."*
+
+[photograph: Anchit Garg]
+[photograph: Deepak Garg]
+
+Anchit Garg
+
+Deepak Garg
+
+# Our Mission
+
+At EduTap, our mission is to empower students to reach their full potential by providing comprehensive guidance, expert mentorship, and a supportive community. Since our start in 2016, we've grown into a trusted platform for aspirants, delivering exceptional results in government recruitment exams and certifications year after year.
+
+# Why Choose Us
+
+[icon: mentors]
+
+Our **mentors walk with you every step of the way**, providing personalized guidance and insightful advice.
+
+[icon: curriculum]
+
+Our courses offer a **comprehensive curriculum** that covers all aspects of the exam, from theoretical knowledge to practical application.
+
+[icon: track record]
+
+We have a **track record of helping students (even if they are not our paid subscribers)** achieve their dreams, with consistently high results in leading government exams.
+
+[icon: community]
+
+We help you connect with a **community of like-minded individuals** who share your goals and support your journey.
+
+[icon: phone] +91 8146207241
+
+[icon: email] hello@edutap.co.in
+
+[icon: globe] edutap.in
+
+*[Page 50 of 50]*

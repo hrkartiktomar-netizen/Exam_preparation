@@ -233,4 +233,9 @@ class AmendmentPoller:
 async def run_amendment_poller() -> dict[str, Any]:
     """Run the amendment poller (called by APScheduler)."""
     poller = AmendmentPoller()
-    return await poller.poll_and_process()
+    try:
+        return await poller.poll_and_process()
+    finally:
+        # Close the httpx connection pool; a fresh AmendmentPoller is created per
+        # run, so leaking the client would accumulate pools on every daily poll.
+        await poller.client.aclose()

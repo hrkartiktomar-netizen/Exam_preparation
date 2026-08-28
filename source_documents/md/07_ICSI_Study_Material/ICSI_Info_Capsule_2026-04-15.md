@@ -1,0 +1,177 @@
+# 064_ICSI Info Capsule__2026-04-15 — OCR transcription (Gemini)
+
+[logo: ICSI]
+
+## Vision
+"To be a global leader in promoting good corporate governance"
+
+## Motto
+सत्यं वद | धर्मं चर | स्पzak the truth. pvrçue righteousness
+
+## Mission
+"To develop high calibre professionals facilitating good corporate governance"
+
+Wednesday, April 15, 2026
+
+# Info Capsule
+
+### President
+CS Pawan G Chandak
+
+### Vice President
+CS Dwarakanath C
+
+---
+
+### ❖ International Monetary Fund
+
+## IMF raises India FY27 GDP growth forecast to 6.5% even as the world stumbles through conflict (April 14, 2026)
+
+The IMF has marginally upgraded India's GDP growth forecast for FY27 to **6.5%** (up 0.1 percentage point from its January projection), with growth expected to remain steady at 6.5% in FY28. The upgrade is driven by strong carryover momentum from 2025, easing US tariffs on Indian goods (reduced from 50% to 10%), and domestic demand strength — outweighing headwinds from escalating Middle East tensions. The projections are part of the IMF's latest *World Economic Outlook* titled "Global Financial Markets Confront the War in the Middle East and Amplification Risks," which warns that geopolitical tensions will weigh on global momentum and push near-term inflation higher.
+
+*For details:*  
+*https://economictimes.indiatimes.com/news/economy/indicators/imf-india-gdp-growth-fy27-6-5-even-as-the-world-stumbles-through-iran-conflict/articleshow/130258750.cms*
+
+---
+
+### ❖ Ministry of Commerce & Industry
+
+* ### Establishment of ‘Startup India Fund of Funds 2.0’ (April 13, 2026)
+
+The Central Government has approved the establishment of ‘Startup India Fund of Funds 2.0’ with a total corpus of Rs. 10,000 crore for the purpose of mobilizing venture capital for the startup ecosystem of the country. The Scheme shall be known as the ‘Startup India Fund of Funds 2.0 (Startup India FoF 2.0)’. It shall come into force from date of notification, i.e. 13th April 2026, with commitments to AIFs spread over the 16th and 17th Finance Commission Cycles.
+
+The objective of the fund is to enable access to venture capital for startups across stages and sectors while providing thrust to innovation driven manufacturing and development of long gestation technologies, as well as, to support development of smaller Venture Capital funds with focus on investments in early growth stage startups, nurturing innovative ideas. The operational guidelines will be issued by Department for Promotion of Industry and Internal Trade (DPIIT) with broad operational mechanism of FFS 1.0 and incorporating other aspects important to realise the expanded scope of the proposed Scheme. Small Industries Development Bank of India (SIDBI), Implementation Agency (IA) of the FFS 1.0, shall also be the Implementing Agency for the Startup India FoF 2.0.
+
+*For details:*  
+*https://egazette.gov.in/(S(qfwy05tzmfwdzao5vvj1xjhq))/ViewPDF.aspx*
+
+* ### India-Oman CEPA to unlock new trade, investment opportunities (April 13, 2026)
+
+Union Commerce and Industry Minister Piyush Goyal said that India and Oman have discussed unlocking opportunities under the proposed CEPA to boost bilateral trade and investment ties for the mutual growth of both nations. The agreement — signed in Muscat in December 2025 but yet to be implemented — will give ~98% of India's exports (textiles, agri products, leather) duty-free access to Oman, while India will reduce tariffs on Omani exports like dates, marble and petrochemicals. This engagement is part of Goyal's broader Gulf outreach, having recently held discussions with trade ministers of Saudi Arabia, UAE, Bahrain and Kuwait. India-Oman bilateral trade stood at ~$10.5 billion in 2024-25, with India's exports at ~$4 billion and imports at ~$6.54 billion.
+
+*For details: https://ddnews.gov.in/en/india-oman-cepa-to-unlock-new-trade-investment-opportunities-piyush-goyal/*
+
+*[Page 1 of 4]*
+
+---
+
+Wednesday, April 15, 2026
+
+## ❖ ESG Update
+
+### Coal India Limited ESG Approach
+
+* Committed to reducing GHG emissions and optimizing energy use through adoption of environmentally friendly technologies supporting sustainability and innovation.
+* Focuses on biodiversity management and ecological restoration to protect local flora and fauna.
+* Optimizes treated mine water for industrial and community use; implements advanced pisciculture in local ponds and decommissioned mines to generate community income.
+* Actively exploring renewable energy diversification — investments in cleaner technologies and partnerships — to align with national sustainability goals and reduce long-term coal dependency.
+* Certified under ISO 14001 (Environment), OHSAS 18001/ISO 45001 (Health & Safety), and ISO 50001:2018 (Energy Management)
+* **5-Year Action Plan (2024–25 to 2029–30)**
+  * Establishment of 13 Overburden (OB) to Manufactured Sand (M-Sand)
+  * Grassing on 900 Ha; plantation on 13,225 Ha; 15.85 lakh nursery saplings
+  * Afforestation on 1,779 Ha of non-forest land
+  * 2,948 LKL/year treated mine water for 920 villages (~13.13 lakh people)
+  * 48 Eco Parks / Mine tourism / recreational sites
+  * Rejuvenation of 441 traditional water bodies
+  * Renewable energy target: 5,602 MW
+
+*For Details:* https://d3u7ubx0okog7j.cloudfront.net/documents/Coal_India_BRSR_31.07.2025.pdf
+
+## ❖ Ministry of External Affairs
+
+* **India, Germany agrees to deepen strategic ties; Johann Wadephul hails progress (April 15, 2026)**
+
+India and Germany reaffirmed their commitment to strengthening bilateral ties at the India-Germany Foreign Office Consultations (FOC) held in Berlin, co-chaired by Foreign Secretary Vikram Misri and Germany's State Secretary Géza Andreas von Geyr. The consultations gained added significance as both nations mark 75 years of diplomatic relations in 2026, with a special logo jointly launched to commemorate the milestone. Discussions covered trade and investment, defence, technology, green and sustainable development, mobility and people-to-people exchanges, with agreements to expand cooperation in critical technologies, digital governance, renewable energy, green hydrogen, industrial partnerships and development cooperation in third countries. Both sides also exchanged views on West Asia and the Russia-Ukraine conflict. The visit builds on momentum from German Chancellor Friedrich Merz's visit to India in January 2026 and is expected to shape outcomes for the upcoming India-Germany Inter-Governmental Consultations later this year. Misri also met German Foreign Minister Johann Wadephul and interacted with foreign policy experts, MPs and senior officials at the Körber Foundation. Both countries reaffirmed the importance of their partnership as two of the world's largest economies and expressed confidence in their expanding strategic relationship.
+
+*For details:* https://ddnews.gov.in/en/india-germany-agree-to-deepen-strategic-ties-johann-wadephul-hails-progress/
+
+*[Page 2 of 4]*
+
+---
+
+Wednesday, April 15, 2026
+
+## Pronouncement
+
+| April 02, 2026 | Nivara Infradevelopers LLP(Petitioner) Versus The Union of India & Ors (Respondents) | Bombay High Court Writ Petition (L) No.7888 of 2026 903.WP(L). 7888.2026F.DOC |
+| :---: | :---: | :---: |
+
+**Brief Facts**
+The Joint Commissioner of State Tax (Respondent No.4) issued notices to the Petitioner's bankers to attaching Petitioner accounts under the GST Act and Petitioner was issued a pre-attachment communication in DRC-23 on the very same day simultaneously. The Department initiated these proceedings to determine tax liabilities, citing the protection of Government revenue as the main reason for the freeze. The Petitioner, a Limited Liability Partnership (LLP), approached the High Court under Article 226 of the Constitution to challenge the orders of provisional attachment of its bank accounts.
+
+**Judgement**
+Hon'ble High Court inter alia observed that certainly the impugned actions are in violation of the law and an apparent abuse of the powers which are vested with the authorities under the provisions of the Act. It is well settled that when such power to take drastic action is conferred on the authorities, it is coupled with an onerous duty to adhere to the provisions of law and the procedure so established. There cannot be a conscious departure from such mandatory requirements of law. Any action on the part of the officers who are supposed to act within the framework of law, cannot be taken in a high-handed manner and/or for extraneous considerations, as rightly contended by Mr. Patkar. It is the rule of law which is taken to the ransom by such officials when they knowingly breach the law, that too with impunity.
+
+High Court held that present case can be categorized to be quite gross wherein the requirements of law, for the best reasons known to such officer, have been breached. Further, even after the position in law was pointed out by the Petitioner in the representation dated 26th January 2026, the concerned officer for reasons which we do not know, however which Mr. Patkar says it to be quite extraneous, did not bother even to respond to such representation. The Petitioner had not only furnished correct legal information but also provided an alternate security to avoid such drastic action of attachment of the petitioner's bank account. However, the officer remained satisfied on maintaining such attachment. Thus, the whole approach of the concerned officer was of unwarranted coercion by attaching the bank accounts and that too without issuance of a show cause notice. Such attachment has continued to operate for three months depriving the Petitioner of the valuable right guaranteed under Article 300A of the Constitution of India apart from the petitioner being put to a live death on the business being brought at a standstill. This has certainly resulted into civil consequences and serious prejudice to the Petitioner in complete breach of the principles of law.
+
+Hon'ble High Court set aside the impugned attachment orders, the Joint Commissioner of State Tax, Investigation-A and directed to deposit an amount of Rs.25,000/- as costs with the Secretary, Maharashtra State Legal Services Authority, High Court premises, Mumbai within a period of two months from the date a copy of this order is made available. Ordered accordingly.
+
+*For Details:*
+*https://bombayhighcourt.nic.in/generatenewauth.php?bhcpar=cGFf0ad0uL3dyaXRlcmlcmVhVhZGRhGEvZGFOd0hGeVZGF0hGEvZGFOd0hGeVZG0YS9Qd*
+*dWRnZnV1bnVwbGZlZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxmZW5wZmxm*
+*dGU91PUzo5MDM4LURDUnJnTnTyZ2l0YXJpbGV2ZW50cy0yMDI2Sm1SclI2NmxnNGRvbmJGYz9WS1ZpbmRlbWZ1Z2xhYmpkZ01EaTI*
+*OkjIQy1PUzo5MDM4LURCUnJnTnTyZ2l0YXJpbGV2ZW50cy0yMDI2Sm1SclI2NmxnNGRvbmJGYz9WS1ZpbmRlbWZ1Z2xhYmpkZ01EaTI=*
+
+## Market Watch
+
+| Stock Market Indices as on 15.04.2026 | |
+| :--- | :--- |
+| **S & P BSE Sensex** | 78111.24(+1.64%) |
+| **Nifty 50** | 24231.30(+1.63%) |
+
+| Foreign Exchange Rates as on 15.04.2026 *(https://m.rbi.org.in//scripts/ReferenceRateArchive.aspx)* | | | |
+| :---: | :---: | :---: | :---: |
+| **INR / 1 USD** | **INR / 1 EUR** | **INR / 1 GBP** | **INR / 1 JPY** |
+| 93.38 | 110.11 | 126.68 | .58 |
+
+*[Page 3 of 4]*
+
+---
+
+Wednesday, April 15, 2026
+
+❖ *Business & Economy*
+
+# India set to emerge as world's 2nd largest solar market in 2026: National Solar Energy Federation of India (NSEFI) (April 14, 2026)
+
+India is poised to become the world's second-largest solar market in 2026 in terms of annual installations, according to NSEFI. The country achieved its fastest-ever 50 GW solar addition in just 14 months, reaching the 150 GW milestone — a sharp acceleration from the 11 years taken for the first 50 GW. Solar capacity is projected to reach 280–300 GW by 2030 to meet India's 500 GW non-fossil target, with annual additions nearing 50 GW. Key growth drivers include PM Surya Ghar, PM KUSUM 2.0, floating solar policies and the National Green Hydrogen Mission. The C&I segment crossed 10 GW in annual installations for the first time, supported by Green Energy Open Access, VPPAs and the RCO framework. Distributed Renewable Energy (DRE), currently at ~20% of installed solar capacity, is projected to rise to 35% by 2030. On manufacturing, PLI schemes, ALMM and BCD measures have strengthened domestic module manufacturing, with the next phase focusing on upstream supply chains — wafers, ingots, polysilicon and quartz. Energy storage is also set for double-digit capacity within 18 months, backed by VGF and non-solar hour connectivity provisions, marking 2026 as a phase of integrated clean energy growth for India.
+
+*For Details:* *https://www.thehindubusinessline.com/economy/india-set-to-emerge-as-worlds-2nd-largest-solar-market-in-2026-nsefi/article70860762.ece*
+
+---
+
+[image: GUIDANCE NOTE ON MEETINGS OF THE BOARD OF DIRECTORS (AMENDED UPTO 31ST JULY, 2025)-DEC 25]
+
+[GUIDANCE NOTE ON MEETINGS OF THE BOARD OF DIRECTORS (AMENDED UPTO 31 ST JULY, 2025)-DEC 25](#)
+
+**Author:** ICSI
+
+**Publication:** ICSI
+
+**Price:** Rs. 300
+
+*For details:*
+*[https://smash.icsi.edu/Scripts/ECart/Default/ItemWis eECartSearchOnlineBooks.aspx?ItemId=398](https://smash.icsi.edu/Scripts/ECart/Default/ItemWis%20eECartSearchOnlineBooks.aspx?ItemId=398)*
+
+[image: NAVIGATING LABOUR CODES - DEC 25]
+
+[NAVIGATING LABOUR CODES - DEC 25](#)
+
+**Author:** ICSI
+
+**Publication:** ICSI
+
+**Price:** Rs. 300
+
+*For details:*
+*[https://smash.icsi.edu/Scripts/ECart/Default/ItemWis eECartSearchOnlineBooks.aspx?ItemId=394](https://smash.icsi.edu/Scripts/ECart/Default/ItemWis%20eECartSearchOnlineBooks.aspx?ItemId=394)*
+
+---
+
+### *Prepared by Directorate of Academics & Research*
+*For any suggestions, please write to academics@icsi.edu.*
+*Disclaimer: Although due care and diligence have been taken in preparation and uploading this info capsule, the Institute shall not be responsible for any loss or damage, resulting from any action taken on the basis of the contents of this info capsule. Anyone wishing to act on the basis of the material contained herein should do so after cross checking with the original source.*
+
+**Connect with ICSI** | **www.icsi.edu** | [icons] | **Online helpdesk : http://support.icsi.edu**
+
+*[Page 4 of 4]*

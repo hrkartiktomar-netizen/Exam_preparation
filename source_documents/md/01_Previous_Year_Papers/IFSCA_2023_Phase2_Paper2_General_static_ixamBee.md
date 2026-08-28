@@ -1,0 +1,1196 @@
+# discovered_027_IFSCA_2023_Phase_2_Paper_2_General_static_ixamBee — OCR transcription (Gemini)
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+Prepare **50%** Faster
+
+[logo: ixamBee]
+= Prepare **50%** Faster
+
+# IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 1 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+Question No. 1
+
+In which year was the IFSCA Act enacted?
+
+Options :
+
+1. 2017
+2. 2018
+3. 2019
+4. 2020
+5. 2021
+
+Answer : 2019
+
+Explanation :
+
+The International Financial Services Centres Authority (IFSCA) Act was enacted in 2019 to develop and regulate the financial services market in the International Financial Services Centres in India.
+
+Question No. 2
+
+As of which date did the IFSCA assume the powers of the RBI, SEBI, IRDAI, and PFRDA?
+
+Options :
+
+1. 1st July 2020
+2. 1st August 2020
+3. 1st September 2020
+4. 1st October 2020
+5. 1st November 2020
+
+Answer : 1st October 2020
+
+Explanation :
+
+The IFSCA assumed the powers of the Reserve Bank of India (RBI), Securities and Exchange Board of India (SEBI), Insurance Regulatory and Development Authority of India (IRDAI), and Pension Fund Regulatory and Development Authority (PFRDA) on 1st October 2020, thereby consolidating the regulatory functions.
+
+Question No. 3
+
+---
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 2 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+Which of the following is NOT considered a financial product as per the IFSCA Act'19?
+
+**Options :**
+
+1. Equity shares
+2. Bonds
+3. Derivatives
+4. Insurance products
+5. Foreign Exchange Spot contract
+
+Answer : Foreign Exchange Spot contract
+
+Explanation :
+
+According to the IFSCA Act'19, a Foreign Exchange Spot contract is not considered a financial product. This act covers a broad range of financial products, but spot contracts, which are immediate transactions, do not fall under its purview.
+
+Question No. 4
+
+Which of the following regulators is NOT mentioned in section 13 of the IFSCA Act'19, whose powers have been granted to the IFSCA?
+
+**Options :**
+
+1. RBI
+2. SEBI
+3. IRDAI
+4. PFRDA
+5. NFRA (National Financial Reporting Authority)
+
+Answer : NFRA (National Financial Reporting Authority)
+
+Explanation :
+
+The National Financial Reporting Authority (NFRA) is not mentioned in section 13 of the IFSCA Act'19. This section grants the IFSCA powers previously held by other financial regulatory authorities like the RBI, SEBI, IRDAI, and PFRDA, but not the NFRA.
+
+Question No. 5
+
+What amount in term deposits at an IBU is considered as Bulk Deposit?
+
+**Options :**
+
+1. ?1,00,000/-
+
+---
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 3 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+2. ?2,00,000/-
+3. ?3,00,000/-
+4. ?4,00,000/-
+5. ?5,00,000/-
+
+Answer : ?5,00,000/-
+
+Explanation :
+
+In the context of IFSC Banking Units (IBUs), a term deposit of ?5,00,000/- is treated as a Bulk Deposit. This classification allows for the management of larger deposits distinctly from smaller retail deposits.
+
+Question No. 6
+
+Which statement about IFSC Banking units is INCORRECT?
+
+Options :
+
+1. They are required to maintain a Statutory Liquidity Ratio (SLR).
+2. They are required to maintain a Cash Reserve Ratio (CRR) on all deposits.
+3. They can engage in foreign currency transactions.
+4. They are exempt from domestic regulations.
+5. They offer banking services to non-residents primarily.
+
+Answer : They are required to maintain a Cash Reserve Ratio (CRR) on all deposits.
+
+Explanation :
+
+The incorrect statement regarding IFSC Banking units is that they are required to maintain a Cash Reserve Ratio (CRR) on all deposits. IFSC Banking Units operate under different regulations that exempt them from certain domestic banking requirements, including the CRR.
+
+Question No. 7
+
+What is the minimum size of an IPO as per IFSCA (Issuance and Listing of Securities) Regulations 2021?
+
+Options :
+
+1. USD 10 Million
+2. USD 12 Million
+3. USD 15 Million
+4. USD 20 Million
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 4 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+5. USD 25 Million
+
+Answer : USD 15 Million
+
+Explanation :
+
+The minimum size of an Initial Public Offering (IPO) as per IFSCA (Issuance and Listing of Securities) Regulations 2021 is USD 15 Million. This regulation ensures a certain scale for companies looking to list in an IFSC.
+
+Question No. 8
+
+What is the minimum capital requirement for an IFSC Banking Unit?
+
+Options :
+
+1. USD 15 Million
+2. USD 20 Million
+3. USD 25 Million
+4. USD 30 Million
+5. USD 35 Million
+
+Answer : USD 20 Million
+
+Explanation :
+
+The minimum capital requirement for an IFSC Banking Unit is USD 20 Million. This amount is set to ensure that the banking unit has sufficient financial stability to operate in an international financial services centre.
+
+Question No. 9
+
+IFSC Banking units are NOT covered under which of the following?
+
+Options :
+
+1. Deposit Insurance Scheme
+2. Centralized Deposit Insurance Scheme
+3. Foreign Exchange Management Act
+4. Prevention of Money Laundering Act
+5. Banking Regulation Act
+
+Answer : Centralized Deposit Insurance Scheme
+
+Explanation :
+
+---
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 5 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+Prepare 50% Faster
+
+IFSC Banking units are not covered under the Centralized Deposit Insurance Scheme. This indicates that deposits in IFSC Banking Units are not insured like those in domestic banks.
+
+Question No. 10
+
+Units in IFSC enjoy what percentage of income tax exemption for how many out of 15 years?
+
+Options :
+
+1. 80% for 10 years
+2. 90% for 10 years
+3. 100% for 10 years
+4. 100% for 12 years
+5. 100% for 15 years
+
+Answer : 100% for 10 years
+
+Explanation :
+
+Units operating in an International Financial Services Centre (IFSC) enjoy a 100% income tax exemption for 10 out of 15 years. This tax incentive is designed to encourage businesses to establish and grow their operations in IFSCs.
+
+Question No. 11
+
+In 2021, India purchased how many tonnes of gold jewellery, ranking second to which country?
+
+Options :
+
+1. 500 tons, USA
+2. 550 tons, Australia
+3. 600 tons, UAE
+4. 621 tons, China
+5. 700 tons, Russia
+
+Answer : 621 tons, China
+
+Explanation :
+
+In 2021, India bought 621 tons of gold jewellery, making it the second-largest purchaser of gold jewellery after China. This reflects India's substantial demand for gold as both an investment and a cultural symbol.
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 6 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper | [logo: ixamBee] |
+
+Question No. 12
+
+Which of the following financial centres is NOT listed in the top 5 of the Global Financial Centres Index?
+
+**Options :**
+
+1. New York
+2. London
+3. Hong Kong
+4. Shanghai
+5. Singapore
+
+Answer : Shanghai
+
+Explanation :
+
+Shanghai is not listed in the top 5 financial centres according to the Global Financial Centres Index. The Index ranks the world's leading financial hubs based on various factors, including business environment, financial sector development, infrastructure, and human capital.
+
+Question No. 13
+
+What is the leverage ratio for D-SIBs (Domestically Systemically Important Banks)?
+
+**Options :**
+
+1. 3%
+2. 3.5%
+3. 4%
+4. 4.5%
+5. 5%
+
+Answer : 4%
+
+Explanation :
+
+The leverage ratio for D-SIBs (Domestically Systemically Important Banks) is set at 4%. This requirement is part of a set of regulatory standards designed to ensure that these banks have adequate capital to safeguard against financial and operational risks.
+
+Question No. 14
+
+Which was the first international university to establish a campus at IFSCA?
+
+---
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams  
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 7 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+**Options :**
+
+1. Oxford University
+2. Deakin University
+3. Harvard University
+4. Stanford University
+5. University of Cambridge
+
+**Answer :** Deakin University
+
+**Explanation :**
+
+Deakin University was the first international university to establish a campus at the International Financial Services Centres Authority (IFRCA). This move represents the growing educational collaboration and international presence within the IFSCA.
+
+Question No. 15
+
+Which of the following is not a Central Record Keeping Agency (CRA) for the National Pension System (NPS)?
+
+**Options :**
+
+1. NSDL
+2. Karvy Computershare Private Limited
+3. Central Depository Services (India) Limited
+4. LIC Pension Fund
+5. SBI Pension Funds Private Limited
+
+**Answer :** Central Depository Services (India) Limited
+
+**Explanation :**
+
+Central Depository Services (India) Limited is not a Central Record Keeping Agency (CRA) for the National Pension System (NPS). CRAs are entities authorized to maintain records of NPS subscribers, including transactions and balances, but CDSL's role in the Indian financial ecosystem is primarily as a securities depository.
+
+Question No. 16
+
+How many Pension Funds (PFs) for the Other than Government Sector are registered with PFRDA under NPS?
+
+**Options :**
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 8 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+1. 7
+2. 8
+3. 9
+4. 10
+5. 11
+
+Answer : 10
+
+Explanation :
+
+There are 10 Pension Funds (PFs) for the Other than Government Sector registered with the Pension Fund Regulatory and Development Authority (PFRDA) under the National Pension System (NPS). This diversity allows subscribers to choose from a range of fund managers based on their performance and investment philosophy.
+
+Question No. 17
+
+As per the guidelines on Atal Pension Yojana, what is the maximum investment in equity allowed?
+
+Options :
+
+1. 5%
+2. 10%
+3. 15%
+4. 20%
+5. 25%
+
+Answer : 15%
+
+Explanation :
+
+According to the guidelines on Atal Pension Yojana, the maximum investment in equity can be 15%. This cap is set to balance the need for growth through equity investments with the need to manage risk in a retirement savings scheme.
+
+Question No. 18
+
+States are allowed to have a deficit of how much of their Gross State Domestic Product (GSDP), with a specific portion designated for power sector reforms?
+
+Options :
+
+1. 2.5% of GSDP, 0.25% for power sector reforms
+2. 3% of GSDP, 0.25% for power sector reforms
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 9 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee Prepare 50% Faster]
+
+3. 3.5% of GSDP, 0.5% for power sector reforms
+4. 4% of GSDP, 0.5% for power sector reforms
+5. 4.5% of GSDP, 0.75% for power sector reforms
+
+Answer : 3.5% of GSDP, 0.5% for power sector reforms
+
+Explanation :
+
+States are allowed to have a deficit of 3.5% of their Gross State Domestic Product (GSDP), with 0.5% of this amount specifically designated for power sector reforms. This policy encourages states to invest in improving their power sectors while maintaining fiscal discipline.
+
+Question No. 19
+
+What was the outlay for Phase-3 of the E-Courts project as per Budget 2023-24?
+
+Options :
+
+1. ?5000 crores
+2. ?6000 crores
+3. ?7000 crores
+4. ?8000 crores
+5. ?9000 crores
+
+Answer : ?7000 crores
+
+Explanation :
+
+The outlay for Phase-3 of the E-Courts project as per Budget 2023-24 was ?7000 crores. This investment aims to further digitize and streamline judicial processes, making the justice system more accessible and efficient.
+
+Question No. 20
+
+The Mahila Samman Savings Certificate will be available for a two-year period up to what date, and what is the deposit limit in the name of women or girls?
+
+Options :
+
+1. March 2024, up to ?1.5 lakh
+2. March 2024, up to ?2 lakh
+3. March 2025, up to ?1.5 lakh
+4. March 2025, up to ?2 lakh
+5. March 2026, up to ?2.5 lakh
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 10 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+Answer : March 2025, up to ?2 lakh
+
+Explanation :
+
+The Mahila Samman Savings Certificate will be made available for a two-year period up to March 2025, and the scheme will offer a deposit facility of up to ?2 lakh in the name of women or girls. This initiative aims to promote saving among women and provide them with a secure investment option.
+
+Question No. 21
+
+The Urban Infrastructure Development Fund (UIDF) will be managed by which institution and utilized by public agencies to create urban infrastructure in which cities?
+
+Options :
+
+1. Reserve Bank of India; Metro cities
+2. National Housing Bank; Tier 1 cities
+3. National Housing Bank; Tier 2 and Tier 3 cities
+4. State Bank of India; Tier 2 cities
+5. Urban Development Ministry; Tier 1 and Tier 2 cities
+
+Answer : National Housing Bank; Tier 2 and Tier 3 cities
+
+Explanation : The UIDF will be managed by the National Housing Bank and will be used by public agencies to create urban infrastructure in Tier 2 and Tier 3 cities, promoting balanced urban development across the country.
+
+Question No. 22
+
+What is the total estimated expenditure for the fiscal year 2023-24 as per the budget?
+
+Options :
+
+1. ?35 Lakh Crores
+2. ?40 Lakh Crores
+3. ?45 Lakh Crores
+4. ?50 Lakh Crores
+5. ?55 Lakh Crores
+
+Answer : ?45 Lakh Crores
+
+Explanation :
+
+The total estimated expenditure for the fiscal year 2023-24 is ?45 Lakh Crores, highlighting the government's budgetary planning for various sectors and initiatives to promote
+
+---
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 11 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+economic growth and development.
+
+Question No. 23
+
+What is the fiscal deficit target for FY 2023-2024, and by when is it planned to be reduced to 4.5%?
+
+Options :
+
+1. 5.5% of GDP, by 2024-25
+2. 5.9% of GDP, by 2025-26
+3. 6.0% of GDP, by 2024-25
+4. 6.5% of GDP, by 2025-26
+5. 7.0% of GDP, by 2024-25
+
+Answer : 5.9% of GDP, by 2025-26
+
+Explanation :
+
+The fiscal deficit target for FY 2023-2024 is set at 5.9% of GDP, with a plan to reduce it to 4.5% by the fiscal year 2025-26. This reflects the government's fiscal strategy to gradually reduce the deficit while supporting economic recovery and growth.
+
+Question No. 24
+
+Which of the following sectors has NOT been identified for one hundred critical transport infrastructure projects for last and first-mile connectivity?
+
+Options :
+
+1. Ports
+2. Coal
+3. Steel
+4. Fertilizer
+5. Automobile
+
+Answer : Automobile
+
+Explanation :
+
+The Automobile sector has not been identified for one hundred critical transport infrastructure projects for last and first-mile connectivity. The focus on ports, coal, steel, fertilizer, and food grains aims to enhance the efficiency of key economic sectors through improved connectivity.
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 12 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+Question No. 25
+
+In which fiscal year was the railway budget merged with the union budget?
+
+Options :
+
+1. 2015-16
+2. 2016-17
+3. 2017-18
+4. 2018-19
+5. 2019-20
+
+Answer : 2017-18
+
+Explanation :
+
+The railway budget was merged with the union budget in the fiscal year 2017-18. This move was aimed at streamlining the budget process and ensuring a more unified approach to financial planning and resource allocation across the government.
+
+Question No. 26
+
+The average monthly gross GST collection increased from how much in FY18 to ?1.49 lakh crore in FY23?
+
+Options :
+
+1. ?0.75 lakh crore
+2. ?0.80 lakh crore
+3. ?0.85 lakh crore
+4. ?0.90 lakh crore
+5. ?0.95 lakh crore
+
+Answer : ?0.90 lakh crore
+
+Explanation :
+
+The average monthly gross GST collection has increased from ?0.90 lakh crore in FY18 to ?1.49 lakh crore in FY23, reflecting the growing efficiency and compliance in the GST framework over the years.
+
+Question No. 27
+
+Which of the following is NOT a challenge faced by the agriculture sector in India?
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 13 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+**Options :**
+
+1. Adverse impacts of climate change
+2. Fragmented landholdings
+3. Inadequate MSP to cover the cost of production
+4. Sub-optimal farm mechanization
+5. Rising input costs
+
+Answer : Inadequate MSP to cover the cost of production
+
+Explanation :
+
+The statement "MSP that is inadequate to cover the cost of production" is NOT listed as a challenge faced by the agriculture sector in India in the provided context. Challenges like adverse impacts of climate change, fragmented landholdings, sub-optimal farm mechanization, and rising input costs are recognized obstacles.
+
+Question No. 28
+
+What is the insurance density in India, according to the IFSCA Annual Report?
+
+**Options :**
+
+1. USD 75
+2. USD 81
+3. USD 91
+4. USD 101
+5. USD 111
+
+Answer : USD 91
+
+Explanation :
+
+The insurance density in India, as reported by the IFSCA Annual Report, is USD 91. Insurance density is a measure used to determine the average insurance premium per capita and is an indicator of insurance penetration in the economy.
+
+Question No. 29
+
+The notional turnover on the recognized stock exchanges in IFSC increased to USD 2867 billion during FY 2021-22, showing a jump of what percentage from FY 2020-21?
+
+**Options :**
+
+1. 35%
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams  
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 14 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+2. 40%
+3. 45%
+4. 50%
+5. 55%
+
+Answer : 45%
+
+Explanation :
+
+The notional turnover on the recognized stock exchanges in IFSC increased to USD 2867 billion during FY 2021-22, showing a significant jump of 45% from FY 2020-21. This highlights the growing activity and attractiveness of IFSC as a global financial hub.
+
+Question No. 30
+
+As per the IFSCA annual report, what is the number of AIFs registered with IFSCA in Category 1 and 2, and Category 3?
+
+Options :
+
+1. Category 1 and 2: 8, Category 3: 12
+2. Category 1 and 2: 9, Category 3: 13
+3. Category 1 and 2: 10, Category 3: 14
+4. Category 1 and 2: 11, Category 3: 15
+5. Category 1 and 2: 12, Category 3: 16
+
+Answer : Category 1 and 2: 10, Category 3: 14
+
+Explanation :
+
+According to the IFSCA annual report, there are 10 AIFs registered with IFSCA in Category 1 and 2, and 14 in Category 3. This categorization reflects the range of investment funds operating within IFSCA's regulatory framework, from venture capital and SME funds (Categories 1 and 2) to hedge funds and those trading with a view to making short-term returns (Category 3).
+
+Question No. 31
+
+How many clearing corporations are there in India according to the SEBI annual report?
+
+Options :
+
+1. 3
+2. 4
+3. 5
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 15 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper | [logo: ixamBee] Prepare 50% Faster
+
+4. 6
+5. 7
+
+Answer : 5
+
+Explanation :
+
+As per the SEBI annual report, there are 5 clearing corporations in India. These corporations play a critical role in the securities market, managing the clearing and settlement of trades to ensure efficiency and reduce risk.
+
+Question No. 32
+
+Which city was the only one to issue municipal bonds in FY 21-22?
+
+Options :
+
+1. Mumbai
+2. Bangalore
+3. Hyderabad
+4. Vadodara
+5. Kolkata
+
+Answer : Vadodara
+
+Explanation :
+
+Vadodara was the only city to issue municipal bonds in FY 21-22, showcasing an innovative approach to financing urban development projects and infrastructure through the capital market.
+
+Question No. 33
+
+The biggest IPO of which company in 2021-22 raised ?18300 crores?
+
+Options :
+
+1. Reliance Industries
+2. Tata Consultancy Services
+3. HDFC Bank
+4. Infosys
+5. One97 Communications Ltd. (Paytm)
+
+Answer : One97 Communications Ltd. (Paytm)
+
+Explanation :
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 16 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+The biggest IPO of One97 Communications Ltd. (Paytm) in 2021-22 raised ?18300 crores. This IPO highlighted the growing significance of digital payment platforms and fintech companies in India's economic landscape.
+
+Question No. 34
+
+Under the Retail Direct Scheme, individuals can invest in which of the following securities?
+
+**Options :**
+
+1. Only government securities
+2. Only treasury bills
+3. Only state development loans
+4. Only sovereign gold bonds
+5. All of the above
+
+Answer : All of the above
+
+Explanation :
+
+Under the Retail Direct Scheme, individuals can invest in all of the mentioned securities, including government securities, treasury bills, state development loans, and sovereign gold bonds. This scheme allows retail investors direct access to the government securities market, promoting wider participation in government securities.
+
+Question No. 35
+
+What is the amount of the LIC IPO?
+
+**Options :**
+
+1. $1 billion
+2. $1.5 billion
+3. $2 billion
+4. $2.5 billion
+5. $2.7 billion
+
+Answer : $2.7 billion
+
+Explanation :
+
+The amount of the Life Insurance Corporation of India (LIC) IPO was $2.7 billion, marking one of the largest public offerings in India's history. The IPO underscored the significant role of LIC in the Indian financial system and its valuation in the market.
+
+---
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 17 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+
+Question No. 36
+
+India became the 3rd largest automobile market surpassing Japan and which other country in terms of sales?
+
+**Options :**
+
+1. USA
+2. China
+3. Germany
+4. South Korea
+5. United Kingdom
+
+Answer : Germany
+
+Explanation :
+
+India became the 3rd largest automobile market in terms of sales, surpassing Japan and Germany. This signifies India's growing market size and consumer demand within the global automobile industry.
+
+Question No. 37
+
+What is the minimum lock-in period for Medium-Term Government Deposits under the Medium and Long-Term Government Deposit (MLTGD) Account as per the Gold Monetisation Scheme 2015?
+
+**Options :**
+
+1. 1 year
+2. 2 years
+3. 3 years
+4. 4 years
+5. 5 years
+
+Answer : 3 years
+
+Explanation :
+
+The minimum lock-in period for Medium-Term Government Deposits under the MLTGD Account as per the Gold Monetisation Scheme 2015 is 3 years. This scheme allows individuals and institutions to earn interest on their idle gold while contributing to the country's economic stability.
+
+---
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 18 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper | [logo: ixamBee] |
+|---|---|
+
+Question No. 38
+
+Banks shall maintain the stock of gold at least equivalent to the gold redemption due in the next how many months out of the gold mobilized under MLTGD?
+
+Options :
+
+1. 1 month
+2. 2 months
+3. 3 months
+4. 4 months
+5. 6 months
+
+Answer : 3 months
+
+Explanation :
+
+Banks are required to maintain the stock of gold at least equivalent to the gold redemption due in the next 3 months out of the gold mobilized under the Medium and Long-Term Government Deposit scheme. This ensures that banks have sufficient gold reserves to meet redemption requests.
+
+Question No. 39 As per the Gold Monetization Scheme, who can participate in the auction of Gold?
+
+Options :
+
+1. Only RBI
+2. RBI and Banks
+3. RBI, MMTC, and Banks
+4. Only MMTC
+5. RBI, SEBI, and Banks
+
+Answer : RBI, MMTC, and Banks
+
+Explanation :
+
+According to the Gold Monetization Scheme, the Reserve Bank of India (RBI), Metals and Minerals Trading Corporation of India (MMTC), and Banks can participate in the auction of Gold. This facilitates the mobilization and utilization of gold held by individuals and entities.
+
+Question No. 40
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 19 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper | [logo: ixamBee] Prepare 50% Faster
+
+As per the Social Stock Exchange Framework issued by SEBI, NPOs may not raise funds from which of the following?
+
+Options :
+
+1. Equity
+2. Debentures
+3. Zero-coupon bonds
+4. Mutual Funds
+5. Government securities
+
+Answer : Equity
+
+Explanation :
+
+According to the Social Stock Exchange Framework issued by the Securities and Exchange Board of India (SEBI), Non-Profit Organizations (NPOs) may not raise funds from Equity. The framework allows NPOs to raise funds through various instruments like zero-coupon zero principal bonds and mutual funds but excludes equity to align with the non-profit nature of these organizations.
+
+Question No. 41
+
+What is the minimum corpus requirement for a Social Impact Fund as per the social stock exchange framework?
+
+Options :
+
+1. ?1 crore
+2. ?3 crores
+3. ?5 crores
+4. ?10 crores
+5. ?15 crores
+
+Answer : ?5 crores
+
+Explanation :
+
+The minimum corpus requirement for a Social Impact Fund as per the social stock exchange framework is ?5 crores. This requirement ensures that the funds have a substantial base to create a meaningful impact in their targeted social or environmental areas.
+
+Question No. 42
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams  
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 20 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+Prepare 50% Faster
+
+What is the main objective of capital issuance by a company?
+
+**Options :**
+
+1. To finance debt repayment
+2. To distribute profits to shareholders
+3. To expand an existing company
+4. To cover operational losses
+5. All of the above
+
+Answer : To expand an existing company
+
+Explanation :
+
+While the given options may all be reasons for a company to seek capital, the primary objective often cited for capital issuance is to expand an existing company. This includes funding new projects, entering new markets, or enhancing production capabilities to drive growth.
+
+Question No. 43
+
+As per Swiss Re, India is one of the fastest-growing insurance markets in the world and is forecasted to be the sixth largest by what year?
+
+**Options :**
+
+1. 2025
+2. 2027
+3. 2030
+4. 2032
+5. 2035
+
+Answer : 2032
+
+Explanation :
+
+According to Swiss Re, India's insurance market is among the fastest-growing globally and is forecasted to become the sixth largest by 2032. This growth is attributed to increasing awareness, innovative insurance products, and the rising need for financial protection among India's burgeoning middle class.
+
+Question No. 44
+
+As per IRDAI, Corporate Agents (health) may have arrangements with a maximum of how many health insurers?
+
+---
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 21 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+Prepare *50%* Faster
+
+Options :
+
+1. 3
+2. 5
+3. 7
+4. 9
+5. 11
+
+Answer : 9
+
+Explanation :
+
+According to the Insurance Regulatory and Development Authority of India (IRDAI), Corporate Agents (health) are allowed to have arrangements with a maximum of nine health insurers. This enables them to offer a wide range of products and services to meet diverse customer needs.
+
+Question No. 45
+
+Which country has the largest insurance market in the world?
+
+Options :
+
+1. China
+2. United Kingdom
+3. United States
+4. Japan
+5. Germany
+
+Answer : United States
+
+Explanation :
+
+The United States has the largest insurance market in the world. The size and depth of the U.S. insurance market reflect its mature financial services sector, high levels of commercial and personal risk management, and comprehensive regulatory framework.
+
+Question No. 46
+
+The Kisan Credit Card (KCC) Scheme was extended to fisheries and animal husbandry in which fiscal year?
+
+Options :
+
+1. 2016-17
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 22 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+[logo: ixamBee]
+Prepare 50% Faster
+
+2. 2017-18
+3. 2018-19
+4. 2019-20
+5. 2020-21
+
+Answer : 2018-19
+
+Explanation :
+
+The Kisan Credit Card (KCC) Scheme was extended to include fisheries and animal husbandry in the fiscal year 2018-19. This expansion was aimed at providing comprehensive financial support to a broader base of rural economic activities beyond traditional agriculture.
+
+Question No. 47
+
+Which of the following acts is NOT administered by the Reserve Bank of India (RBI)?
+
+Options :
+
+1. Banking Regulation Act
+2. Payment and Settlement Systems Act
+3. Foreign Exchange Management Act
+4. Insolvency and Bankruptcy Code
+5. Reserve Bank of India Act
+
+Answer : Insolvency and Bankruptcy Code
+
+Explanation :
+
+The Insolvency and Bankruptcy Code is not administered by the Reserve Bank of India (RBI). It is a comprehensive legislation designed to consolidate and amend the laws relating to reorganization and insolvency resolution of corporate persons, partnership firms, and individuals in a time-bound manner, overseen by the National Company Law Tribunal (NCLT) and the Insolvency and Bankruptcy Board of India (IBBI).
+
+Question No. 48
+
+An NBFC-Factor shall ensure that its financial assets in the factoring business constitute at least what percentage of its total assets and its income derived from factoring business is not less than what percentage of its gross income?
+
+Options :
+
+1. 30% of total assets and 30% of gross income
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 23 of 25]*
+
+---
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper | [logo: ixamBee] Prepare 50% Faster
+
+2. 40% of total assets and 40% of gross income
+3. 50% of total assets and 50% of gross income
+4. 60% of total assets and 60% of gross income
+5. 70% of total assets and 70% of gross income
+
+Answer : 50% of total assets and 50% of gross income
+
+Explanation :
+
+An NBFC-Factor must ensure that its financial assets in the factoring business constitute at least 50% of its total assets and that its income derived from the factoring business is not less than 50% of its gross income. This requirement is intended to ensure that NBFC-Factors maintain a significant focus on their core business of factoring.
+
+Question No. 49
+
+What is the present ceiling of bank credit linked to the Net Owned Fund (NOF) of an NBFC?
+
+Options :
+
+1. There is no limit
+2. Up to 10 times the NOF
+3. Up to 12 times the NOF
+4. Up to 15 times the NOF
+5. Up to 20 times the NOF
+
+Answer : There is no limit
+
+Explanation :
+
+The present regulatory framework does not specify a ceiling for bank credit linked to the Net Owned Fund (NOF) of Non-Banking Financial Companies (NBFCs). Banks apply their own risk management and due diligence processes in determining the extent of credit to be extended to NBFCs.
+
+Question No. 50
+
+What is the lock-in period on the shares allotted to the anchor investors from the date of allotment?
+
+Options :
+
+1. 15 days
+2. 20 days
+
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 24 of 25]*
+
+---
+
+[logo: ixamBee]
+
+IFSCA Grade A Officer 2023 Phase 2 Paper 2 (General) Previous Year Paper
+
+3. 30 days
+4. 45 days
+5. 60 days
+
+Answer : 30 days
+
+Explanation :
+
+The lock-in period on the shares allotted to the anchor investors from the date of allotment is 30 days. This regulation is intended to provide stability to the share price in the immediate aftermath of the public offering by preventing anchor investors from selling their shares.
+
+[watermark: www.ixamBee.com]
+
+---
+ixamBee Offers Online Course for Preparation of RBI Gr. B, SEBI Gr. A, NABARD Gr. A/B exams
+For Free Demo, visit www.ixamBee.com or Contact us at 9205524028 (SMS/WhatsApp/call)
+
+*[Page 25 of 25]*

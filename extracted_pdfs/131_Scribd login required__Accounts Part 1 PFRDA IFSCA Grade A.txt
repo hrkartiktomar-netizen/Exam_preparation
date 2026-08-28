@@ -1,257 +1,0 @@
-Q.1
-       Answer: B
-Explanation
-Q.2
-       Answer: C
-Explanation
-Q.3
-       Answer: E
-Explanation
-Q.4
-       Answer: B
-Explanation
-     Q.5
-
-Mohan purchased goods for Rs 15,00,000 and sold 4/5th of the goods for Rs
-18,00,000 and met expenses amounting Rs 2,50,000 during the year, 2015. He
-counted the net profit as Rs 3,50,000. Which of the accounting concept was followed
-by him?
-[A] Objectivity Concept
-[B] Matching Concept
-[C] Conservatism Concept
-[D] Cost Concept
-[E] None of the above
-
-             Answer: B
-Explanation
-     Q.6
-
-Which of the following statement is incorrect in respect of accounting principles ?
-
-(a) Only those transactions and happenings in an organisation which can be
-expressed in terms of money are to be recorded in the book of accounts.
-(b) Accounting period refers to the span of time at the end of which the financial
-statements of an enterprise are prepared.
-(c) The accounting records are made in the book of accounts from the point of view of
-the owner and not that of the business unit.
-(d) That accounting transaction should be recorded in an objective manner, free from
-the bias of accountants and others.
-(e) None of the above
-
-             Answer: C
-                                              Explanation
-
-• The concept of business entity assumes that business has a distinct and separate
-    entity from its owners.
-
-• It means that for the purposes of accounting, the business and its owners are to be
-    treated as two separate entities.
-
-• Keeping this in view, when a person brings in some money as capital into his
-    business, in accounting records, it is treated as liability of the business to the
-    owner.
-   Q.7
-
-Economic life of an enterprise is split into the periodic interval to measure its
-performance is as per
-(a) Entity
-(b) Matching
-(c) Periodicity
-(d) Accrual
-
-          Answer: (c)
-                                           Explanation
-
-Periodicity Assumption (also called the Time Period Concept) states that the
-ongoing life of a business can be divided into articial time periods (such as
-months, quarters, or years) for the purpose of reporting nancial results. This
-assumption allows businesses to present nancial performance over
-consistent, comparable periods, despite their operations being continuous.
-   Q.8
-
-A purchased a car for 5,00,000, making a down payment of 1,00,000 and
-signing a 4,00,000-bill payable due in 60 days. As a result of this transaction
-
-(a) Total assets increased by 5,00,000.
-(b) Total liabilities increased by 4,00,000.
-(c) Total assets increased by 4,00,000 with corresponding increase in liabilities
-by 4,00,000
-(d) Total Assets increased by 4,00,000 with corresponding decreases in
-liabilities by 4,00,000
-
-           Answer: c
-                                           Explanation
-
-Assets:
-• Vehicle (new asset): + ₹5,00,000
-• Cash (used): − ₹1,00,000
-
-     Net Increase in Assets = ₹4,00,000.
-• Liabilities: Bills Payable: + ₹4,00,000
-   Q.9
-
-Q.1) Business transactions are usually evidenced by an appropriate document.
-Which of the following is not an appropriate document?
-[A] Cash Memo
-[B] Invoice
-[C] Cheque
-[D] Pay in slip
-[E] None of the above
-
-           Answer: E
-Explanation
-  Q.10
-
-Which among the following statements is incorrect?
-[A] A Credit Note is generally prepared by seller.
-[B] Debit Note is a generally prepared by the buyer.
-[C] A voucher showing a transaction that contains multiple debits/credits is called
-compound Voucher.
-[D] When cash or cheque is received from the customer, a receipt for the amount
-received is issued.
-[E] None of the above
-
-              Answer: E
-                                            Explanation
-
-[A] A Credit Note is generally prepared by the seller. - This is correct. A credit note is issued by the seller to
-the buyer, typically when the buyer returns goods or when there is an overcharge.
-[B] Debit Note is generally prepared by the buyer. - This is also correct. A debit note is issued by the buyer
-to the seller, generally when the buyer returns goods or disputes an invoice.
-[C] A voucher showing a transaction that contains multiple debits/credits is called compound Voucher. -
-This is correct. A compound voucher contains multiple debits and credits in a single transaction.
-[D] When cash or cheque is received from the customer, a receipt for the amount received is issued. - This
-is correct. When payment is received from a customer, a receipt is issued to acknowledge the
-transaction.
-
-Since all the statements are correct, the correct answer is [E] None of the above.
-  Q.11
-
-Income and Expenditure Account is
-(a) Real Account
-(b) Personal Account
-(c) Nominal Account
-(d) Capital Account
-(e) None of the above
-
-          Answer: C
-                                             Explanation
-
-The Income and Expenditure Account is similar in nature to a Profit and Loss Account and is used
-by non-profit organizations (like clubs, trusts, societies) to determine the surplus or deficit during a
-specific accounting period.
-Here's why it's classified as a Nominal Account:
-•Nominal accounts relate to expenses, losses, incomes, and gains.
-•The Income and Expenditure Account records all revenues and expenses of the organization for
-the year.
-•It shows whether the organization has made a surplus (income > expenditure) or a deficit
-(expenditure > income).
-This account does not carry forward balances to the next year—its balance is transferred to the
-Capital Fund (or General Fund), which is a part of the balance sheet.
-  Q.12
-
-Which one of the following is the rst book in which the transactions of a
-business unit are recorded?
-(a) Balance Sheet
-(b) Cash Book
-(c) Ledger
-(d) Journal
-(e) None of the above
-
-           Answer: d
-                                            Explanation
-
-The Journal is known as the book of original entry in accounting. Here's why:
-    •It is the rst book where all business transactions are recorded
-     chronologically and with proper narration.
-    •Every transaction is recorded in journal entries, which include debit and
-     credit aspects, according to the double-entry system of bookkeeping.
-    •These entries are later posted to the Ledger, which groups the
-     transactions by account.
-  Q.13
-
-The periodic total of purchases return journal is posted to :
-(i) Purchase account
-(ii) Profit and loss account
-(iii) Purchase returns account
-(iv) Furniture account
-(v) None of the above
-
-          Answer: iii
-Explanation
-                                           Explanation
-
-When goods previously purchased are returned to the supplier, the business records this in a
-Purchase Returns Journal (also called Return Outwards Journal). This journal accumulates all such
-returns over a period (typically a month), and at the end of that period, a periodic total is posted to
-the Purchase Returns Account in the ledger.
-Here’s a breakdown:
-•Purchase Account (Option i): This is used to record purchases of goods, not returns.
-•Profit and Loss Account (Option ii): This is used at the end of an accounting period to determine
-net profit or loss—not for direct posting of returns.
-•Furniture Account (Option iv): Only used when furniture is purchased or returned—not relevant to
-regular purchase returns unless it’s specifically furniture being returned, which is uncommon in journal
-totals.
-Hence, Option (iii) is the most appropriate and standard accounting treatment.
-  Q.14
-
-The periodic total of sales return journal is posted to :
-(i) Sales account
-(ii) Goods account
-(iii) Purchases return account
-(iv) Sales return account
-(v) None of the above
-
-         Answer: (iv)
-                                           Explanation
-
-The Sales Return Journal (also known as the Return Inwards Journal) is used to record all goods
-returned by customers. These are previously sold items now being returned, usually due to defects,
-damage, or dissatisfaction.
-At the end of a period (weekly, monthly, etc.), the total of the Sales Return Journal is posted to the debit
-side of the Sales Return Account in the general ledger. This reflects a reduction in total sales revenue.
-Let’s analyze the other options:
-•(i) Sales account: This records only forward sales, not returns.
-•(ii) Goods account: Not used in this context; it's not a standard ledger account in this case.
-•(iii) Purchases return account: This is for goods returned to suppliers (outward returns), not customer
-returns.
-Therefore, the correct and standard accounting treatment is to post the periodic total of the Sales Return
-Journal to the Sales Return Account — Option (iv).
-  Q.15
-
-If a cashbook is prepared, then there is no need to prepare which of the following books or accounts.
-[A] Cash Account
-[B] Journal Proper
-[C] Purchases Book
-[D] Sales Book
-[E] None of the above
-
-          Answer: A
-                                           Explanation
-
-The correct answer is option A
-When cashbook is prepared, there is no need to prepare cash account because question of recording credit
-transaction does not arise, as it records only cash transactions.
-Hence, the balances of cashbook are directly entered in the trial balance.
- Q.16 – H.W.
-
-Negative Balance of bank account column in cash book explains which of the following concept?
-[A] Cash deposited in bank account
-[B] Overdraft
-[C] Cash withdrawn from bank account
-[D] Cash transferred from bank account
-
-[E] None of the above
-HOW EDUTAP CAN HELP YOU?
-                                           Explanation
-
-The debit balance as per the cash book means the balance of deposits held at the bank. Such a balance
-will be a credit balance as per the passbook.
-Such a balance exists when the deposits made by the rm are more than its withdrawals. It indicates the
-favorable balance as per cash book or Favourable balance as per the passbook.
-On the other hand, the credit balance as per the cash book indicates bank overdraft. In other words, the
-excess amount withdrawn over the amount deposited in the bank. It is also known as unfavorable
-balance as per cash book or unfavorable balance as per passbook.
-
-          Answer: B
-

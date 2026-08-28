@@ -1,0 +1,4068 @@
+# The-Ifsca-Banking-Handbook-Cob-Directions-v6-005042024051513 — OCR transcription (Gemini)
+
+[logo: IFSCA]
+
+# The IFSCA Banking Handbook
+
+Conduct of Business Directions- v 6.0
+
+(COB)
+
+[Photograph of GIFT City buildings and an Indian flag]
+
+*[Page 1 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions – V 6.0
+
+# **Contents**
+
+**PURPOSE** .................................................................................................................................... **8**
+
+**MODULE NO. 1 Activities of Banking units (ACBU)** ............................................................. **9-19**
+
+1. Application ............................................................................................................................. 10
+
+2. Definitions ............................................................................................................................. 10
+
+3. Governing law for activities – Guidance ............................................................................... 10
+
+4. Permitted activities ................................................................................................................ 11
+
+5. Activities that IBUs shall not perform .................................................................................... 19
+
+6. Compliance with Anti-Money Laundering (AML) Standards
+and Counter-Terrorist Financing (CFT) guidelines ............................................................... 19
+
+**MODULE NO. 2 Undertaking Business in Foreign Currency (BIFC)** ................................. **20-23**
+
+1. Application ............................................................................................................................. 21
+
+2. Definitions ............................................................................................................................. 21
+
+3. Permissible Business in Foreign Currency............................................................................. 21
+
+4. Compliance with provisions under the Foreign Exchange Management Act, 1999........22
+
+5. Maintenance and use of Nostro accounts............................................................................ 22
+
+6. Nostro account in Indian Rupee (INR) ................................................................................. 23
+
+**MODULE NO. 3 Client Classification (CLIC)** ....................................................................... **24-32**
+
+1. Application ........................................................................................................................... 2 5
+
+2. Client Classification .............................................................................................................. 2 5
+
+3. Classification as a Retail Client ........................................................................................... 26
+
+4. Classification as a Professional Client ................................................................................. 2 6
+
+5. Reclassification of a Professional Client as a Retail Client ................................................... 30
+
+6. Market Counterparties ......................................................................................................... 31
+
+1
+
+*[Page 2 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+7. Trusts and Funds ....................................................................................................................31
+
+8. Agent as Client .......................................................................................................................31
+
+9. Record keeping .......................................................................................................................32
+
+**MODULE NO. 4 Communications with clients and financial promotions** 
+**(COMFP)**
+
+**33-40**
+
+1. Application .............................................................................................................................34
+
+2. Definition ...............................................................................................................................34
+
+2. Requirements – Communications ..........................................................................................34
+
+3. Requirements – Financial promotions ....................................................................................35
+
+4. Content of a Financial Promotion ...........................................................................................36
+
+5. Unsolicited Real Time Financial Promotions .........................................................................37
+
+6. Record keeping ......................................................................................................................39
+
+**MODULE NO. 5 Use of Electronic Trading platforms and the services of** 
+**Voice Brokers (TVBP)**
+
+**41-43**
+
+1. Application .............................................................................................................................42
+
+2. Definitions ..............................................................................................................................42
+
+3. Directions ...............................................................................................................................42
+
+**MODULE NO. 6 Key Information and Client Agreement (KICA)** 
+
+**44-47**
+
+1. Application .............................................................................................................................45
+
+2. Client agreement .....................................................................................................................45
+
+3. Record keeping ......................................................................................................................46
+
+4. Annex 1 Key Information (see para 2(ii)) ................................................................................47
+
+**MODULE NO. 7 Order execution and order handling (OEOH)**
+
+**48-53**
+
+1. Application .............................................................................................................................49
+
+2
+
+*[Page 3 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+2. Best execution obligation .................................................................................................................49
+
+3. Client order handling ......................................................................................................................49
+
+4 Transactions at Off-market rates.......................................................................................................51
+
+5. Records of orders and transactions..................................................................................................52
+
+6. Voice and electronic communications .............................................................................................52
+
+7. Direct electronic access ...................................................................................................................52
+
+**MODULE NO. 8 Conflicts of Interest (COIN)** **54-57**
+
+1. Application .....................................................................................................................................55
+
+2. Definitions ......................................................................................................................................55
+
+3. Identifying a conflict of interest......................................................................................................55
+
+4. Managing a conflict of interest........................................................................................................56
+
+5. Inducements...................................................................................................................................56
+
+6. Introductions...................................................................................................................................56
+
+7. Requirement to disclose inducements..............................................................................................56
+
+8. Disclosure in summary form...........................................................................................................56
+
+9. Record keeping...............................................................................................................................56
+
+10. Personal Transactions................................................................................................................... 56
+
+**MODULE NO. 9 Trust Service Providers (TRUST)** **58-60**
+
+1. Application .....................................................................................................................................59
+
+2. Basic requirements .........................................................................................................................59
+
+3. Records ..........................................................................................................................................59
+
+4. Due diligence ..................................................................................................................................59
+
+5. Knowledge regarding source of funds ............................................................................................59
+
+6. Fitness and Propriety of Persons acting as trustees......................................................................... 60
+
+3
+
+*[Page 4 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**MODULE NO. 10 Complaints handling and Dispute Resolution (CHDR)** | **61-63**
+--- | ---
+**1.** Application........................................................................................................................... | 62
+**2.** Arrangements for handling and redressal of complaints .............................................................. | 62
+**3.** Referrals ........................................................................................................................... | 63
+**4.** Record keeping ................................................................................................................... | 63
+
+**MODULE NO. 11 Accepting deposits (ACDE)** | **64-70**
+--- | ---
+**1.** Application ......................................................................................................................... | 65
+**2.** Definitions ......................................................................................................................... | 65
+**3.** Permissible deposits ........................................................................................................... | 66
+**4.** Interest rate framework and other requirements......................................................................... | 66
+**5.** Structured deposits ............................................................................................................ | 67
+**6.** Certificate of Deposits ......................................................................................................... | 68
+**7.** Maintenance of Retail deposits reserve ratio (RDRR) .................................................................. | 69
+
+**MODULE NO. 12 Representative Office (REPO)** | **71-76**
+--- | ---
+**1.** General provisions ............................................................................................................ | 7 2
+**2.** Opening a RO..................................................................................................................... | 7 2
+**3.** Conditions for opening a RO ................................................................................................ | 7 2
+**4.** Procedure for application and grant/rejection of letter of permission............................................... | 7 2
+**5.** Penalties ......................................................................................................................... | 7 3
+**6.** Activities of ROs.................................................................................................................. | 7 3
+**7.** Conduct .......................................................................................................................... | 7 4
+**8.** Administration .................................................................................................................... | 7 5
+
+4
+
+*[Page 5 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+9. Adherence to Anti Money Laundering (AML) and Combating financing of terrorism (CFT)
+   guidelines.........................................................................................................................75
+10. Application of other directions ............................................................................................76
+
+**MODULE NO. 13 OTC Derivatives (OTDC)** **77-102**
+
+1. Application ....................................................................................................................7 8
+
+2. Definitions ....................................................................................................................78
+
+3. Participants ..................................................................................................................80
+
+4. Obligation to classify clients ........................................................................................ 80
+
+5. Products ......................................................................................................................81
+
+6. Suitability obligation of market makers ........................................................................82
+
+7. Mandatory clearing of derivatives contracts ................................................................83
+
+8. Margin placement for non-centrally cleared derivatives................................................83
+
+9. Exchange of Margin ....................................................................................................84
+
+10. Margin calculation and methodologies – Initial margin.................................................85
+
+11. Margin calculation and methodologies – Variation margin...........................................88
+
+12. Eligible Collateral and Haircuts....................................................................................89
+
+13. Managing collateral risks.............................................................................................. 90
+
+14. Substitution and rehypothecation of collateral ..............................................................90
+
+15. Substituted compliance ............................................................................................. 92
+
+16. Implementation schedule ...........................................................................................93
+
+17. Maintenance of records .............................................................................................93
+
+18. Reporting ..................................................................................................................9 4
+
+Annex 1 – Deemed Professional Clients...........................................................................95
+
+Annex 2 - OTC Derivatives contracts (See para 1(iii) of the Directions)...............................96
+
+Annex 3- Person specified under section 8 (ii) (a)..............................................................98
+
+Annex 4 - Calculation of Initial Margin...............................................................................99
+
+5
+
+*[Page 6 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+Annex 5 - Standardised haircuts table for collateral .............................................................. 100
+
+Annex 6- List of foreign jurisdictions whose margin requirements are deemed to be in
+compliance with that of IFSCA (see para 15 – Substituted compliance) .................................... 101
+
+Annex 7 - List of specified derivatives contracts and recognised clearing house .................... 102
+
+
+**MODULE NO. 14 FX Prime Brokerage (FXPB)** .............................................................. **103-106**
+
+**1.** Application .................................................................................................................................... 104
+
+**2.** Definitions .................................................................................................................................... 104
+
+**3.** Directions – IBUs providing FXPB service ................................................................................ 104
+
+**4.** Directions – IBUs acting as Executing Dealer ............................................................................ 105
+
+Annex ................................................................................................................................................ 106
+
+
+**MODULE NO. 15 Referral Services (REFRS)** .................................................................... **107-109**
+
+**1.** Application ................................................................................................................................. 108
+
+**2.** Definitions .................................................................................................................................... 108
+
+**3.** Directions ..............................................................................................................................,108
+
+**4.** Maintenance of records .............................................................................................................. 109
+
+
+**MODULE NO. 16 Providing credit (PRCR)** .................................................................... **110-113**
+
+**1.** Application ................................................................................................................................. 1 11
+
+**2.** Definitions ................................................................................................................................... 111
+
+**3.** General conditions on providing credit .................................................................................... 111
+
+**4.** Restrictions on activity of providing credit .............................................................................. 112
+
+
+**MODULE NO. 17 Global Administrative Office (GAO)** .................................................... **114-122**
+
+**1.** General provisions .................................................................................................................... 1 15
+
+**2.** Definitions.................................................................................................................................. . 115
+
+6
+
+*[Page 7 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**3.** Opening a GAO .................................................................................................... 115
+
+**4.** Conditions for opening a GAO..............................................................................116
+
+**5.** Procedure for application and grant/rejection of letter of permission ..............................116
+
+**6.** Penalties ........................................................................................................... 117
+
+**7.** Activities that a GAO may undertake .....................................................................117
+
+**8.** Conduct............................................................................................................117
+
+**9.** Administration....................................................................................................118
+
+**10.** Adherence to Anti Money Laundering (AML) and Combating financing of terrorism (CFT)
+
+   guidelines............................................................................................................118
+
+Annex....................................................................................................................... 119
+
+**MODULE NO. 18 Providing services to designated agencies without risk**
+**participation (PRSE)** .................................................................................... **123-126**
+
+**1.** General provisions ............................................................................................. 1 24
+
+**2.** Definitions.......................................................................................................... 124
+
+**3.** Opening institution............................................................................................... 125
+
+**4.** Guidance............................................................................................................126
+
+7
+
+*[Page 8 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**Purpose:**
+
+The COB directions are aimed at ensuring that IFSC Banking Units (IBUs) meet the minimum standards of conduct expected, particularly with regard to the treatment of their clients, their dealings with counterparties and other market participants. It also includes directions to ensure that the behaviour of IBUs contributes to fostering and maintaining the integrity of financial markets in the IFSC and will assist the International Financial Services Centres Authority (IFSCA -referred as the 'Authority') to meet the regulatory objectives, including and particularly those related to:
+
+(a) protecting the interests of investors and users of financial services; and
+
+(b) ensuring that the financial markets under IFSCA's purview are fair, efficient, transparent and orderly; and
+
+(c) fostering and maintaining confidence in the IFSC's financial system and regulatory regime.
+
+8
+
+*[Page 9 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO.1
+
+# **ACTIVITIES OF BANKING UNITS**
+## **(ACBU)**
+
+9
+
+*[Page 10 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**1. Application**
+   i. These directions specify the activities that the Banking Units (BUs) may undertake and activities that the IBUs are barred from undertaking.
+
+**2. Definitions**
+   i. “Banking Unit (BU)” shall have the same meaning as defined in section 2(1)(c) of the International Financial Services Centres Authority (Banking) Regulations, 2020 and referred to as or “IFSC Banking Unit (IBU)” in this Handbook.
+   
+   ii. “Banking Company” means the Banking company of which the IBU is a branch.
+   
+   iii. “Clients” means a Retail Client, Professional Client or Market Counterparty as defined in Client Classification (CLIC) Module of COB
+   
+   iv. “Global Administrative Office” shall have the same meaning as defined u/s 3 (da) of the IFSCA (Banking) Regulations, 2020 (as amended).
+   
+   iv.(a) “Specified foreign currencies” means currencies as specified in the First Schedule to IFSCA (Banking) Regulations, 2020 (as amended).
+   
+   v. All other expressions unless defined herein shall have the same meaning as have been assigned to them under the Banking Regulation Act, 1949, the Reserve Bank of India Act, 1934 and the International Financial Services Centres Authority (Banking) Regulations, 2020 and any statutory modification or re-enactment thereto or as used in commercial parlance, as the case may be.
+
+**3. Governing law for activities – Guidance**
+   i. International financial transactions are often conducted on the basis of bilateral agreements between the parties. Such agreements may either be in the form of standard documents like International Swaps and Derivatives Association (ISDA for OTC derivatives), Global Master Repurchase Agreement (GMRA for repo transactions) or, in cases where standard documentation do not exist or as per the decision of the parties, in the form of bespoke agreements laying down the terms and conditions by which the proposed transaction is to be governed.
+   
+   ii. One of the important choices that the parties that enter into an international financial transaction on the basis of bilateral contract have to make is about the choice of governing law i.e., the law of the jurisdiction that will govern their legal relationship. In many cases, the jurisdiction chosen may be different from the jurisdiction in which either of the parties to the transaction is domiciled. Wide acceptance of the jurisdiction and its law to settle international commercial transactions, experience of judges in handling international transactions, availability of high-quality law firms, are some of the factors that determine the choice of governing law.
+
+10
+
+*[Page 11 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+iii. Unless barred by the Authority, either generally or pertaining to one or more activities, IBUs and their counterparties (within and outside IFSC) may mutually decide on applicable governing law for any agreements they enter into for undertaking the permitted activities. The Authority advises the IBUs to consider the following aspects while making the choice of governing law. **It may be noted that the following is not intended and does not constitute a legal advice by the Authority and the IBUs should obtain necessary legal advice to confirm their understanding of the legal position and the implications of such a decision:**
+
+a. Although the parties to an agreement can expressly choose a specific system of law to govern their agreement, it cannot govern all aspects of that agreement. For example, a specific system of law cannot govern the legal validity aspects, that is, the legal capacity of the parties to enter into and perform their obligations under the agreement, the due authorisation of the transaction, and the due execution and delivery of the documentation. Similarly, on the counterparty/borrower going into liquidation or becoming insolvent, or a receiver or administrator of the borrower or its assets is appointed by a court, legal issues arising as a result of that action will be subject to the laws of the jurisdiction where the borrowing party is domiciled.
+
+b. The parties to a contract cannot, except to a very limited degree, use contractual devices such as warranties, representations, and indemnities so as to avoid those local laws that contain elements of strict liability such as environmental laws etc. Thus, IBUs will need to consider a number of due diligence issues like potential lender liability at the jurisdiction where the borrowing party is domiciled or the jurisdiction where the funds are deployed by the borrower irrespective of the governing law of the contract between itself and the borrower.
+
+c. The choice of the method and forum for resolution of any disputes arising out of the contract has important implications such as neutrality of the forum agreed upon, applicable evidentiary and procedural directions, enforcement of awards etc. IBUs should keep this factor and its possible implications in mind while choosing the forum for dispute resolution.
+
+**4. Permitted activities**
+
+Subject to 5, Banking companies may render any of the financial services (as defined clause (e) of sub-section (1) of Section 3 of the IFSCA Act, 2019) ,through their IBU and/or GAO,in respect of any financial product (as defined clause (d) of sub-section (1) of Section 3 of the IFSCA Act, 2019) or engage in
+
+11
+
+*[Page 12 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+any form of business listed in Section 6 of the Banking Regulation Act, 1949¹, including,
+
+i. **<u>Acceptance of Deposits</u>**
+
+a. Acceptance of deposits means the activity of accepting deposits of money from the public repayable on demand or otherwise and used for the purpose of lending or investment.
+
+b. Directions regarding this activity is listed in the Accepting Deposits (ACDE) module of COB.
+
+ii. **<u>Borrowing from and Lending to :</u>**
+
+a) **<u>Other IBUs</u>**
+
+IBUs may freely borrow from or lend to other IBUs subject to their internal guidelines in this regard
+
+b) **<u>Parent Bank of the IBU</u>**
+
+IBUs may freely borrow from or lend to their parent bank subject to their internal guidelines in this regard
+
+c) **<u>Banks outside IFSC</u>**
+
+IBUs may freely borrow from or lend to Banks located outside IFSC subject to their internal guidelines in this regard
+
+iii. **<u>Lending – Retail</u>**
+
+a. This refers to the activity of lending to a client who is an individual.
+
+b. IBUs shall, while undertaking such activity in a jurisdiction outside IFSC, ensure compliance with the laws and regulations pertaining to lending to individuals (including laws and regulations pertaining to use of foreign exchange) in such jurisdiction.
+
+iv. **<u>Lending – Corporate</u>**
+
+_______________________
+¹ In case where IFSCA regulations permits an IBU to undertake an activity that is barred by the laws/regulations of its home jurisdiction/home Regulator, it shall be the responsibility of the IBU to ensure that necessary permissions/waivers (as applicable) are obtained from the home Regulator or appropriate authority in the home jurisdiction before undertaking such activity.
+12
+
+*[Page 13 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+a. This refers to the activity of lending to a client who is other than an individual (by whatever name called and of whatever legal structure).
+
+b. Directions regarding this activity are listed in the “Providing Credit” (PRCR) module of COB.
+
+c. IBUs shall, while undertaking such activity in a jurisdiction outside IFSC, ensure compliance with the laws and regulations pertaining to lending to corporates (including laws and regulations pertaining to use of foreign exchange) in such jurisdiction.
+
+v. <ins>Providing trust services</ins>
+
+IBUs may provide trust services by following the directions of the “Providing Trust Services” (PTST) module of COB.
+
+vi. <ins>Credit enhancement</ins>
+
+Credit enhancement means the service of improving the credit risk profile of a borrower by guaranteeing, whether as primary or secondary obligor, in whole or in part, loans raised (in whatever form) by the borrower.
+
+vii. <ins>Equipment leasing and Hire purchase</ins>
+
+a. Equipment leasing means service of allowing a person (“the lessee”) to use an equipment for a specified period in exchange for periodic payments to the owner of the equipment (“the lessor”) on the basis of a contractual agreement
+
+b. Hire purchase means the activity of hire purchase on the basis of an “hire purchase agreement” as defined in Hire Purchase Act,1972 or on the basis of a bilateral agreement based on the laws of a jurisdiction other than India between the IBU and its client.
+
+viii. <ins>Referral Services</ins>
+
+IBUs may undertake the activity of “referral services” by following the directions of the “Referral Services (REFRS)” module of COB.
+
+ix. <ins>Factoring and Forfaiting services</ins>
+
+a. Factoring service means transaction/s entered on the basis of a contract concluded between one party (the supplier) and the IBU (the factor) pursuant to which the supplier assigns to the factor receivables arising from contracts of sale of goods made between the supplier and its customers (debtors).
+
+13
+
+*[Page 14 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+b. Forfaiting service means the service of providing cash payment by the IBU to the exporter against surrender of the exporter's rights to receive payment against the goods and services rendered to the importer.
+
+c. IBUs may provide Factoring and Forfaiting services by one or more of the following routes:
+
+i. Through a trading platform set up in IFSC and following the rules of such trading platform or;
+
+ii. On bilateral basis, by following the guidelines issued by the Authority under the Factoring Act, 2011 (as amended).
+
+iii. On a bilateral basis, on the basis of a contract entered with the supplier the terms of which mandates the contract to be governed by the law of a jurisdiction other than India.
+
+x. **<u>Underwriting</u>**
+
+Underwriting means an arrangement under which a party agrees to buy, before issue, a specified quantity of securities in an issue of securities on a given date at a given price, if no other party has purchased or acquired them.
+
+xi. **<u>Acting as a portfolio manager</u>**
+
+a. Acting as a portfolio manager means and includes the activities undertaken by a "portfolio manager" as defined in the International Financial Services Centres Authority (Capital Market Intermediaries) Regulations, 2021 (as amended from time to time)
+
+b. IBUs desirous of offering portfolio management service (PMS) in IFSC may apply for registration to the Authority under the provision of Chapter II of the International Financial Services Centres Authority (Capital Market Intermediaries) Regulations, 2021 (as amended from time to time) ² read with the circular³ on Distribution of Capital Market Products and Services under International Financial Services Centres Authority (Capital Market Intermediaries) Regulations, 2021, dated December 21, 2022 (as amended).
+
+c. The IBUs that are permitted to offer PMS by the Authority shall maintain a 'Clients' Portfolio Account' in its general ledger, reflecting the funds received by it for portfolio management on a day-to-day basis. The balance
+
+__________________________________
+² International Financial Services Centres Authority (Capital Market Intermediaries) Regulations, 2021, dated October 18, 2021
+
+³ F. No. 817/IFSCA/Distribution/2022-23
+
+14
+
+*[Page 15 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+lying in this account (i.e., undeployed funds, if any, from this account) shall
+be treated as outside borrowings of the IBU. The IBU's liability to its clients
+in respect of funds accepted by it for portfolio management shall be properly
+reflected in the IBU's accounts.
+
+d. The IBUs shall maintain a clear functional separation of trading and back-
+office processes relating to its own investment accounts and PMS clients'
+accounts.
+
+xii. **Providing Investment Advisory service**
+a. Acting as an Investment adviser means and includes the activities
+undertaken by a "Investment Adviser" as defined in the International
+Financial Services Centres Authority (Capital Market Intermediaries)
+Regulations, 2021 (as amended from time to time)
+
+b. IBUs desirous of offering Investment Advisory services in IFSC may apply
+for registration to the Authority under the provision of Chapter II of the
+International Financial Services Centres Authority (Capital Market
+Intermediaries) Regulations, 2021 (as amended from time to time) read with
+the circular⁴ on Distribution of Capital Market Products and Services
+under International Financial Services Centres Authority (Capital Market
+Intermediaries) Regulations, 2021, dated December 21, 2022 (as
+amended).
+
+xiii. **Trading and Clearing member of a stock exchange**
+
+a. An IBU may become a trading member in interest rate, currency and
+Gold/precious metal derivatives segment and/or clearing member in any
+derivatives segment of IFSCA recognised stock exchanges if the Banking
+Company (of which the IBU is a branch) satisfies the minimum prescribed
+capital requirement (including Capital Conservation Buffer) specified by the
+home regulator of the Banking Company.
+
+b. An IBU not meeting the aforesaid condition may participate in the interest
+rate currency and Gold/precious metals derivatives segment of IFSCA
+recognised stock exchanges as a client.
+
+c. An IBU that is a trading/clearing member of any derivatives segment of
+IFSCA recognised stock exchanges shall keep its and its clients' position
+distinct from one another.
+
+xiv. **Bullion Trading Member and Clearing Members in GIFT-IFSC**
+An IBU which is member of the stock exchanges and clearing corporations in
+IFSC are enabled as Bullion Trading/Clearing Members subject to the
+fulfilment of requirements specified by the Authority. ⁵.
+
+____________________
+⁴ F. No. 817/IFSCA/Distribution/2022-23
+⁵ F. No. 329/IFSCA/Bullion Mlls/2021, dated September 17, 2021.
+
+15
+
+*[Page 16 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+xv. **Acting as a custodian of assets/securities**
+
+IBUs may operate as a custodian of assets/securities by following the directions in the Authority's circular "Recognition as Custodian of assets/securities" dated February 24, 2021.6
+
+xvi. **Undertaking Over-the-Counter (OTC) derivative contracts**
+
+a. OTC derivative contract means a derivative contract that is not traded on an exchange but instead is privately negotiated between two counterparties.
+
+b. Directions regarding this activity are listed in the OTC Derivatives Directions (OTDE) module under COB.
+
+xvii. **Acting as FX Prime Brokerage**
+
+a. IBUs may provide FX Prime Brokerage (FXPB) service or may act as an "executing dealer" in an FXPB arrangement.
+
+b. Directions regarding this activity are listed in the FX Prime Brokerage (FXPB) module under COB.
+
+xviii. **Undertaking remittances**
+
+a. IBUs may permit remittances by their clients to persons resident outside India (including residents of Nepal and Bhutan).
+
+i. Remittance between a financial institution (as defined in Section 3 (1)(c) of the International Financial Services Centres Authority Act, 2019) and a person resident outside India, being a transaction between persons resident outside India, the prohibition on drawal of foreign exchange vide Section 3 (c) of the FEMA (Current Account Transaction) Rules, 2000 shall not be applicable to such transactions.
+
+ii. Further, as such transactions do not involve conversion from INR to foreign exchange or vice-versa, the concept of authorised person (as defined in section 2(c) of the Foreign Exchange Management Act, 1999) shall not be applicable to BUs.
+
+b. IBUs may permit remittances by their clients to persons resident in India, subject to the provisions of the Foreign Exchange Management Act, 1999 (as amended) including any rules, regulations and directions issued thereunder.
+
+_________________________
+
+^6 F. No. 224/IFSCA/CMD-DMIIT/CUST/2021/1
+16
+
+*[Page 17 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+c. IBUs shall undertake remittance activity in any mode/method other than in
+cash.
+
+xix. <u>Undertaking foreign exchange transactions</u>
+
+IBUs may undertake foreign exchange transactions in cash, tom, spot and
+forward in any pair of specified foreign currencies.
+
+xx. <u>Global Administrative Office (GAO)</u>
+
+Banking companies may set up a GAO (see module 17) and undertake the
+activities permitted by such GAO.
+
+xxi. <u>Trading & Clearing in Precious Metals Spot and OTC Derivatives Contract</u>
+
+IBUs may undertake trading and clearing of spot contract and OTC derivative
+contract in precious metals as per the directions issued by the Authority in this
+regard.
+
+xxii. <u>Operating as a Foreign Portfolio investor (FPI)</u>
+
+a. IBUs set up by Banking Companies incorporated in India and outside India
+may invest in Indian securities market under the Foreign Portfolio Investor
+(FPI) route, subject to:
+i. prior registration as an FPI under the guidelines issued by the Securities
+and Exchange Board of India.
+ii. adhering to the investment terms and conditions as specified in the
+SEBI (Foreign Portfolio Investor) Regulations, 2019
+
+b. IBUs shall intimate the Authority after obtaining registration as an FPI.
+
+xxiii. <u>Operating as an Eligible Foreign Investor (EFI)</u>
+
+IBUs may invest in securities issued in IFSC, subject to their internal
+guidelines, if any, for such investments.
+
+xxiv. <u>Investing in securities issued outside IFSC (other than Indian securities)</u>
+
+IBUs may invest in securities issued outside IFSC denominated in any
+foreign currency subject to their internal guidelines, if any, for such
+investments.
+
+xxv. <u>Operating unallocated accounts in Bullion</u>
+
+IBUs may operate unallocated accounts for the purpose of trading, hedging
+and swapping with Physical Gold / Silver (allocated) by following the
+
+17
+
+*[Page 18 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+directions in the Authority’s circular “*Enabling dealings by IFSC- Banking Units in Bullion Unallocated Accounts* “dated March 3,2021. 7
+
+xxvi.	<u>Operating as an Investment Banker</u><sup>8</sup>
+
+a. Acting as an Investment Banker means and includes the activities undertaken by an “Investment Banker” as defined in the International Financial Services Centres Authority (Capital Market Intermediaries) Regulations, 2021 (as amended from time to time)
+
+b. IBUs desirous of offering Investment Banker services in IFSC may apply for registration to the Authority under the provision of Chapter II of the International Financial Services Centres Authority (Capital Market Intermediaries) Regulations, 2021 (as amended from time to time)
+
+xxvii.	<u>Undertaking transfer of loan assets</u>
+a. IBUs may undertake transfer of loan assets including bilaterally through the means of a standard loan participation agreement such as Master Risk Participation Agreement (MRPA).
+b. IBUs may execute such agreement to sell or buy a single asset or a part of such asset or a portfolio of such assets to/from other IBUs, Financial Institutions, persons resident in India and persons resident outside India. Sale or purchase of assets to/from persons resident in India shall be subject to the provisions of FEMA, 1999.
+c. While the Authority does not mandate any specific provision for retention of a part of the asset or portfolio by the seller and/or minimum period of retention of the asset or portfolio by the seller prior to transfer, IBUs buying assets on the basis of standard loan participation agreements should undertake necessary due diligence of the assets and, if felt necessary, shall insert necessary provisions in the agreement to protect its interest such as for retention of a part of the asset or portfolio by the seller and/or minimum period of retention of the asset or portfolio by the seller prior to transfer.
+
+xxviii.	<u>Undertaking negotiation of Letters of Credit (LC) of its constituents</u>
+a. IBUs are permitted to negotiate letters of credit of its constituents.
+b. IBUs shall not undertake negotiation of unrestricted letter of credits (LCs) of non-constituents
+c. For this purpose, the term constituent shall be defined as one who has been sanctioned regular credit facility by the IBU or any Indian and/or Foreign bank (or its branch) of the bank/bank group to which the IBU belongs. This is subject to the condition that the said bank (or its branch) is in a Financial Action Task Force (FATF) compliant jurisdiction.
+d. For the above purpose, a FATF compliant jurisdiction would be one whose name does not appear in the following publications of FATF:
+
+________________________
+<sup>7</sup> F. No. 236/IFSCA/Unallocated Account/2020-21/1
+<sup>8</sup> Refered to as Merchant Banker in the previous version of the Handbook
+
+18
+
+*[Page 19 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+i. High-Risk Jurisdictions subject to a Call for Action
+ii. Jurisdictions under Increased Monitoring
+
+xxix. **<u>Distribution of capital market products</u>**
+
+a. Distribution of capital market products means and includes the activities undertaken by a "distributor" as defined in the circular⁹ on Distribution of Capital Market Products and Services under International Financial Services Centres Authority (Capital Market Intermediaries) Regulations, 2021, dated December 21, 2022 (as amended).
+
+b. IBUs desirous of undertaking the activity of Distribution of capital market products may apply for registration to the Authority under the provision of Chapter II of the International Financial Services Centres Authority (Capital Market Intermediaries) Regulations, 2021 (as amended from time to time) read with the circular on Distribution of Capital Market Products and Services under International Financial Services Centres Authority (Capital Market Intermediaries) Regulations, 2021 dated December 21, 2022 (as amended).
+
+xxx. **<u>Participating in an authorised payment system</u>**
+
+IBUs may act as a "system participant"¹⁰ and or a "system provider"¹¹ for an authorised payment system.
+
+xxxi. **<u>Offering Payment services</u>**
+
+IBUs may offer payment services as defined in the regulation on Payment services issued by the Authority.
+
+**5. Activities that IBUs shall not perform**
+
+i. IBUs shall not undertake the following activities:
+a) effecting contracts of insurance
+b) any other activity expressly prohibited under any regulation/direction issued by the Authority
+
+**6. Compliance with Anti-Money Laundering (AML) Standards and Counter-Terrorist Financing (CFT) guidelines**
+
+While carrying out their activities, IBUs shall strictly adhere to the International Financial Services Centres Authority (Anti Money Laundering, Counter-Terrorist Financing and Know Your Customer) Guidelines, 2022 dated October 28,2022 ("IFSCA KYC guidelines") (as amended) and any circulars/directions issued under the said guidelines.
+
+_______________________
+⁹ F. No. 817/IFSCA/Distribution/2022-23
+¹⁰ As defined under the Payment and Settlement Systems Act, 2007 (as amended)
+¹¹ As defined under the Payment and Settlement Systems Act, 2007 (as amended)
+19
+
+*[Page 20 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO. 2
+
+# **UNDERTAKING BUSINESS IN FOREIGN**
+
+# **CURRENCY**
+
+## **(BIFC)**
+
+20
+
+*[Page 21 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**1) Application:**
+These directions pertain to the norms to be followed by IBUs while undertaking transactions in foreign currency
+
+**2) Definitions:**
+a. "Capital account transaction" means a transaction which alters the assets or liabilities, including contingent liabilities, outside India of persons resident in India or assets or liabilities in India of persons resident outside India, and includes transactions referred to in sub-section (3) of section 6 of the FEMA, 1999
+b. "Current account transaction" means a transaction other than a capital account transaction and without prejudice to the generality of the foregoing such transaction includes,—
+i. payments due in connection with foreign trade, other current business, services, and short-term banking and credit facilities in the ordinary course of business,
+ii. payments due as interest on loans and as net income from investments,
+iii. remittances for living expenses of parents, spouse and children residing abroad, and
+iv. expenses in connection with foreign travel, education and medical care of parents, spouse and children;
+c. "Foreign currency" means any currency other than Indian currency;
+
+**3) Permissible Business in Foreign Currency**
+a. IBUs shall undertake all transactions in IFSCs in a specified foreign currency and only via bank transfers.
+
+b. IBUs may undertake capital account transactions, excluding acceptance of deposits, with a person resident in India or a person resident outside India or another financial institution in any specified foreign currency, subject to the directions, if any, issued by the Authority from time to time provided that the financial institution shall satisfy itself prior to undertaking a capital account transaction with a person resident in India that such transaction is in compliance with the regulations or directions or guidelines issued by the Reserve Bank of India regarding permissible capital account transactions by a person resident in India.
+
+c. IBUs may accept deposits from a person resident in India or a person resident outside India or any other financial institution, in any specified foreign currency, subject to the directions, if any, issued by the Authority, from time to time, provided that the IBU shall satisfy itself prior to accepting deposits from a person resident in India that such transaction is in compliance with the regulations or directions or guidelines issued by the Reserve Bank of India regarding placement of deposits outside India in foreign currency by a person resident in India.
+
+d. IBUs may borrow funds, including in foreign currency, from its parent, domestic branches of Indian banks, overseas branches of Indian banks and a person
+
+21
+
+*[Page 22 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+resident outside India (including other IBUs). Borrowings from persons resident in India shall be subject to the provisions of FEMA, 1999.- Include in Foreign Currency Business module of COB
+
+e. IBUs of Indian banks and branches of other Indian financial institutions operating in IFSC may, subject to the directions issued by the Authority, offer financial products linked to Indian Rupee 12.
+
+f. An IBU is permitted to lend in INR denominated loans, in any form, to persons resident in India and persons resident outside India. Deployment of funds with persons resident in India shall be subject to the provisions of FEMA, 1999
+
+g. An IBU may undertake current account transactions with a person resident in India or with a person resident outside India or with other financial institution in any specified foreign currency, subject to the rules issued by the Central Government in respect of current account transactions.
+
+**4) Compliance with provisions under the Foreign Exchange Management Act, 1999**
+
+a. IBUs are required to comply with the provisions under FEMA, 1999 for the activities specified in section 2.
+
+b. Any contravention by any person under section 13 of the Foreign Exchange Management Act, 1999, in connection with a transaction in an IFSC, may on an application, be compounded by the International Financial Services Centres Authority in terms of the Foreign Exchange (Compounding Proceedings) Rules, 2000 or any such rules that may be specified by the Central Government for this purpose.
+
+**5) Maintenance and use of Nostro accounts**
+
+a. IBUs shall maintain separate nostro accounts with correspondent banks which would be distinct from nostro accounts maintained by other branches of the same bank.
+
+b. Apart from its own transactions, the Nostro account of the IBUs may also be used for undertaking transactions of the parent bank of the IBU or any foreign branch of the parent bank. e.g., collateral for derivative transactions undertaken by the parent or foreign branch of the IBU may be placed or received through the Nostro account of the IBU. While allowing its Nostro account to be so used, IBUs must ensure that:
+
+i. Such transactions are kept distinct from its own transactions and appropriately accounted for
+
+__________________
+12 As clarified by the Reserve Bank of India
+
+22
+
+*[Page 23 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+ii. Necessary documentation, if any, to protect the interest of the IBU is entered into with the parent bank or foreign branch of the parent bank before allowing such transactions to be routed through its Nostro account.
+
+**6) Nostro account in Indian Rupee (INR)**
+
+a. IBUs are permitted to open the following types of INR accounts with an Authorised Dealer (AD) bank :
+
+i. An IBU may open an INR account with any AD Bank in India (including the AD Bank of which the IBU is a branch) to meet the bonafide needs of the IBU in India. 13
+
+*ii.* An IBU may open an INR account, in the form of a Special Non-Resident Rupee Account (SNRRA), with an AD Bank in India to defray its administrative expenses in compliance with the directions of the Reserve Bank of India in this regard. 14
+
+_____________________________
+<sup>13</sup> As per Part B of RBI's Master Direction - Risk Management and Inter-Bank Dealings dated July 5,2016 (as updated)
+<sup>14</sup> As per RBI's circular on Setting up of IFSC Banking Units (IBUs) dated April 1,2015 (as updated)
+
+23
+
+*[Page 24 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO. 3
+
+# **CLIENT CLASSIFICATION**
+
+# **(CLIC)**
+
+24
+
+*[Page 25 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+## 1. Application
+
+i. Subject to (ii), the requirements of this module apply to all activities (see ACBU) that IBUs are permitted to undertake.
+
+ii. The general application of (i) may be modified or excluded by the Authority to the extent stated in the relevant module in COB, depending on the type of activity and the classification of client to whom such service is provided.
+
+iii. Further, the application of this module may be modified or exempted by the Authority in respect of certain specific components of COB, based on the category of client receiving services from the IBU and/or based on the nature of the activity involved.
+
+## 2. Client Classification
+
+i. <u>Obligation to classify Clients</u>
+
+a. An IBU providing any financial product or financial service to any person, except financial products and financial services mentioned in (b), must classify that person as one of the following categories of client:
+
+(i) a Retail Client;
+
+(ii) a Professional Client; or
+
+(iii) a Market Counterparty
+
+b. Obligation to classify clients shall not apply for the following financial products and financial services :
+
+(i) Providing credit <sup>15</sup>
+(ii) Opening of Savings accounts and Current accounts <sup>16</sup>
+(iii) Opening of Term Deposit accounts <sup>17</sup>
+
+ii. <u>Obligation to notify classification to Clients</u>
+An IBU must notify a new client of its classification as a Retail Client, Professional Client, or Market Counterparty in respect of the financial product or financial service being provided to that client.
+
+iii. <u>Classification of a client under more than one category</u>
+An IBU may classify a person as belonging to different categories of Client in respect of:
+
+___________
+
+<sup>15</sup> See module PRCR
+<sup>16</sup> See module ACDE
+<sup>17</sup> See module ACDE
+
+25
+
+*[Page 26 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(a) a specific financial product, financial service, or transaction; or
+
+(b) different types of financial product or transaction, which are to be provided to, or carried out on behalf of, that person.
+
+**3. Classification as a Retail Client**
+
+i. All clients that cannot be classified as a Professional Client or a Market Counterparty must be classified as a Retail Client.
+
+ii. An IBU may choose to classify any person as a Retail Client for providing financial products or financial services. Once and as long as the IBU classifies and treats the person as a Retail Client, it will not be required to assess whether that person could otherwise be eligible to be classified as a Professional Client or a Market Counterparty.
+
+**4. Classification as a Professional Client**
+
+i. An IBU may classify a person as a Professional Client - provided that person has not been classified as a Retail Client in accordance with 3; if that person:
+
+(a) meets the requirements to be a classified as a Deemed Professional Client in accordance with 4(ii) below; or
+
+(b) meets the requirements to be an Assessed Professional Client, in accordance with 4(iii) or 4(iv) below.
+
+ii. The following entities shall be classified as a Deemed Professional Client unless it is a Market Counterparty or is classified otherwise under 2:
+
+(a) a national or regional government;
+
+(b) a central bank;
+
+(c) a public body that manages public debt;
+
+(d) an international or supranational institution (such as the World Bank, the International Monetary Fund, or the Asian Development Bank) or other similar international organisation;
+
+(e) a regulated financial institution, including a bank, securities firm or insurance company;
+
+(f) a Market Infrastructure Institution, or any other authorised or regulated exchange, trading facility, central securities depository, or clearing house;
+
+26
+
+*[Page 27 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(g) a Collective Investment Scheme or its management company, or any other authorised or regulated collective investment undertaking or the management company of such an undertaking;
+
+(h) a pension fund or the management company of a pension fund;
+
+(i) a commodity dealer or a commodity derivatives dealer;
+
+(j) a body corporate whose shares are listed or admitted to trading on any exchange of a country / jurisdiction that is a member of the International Organization of Securities Commissions (IOSCO);
+
+(k) a trustee of a trust which has, or had during the previous 12 months, assets of at least USD 5 million;
+
+(l) a ‘Large Undertaking’ that, as at the date of its most recent financial statements, meets at least two of the following criteria –
+
+(i) it has total assets of at least USD 5 million on its balance sheet;
+
+(ii) it has annual turnover of at least USD 10 million; or
+
+(iii) it has own funds of at least USD 1 million.
+
+(m) A non-individual entity enjoying credit facility with any branch or subsidiary of the Banking company of which the IBU is a branch.
+
+(n) any other institutional investor whose main activity is to invest in financial instruments, including an entity dedicated to the securitisation of assets or other financial transactions.
+
+iii. _Assessed professional client – Individuals_
+
+An IBU may treat an individual client (‘natural persons’) as an Assessed Professional Client if:
+
+(a) the Client has net assets of at least USD 250,000; and
+
+(b) either:
+(i) the IBU assesses the client, on reasonable grounds, to have sufficient experience and understanding of relevant financial products, financial services, transactions and any associated risks;
+or
+
+(ii) the client works or has worked in the previous two years in any regulated financial institution, including a bank, securities firm or insurance company, in a position that requires knowledge of the type of financial products, financial services, transactions envisaged; and
+
+27
+
+*[Page 28 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(c) and subject to the following procedure:
+
+(i) the client must confirm in writing to the IBU that it wishes to be treated as a Professional Client either generally; or in respect of a specific financial product, financial service, transaction; or in respect of a type of financial products, financial services, transactions.
+
+(ii) the IBU must clearly inform the client, in writing, about the protections that are available to a Retail Client which the client may lose as a result of its classification as a Professional Client; and
+
+(iii) the client must confirm in writing, in a separate document from the client agreement or other contract, declaring its awareness and acceptance of the consequences of losing such protections.
+
+(d) For the purposes of 4(iii)(a), an individual client's net assets shall be calculated as total tangible assets owned minus total liabilities. The total tangible assets shall include any assets held directly or indirectly by the client but shall exclude the value of the primary residence of the client.
+^18
+
+(e) An IBU must, where applicable, consider the following factors, for the purposes of the assessment required under 4(iii)(b)(i):
+
+(i) the person's knowledge and understanding of the relevant financial products, financial services, transactions; and any associated risks, either generally or in relation to a specific financial product, financial service, transaction;
+
+(ii) the experience in terms of time of duration which the person has been engaging in financial market activity;
+
+(iii) the frequency with which the person has carried out transactions;
+
+(iv) the extent to which the person has previously relied on professional financial advice;
+
+(v) the size and nature of transactions that have been undertaken by, or on behalf of, the person in financial markets;
+
+(vi) the person's relevant qualifications or training;
+
+(vii) the composition and size of the person's portfolio of investments;
+
+(viii) any other matters which the IBU may consider relevant.
+
+(f) *Legal structures containing an individual's investment portfolio*
+
+___________________________
+^18 Certification by a Certified Accountant (by whatever name called) in the jurisdiction of the client shall be acceptable for compliance with this direction.
+28
+
+*[Page 29 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+An IBU may classify as an Assessed Professional Client a legal structure - including a firm, company, trust or foundation, that is set up solely for the purpose of managing the investment portfolio of an individual where that individual has been assessed as meeting the requirements for classification as an Assessed Professional Client.
+
+(g) **<u>Individual joint account holders</u>**
+An IBU may classify as a Professional Client an individual (the “joint account holder”) who has a joint account with an individual assessed as meeting the requirements for classification as an Assessed Professional Client (the “primary account holder”) if:
+
+(i) the joint account holder is a family member of the primary account holder;
+
+(ii) the account is used for the purposes of managing Investments for the primary account holder and the joint account holder;
+
+(iii) the following procedure is followed:
+
+(a) the joint account holder must confirm in writing to the IBU that investment decisions relating to the joint account are generally made for, or on behalf of, him /her by the primary account holder;
+
+(b) the joint account holder must confirm in writing to the IBU that he/she wishes to be treated as a Professional Client either generally; or in respect of a specific financial product, financial service, transaction; or in respect of a type of financial products, financial services, transactions;
+
+(c) the IBU must clearly inform the joint account holder, in writing, about the protections that are available to a Retail Client which the client may lose as a result of its classification as a Professional Client; and
+
+(d) the joint account holder must confirm in writing, in a separate document from the client agreement or other contract, declaring his/her awareness and acceptance of the consequences of losing such protections.
+
+iv. **<u>Assessed Professional Clients: Other than individuals</u>**
+
+For the purposes of this module, an IBU may treat an entity as an Assessed Professional Client if:
+
+(a) the IBU assesses the entity (which may involve assessing an individual or individuals authorised to make investment decisions on behalf of the entity), on reasonable grounds, to have sufficient experience and
+
+29
+
+*[Page 30 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+understanding of the relevant financial products, financial services, transactions and any associated risks; and
+
+(b) the entity has own funds of at least USD 1 million.
+
+(c) Other types of entities
+
+An IBU may also classify an entity as an Assessed Professional Client if the entity has:
+(a) a Controller; (b) a Holding Company; (c) a Subsidiary (whether direct or indirect); or (d) a joint venture partner, that meets the requirements to be classified as an Assessed Professional Client.
+
+v. *Client no longer meeting the requirements to be a Professional Client*
+
+The IBUs shall have a process for seeking annual confirmation from the clients about their continued eligibility to be classified as Professional Clients. If an IBU becomes aware that a client no longer meets the requirements to be classified as a Professional Client, the IBU must, as soon as possible, inform the client about the same and, where appropriate, discuss with the client the steps that the IBU and the client may take in this regard, which may include the IBU notifying the client of its reclassification.
+
+5. **Reclassification of a Professional Client as a Retail Client**
+   i. *Obligation to notify Professional Client of right to be treated as a Retail Client*
+
+   If an IBU provides services to Retail Clients and Professional Clients, it must, when first establishing a relationship with a person as a Professional Client, notify that person in writing of:
+
+   (a) that person’s right to be classified as a Retail Client;
+
+   (b) the higher level of protection available to Retail Clients; and
+
+   (c) the period of time within which the person may choose to be classified as a Retail client. If the person does not choose to be classified as a Retail Client within the time specified by the BU, the IBU may classify that person as a Professional Client.
+
+   ii. *IBU not providing services to Retail Clients*
+
+   If an IBU does not provide services to Retail Clients, it must inform its clients of this fact and any relevant consequences.
+
+   iii. *Professional Client seeking to be treated as a Retail Client*
+
+   If a Professional Client makes a request to the IBU to be treated as a Retail Client, the IBU must classify it as a Retail Client. If such an IBU does not provide services to Retail Clients, then the same must be communicated clearly to such a Professional Client seeking to be treated as a Retail Client and, if necessary, the IBU should stop providing services to that client.
+
+30
+
+*[Page 31 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**6. Market Counterparties**
+
+i. An IBU may classify a person as a Market Counterparty, unless and to the extent that person is given a different classification under this chapter, if that Person meets the requirements to be:
+
+(a) a Deemed Professional Client; or
+
+(b) an Assessed Professional Client and is the subsidiary of a Holding Company that is a Deemed Professional Client by virtue of being a Large Undertaking.
+
+ii. In order for an IBU to classify a person as a Market Counterparty, the IBU must ensure that:
+
+(a) the person has been given prior written notification of its classification as a Market Counterparty; and
+
+(b) the person has not requested to be classified other than as a Market Counterparty within the time specified in the notification.
+
+**7. Trusts and Funds**
+ i. <u>Trusts</u>
+
+If an IBU intends to provide financial products or financial services to a trust, it must, unless otherwise provided in COB, treat the trustee of the trust, and not the beneficiaries of the trust, as its client.
+
+ii. <u>Funds</u>
+
+If an IBU provides a financial product or financial service to a fund that does not have a separate legal identity, the fund will be treated as the client of the BU.
+
+**8. Agent as Client**
+ i. <u>General application of the "agent as client" rule</u>
+
+If an IBU is aware that a person (the "agent"), with or for whom it is intending to provide a service is acting as an agent for another person (the 'principal' or the "underlying client") in relation to that service, then the IBU must treat the agent as its client in respect of the service, subject to (ii).
+
+ii. <u>Exclusion from the "agent as client" rule</u>
+
+The underlying client is treated, for the purposes of these Directions, as the client of the IBU in respect of the service, if:
+
+(a) the IBU has agreed with the agent in writing to treat the underlying client as its client; or
+
+31
+
+*[Page 32 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(b) the agent is not another financial institution and the main purpose of the arrangements between the parties is the avoidance of duties and obligations that the IBU would otherwise have towards the underlying client.
+
+iii. <ins>Agreement in relation to more than one underlying client</ins>
+
+If an IBU makes an agreement with the agent under 8(i) in relation to more than one underlying client, the IBU may rely upon the agent to act as a single point of contact for all communications between the IBU and all of the underlying clients for which the agent is acting. Accordingly, where the IBU communicates with the underlying clients, the IBU may send to, or receive from, the agent a single communication covering all of the underlying clients, without having to notify or obtain consent from each underlying client. However, where the IBU is required to provide any communications to any single underlying client, relating to matters specific to that underlying client, the IBU shall be required to provide to the agent the information specific to that underlying client only - that may include, among others: (a) any risk warnings required under COB Directions; (b) trade confirmations and (c) periodic statements.
+
+9. **Record keeping**
+
+    i. <ins>Requirement to keep records</ins>
+
+    An IBU must keep records of:
+
+    (a) the procedures which it has followed under this module including any documents that evidence the Client's classification; and
+
+    (b) any notification sent to the Client under module, together with evidence of despatch.
+
+    ii. <ins>Length of recordkeeping requirement</ins>
+
+    The records in 9(i) must be kept for at least seven years from the date on which the business relationship with a client ended or for such period as may be required by any law, whichever is longer.
+
+    iii. <ins>Date of closure of the business relationship</ins>
+
+    An IBU may, if the date on which the business relationship with the Client ended is otherwise not clearly established or communicated, treat the date of the completion of the last transaction with the client as the date of closure of the business relationship.
+
+    iv. <ins>Obligation to provide access to the Authority</ins>
+
+    An IBU must ensure that the Authority has access to all of the records required under 9, including any records maintained by or at its head office or any other branch of the same legal entity, or a group entity, in respect of the transactions entered into by the BU. An IBU must notify the Authority immediately if, for any reason, it is no longer in a position to provide access to these records.
+
+32
+
+*[Page 33 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO.4
+
+# COMMUNICATIONS WITH CLIENTS AND FINANCIAL PROMOTIONS
+
+# (COMFP)
+
+33
+
+*[Page 34 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**1. Application**
+
+(i) <u>General requirement</u>
+
+This module applies to:
+
+(a) any IBU communicating with a client in relation to its activities (see ACBU); and/or
+
+(b) any IBU communicating or approving a Financial Promotion.
+
+(ii) For the purposes of this module, a communication may include, but is not limited to a client agreement, terms of business, terms and conditions relating to a financial product or financial service, a mandate, power of attorney entered into for the purposes of a financial product or financial service, a financial promotion and any other communication which relates in whole or in part to the provision of a financial product or financial service.
+
+(iii) <u>Territorial scope</u>
+
+This module applies to:
+
+(a) any communications of an IBU to a client; and/or
+
+(b) any Financial Promotions communicated or approved by a BU, in relation to its activities undertaken out of IFSC.
+
+**2. Definitions**
+
+"Financial promotion" means any communication, made using any medium, which invites or induces any person to: (a) enter into, or offer to enter into, an agreement in relation to the provision of a financial service; or (b) to enter into an agreement with any person in relation to a financial product
+
+**3. Requirements – Communications**
+
+(i) <u>Communications to be fair, clear and not misleading</u>
+
+An IBU must ensure that:
+(a) any communication with a client in relation to a financial product or financial service; or
+
+(b) any Financial Promotion that it communicates or approves, is fair, clear and not misleading in any manner.
+
+(ii) <u>Evasion of regulatory liability</u>
+
+Any communication by an IBU with a client, or any Financial Promotion that it communicates or approves, must not attempt to limit or evade any duty or liability it may have to that client or any other person under any applicable provision of the IFSCA Act, IFSCA Banking Regulations, Rules or other directions.
+
+(iii) <u>Information to be communicated directly to client</u>
+
+34
+
+*[Page 35 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+Where a direction in COB requires information to be provided to a client, the IBU must provide that information directly to the client unless it has received written instructions from the client assigning details of another person for the purpose.
+
+**4. Requirements – Financial promotions**
+
+(i) **Prohibition on Financial Promotions**
+
+A person must not undertake a Financial Promotion in relation to an activity carried on by an IBU licensed by the IFSC unless:
+(a) the person is an IBU
+
+(b) the content of the Financial Promotion is approved by a registered / licenced financial institution in IFSC;
+
+(c) the Financial Promotion is exempt under 3(iii) below.
+
+Persons who make a Financial Promotion falling within (a), (b) or (c) above shall be "Authorised Promoters" for the purposes of this module.
+
+(ii) **Financial Promotion by a Representative Office**
+
+A Representative Office may make a Financial Promotion only in relation to a financial product or financial Service offered by a related party of the Representative Office in a jurisdiction other than the IFSC.
+
+(iii) **Exempt Financial Promotions**
+
+For the purposes of 3.1(c), a communication is an exempt Financial Promotion if it is:
+
+(a) directed at and capable of acceptance exclusively by a person who is believed by the person making the Financial Promotion, on reasonable grounds, to be a Professional Client or Market Counterparty (and not a Retail Client);
+
+(b) made to a person as a result of an unsolicited request by that person to receive the Financial Promotion;
+
+(c) made or issued by or on behalf of a government or non-commercial government entity, including a central bank;
+
+(d) made by a person in the course of providing legal or accountancy services and may reasonably be regarded as incidental to and a necessary part of the provision of such services;
+
+(e) included in a Prospectus approved by the Authority in accordance with the relevant regulations for Capital Market activities; or
+
+(f) included in any document required or permitted to be published under the Listing regulations applicable under the relevant regulations for Capital Market activities.
+
+(iv). **Other exclusions from the Financial Promotions prohibition**
+
+A person does not breach the Financial Promotions prohibition if:
+
+35
+
+*[Page 36 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(a) the person acts as a mere conduit for the making of the Financial Promotion, such as: a newspaper or magazine; a website carrying third-party banner advertisements; a postman or courier; a person paid to hand out promotional material to the public and an event venue, unless that person created the Financial Promotion in any of such scenarios; or
+
+(b) the Financial Promotion is not made for a commercial or business purpose.
+
+**5. Content of a Financial Promotion**
+*(i)* An Authorised Promoter must ensure that any Financial Promotion that it communicates or approves clearly communicates information about the date of commencement and expiry of the said promotion.
+
+*(ii)* **Financial Promotions included in other communications**
+
+If an Authorised Promoter communicates information to a client (whether in a document required by these Directions or otherwise), the person must not include or embed a Financial Promotion in the communication in a way that obscures: (a) the objectives or purpose of the communication; or (b) the nature or purpose of the Financial Promotion.
+
+*(iii)* **Withdrawal of a Financial Promotion**
+
+If an Authorised Promoter becomes aware that a Financial Promotion that it previously communicated or approved does not comply or no longer complies with this Rule, it must ensure that the Financial Promotion is withdrawn as soon as practicable by either: (a) ceasing to make the Financial Promotion and telling any other person known to be relying on it that the promotion is withdrawn; or (b) withdrawing its approval and telling any person known to be relying on it that the promotion is withdrawn.
+
+*(iv)* **Restriction on communicating Financial Promotions**
+
+An Authorised Promoter that communicates or approves a Financial Promotion must ensure that:
+
+(a) the Financial Promotion complies with any applicable laws, directions or regulations in IFSC;
+
+(b) any material statements of fact in the Financial Promotion are accurate and up to date;
+
+(c) it does not distribute a Financial Promotion if it becomes aware that the financial product or financial service that is the subject of the Financial Promotion is in breach of legal or regulatory requirements;
+
+(d) any Financial Promotion intended for Professional Clients and/or Market Counterparties is not communicated to any persons who are not Professional Clients and/or Market Counterparties, as appropriate;
+
+(e) no person communicates or otherwise uses the Financial Promotion on behalf of the IBU in a manner that amounts to a breach of the requirements in this Rule; and
+
+36
+
+*[Page 37 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(f) the Financial Promotion does not mention of an approval or authorisation of the Authority that has not been given in writing by the Authority.
+
+(v) <u>Financial promotions for Retail Clients</u>
+
+Before an Authorised Promoter makes or approves a Financial Promotion directed at Retail Clients, it must ensure that the Financial Promotion:
+
+(a) is accurate and does not attempt to emphasise any potential benefits of a specified Financial Product without also giving a fair and prominent indication of associated risks;
+
+(b) is sufficient for the needs of, and presented in a way that is likely to be understood by, the average member of the group to whom it is addressed or by whom it is likely to be received; and
+
+(c) does not seek to disguise, diminish or obscure important items, caveats, risks, statements or warnings.
+
+(vi) <u>Comparisons and contrasts</u>
+
+If an Authorised Promoter makes or approves a Financial Promotion that contains a comparison or contrast, it must ensure that:
+
+(a) the comparison is meaningful and presented in an objective and balanced way;
+
+(b) the sources of the information used for the comparison are clearly mentioned; and
+
+(c) the key facts and assumptions used to make the comparison are included.
+
+(vii) <u>Past performance and forecasts</u>
+
+An Authorised Promoter must ensure that any information or representation in a Financial Promotion relating to past performance, or any future forecast based on past performance or other assumptions, which is provided to or targeted at Retail Clients:
+
+(a) presents a fair and balanced view of the financial products or financial services to which the information or representation relates;
+
+(b) identifies the source of information from which the past performance is derived and any key facts and assumptions used in that context are drawn; and
+
+(c) contains a prominent warning that past performance is not necessarily a reliable indicator of future performance or results.
+
+**6. Unsolicited Real Time Financial Promotions**
+(i) This direction applies to an Authorised Promoter in relation to the communication to a Retail Client of an Unsolicited Real Time Financial Promotion.
+
+(ii) <u>Meaning of an Unsolicited Real Time Financial Promotion</u>
+
+37
+
+*[Page 38 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+A Financial Promotion is considered to be an Unsolicited Real Time Financial Promotion if it is made by way of interactive dialogue:
+
+(a) which was not initiated by the recipient of the Financial Promotion; and does not take place in response to an express request from the recipient of the Financial Promotion; or
+
+(b) in relation to which it was not clear from all the circumstances when the dialogue was initiated or requested, that during the course of the dialogue, communications would be made concerning the kind of controlled activities and controlled investments to which the communications in fact made relate.
+
+(iii) <u>Examples of Unsolicited Real Time Financial Promotions – Guidance</u>
+
+An Unsolicited Real Time Financial Promotion would normally be expected to involve or require an immediate response from the recipient, such as a personal visit, interactive voice communication (including a telephone conversation), or other interactive dialogue. Unsolicited Real Time Financial Promotions are considered to present higher risks to Retail Clients and therefore require additional safeguards compared with solicited and/or non-real time Financial Promotions. Non-real time Financial Promotions include a letter, email, publication, website, television advertisement, or radio broadcast, which generally lack the interactive element and immediacy of a real time Financial Promotion.
+
+(iv) The restrictions on Unsolicited Real Time Financial Promotion do not apply to Professional Clients or Market Counterparties because it is expected that such clients are better able to assess the risks of a financial product or financial service, even when engaging in interactive dialogue with a representative of a BU.
+
+(v) <u>No express request for a Realtime Financial Promotion</u>
+
+For these purposes, a person is not to be treated as expressly requesting a real time Financial Promotion:
+
+(a) because (s)he omits to indicate that (s)he does not wish to engage in any or any further dialogue; or
+
+(b) because (s)he agrees to standard terms that state that such dialogue will take place, unless (s)he has clearly signified that, in addition to agreeing to the terms, (s)he is willing for them to take place. *If the dialogue is initiated or requested by a person (X), it is treated as also having been initiated or requested by any other person to whom it is made at the same time as it is made to X if that other person is a Family Member of X or expected to engage in any investment activity jointly with X.*
+
+(vi) <u>Exemption for image advertising</u>
+
+The requirements of 4 above does not apply if the Financial Promotion consists only of:
+
+(a) the name of the Authorised Promoter;
+
+(b) a logo or other image associated with the Authorised Promoter;
+
+(c) a contact point;
+
+38
+
+*[Page 39 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(d) a reference to the types of financial product or financial service provided by
+the Authorised Promoter, or to its fees.
+
+(vii) <u>Restriction on Unsolicited Real Time Financial Promotions</u>
+
+An Authorised Promoter must not make an Unsolicited Real Time Financial
+Promotion unless the recipient is an existing client of the Authorised Promoter and
+the relationship is such that the Authorised Promoter reasonably believes that: (a)
+the recipient understands the risks associated with the relevant investment; and (b)
+the recipient would expect to be contacted by the Authorised Promoter for the
+purpose of communicating Financial Promotions in real time.
+
+(viii) <u>Restriction on nature of Investments</u>
+
+An Unsolicited Real Time Financial Promotion must only relate to an investment
+that is: a government Security or a listed Security that is regularly traded on an
+Authorised Exchange in IFSC or other authorised and regulated exchanges, except
+that it is not permitted to communicate a Financial Promotion in real time in relation
+to Warrants or any Security that embeds a derivative.
+
+(ix) <u>Procedure for Unsolicited Real Time Financial Promotions</u>
+
+An Authorised Promoter must not communicate an Unsolicited Real Time Financial
+Promotion to a Client who is not at the Authorised Promoter's premises, unless the
+person communicating it:
+
+(a) only does so at an appropriate time of the day;
+
+(b) identifies himself and the firm he represents at the outset and makes clear
+the purpose of the communication;
+
+(c) clarifies if the client would like to continue with or terminate the
+communication, and terminates the communication at any time that the
+client requests it; and
+
+(d) gives a contact point to any client with whom he arranges an appointment.
+
+**7. Record keeping**
+(i) <u>Record keeping requirement</u>
+
+An Authorised Promoter must keep a record of all Communications with clients Financial
+Promotion that it makes or approves.
+
+(ii) <u>Content of records</u>
+
+The record must include at least the following detail:
+
+(a) the name of the senior Employee who reviewed the Financial Promotion;
+
+(b) the date the Financial Promotion was made or approved;
+
+(c) if the Financial Promotion was in writing, a copy of the Financial Promotion; and
+
+(d) if the Financial Promotion was not in writing, details of the Financial Promotion and
+its outcome, including a note stating if the Client requested the termination of a
+
+39
+
+*[Page 40 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+real time Financial Promotion. The Authorised Promoter must keep the records for
+at least 7 years after the Financial Promotion is no longer made or for such period
+as may be required by any law, whichever is longer.
+
+40
+
+*[Page 41 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+MODULE NO. 5
+
+**USE OF ELECTRONIC TRADING PLATFORMS**
+**AND THE SERVICES OF VOICE BROKERS**
+
+**(TPVB)**
+
+41
+
+*[Page 42 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**1. Application**
+   i. These directions pertain to the norms to be followed by IBUs while undertaking transactions through Electronic Trading Platforms (ETP) or availing the services of Voice Brokers.
+
+**2. Definitions**
+   i. “Electronic trading platform (ETP)” means an electronic platform (located within or outside IFSC) that enables the transfer of ownership of a financial asset by matching two counterparties.
+
+   ii. “Voice broker”<sup>19</sup> means an entity (located within or outside IFSC) that brings together buyers and sellers of a financial asset for the purpose of executing a transaction in such financial asset.
+
+   iii. “Disclosed” ETP venue means an ETP venue where the identities of the counterparties to a transaction are known to each other before they decide to engage in the transaction.
+
+   iv. “Semi-disclosed” ETP venue means an ETP venue where the identities of the counterparties are disclosed once the transaction is completed.
+
+   v. “Undisclosed” ETP venue means an ETP venue where the identities of the counterparties are not disclosed and for the purpose of clearing and settlement the deals are deemed to have been undertaken against a Central Counter party (CCP) nominated by the ETP.
+
+**3. Directions**
+   i. IBUs may undertake transactions through ETPs. Venues of such ETPs may be disclosed, semi-disclosed and undisclosed.
+
+   ii. IBUs may avail the services of Voice brokers for undertaking transactions.
+
+   iii. Prior to undertaking transactions on an ETP or through a voice broker, IBUs must assess, document and appropriately mitigate any risk which, in their assessment, is likely to arise from undertaking transactions on such ETP or through a Voice broker.
+
+   iv. Some of the factors that IBUs may consider while assessing an ETP or a Voice broker include:
+
+       a) robustness of the technology underpinning the ETP or Voice brokers (if necessary, by undertaking a technology due diligence exercise)
+
+       b) that the ETP or Voice brokers demonstrates high degree of reliability, availability, scalability and security in respect of its systems, data and network.
+
+_______________________
+<sup>19</sup> Also called Interdealer brokers
+
+42
+
+*[Page 43 of 127]*
+
+---
+
+![logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+v. “Deleted”
+
+vi. IBUs shall at the end of each quarter report to the Authority, the names of ETPs and Voice brokers through whom they have undertaken transactions during the quarter along with the volume of business (in USD) conducted through each ETP and Voice broker.
+
+43
+
+*[Page 44 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO. 6
+
+# **KEY INFORMATION AND CLIENT AGREEMENT**
+
+# **(KICA)**
+
+44
+
+*[Page 45 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+1. **Application**
+   i. This chapter applies to an IBU intending to carry out permitted activities with or for a client.
+
+   ii. The obligation in this section to enter into a written client agreement does not apply to an IBU when it is carrying on a permitted activity with or for a Professional Client or Market Counterparty, but the IBU must still provide specified key information to a Professional Client or Market Counterparty, in accordance with this chapter, before providing services.
+
+   iii. This chapter does not apply to an IBU when it is a fund manager offering the Units of a fund it manages. However, specific disclosure requirements, if any, shall apply to the offer materials provided in relation to Units in a fund, as set out in the relevant IFSCA Regulations, Directions and Circulars.
+
+2. **Client agreement**
+
+   i. <u>Requirement to enter into a client agreement</u>
+
+   An IBU, subject to 2(iii), must not carry on any activity with or for a person unless:
+
+   (a) the IBU has provided to that person such information in good time before the service is provided to enable the person to make an informed decision relating to the relevant activity; and
+
+   (b) if the person is classified as a Retail Client, there is a written client agreement entered into between the IBU and that person.
+
+   ii. <u>Relationship between key information and client agreement</u>
+
+   An IBU shall provide a person with a copy of the proposed client agreement containing the key information or may provide the key information separately from the client agreement.
+
+   For the purpose of this module, the term “key information” means the information specified in Annex 1 to this module.
+
+   iii. <u>Providing financial services without client agreement / key information</u>
+
+   An IBU may provide a financial product or financial service to a Retail Client or Professional Client without having to provide key information and/or enter into a client agreement in accordance with 2(i) where it is impracticable (such as time critical scenarios) to do so, provided that the IBU explains to the client why it is impracticable to enter into a client agreement; and enters into a client agreement as soon as practicable thereafter.
+
+45
+
+*[Page 46 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+iv. _Records of explanation to the client_
+
+Where an IBU has given the explanation referred to in 2(iii) verbally, it should maintain sufficient records to enable itself to demonstrate to the Authority that it has provided that explanation to the client.
+
+v. _Content of client agreement_
+
+If the IBU is required to enter into a written client agreement with the client, the agreement must set out all the important rights and obligations of both the parties.
+
+vi. _Content of key information_
+
+The essential contents of key information are:
+
+(a) the information that must be included in every client agreement, or otherwise provided to a client in accordance with Annex 1
+
+(b) in conformity with the requirement that more information is to be disclosed to Retail Clients than to Professional Clients or Market Counterparties; and
+
+(c) additional key information that must be included in any client agreement or otherwise provided to a client in relation to certain specific activities, as may be specified by the Authority.
+
+**3. Record keeping**
+
+IBUs should retain a copy of the client agreement for a period of seven years from the date on which the relationship with the relevant Client has ended or for such period as may be required by any law, whichever is longer.
+
+46
+
+*[Page 47 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**<u>ANNEX 1</u>**
+
+**<u>KEY INFORMATION (see para 2(ii))</u>**
+
+1. The key information which an IBU is required to provide to a client and include in the Client Agreement with that Client (as applicable) must include:
+
+  (i) In the case of a Retail Client:
+  
+    (a) The name and address of the BU
+    
+    (b) The regulatory status of the BU
+    
+    (c) when and how the Client Agreement shall come into force and the procedure for amendment or termination of the agreement.
+    
+    (d) Sufficient details of the service that the IBU will provide, including where relevant, information about any financial product or other restrictions applying to the IBU in the provision of its services and how such restrictions impact on the service offered by the IBU. If there are no such restrictions, a statement to that effect shall be included.
+    
+    (e) Details of fees, costs and other charges and the basis upon which IBU will impose such fees, costs and other charges
+    
+    (f) Details of any conflicts of interests for the purposes of disclosure
+    
+    (g) Key particulars of the BU's complaints handling procedures and a statement that a copy of the procedures is available free of charge upon request
+
+  (ii) In the case of a Professional Client, the information referred to in (a), (b), (c) and (e) above.
+
+  (iii) In the case of a Market Counterparty the information referred to in (a) and (b) above.
+
+47
+
+*[Page 48 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+MODULE NO. 7
+
+**ORDER EXECUTION AND ORDER HANDLING**
+
+**(OEOH)**
+
+48
+
+*[Page 49 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+1. **Application**
+   i. These directions apply to an IBU that executes orders for or on behalf of a client.
+
+   ii. These directions shall not apply to an IBU with respect to a transaction which
+       a. is executed with a Market Counterparty (as defined in CLIC); or
+
+       b. is carried out for the purposes of managing a Fund of which it is the Fund Manager; or
+
+       c. is a transaction undertaken by the IBU on the basis of specific instructions of a client where the IBU does not give advice on the merits of the transaction i.e., an execution-only transaction?
+
+   iii. Where an IBU executes an execution-only transaction with or for a client, the IBU is not relieved from providing best execution (see para 2) in respect of aspects of the transaction which lie outside the client's specific instructions.
+
+2. **Best execution obligation**
+   i. When an IBU executes orders for or on behalf of a client it must take all adequate steps to obtain the best possible result for the client taking into account the information available, including the following factors:
+      a) Price
+      b) Cost
+      c) Speed
+      d) Likelihood of execution and settlement
+      e) Size
+      f) Nature
+      g) Any other factor relevant to execution
+
+   ii. When an IBU executes a transaction for or on behalf of a Retail client, the best possible result will be determined by reference to the price and other costs, including execution venue fees, clearing and settlement fees and any other fees paid to third parties involved in the execution of the order.
+
+   iii. When an IBU executes a transaction in accordance with specific instructions from the client, it shall be deemed to have met its best execution obligation in relation to that part of the order covered by those instructions.
+
+3. **Client order handling**
+   i. These directions shall not apply to an IBU with respect to a transaction which
+      a. is executed with a Market Counterparty; or
+      b. is carried out for the purposes of managing a Fund of which it is the Fund Manager
+
+   ii. An IBU that executes orders on behalf of its clients must ensure that it has in place procedures that provide for the prompt, fair and expeditious execution of orders for a client, relative to orders for itself or for other clients.
+
+49
+
+*[Page 50 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+iii. An IBU must satisfy the following conditions when executing orders for a client:
+a. orders executed for clients must be promptly and accurately recorded and allocated
+
+b. comparable orders for clients must be executed sequentially (based on the time of receipt of order) and promptly unless the characteristics of the order or prevailing market conditions make this impracticable, or the interests of the client require otherwise.
+
+c. a Retail client must be informed of any material difficulty relevant to the proper execution of orders promptly when the IBU becomes aware of the difficulty
+
+d. maintain a record of:
+(i) the date and time of the allocation
+(ii) the relevant investments
+(iii) the identity of each client
+(iv) the amount allocated to each client and to the Authorised Firm recorded against the intended allocation as required by (a).
+
+iv. An IBU may aggregate an order for a client with an order for other clients or with an order for its own account only where:
+(i) it is unlikely that the aggregation will be to the disadvantage of any Client whose orders have been aggregated; and
+
+(ii) the IBU has disclosed in writing, at any time prior to execution of the order, to the Client that his order may be aggregated and that the effect of the aggregation may be to his disadvantage; and
+
+(iii) the IBU has made a record of the intended basis of allocation and the identity of each Client before the order is executed; and
+
+(iv) the IBU has in place written standards and policies on aggregation and allocation which are consistently applied and should include the policy to be adopted when only part of the aggregated order has been filled.
+
+v. Where an IBU has aggregated a client order with an order for other Clients or with an order for its own account, and part or all of the aggregated order has been filled, it must:
+(i) promptly allocate the Investments concerned;
+(ii) allocate the Investments in accordance with the stated intention
+
+50
+
+*[Page 51 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(iii) ensure the allocation is done fairly and uniformly by not giving undue preference to itself or to any of those for whom it dealt.
+
+vi. Once an IBU has agreed or decided to enter into a transaction for a client, it must do so as soon as reasonably practical. An IBU may postpone the execution of a transaction if it has taken reasonable steps to ensure that it is in the best interests of the client.
+
+4. **Transactions at off-market rates**
+
+i. In view of its possible use to conceal profit/loss or to perpetuate a fraud, use of off-market rates is strongly discouraged, particularly for the purposes of the extension or rollover of a maturing contract.
+
+ii. The current market rate should be used to liquidate the maturing contract and used as a base from which the rate for the new contract, if any, is derived. The resulting gains/losses on the maturing contract should be transferred to/recovered from the clients.
+
+iii. Request from clients for transactions at off-market rates should not be accepted as a normal practice and shall be treated as exceptional transactions warranting greater scrutiny and approval of senior management.
+
+iv. Such transactions shall be undertaken after satisfaction of the following conditions:
+
+a. IBUs should have internal policies and procedures regarding transactions at off-market rates and these should be complied with. In particular, the express approval of a Market Participant's senior management should be obtained before any transaction may be conducted at off-market rates
+
+b. BUs should also ensure that the express authorisation of the senior management of the client is in place before transacting at off-market rates with the client.
+
+c. BUs shall ensure that proper systems are established for the monitoring, recording and control of such transactions.
+
+d. Credit exposure and funding cost should be reflected in the transaction when they occur.
+
+e. When extending contracts at off-market rates, unrealised losses should be booked as a credit extension to the client against established credit lines and subject to the BU's normal assessment of the client's creditworthiness.
+
+51
+
+*[Page 52 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**5. Records of orders and transactions**
+
+i. An IBU shall promptly make a record of the details of the order received and its execution when it:
+
+a. receives a client order or in the exercise of its discretion decides upon a transaction; or
+
+b. executes a transaction; or
+c. passes a client order to another Person for execution
+
+**6. Voice and electronic communications**
+
+i. An IBU must take reasonable steps to ensure that it makes and retains recordings of voice communications, including telephone conversations, other than communications where both parties are physically present and copies of electronic communications, when such communications are with a client or with another person in relation to a transaction, including the receiving or transmitting of related instructions.
+
+ii. The obligation in (i) shall not apply to voice or electronic communications which are not intended to lead to a specific transaction and are in the nature of general discussions on market conditions.
+
+iii. The IBU must notify new and existing clients that relevant voice communications between the IBU and its clients in relation to a transaction will be recorded. Such information is required to be provided to the client once, prior to the execution of a transaction with a new client or when this obligation applies for the first time in relation to an existing client.
+
+iv. An IBU must take all reasonable steps to prevent an employee or contractor from making, sending, or receiving relevant voice and electronic communications on privately owned equipment which the IBU is unable to record or copy.
+
+v. The recorded voice and electronic communications must be:
+a) kept accessible in a manner that can be demonstrated by the IBU
+b) maintained in a form that allows it to be promptly reproduced
+c) protected from unauthorised alteration
+
+vi. Recordings of relevant voice communications and copies of electronic communication recordings must be retained for a minimum of six months or for such period as may be required by any law, whichever is longer.
+
+**7. Direct electronic access**
+
+Where an IBU provides a client (including a Market Counterparty) with direct electronic access to undertake transactions with itself, the IBU must:
+
+52
+
+*[Page 53 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+a) establish and maintain policies, procedures, systems and controls to limit or prevent a client from placing an order that would result in the position limits or credit limits being exceeded; and
+
+b) ensure that such policies, procedures, systems and controls remain appropriate and effective on an on-going basis.
+
+53
+
+*[Page 54 of 127]*
+
+---
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# **MODULE NO. 8**
+
+# **CONFLICTS OF INTEREST**
+## **(COIN)**
+
+54
+
+*[Page 55 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+1. **Application**
+   i. These directions apply to an IBU in its dealing with its clients.
+   ii. An IBU must take all reasonable steps to ensure that conflicts of interest between itself and its clients, between its employees and clients and between one client and another are identified and thereafter prevented or managed, or disclosed, in such a way as to ensure that the interests of a client are not adversely affected.
+
+2. **Definitions**
+   i. "An information barrier" is an arrangement that requires a person involved in one part of an IBU's business to withhold information from a person involved in another part of the business.
+
+   ii. "Personal transaction" means a transaction in an investment executed for or on behalf of a natural person, where at least one of the following criteria are met:
+       a. that person is acting outside the scope of the activities he is authorised to carry out in that capacity;
+
+       b. the transaction is carried out for the account of any of the following persons:
+          (i) the natural person;
+          (ii) the spouse of the natural person
+          (iii) a dependent child or stepchild of that natural person;
+       c. any other relative of that natural person
+       d. any person with whom he has close links;
+       e. a person whose relationship with that natural person is such that the natural person has a direct or indirect material interest in the outcome of the trade, other than a fee or commission for the execution of the transaction.
+
+3. **Identifying a conflict of interest**
+
+   For the purpose of the conflicts of interest that may arise in the course of its business, an IBU must consider whether it or a person linked to an IBU:
+
+   i. is likely to make a financial gain, or avoid a financial loss, at the expense of a client;
+
+   ii. has an interest in the outcome of a service or a transaction carried out for the client, which is different from the client's interest;
+
+   iii. has arranged for one part of its business or a business line to provide a service or carry out a transaction for a client that has a favourable or beneficial impact on another part or business line of the same IBU or a person linked to the IBU;
+
+   iv. has any incentive to treat one client favourably over another client;
+   v. carries on the same business or activities as the client; or
+   vi. receives an inducement from a third party in relation to a service provided to a client
+
+55
+
+*[Page 56 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+4. **Managing a conflict of interest**
+   i. Where an IBU is aware of a conflict of interest, actual or potential, it must take all reasonable steps to prevent that conflict of interest from adversely affecting the interest of the client by using the following arrangements as appropriate to the requirements of the case:
+      ( a ) establishing and maintaining effective organisational arrangements to prevent or manage conflicts, including information barriers to restrict the communication of the relevant information; and
+      ( b ) disclosing the conflict of interest to the client in writing either generally or in relation to a specific transaction, the risks resulting from that conflict, and the steps taken by the IBU to address the conflict.
+   ii. If an IBU is unable to prevent or manage a conflict or potential conflict of interest, it must decline to act for that Client.
+
+5. **Inducements**
+
+   An IBU must have policies and procedures in place to ensure that it, or its employee or associate, does not offer, give, solicit or accept any inducement from a third party, such as a fee, commissions or other direct or indirect benefit, where the inducement is reasonably likely to be in conflict with any duty that the IBU owes to its clients.
+
+6. **Introductions**
+
+   In circumstances where an IBU introduces a client to a third party and receives a fee, commission or other benefit in respect of that introduction, such fee, commission or other benefit received in respect of such a referral would not be a prohibited inducement under this rule, provided that the IBU has acted in the best interests of the client.
+
+7. **Requirement to disclose inducements**
+
+   An IBU must, before providing a financial product or a financial service to a client, disclose to that client any inducement which it, or any associate or employee of it, has received or may or will receive as a result of providing the financial product or financial service.
+
+8. **Disclosure in summary form**
+
+   An IBU may provide the information required at 7 in summary form, provided it informs the client that more detailed information will be provided to the client upon request and complies with such a request.as and when such request is made.
+
+9. **Record keeping**
+
+   An IBU shall maintain record of inducements disclosed to the clients for a period of seven years after such inducement was disclosed.
+
+10. **Personal Transactions**
+
+    i. An IBU must establish and maintain adequate policies and procedures so as to ensure that an employee does not undertake Personal Transaction unless:
+
+56
+
+*[Page 57 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(a) the IBU has, in a written notice, drawn to the attention of the employee the conditions upon which the employee may undertake Personal Transactions and that the contents of such a notice are made a part of the conditions of his contract of employment or services;
+
+(b) the IBU has given permission in writing to the employee for the proposed transaction or such class of proposed transaction generally
+
+(c) the transaction shall not be in conflict with the IBU's duties to its clients;
+
+ii. It receives prompt notification or is aware of each employee's personal transactions
+
+iii. if an employee's Personal Transactions are conducted with the IBU, each employee's account must be clearly identified and distinguishable from the accounts of other clients.
+
+iv. The written notice in (i) above must specify that an employee who is barred from undertaken a Personal Transaction shall not:
+
+(a) Obtain the services of another person to undertake the transaction on his behalf.
+
+(b) Communicate any information or opinion about the said transaction to another person, who the employee knows or ought to know, is likely to enter into such transaction or obtain the services of another person to enter into such transaction on his behalf.
+
+57
+
+*[Page 58 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO. 9
+
+## **PROVIDING TRUST SERVICES**
+
+### **(TRUST)**
+
+58
+
+*[Page 59 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+1. **Application**
+   i. These directions pertain to the activity of IBUs undertaking and executing trusts as permitted vide section 6(h) of the Banking Regulation Act, 1949.
+
+2. **Basic requirements**
+   i. An IBU providing trust service must maintain proper standards of governance and professionalism and must comply with all applicable laws, rules and regulations relevant to providing trust services.
+
+   ii. Where an IBU providing trust service is responsible for exercising discretion for, or in relation to, its clients, it must exercise its discretion or other powers in a proper manner and for an appropriate purpose.
+
+   iii. Any delegation of duties or powers by an IBU providing trust service must be for an appropriate purpose, subject to appropriate oversight, and comply with all applicable laws, rules and regulations.
+
+   iv. An IBU providing trust service must at all times hold adequate professional indemnity insurance appropriate to the nature and size of its business.
+
+   v. An IBU providing trust service must have arrangements for internal reporting to ensure that the directors or the partners receive sufficient information on the running of the business and the treatment of clients.
+
+   vi. Where the IBU providing trust service appoints a third party in connection with a client's affairs, for example to advise on or manage investments, the IBU providing trust service must carry out due diligence on that third party and continue to monitor its performance on an ongoing basis.
+
+   vii. Staff employed or Persons recommended by the IBU providing trust service must have appropriate qualifications and experience.
+
+3. **Records**
+   The books and records of an IBU providing trust service must be sufficient to demonstrate adequate and orderly management of Clients' affairs
+
+4. **Due diligence**
+   An IBU providing trust service must, at all times, have verified documentary evidence of the settlors, trustees (in addition to the IBU providing trust service itself) and principal named beneficiaries of trusts for which it Provides Trust Services.
+
+5. **Knowledge regarding source of funds**
+   i. An IBU providing trust service must demonstrate that it has knowledge of the source of funds that have been settled into trusts or have been used to provide
+
+59
+
+*[Page 60 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+capital to companies, or have been used in transactions with which the IBU
+providing trust service is involved
+
+**6. Fitness and Propriety of Persons acting as trustees**
+
+i. Where an IBU providing trust service arranges for a Person who is not an
+employee of the IBU to act as trustee for a Client of the Trust Service Provider,
+the IBU providing trust service must ensure that such Person is fit and proper.
+
+ii. An IBU providing trust service must notify the IFSCA:
+(a) of the appointment of a person, including the name and business address
+if applicable and the date of commencement of the appointment; and
+(b) of the termination of the appointment of such a person or the resignation
+of such person
+
+60
+
+*[Page 61 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO. 10
+
+# **COMPLAINTS HANDLING AND DISPUTE RESOLUTION**
+
+## **(CHDR)**
+
+61
+
+*[Page 62 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+1. **Application**
+   i. The directions in this module applies to an IBU in relation to its transactions with Retail Clients and Professional Clients.
+
+2. **Arrangements for handling and redressal of complaints**
+   i. <u>General requirement</u>
+
+      An IBU must have arrangements in place for handling and redressal of complaints / grievances made against it by its clients. The policies and procedures for handling and redressal of complaints and grievances, must be kept in writing and must ensure that all complaints are handled and redressed in a fair, consistent and timely manner. The complaints handling policies and procedures of an IBU should also consider the nature, scale and complexity of its business along with its size and organisational structure.
+
+   ii. <u>Procedures available on request</u>
+
+      An IBU must actively disclose its complaints handling procedures to its present and potential and ensure that a copy of the procedure is made available, free of charge, to any client, on request.
+
+   iii. <u>Period for resolving complaints</u>
+
+      The Authority, as a guidance, considers that, in general, an IBU should be able to resolve most complaints within 45 days from the date of receipt of a complaint.
+
+   iv. <u>Receiving a complaint</u>
+
+      The procedure should at the minimum provide that on receipt of a complaint, an IBU shall:
+
+      (a) acknowledge the complaint promptly (latest within 7 days) in writing;
+
+      (b) provide the complainant with the contact details of any individual responsible for handling the complaint; its complaints handling procedures; and a statement that a copy of the procedures is available, free of charge, upon request; and
+
+      (c) investigate the complaint. Where appropriate, an IBU must update the complainant on the progress of the handling of the complaint, at least in the cases when the resolution is expected to take more than usual time (say 30 days).
+
+   v. <u>Resolving a Complaint</u>
+
+      (a) After the IBU has completed its investigation of a complaint, it must promptly:
+
+         (i) advise the complainant in writing of the outcome;
+
+         (ii) provide the complainant with the proposed redressal, if applicable; and
+
+62
+
+*[Page 63 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(iii) provide redressal if accepted by the complainant.
+
+(b) If the complainant is not satisfied with the redressal proposed by the BU, it must inform the complainant of appeal mechanism (if any) or other means (such as arbitration or the Courts) of resolving the complaint and provide him with the appropriate contact details upon request.
+
+vi. _Employees handling complaints_
+
+An IBU must ensure that any individual (officer) handling the complaint has sufficient authority to resolve the complaint or has access to individuals with the necessary authority to be able to handle the complaint in a fair and impartial manner. Also, as far as possible, the individual (officer) handling the complaint was not directly involved in providing the financial service related to the subject of the complaint.
+
+3. Referrals
+
+i. _Complaints involving other entities_
+
+If an IBU considers that any other authorised or regulated financial institution(s) in IFSC or outside, is responsible, entirely or partly, for the subject matter of a complaint, it may refer the complaint, or the relevant part of it, to such other authorised or regulated financial institution(s) by following the procedure outlined in 3(ii).
+
+ii. _Referral to other entities_
+
+For referring a complaint, an IBU must:
+
+(a) promptly inform the complainant in writing about its proposal to refer the complaint and obtain the written consent of the complainant to do so;
+
+(b) if the complainant consents, refer the complaint to the other authorised or regulated financial institution(s) promptly and in writing;
+
+(c) inform the complainant promptly and in writing that the complaint has been referred and provide contact details; and
+
+(d) continue to handle any part of the complaint not referred to the other authorised or regulated financial institution(s).
+
+4. Record keeping
+
+i. An IBU must maintain a record of all complaints made against it for a minimum period of seven years from the date of receipt of a complaint or the period mandated by any law, whichever is longer.
+
+ii. The record in 4(i) must contain the name of the complainant, the substance of the complaint, a record of the BU's response, and any other relevant correspondence or records, and the action taken by the IBU to resolve each complaint.
+
+63
+
+*[Page 64 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+MODULE NO. 11
+
+**ACCEPTING DEPOSITS**
+
+**(ACDE)**
+
+64
+
+*[Page 65 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**1. Application**
+
+i. These directions apply to an IBU in relation to the activity of accepting deposits from clients.
+
+ii. For the purpose of the directions, “accepting deposits” means accepting deposits of money from the public repayable on demand or otherwise and used for the purpose of lending or investment.
+
+**2. Definitions**
+
+i. “Current Account” means a form of non-interest-bearing demand deposit wherefrom withdrawals are allowed any number of times depending upon the balance in the account or up to a particular agreed amount and shall also be deemed to include other deposit accounts which are neither Savings Deposit nor Term Deposit.
+
+ii. “Demand deposit” means a deposit received by the BU, which is withdrawable on demand.
+
+iii. “Floating rate deposit” means a term deposit whose return is directly linked to an interest rate benchmark.
+
+iv. “Individual client” means a natural person.
+
+v. The terms “Retail client” and “Professional client” shall have the same meaning as assigned in the Client classification (CLIC) module of COB.
+
+vi. “Notice deposit” means term deposit for specific period but withdrawable on giving at least one complete banking days' notice.
+
+vii. “Savings account” means a form of interest-bearing demand deposit which is subject to the restrictions as to the number of withdrawals as also the amounts of withdrawals permitted by the IBU during any specified period.
+
+viii. “Structured deposit” means a term deposit, repayable at full on maturity, interest payable on which is dependent on the performance of reference assets, indices or other economic values factors such as:
+
+a) an index or combination of indices.
+b) a financial instrument or combination of financial instruments;
+c) a commodity or combination of commodities or other physical assets.
+d) a foreign exchange rate or combination of foreign exchange rates
+
+ix. “Term deposit” means an interest-bearing deposit received by the bank for a fixed period.
+
+65
+
+*[Page 66 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+x. "Certificate of Deposit (CD)" means a negotiable instrument and issued in dematerialised form or as a Usance Promissory Note against funds deposited at an IBU for a specified time period.
+
+xi. All other expressions unless defined herein shall have the same meaning as have been assigned to them under the Banking Regulation Act, the Reserve Bank of India Act and the International Financial Services Centres Authority (Banking) Regulations, 2020 and any statutory modification or re-enactment thereto or as used in commercial parlance, as the case may be.
+
+3. **Permissible deposits**
+
+    i. IBUs shall permit opening of Current account, Savings account and Term Deposit account, in any specified foreign currency, by an individual client.
+
+    ii. IBUs shall permit opening of Current account and Term Deposit account by persons other than individual clients in any specified foreign currency.
+
+    iii. IBUs shall permit an individual client, who is a person resident in India, to open, hold and maintain accounts in a specified foreign currency for undertaking transactions connected with or arising from any permissible current or capital account transaction or a combination of both as specified in the Liberalised Remittance Scheme (LRS) of the Reserve Bank, subject to restrictions, if any, prescribed under the LRS.
+
+4. **Interest rate framework and other requirements**
+
+    i. IBUs shall have a policy on interest rates on deposits (Interest rate framework) duly approved by the Governing body of the IBU.
+
+    ii. The interest rates offered shall be reasonable, consistent, transparent and available for supervisory review/scrutiny as and when required.
+
+    iii. Deposits with negative interest rate may be offered subject to compliance with the requirements of the Interest rate framework, approved by the Governing body of the IBU.
+
+    iv. IBUs may grant advances only against term deposits maintained with itself, its Banking Company or foreign branch of the Banking Company of the IBU. Interest rate on such advances shall be part of the Interest rate framework.
+
+    v. No interest shall be paid on deposits held in current accounts.
+
+    vi. IBUs are free to determine the interest rate on Savings accounts, manner of calculation of such interest, periodicity of credit of such interest and other
+
+66
+
+*[Page 67 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+related matters.
+
+vii. IBUs are free to determine the interest rate on Term Deposits/Notice Deposits and offer differential rates on term deposits based on factors like tenor of deposits, size of deposits, availability of premature withdrawal option etc.
+
+viii. All term deposits accepted from individual clients ( other than individual clients classified as “professional clients” under the IFSCA Client classification requirements) shall have premature withdrawal facility.
+
+ix. IBUs shall frame their own policies regarding interest on premature withdrawal of Term Deposits, interest on overdue Term deposits and penalty on premature withdrawal of Term deposits
+
+x. Interest rate on Floating rate deposits shall be linked to a directly observable and transparent market determined external benchmark.
+
+**5. Structured deposits**
+i. IBUs may offer structured deposits to Retail clients and Professional clients.
+ii. Prior to offering structured deposits to Retail clients, the IBUs shall:
+a) Analyse and evaluate the client's needs and design the features of the deposit to meet such needs.
+
+b) Identify and assess the type, class or features of clients that they intend to focus for offering structured deposits.
+
+c) Ensure that appropriate internal controls are in place regarding the development of the structured deposits, including, where appropriate, that the compliance or legal department has sufficient influence over the development process.
+
+d) Appropriately inform the employees/distributors to ensure that structured deposits are offered only to the class of clients identified in (a) above.
+
+e) Promote the product in a way most likely to be understood by target clients.
+
+f) Assess the understanding of the client about the products that are proposed to be offered to him.
+
+iii. IBUs shall put in place an internal product approval process to address specific (or common) challenges for product formation (taking into account the control of the product design, the interests of the target market and the management of conflicts of interest)
+
+67
+
+*[Page 68 of 127]*
+
+---
+
+[logo: IFSCA] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0**
+
+iv. Before accepting structured deposits from Retail clients, the IBU shall provide such client with a short-form or summary disclosure document about such deposit which should, at minimum, contain the following information:
+> a) A short description of the functioning of the deposit.
+> b) Tenor of the deposit.
+> c) Potential downside risk.
+> d) Applicable guarantees, if any, built in the product and limitations thereof.
+> e) Scenario analysis of returns on the deposit under three scenarios: the worst, the break-even and the best cases.
+> f) A qualitative description of the most important risk/s
+> g) Comparison with a standard term deposit of like tenor and amount.
+> h) Fees and costs involved (at launch of the product, but also during the duration of the product and at early redemption or termination)
+> i) Circumstances under which the depositor may seek premature withdrawal of the deposit and associated costs
+
+v. Before offering every new structured deposit product to their clients, IBUs shall submit to the Authority a certificate, signed by the official heading the BU, to the effect that all terms and conditions laid down by the Authority for offering structured deposits have been satisfied.
+
+vi. IBUs shall not use the past performance of structured deposits for the purpose of offering them to clients.
+
+vii. IBUs shall submit a report on structured deposits accepted by them in the format given below. Separate statements shall be submitted for structured deposit in each foreign currency.
+
+| Date of deposit | Term (months) | Amount (in FCY) | Reference asset, index or economic value<sup>20</sup> | Interest rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 21 | | | | |
+
+viii. The above report shall be submitted on a monthly basis and by the 10th of the succeeding month to which it pertains in soft copy to ibu-reports@ifsca.gov.in.
+
+ix. NIL report may be submitted in case no structured deposit (in any foreign currency) has been accepted by the IBU during the month.
+
+**6. Certificate of Deposits**
+
+i. IBUs may issue CDs denominated in a specified foreign currency.
+
+________________________
+<sup>20</sup> Refer to para 2(ix) of the directions
+<sup>21</sup> Each row to contain the details of an individual structured deposit in FCY accepted during the month.
+
+68
+
+*[Page 69 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+ii. Minimum amount of a CD should be USD 2500 or equivalent in a specified foreign currency.
+
+iii. IBUs may issue CDs to persons resident in India$^{22}$ and persons resident outside India$^{23}$. Issuance of CDs to persons resident in India shall be subject to the provisions of the Foreign Exchange Management Act, 1999.
+
+iv. The maturity period of CDs issued by IBUs should not be less than 7 days and not more than one year, from the date of issue. There shall be no lock-in period for the CDs other than the minimum maturity period.
+
+v. IBUs may issue CDs at a discount on face value or on the basis of fixed or floating coupon rate. In case of CDs issued on floating rate basis the methodology of compiling the floating rate should be objective, transparent and market based. The IBU is free to determine such discount / coupon rate.
+
+vi. IBUs have to maintain appropriate reserve requirements, i.e., Retail Deposit Reserve Ratio (RDRR) on the issue price of the CDs issued to individuals.
+
+vii. CDs may be issued in physical form or in demat form. CDs in physical form are freely transferable by endorsement and delivery. CDs in demat form can be transferred as per the procedure laid down by the depository.
+
+viii. IBUs shall clearly inform subscribers that the CDs issued by them are not covered by Deposit Insurance and also that the lender of Last resort (LOLR) facility is not available in IFSC.
+
+ix. IBUs shall not grant loans against CDs. IBUs are permitted to buyback CDs before maturity. Buyback of CDs can be made only 7 days after the date of issue of the CD
+
+x. Since CDs are transferable, the physical certificates may be presented for payment by the last holder. IBUs shall take necessary precautions to verify the chain of transfers and make payment only by credit to the account of the presenter held with them or with another IBU or with the branch of a bank outside IFSC. In case of payment to an account held in another IBU or with the branch of a bank outside IFSC, the IBU shall obtain complete details of the payee and such bank accounts and keep them on record.
+
+**7. Maintenance of Retail deposits reserve ratio (RDRR)**
+
+i. IBUs shall be required to maintain a Retail Deposit Reserve Ratio (RDRR) on daily basis at 3% of the deposits raised from individuals who may be categorised as Retail clients or Professional clients, and outstanding as on the end of the previous working day. The RDRR may be maintained in a specified foreign currency and in the form of balance the Nostro account of the IBU or as
+
+____________________________________________________________________
+$^{22}$ As defined in the Foreign Exchange Management Act, 1999
+
+$^{23}$ As defined in the Foreign Exchange Management Act, 1999
+
+69
+
+*[Page 70 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+holdings of sovereign debt securities (including T-bills) rated investment grade
+or above by at least two rating agencies of international standing.
+
+70
+
+*[Page 71 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+MODULE NO. 12
+
+**REPRESENTATIVE OFFICE**
+
+**(REPO)**
+
+71
+
+*[Page 72 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**1. General provisions**
+
+i. These directions are the IFSCA Representative Office Directions (or REPO).
+ii. These directions set out the framework for regulating the conduct of firms operating a representative office (RO) in an IFSC.
+
+**2. Opening a RO**
+
+i. A Banking company incorporated in India or outside India is permitted to set up ROs in IFSC vide section 3(9) of the IFSCA (Banking) Regulation, 2020 (as amended)
+
+ii. The mechanism and the conditions to be satisfied for setting up such RO is enumerated below vide the Authority's powers under section 3(9) of the IFSCA Banking Regulation, 2020 (as amended).
+
+**3. Conditions for opening a RO**
+
+i. An application for grant of permission to set up a RO at IFSC may be made by a banking company incorporated in India or outside India or any other entity that the Authority may deem fit (hereinafter called "applicant").
+ii. The applicant is, in the assessment of the Authority, duly regulated in its home jurisdiction according to internationally accepted standards.
+iii. **The Banking company's track record in complying with Anti-Money Laundering/Combating the Financing of Terrorism (AML/CFT) guidelines in its home jurisdiction**
+iv. The applicant should have received a no objection letter from its home regulator for opening of a RO at IFSC
+v. The Authority may, at its discretion, require the applicant to satisfy any other general or special condition/s as it deems fit.
+
+**4. Procedure for application and grant/rejection of letter of permission**
+
+i. The applicant shall submit its application, in the prescribed format, to the Authority accompanied by the following:
+
+a) No objection letter from the home regulator of the applicant (see para 3(iv) above)
+b) Information on the applicant's proposed place of business in IFSC
+c) Scope of activities intended to be undertaken by the applicant from IFSC
+d) Resources, including staff strength, to be deployed by the applicant at IFSC
+e) Outline of the financial position of the applicant
+
+ii. The Authority may seek any other information from the applicant if so desires.
+
+iii. The Authority shall, after due consideration of the application, grant a letter of permission to the applicant to open a RO at IFSC or reject the application and
+
+72
+
+*[Page 73 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+communicate the same to the applicant along with the reason for such
+rejection.
+
+5. **Penalties**
+
+   i. The Authority may withdraw a RO's letter of permission in case of any violations
+      of the provisions of REPO and any other applicable directions.
+
+   ii. The Authority may impose a fine on the RO in the event of any violation of the
+       provisions of the REPO and any other applicable directions of such amount as
+       the Authority considers appropriate.
+
+6. **Activities of ROs**
+
+   i. A RO is permitted to undertake 'marketing activities' pertaining to financial
+      services or financial products offered in a jurisdiction outside the IFSC by a
+      'related party' (i.e., its head office, another branch of the head office or a group
+      member)
+
+   ii. The 'marketing' activities of a RO may include one or more of the following:
+       a) providing information about financial services or products offered by its
+          head office or a Group member outside IFSC
+
+       b) conducting promotional activities (such as holding events and
+          seminars) relating to the financial products or financial services referred
+          to in (a) above;
+
+       c) making introductions or referrals to its head office or a member of its
+          group for the financial services or financial products offered by them
+          outside IFSC
+
+   iii. In addition to the "marketing activities" above, a RO may undertake the
+        following additional activities:
+
+        a) activities intended for increasing the profile of its head office
+
+        b) be the point of contact and source of information about its head office
+
+        c) report to the head office on matters such as business trends, business
+           opportunities and developments in IFSC and rest of India
+
+   iv. ROs shall not advertise a particular financial product or a particular financial
+       service. The term "advertise", shall mean:
+
+       (a) to promote one or more financial product or a regulated activity
+
+       (b) to invite or induce a person to enter into an agreement with any person
+           in relation to a financial product or to engage in a regulated activity.
+
+73
+
+*[Page 74 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+v. A RO shall not engage in the activity of providing investment advice. The term “investment advice” shall have the meaning as in section 2(s) of the International Financial Services Centres Authority (Capital Market Intermediaries). Regulations, 2021
+
+vi. A RO shall not market or undertake promotions of financial products or services offered by a third party unrelated to it notwithstanding any agreement between such third party with the related party of the RO to distribute such products.
+
+vii. While a RO may introduce or refer a potential customer to its related party (see 6(i) above), it shall not undertake activities under the head “making arrangements”24 which other financial institutions are eligible to provide in IFSC. Examples of activities under the abovementioned head that ROs may not provide include:
+
+a) negotiating and settling the terms of the contract between the potential customer and the financial product or service provider;
+b) collecting and processing fees, commissions or other payments
+c) receiving and transmitting client orders or instructions;
+d) issuing confirmations relating to transactions;
+e) opening bank accounts for or on behalf of customers to facilitate transactions;
+f) receiving any fees or other financial benefits from the potential customer for its marketing or referral activities;
+g) undertaking activities which can reasonably be regarded by potential customers as indicating (or implying) that they have a client relationship with the RO including having a nominated employee of the RO as a key contact for a potential customer, conducting regular meetings (through any medium) with the customers referred to its related parties to discuss the needs and objectives of such customers under circumstances that might lead the potential customer to believe that the financial service or financial product in question is being provided by the RO.
+
+viii. A RO shall not market or undertake promotions of financial products or services offered by a related party of the RO if such related party has an office in IFSC.
+
+**7. Conduct**
+A RO must
+
+i. observe high standards of integrity and fair dealing.
+ii. undertake its activities with due skill, care and diligence.
+iii. provide adequate resources to manage its business.
+iv. promptly provide any information sought by the Authority.
+v. keep the Authority informed forthwith of significant events affecting its operations.
+
+_______________________
+24 See section 3(e)(xii) of the IFSCA Act,2019
+74
+
+*[Page 75 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+vi. not misrepresent its status, in the course of its activities, expressly or by implication to any party within and outside IFSC.
+
+vii. disclose its status in every significant business document (including letterhead, marketing material, business cards and websites) along the following lines:
+
+a) "Regulated by the International Financial Services Authority as a Representative Office "or
+b) "Regulated by the IFSCA as a Representative Office"
+
+viii. maintain proper records of its activities and functions, including marketing materials, and preserve the same for at least seven years
+
+8. Administration
+
+i. The "Head- RO shall be responsible for the entire business of the RO carried on from IFSC.
+
+ii. . The Head-RO shall be an "approved individual" as defined in the CODF module of the General (GEN) directions.
+
+iii. The Head- RO shall be a person resident in India and he should carry out this function out of IFSC.
+
+iv. The "compliance officer" function of a RO shall be responsible for compliance with the regulations of the Authority including compliance to KYC/AML regulations.
+
+v. The "compliance officer" function of a RO shall be an "approved individual" as defined in the CODF module.
+
+vi. The "compliance officer" function of a RO shall be staffed with a person resident in India and he should carry out this function out of IFSC.
+
+vii. The "Head-RO" and "compliance officer" functions of a RO shall not be carried out by the same person.
+
+viii. A RO must not hold or control money or property unless the money or property is to deal with ordinary business operating expenses and belongs to the RO or to the member of its corporate group that it represents.
+
+9. **Adherence to Anti Money Laundering (AML) and Combating financing of terrorism (CFT) guidelines**
+
+While carrying out its activities, a RO shall strictly adhere to the International Financial Services Centres Authority (Anti Money Laundering, Counter-Terrorist Financing and Know Your Customer) Guidelines, 2022 dated October
+
+75
+
+*[Page 76 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+28,2022 (“IFSCA KYC guidelines”) (as amended) and any circulars/directions issued under the said guidelines, as applicable to the RO.
+
+**10. Application of other directions**
+
+Unless specifically made applicable, no other provision of the IFSCA Banking Handbook shall apply to a RO.
+
+76
+
+*[Page 77 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+MODULE NO. 13
+
+**OTC DERIVATIVES**
+
+**(OTDE)**
+
+77
+
+*[Page 78 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**1. Application**
+
+i. These directions are the IFSCA OTC Derivatives Directions (or OTDE).
+
+ii. These directions set out the requirements for undertaking OTC derivatives (OTC) in IFSC and clearing and reporting of such derivatives.
+
+iii. The term “derivative” used in the rest of this document shall mean OTC derivatives in foreign exchange, interest rate , credit and Offshore Derivative Instruments (ODIs)<sup>25</sup> specified in Annex 2 and shall include such derivatives denominated in INR but settled in FCY.
+
+iv. ODIs are ‘Qualified Financial Contracts’ under Bilateral Netting of Qualified Financial Contracts Act, 2020.
+
+**2. Definitions**
+
+i. “Booked in IFSC” means the entry of the derivatives contract on the books of a person –:
+
+(a) who is a party to the uncleared derivatives contract; and
+(b) whose place of business for which the book relates to is in IFSC
+
+ii. ‘Initial margin’ means the collateral collected by a counterparty to cover its current and potential future exposure in the interval between the last collection of margin and the liquidation of positions or hedging of market risk following a default of the other counterparty
+
+iii. “Professional client” means a client who possesses the experience, knowledge, and expertise to make his own decisions about undertaking a derivative and properly assess the risk of such derivative and includes a client classified as a “deemed professional client”.
+
+iv. “Deemed professional client” means the clients listed in Annex 1
+
+v. “Retail client” means a client that is not a professional client.
+
+vi. “Counterparties” means clients who would otherwise be classified as “professional clients” but who are dealing with the market makers on a principal-to-principal basis.
+
+vii. “Recognised credit rating agency” shall mean the following rating agencies and include their subsidiary rating agencies in various jurisdictions:
+a. Moody’s
+b. Fitch
+
+___________________________________
+<sup>25</sup> As defined in the Securities and Exchange Board of India (Foreign Portfolio Investors) Regulations,2019 dated September 23,2019 (as amended).
+78
+
+*[Page 79 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+c. S & P Global ratings
+
+viii. 'Variation margin' means the collateral collected by a counterparty to reflect the results of the daily marking-to-market or marking-to-model of outstanding contracts.
+
+ix. "Market maker" means a financial institution (as defined in section 3(1)(c) of the IFSCA Act, 2019) that undertakes derivatives on its own account and at his own risk and at prices quoted by him and who is so designated by the Authority.
+
+x. "Netting set' means a set of non-centrally cleared derivative contracts between two counterparties that is subject to a legally enforceable bilateral netting agreement.
+
+xi. "IFSC covered entity" means an entity engaged in financial business, a significant non-financial entity and any other entity designated by the Authority as an IFSC Covered entity but excludes the entities listed in Annex 3.
+
+xii. "Entity engaged in financial business" means an entity that is engaged in the business of finance if the entity itself or the group to which it belongs has an aggregate month-end average notional amount (AANA) of non-centrally cleared derivatives outstanding for March, April, and May of 2021 exceeds €50 billion.
+
+xiii. "Significant non-financial entity" means any entity other than an entity engaged in financial business if the entity itself or the group to which it belongs has an average aggregate notional amount of non-centrally cleared derivatives outstanding for March, April, and May of 2021 exceeding $ €75 billion.
+
+xiv. "Group "means a holding company, subsidiary, associate company (including a joint venture company) and a subsidiary of a holding company to which the entity is also a subsidiary.
+
+xv. "Foreign Covered Entity" means a person operating outside IFSC who, is required, under the regulations laid down by its home regulator, to exchange margin for uncleared derivative contracts.
+
+xvi. "Uncleared derivatives contract" means a derivative contract that is not, or is not intended to be, cleared or settled by a person operating a clearing facility through which parties to a contract substitute, through novation or otherwise, the credit of the person operating the clearing facility for the credit of the parties;
+
+xvii. "Specified derivatives contract" means any derivatives contract that meets all of the following criteria:
+(a) the derivatives contract is not an exchange traded derivatives contract;
+(b) the parties to the derivatives contract are not related corporations;
+(c) the derivatives contract is booked in IFSC by both parties to the derivatives contract;
+
+79
+
+*[Page 80 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(d) the parties to the derivatives contract are persons who are not exempt from providing margin for uncleared derivatives contracts.
+(e) the derivatives contract as specified by the Authority in Annex 7.
+
+xviii. "Specified person" means
+a. An IBU acting as a market maker to a specified derivatives contract booked in IFSC.
+b. Any other "financial institution" as defined u/s 3(c) of the IFSCA Act, 2019.
+c. Any person resident in India or a person resident outside India who enters into a specified derivatives contract booked in IFSC with a market maker.
+
+3. Participants
+
+i. For an OTC derivative contract booked in IFSC to be valid, at least one of the parties to the contract must be a “market maker”.
+
+ii. IBUs shall be market makers in OTC derivatives (except ODIs) booked in IFSC.
+
+iii. IBUs holding a Foreign Portfolio Investor (FPI) certificate under the provisions of the Securities and Exchange Board of India (Foreign Portfolio Investors) Regulations, 2019 dated September 23,2019 (as amended) shall be market makers for ODIs.
+
+iv. The following persons shall be treated as “clients” with respect to derivatives booked in IFSC:
+
+a. Financial institutions (other than BUs) as defined u/s section 3(1)(c) of the IFSCA Act, 2019
+
+b. Persons resident in India as defined u/s 2(v) of FEMA, 1999, if specifically permitted (see 5 (iii) below)
+
+c. Persons resident outside India as defined u/s 2(w) of FEMA, 1999.
+
+4. Obligation to classify clients
+
+i. Client classification requirements specified in the Client Classification module (CLIC) of COB shall not be applicable to this module.
+
+ii. Market makers shall classify their clients into the following categories:
+a. Professional clients
+b. Counterparties
+c. Retail clients
+
+iii. Market makers shall undertake the classification in para 4(ii) at the start of the relationship and review the same at regular intervals not less than annually. If
+
+80
+
+*[Page 81 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+so warranted, in the opinion of the BU, reclassification on the basis of information received may be undertaken by IBUs between scheduled intervals.
+
+iv. Clients shall be informed about their classification before offering derivative contracts to them.
+
+v. A client categorised as a “retail client”, may request the IBU to be treated as a “professional client”. Such request should be appropriately documented and signed by appropriate authority of the client.
+
+vi. A client categorised as a “professional client” bythe market maker, may request the IBU to be treated as a “retail client”. Such request should be appropriately documented and signed by appropriate authority of the client.
+
+**5. Products**
+
+i. Market makers shall offer derivatives of the following asset classes:
+
+a) Foreign exchange
+b) Interest rate
+c) Credit
+d) Offshore Derivative Instruments (ODIs)<sup>26</sup>
+
+ii. Market makers may offer the following derivatives, hereinafter called “Generic derivatives”, to all categories of clients:
+
+a) forward rate agreement;
+
+b) foreign exchange forward;
+
+c) interest rate swap;
+
+d) foreign exchange swap;
+
+e) currency swap;
+
+f) credit event/default swap;
+
+g) interest rate option (European)
+
+h) interest rate cap (European)
+
+i) interest rate floor (European)
+
+j) foreign exchange option (European).
+
+________________________
+<sup>26</sup> As defined in the Securities and Exchange Board of India (Foreign Portfolio Investors) Regulations, 2019 dated September 23,2019 (as amended)
+
+81
+
+*[Page 82 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+iii. In addition to generic derivatives, market makers may offer structured derivatives to their professional clients and undertake structured derivatives with counterparties. For this purpose, the following shall be treated as structured derivative products:
+a) Derivatives other than "Generic derivatives" listed above
+b) Instruments that are a combination of one or more "Generic derivatives" and cash instruments
+
+iv. Unless specifically permitted, market makers shall not offer OTC derivatives to persons resident in India.
+
+**6. Suitability obligation of market makers**
+
+i. Market makers may offer only those derivatives to their clients which they can price independently.
+
+ii. Irrespective of the classification of a customer as retail or professional, market makers should act honestly, fairly and professionally and take reasonable steps to manage or mitigate conflicts of interest (see IFSCA Conduct of Business Directions - Conflict of Interests) including by implementing appropriate procedures in the distribution of structured derivative products, and where there exists a potential risk of damage to the client's interest, the market makers should clearly disclose such risk to the client.
+
+iii. Clients should receive or have access to material information to evaluate the features, costs and risks of the structured derivatives product. Any information communicated by market makers to their clients regarding structured derivatives product should be communicated in a fair, comprehensible and balanced manner.
+
+iv. Whenever a market maker recommends the purchase of a particular structured derivative product, including where the market maker advises or otherwise exercises investment management discretion, the market maker shall take reasonable steps to ensure that recommendations, advice or decisions to trade on behalf of such client are based upon a reasonable assessment that the structure and risk-reward profile of the financial product is consistent with such client's experience, knowledge, investment objectives, risk appetite and capacity for loss.
+
+v. A market maker must have sufficient information in order to have a reasonable basis for any recommendation, advice or exercise of investment discretion made to a customer in connection with the distribution of a structured derivative product.
+
+vi. Market makers shall establish a compliance function and develop appropriate internal policies and procedures that support compliance with suitability requirements, including when developing or selecting new structured derivative product for clients.
+
+82
+
+*[Page 83 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+vii. Market makers shall develop and apply appropriate incentive policies designed to ensure that only suitable structured derivative products are recommended to customers.
+
+viii. While offering the products (see 5 above) to their clients, market makers shall take due care to ensure that the products offered to their clients are not being used to circumvent or violate the existing laws or regulations, issued by any financial sector regulator in India or Government of India, relating to investments in India by persons resident outside India.
+
+**7. Mandatory clearing of derivatives contracts**
+
+i. Every specified person who is a party to a specified OTC derivatives contract shall, within one business day after the day on which the specified derivatives contract is entered into, cause the specified derivatives contract to undergo clearing by a clearing facility operated by an approved clearing house or a recognised clearing house, as specified by the Authority in Annex 7, in accordance with the business directions of the approved clearing house or recognised clearing house, as the case may be.
+
+ii. Except where the parties to a specified derivatives contract have entered into an express agreement to the contrary, the specified derivatives contract shall not, by reason only of a contravention of subsection 7(i) in relation to the specified derivatives contract, be voidable or void.
+
+iii. The following specified persons are exempt from the requirement of section 7(i):
+
+(a) Any market maker whose average aggregate outstanding notional amount (AANA) does not exceed €5,000,000,000 —:
+(i) for the last day of the most recently completed quarter; and
+(ii) for last day of each of the 3 consecutive quarters immediately preceding that quarter;
+
+(b) any “market maker” that has been carrying on operations for less than one year in IFSC.
+
+iv. IBUs may, at their option, cause contracts other than specified derivatives contracts to undergo clearing by a clearing facility operated by an approved clearing house or a recognised clearing house, as specified by the Authority in Annex 7, in accordance with the business directions of the approved clearing house or recognised clearing house, as the case may be.
+
+**8. Margin placement for non-centrally cleared derivatives**
+
+i. An IFSC covered entity should undertake the exchange of margins with a counterparty to an uncleared derivatives contract if that counterparty is:
+
+83
+
+*[Page 84 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(a) an IFSC Covered Entity; or
+(b) a Foreign Covered Entity.
+
+ii. An IFSC Covered Entity need not undertake exchange of margins if the uncleared derivatives contract is entered into with a counterparty who is:
+(a) a person specified in Annex 3; or
+(b) an entity belonging to the same group as the IFSC Covered Entity.
+
+iii. Prior to entering into an uncleared derivatives contract, an IFSC Covered Entity should ensure that all of the following are in place:
+
+(a) confirmation from its counterparty about its status as an IFSC Covered Entity or a Foreign Covered Entity.
+(b) legally enforceable agreements in relation to the exchange of margins for the transactions.
+(c) appropriate policies, procedures and controls for dispute resolution (including collateral valuation processes and escalation of material disputes to senior management, or to the Board, as may be appropriate);
+
+iv. Subject to paragraph 8(vi), the exchange of margins applies to uncleared derivatives contracts booked in IFSC
+
+v. The exchange of margin requirement shall not apply to the following types of uncleared derivative contracts:
+a) a physically-settled foreign exchange (FX) forward or swap
+b) a fixed physically settled FX transaction associated with the exchange of principal of a cross-currency swap 27
+c) an uncleared derivatives contract without a legally enforceable netting agreement;
+d) an uncleared derivatives contract without a legally enforceable collateral arrangement
+
+vi. For the purpose of sub-paragraphs 8(v)(c) and (d), an IFSC Covered Entity should undertake a legal review and document the basis of determining a netting agreement or collateral arrangement as non-legally enforceable. Before determining that a collateral arrangement is not legally enforceable, the IFSC Covered Entity should explore alternative arrangements to safeguard IM collateral, taking into account the legal constraints and the market practices of each relevant jurisdiction.
+
+vii. Notwithstanding the exclusions in paragraph 8(v) an IFSC Covered Entity should appropriately manage its risk exposure in uncleared derivatives contracts.
+
+## 9. Exchange of Margin
+
+27 A cross-currency swap refers to a swap in one party exchanges with another party principal and interest rate payments in one currency for principal and interest rate payments in another currency.
+84
+
+*[Page 85 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+i. In undertaking the exchange of margins, an IFSC Covered Entity should exchange IM on a gross basis (i.e., there should be no netting of IM amounts owing between counterparties).
+
+ii. Initial margin requirements will apply to all new contracts entered into after the phase in period mentioned in para 16 below. Initial margin requirements shall not be applicable to derivative contracts existing as on December 31,2021.
+
+iii. All IFSC Covered Entities that engage in non-centrally cleared derivatives must exchange, on a bilateral basis, the full amount of variation margin (i.e., a zero threshold) on daily basis.
+
+iv. An IFSC Covered Entity shall apply the following exclusions when undertaking exchange of margins:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) IM threshold of not more than €50,000,000 (or equivalent in a specified foreign currency). The threshold is to be applied at the level of the consolidated group to which the threshold is being extended and is based on all non-centrally cleared derivatives between the two consolidated groups.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) A minimum transfer amount of not more than €500,000 (or equivalent in a specified foreign currency) for all margin (combination of IM and VM) transfers. If the minimum transfer amount is exceeded, the entire margin amount should be transferred.
+
+v. The threshold at iii(a) shall be applied at the level of the consolidated group to which the threshold is being extended and is based on all non-centrally cleared derivatives between the two consolidated
+
+vi. Margin calls by an IFSC Covered Entity should be made at the earliest time possible after the transaction date ("T") or margin recalculation date ("R"), but no later than the end of the next local business day ("T+1" or "R+1");
+
+vii. The exchange of margins should take place within the standard settlement cycle for the relevant collateral type but no later than three local business days from the transaction date ("T+3") or from the day that margins have to be recalculated ("R+3").
+
+**10. Margin calculation and methodologies – Initial margin:**
+
+i. The amount of IM to be exchanged should be calculated by reference to either:
+(a) a quantitative portfolio margin model; or
+(b) a standardised margin schedule outlined in Annex 4
+
+ii. An IFSC Covered Entity may opt for either approach without restricting itself to one approach for all its uncleared derivatives contracts. However, the IFSC
+
+85
+
+*[Page 86 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+Covered Entity should be consistent in its approach for all contracts within the same asset class, and reasons behind the choice of approach should be based on fundamental considerations, such as differing models approved in foreign jurisdictions or the inability of certain counterparties to use certain models or approaches.
+
+iii. IM should be exchanged on a routine and consistent basis upon changes in measured potential future exposure. At a minimum, IM should be calculated and exchanged in each of the following circumstances:
+
+(a) a new contract is executed with a counterparty.
+(b) an existing contract with a counterparty terminates or expires.
+(c) occurrence of a significant market disruption;
+(d) the IM model (if applicable) is recalibrated.
+(e) changes to the asset classification of existing trades (if they are computed under the standardised approach);
+(f) no IM recalculation has been performed in the last 10 local business days.
+
+iv. Prior to execution of the transaction, the IFSC Covered Entity should agree with its counterparty, in writing or other equivalent permanent electronic means, the specific margin calculation method and if applicable, the quantitative portfolio margin model to be used.
+
+v. In the event that a margin dispute arises, any amount that is not under dispute should first be exchanged, while the matters under dispute are investigated, documented, and all necessary and appropriate efforts, including timely initiation of dispute resolution protocols, are taken to resolve the dispute and collect the remaining required amount of IM in a timely fashion.
+
+vi. Quantitative portfolio margin models may either be internally developed or developed by a third party. Where third-party models are being used, the responsibility for ensuring compliance with these directions remains with the IFSC Covered Entity.
+
+vii. Any quantitative portfolio margin model should be appropriately risk-sensitive, capture all material risk drivers and reflect the nature, scale and complexity of the risks inherent in the underlying derivatives for which IM is being calculated. Such risks should include, where applicable, material drivers arising from correlation risks, basis risks, idiosyncratic risk for credit underlying and main non-linear dependencies. The model should also account for, in a conservative manner, the risk arising from illiquid positions or positions with limited price transparency.
+
+viii. Before using a quantitative portfolio margin model, an IFSC Covered Entity should provide to the Authority the relevant documentation, which includes the model methodology, model specifications and validation reports. The Authority may stipulate further testing or improvements to the model for continued usage of the model.
+
+86
+
+*[Page 87 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCAN Banking Handbook: Conduct Of Business Directions- V 6.0
+
+ix. Before making any subsequent material changes to an existing model, an IFSC Covered Entity should provide to the Authority relevant documentation to show that the revised model would continue to comply with these Guidelines.
+
+x. If a model ceases to comply with these Guidelines, an IFSC Covered Entity should notify the Authority that it will compute the required IM amount using the standardised schedule outlined in Annex 4;
+
+xi. An IFSC Covered Entity should subject a quantitative portfolio margin model to independent validation before use (and annually thereafter).
+
+xii. An IFSC Covered Entity should undertake continual assessment on a model's compliance with these Guidelines, including assessing the value of the model's risk assessments and validating the applicability of the model to the uncleared derivatives contracts for which it is being used.
+
+xiii. An IFSC Covered Entity should subject a model to a regular back- testing programme – testing the model's assessments against realised data and experience - to monitor the performance of the model. Adequate documentation such back-testing exercise should be maintained, which should include the back-testing methodology, back-testing results, and policies for remediation of the model.
+
+xiv. An IFSC Covered Entity should recalibrate a quantitative margin model at least annually. There should be written recalibration policies which include circumstances that would trigger an earlier recalibration, such as changing market conditions.
+
+xv. Senior management of an IFSC Covered Entity should ensure ongoing compliance of a model with these Guidelines, review the back-testing and validation of the model at least once a year, and decide the course of action that would be taken to address model compliance issues.
+
+xvi. IM calculated under the quantitative portfolio margin model should meet all the following standards:
+
+(a) one-tailed 99 per cent confidence interval over a margin period of risk (MPOR) of at least 10 days$^{28}$ to reflect an extreme but plausible estimate of an increase in the value of the uncleared derivatives contracts.
+
+(b) the MPOR of a netting set for the calculation of IM using an IM model should include –
+
+____________________
+$^{28}$ If VM is exchanged at less than daily frequency, the minimum horizon should be set equal to 10 days plus the number of days in between VM collection.
+
+87
+
+*[Page 88 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+i. the period that may elapse from the last margin exchange to the default of the counterparty; and
+ii. the estimated period needed to replace the derivatives contracts or hedge the risks taking into account the level of liquidity, the total volume of the derivatives contracts, and the number of participants in that market where that type of contracts or risks are traded;
+
+(c) the IM model should be calibrated based on historical data of not more than five years, which incorporates a period of significant financial stress to ensure sufficient margin during stress; the period of financial stress should be identified and applied separately for each broad asset class for which portfolio margining is allowed;
+
+(d) data within the identified period should be equally weighted for calibration purposes.
+
+xvii. Quantitative IM models may account for risk on a portfolio basis subject to the following conditions:
+
+(a) IM models may consider all uncleared derivatives contracts that are agreed for model use and are subject to the same legally enforceable netting agreement;
+
+(b) IM models may account for diversification, hedging and risk offsets within well-defined asset classes such as currency/rates 29, equity, credit, or commodities, but not across such asset classes, and provided these instruments are covered by the same legally enforceable netting agreement (i.e., the total IM amount required is a simple summation of IM requirements at each underlying asset class);
+
+(c) uncleared derivatives contracts for which a firm faces zero counterparty risk require no IM to be collected and may be excluded from the IM calculation.
+
+**11. Margin calculation and methodologies – Variation margin:**
+
+i. VM should be posted or collected to fully collateralise the changes in the mark-to-market exposure of the uncleared derivatives contracts entered into by an IFSC Covered Entity. In the event that the exposures cannot be marked-to-market due to market conditions, IFSC Covered Entities may use an alternative process or approach.
+
+ii. VM should be calculated and collected on an aggregate net basis across all uncleared derivatives contracts, subject to the provisions of these directions, that are executed under a single, legally enforceable netting agreement.
+
+________________________________
+29 Currency and interest rate derivatives contracts may be portfolio margined together as being part of a single asset class for the purposes of IFSC margin requirements.
+88
+
+*[Page 89 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+iii. In the event that a margin dispute arises, IFSC Covered Entities should first collect the non-disputed amount while taking all necessary and appropriate efforts, including timely initiation of dispute resolution protocols to resolve the dispute and collect the remaining VM amount in a timely fashion.
+
+**12. Eligible Collateral and Haircuts**
+
+i. For the purpose of these directions, the following shall be the eligible collateral to meet IM and VM requirements:
+
+a) Cash (in the form of money credited to an account or similar claims for the repayment of money, such as certificates of deposit or comparable instruments issued by an IFSC Covered Entity)
+
+b) Gold
+
+c) Debt securities rated by a recognised credit rating agency where these are either:
+
+i. at least BB- when issued by sovereigns or Public Sector Enterprises (PSEs) that are treated as sovereigns by the national supervisor; or
+
+ii. at least BBB- when issued by other entities (including banks and securities firms); or
+
+iii. at least A-3/P-3 for short-term debt instruments
+
+d) Unrated debt securities which are:
+
+i. issued by a sovereign, or PSE treated as a sovereign by the national supervisor, that has an issuer rating of BB- or better; or
+
+ii. issued by a bank; and
+• listed on a recognised exchange; and
+• classified as senior debt; and
+• all rated issues of the same seniority by the issuing bank must be rated at least BBB- or A-3/P-3 by a recognised credit rating agency; and
+• the IFSC Covered Entity holding the securities as collateral has no information to suggest that the issue justifies a rating below BBB- or A-3/P-3 (as applicable).
+
+ii. Notwithstanding the list of eligible collateral set out above, an IFSC Covered Entity shall be entitled to not recognise a collateral as eligible collateral in cases where:
+
+(a) the IFSC Covered Entity determines that it would not be able to liquidate such collateral in a timely manner in case of default of the posting counterparty; or
+
+89
+
+*[Page 90 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(b) the securities are issued by the IFSC Covered Entity (or its related entities) or a counterparty (or its related entities).
+
+iii. An IFSC Covered Entity should perform daily valuation of collateral exchanged to meet IM and VM requirements and apply haircuts to the value of the eligible collateral, to account for the fact that certain collateral may not be readily liquidated at full value at the time of counterparty default (or termination of contracts or any other specified events), particularly during periods of financial stress.
+
+iv. An IFSC Covered Entity should apply standardised schedule-based haircuts (set out in Annex 5), based on the type of collateral posted or received, to the value of eligible collateral for the purpose of meeting margin requirements. Internal or third-party quantitative model-based haircuts should not be used for determining the haircuts to be applied to the value of eligible collateral.
+
+v. For the purpose of meeting VM requirements, an IFSC Covered Entity should apply an additive currency mismatch haircut of 8% to all non-cash collateral that is posted or received in a currency other than the ones agreed in the relevant contract.
+
+**13. Managing collateral risks**
+
+i. To manage risks associated with collateral exchanged to meet IM and VM requirements, an IFSC Covered Entity should ensure that –
+
+(a) the value of the collateral posted or received does not exhibit a significant correlation with the creditworthiness of the counterparty or the value of the underlying uncleared derivatives portfolio so that the effectiveness of the protection offered by the collateral collected is not undermined (i.e., “wrong way risk”);
+
+(b) policies, procedures and controls are established to ensure that the collateral collected is reasonably diversified, and is not overly concentrated in an individual issuer, issuer type or asset type; and
+
+(c) in the event of a dispute over the value of eligible collateral, any undisputed amount should first be exchanged while all necessary and appropriate efforts are being undertaken (including timely initiation of dispute resolution protocols) to resolve the dispute and exchange the disputed margin in a timely fashion.
+
+**14. Substitution and rehypothecation of collateral**
+
+90
+
+*[Page 91 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+i. An IFSC Covered Entity may substitute the collateral that has been posted or received for IM or VM purposes, subject to meeting the following conditions:
+
+(a) consent from its counterparty is obtained and is supported by the relevant contracts;
+(b) the substituted collateral meets all the requirements (including the applicable haircuts) set out in these directions
+
+ii. An IFSC Covered Entity should ensure that the IM collected from counterparties is maintained in a manner such that –
+
+(a) IM collected is available to the collecting party on a timely basis, where legally possible, following a default or early termination by the posting party;
+(b) IM collected is segregated from the proprietary moneys and assets of the collecting party (or held with an independent third-party custodian) under trust or custody account arrangement to address the insolvency risk of the collecting party; and
+(c) IM collected is subject to legally enforceable collateral arrangements that protect the posting party to the extent possible under applicable law in the event that the collecting party enters insolvency or bankruptcy.
+
+iii. An IFSC Covered Entity may, with the consent of the counterparties, re-hypothecate, re-pledge or re-use the non- cash IM collected from counterparties subject to the following conditions:
+
+(a) The collateral of counterparties that have consented to the re-hypothecation of their collateral must be segregated from that of counterparties that have not so consented
+
+(b) Where the initial margin collector re-hypothecates initial margin, the agreement with the recipient of the collateral (i.e., the third party) must prohibit the third party from further rehypothecating the collateral.
+
+(c) Where collateral is re-hypothecated, the initial margin collector must notify the counterparty of that fact. Upon request by the counterparty and where the counterparty has opted for individual segregation the initial margin collector must notify the customer of the amount of cash collateral and the value of non-cash collateral that has been re-hypothecated.
+
+iv. Subject to the prior written consent of the counterparty, the IFSC Covered Entity may re-invest cash IM collected from the counterparty into eligible collateral provided that the re-invested cash IM (after application of the relevant haircuts) meets the provisions set out in these directions
+
+91
+
+*[Page 92 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**15. Substituted compliance**
+
+i. An IFSC Covered Entity may be subject to margin requirements in a foreign jurisdiction for its derivatives transactions. In such cases, the Authority may consider that an IFSCA Covered Entity adhering to such margin requirements is in compliance with the requirements in these directions provided:
+
+(a) the margin requirements in the foreign jurisdiction are deemed to be to be in compliance with these directions (“deemed compliant status”) or;
+(b) the margin requirements in the foreign jurisdiction are assessed to be comparable to the requirements in these directions;
+
+ii. A Foreign Covered Entity may be subject to margin requirements in IFSC for its derivatives transactions. In such cases, the Authority may consider a Foreign Covered Entity adhering to the margin requirements of its home jurisdiction, to be compliance with the requirements in these directions if:
+
+(a) the margin requirements of the home jurisdiction of the foreign covered entity are deemed to be to be in compliance with these directions ("deemed compliant status"); or
+
+(b) the margin requirements of the home jurisdiction of the foreign covered entity are assessed to be comparable to the requirements in these directions;
+
+iii. In considering whether the margin requirements in a foreign jurisdiction are comparable, the Authority would have regard to whether the framework in the foreign jurisdiction is implemented in line with the policy framework on Margin Requirements for Non-Centrally Cleared Derivatives issued by the Basel Committee for Banking Supervision (BCBS) and International Organization of Securities Commissions (IOSCO). The Authority may impose additional conditions to be met by an IFSCA Covered Entity intending to comply with the margin requirements of specific foreign jurisdictions.
+
+iv. The “deemed compliant status” shall be applicable to the margin directions issued by all relevant authorities of the concerned jurisdiction.
+
+v. Substituted compliance would not be available if the respective margin standards have not entered into force in a deemed compliant status jurisdiction.
+
+92
+
+*[Page 93 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+vi. List of foreign jurisdictions whose margin requirements are deemed to be in compliance of these directions is given in Annex 6.
+
+**16. Implementation schedule**
+
+i. An IFSC Covered Entity should commence the exchange of VM in respect of uncleared derivatives contracts transacted with a counterparty that is an IFSC Covered Entity or a Foreign Covered Entity from January 1,2022.
+
+ii. An IFSC Covered Entity should commence the exchange of IM in respect of uncleared derivatives contracts entered into with a counterparty that is an IFSC Covered Entity or a Foreign Covered Entity from the phase-in dates specified in Table 1.
+
+iii. The exchange of IM applies from each phase-in date where both the IFSC Covered Entity and the counterparty each belong to a consolidation group whose month-end average notional amount of non-centrally cleared derivatives for March, April, and May of 2021 exceeds the respective thresholds.³⁰
+
+iv. From September 1, 2022, any IFSC Covered Entity whose aggregate month-end average notional amount of non-centrally cleared derivatives for March, April, and May of the year exceeds USD 10 billion will be subject to the requirements of IM during the one-year period from 1st September of that year to 31st August of the following year
+
+**Table 1: Phased-in schedule for the exchange of IM**
+
+| Threshold | Phase-in Date |
+| :--- | :--- |
+| € 50 billion | 1st January, 2022 to 31 August, 2022 |
+| €10 billion | From 1st September 2022 |
+
+**17. Maintenance of records**
+
+i. An IFSC Covered Entity should ensure that all relevant books, and all transaction information and related information for the purposes of these Guidelines, are kept –
+
+(a) in the case of any relevant book, until at least five years after the last date of the expiry or termination of a contract, an agreement or a transaction to which the book relates; or
+
+__________________________________
+³⁰ The exchange of IM is not required if either the IFSC Covered Entity or the counterparty does not exceed the threshold during the phase-in date.
+
+93
+
+*[Page 94 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(b) in the case of any transaction information or related information,
+until at least five years after the date of the expiry or termination
+of the contract, agreement or transaction to which the
+information relates.
+
+**18. Reporting**
+
+i. IBUs shall report the details of the OTC foreign exchange, interest
+rate and credit derivative transactions, both inter-bank and client,
+to the trade reporting platform of Clearing Corporation of India
+Limited (CCIL). For this purpose, IBUs shall follow the instructions
+issued by the Reserve Bank of India vide its circular on *Reporting
+Platform for OTC Derivatives – Transactions undertaken by IFSC
+Banking Units and non-deliverable derivative contracts (involving
+Rupee or otherwise)* dated May 18,2020.31
+
+ii. IBUs shall report to the Securities and Exchange Board of India
+(SEBI) data on ODIs issued by them as per the provisions of the
+Securities and Exchange Board of India (Foreign Portfolio
+Investors) Regulations, 2019 dated September 23,2019 (as
+amended)
+
+iii. IBUs shall also send the soft copy of the data being reported by
+them to CCIL and SEBI to ibu-reports@ifsca.gov.in.
+
+__________________________
+31 RBI/2019-20/233 FMRD.FMID.26/02.05.002/2019-20 dated May 18,2020
+
+94
+
+*[Page 95 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+<u>**Annex 1**</u>
+
+<u>**Deemed professional clients**</u>
+
+1. Entities whose operations in the financial markets are licensed or regulated including:
+   i. Banks
+   ii. Investment firms
+   iii. Other authorised or regulated financial institutions
+   iv. Insurance companies
+   v. Collective investment schemes
+   vi. Pension funds and entities managing such funds
+   vii. Large Corporates (being a company with a minimum balance sheet size of USD 10 mio as per the latest audited balance sheet available)
+   viii. National and regional governments, including public bodies that manage public debt at national or regional level, Central Banks, international and supranational institutions such as the World Bank, the IMF, the ECB, the EIB and other similar international organisations.
+   ix. Other institutional investors whose main activity is to invest in financial instruments, including entities dedicated to the securitisation of assets or other financing transactions.
+
+95
+
+*[Page 96 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+<u>**Annex 2**</u>
+
+<u>**OTC Derivatives contracts (See para 1(iii) of the Directions)**</u>
+
+1. <u>**Foreign exchange derivatives:**</u>
+
+    a. <u>**Outright forwards:**</u> Transaction involving the exchange of two currencies at a rate agreed on the date of the contract for value or delivery (cash settlement) at some time in the future (more than two business days later). This category also includes forward foreign exchange agreement transactions (FXA), non-deliverable forwards and other forward contracts for differences.
+
+    b. <u>**Foreign exchange swaps:**</u> Transactions involving the actual exchange of two currencies (principal amount only) on a specific date at a rate agreed at the time of the conclusion of the contract (the short leg), and a reverse exchange of the same two currencies at a date further in the future at a rate (generally different from the rate applied to the short leg) agreed at the time of the contract (the long leg).
+
+    c. <u>**Currency swaps:**</u> Contract which commits two counterparties to exchange streams of interest payments in different currencies for an agreed period of time and/or to exchange principal amounts in different currencies at a pre-agreed exchange rate at maturity.
+
+    d. <u>**Currency options:**</u> A derivative contract that gives the right to buy or sell a currency with another currency at a specified exchange rate during a specified period. This category also includes exotic foreign exchange options such as average rate options and barrier options as well as swaptions (i.e., option to enter into a currency swap contract.)
+
+2. <u>**Interest rate derivatives**</u>
+
+    a. <u>**Forward rate agreements:**</u> Interest rate forward contract in which the rate to be paid or received on a specific obligation for a set period of time, beginning at some time in the future, is determined at contract initiation.
+
+    b. <u>**Interest rate swaps:**</u> Agreement to exchange periodic payments related to interest rates on a single currency; can be fixed for floating or floating for floating based on different indices. This group includes those swaps whose notional principal is amortised according to a fixed schedule independent of interest rates.
+
+    c. <u>**Interest rate options:**</u> Option contract that gives the right to pay or receive a specific interest rate on a predetermined principal for a set period of time and includes interest rate cap, interest rate floor, interest rate collar, interest rate corridor, interest rate swaptions etc.
+
+96
+
+*[Page 97 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+3. **Credit derivatives**
+a. **Forwards:** Agreement to pay or receive at some time in the future a cash payment that depends on the difference between a spread (i.e., the difference in yields between two financial assets) agreed at contract initiation and that prevailing at settlement.
+
+b. **Credit event/default swap (single name and basket):** Contract that commits two counterparties to exchange a periodic fee for a payment contingent on a default event or any other agreed change in the credit quality of a reference asset for an agreed period of time.
+
+c. **Options:** Credit options including credit spread option, defined as an option contract that gives the right to receive a cash payment if a spread, i.e., the difference in yields between two financial assets, widens beyond an agreed strike level during a specific period
+
+4. **Offshore derivative instruments (ODIs)**³²
+
+a. ODIs on Indian Government Bonds (IGBs)
+b. ODIs on State Development Loans (SDLs)
+c. ODIs on Securities listed in section 2(h)(i) of the of the Securities Contract (Regulation) Act, 1956 (as amended)
+
+_________________
+³² as defined in the Securities and Exchange Board of India (Foreign Portfolio Investors) Regulations, 2019 dated September 23,2019 (as amended)
+
+97
+
+*[Page 98 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**<u>Annex 3</u>**
+
+**<u>Person specified under section 8 (ii) (a)</u>**
+
+1. The Government of India
+2. Any State government of the Republic of India
+3. Any statutory body established by Government of India or a State government
+4. Any central bank in a jurisdiction other than India
+5. Any central government in a jurisdiction other than India
+6. Any agency (of a central government in a jurisdiction other than India) that is incorporated or established, in a jurisdiction other than India, for non-commercial purposes
+7. Any of the following multilateral agencies, organisations or entities:
+   (a) the African Development Bank
+   (b) the Asian Development Bank
+   (c) the Asian Infrastructure Investment Bank
+   (d) the Bank for International Settlements
+   (e) the Caribbean Development Bank
+   (f) the Council of Europe Development Bank
+   (g) the New Development Bank
+   (h) the European Bank for Reconstruction and Development
+   (i) the European Economic Community
+   (j) the European Investment Bank
+   (k) the European Investment Fund
+   (l) the Inter-American Development Bank
+   (m) the International Finance Facility for Immunisation
+   (n) the International Monetary Fund
+   (o) the Islamic Development Bank
+   (p) the Nordic Investment Bank
+   (q) the World Bank Group, including the International Bank for Reconstruction and Development, the International Finance Corporation and the Multilateral Investment Guarantee Agency
+
+98
+
+*[Page 99 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**<u>Annex 4</u>**
+
+**<u>Calculation of Initial Margin</u>**
+
+1. The *net standardised IM* amount calculated is set out in the paragraphs below.
+2. For each netting agreement, the required initial margin amount should be calculated in the following steps:
+   
+   Step 1: For each derivatives contract of the asset class, the gross notional size of the derivatives contract should be multiplied by the margin rate in the table below.
+   
+   Step 2: This amount is then summed across all asset classes in the same netting agreement to obtain the *gross standardised IM* amount. Simple netting of notional amounts where contracts are matched by the same underlying and maturity is allowed.
+   
+   Step 3: The gross standardised IM amount is then adjusted by the ratio of the net replacement cost to gross replacement cost (NGR). This is expressed through the following formula:
+   
+   Net standardised IM = (0.4 + 0.6 × NGR) × gross standardised IM
+
+3. The net replacement cost is the sum of all positive and negative mark-to-market values of all derivatives contracts in the same netting agreement. The net replacement cost is floored at zero.
+4. The gross replacement cost is the sum of the mark-to-market values of all derivatives contracts with a positive mark to-market value in the same netting agreement.
+
+**Standardised Initial Margin Schedule**
+
+| Asset Class | Initial Margin Requirement (% of Notional Exposure) |
+| :--- | :--- |
+| Credit | Residual maturity: 0 - 2 year | 2 |
+| Residual maturity: 2 - 5 years | 5 |
+| Residual maturity: > 5 years | 10 |
+| Foreign Exchange | 6 |
+| Interest rate | Residual maturity: 0 - 2 year | 1 |
+| Residual maturity: 2 - 5 years | 2 |
+| Residual maturity: > 5 years | 4 |
+
+99
+
+*[Page 100 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+<u>**Annex 5**</u>
+
+<u>**Standardised haircuts table for collateral**</u>
+
+| Issuer rating for unrated sovereign securities or Issue rating for debt securities | Residual Maturity | Sovereigns33 | Other issuers |
+| --- | --- | --- | --- |
+| **AAA to AA-/A-1** | ≤1 year | 0.5 | 1 |
+| >1 year, ≤ 5 years | 2 | 4 |
+| > 5 years | 4 | 8 |
+| **A+ to BBB-/** | ≤1 year | 1 | 2 |
+| **A-2/A-3/P-3 and unrated bank securities** | >1 year, ≤ 5 years | 3 | 6 |
+| >5 year | 6 | 12 |
+| **BB+ to BB-** | All | 15 | Not eligible |
+| **Gold** | | 15 | |
+| **Cash in the same currency** | | 0 | |
+| **Additional haircut on asset in which the currency of the derivative differs from the currency of the collateral** | | 8 | |
+
+The table below provides a mapping if the ratings listed in the table above to those of the "recognised credit rating agencies"
+
+| Long term rating | Moody's | S&P | Fitch |
+| --- | --- | --- | --- |
+| AAA to AA- | Aaa to Aa2 | AAA to AA- | AAA to AA- |
+| A+ to A- | A1 to A3 | A+ to A- | A+ to A- |
+| BBB+ to BBB- | Baa to Baa3 | BBB+ to BBB- | BBB+ to BBB- |
+| BB+ to BB- | Ba1 to Ba3 | BB+ to BB- | BB+ to BB- |
+| B+ to B- | B1 to B3 | B+ to B- | B+ to B- |
+| Below B- | Below B3 | Below B- | Below B- |
+
+_______________________
+33 This includes public sector entities and multilateral development banks which are exempt form the margin requirements
+
+100
+
+*[Page 101 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+***
+
+**<u>Annex 6</u>**
+
+**<u>List of foreign jurisdictions whose margin requirements are deemed to be in compliance with that of IFSCA (see para 15 – Substituted compliance)</u>**
+
+(a) The margin and risk mitigation standards of Working Group on Margin Requirements (WGMR) member jurisdictions³⁴ are deemed as comparable from the day the respective standards have entered into force in such jurisdictions until the Authority has completed a comparability assessment (“deemed compliant status”).
+
+(b) Such jurisdictions are:
+
+1. Australia
+2. Brazil
+3. Canada
+4. European Union
+5. Hong Kong
+6. India
+7. Japan,
+8. Republic of Korea
+9. Russia
+10. Singapore
+11. Switzerland
+12. The United Kingdom
+13. The United States of America
+
+____________________
+³⁴ Set up by BCBS and IOSCO, in consultation with the CPSS and CGFS in October 2011
+
+101
+
+*[Page 102 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+<u>**Annex 7**</u>
+
+<u>**List of specified derivatives contracts and recognised clearing house**</u>
+
+| No. | Contract type | Reference index | Settlement currency | Maturity | Recognised third party CCPs |
+| :---: | :---: | :---: | :---: | :---: | :--- |
+| 1. | Basis swap | EURIBOR | EUR | 28D-50Y | LCH Ltd, CME(USA), Eurex Clearing (Germany), JSCC (Japan), OTC HK (Hong Kong) |
+| 2. | IRS Fixed to Float | EURIBOR | EUR | 28D-50Y | LCH Ltd, CME(USA), Eurex Clearing (Germany), JSCC (Japan), OTC HK (Hong Kong) |
+| 3. | OIS | EONIA | EUR | 7D-3Y | LCH Ltd, CME(USA), Eurex Clearing (Germany) |
+| 4. | OIS | Fed Funds | USD | 7D-3Y | LCH Ltd, CME(USA), Eurex Clearing (Germany) |
+| 5. | OIS | SONIA | GBP | 7D-50Y | LCH Ltd, CME(USA), Eurex Clearing (Germany) |
+| 6. | OIS | € STR | EUR | 7D-3Y | LCH Ltd, CME(USA), Eurex Clearing (Germany) |
+| 7. | OIS | SOFR | USD | 7D-3Y | LCH Ltd, CME(USA), Eurex Clearing (Germany) |
+
+102
+
+*[Page 103 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+MODULE NO. 14
+
+**FX PRIME BROKERAGE**
+
+**(FXPB)**
+
+103
+
+*[Page 104 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+1. **Application**
+
+   ii. These directions pertain to IBUs providing the FX Prime Brokerage (FXPB) service or acting as an “executing dealer” in an FXPB arrangement.
+
+2. **Definitions**
+
+   vi. “FX Prime Broker (FXPB)” means a service provided by the IBU wherein a Designated Party (the client of the BU) is allowed to use the trading lines of an FX Prime Broker (the BU) to execute foreign exchange transactions with a dealer, called the Executing Dealer (a IBU or Bank outside IFSC that is not the FX Prime Broker).
+
+   vii. A “Master FX Give-up agreement” provides the terms for documenting foreign exchange "give up" relationships, in which a designated party of a FX prime broker executes transactions with an executing dealer that are "given up" to the FX prime broker.
+
+   viii. A “Compensation Agreement” executed by a designated party and an executing dealer provides for compensation of losses in the event the prime broker does not accept "give up" of a transaction.
+
+3. **Directions – IBUs providing FXPB service**
+
+   i. IBUs may provide FXPB service to a person resident in India (subject to the provisions of FEMA, 1999) and a person resident outside India.
+
+   ii. FXPB service may be provided for freely deliverable currencies as well non-deliverable currencies.
+
+   iii. FXPB service may be provided for all products including spot, forwards (deliverable and non-deliverable), swaps, options (plain vanilla and exotic).
+
+   iv. Credit limit provided by IBUs to their designated parties should be monitored carefully to prevent overdrawals. Periodic review of such limits should be undertaken by the IBUs to ensure that they are in line with the size and scope of the customer's business and to prevent overallocation of credit limits.
+
+   v. The IBU providing FXPB service must take necessary steps including maintaining information barriers<sup>35</sup> to hold the trades and positions of its designated parties in strict confidence.
+
+   vi. The IBU providing FXPB service shall, prior to providing such service, enter into the necessary legal agreements with its designated party and the executing dealer to cover the rights and duties of the parties. An indicative list of such agreements is provided in Annex 1.
+
+_____________________________
+<sup>35</sup> See directions in Conflict of Interest (COIN) module of COB
+104
+
+*[Page 105 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**4. Directions - IBUs acting as Executing Dealer**
+
+i. The Executing Dealer shall carefully monitor the transactions undertaken with a Designated Party so as to avoid undertaking trades that exceed the limits that have been established by the FX Prime Broker.
+
+ii. BUs acting as Executing Dealer, shall, prior to providing such service, enter into the necessary legal agreements with its customer and the FX Prime Broker to cover the rights and duties of the parties. An indicative list of such agreements is provided in the Annex .
+
+105
+
+*[Page 106 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**Annex**
+
+<u>Indicative list of agreements to be entered into by a IBU providing FXPB service with its customer and the executing dealer</u><sup>36</sup>
+
+1. <u>Between IBU and the Executing Dealer:</u>
+
+   a) A Master Agreement.
+   b) Credit Support Annex (ISDA)
+   c) A Master Give-Up Agreement.
+   d) Designation Notice from the IBU providing FXPB service to the Executing Dealer for every new Designated Party to be onboarded.<sup>37</sup>
+
+2. <u>The IBU and its Designated Party:</u>
+
+   a) A Master Agreement.
+   b) A Credit Support Agreement.
+   c) An FX Prime Brokerage Agreement.
+
+3. <u>The Designated Party and the Executing Dealer:</u>
+
+   a) A Compensation Agreement.
+
+_______________________________________
+<sup>36</sup> Same set of documents may be used where the IBU acts as the Executing dealer
+<sup>37</sup> This notice may contain details about the permitted products, currencies, tenor, limits and offices for trading
+
+106
+
+*[Page 107 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO.15
+
+# **REFERRAL SERVICES**
+# **(REFRS)**
+
+107
+
+*[Page 108 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+1. **Application**
+   i. These directions apply to an IBU in relation to the activity of undertaking Referral services.
+
+   ii. For the purpose of the directions, "Referral arrangement" means the arrangement/agreement between an IBU (or the Banking Company) and a third-party financial product or service provider, for referring the clients of the IBU (or the Banking Company) to such third-party.
+
+   iii. For the purpose of these directions, "Referral service" means an activity in which a BU, pursuant to an arrangement with a financial product or financial service provider, refers its clients or the clients of its Parent Bank as potential customers (or "leads"), to such financial product or financial service provider for providing them the financial product(s) or financial service.
+
+   iv. For the purpose of these directions, "Third party financial product or service provider" means a regulated financial entity in India (including IFSC) or overseas who is engaged in the business of providing a financial product or service.
+
+2. **Definitions**
+
+   i. "Banking Company" means the Banking company of which the IBU is a branch.
+
+   ii. "Clients" means a Retail Client, Professional Client or Market Counterparty as defined in Client Classification (CLIC) Module of COB
+
+   iii. All other expressions unless defined herein shall have the same meaning as have been assigned to them under the Banking Regulation Act, the Reserve Bank of India Act and the International Financial Services Centres Authority (Banking) Regulations, 2020 and any statutory modification or re-enactment thereto or as used in commercial parlance, as the case may be.
+
+3. **Directions**
+   i. Before commencing the activity of providing "referral service", the IBU (or the Banking company) shall put in place a policy approved by its Governing body (or in the case of the Banking company, the Board or appropriately delegated Committee of the Board) regarding referral service for third party financial product or service.
+
+   ii. The IBU (or the Banking company) may only provide referral service for financial products and services of third parties.
+
+108
+
+*[Page 109 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+iii. Employees of the IBU (or the Banking Company) undertaking referral services of third-party financial products should be suitably qualified for carrying out the role.
+
+iv. The IBU (or the Banking company) shall ensure that the compensation to any employee for undertaking referral services does not violate the provisions of Section 10(1)(b)(ii) (including the proviso thereof) of the Banking Regulation Act, 1949.
+
+v. At the time of providing the "referral service", the IBU shall inform the client in writing about its role in providing such a service and the nature and extent of its liability pertaining to any product or service that such client might choose to avail as a result of such "referral service".
+
+vi. Before providing "referral service" to its client, the IBU (or the Banking company) must satisfy itself that there are no legal and/or regulatory restrictions (including restrictions on use of foreign exchange) in the client's jurisdiction for availing of such product or service.
+
+vii. The IBU (or the Banking company) shall ensure that it satisfies and adheres to any legal or regulatory requirements in the client's jurisdiction relating to provision of referral service by overseas entities.
+
+**4. Maintenance of records**
+
+i. The IBU shall maintain complete records of the "referral arrangement" entered into with the Third-party financial service provider.
+
+ii. The IBU shall also maintain record of the "referral services" offered to clients including details of income earned by providing such service.
+
+109
+
+*[Page 110 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO. 16
+
+## **PROVIDING CREDIT**
+
+### **(PRCR)**
+
+110
+
+*[Page 111 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# 1. Application
+
+i. This Module contains directions to IBUs in respect to the activity of providing credit to clients.
+
+ii. The IBUs shall ensure that the banking activities related to providing credit are run on sound, prudent and profitable lines.
+
+# 2. Definitions
+
+i. For the purpose of the directions, “providing credit” means and includes making credit arrangements for extending loans and advances or any other credit facility to a borrower or a potential borrower.
+
+ii. The terms “Retail client” and “Professional client” shall have the same meaning as assigned in the “Client classification” (CLIC) module of COB.
+
+iii. “Individual client” means a natural person.
+
+iv. “Director” means an individual who is a member of the Board of the Banking Company of which the IBU is a branch.
+
+v. “Related party of such Director” means any firm in which such Director is interested as partner, manager, employee or guarantor, or any company [not being a subsidiary of the Banking company or a company registered under Section 8 of the Companies Act, 2013, or a Government company] of which, or the subsidiary or the holding company of which such Director is a director, managing agent, manager, employee or guarantor or in which he holds substantial interest, or any individual in respect of whom such Director is a partner or guarantor.
+
+# 3. General conditions on providing credit
+
+i. An IBU may provide credit to any type of client in a specified foreign currency, subject to the restrictions mentioned in para 4 below.
+
+ii. While providing credit to a client covered under the definition of a person resident in India under the Foreign Exchange Management Act, 1999 (FEMA), including credit denominated in INR, the IBU shall ensure compliance with the relevant provisions of the FEMA as applicable to the IBU as well as the client.
+
+iii. If an IBU is providing credit to an Individual Client (as assigned in the “Client classification” section of the “IFSCA Conduct of Business directions for IBUs”), the IBU should additionally ensure compliance with the relevant laws and regulations, if any, applicable for such lending in the jurisdiction of such Individual Client.
+
+111
+
+*[Page 112 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+iv. IBUs are allowed to avail Credit insurance for their lending operations out of IFSC. The Governing Body of the IBU shall lay down the guidelines for the same.
+
+v. IBUs shall comply with the requirements, to the extent they are applicable to IBUs, of the "Guidance framework on sustainable and sustainability linked lending by financial institutions" dated April 26, 2022³⁸ issued by the Authority and any amendments or guidance to the same while providing credit.
+
+**4. Restrictions on activity of providing credit**
+
+i. <u>Restrictions under the Banking Regulation Act, 1949</u>
+
+a. The restriction on holding shares, as mentioned in sub-section 2 of section 19 of the Banking Regulation Act, 1949, shall not be applicable to the IBU of a Foreign bank, in case of the following circumstances:
+
+(i) where a transaction entered in the ordinary course of business in respect of a company where the shareholding is held by way of security, whether as a pledge, mortgage or by any other similar mode; or
+
+(ii) the shareholding or interest acquired or held in the course of satisfaction of debts due to it, is disposed of at the earliest but not later than five years:
+
+b. Restrictions on the activity of lending/providing credit under section 20(1) of the Banking Regulation Act, 1949 shall not apply to the IBU of a foreign bank.
+
+ii. <u>Restrictions by the Authority</u>
+
+a. Advances against own shares
+
+IBUs shall not grant any loans and advances on the security of the shares of the Banking company (parent bank) of which the IBU is a branch.
+
+b. Advances to Directors
+
+IBUs shall not grant loans to a Director of the Banking company (parent bank) of which it is a branch or any related party of such Director.
+
+c. .....Omitted.....
+
+d. Restrictions on Credit to Companies for Buy-back of their Securities
+
+_______________________________
+³⁸ Circular no. F. No 584/ IFSCA/Sustainable Finance- LF/2022-23/001 dated April 26, 2022.
+112
+
+*[Page 113 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+IBUs shall not provide loans to companies for buy-back of their shares
+and securities.
+
+iii.	<u>Restrictions of the Home regulator of the Banking Company (of which the IBU</u>
+<u>is a branch)</u>
+
+IBUs shall adhere to restrictions, if any, placed by the home regulator
+of the Banking company, of which the IBU is a branch, on the activity of
+providing credit.
+
+113
+
+*[Page 114 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO. 17
+
+## GLOBAL ADMINISTRATIVE OFFICE
+
+### (GAO)
+
+114
+
+*[Page 115 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**1. General provisions**
+
+i. These directions set out the framework for setting up and permitted activities for Global Administrative Office (GAO) in IFSC.
+
+**2. Definition**
+
+i. GAO is a financial institution set up in IFSC by a Banking Company that:
+a. manages, administers, or coordinates the operations of the Parent Bank or any of the Group entities either in IFSC or outside IFSC;
+b. provides support services to Parent Bank or any of the Group entities for execution of the permitted activities in IFSC or outside IFSC.
+
+ii. "Support services" means the ancillary activities and processes required for execution of the permitted activities.
+
+iii. "Permitted activities" shall have the same meaning as defined in Section 13 of the IFSCA (Banking) Regulations, 2020 (as amended from time to time) for banking activities undertaken by IBUs and, for activities undertaken in jurisdictions outside IFSC, such activities as may be permitted by the regulatory authority of the said jurisdiction.
+
+iv. "Group entities" means any holding company, subsidiaries, branches or any other entity, in whatever legal form, through which the Parent bank undertakes its operations or permitted activities.
+
+**3. Opening a GAO**
+
+i. A Banking company incorporated in India or outside India is permitted, subject to conditions prescribed by the Authority, to set up GAO in IFSC as a branch.
+
+ii. A Banking company incorporated in India or outside India and having an IBU or Representative Office (RO) in IFSC is also permitted to set up an GAO.
+
+iii. The mechanism and the conditions to be satisfied for setting up such GAO is enumerated below vide the Authority's powers under section 3(9) of the IFSCA Banking Regulation, 2020 (as amended).
+
+115
+
+*[Page 116 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**4. Conditions for opening a GAO**
+
+i. An applicant shall obtain permission from the Authority to establish a GAO in IFSC
+
+ii. An application for grant of permission to set up a GAO at IFSC may be made by a Banking Company incorporated in India or outside India (hereinafter called “applicant”) along with the necessary fees$^{39}$.
+
+iii. The GAO shall be located in IFSC, but not on the same or contiguous premises as its IBU, unless specifically permitted by the Authority.
+
+iv. If the Applicant proposes to set up a GAO on the same or contiguous premises as its licensed IBU or RO (if any), the applicant shall provide written notice to the Authority of such fact along with its application for registration.
+
+v. The resources provided to be the GAO, including the Head-GAO and other personnel, shall be kept separate and distinct from that of the IBU (if any) or the Representative Office (if any) of the Banking company in IFSC.
+
+vi. The applicant is, in the assessment of the Authority, duly regulated in its home jurisdiction according to internationally accepted standards. The Banking company’s track record in complying with Anti-Money Laundering/Combating the Financing of Terrorism (AML/CFT) guidelines in its home jurisdiction.
+
+vii. The Authority may, at its discretion, require the applicant to satisfy any other general or special condition/s as it deems fit.
+
+**5. Procedure for application and grant/rejection of letter of permission**
+
+i. The applicant shall submit its application in 4 (i), in the prescribed format (see annex) to the Authority accompanied by the following:
+
+a. Information on the applicant's proposed place of business in IFSC
+
+b. Scope of activities intended to be undertaken by the applicant from IFSC
+
+c. The manner in which the office will be administered by the applicant, including resources, staff strength, is to be deployed by the applicant at IFSC and their capacities.
+
+d. Submission of an undertaking by the Banking company to the effect that:
+
+(i) The Board of the Banking company or any other body that has been delegated such powers has duly approved the setting up of the GAO and the activities to be conducted therein, and
+
+____________________
+$^{39}$ Fees for setting up an GAO shall be the same as that for setting up an IBU.
+
+116
+
+*[Page 117 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+(ii) The application complies with the laws of the applicant's home country/jurisdiction
+
+ii. The Authority may seek any other information from the applicant if it so desires.
+iii. The Authority shall, after due consideration of the application, grant a letter of permission to the applicant to open a GAO at IFSC or reject the application and communicate the same to the applicant along with the reason for such rejection.
+
+**6. Penalties**
+
+i. The Authority may withdraw a GAO's letter of permission in case of any violations of the provisions of GAO and any other applicable directions.
+ii. The Authority may impose a fine on the GAO in the event of any violation of the provisions of the GAO and any other applicable directions of such amount as the Authority considers appropriate.
+
+**7. Activities that a GAO may undertake**
+
+i. The GAO shall be allowed to undertake the following activities:
+a. managing, administering, or coordinating the operations of the Parent Bank or any of the Group entities either in IFSC or outside IFSC
+
+b. providing support services to Parent Bank or any of the Group entities for execution of the permitted activities either in IFSC or outside IFSC
+
+c. any other activity that may be approved by the Authority generally or specifically
+ii. The Banking company shall ensure that the activities of its GAO in IFSC pertaining to a jurisdiction outside IFSC is undertaken subject to the directions and instructions of the relevant regulator in the said jurisdiction.
+iii. A GAO shall not book any banking or trading transaction on account of the Banking company, or, on behalf of the Banking Company.
+
+**8. Conduct**
+
+i. A GAO must
+a. observe high standards of integrity and fair dealing.
+b. undertake its activities with due skill, care and diligence.
+c. provide adequate resources to manage its business.
+d. promptly provide any information sought by the Authority.
+e. keep the Authority informed forthwith of significant events affecting its operations.
+
+117
+
+*[Page 118 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+f. not misrepresent its status, during its activities, expressly or by implication to any party within and outside IFSC.
+
+g. disclose its status in every significant business document (including letterhead, marketing material, business cards and websites) along the following lines: a) “Registered with the International Financial Services Authority as a Global Administrative Office “or b) “Registered with the IFSCA as a Global Administrative Office"
+
+h. maintain proper records of its activities and functions, and preserve the same for at least seven years
+
+**9. Administration**
+
+i. The “Head- GAO” shall be responsible for the activities of the GAO undertaken from IFSC.
+
+ii. The Banking company shall intimate the Authority about the posting of the Head-GAO (and every change of the incumbent) along with the bio data of the person so appointed.
+
+iii. The “Head- GAO” shall be a person resident in India and he should carry out this function out of IFSC.
+
+**10. Adherence to Anti Money Laundering (AML) and Combating financing of terrorism (CFT) guidelines**
+
+While carrying out its activities , a GAO shall strictly adhere to the International Financial Services Centres Authority (Anti Money Laundering, Counter-Terrorist Financing and Know Your Customer) Guidelines, 2022 dated October 28,2022 (“IFSCA KYC guidelines”) (as amended) and any circulars/directions issued under the said guidelines, as applicable to the GAO.
+
+118
+
+*[Page 119 of 127]*
+
+---
+
+[logo: IFSCA]
+
+The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+Annex
+
+**APPLICATION FORM FOR PERMISSION TO ESTABLISH A GLOBAL ADMINISTRATIVE OFFICE (GAO) AT GIFT-IFSC**
+
+Address ..........................
+
+Date ..............................
+
+International Financial Services Centres Authority
+
+.............................................
+
+.............................................
+
+Dear Sir,
+
+**Application for permission to set up Global Administrative Office (GAO) at GIFT-IFSC.**
+
+We hereby seek permission to set up a Global Administrative Office (GAO) under the provisions of the of IFSCA (Banking) Regulations, 2020 (as amended) . We enclose the necessary information in the form prescribed for the purpose.
+
+Yours faithfully,
+
+Signature ............................
+
+(Authorised Signatory)
+
+119
+
+*[Page 120 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**Information to be provided by banks desirous of setting up Global Administrative Office (GAO) for scrutiny by IFSCA^40**
+
+1. **General Information**
+
+   a. Name of Applicant Bank  
+   b. Place and Date of incorporation  
+   c. Address of Head Office  
+   d. Any previous presence in India? If so, the reasons for discontinuation (applicable to non-Indian Banks)  
+   e. Presence of any other group entity in India/IFSC, If so details thereof (applicable to non-Indian Banks)
+
+2. **Ownership and Management**
+
+   a. Legal form  
+   b. List of names and addresses of directors, their qualifications and their principal business  
+   c. Details of shareholders holding 5 percent or more of voting stock and their principal business  
+   d. Name and designation of senior official at Headquarters who will be responsible for the GAO at GIFT-IFSC
+
+3. **Domestic standing of the bank in home country (Ranking by assets size and/or systemically important)**
+
+4. **International standing (Ranking by assets size and/or systemically important)**
+
+5. **Supervisory Arrangement in home country**  
+   a. Home Regulatory/Supervisory Authority  
+   b. Details of supervisory arrangements to which the bank is subjected to including the prudential norms  
+   c. Consolidated and Comprehensive Supervision of the regulator on the Holding Bank, including the manner in which it supervises the bank, its subsidiaries and associates to assess the bank's overall financial condition and compliance with laws and regulations.  
+   d. Supervisory Action Plan that is being implemented by the Bank, pursuant to Supervisory Review, to be submitted as a separate document, detailing the directions and actions taken/in progress
+
+____________________  
+^40 Banking companies already having an IBU may provide the information sought in paras 1 and 6 only.  
+120
+
+*[Page 121 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+e. State the instances where refusal or restriction is placed on the right to carry on business or profession requiring a license, registration or other permission
+f. Details of correspondent banking relationships with Indian banks (applicable only to foreign banks) and banks operating at GIFT IFSC and the aggregate amount of lines of credit/ other limits extended to them
+g. Details of foreign currency loans extended to Indian companies and other types of business transacted such as underwriting of equity/debt issues of Indian companies etc.
+h. Permissible mode of presence for foreign banks in the applicant bank's home country
+i. Details of home country regulations for foreign banks Entry level norms for foreign banks who wish to establish presence in the home country of the applicant bank including norms for:
+   i. Large Exposure Norms
+   ii. Asset Maintenance Ratio requirements, if any
+   iii. Acceptance of retail deposits
+   iv. Availability of deposit insurance coverage
+   v. Resolution requirements
+
+**6. Reasons for opening a GAO and Business plan**
+
+a. Probable location of GAO in the GIFT-IFSC
+b. Purpose of opening GAO in GIFT-IFSC
+c. Activities to be provided by the GAO under the following heads including the geographic locations to which such activities shall be provided:
+   i. managing, administering, or coordinating the operations of the Parent Bank or any of the Group entities either in IFSC or outside IFSC
+   ii. providing support services to Parent Bank or any of the Group entities for execution of the permitted activities either in IFSC or outside IFSC
+d. Number of personnel proposed to be posted in the GAO
+e. Business Plan (for three years) - Details about products and business projections to be given
+
+121
+
+*[Page 122 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**Documents to be enclosed**
+
+1. Application form
+2. Copies of memorandum and articles of association or similar documents
+3. Undertaking to the effect that the Board of the banking company or any other body that has been delegated such powers has duly approved the setting up of the GAO and the activities to be conducted therein
+4. Undertaking to the effect that the application complies with the laws of the applicant's home country.
+5. Organogram of the proposed GAO along with functions and responsibilities
+
+122
+
+*[Page 123 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+# MODULE NO. 18
+
+## PROVIDING SERVICES TO DESIGNATED ENTITIES WITHOUT RISK PARTICIPATION (PRSE)
+
+123
+
+*[Page 124 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+**1. General provisions**
+
+i. These directions set out the framework for an IBU to provide services to designated entities without risk participation.
+
+**2. Definition**
+
+i. For the purpose of this module the term “designated entities” means group entities of a parent bank of an IBU, located in or outside IFSC and entities, located in or outside IFSC , which are group entities of a company which is the holding company of the parent bank. “Designated entities” shall not include an entity carrying out the business of Insurance or any other business that is not permitted to be undertaken by an IBU.
+
+ii. For the purpose of this module the term “services” means and includes :
+
+a. the activity of providing services to the clients (individual and non-individual) of the designated entities where the transactions are booked by the designated entity. For the purpose of this sub-section the term “services” means sales and trading services and structuring services.
+
+b. the activity of “managing the risk” of transactions booked by the designated entities, in collaboration with personnel of such designated entities;
+
+c. the activity of providing support to global sales/trading/structuring teams of the designated entities
+
+iii. “Sales and trading services” means the activity of developing and maintaining relationships with institutional clients of the designated entities, informing such clients about ideas and opportunities regarding financial transactions, execution of orders placed by such clients and providing advice to such clients on entering and exiting financial positions.
+
+iv. “Structuring services” means application of financial products including derivatives to manage various financial exposures such as interest rates, foreign exchange, commodities etc. of the designated entity or a client of the designated entity
+
+v. “Managing the risk” means the activity of managing the exposures undertaken by the designated entities as a result of the transactions entered into by the designated entities with their clients.
+
+vi. “Providing support to global sales/ trading/ structuring teams” means the activity of supporting the sales/trading/structuring teams of the designated entities through activities like pricing of vanilla and exotic products and asset classes, product analysis, post trade operational support, analysis etc.
+
+vii. “Group entities” means any holding company, subsidiaries, branches or any other entity, in whatever legal form, through which the Parent bank undertakes its operations or permitted activities.
+
+124
+
+*[Page 125 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+viii. "Risk participation" for the purpose of this module means any activity undertaken by the IBU that creates an exposure for the IBU (whether on or off balance sheet) requiring provision of capital against such exposure whether such capital is provided at the level of the IBU or at the level of the parent bank.
+
+**3. Operating instructions**
+
+i. An IBU intending to provide services under this module must intimate the Authority its intention to do so at least 30 working days prior to commencing such service. Such intimation shall be accompanied by details about the type of service being provided, particulars of the designated entities which or whose clients are being provided such services, model agreed upon for providing such services, details of staff designated at the IBU for providing such services and any other information that, in the opinion of the IBU, is necessary for the Authority to get a complete view of the proposed activity.
+
+ii. Services provided under this module shall be without risk participation by the IBU i.e. the IBU shall not book any transaction for or in relation to which such service is provided nor shall it assume any risk (whether on or off balance sheet) for such transactions requiring provision of capital whether such capital is provided at the level of the IBU or of the parent bank.
+
+iii. IBUs providing services mentioned in this module with risk participation shall be covered by the requirements of the respective modules in this handbook and not by this module.
+
+iv. An IBU providing services under this module shall assign dedicated staff for this purpose who shall work out of the IBU.
+
+v. An IBU providing services under this module shall receive a share of revenue from its parent bank/ designated entities for providing services under this module as per a laid down revenue model which may either be a revenue share model or a global cost plus model. Apart from this, IBU shall not receive any other payment from its parent bank/designated entities or the client of the designated entities.
+
+vi. An IBU providing services under this module shall comply with the requirements of para 12.2 (Group policy) of the International Financial Services Centres Authority (Anti Money Laundering, Counter-Terrorist Financing and Know Your Customer) Guidelines, 2022 dated October 28,2022 (as amended).
+
+vii. An IBU providing services under this module shall ensure compliance with the laws and regulations (by whatever name called) of the jurisdictions to which such services are provided including ensuring that such laws and regulations permit the provision of such services from entities set up in a foreign jurisdiction.
+
+125
+
+*[Page 126 of 127]*
+
+---
+
+[logo: IFSCA] The IFSCA Banking Handbook: Conduct Of Business Directions- V 6.0
+
+<u>**Guidance**</u> :
+This module seeks to enable IBUs to provide high end services to the designated entities without requiring the underlying transaction to be booked in the IBU. This module operates on the premise that the clients of the designated entities to whom such services are sought to be provided have been duly onboarded by the designated entity as per the laws and regulations of the respective jurisdiction. Staff assigned to the IBU for providing services under this module may also provide such services in cases where the underlying transaction is booked in the IBU. In such cases, the IBU shall need to comply with the requirements of the respective modules of the COB handbook.
+
+126
+
+*[Page 127 of 127]*

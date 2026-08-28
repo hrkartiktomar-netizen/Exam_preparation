@@ -1,9 +1,0 @@
-{
-  "pdf": "D:\\Exam_preparation\\source_documents\\pdfs\\discovered_021_IFSCALEGAL.pdf",
-  "pdf_name": "discovered_021_IFSCALEGAL.pdf",
-  "page": 1,
-  "model": "gemini-3.5-flash",
-  "image": "D:\\Exam_preparation\\.tooling\\pdf_markdown_corpus\\gemini_ocr\\discovered_021_IFSCALEGAL\\page_0001.png",
-  "markdown": "D:\\Exam_preparation\\.tooling\\pdf_markdown_corpus\\gemini_ocr\\discovered_021_IFSCALEGAL\\page_0001.md",
-  "response_text_chars": 196
-}

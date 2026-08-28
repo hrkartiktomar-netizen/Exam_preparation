@@ -62,8 +62,10 @@ class MockUploadModel(BaseModel):
 class TopicModel(BaseModel):
     topic_id: str
     parent_topic_id: str | None = None
-    phase: str
-    paper: str
+    # phase/paper are NULL for topics seeded from TOPIC_DEFINITIONS (the seed rows do not
+    # carry these fields), so they must be optional or /api/topics 422s on a fresh database.
+    phase: str | None = None
+    paper: str | None = None
     display_name: str
     description: str
     base_weight: float
@@ -305,6 +307,7 @@ class DashboardStatsModel(BaseModel):
     recent_amendments: list[dict[str, Any]] = []
     ingestion: IngestionStatusModel
     next_recommended_action: str
+    resource_health: dict[str, Any] = {}
     ai_status: dict[str, Any] = {}
     focus_plan: dict[str, Any] | None = None
     amendment_watchlist: list[dict[str, Any]] = []

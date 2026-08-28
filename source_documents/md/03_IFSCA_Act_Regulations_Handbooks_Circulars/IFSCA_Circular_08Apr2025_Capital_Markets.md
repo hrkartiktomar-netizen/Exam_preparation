@@ -1,0 +1,90 @@
+# ilide.info-pr_0e572922b114a663cf5c90ed5ec7320c — OCR transcription (Gemini)
+
+[logo: IFSCA]
+
+**CIRCULAR**
+
+**F. No. IFSCA-IF-10PR/1/2023-Capital Markets/7**
+
+**April 08, 2025**
+
+
+To,
+
+**All Fund Management Entities in International Financial Services Centres (IFSCs)**
+
+Dear Sir / Madam,
+
+**Sub: Transition to IFSCA (Fund Management) Regulations, 2025**
+
+1. The IFSCA (Fund Management) Regulations, 2025 (“FM Regulations, 2025”), have been published in the official gazette on February 19, 2025, repealing the IFSCA (Fund Management) Regulations, 2022 (“FM Regulations, 2022”).
+
+
+2. Under the FM Regulations, 2025, the validity period of the private placement memorandum (PPM) for Venture Capital Schemes and Restricted Schemes is 12 (twelve) months as against 6 (six) months specified under FM Regulations, 2022. Additionally, under FM Regulations, 2025, the minimum corpus requirement for various schemes, including Venture Capital Schemes and Restricted Schemes, is reduced to USD 3 million as against USD 5 million specified under the FM Regulations, 2022.
+
+
+3. In accordance with the FM Regulations, 2025, the Venture Capital Schemes and Restricted Schemes filed under the FM Regulations, 2022 will be able launch under the new regulatory regime, if –
+
+    (a) These schemes were taken on record by the Authority during the 6 (six) months period ending on February 19, 2025; or
+
+
+Page **1** of **3**
+
+*[Page 1 of 3]*
+
+---
+
+(b) These schemes had obtained approval from the Authority for extension of the validity of their PPM and such extended tenure ends on or after February 19, 2025.
+
+**<u>PPMs whose validity expired before February 19, 2025</u>**
+
+4. IFSCA has received representations from market participants seeking an extension of the validity of expired PPMs so as to enable them to launch under the new regime. In this regard, the following has been decided:
+
+    (a) A one-time opportunity is being offered to the Fund Management Entities (“FMEs”), to seek an extension of the PPM of Venture Capital Schemes and Restricted Schemes whose validity has expired before February 19, 2025, under the following terms and conditions:
+
+        (i) The FMEs shall re-file the PPMs of the schemes with the Authority within 3 (three) months from the date of this Circular;
+
+        (ii) The FMEs shall not make any material changes in the PPMs with respect to the key aspects of the scheme, including its name, investment objective, investment strategy, structure (open-ended / close-ended) and type (Venture Capital Scheme, Category I/II/III Restricted Scheme), etc. However, material changes to the extent necessary for alignment with the requirements of FM Regulations, 2025 may be carried out; and
+
+        (iii) The FME shall pay a filing fee equal to 50% (fifty percent) of the fee applicable for filing a fresh scheme of that nature under FM Regulations, 2025 for such re-filing.
+
+    (b) On receipt of such a request, the Authority shall take the revised PPM on record and communicate the same to the FMEs, providing an additional validity of 6 (six) months (from the date of communication on taking the re-filed PPM on record) to PPM of such schemes.
+
+**<u>Non-applicability of processing fee in certain cases</u>**
+
+5. In terms of regulation 19(4) of FM Regulations, 2025 for Venture Capital Schemes and regulation 31(4) for Restricted Schemes, FMEs are required to inform the Authority regarding material changes from the information provided in the PPM
+
+Page **2** of **3**
+
+*[Page 2 of 3]*
+
+---
+
+along with the payment of applicable processing fees for such filing, to the
+Authority in terms of Circular dated April 08, 2025 (as may be amended from time
+to time). In this regard, it is clarified that if any such filing is necessitated due to
+any action of the Authority or revision in the regulatory regime, the processing fee
+shall not apply.
+
+6. This circular is issued in exercise of the powers conferred under Section 12 and
+13 of the International Financial Services Centres Authority Act, 2019 read with
+regulation 146 of FM Regulations, 2025 and shall come into force with immediate
+effect.
+
+A copy of this circular is available on the website of International Financial Services
+Centres Authority at www.ifsca.gov.in.
+
+Yours faithfully
+
+Sd/-
+
+**Pavan Shah**
+**General Manager**
+Division of Investment Funds – I and New Products & Services
+Capital Markets Department
+Email: pavan.shah@ifsca.gov.in
+Tel: +91-79-61809844
+
+Page **3** of **3**
+
+*[Page 3 of 3]*

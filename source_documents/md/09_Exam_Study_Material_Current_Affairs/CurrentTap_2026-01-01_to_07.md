@@ -1,0 +1,1338 @@
+# discovered_007_CurrentTap-1st-to-7th-January-2026-1 — OCR transcription (Gemini)
+
+[logo: EduTap]
+
+# CurrentTap
+
+JANUARY 2026 – 1st to 7th
+
+# Comprehensive
+# Current Affairs Magazine
+## Covering
+
+# GA ESI FINANCE
+
+NEWS
+
+NEWS
+
+DAILY NEWS
+
+www.edutap.in
+
++91 8146207241
+
+hello@edutap.co.in
+
+Download EduTap app
+
+*[Page 1 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+# Contents
+
+1. GA IN NEWS................................................................................................................................... 4
+
+PIB IN NEWS ...................................................................................................................................... 4
+
+FIRST IN NEWS .............................................................................................................................. 4
+
+MoUs AND AGREEMENTS ............................................................................................................. 4
+
+DAYS IN NEWS ............................................................................................................................... 4
+
+MISCELLANEOUS .......................................................................................................................... 5
+
+OTHER NEWS...................................................................................................................................... 5
+
+FIRST IN NEWS .............................................................................................................................. 5
+
+MoUs AND AGREEMENTS ............................................................................................................. 6
+
+BANKING AND FINANCE ............................................................................................................... 6
+
+SCIENCE & TECHNOLOGY ............................................................................................................. 7
+
+DEFENCE EXERCISES/ INITIATIVES/ TECHNOLOGY ..................................................................... 7
+
+PERSONS IN NEWS ....................................................................................................................... 7
+
+FAIRS AND FESTIVALS ................................................................................................................. 8
+
+PLACES IN NEWS ........................................................................................................................... 8
+
+DAYS IN NEWS ............................................................................................................................... 8
+
+MISCELLANEOUS .......................................................................................................................... 9
+
+2. GA + ESI ........................................................................................................................................ 10
+
+PIB IN NEWS .................................................................................................................................... 10
+
+SOCIAL SECTORS- HEALTH ........................................................................................................ 10
+
+2.1. Indian Pharmacopoeia 2026 ...................................................................................................... 10
+
+2.2. Fights against Malnutrition ........................................................................................................ 11
+
+GENDER ISSUES .......................................................................................................................... 11
+
+2.3. National Workshop on Best Practices of Model Women Friendly Gram Panchayat ..................... 11
+
+SOCIAL JUSTICE ......................................................................................................................... 12
+
+2.4. SAMPANN (System for Accounting and Management of Pension) ............................................... 12
+
+EMPLOYMENT GENERATION IN INDIA ...................................................................................... 13
+
+2.5. Kaushal Manthan ....................................................................................................................... 13
+
+SUSTAINABLE DEVELOPMENT AND ENVIRONMENTAL ISSUES ............................................ 14
+
+2.6. National Biodiversity Authority (NBA) - Access and Benefit Sharing (ABS) .............................. 14
+
+2.7. Clean, Green Highways .............................................................................................................. 15
+
+INDIAN POLITICAL SYSTEM ....................................................................................................... 15
+
+2 | Page
+
+*[Page 2 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+2.8. National award for e- governance ............................................................................................................ 15
+
+INDUSTRIAL DEVELOPMENT IN INDIA ................................................................................................. 16
+
+2.9. 50th Edition of Pragati Mechanism ......................................................................................................... 16
+
+2.10. 79th BIS Foundation Day .................................................................................................................... 16
+
+2.11. Public Private Partnership (PPP) project pipeline ................................................................................... 17
+
+GLOBALISATION .................................................................................................................................... 18
+
+2.12. Ayush Export Promotion Councils @ 4th Anniversary ............................................................................. 18
+
+2.13. India-EFTA Trade and Economic Partnership Agreement (TEPA) ............................................................ 19
+
+2.14. India-UAE Food Corridor ...................................................................................................................... 20
+
+OTHER NEWS ........................................................................................................................................... 21
+
+MONETARY AND FISCAL POLICY ........................................................................................................... 21
+
+2.15. Centre's fiscal deficit ............................................................................................................................. 21
+
+2.16. 8th Pay Commission ............................................................................................................................ 21
+
+MEASUREMENT OF GROWTH ................................................................................................................. 22
+
+2.17. GST Collection December 2025 ............................................................................................................ 22
+
+2.19. 1st Advance estimates of GDP ............................................................................................................. 24
+
+3. GA + FINANCE ...................................................................................................................................... 25
+
+PIB IN NEWS ............................................................................................................................................ 25
+
+RECENT DEVELOPMENTS IN FINANCIAL SECTOR ................................................................................... 25
+
+3.1. Changes in Annual KYC requirement in Companies Act 2013 ................................................................ 25
+
+3.2. Second 'Audit Practice Toolkit ................................................................................................................ 26
+
+OTHER NEWS ........................................................................................................................................... 27
+
+PRIMARY AND SECONDARY MARKET .................................................................................................... 27
+
+3.3. AIF compliance certification ................................................................................................................... 27
+
+3.4. Securities and Exchange Board of India (Merchant Bankers) Regulations, 2026 ...................................... 27
+
+3.5. Incentive Structure for Mutual Fund Distributors .................................................................................... 28
+
+FINTECH ................................................................................................................................................... 29
+
+3.6. Unified Payments Interface (UPI) transaction ......................................................................................... 29
+
+3|Page
+
+*[Page 3 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+# 1. GA IN NEWS
+
+# PIB IN NEWS
+
+## FIRST IN NEWS
+
+| S.No | News | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [First Vande Bharat Sleeper Train](https://www.google.com/search?q=First+Vande+Bharat+Sleeper+Train) | • Operated between **Guwahati in Assam and Howrah in West Bengal.** |
+| **2.** | [India's first commercial-scale tropical Recirculating Aquaculture System (RAS)-based Rainbow Trout Aquaculture Farm & Research Institute](https://www.google.com/search?q=India%27s+first+commercial-scale+tropical+Recirculating+Aquaculture+System+%28RAS%29-based+Rainbow+Trout+Aquaculture+Farm+%26+Research+Institute) | • Set up by at **Kandukur Mandal, Ranga Reddy District, Telangana.**<br>• It is also the **largest integrated inland Rainbow Trout farm in India.** |
+
+# MOUs AND AGREEMENTS
+
+| S.No | Signing Entities | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [Department of Posts and Ministry of Rural Development](https://www.google.com/search?q=Department+of+Posts+and+Ministry+of+Rural+Development) | • **Objective**: To deepen collaboration in support of inclusive and sustainable rural development.<br>• Reinforces the **"Dak Sewa, Jan Sewa" principle.** |
+| **2.** | [Department of Agriculture & Farmers Welfare and the Department of Posts](https://www.google.com/search?q=Department+of+Agriculture+%26+Farmers+Welfare+and+the+Department+of+Posts) | • **Objective**: To establish a nationwide logistics mechanism for the transportation of pesticide, seed and fertiliser samples to designated laboratories across India. |
+
+# DAYS IN NEWS
+
+| S.No | Day in News | Key Facts |
+| :---: | :--- | :--- |
+| **1.** | [68th Foundation Day of DRDO (January 1)](https://www.google.com/search?q=68th+Foundation+Day+of+DRDO+%28January+1%29) | • Defence Research and Development Organisation **(DRDO) was set up at 1958.** |
+| **2.** | [80th Foundation Day of the CSIR-National Physical Laboratory (NPL) (January 5)](https://www.google.com/search?q=80th+Foundation+Day+of+the+CSIR-National+Physical+Laboratory+%28NPL%29+%28January+5%29) | **Initiatives launched during the occasion at CSIR-NPL in New Delhi.**<br>• World's second National Environmental Standard Laboratory.<br>• World's fifth National Primary Standard Facility for Solar Cell Calibration. |
+| **3.** | [9th National Siddha Day (January 6)](https://www.google.com/search?q=9th+National+Siddha+Day+%28January+6%29) | • Theme: **Siddha for Global Health**<br>• Commemorate the **birth anniversary of Sage Agathiyar, revered as the father of Siddha medicine.** |
+
+4 | Page
+
+*[Page 4 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+# MISCELLANEOUS
+
+| S.No | News | Key Facts |
+| :--- | :--- | :--- |
+| 1. | New Logo and Official Mascot of Ministry of Statistics & Programme Implementation (MoSPI) | • Mascot Name: **"Sankhyiki" (सांख्यिकी).**<br>• Logo Details:<br>  - Inspired by India's rich heritage and modern statistical science, the logo carries the **Ministry's message of "Data for Development".**<br>  - **Ashoka Chakra:** Symbolizes truth, transparency, and good governance.<br>  - **Rupee Symbol (₹):** Positioned at the center to highlight the vital role of statistics in economic planning and national growth.<br>  - **Growth Bars & Numbers:** Represent data-driven progress and a modern statistical system<br>  - **Growth Bars & Numbers:** Represent data-driven progress and a modern statistical system. |
+| 2. | Mega Infrastructure Projects of Indian Railways | • **Udhampur-Srinagar-Baramula Rail Link (USBRL)**<br>  - Provides **all-weather rail connectivity to the Kashmir Valley.**<br>  - The project includes the **Chenab Rail Bridge, the world's highest railway arch bridge; It is a 1,315 metre long steel arch bridge.**<br>  - The project also includes India's first cable-stayed railway bridge over Anji river, known as **Anji Rail Bridge.**<br>• New **Pamban Railway Bridge in Tamil Nadu**<br>  - **India's first vertical-lift sea bridge.**<br>• Bairabi-Sairang **new railway line:** Connected Aizawl to the rail network for the first time. |
+
+# OTHER NEWS
+
+## FIRST IN NEWS
+
+| S.No | News | Key Facts |
+| :--- | :--- | :--- |
+| 1. | First major city in India with a population exceeding 7 million (70 lakh) to be declared slum-free | • Milestone achieved by **Surat, Gujarat.** |
+| | | **Additional Information** |
+| | | • **Chandigarh** was recognized as **India's first slum-free city with a population of around 10 lakh.** |
+| 2. | **World's first and largest LC-Max unit** | • Commissioned at **Residue Upgradation Facility (RUF) at HPCL's Visakh Refinery in Andhra Pradesh.** |
+| 3. | **First insects in the world to be granted legal rights** | • Granted to **Amazonian stingless bees** (tribe Meliponini).<br>• Recognition was established **through municipal ordinances in the Peruvian Amazon.** |
+
+5 | Page
+
+*[Page 5 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+| S.No | Program/Initiative | Key Facts |
+| :---: | :--- | :--- |
+| 4. | [underline]Indian AI Research Organisation<br>(IAIRO)[/underline] | • To be set up at **GIFT City near Gandhinagar**.<br>• Gujarat becomes **first state in India to establish a national-level AI research institution** under a **Public-Private Partnership (PPP) model**. |
+| 5. | [underline]First community radio station<br>established along the Line of<br>Control (LoC)[/underline] | • Set up at **Keri village** in the Doongi block,in the **Rajouri district of Jammu and<br>Kashmir**.<br>• Name: **Radio Sangam (88.8 FM)**.<br>• Set up by **Indian Army, in collaboration with local administration**. |
+| 6. | [underline]India's first fully paperless<br>district court system[/underline] | • Milestone achieved by **judicial district of Kalpetta in Kerala's Wayanad**. |
+| 7. | [underline]India's first Made in India<br>universal multi-calibre rocket<br>launcher[/underline] | • Name: **Suryastra**.<br>• **Indian Army** signed a contract with **Pune-based private defense firm NIBE<br>Limited** to procure **Suryastra**.<br>• **NIBE Limited** produces **Suryastr** in collaboration with Israel's **Elbit Systems**. |
+| 8. | [underline]The Grand International<br>Exposition of Sacred Piprahwa<br>Relics[/underline] | • Title: **"The Light and the Lotus: Relics of the Awakened One."**<br>• Venue: **New Delhi**.<br>• Hosted by **Ministry of Culture**<br>• **First reunification and public display of all major artifacts from the Piprahwa site<br>in 127 years**.<br>• The **Piprahwa relics** were unearthed in **1898 by William Claxton Peppé in Uttar<br>Pradesh**. |
+| 9. | [underline]First payments company in India,<br>the Middle East (ME), APAC, and<br>South Asia (SA) to be certified<br>with the ISO/IEC<br>42001 certification.[/underline] | • Name: **Financial Software and Systems (FSS)**<br>• Recognizes FSS's leadership in the responsible and ethical use of artificial<br>intelligence (AI) in payments and banking technology. |
+
+# MOUs AND AGREEMENTS
+
+| S.No | Signing Entities | Key Facts |
+| :---: | :--- | :--- |
+| 1. | [underline]Government of Delhi & Reserve<br>Bank of India[/underline] | • **Objective:** To strengthen financial governance.<br>• The MoU enables the RBI to function as the banker, debt manager, and financial<br>agent of the Government of Delhi. |
+| 2. | [underline]Asian Development Bank<br>(ADB) & Government of<br>Telangana[/underline] | • ADB has granted in-principle approval for a **₹4,100 crore ($500 million) loan<br>Phase-I of the Musi Riverfront Development Project**. |
+
+# BANKING AND FINANCE
+
+| S.No | Program/Initiative | Key Facts |
+| :---: | :--- | :--- |
+| 1. | [underline]ICICI Prudential AMC IPO[/underline] | • **The fourth-most bid IPO in Indian history by total subscription value.** |
+
+6 | Page
+
+*[Page 6 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+| 2. | [Amazon Pay has launched new fixed deposit (FD) services in India](https://example.com) | • To offer annual returns of up to 8%. |
+|---|---|---|
+| 3. | [Zero-Forex Diamond Reserve Credit Card](https://example.com) | • Launched by **IDFC FIRST Bank.**<br>• Designated for **frequent international travelers.** |
+| 4. | [Safety Centre](https://example.com) | • **Axis Bank** launched its new 'Safety Centre' on its mobile banking app.<br>• Offers customers with **real-time control over their account security to proactively manage digital banking functions and combat fraud.** |
+
+# SCIENCE & TECHNOLOGY
+
+| S.No | Technology in News | Key Facts |
+|---|---|---|
+| 1. | [VijAipatha](https://example.com) | • A **pilot initiative** to establish world-class Artificial Intelligence (AI), STEM, and **Robotics laboratories** in **government schools in Karnataka.**<br>• Implemented by the **Cyient Foundation** in collaboration with the **Government of Karnataka.** |
+
+# DEFENCE EXERCISES/ INITIATIVES/ TECHNOLOGY
+
+| S.No | Exercise/Technology | Key Facts |
+|---|---|---|
+| 1. | [K-4 submarine-launched ballistic missile (SLBM)](https://example.com) | • **India** successfully **test-fired missile** from its **second nuclear-powered ballistic missile submarine (SSBN), INS Arighaat.**<br>• K-4 has a strike range of approximately **3,500 km.** |
+| 2. | [Year of Networking & Data Centricity](https://example.com) | • The **Indian Army** has officially declared **2026** as the **'Year of Networking & Data Centricity'.**<br>• Aligns with Army's broader **"Decade of Transformation" (2023–2032).**<br>• **2025** was declared as the **Year of Reform.** |
+
+# PERSONS IN NEWS
+
+| S.No | Person in News | Key Facts |
+|---|---|---|
+| 1. | [Warren Buffett](https://example.com) | • **Stepped down as CEO of Berkshire Hathaway**, an American multinational conglomerate.<br>• **Warren Buffett** is known as the **"Oracle of Omaha."**<br>• **Greg Abel**, previously Vice Chairman of non-insurance operations, assumed the role of CEO of Berkshire Hathaway. |
+| 2. | [Delcy Rodríguez](https://example.com) | • Sworn in as the **Acting President of Venezuela.**<br>• Her ascension to the presidency follows the capture of **former President Nicolás Maduro by United States forces during a military operation.** |
+
+7 | Page
+
+*[Page 7 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+| 3. | Kaamya Karthikeyan | • Set a **new** record as the youngest Indian (18 years) and second-youngest woman globally to ski to the South Pole. |
+| :---: | :---: | :--- |
+| 4. | Neeraj Chopra | • Ended his decade-long partnership with **JSW Sports** to launch his own athlete management firm, **Vel Sports**. |
+
+# OBITUARIES
+
+| S.No | Person in News | Key Facts |
+| :---: | :---: | :--- |
+| **1.** | **Khaleda Zia** | • **A Bangladeshi politician.**<br>• The **first female Prime Minister of Bangladesh.** |
+| **2.** | **Manoj Kothari** | • **Former world billiards champion.**<br>• **Conferred with the Dhyan Chand Award, India’s highest award for lifetime achievement in sports and games.** |
+
+# FAIRS AND FESTIVALS
+
+| S.No | Fair/Festival Name | Key Facts |
+| :---: | :---: | :--- |
+| **1.** | **Somnath Swabhiman Parv** | • Launched to honour **1,000 years of resilience** of the **Somnath Temple in Prabhas Patan, Gujarat.**<br>• Marks the millennium since the **first major documented attack on the shrine by Mahmud of Ghazni in 1026.** |
+
+# PLACES IN NEWS
+
+| S.No | Place in News | Key Facts |
+| :---: | :---: | :--- |
+| **1.** | **Parvati-Arga Bird Sanctuary** | • Located in **Gonda district of Uttar Pradesh.**<br>• The **Government of India** officially notified it as an **Eco-Sensitive Zone.** |
+
+# DAYS IN NEWS
+
+| S.No | Day in News | Key Facts |
+| :---: | :---: | :---: |
+| **1.** | **International Mind-Body<br>Wellness Day 2026<br>(January 3)** | -- |
+| **2.** | **World Braille Day 2026<br>(January 4)** | -- |
+| **3.** | **National Bird Day 2026<br>(January 5)** | -- |
+
+8 | Page
+
+*[Page 8 of 31]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+# MISCELLANEOUS
+
+| S.No | News | Key Facts |
+| :--- | :--- | :--- |
+| **1.** | [Jallikattu] | • A **traditional bull-taming sport** celebrated in **Tamil Nadu** during **the Pongal harvest festival**.<br>• 2026 season began with **first event in Thatchankurichi, Pudukkottai district**.|
+| **2.** | [World's Biggest Apple and Sand Installation of Santa Claus] | • Record created by **renowned sand artist and Padma Shri awardee Sudarsan Pattnaik** at **Niladri Beach in Puri, Odisha**.<br>• Officially recognized by the **World Records Book of India**. |
+| **3.** | [Highest-earning Hindi film of all time in India] | • **Aditya Dhar's "Dhurandhar"** has become the **highest-earning Hindi film ever with a net India collection of over ₹831 crore**.<br>• Surpassed the **previous record held by the Hindi version** of **Pushpa 2: The Rule**. |
+| **4.** | [e-B-4 Production Investment Business Visa] | • Launched by the **Government of India**.<br>• A specialized sub-category of the Indian e-Business Visa designed to support manufacturing and industrial projects.<br>• **Target Group:** Foreign professionals, particularly Chinese nationals. |
+
+9 | Page
+
+*[Page 9 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+# 2. GA + ESI
+
+# PIB IN NEWS
+
+## SOCIAL SECTORS- HEALTH
+
+### 2.1. Indian Pharmacopoeia 2026
+
+**Why in news**
+
+* The Union Minister for Health and Family Welfare released the **Indian Pharmacopoeia 2026 (IP 2026)**, the 10th edition of India's official book of **drug standards**, in January.
+
+**Key Highlights**
+
+* **Milestone:** This is the **10th edition** of the Indian Pharmacopoeia.
+* **Pharmacovigilance Ranking:** India's global rank in contributions to the WHO pharmacovigilance database rose from **123rd** (2009–2014) to **8th** in 2025
+* **First-Time Inclusion:** Introduced **20 blood component monographs** related to transfusion medicine, aligning with the **Drugs and Cosmetics (Second Amendment) Rules, 2020**.
+* **Global Recognition:** The Indian Pharmacopoeia is now recognized in **19 countries** of the Global South.
+
+[bulb icon] **DID YOU KNOW**
+
+**Global South:** A term used to refer to developing and less-developed countries, primarily located in Africa, Asia, and Latin America.
+
+---
+
+### Indian Pharmacopoeia (IP)
+
+* **Ministry Involved:** Ministry of Health & Family Welfare.
+* **Implementing Agency: Indian Pharmacopoeia Commission (IPC).**
+    * **Headquarters: Ghaziabad, Uttar Pradesh.**
+    * **Establishment:** Established as an **Autonomous Institution in 2005**.
+    * **Governing Body:** The Commission is headed by the **Secretary, Ministry of Health & Family Welfare** as the **Chairperson**.
+* **Aim/Objective:** To prescribe official standards for drugs produced and/or marketed in India, contributing to the control and assurance of medicine quality.
+* **Features:**
+    * **Legal Basis:** Fulfills the requirements of the **Drugs and Cosmetics Act, 1940**. The standards are recognized under the **Second Schedule** of the Act.
+
+---
+
+10 | Page
+
+*[Page 10 of 31]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+## 2.2. Fights against Malnutrition
+
+### Why in News
+
+Union Minister of Commerce and Industry addressed a **CSR Conclave on Nutrition** organized by the **National Dairy Development Board (NDDB)** in New Delhi.
+
+### Key Highlights
+
+- **Whole-of-Government Approach:** The initiative showcases inter-ministerial coordination involving five key ministries:
+  - Ministry of Commerce and Industry
+  - Department of Animal Husbandry and Fisheries
+  - Ministry of Cooperation
+  - Ministry of Panchayati Raj
+  - Ministry of Women and Child Development
+
+[bulb icon] **DID YOU KNOW**
+
+Fighting malnutrition is a priority under the **Sustainable Development Goals (SDGs)** (specifically SDG 2: Zero Hunger).
+
+---
+
+### National Dairy Development Board (NDDB)
+
+- **Establishment:** Founded in **1965** as Statutory Board
+- **Headquarters:** Anand, Gujarat.
+- **Founder Chairman:** **Dr. Verghese Kurien**, widely known as the **"Father of the White Revolution"** in India.
+- **Key Initiatives & Models:**
+  - **Gift Milk:** An initiative (by NDDB Foundation for Nutrition) where cooperatives and corporates provide milk to children in government schools to improve nutritional intake.
+  - **Shishu Sanjeevani:** A program highlighted as a successful model of the **cooperative framework**, focusing on health and nutrition in **aspirational districts** and tribal areas.
+
+---
+
+# GENDER ISSUES
+
+## 2.3. National Workshop on Best Practices of Model Women Friendly Gram Panchayat
+
+### Why in News
+
+- The **Ministry of Panchayati Raj (MoPR)**, in collaboration with the **Government of Maharashtra**, is organizing a two-day **National Workshop on Best Practices of Model Women Friendly Gram Panchayat**. The event is scheduled to be held at **YASHADA, Pune** from **January 8–9, 2026**.
+
+### Key Highlights
+
+- **Thematic Focus:** The workshop will focus on five key areas:
+  1. Participation in Governance
+
+11 | Page
+
+*[Page 11 of 31]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+2. Health & Nutrition
+3. Education and Skill Development
+4. Access to Economic Opportunities
+5. Safety & Security
+
+* **Outcome:** The goal is to develop these Model Panchayats as "Experiential Learning Centres" for others to replicate.
+
+---
+
+### Model Women Friendly Gram Panchayats (MWFGP)
+
+* **Launch Details:** The initiative was officially launched on **March 5, 2025**, at a National Convention in **Vigyan Bhawan, New Delhi**, coinciding with **International Women's Day celebrations**.
+* **LSDG Context (Theme 9):** This initiative falls under **Theme 9 ("Women Friendly Panchayat")** of the **Localization of Sustainable Development Goals (LSDGs)**.
+    * **Specific Targets:** Goals include achieving **100% immunization** of pregnant women, **100% institutional delivery**, universal antenatal/postnatal care, and reducing crimes against women.
+    * **Institutional Mechanisms:** It emphasizes organizing **Mahila Sabhas** and **Bal-Balika Sabhas** prior to Gram Sabhas and activating statutory committees under the **Sexual Harassment of Women at Workplace Act, 2013**.
+* **Selection Methodology:** The **744 Model GPs** were selected by States/UTs based on:
+    * **Panchayat Advancement Index (PAI) Version 1.0** composite and thematic scores.
+* **Knowledge Partner:** The **United Nations Population Fund (UNFPA)** serves as the key knowledge partner, providing technical inputs for the initiative.
+* **Follows Sankalp Approach:** The initiative uses the "Sankalp" approach where GPs prioritize at least one theme annually; however, data showed the "Women Friendly" theme had low adoption (approx. 1-5%) in previous years, prompting this targeted "Model" intervention.
+
+---
+
+# SOCIAL JUSTICE
+
+## 2.4. SAMPANN (System for Accounting and Management of Pension)
+
+### Why in News
+
+* The Ministry of Communications announced the integration of **SAMPANN** with **DigiLocker**, allowing Department of Telecommunications (DoT) pensioners to access important pension-related documents digitally.
+
+### Key Highlights
+
+* **New Integration:** Important pension-related documents are now available through **DigiLocker**.
+
+---
+
+[logo: Light Bulb] **DID YOU KNOW**
+
+**e-PPO (Electronic Pension Payment Order):** A digital version of the Pension Payment Order, which is the primary document required for the disbursement of pension.
+
+---
+
+12 | Page
+
+*[Page 12 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+- **Documents Available:**
+    - Gratuity Payment Orders
+    - Pension Certificates/ePPOs
+    - Pension Commutation Payment Orders
+    - Form 16
+
+## SAMPANN (System for Accounting and Management of Pension)
+
+- Launched in **December 2018**.
+
+- **Launched by:** Prime Minister **Shri Narendra Modi** (dedicated to the nation in Varanasi).
+
+- **Ministry:** Ministry of Communications.
+
+- **Aim/Objective:** To create a single platform for processing, sanctioning, and disbursing pension directly to the bank accounts of pensioners.
+
+- **Features:**
+    - **Integrated System:** An online pension management system specifically for **DoT pensioners** (including BSNL/MTNL retirees drawing pension from the Consolidated Fund of India).
+    - **Direct Benefit Transfer (DBT):** Disburses pension directly to the beneficiary's bank account, eliminating intermediaries (banks/post offices) for disbursement.
+
+## DigiLocker
+
+- A flagship initiative of the **Ministry of Electronics & IT (MeitY)** under the **Digital India programme** that provides citizens with a secure cloud-based platform for storing, sharing, and verifying documents and certificates.
+
+- **Documents** shared with DigiLocker are-
+    - Aadhaar, PAN, Driving License, Vehicle RC, Voter ID, Birth Certificates, and Marksheets (10th/12th/Graduation), as well as insurance policies and uploaded personal files (PDF, JPEG, etc.)
+
+# EMPLOYMENT GENERATION IN INDIA
+
+## 2.5. Kaushal Manthan
+
+### Why in News
+
+- Week-long 'Kaushal Manthan' concluded with the roadmap of skilling for the year 2026.
+
+### Key Highlights
+
+- **Outcome:** The session culminated in the firming up of **"Skill Resolutions for 2026"**,
+
+13 | Page
+
+*[Page 13 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+- **Key Commitments:**
+  - Establishing a **National Federated Skill and Workforce Registry**.
+  - Operationalizing a **National Trainer Framework**.
+  - Repositioning **apprenticeships** as the primary school-to-work pathway.
+  - Integrating **MSMEs** into national skilling and apprenticeship frameworks in a time-bound manner.
+
+# SUSTAINABLE DEVELOPMENT AND ENVIRONMENTAL ISSUES
+
+## 2.6. National Biodiversity Authority (NBA) - Access and Benefit Sharing (ABS)
+
+### Why in news
+
+- The National Biodiversity Authority (NBA) has continued its series of **‘Access and Benefit Sharing’** disbursements with the release of **Rs 45 lakh** to Andhra Pradesh’s red sanders farmers.
+
+### Key Highlights
+
+- **Access and Benefit Sharing (ABS):** A mechanism ensuring fair sharing of benefits arising from the use of biological resources.
+- **Current Disbursement:** ₹45 lakh (USD 50,000) was released through the Andhra Pradesh State Biodiversity Board.
+
+### Additional details
+
+- **Access benefit sharing** is mandated under **Article 17 of the Nagoya Protocol** on access to genetic resources and the fair and equitable sharing of benefits arising from their utilization
+- Red Sanders is described as a globally valued **endemic species to Eastern Ghat**.
+
+| NBA - Access Benefit Sharing (ABS) |
+| :--- |
+| - **Ministry Involved:** Ministry of Environment, Forest and Climate Change.<br>- **Implementing Agency:** National Biodiversity Authority (NBA).<br>- **Aim/Objective:** To ensure fair and equitable sharing of benefits, actively promote sustainable utilization practices, and discourage illegal trade and over-exploitation.<br>- **Features:**<br>  - **Mechanism:** Mandated under the **Biological Diversity Act, 2002**.<br>  - **Functions:** Directly rewards farmers for conserving and sustainably utilizing globally valued endemic species.<br>  - **Beneficiaries:** Farmers/cultivators of Red Sanders.<br>  - **Territorial Coverage:** Andhra Pradesh, Tamil Nadu, Karnataka, Maharashtra, Odisha, and Telangana. |
+
+14 | Page
+
+*[Page 14 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+2.7. **Clean, Green Highways**
+
+**Why in News**
+
+* India entered the era of '**Clean, Green Highways**' in January with the successful Technology Transfer of an indigenous innovation titled "**Bio-Bitumen via Pyrolysis: From Farm Residue to Roads**".
+
+**Key Highlights**
+
+* **Global Milestone:** India has become the **first country** in the world to take **bio-bitumen technology** to an **industrial and commercial scale** within the **same year**.
+* **Field Feasibility:** A 100-metre trial stretch using bio-bitumen has been successfully laid on the **Jorabat–Shillong Expressway (NH-40) in Meghalaya**.
+* **Import Statistics:** India currently imports nearly **50%** of its bitumen requirement.
+* **Developed by:** CSIR-Central Road Research Institute (CSIR-CRRI), New Delhi, and CSIR-Indian Institute of Petroleum (CSIR-IIP), Dehradun.
+* **Industry Collaboration:** **Praj Industries** (Pune-based) has been mentioned as a key industry partner in the development and commercialization efforts.
+
+# **INDIAN POLITICAL SYSTEM**
+
+2.8. **National award for e- governance**
+
+**Why in News**
+
+* The Ministry of Personnel, Public Grievances & Pensions announced that 802 nominations were received for the National Awards for e-Governance 2026.
+
+**Key Highlights**
+
+* **Top Categories:**
+  * **Category (I) - Government Process Re-engineering:** Received the highest nominations (341).
+  * **Category (IV) - District Level Initiatives:** Received 235 nominations.
+  * **Category (II) - AI and New Age Technologies:** Received 104 nominations.
+
+### **National Awards for e-Governance (NAeG)**
+
+* **Ministry Undertaking:** Ministry of Personnel, Public Grievances & Pensions.
+* **Features:**
+  * **Categories:** The 2026 awards include **seven categories** covering areas like Government Process Re-engineering, AI innovation, Cyber Security, District level initiatives, Grassroots initiatives, Replication of projects, and Data Analytics.
+
+15 | Page
+
+*[Page 15 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+# INDUSTRIAL DEVELOPMENT IN INDIA
+
+## 2.9. 50th Edition of Pragati Mechanism
+
+### Why in News
+
+* The Cabinet Secretary briefed the media on the outcomes of the **PRAGATI mechanism**, marking the milestone of "$\mathbf{PRAGATI\ @\ 50}$" in January.
+
+### Key Highlights
+
+* **External Validation:** The release references a study by the **Oxford Said Business School** regarding the initiative.
+
+---
+### **About PRAGATI Platform**
+---
+
+* **Launch:** 2014
+
+* **Full Form:** Pro-Active Governance and Timely Implementation.
+
+* **Chairperson:** Prime Minister.
+
+* **Genesis:** Based on the **SWAGAT** (Statewide Attention on Grievances by Application of Technology) model of Gujarat.
+
+* **Features:**
+    * **Technology:** It is an **ICT-enabled multi-modal platform** that combines **Digital Data Management, Video Conferencing**, and **Geo-spatial technology**.
+
+    * **Three-Tier Structure:** The system involves **Union Government Secretaries, Chief Secretaries of the States**, and the **Prime Minister** interacting directly.
+
+* **Performance/achievements:**
+    * **Cumulative Value:** The ecosystem has helped accelerate projects worth more than **₹85 lakh crore**.
+
+* **Key Projects Unlocked:** Iconic projects resolved/accelerated include the **Bogibeel rail-cum-road bridge** (Assam), **Navi Mumbai International Airport**, etc.
+
+---
+
+## 2.10. 79th BIS Foundation Day
+
+### Why in News
+
+* The **Bureau of Indian Standards (BIS)** celebrated its **79th Foundation Day** with **a launch and release of key initiatives** on **January 6, 2026**, in New Delhi.
+
+### Key Highlights
+
+* **New Initiatives Launched:**
+
+[logo: lightbulb] **DID YOU KNOW**
+
+Manak Online is the digital portal used by BIS for its operational activities like licensing.
+
+16 | Page
+
+*[Page 16 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in
+
++91 8146207241
+
+* **Beta Launch of BIS Standardization Portal:** A future-ready digital platform integrating the entire standards development lifecycle (from proposal to publication) into a single interface.
+  * **BIS Educational Series:** Launch of comic books (print and 2D animated) on the **Rashtriya e-Pustakalay** platform to teach children about standards and safety.
+  * **MoUs signed:** Agreements with premier institutes like **IIIT Dharwad, IIT Palakkad, and NIT Arunachal Pradesh** to integrate standards into academic curricula.
+
+* **Support for MSMEs: Concessions** in Annual Minimum Marking Fees were highlighted:
+  * **80% for Micro,**
+  * **50% for Small,** and
+  * **20% for Medium** Enterprises.
+
+* **Hallmarking Update:** The Minister noted that **Silver HUID Hallmarking** (voluntary) launched on Sept 1, 2025, has seen over 21 lakh articles hallmarked.
+  * HUID-based marking for silver is **mandatory** if hallmarked.
+
+* **2025 Milestones:** In 2025 alone, BIS developed over 600 new standards and brought 124 new products under mandatory certification (including currency sorting machines).
+
+---
+
+### **Bureau of Indian Standards (BIS)**
+
+* **Established:** Founded in **1947** as the Indian Standards Institution (ISI) and transformed into BIS in **1987**.
+* **Statutory Framework:** It operates under the **BIS Act, 2016**, which strengthened its mandate, enhanced consumer participation, and aligned it with global best practices.
+* **Parent Ministry: Ministry of Consumer Affairs, Food & Public Distribution.**
+* **Key Mission:**
+  * **"One Nation, One Standard":** A vision to harmonize standards across sectors to ensure uniformity and quality.
+* **Function:** Responsible for standardization, product certification, hallmarking (Gold and Silver), and laboratory services.
+* **International Role:** BIS serves as the **WTO-TBT (World Trade Organization - Technical Barriers to Trade)** Enquiry Point for India.
+
+---
+
+## **2.11. Public Private Partnership (PPP) project pipeline**
+
+### **Why in News**
+
+* In pursuance of the announcement made in the **Union Budget 2025-26**, the **Department of Economic Affairs (DEA)**, Ministry of Finance, has
+
+[logo: DID YOU KNOW]
+
+Framework for PPPs in India influenced by the **Vijay Kelkar Committee (2015)** report on **"Revisiting and Revitalizing the PPP Model"**.
+
+17 | Page
+
+*[Page 17 of 31]*
+
+---
+
+[logo: EduTap]  
+hello@edutap.co.in  
++91 8146207241  
+
+created and released a **three-year Public Private Partnership (PPP) project pipeline**.
+
+### Key Highlights
+
+* **Scale of Pipeline:** The pipeline comprises **852 projects**.
+* **Total Value:** The combined total project cost is over **₹17 lakh crore**.
+* **Objective:** The primary goal is to provide **early visibility** of potential projects to investors, developers, and financial institutions.
+
+<div align="center">
+
+**Year wise Sectoral Distribution**
+
+</div>
+
+<div align="center">
+
+| Year 2025-2026 | Year 2026-2027 |
+| :---: | :---: |
+| ![Year wise Sectoral Distribution Graph 1](placeholder) | ![Year wise Sectoral Distribution Graph 2](placeholder) |
+
+**Year 2027-2028**
+
+![Year wise Sectoral Distribution Graph 3](placeholder)
+
+</div>
+
+### Additional Information
+
+* **Approval Mechanism:** The **Public Private Partnership Appraisal Committee (PPPAC)** is the central body responsible for the appraisal and recommendation of PPP projects for approval.
+* **Financial Support Schemes:**
+  * **India Infrastructure Project Development Fund (IIPDF) Scheme:** A scheme to provide financial support for **project development expenses** (such as feasibility studies and transaction advisory services) to create a shelf of bankable and quality PPP projects.
+* **Nodal Agency:** The **PPP Cell** within the **Department of Economic Affairs (DEA)** is the central nodal agency.
+
+---
+
+# GLOBALISATION
+
+## 2.12. Ayush Export Promotion Councils @4th Anniversary
+
+### Why in News
+
+* The Ayush Export Promotion Council (AYUSHEXCIL) observed its **4th Establishment Anniversary** in New Delhi in January
+
+### Key Highlights
+
+18 | P a g e
+
+*[Page 18 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+* **Export Growth:** AYUSH and herbal product exports grew by **6.11%**, increasing from USD 649.2 million in 2023–24 to **USD 688.89 million in 2024–25**.
+* **Trade Agreements:** Recognition in bilateral trade agreements the **India–Oman CEPA (Comprehensive Economic Partnership Agreement)** and the **India–New Zealand FTA**.
+* **New Responsibilities:** AYUSHEXCIL has been entrusted with anchoring the **Ayush Quality Mark** programme, which was launched during the **2nd WHO Summit on Traditional Medicine** in December 2025.
+
+---
+
+### **Ayush Export Promotion Council (AYUSHEXCIL)**
+
+* **Launch Year:** Registered on **4 January 2022**; Formally launched on **20 April 2022**.
+* **Ministry:** Functions in consultation with the **Ministry of Ayush** and supported by the **Ministry of Commerce & Industry**.
+* **Implementing Agency:** **Directorate General of Foreign Trade (DGFT)** as the nodal Export Promotion Council.
+* **Features:**
+    * **Coverage:** Covers Ayurveda, Yoga & Naturopathy, Unani, Siddha, Sowa-Rigpa, and Homeopathy.
+    * **Strategic Focus:** Actively promotes **Micro, Small, and Medium Enterprises (MSMEs)** to drive innovation and sustainable growth. It also highlights the potential of specific medicinal plants like **Sea Buckthorn** and investment opportunities in states like **Chhattisgarh**.
+
+---
+
+## **2.13. India-EFTA Trade and Economic Partnership Agreement (TEPA)**
+
+### **Why in News**
+
+* Union Minister of Commerce and Industry undertook an official visit to Liechtenstein in January to review its implementation and pitch for investments, marking the first ministerial visit of 2026.
+
+### **Key Highlights**
+
+* **GDP:** India is highlighted as the **fourth largest economy** with an estimated GDP of USD 4.13 trillion in 2025.
+* **Investment Ambition:** TEPA carries an agreed ambition to facilitate **USD 100 billion** in investments into India in 15 years.
+* **Employment Goal:** The agreement aims to support the creation of **one million direct jobs**.
+* **Market Access (EFTA):** EFTA's offer under TEPA covers **100% of non-agri products** and provides tariff concessions on Processed Agricultural Products (PAP).
+* **Market Access (India):** India's offer to EFTA covers **82.7% of tariff lines**, which accounts for **95.3%** of EFTA exports.
+
+---
+
+19 | Page
+
+*[Page 19 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+* **Gold Imports:** Over **80%** of EFTA exports to India are Gold, with **no change** in the effective duty on Gold under this agreement.
+* **Sensitive Sectors:** Sensitivities related to PLI (Production Linked Incentive) in sectors like pharma, medical devices, and processed food have been considered while extending offers.
+
+## Additional Details
+
+* **Members:** India and the European Free Trade Association (EFTA) states—Iceland, Liechtenstein, Norway, and Switzerland.
+* **Aim/Objective:** To foster a deeper economic partnership, boost trade and investment flows, and integrate supply chains between India and EFTA nations.
+
+## 2.14. India-UAE Food Corridor
+
+### Why in News
+
+* The **India-UAE Food Corridor** was launched as a key initiative during the 9th edition of Indusfood 2026, inaugurated by the Union Minister of Food Processing Industries.
+
+### Key Highlights
+
+* **India-UAE Food Corridor**
+* **Launch Year:** 2026 (during Indusfood 2026).
+* **Implementing Agency:** Abu Dhabi Food Hub
+* **Aim/Objective:**
+    * To enhance food security.
+    * To streamline supply chains.
+    * To accelerate bilateral food trade flows between India and the UAE.
+* **Indusfood 2026 Event**
+    * **Organizer:** The event was organized by the Trade Promotion Council of India (TPCI).
+* **Initiatives Launched**
+    * **Bharati Initiative:** Launched by APEDA to showcase innovative Indian agri-food start-ups to global buyers through Shark Tank-style pitch sessions.
+    * **Bharat Mart Session:** A special session by DP World focusing on export infrastructure, logistics integration, and policy-level dialogue.
+    * **World Culinary Heritage Conference:** The inaugural conference was hosted to deliberate on heritage preservation and innovation in culinary diplomacy.
+
+### Additional Details
+
+* The event celebrated a **75-year milestone** by Saudi Arabian exhibitor Alsalan, underscoring the strengthening partnership between India and Saudi Arabia.
+
+20 | P a g e
+
+*[Page 20 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in 📞 +91 8146207241
+
+---
+
+# Bharati Initiative
+
+* **Launched** - 2025
+* **Launch By**: APEDA (Agricultural and Processed Food Products Export Development Authority)
+* **Full Form**: Bharat's Hub for Agritech, Resilience, Advancement and Incubation for Export Enablement.
+* **Objectives**:
+  * Empower 100 agri-food and agri-tech startups, accelerate their journey, promote innovation.
+  * It is conceived as APEDA's vision to achieve $50 billion in agri-food exports for its Scheduled Products by 2030,
+  * Enhance industry and government-led incubation programmes in the agriculture, food and food processing sectors.
+
+---
+
+# OTHER NEWS
+
+# MONETARY AND FISCAL POLICY
+
+## 2.15. Centre's fiscal deficit
+
+### Why in News
+
+* The Centre's fiscal deficit widened to **62.3%** of the full-year target by the end of November 2025, primarily due to a significant increase in capital expenditure and lagging tax revenues.
+
+### Key Highlights
+
+* **Fiscal Deficit Figures**:
+  * **Current Status**: The fiscal deficit stood at **₹9.77 lakh crore** at the end of November 2025.
+  * **Percentage of Target**: This is **62.3%** of the Budget Estimates (BE) for the full financial year 2025-26.
+  * **Comparison**: This is higher than the **52.5%** recorded during the same period in the previous year (2024-25).
+
+[bulb icon] **DID YOU KNOW**
+
+Fiscal deficit data is given by **Controller General of Accounts (CGA)**, Ministry of Finance.
+
+* **Targets by Government**: The Centre aims to reduce the fiscal deficit by **4.4% of GDP** in FY 2025-26.
+
+## 2.16. 8th Pay Commission
+
+### Why in News
+
+* Assam has become the first state in India to constitute its 8th State Pay Commission
+
+### Key Highlights
+
+* The commission headed by **Subhas Das** has been given a timeline of **18 months** to submit its recommendations.
+
+---
+21 | P a g e
+
+*[Page 21 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+* While the report submission is expected later, the benefits of the revised pay structure are likely to be implemented **retrospectively** from **January 1, 2026**.
+
+## 8th Pay Commission
+
+* **Launch/Effective Year: January 1, 2026**
+* **Ministry: Ministry of Finance**
+* The 8th Central Pay Commission (for Central Government employees) is headed by **Justice Ranjana Desai**
+* **Implementing Agency:**
+  * **Central Government:** For Central Government employees and pensioners.
+  * **State Government:** as established by the state-specific commission
+* **Features:**
+  * **Salary/Pension Hike:** Reports estimate a potential overall hike of **20-35%** in salaries and pensions for central employees.
+
+# MEASUREMENT OF GROWTH
+
+## 2.17. GST Collection December 2025
+
+### Why in News
+
+* India's Gross Goods and Services Tax (GST) collections rose by **6.1%** year-on-year to reach **₹1.75 lakh crore** in December 2025.
+
+### Key Highlights
+
+* **Gross Collection:** The total gross GST collection for December 2025 stood at **₹1.75 lakh crore**, up from ₹1.64 lakh crore in December 2024.
+* **Net Revenue:** After accounting for refunds, the **Net GST revenue** stood at **₹1.45 lakh crore**, registering a growth of **2.2%** year-on-year.
+* **Refunds:** Total refunds issued during the month were **₹28,980 crore**, a significant increase of **30.9%** compared to the previous year.
+* **Revenue Sources:**
+  * **Import Revenue:** Showed healthy momentum, growing by **19.7%** to reach ₹51,977 crore.
+  * **Domestic Revenue:** Recorded a modest growth of **1.2%**, reaching ₹1.22 lakh crore.
+* **State Performance:**
+  * **Top Performers:** Major states like **Haryana (16%)**, **Maharashtra (15%)**, and **Gujarat (12%)** posted strong double-digit growth.
+  * **Decline:** Regions like **Ladakh (-25%)**, **Jammu & Kashmir (-8%)**, and **Punjab (-4%)** witnessed a contraction in collections.
+
+22 | Page
+
+*[Page 22 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+* **Compensation Cess:** Collections fell sharply by **64.7%** to **₹4,238 crore** (down from ₹12,003 crore last year).
+
+<div align="center">
+
+# **GST**
+
+</div>
+
+* **Launch Date:** Launched on **1st July 2017**.
+* **Constitutional Basis:** Introduced through the **101st Constitution Amendment Act, 2016**.
+* **Governing Body:** The **GST Council**, constituted under **Article 279A** of the Constitution, is the key decision-making body chaired by the Union Finance Minister.
+* **Definition:** A comprehensive, multi-stage, destination-based indirect tax that is levied on every value addition.
+* **Institutional Mechanism:**
+  * **Group of Ministers (GoM):** Specific issues like rate rationalization are handled by a GoM. The current GoM on Rate Rationalisation is led by **Bihar Deputy Chief Minister Samrat Choudhary**.
+
+## **2.18. Additional excise duty on tobacco products**
+
+### **Why in News**
+
+* The Government has notified **February 1** as the date from which additional excise duty will be levied on tobacco products and a new cess will be imposed on pan masala.
+
+### **Key Highlights**
+
+* **Revised Tax Structure (effective Feb 1):**
+  * **Pan masala, cigarettes, tobacco:** Will attract a GST rate of **40%**.
+  * **Biris:** Will attract a GST rate of **18%**
+* **Relation to GST:** These new levies will be **over and above the GST rate**. They are intended to replace the **Compensation Cess** currently levied on these "sin goods."
+
+### **About Excise Duty and Sin Tax**
+
+* **Legislative Framework:** The new levies are enforced through
+  * ✓ **The Finance Act, 2024**
+  * ✓ **Goods and Services Tax (Compensation to States) Amendment Act, 2024**,
+* **Structural Change:** This move transitions the taxation of "sin goods" from the **GST Compensation Cess** regime (which was temporary and used to repay pandemic-era loans) to a permanent structure. The amendment enables the government to cap the GST rate on these goods at **40%**.
+
+💡 **DID YOU KNOW**
+
+GST subsumed most central excise duties, specific products like **petroleum** and **tobacco** continue to attract central excise duty in addition to GST or VAT.
+
+23 | Page
+
+*[Page 23 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+## Key Terms
+
+* **Cess:** A tax on tax, levied by the government for a specific purpose (e.g., Health Cess, Education Cess). It is distinct from the consolidated fund and is usually meant for a designated usage.
+* **Sin Goods:** Goods which are considered harmful to society and individuals, such as alcohol and tobacco.
+* **Compensation Cess:** A levy originally introduced under the GST regime for 5 years to compensate states for any loss of revenue arising from the implementation of GST
+
+## 2.19. 1st Advance estimates of GDP
+
+### Why in News
+
+* The National Statistical Office (NSO), Ministry of Statistics and Programme Implementation released the First Advance Estimates of Gross Domestic Product (GDP) for the Financial Year 2025-26 in January.
+
+### Key Highlights
+
+* **GDP Growth (Real):** The Indian economy is estimated to grow by **7.4%** in FY 2025-26, an acceleration from the **6.5%** growth recorded in FY 2024-25.
+
+* **GVA Growth (Real):** The Real Gross Value Added (GVA) is estimated to grow by **7.3%**.
+
+* **Nominal GDP:** Estimated to grow at **8.0%** over the previous financial year.
+
+* **Absolute Values:**
+  * Real GDP: Estimated at ₹201.90 lakh crore.
+  * Nominal GDP: Estimated at ₹357.14 lakh crore.
+
+* **Sectoral Performance (Growth Rates at Constant Prices):**
+  * **Services (Tertiary):** Projected to grow at **9.1%** (up from 7.2% previously).
+    * Financial, Real Estate & Professional Services: **9.9%** (Highest growth).
+    * Public Administration, Defence & Other Services: **9.9%**.
+    * Trade, Hotels, Transport, Communication: **7.5%**.
+  * **Industry (Secondary):**
+
+[Composition (%) of Nominal GVA chart]
+
+[logo: lightbulb] **DID YOU KNOW**
+
+<u>Projected growth Forecast-</u>
+* **RBI- 7.3%.**
+* **SBI Research-7.5%**
+
+24 | Page
+
+*[Page 24 of 31]*
+
+---
+
+[logo: EduTap]
+hello@edutap.co.in
++91 8146207241
+
+- ✓ Manufacturing: **7.0%**.
+- ✓ Construction: **7.0%**.
+- ✓ Electricity, Gas, Water Supply & Utilities: **2.1%**.
+- ✓ Mining & Quarrying: Estimated to **contract by 0.7%**.
+- ○ **Agriculture (Primary):** Agriculture & Allied Sectors estimated to grow at **3.1%**.
+- Expenditure Components:
+  - ○ **Private Final Consumption Expenditure (PFCE):** Estimated to grow by **7.0%**.
+  - ○ **Gross Fixed Capital Formation (GFCF):** Estimated to grow by **7.8%** (reflecting investment demand).
+  - ○ **Government Final Consumption Expenditure (GFCE):** Projected to accelerate to **5.2%** (up from 2.3% in the previous year).
+
+# 3. GA + FINANCE
+
+## PIB IN NEWS
+
+### RECENT DEVELOPMENTS IN FINANCIAL SECTOR
+
+## 3.1. Changes in Annual KYC requirement in Companies Act 2013
+
+### Why in News
+- The Ministry of Corporate Affairs (MCA) has announced a significant relaxation in compliance norms by replacing the **Annual KYC requirement** for directors.
+
+### Key Highlights
+- **New Rule:** The annual KYC filing requirement has been replaced with a simpler KYC intimation to be done **once every three years**.
+- **Effective Date:** The amendment was notified on **31st December 2025** and will be effective from **31st March 2026**.
+- **Purpose of New Form:** The revised simpler KYC Form can be used for:
+  1. KYC compliance
+  2. Updation of mobile number
+  3. Updation of email address
+  4. Updation of residential address
+  5. Re-activation of **DIN (Director Identification Number)**
+- **Committee Recommendation:** This change was made based on the recommendations of the **High-Level Committee on Non-Financial Regulatory Reforms (HLC-NFRR) headed by Rajiv Gauba.**
+- **Transition:** Directors who have already completed their KYC are covered under the new provisions, with their next filing due by **30th June 2028**.
+
+25 | Page
+
+*[Page 25 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+## Important Details
+
+**Companies Act, 2013**
+
+* **Ministry:** Administered by the **Ministry of Corporate Affairs (MCA)**.
+* **Key Concept (DIN): Director Identification Number (DIN)** is a unique **8-digit** identification number allotted to an individual who is appointed as a director of a company.
+* **Rule 12A:** The amendment specifically modifies **Rule 12A** of the **Companies (Appointment & Qualification of Directors) Rules, 2014**, which governs the KYC norms for directors.
+
+## 3.2. Second 'Audit Practice Toolkit'
+
+### Why in News
+
+* The National Financial Reporting Authority (NFRA) has published the second 'Audit Practice Toolkit' to enhance audit quality in India.
+
+### Key Highlights
+
+* **Title of Toolkit:** The second toolkit is titled **'Risk & Response Memorandum: ROMM (Risk of Material Misstatement) Assessment at Assertion Level for Revenue'**.
+* **Target Audience:** The initiative primarily focuses on supporting **Small and Medium Practitioners (SMPs)** engaged in audits.
+
+## NFRA- National Financial Reporting Authority
+
+* **Established- 2018.**
+* **Headquarters:** New Delhi
+* **Mandate & Objective**
+  * **Primary Goal:** To oversee the quality of accounting and auditing standards in India and ensure the credibility of financial reporting.
+  * **Replacement:** It effectively replaced the **National Advisory Committee on Accounting Standards (NACAS)**, but with broader regulatory and penal powers
+* **Composition**
+  * It consists of a **chairperson** (appointed by the Central Government) and a maximum of **15 members** (part-time and full-time)
+* **Jurisdiction:**
+  * All **Listed Companies**.
+  * Large Unlisted Public Companies (Paid-up capital $\ge$ ₹500 Cr, OR Annual turnover $\ge$ ₹1000 Cr, OR Loans/Debentures/Deposits $\ge$ ₹500 Cr)
+
+26 | Page
+
+*[Page 26 of 31]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+# OTHER NEWS
+
+## PRIMARY AND SECONDARY MARKET
+
+### 3.3. AIF compliance certification
+
+**Why in News**
+
+* SEBI has issued a circular mandating that all Compliance Officers of Alternative Investment Fund (AIF) Managers must obtain **certification from NISM** to continue in their roles or be appointed in the future.
+
+**Key Highlights**
+
+* **Mandatory Certification:** Compliance Officers must pass the "**NISM Series-III-C: Securities Intermediaries Compliance (Fund) Certification Examination**".
+* **Deadline:** The requirement to hold this certification is effective from **January 1, 2027**. (Timeline one year)
+* **Reporting:** Trustees, sponsors, and managers must ensure that compliance with this new rule is reflected in the 'Compliance Test Report' submitted by the manager.
+
+**About NISM**
+
+* **NISM (National Institute of Securities Markets):** An educational initiative of SEBI that certifies market professionals to ensure they have the minimum required knowledge to operate in the securities market.
+
+### 3.4. Securities and Exchange Board of India (Merchant Bankers) Regulations, 2026
+
+**Why in News**
+
+* SEBI has introduced a comprehensive overhaul of regulations for merchant bankers
+
+**Key Highlights**
+
+* **Underwriting Cap:** SEBI has mandated that the total underwriting obligations of a merchant banker cannot exceed **20 times** its **liquid net worth**.
+* **Phased Capital Increase:** Existing merchant bankers must meet enhanced net worth norms in two phases:
+  * **Category I:** Net worth must rise to **₹25 crore** by January 2, 2027, and **₹50 crore** by January 2, 2028.
+  * **Category II:** Net worth must rise to **₹7.5 crore** by January 2, 2027, and **₹10 crore** by January 2, 2028.
+* **Liquid Net Worth:** Firms must maintain **25%** of the minimum net worth as "liquid net worth" (unencumbered cash or near-cash assets).
+  * **Category I:** ₹12.5 crore by 2028.
+  * **Category II:** ₹2.5 crore by 2028.
+* **Revenue Thresholds:** To prevent license hoarding, merchant bankers must generate minimum cumulative revenue from permitted activities over three years (Assessment starts FY 2029):
+  * **Category I:** ₹25 crore.
+
+[logo: lightbulb] **DID YOU KNOW**
+
+India emerged as the **world's second-largest equity issuance hub in 2025**, prompting these tighter norms to manage systemic risk.
+
+27 | Page
+
+*[Page 27 of 31]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+- Category II: ₹5 crore.
+- **Compliance Timeline**: The regulations are effective from **January 3, 2026**, with a transition window for existing players to fully comply by **January 2, 2028**.
+
+---
+
+### **Merchant Bankers**
+
+- **Merchant Banker**: A financial intermediary that manages the process of raising capital for companies (via IPOs, etc.) and provides advisory services on corporate finance.
+- **Categorization**: Merchant bankers are classified into **Category I** (allowed to manage Main Board IPOs) and **Category II** (restricted from Main Board IPOs; focus on SME/boutique services).
+  - **Governance**:
+    - **Independent Compliance Officer**: Must be appointed by **April 3, 2026**, and must be independent of the Principal Officer.
+    - **Principal Officer**: Must have a minimum of **5 years** of experience in financial markets.
+  - **Certification**: Employees and compliance officers must clear **NISM Series-IX** certification (1-year timeline for existing employees).
+  - **Outsourcing**: Core merchant banking activities cannot be outsourced. Existing arrangements must be terminated by **April 3, 2026**.
+- **Important detail**: If a Category I banker fails to meet the new capital norms, they will be automatically reclassified as Category II.
+
+---
+
+## **3.5. Incentive Structure for Mutual Fund Distributors**
+
+### **Why in News**
+
+- SEBI has **extended the deadline** for implementing the new additional incentive structure for mutual fund distributors, citing operational difficulties faced by the industry.
+
+### **Key Highlights**
+
+- **Extension**: The deadline is pushed by one month to **March 1, 2026**.
+- **Target Audience**: The incentives are designed to encourage distributors to go onboard:
+  - New individual investors (New PAN) from **B-30 cities** (beyond top 30 cities).
+  - New **women individual investors** (New PAN) from *any* city (both T-30 (Top 30 cities) and B-30).
+
+### **About New Incentive structure**
+
+- **Incentive Amount**: Distributors will receive **1%** of the first lump-sum investment or the first-year SIP amount.
+- **Cap**: The incentive is capped at **₹2,000** per investor.
+- **Condition**: The investor must stay invested for at least **one year**.
+
+---
+
+[bulb: DID YOU KNOW]
+
+One **basis point** is equal to **0.01%** (1/100th of a percent). (Denoting percentage change in the value or rate of a financial instrument)
+
+---
+
+28 | P a g e
+
+*[Page 28 of 31]*
+
+---
+
+[logo: EduTap] hello@edutap.co.in +91 8146207241
+
+- **Funding Source:** The commission will be paid from the **2 basis points (bps)** that Asset Management Companies (AMCs) already set aside for investor education.
+- **Nature of Payment:** This is an **additional commission** paid over and above the existing trail commissions.
+- **Exclusions:**
+  - No **dual incentives** allowed (e.g., a woman investor from a B-30 city qualifies for only one set of incentives, not both).
+  - Does not apply to **ETFs**, certain **Fund of Funds**, and very short-duration schemes (Overnight, Liquid, Ultra-short, Low-duration funds).
+
+<div align="center">
+
+# **FINTECH**
+
+</div>
+
+## 3.6. Unified Payments Interface (UPI) transaction
+
+### Why in News
+
+- National Payments Corporation of India (NPCI) released the data of Unified Payments Interface (UPI) transaction volume recording a significant surge, reaching **21.63 billion** in December 2025.
+
+### Key Highlights
+
+- **Volume Growth:** UPI transactions rose by **29% year-on-year (YoY)** to reach **21.63 billion** in December 2025.
+- **Value Growth:** In terms of value, transactions increased by **23% YoY**, reaching **₹30.34 trillion**.
+- **Daily Average:** During December, the process processed nearly **698 million transactions** daily, with a daily value of **₹97,872 crore**.
+- **Performance of Other Payment Systems:**
+  - **FASTag:** Volume increased by **11%** to 409 million, and value increased by **18%** to ₹6,943 crore.
+  - **IMPS (Immediate Payment Service):** Volume **decreased by 9%** to 451 million, though the value **increased by 12%** to ₹6.39 trillion.
+
+29 | Page
+
+*[Page 29 of 31]*
+
+---
+
+[logo: EduTap]
+
+hello@edutap.co.in
+
++91 8146207241
+
+- **AePS (Aadhaar Enabled Payment System):** Witnessed a decline, with volume dropping by **12%** to 83 million and value falling by **14%** to ₹21,691 crore.
+
+# UPI- Unified Payment Interface
+
+- **Launch Year:** Launched in **2016**.
+- **Developed By:** **National Payments Corporation of India (NPCI)**.
+- **Regulated By:** **Reserve Bank of India (RBI)**.
+- **Definition:** An instant real-time payment system that facilitates inter-bank peer-to-peer (P2P) and person-to-merchant (P2M) transactions.
+- **Annual Milestone:** For the **first time**, annual UPI transactions reached a record high of **₹300 lakh crore** in 2025.
+- **Global Reach:** UPI has expanded its footprint internationally, with acceptance/linkages established in countries like **Singapore, UAE, Nepal, Bhutan, France, and Sri Lanka**.
+- **New Features:** Recent innovations to deepen reach include:
+  - **UPI Lite:** For small-value offline transactions.
+  - **UPI 123PAY:** Allowing feature phone users to make digital payments.
+  - **Credit Line on UPI:** Enabling pre-sanctioned credit lines from banks to be accessed via UPI.
+  - **Hello! UPI:** A voice-enabled payment feature.
+- **Ecosystem Structure:** The system involves banks, **Third Party Application Providers (TPAPs)** (e.g., Google Pay, PhonePe), and increasingly, merchant apps (like **Zepto** and **Zomato**) rolling out in-app UPI features to reduce dependency on external apps.
+
+30 | Page
+
+*[Page 30 of 31]*
+
+---
+
+"Hello Students, this is a sneak peak of the CurrentTap
+Magazine of 1st to 7th of the month. To read the full monthly
+document you can **subscribe to our courses.**"
+
+In case you have a suggestion or feedback, kindly drop us
+an email at **hello@edutap.co.in.**
+
+*[Page 31 of 31]*
