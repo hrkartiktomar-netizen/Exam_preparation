@@ -202,7 +202,7 @@
   --scrim:     rgba(7, 9, 11, 0.72);
   --plate:     rgba(12, 14, 16, 0.86);
 
-  --grain-opacity: 0.035;
+  --grain-opacity: 0.02;
   --light-x: 30%;
   --light-y: 20%;
 
@@ -234,7 +234,7 @@
   --focus: var(--p-emerald-700);
   --selection: rgba(30, 122, 94, 0.22);
   --plate: rgba(242, 238, 230, 0.92);  --scrim: rgba(230, 223, 210, 0.8);
-  --grain-opacity: 0.03;
+  --grain-opacity: 0.017;
   color-scheme: light;
 }
 
@@ -246,7 +246,7 @@
   --rule: rgba(74, 219, 175, 0.1);  --rule-strong: rgba(74, 219, 175, 0.28);
   --signal: var(--p-emerald-300);  --signal-hover: #7BEBC9;
   --metal: var(--p-brass-500);
-  --plate: rgba(7, 9, 10, 0.88);  --grain-opacity: 0.04;
+  --plate: rgba(7, 9, 10, 0.88);  --grain-opacity: 0.023;
   color-scheme: dark;
 }
 
@@ -260,7 +260,7 @@
   --metal: var(--p-brass-300);  --metal-hi: #F0D49A;
   --focus: var(--p-brass-300);
   --selection: rgba(198, 158, 85, 0.3);
-  --plate: rgba(5, 4, 3, 0.88);  --grain-opacity: 0.05;
+  --plate: rgba(5, 4, 3, 0.88);  --grain-opacity: 0.029;
   color-scheme: dark;
 }
 
