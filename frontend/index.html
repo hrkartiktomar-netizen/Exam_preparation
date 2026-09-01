@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8" />
+  <script>document.documentElement.classList.remove("no-js");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>The Ledger — IFSCA Grade A Preparation Engine</title>
   <meta name="description" content="A preparation ledger for the IFSCA and SEBI Grade A examinations: readiness, timed mocks, previous-year papers, descriptive grading, amendment watch and law revision — measured nightly, sealed when ready." />
@@ -23,14 +24,15 @@
   <link rel="stylesheet" href="/css/views.css" />
   <link rel="stylesheet" href="/css/motion.css" />
 </head>
-<body data-quality="full" data-scene="ledger-noir">
+<body data-scene="ledger-noir">
 
   <!-- Skip link -->
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Loading veil -->
+  <!-- Loading veil · readiness numeral beat (M1) -->
   <div class="veil" id="veil" role="status" aria-live="polite">
-    <div class="veil__text">▓▒░ DECODING LEDGER ░▒▓</div>
+    <div class="veil__numeral">0</div>
+    <div class="veil__text">MEASURED NIGHTLY</div>
   </div>
 
   <!-- A05: Instrument Navigation Bar -->
@@ -60,8 +62,7 @@
       <div class="cold-open">
         <div class="cold-open__content">
           <div class="splitflap" aria-label="Readiness percentage">
-            <div class="splitflap__digit"><span class="splitflap__char">0</span></div>
-            <div class="splitflap__digit"><span class="splitflap__char">0</span></div>
+            <div class="splitflap__digits"></div>
             <span class="splitflap__unit">%</span>
           </div>
           <div class="cold-open__meta">PERCENT · MEASURED NIGHTLY · CONFIDENCE —</div>
@@ -205,7 +206,7 @@
           <div class="exam-question">
             <div class="exam-question__num">QUESTION 1 OF 50</div>
             <div class="exam-question__text"></div>
-            <div class="exam-options"></div>
+            <div class="exam-options" data-lenis-prevent></div>
           </div>
           <div class="exam-palette">
             <div class="exam-palette__title">QUESTION PALETTE</div>
@@ -342,7 +343,6 @@
   <script src="/app/vendor/Flip.min.js" defer></script>
   <script src="/app/vendor/Observer.min.js" defer></script>
   <script src="/app/vendor/lenis.min.js" defer></script>
-  <script src="/app/vendor/three.min.js" defer></script>
 
   <!-- Bridge + Nav -->
   <script src="/js/smooth.js" defer></script>
