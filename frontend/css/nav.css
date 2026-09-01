@@ -1,0 +1,234 @@
+/* ==========================================================================
+   THE LEDGER — instrument navigation bar (A05)
+   Floating pill, backdrop-blur, 1px brass hairline, 8 numbered tabs,
+   IST clock, health dot, quality toggle. Brass tab indicator animates
+   between tabs via GSAP. Desktop: top bar. Mobile: bottom bar.
+   ========================================================================== */
+
+/* ---- nav shell ---- */
+.ledger-nav {
+  position: fixed;
+  top: var(--sp-4);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-4);
+  max-width: calc(var(--w-container) - var(--sp-8));
+  width: max-content;
+  background: var(--plate);
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-pill);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  color: var(--ink-2);
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  transition: opacity var(--t-med) var(--e-out);
+  will-change: transform;
+}
+
+.ledger-nav[data-hidden] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- seal mini gauge (A04: nav state) ---- */
+.nav__seal {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--metal);
+  opacity: 0;
+  transition: opacity var(--t-med) var(--e-out);
+}
+
+.nav__seal[data-active] {
+  opacity: 1;
+}
+
+/* ---- tab group ---- */
+.nav__tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  color: var(--ink-3);
+  background: transparent;
+  border: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  white-space: nowrap;
+  transition:
+    color var(--t-fast) var(--e-out),
+    background var(--t-fast) var(--e-out);
+}
+
+.nav__tab:hover {
+  color: var(--ink-2);
+  background: rgba(239, 234, 224, 0.04);
+}
+
+.nav__tab:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.nav__tab[aria-selected="true"] {
+  color: var(--ink-1);
+}
+
+/* Brass indicator pill — positioned absolutely, animated by GSAP */
+.nav__indicator {
+  position: absolute;
+  bottom: -2px;
+  height: 2px;
+  background: var(--metal);
+  border-radius: var(--r-pill);
+  pointer-events: none;
+  transition: none; /* GSAP handles this */
+}
+
+/* Tab number (§01 style from Linear FIG system) */
+.nav__tab-num {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  opacity: 0.6;
+}
+
+.nav__tab[aria-selected="true"] .nav__tab-num {
+  color: var(--metal);
+  opacity: 1;
+}
+
+/* ---- right cluster: clock, status, quality ---- */
+.nav__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-left: auto;
+  padding-left: var(--sp-3);
+  border-left: var(--rule-1) solid var(--rule);
+}
+
+/* IST clock */
+.nav__clock {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-3);
+  min-width: 5.5ch;
+  text-align: right;
+}
+
+/* Health dot */
+.nav__health {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  flex-shrink: 0;
+  transition: background var(--t-med) var(--e-out);
+}
+
+.nav__health[data-status="error"] {
+  background: var(--danger);
+}
+
+.nav__health[data-status="warning"] {
+  background: var(--warn);
+}
+
+.nav__health[data-status="starting"] {
+  background: var(--ink-3);
+  animation: pulse-health 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-health {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Quality toggle */
+.nav__quality {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  background: none;
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-2);
+  padding: 2px var(--sp-2);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.nav__quality:hover {
+  color: var(--ink-2);
+  border-color: var(--rule-strong);
+}
+
+.nav__quality:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ---- mobile: bottom bar ---- */
+@media (max-width: 768px) {
+  .ledger-nav {
+    top: auto;
+    bottom: var(--sp-3);
+    left: var(--sp-3);
+    right: var(--sp-3);
+    transform: none;
+    width: auto;
+    max-width: none;
+    padding: var(--sp-2) var(--sp-3);
+    justify-content: space-around;
+    border-radius: var(--r-3);
+  }
+
+  /* Hide text labels on mobile, show only numbers */
+  .nav__tab-label {
+    display: none;
+  }
+
+  .nav__tab {
+    padding: var(--sp-2);
+    min-width: 36px;
+    justify-content: center;
+  }
+
+  .nav__tab-num {
+    font-size: var(--fs-100);
+  }
+
+  .nav__meta {
+    display: none; /* Clock/health in a separate top strip on mobile */
+  }
+
+  .nav__seal {
+    width: 24px;
+    height: 24px;
+  }
+}

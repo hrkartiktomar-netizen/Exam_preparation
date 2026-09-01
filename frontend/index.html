@@ -1,3215 +1,359 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IFSCA Grade A Exam Engine</title>
-  <style>
-    :root {
-      --ion-blue: #0b4f8a;
-      --ion-blue-dark: #073b6b;
-      --ion-blue-soft: #d9ecff;
-      --paper: #ffffff;
-      --bg: #eef2f6;
-      --panel: #f8fafc;
-      --text: #111827;
-      --muted: #5b6675;
-      --line: #cfd8e3;
-      --green: #16803c;
-      --red: #ba1a1a;
-      --purple: #6b36b8;
-      --purple-dark: #4b2387;
-      --orange: #a15c05;
-      --focus: #f59e0b;
-      --shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      color: var(--text);
-      background: var(--bg);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.42;
-    }
-
-    button, input, select, textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    button:disabled {
-      cursor: not-allowed;
-      opacity: 0.58;
-    }
-
-    .app-top {
-      background: var(--ion-blue);
-      color: #fff;
-      min-height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 8px 18px;
-      border-bottom: 4px solid var(--ion-blue-dark);
-    }
-
-    .brand-title {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0;
-    }
-
-    .brand-subtitle {
-      font-size: 12px;
-      opacity: 0.86;
-      margin-top: 2px;
-    }
-
-    .runtime-chip {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      padding: 8px 10px;
-      min-width: 310px;
-      justify-content: space-between;
-      font-size: 12px;
-    }
-
-    .runtime-chip strong {
-      display: block;
-      font-size: 13px;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 0;
-      background: #d7e2ee;
-      border-bottom: 1px solid #aebcce;
-      padding-left: 14px;
-      overflow-x: auto;
-    }
-
-    .tabs button {
-      border: 0;
-      border-right: 1px solid #aebcce;
-      background: #e8eef5;
-      padding: 12px 18px;
-      min-width: 132px;
-      color: #132235;
-      font-weight: 700;
-    }
-
-    .tabs button.active {
-      background: #fff;
-      color: var(--ion-blue-dark);
-      box-shadow: inset 0 4px 0 var(--ion-blue);
-    }
-
-    .view {
-      display: none;
-      padding: 18px;
-      max-width: 1520px;
-      margin: 0 auto;
-    }
-
-    .view.active {
-      display: block;
-    }
-
-    .page-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      letter-spacing: 0;
-    }
-
-    h1 { font-size: 22px; }
-    h2 { font-size: 17px; margin-bottom: 12px; }
-    h3 { font-size: 14px; margin-bottom: 8px; }
-
-    .note, .muted {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .panel {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      margin-bottom: 14px;
-      padding: 14px;
-    }
-
-    .tight-panel {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      margin-bottom: 12px;
-      padding: 12px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .metric {
-      background: #f8fbff;
-      border: 1px solid #d6e2ef;
-      padding: 12px;
-      min-height: 84px;
-    }
-
-    .metric-value {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--ion-blue-dark);
-      margin-bottom: 4px;
-    }
-
-    .metric-label {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border: 1px solid #9fb0c3;
-      background: #f5f8fb;
-      color: #172033;
-      padding: 9px 13px;
-      font-weight: 700;
-      min-height: 38px;
-      transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      border-color: var(--ion-blue);
-    }
-
-    .btn.primary {
-      background: var(--ion-blue);
-      color: #fff;
-      border-color: var(--ion-blue-dark);
-    }
-
-    .btn.warn {
-      background: #fff4e5;
-      color: var(--orange);
-      border-color: #e4b46a;
-    }
-
-    .btn.danger {
-      background: #ffebe9;
-      color: var(--red);
-      border-color: #e2a19b;
-    }
-
-    .status-line {
-      min-height: 20px;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    label {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: #334155;
-      margin-bottom: 5px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      border: 1px solid #b9c7d7;
-      background: #fff;
-      color: var(--text);
-      padding: 9px 10px;
-      min-height: 38px;
-    }
-
-    textarea {
-      min-height: 180px;
-      resize: vertical;
-    }
-
-    .form-row {
-      margin-bottom: 10px;
-    }
-
-    .table-wrap {
-      overflow: auto;
-      border: 1px solid var(--line);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      background: #fff;
-    }
-
-    th, td {
-      border-bottom: 1px solid var(--line);
-      padding: 9px 8px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: #eef4fb;
-      color: #26364a;
-      font-size: 12px;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 22px;
-      padding: 2px 8px;
-      border: 1px solid transparent;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .badge.ok { color: #0d572a; background: #dcfce7; border-color: #86efac; }
-    .badge.warn { color: #7a3f00; background: #fff7d6; border-color: #facc15; }
-    .badge.danger { color: #8b1414; background: #fee2e2; border-color: #fca5a5; }
-    .badge.neutral { color: #334155; background: #eef2f7; border-color: #cbd5e1; }
-
-    .exam-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 308px;
-      gap: 12px;
-      min-height: calc(100vh - 142px);
-    }
-
-    .exam-main {
-      background: #fff;
-      border: 1px solid #aebcce;
-      display: grid;
-      grid-template-rows: auto auto minmax(0, 1fr) auto;
-      min-height: 680px;
-    }
-
-    .exam-info-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
-      border-bottom: 1px solid #aebcce;
-      background: #f5f9ff;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .timer {
-      background: #111827;
-      color: #fff;
-      padding: 7px 10px;
-      min-width: 132px;
-      text-align: center;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-
-    .timer.warning {
-      background: #8a2a00;
-    }
-
-    .question-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      padding: 10px 12px;
-      border-bottom: 1px solid #d7e2ee;
-      background: #fff;
-      font-size: 13px;
-    }
-
-    .question-area {
-      padding: 18px;
-      overflow: auto;
-    }
-
-    .question-text {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 18px;
-      max-width: 920px;
-    }
-
-    .option-row {
-      display: grid;
-      grid-template-columns: 32px minmax(0, 1fr);
-      gap: 10px;
-      align-items: flex-start;
-      padding: 11px 10px;
-      border: 1px solid #dbe4ee;
-      margin-bottom: 10px;
-      background: #fff;
-      transition: background 120ms ease, border-color 120ms ease;
-    }
-
-    .option-row:hover,
-    .option-row.selected {
-      background: #eff7ff;
-      border-color: var(--ion-blue);
-    }
-
-    .option-row input {
-      width: 18px;
-      height: 18px;
-      min-height: 18px;
-      margin-top: 2px;
-    }
-
-    .exam-actions {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 12px;
-      border-top: 1px solid #aebcce;
-      background: #f7fafc;
-    }
-
-    .palette {
-      background: #fff;
-      border: 1px solid #aebcce;
-      display: grid;
-      grid-template-rows: auto auto minmax(0, 1fr) auto;
-      min-height: 680px;
-    }
-
-    .candidate {
-      padding: 12px;
-      border-bottom: 1px solid #aebcce;
-      background: #f5f9ff;
-      font-size: 13px;
-    }
-
-    .palette-title {
-      padding: 10px 12px;
-      background: var(--ion-blue);
-      color: #fff;
-      font-weight: 700;
-      font-size: 13px;
-    }
-
-    .question-palette {
-      padding: 12px;
-      overflow: auto;
-      align-content: start;
-      display: grid;
-      grid-template-columns: repeat(5, 42px);
-      gap: 8px;
-    }
-
-    .qnum {
-      width: 42px;
-      height: 34px;
-      border: 1px solid #9aa9b9;
-      background: #e5e7eb;
-      color: #111827;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .qnum.current {
-      outline: 3px solid var(--focus);
-      outline-offset: 1px;
-    }
-
-    .qnum.answered { background: var(--green); color: #fff; }
-    .qnum.not-answered { background: var(--red); color: #fff; }
-    .qnum.marked { background: var(--purple); color: #fff; }
-    .qnum.answered-marked { background: linear-gradient(135deg, var(--green) 0 58%, var(--purple-dark) 59%); color: #fff; }
-
-    .legend {
-      padding: 10px 12px;
-      border-top: 1px solid #aebcce;
-      display: grid;
-      gap: 7px;
-      font-size: 12px;
-    }
-
-    .legend-row {
-      display: grid;
-      grid-template-columns: 34px minmax(0, 1fr);
-      gap: 8px;
-      align-items: center;
-    }
-
-    .legend .qnum {
-      width: 30px;
-      height: 24px;
-      font-size: 11px;
-    }
-
-    .pre-exam {
-      background: #fff;
-      border: 1px solid var(--line);
-      padding: 18px;
-      max-width: 920px;
-      margin: 0 auto 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .source-box,
-    .analysis-item {
-      border: 1px solid #d7e2ee;
-      background: #fff;
-      padding: 11px;
-      margin-bottom: 10px;
-    }
-
-    .analysis-item.correct {
-      border-left: 5px solid var(--green);
-    }
-
-    .analysis-item.wrong {
-      border-left: 5px solid var(--red);
-    }
-
-    .analysis-item.skipped {
-      border-left: 5px solid #94a3b8;
-    }
-
-    .citation {
-      border-left: 3px solid var(--ion-blue);
-      padding: 8px 10px;
-      background: #f7fbff;
-      color: #334155;
-      font-size: 12px;
-      margin-top: 8px;
-    }
-
-    .law-text {
-      max-height: 520px;
-      overflow: auto;
-      white-space: pre-wrap;
-      background: #101827;
-      color: #e5edf8;
-      padding: 14px;
-      font-size: 13px;
-      line-height: 1.55;
-      border: 1px solid #243246;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    @media (max-width: 1080px) {
-      .grid-4, .grid-3, .grid-2, .exam-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .palette {
-        min-height: auto;
-      }
-
-      .question-palette {
-        grid-template-columns: repeat(8, 42px);
-      }
-
-      .runtime-chip {
-        min-width: 0;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .app-top, .page-head, .exam-actions {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .tabs {
-        padding-left: 0;
-      }
-
-      .tabs button {
-        min-width: 110px;
-        padding: 10px 12px;
-      }
-
-      .view {
-        padding: 12px;
-      }
-
-      .question-palette {
-        grid-template-columns: repeat(5, 42px);
-      }
-    }
-
-    /* ============ TCS iON Exam Mode Enhancements (Week 6) ============ */
-
-    .timer.critical {
-      animation: blink-timer 0.6s infinite;
-    }
-
-    @keyframes blink-timer {
-      0%, 50% { background: #ba1a1a; }
-      51%, 100% { background: #8a0000; }
-    }
-
-    .exam-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--ion-blue-dark);
-      color: #fff;
-      padding: 12px 16px;
-      border-bottom: 2px solid var(--ion-blue-dark);
-      min-height: 70px;
-    }
-
-    .exam-title {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .exam-timer-display {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 8px 12px;
-      border-radius: 4px;
-    }
-
-    .timer-label {
-      font-size: 11px;
-      opacity: 0.8;
-      margin-bottom: 4px;
-    }
-
-    .time-display {
-      font-size: 36px;
-      font-weight: 800;
-      font-family: monospace;
-      letter-spacing: 2px;
-    }
-
-    .exam-structure {
-      display: grid;
-      grid-template-columns: 1fr 200px;
-      gap: 16px;
-      height: calc(100vh - 180px);
-      padding: 12px;
-    }
-
-    .exam-content-area {
-      display: flex;
-      flex-direction: column;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      padding: 20px;
-    }
-
-    .question-number {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    .question-prompt {
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text);
-      margin-bottom: 20px;
-      padding: 12px;
-      background: #f8fafc;
-      border-left: 4px solid var(--ion-blue);
-      border-radius: 4px;
-    }
-
-    .options-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .option-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 12px;
-      border: 2px solid var(--line);
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      background: #fff;
-    }
-
-    .option-item:hover {
-      background: #f8fafc;
-      border-color: var(--ion-blue);
-    }
-
-    .option-item input[type="radio"] {
-      margin-top: 4px;
-      cursor: pointer;
-      accent-color: var(--ion-blue);
-    }
-
-    .option-item input[type="radio"]:checked {
-      accent-color: var(--green);
-    }
-
-    .option-text {
-      font-size: 14px;
-      line-height: 1.5;
-      flex: 1;
-    }
-
-    .question-footer {
-      display: flex;
-      gap: 12px;
-      font-size: 12px;
-      color: var(--muted);
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    .difficulty-badge {
-      display: inline-block;
-      padding: 4px 8px;
-      background: #ffe6cc;
-      color: var(--orange);
-      border-radius: 4px;
-    }
-
-    .marks-info {
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    .navigation-buttons {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin: 16px 0;
-      padding: 12px;
-      background: #f8fafc;
-      border-radius: 6px;
-    }
-
-    .action-buttons {
-      display: flex;
-      gap: 8px;
-      justify-content: flex-end;
-      margin-top: 16px;
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    .btn-nav {
-      min-width: 120px;
-      padding: 10px 16px;
-      border: 2px solid var(--line);
-      background: #fff;
-      color: var(--text);
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .btn-nav:hover:not(:disabled) {
-      border-color: var(--ion-blue);
-      color: var(--ion-blue);
-      background: var(--ion-blue-soft);
-    }
-
-    .btn-nav:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-
-    .btn-mark-review {
-      color: var(--focus);
-      border-color: var(--focus);
-    }
-
-    .btn-mark-review.active {
-      background: var(--focus);
-      color: #fff;
-    }
-
-    .btn-submit {
-      padding: 12px 24px;
-      background: var(--red);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn-submit:hover:not(:disabled) {
-      background: #8b0000;
-    }
-
-    .btn-submit:disabled {
-      background: #e0cccc;
-      cursor: not-allowed;
-    }
-
-    .palette-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 6px;
-      padding: 12px;
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      max-height: 60vh;
-      overflow-y: auto;
-      border-radius: 6px;
-    }
-
-    .palette-cell {
-      width: 100%;
-      aspect-ratio: 1;
-      border: 2px solid var(--line);
-      background: #fff;
-      color: var(--text);
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.1s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 4px;
-    }
-
-    .palette-cell:hover:not(:disabled) {
-      transform: scale(1.08);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .palette-cell.answered {
-      background: var(--green);
-      color: #fff;
-      border-color: var(--green);
-    }
-
-    .palette-cell.unanswered {
-      background: #fff;
-      border-color: var(--line);
-    }
-
-    .palette-cell.marked-review {
-      background: var(--focus);
-      color: #fff;
-      border-color: var(--focus);
-    }
-
-    .palette-cell.visited {
-      background: var(--ion-blue-soft);
-      border-color: var(--ion-blue);
-    }
-
-    .palette-legend {
-      padding: 12px;
-      font-size: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .legend-item .cell {
-      width: 20px;
-      height: 20px;
-      border: 2px solid var(--line);
-      border-radius: 3px;
-    }
-
-    .result-page {
-      display: none;
-      padding: 30px;
-      max-width: 900px;
-      margin: 30px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    .result-page.active {
-      display: block;
-    }
-
-    .result-header {
-      text-align: center;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid var(--line);
-    }
-
-    .result-score-box {
-      margin: 20px 0;
-      padding: 20px;
-      background: var(--ion-blue-soft);
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .score-label {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .score-value {
-      font-size: 48px;
-      font-weight: 800;
-      color: var(--ion-blue-dark);
-      margin: 0 8px;
-    }
-
-    .score-max {
-      font-size: 18px;
-      color: var(--muted);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin: 20px 0;
-    }
-
-    .stat-card {
-      background: #f8fafc;
-      padding: 12px;
-      border-radius: 6px;
-      text-align: center;
-      border: 1px solid var(--line);
-    }
-
-    .stat-value {
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--ion-blue-dark);
-      margin: 8px 0;
-    }
-
-    .weak-areas-list {
-      margin: 20px 0;
-      padding: 12px;
-      background: #fff8f5;
-      border-left: 4px solid var(--red);
-      border-radius: 4px;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-content {
-      background: #fff;
-      border-radius: 12px;
-      max-width: 600px;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      animation: slideIn 0.3s ease;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .modal-body {
-      padding: 20px;
-      line-height: 1.6;
-    }
-
-    .modal-body h3 {
-      margin-top: 16px;
-      margin-bottom: 8px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .modal-body ol, .modal-body ul {
-      margin-left: 20px;
-      margin-bottom: 12px;
-    }
-
-    .modal-body li {
-      margin-bottom: 6px;
-    }
-
-    .modal-footer {
-      padding: 20px;
-      border-top: 1px solid var(--line);
-      text-align: right;
-    }
-
-    .btn-close {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: var(--muted);
-      padding: 0;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .exam-structure {
-        grid-template-columns: 1fr;
-        height: auto;
-      }
-
-      .palette-grid {
-        grid-template-columns: repeat(8, 1fr);
-        max-height: 150px;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .exam-header {
-        flex-direction: column;
-        gap: 10px;
-        min-height: auto;
-        padding: 10px;
-      }
-
-      .exam-structure {
-        gap: 8px;
-        padding: 8px;
-        height: auto;
-      }
-
-      .exam-content-area {
-        padding: 12px;
-      }
-
-      .palette-grid {
-        grid-template-columns: repeat(6, 1fr);
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .navigation-buttons {
-        flex-direction: column;
-      }
-
-      .btn-nav {
-        width: 100%;
-      }
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>The Ledger — IFSCA Grade A Preparation Engine</title>
+  <meta name="description" content="A preparation ledger for the IFSCA and SEBI Grade A examinations: readiness, timed mocks, previous-year papers, descriptive grading, amendment watch and law revision — measured nightly, sealed when ready." />
+  <meta name="theme-color" content="#0B0D0E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23C69E55' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23C69E55'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: Inter (display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;1,14..32,300;1,14..32,400&display=swap" />
+
+  <!-- CSS: tokens → base → components → views → motion -->
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/today.css" />
+  <link rel="stylesheet" href="/css/exam.css" />
+  <link rel="stylesheet" href="/css/views.css" />
+  <link rel="stylesheet" href="/css/motion.css" />
 </head>
-<body>
-  <header class="app-top">
-    <div>
-      <div class="brand-title">IFSCA Grade A Preparation Engine</div>
-      <div class="brand-subtitle">Gemini structured mocks, PYQ/material grounding, TCS iON-style exam mode</div>
+<body data-quality="full" data-scene="ledger-noir">
+
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Loading veil -->
+  <div class="veil" id="veil" role="status" aria-live="polite">
+    <div class="veil__text">▓▒░ DECODING LEDGER ░▒▓</div>
+  </div>
+
+  <!-- A05: Instrument Navigation Bar -->
+  <header class="ledger-nav" id="topnav" role="banner">
+    <div class="nav__seal" aria-hidden="true">
+      <svg viewBox="0 0 100 100" width="28" height="28">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#C79E4F" stroke-width="1.5" opacity="0.5" />
+        <circle cx="50" cy="50" r="14" fill="#C79E4F" opacity="0.4" />
+      </svg>
     </div>
-    <div class="runtime-chip" id="runtimeChip">
-      <span><strong>Gemini</strong><span>Checking runtime</span></span>
-      <span class="badge neutral">startup</span>
+    <nav class="nav__tabs" role="tablist" aria-label="Ledger views">
+      <!-- Tabs injected by nav.js -->
+    </nav>
+    <div class="nav__meta">
+      <span class="nav__clock" id="ist-clock" aria-label="Indian Standard Time">--:--:--</span>
+      <div class="nav__health" id="health-dot" data-status="starting" title="Engine status" role="status"></div>
+      <button class="nav__quality" id="quality-toggle" type="button" aria-label="Toggle motion quality">full</button>
     </div>
   </header>
 
-  <nav class="tabs" aria-label="Primary">
-    <button class="active" data-view="today">Today</button>
-    <button data-view="exam">Mock Exam</button>
-    <button data-view="pyq">PYQ Attempts</button>
-    <button data-view="review">Review</button>
-    <button data-view="essay">Essay</button>
-    <button data-view="sources">Sources + Search</button>
-    <button data-view="lawSources">Law + Sources</button>
-  </nav>
+  <main id="main">
 
-  <main>
-    <section id="today" class="view active">
-      <div class="page-head">
-        <div>
-          <h1>Control Center</h1>
-          <div class="note">Daily signal, weak topics, source readiness, and next action.</div>
+    <!-- ═══════════════ TODAY VIEW ═══════════════ -->
+    <section class="view is-active" id="view-today" data-view-panel="today" aria-label="Today" data-scene="ledger-noir">
+
+      <!-- Cold Open · The Number (A01, A02) -->
+      <div class="cold-open">
+        <div class="cold-open__content">
+          <div class="splitflap" aria-label="Readiness percentage">
+            <div class="splitflap__digit"><span class="splitflap__char">0</span></div>
+            <div class="splitflap__digit"><span class="splitflap__char">0</span></div>
+            <span class="splitflap__unit">%</span>
+          </div>
+          <div class="cold-open__meta">PERCENT · MEASURED NIGHTLY · CONFIDENCE —</div>
         </div>
-        <div class="actions">
-          <button class="btn" onclick="refreshAll()">Refresh All</button>
-          <button class="btn primary" onclick="switchView('exam')">Start Mock</button>
-        </div>
-      </div>
-      <div class="grid-4" id="dashboardMetrics"></div>
-      <div class="grid-2">
-        <div class="panel">
-          <h2>Next Action</h2>
-          <div id="focusPlan" class="muted">Loading.</div>
-        </div>
-        <div class="panel">
-          <h2>Runtime Contract</h2>
-          <div id="runtimeDetails" class="muted">Loading.</div>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div class="panel">
-          <h2>Weak Topics</h2>
-          <div id="weakTopics" class="muted">Loading.</div>
-        </div>
-        <div class="panel">
-          <h2>Amendment Radar</h2>
-          <div id="amendmentWatchlist" class="muted">Loading.</div>
+        <div class="cold-open__seal" id="seal-hero" aria-label="Readiness seal gauge"></div>
+        <div class="cold-open__scroll-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" /></svg>
+          SCROLL
         </div>
       </div>
 
-      <!-- Phase 4: Advanced Analytics, SRS, and Study Path Widgets -->
-      <div class="grid-3">
-        <div class="panel">
-          <h2>Exam Analytics</h2>
-          <div id="analyticsPanel" class="muted">No exams analyzed yet.</div>
-        </div>
-        <div class="panel">
-          <h2>Spaced Repetition - Due Today</h2>
-          <div id="srsPanel" class="muted">No topics due for review.</div>
-        </div>
-        <div class="panel">
-          <h2>Week Study Goals</h2>
-          <div id="studyPathPanel" class="muted">No active study path.</div>
+      <!-- Premise · The Sentence (A03) -->
+      <div class="premise section">
+        <div class="premise__text">
+          <p class="premise__line">The distance between you and the hall is a number.</p>
+          <p class="premise__line premise__line--dim">Every entry in this ledger moves it.</p>
         </div>
       </div>
+
+      <!-- Next Action (A06) -->
+      <div class="next-action section reveal">
+        <div class="container">
+          <div class="next-action__card" data-priority="medium">
+            <div class="next-action__eyebrow">§ NEXT ACTION</div>
+            <div class="next-action__title">Loading…</div>
+            <div class="next-action__reason">Consulting the recommendation engine.</div>
+            <button class="next-action__cta" data-view="today">→ ACT</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module Constellation (A07) -->
+      <div class="constellation section reveal">
+        <svg class="constellation__svg" aria-label="Topic coverage constellation"></svg>
+      </div>
+
+      <!-- Ticker Tape (A08) -->
+      <div class="ticker" role="marquee" aria-label="Live engine statistics">
+        <div class="ticker__track">
+          <div class="ticker__item"><span class="ticker__label">LOADING</span><span class="ticker__value">…</span></div>
+        </div>
+        <button class="ticker__pause" aria-label="Pause ticker">PAUSE</button>
+      </div>
+
+      <!-- Statute Path Scrollytelling (A09) -->
+      <div class="statute-path section" data-scene="ledger-noir">
+        <div class="statute-path__pin">
+          <div class="statute-path__ring">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="statute-path__ring-track" cx="50" cy="50" r="45" />
+              <circle class="statute-path__ring-fill" cx="50" cy="50" r="45" />
+              <text class="statute-path__ring-num" x="50" y="50">§01 NOTIFY</text>
+            </svg>
+          </div>
+          <div class="statute-path__panels">
+            <!-- Panels injected by today.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Proof Section (A10-A12) -->
+      <div class="proof section reveal" data-scene="signal-ledger">
+        <div class="proof__grid">
+          <div class="proof__chart" data-chart="scatter">
+            <div class="proof__chart-title">ATTEMPT SCATTER · TIME × CORRECTNESS</div>
+            <svg></svg>
+          </div>
+          <div class="proof__chart" data-chart="sparkline">
+            <div class="proof__chart-title">SCORE HISTORY</div>
+            <svg></svg>
+          </div>
+          <div class="proof__timeline">
+            <div class="proof__chart-title">CHRONOLOGY</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiet Beat · Law Column (A13, A14) -->
+      <div class="quiet-beat section" data-scene="hall-paper">
+        <div class="quiet-beat__content">
+          <div class="quiet-beat__eyebrow">§ DAILY ACT REVISION</div>
+          <div class="quiet-beat__text">Today's law revision content will appear when the engine loads.</div>
+          <div class="quiet-beat__actions">
+            <button class="quiet-beat__btn">Open today's slice</button>
+            <button class="quiet-beat__btn quiet-beat__btn--primary">Stamp the day</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Burst · Particle Band (A15) -->
+      <div class="burst section" data-scene="ledger-noir">
+        <div class="burst__canvas"><canvas aria-hidden="true"></canvas></div>
+        <div class="burst__overlay">
+          <div class="burst__count">0</div>
+          <div class="burst__label">QUESTIONS · EVERY ANSWER A LEDGER ENTRY</div>
+        </div>
+      </div>
+
+      <!-- Finale · Stamp (A16) -->
+      <div class="finale section" data-scene="brass-close">
+        <div class="finale__seal-return" id="seal-finale" aria-hidden="true"></div>
+        <p class="finale__text">The hall is patient. The ledger is not.</p>
+        <button class="finale__stamp-btn" type="button">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5" /><circle cx="12" cy="12" r="4" fill="currentColor" /></svg>
+          STAMP THE DAY
+        </button>
+      </div>
+
     </section>
 
-    <section id="exam" class="view">
-      <div class="page-head">
-        <div>
-          <h1>Mock Exam</h1>
-          <div class="note">One question at a time. Timer, palette, review marks, negative marking, and post-submit analysis.</div>
-        </div>
-        <div class="actions">
-          <button class="btn" onclick="loadMockBlueprint()">Blueprint</button>
-          <button class="btn danger" onclick="resetExam()">Reset Session</button>
-        </div>
-      </div>
+    <!-- ═══════════════ EXAM VIEW ═══════════════ -->
+    <section class="view" id="view-exam" data-view-panel="exam" aria-label="Mock Exam">
+      <div class="exam-console">
 
-      <div id="preExam" class="pre-exam">
-        <h2>Generate Gemini Mock</h2>
-        <div class="grid-3">
-          <div class="form-row">
-            <label for="mockCount">Questions</label>
-            <select id="mockCount">
-              <option value="25">25 question practice</option>
-              <option value="50" selected>50 question Phase II objective</option>
-              <option value="75">75 question endurance</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="mockMode">Allocation Mode</label>
-            <select id="mockMode">
-              <option value="balanced">Balanced 60/25/15</option>
-              <option value="weakness-heavy">Weakness Heavy</option>
-              <option value="amendment-heavy">Amendment Heavy</option>
-              <option value="pyq-like">PYQ-like</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label>Generation</label>
-            <button class="btn primary" onclick="generateSmartMock()">Generate and Enter Exam</button>
-          </div>
-        </div>
-        <div class="status-line" id="mockStatus">Gemini is mandatory. Local fallback is disabled for mocks.</div>
-        <div id="mockBlueprint" class="source-box muted">Blueprint not loaded.</div>
-      </div>
-
-      <div id="examShell" class="exam-shell hidden">
-        <div class="exam-main">
-          <div class="exam-info-bar">
-            <div>
-              <span id="examName">IFSCA Grade A Mock</span>
-              <span class="muted" id="examMeta"></span>
-            </div>
-            <div id="examTimer" class="timer">60:00</div>
-          </div>
-          <div class="question-meta">
-            <div id="questionCounter">Question 1</div>
-            <div id="questionTopic" class="muted">Topic</div>
-          </div>
-          <div class="question-area" id="questionArea"></div>
-          <div class="exam-actions">
-            <div class="actions">
-              <button class="btn" onclick="previousQuestion()">Previous</button>
-              <button class="btn warn" onclick="markReviewAndNext()">Mark for Review and Next</button>
-              <button class="btn" onclick="clearResponse()">Clear Response</button>
-            </div>
-            <div class="actions">
-              <button class="btn primary" onclick="saveAndNext()">Save and Next</button>
-              <button class="btn danger" onclick="submitCurrentMock(false)">Submit</button>
-            </div>
-          </div>
-        </div>
-
-        <aside class="palette">
-          <div class="candidate">
-            <strong>Candidate</strong><br>
-            Single-user practice session<br>
-            <span id="paletteSummary" class="muted">Not started</span>
-          </div>
-          <div class="palette-title">Question Palette</div>
-          <div class="question-palette" id="questionPalette"></div>
-          <div class="legend">
-            <div class="legend-row"><span class="qnum answered">1</span><span>Answered</span></div>
-            <div class="legend-row"><span class="qnum not-answered">2</span><span>Not answered</span></div>
-            <div class="legend-row"><span class="qnum marked">3</span><span>Marked for review</span></div>
-            <div class="legend-row"><span class="qnum answered-marked">4</span><span>Answered and marked</span></div>
-            <div class="legend-row"><span class="qnum">5</span><span>Not visited</span></div>
-          </div>
-        </aside>
-      </div>
-
-      <div id="examAnalysis" class="hidden"></div>
-    </section>
-
-    <section id="pyq" class="view">
-      <div class="page-head">
-        <div>
-          <h1>Previous Year Question Papers</h1>
-          <div class="note">Attempt actual IFSCA Grade A exam papers from previous years. Tracked separately from Gemini mocks.</div>
-        </div>
-        <div class="actions">
-          <button class="btn" onclick="loadPYQList()">Refresh Papers</button>
-          <button class="btn primary" onclick="loadPYQAnalytics()">View Analytics</button>
-        </div>
-      </div>
-
-      <div id="preParty" class="pre-exam">
-        <h2>Available Previous Year Papers</h2>
-        <div class="status-line" id="pyqStatus">Loading available papers...</div>
-        <div class="grid-2" id="pyqPaperGrid"></div>
-      </div>
-
-      <div id="pyqExamShell" class="exam-shell hidden">
-        <div class="exam-main">
-          <div class="exam-info-bar">
-            <div>
-              <span id="pyqExamName">IFSCA Previous Year Paper</span>
-              <span class="muted" id="pyqExamMeta"></span>
-            </div>
-            <div id="pyqTimer" class="timer">60:00</div>
-          </div>
-          <div class="question-meta">
-            <div id="pyqQuestionCounter">Question 1</div>
-            <div id="pyqQuestionTopic" class="muted">Topic</div>
-          </div>
-          <div class="question-area" id="pyqQuestionArea"></div>
-          <div class="exam-actions">
-            <div class="actions">
-              <button class="btn" onclick="pyqPreviousQuestion()">Previous</button>
-              <button class="btn warn" onclick="pyqMarkReviewAndNext()">Mark for Review and Next</button>
-              <button class="btn" onclick="pyqClearResponse()">Clear Response</button>
-            </div>
-            <div class="actions">
-              <button class="btn primary" onclick="pyqSaveAndNext()">Save and Next</button>
-              <button class="btn danger" onclick="submitPYQAttempt(false)">Submit</button>
-            </div>
-          </div>
-        </div>
-
-        <aside class="palette">
-          <div class="candidate">
-            <strong>Candidate</strong><br>
-            Previous Year Exam<br>
-            <span id="pyqPaletteSummary" class="muted">Not started</span>
-          </div>
-          <div class="palette-title">Question Palette</div>
-          <div class="question-palette" id="pyqQuestionPalette"></div>
-          <div class="legend">
-            <div class="legend-row"><span class="qnum answered">1</span><span>Answered</span></div>
-            <div class="legend-row"><span class="qnum not-answered">2</span><span>Not answered</span></div>
-            <div class="legend-row"><span class="qnum marked">3</span><span>Marked for review</span></div>
-            <div class="legend-row"><span class="qnum answered-marked">4</span><span>Answered and marked</span></div>
-            <div class="legend-row"><span class="qnum">5</span><span>Not visited</span></div>
-          </div>
-        </aside>
-      </div>
-
-      <div id="pyqAnalysis" class="hidden"></div>
-      <div class="panel">
-        <h2>PYQ Attempt History</h2>
-        <div id="pyqHistory" class="muted">No attempts yet. Start with a paper above.</div>
-      </div>
-    </section>
-
-    <section id="review" class="view">
-      <div class="page-head">
-        <div>
-          <h1>Review and Targeting</h1>
-          <div class="note">Topic heatmap, penalty drills, question-bank build, and external mock upload.</div>
-        </div>
-        <div class="actions">
-          <button class="btn" onclick="loadTargetingSnapshot()">Targeting Snapshot</button>
-          <button class="btn primary" onclick="buildQuestionBank()">Build Gemini Bank</button>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="panel">
-          <h2>Penalty Drill</h2>
-          <div class="grid-3">
-            <div class="form-row">
-              <label for="drillTopic">Topic</label>
-              <select id="drillTopic"></select>
-            </div>
-            <div class="form-row">
-              <label for="drillCount">Questions</label>
-              <input id="drillCount" type="number" min="1" max="20" value="5">
-            </div>
-            <div class="form-row">
-              <label for="drillDifficulty">Difficulty</label>
-              <select id="drillDifficulty">
-                <option value="easy">Easy</option>
-                <option value="medium" selected>Medium</option>
-                <option value="hard">Hard</option>
+        <!-- Setup -->
+        <div class="exam-setup">
+          <h2 class="exam-setup__title">Enter the Hall</h2>
+          <form class="exam-setup__form">
+            <div class="exam-setup__field">
+              <label class="exam-setup__label" for="exam-type">Examination</label>
+              <select class="exam-setup__select" id="exam-type">
+                <option value="IFSCA">IFSCA Grade A</option>
+                <option value="SEBI">SEBI Grade A</option>
+                <option value="RBI">RBI Grade B</option>
               </select>
             </div>
-          </div>
-          <button class="btn primary" onclick="generateDrill()">Generate Gemini Drill</button>
-          <div class="status-line" id="drillStatus"></div>
-          <div id="drillOutput"></div>
-        </div>
-
-        <div class="panel">
-          <h2>Upload External Mock Result</h2>
-          <div class="grid-2">
-            <div class="form-row">
-              <label for="uploadMockId">Mock ID</label>
-              <input id="uploadMockId" value="QRE_MOCK_LOCAL_001">
+            <div class="exam-setup__field">
+              <label class="exam-setup__label" for="exam-count">Questions</label>
+              <input class="exam-setup__input" id="exam-count" type="number" value="50" min="10" max="200" step="5" />
             </div>
-            <div class="form-row">
-              <label for="uploadDate">Date</label>
-              <input id="uploadDate" type="date">
+            <button class="exam-setup__start" type="submit">BEGIN EXAMINATION</button>
+          </form>
+        </div>
+
+        <!-- Live Console -->
+        <div class="exam-live">
+          <div class="exam-bar">
+            <span class="exam-bar__title">TCS-iON SIMULATED HALL</span>
+            <span class="exam-bar__timer">00:00:00</span>
+          </div>
+          <div class="exam-question">
+            <div class="exam-question__num">QUESTION 1 OF 50</div>
+            <div class="exam-question__text"></div>
+            <div class="exam-options"></div>
+          </div>
+          <div class="exam-palette">
+            <div class="exam-palette__title">QUESTION PALETTE</div>
+            <div class="exam-palette__grid"></div>
+            <div class="exam-palette__legend">
+              <div class="exam-palette__legend-item"><div class="exam-palette__legend-swatch" style="background:#c0c0c0"></div>Not Visited</div>
+              <div class="exam-palette__legend-item"><div class="exam-palette__legend-swatch" style="background:#e74c3c"></div>Not Answered</div>
+              <div class="exam-palette__legend-item"><div class="exam-palette__legend-swatch" style="background:#27ae60"></div>Answered</div>
+              <div class="exam-palette__legend-item"><div class="exam-palette__legend-swatch" style="background:#8e44ad"></div>Marked for Review</div>
+              <div class="exam-palette__legend-item"><div class="exam-palette__legend-swatch" style="background:linear-gradient(135deg,#8e44ad 60%,#27ae60 60%)"></div>Answered & Marked</div>
             </div>
           </div>
-          <div class="form-row">
-            <label for="uploadSource">Source</label>
-            <input id="uploadSource" value="QRE">
+          <div class="exam-controls">
+            <div class="exam-controls__group">
+              <button class="exam-btn exam-btn--clear">Clear</button>
+              <button class="exam-btn exam-btn--mark">Mark for Review</button>
+              <button class="exam-btn exam-btn--save">Save & Next</button>
+            </div>
+            <div class="exam-controls__group">
+              <button class="exam-btn exam-btn--prev">← Prev</button>
+              <button class="exam-btn exam-btn--next">Next →</button>
+            </div>
+            <button class="exam-btn exam-btn--submit">Submit Exam</button>
           </div>
-          <div class="form-row">
-            <label for="uploadQuestions">Attempt JSON</label>
-            <textarea id="uploadQuestions"></textarea>
-          </div>
-          <div class="actions">
-            <button class="btn" onclick="loadSampleUpload()">Sample</button>
-            <button class="btn primary" onclick="uploadMock()">Upload</button>
-          </div>
-          <div class="status-line" id="uploadStatus"></div>
         </div>
-      </div>
 
-      <div class="panel">
-        <h2>Topic Heatmap</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Topic</th><th>Status</th><th>Accuracy</th><th>Attempts</th><th>Weakness</th><th>Trend</th></tr>
-            </thead>
-            <tbody id="topicHeatmap"></tbody>
-          </table>
+        <!-- Post-Exam Results -->
+        <div class="exam-results" style="display:none">
+          <div class="exam-results__score">
+            <div class="exam-results__score-num">—</div>
+            <div class="exam-results__score-label">AWAITING RESULTS</div>
+          </div>
+          <div class="exam-results__topics"></div>
         </div>
-      </div>
 
-      <div class="panel">
-        <h2>Targeting Output</h2>
-        <div id="targetingOutput" class="muted">No targeting action run.</div>
       </div>
     </section>
 
-    <section id="essay" class="view">
-      <div class="page-head">
-        <div>
-          <h1>Essay Lab</h1>
-          <div class="note">Phase II Paper 1 descriptive practice with source-aware Gemini grading.</div>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div class="panel">
-          <h2>Submit Essay</h2>
-          <div class="form-row">
-            <label for="essayPrompt">Prompt</label>
-            <select id="essayPrompt"></select>
-          </div>
-          <div class="form-row">
-            <label for="essayTopic">Topic</label>
-            <select id="essayTopic"></select>
-          </div>
-          <div class="form-row">
-            <label for="essayText">Essay Text</label>
-            <textarea id="essayText" placeholder="Write at least 100 characters."></textarea>
-          </div>
-          <button class="btn primary" onclick="gradeEssay()">Grade Essay</button>
-          <div class="status-line" id="essayStatus"></div>
-        </div>
-        <div class="panel">
-          <h2>Result</h2>
-          <div id="essayResult" class="muted">No essay graded in this session.</div>
-        </div>
-      </div>
-      <div class="panel">
-        <h2>Essay History</h2>
-        <div id="essayHistory" class="muted">Loading.</div>
+    <!-- ═══════════════ PYQ VIEW ═══════════════ -->
+    <section class="view" id="view-pyq" data-view-panel="pyq" aria-label="Previous Year Papers">
+      <div class="pyq-view">
+        <div id="pyq-content"></div>
       </div>
     </section>
 
-    <section id="sources" class="view">
-      <div class="page-head">
-        <div>
-          <h1>Question Sources + Search</h1>
-          <div class="note">Full-text search questions by source, view citations, and source authority distribution.</div>
-        </div>
-        <div class="actions">
-          <button class="btn" onclick="loadSourceDistribution()">Refresh Distribution</button>
-        </div>
-      </div>
-
-      <!-- Search Bar -->
-      <div class="panel">
-        <h2>Search Questions by Source</h2>
-        <div class="form-row">
-          <input type="text" id="sourceSearchInput" placeholder="Search: leverage, fund management, IFSCA regulation, etc." style="flex:1; padding: 10px;">
-          <button class="btn primary" onclick="performSourceSearch()">Search</button>
-        </div>
-      </div>
-
-      <!-- Search Results -->
-      <div class="grid-2">
-        <div class="panel">
-          <h2>Search Results</h2>
-          <div id="searchResults" class="muted">Enter a search query above.</div>
-        </div>
-        <div class="panel">
-          <h2>Source Distribution</h2>
-          <div id="sourceDistribution" class="muted">Loading...</div>
-        </div>
+    <!-- ═══════════════ DESCRIPTIVE VIEW ═══════════════ -->
+    <section class="view" id="view-descriptive" data-view-panel="descriptive" aria-label="Descriptive Practice">
+      <div class="descriptive-view">
+        <div id="descriptive-content"></div>
       </div>
     </section>
 
-    <!-- Citation Modal -->
-    <div id="citationModal" class="modal hidden">
-      <div class="modal-overlay" onclick="closeCitationModal()"></div>
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Question Source Citation</h2>
-          <button class="close" onclick="closeCitationModal()">×</button>
-        </div>
-        <div class="modal-body">
-          <div id="citationDetail" class="muted">Loading...</div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn" onclick="closeCitationModal()">Close</button>
-        </div>
-      </div>
-    </div>
-
-    <section id="lawSources" class="view">
-      <div class="page-head">
-        <div>
-          <h1>Law, Amendments, Sources</h1>
-          <div class="note">Daily Act revision, amendment radar, source search, and corpus control.</div>
-        </div>
-        <div class="actions">
-          <button class="btn" onclick="loadDailyLawRevision()">Daily Act</button>
-          <button class="btn" onclick="loadAmendmentIntelligence()">AI Amendment Scan</button>
-          <button class="btn primary" onclick="ingestCorpus()">Ingest Corpus</button>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="panel">
-          <h2>Daily IFSCA Act Revision</h2>
-          <div class="actions">
-            <button class="btn primary" onclick="loadDailyLawRevision()">Load Today</button>
-            <button class="btn" onclick="loadFullAct()">Load Full Act</button>
-          </div>
-          <div class="status-line" id="lawStatus"></div>
-          <div id="lawRevisionOutput" class="muted">Not loaded.</div>
-          <pre id="fullActText" class="law-text">Full Act text not loaded.</pre>
-        </div>
-
-        <div class="panel">
-          <h2>Amendment Tracker</h2>
-          <div class="actions">
-            <button class="btn" onclick="seedAmendments()">Seed Critical</button>
-            <button class="btn" onclick="loadStartupAmendmentScan()">Startup Snapshot</button>
-            <button class="btn primary" onclick="loadAmendmentIntelligence()">Live Scan</button>
-          </div>
-          <div class="status-line" id="amendmentStatus"></div>
-          <div id="amendmentIntelligence" class="muted">No scan loaded.</div>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="panel">
-          <h2>Record Amendment</h2>
-          <div class="grid-2">
-            <div class="form-row">
-              <label for="amendmentId">ID</label>
-              <input id="amendmentId" placeholder="AMN_CUSTOM_001">
-            </div>
-            <div class="form-row">
-              <label for="amendmentTopic">Topic</label>
-              <select id="amendmentTopic"></select>
-            </div>
-          </div>
-          <div class="form-row">
-            <label for="amendmentRule">Rule / Update</label>
-            <input id="amendmentRule" placeholder="Rule name">
-          </div>
-          <div class="grid-2">
-            <div class="form-row">
-              <label for="amendmentDate">Effective Date</label>
-              <input id="amendmentDate" type="date">
-            </div>
-            <div class="form-row">
-              <label for="amendmentOld">Old Value</label>
-              <input id="amendmentOld" placeholder="Optional">
-            </div>
-          </div>
-          <div class="form-row">
-            <label for="amendmentNew">New Value</label>
-            <textarea id="amendmentNew"></textarea>
-          </div>
-          <button class="btn primary" onclick="recordAmendment()">Record and Generate Questions</button>
-        </div>
-
-        <div class="panel">
-          <h2>Source Search</h2>
-          <div class="grid-3">
-            <div class="form-row">
-              <label for="sourceQuery">Query</label>
-              <input id="sourceQuery" value="TechFin Ancillary Services Regulations">
-            </div>
-            <div class="form-row">
-              <label for="sourceTopic">Topic</label>
-              <select id="sourceTopic"></select>
-            </div>
-            <div class="form-row">
-              <label>Action</label>
-              <button class="btn primary" onclick="searchSources()">Search</button>
-            </div>
-          </div>
-          <div id="sourceResults" class="muted">No search run.</div>
-        </div>
-      </div>
-
-      <div class="panel">
-        <h2>Amendment List</h2>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Title</th><th>Topic</th><th>Effective</th><th>Priority</th><th>Status</th></tr></thead>
-            <tbody id="amendmentsTable"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="panel">
-        <h2>Material Categorization Management</h2>
-        <div class="note">View and manage how source materials are categorized for smart Gemini routing.</div>
-        <div class="actions">
-          <button class="btn" onclick="loadMaterialCategories()">Refresh Categories</button>
-          <button class="btn primary" onclick="showMaterialStats()">Show Statistics</button>
-        </div>
-        <div id="materialStats" class="grid-5" style="margin: 1rem 0;">
-          <div class="metric">
-            <div class="metric-value" id="stat-pyq">0</div>
-            <div class="metric-label">PYQ Papers</div>
-          </div>
-          <div class="metric">
-            <div class="metric-value" id="stat-regulatory">0</div>
-            <div class="metric-label">Regulatory</div>
-          </div>
-          <div class="metric">
-            <div class="metric-value" id="stat-amendment">0</div>
-            <div class="metric-label">Amendments</div>
-          </div>
-          <div class="metric">
-            <div class="metric-value" id="stat-essay">0</div>
-            <div class="metric-label">Essay Examples</div>
-          </div>
-          <div class="metric">
-            <div class="metric-value" id="stat-supporting">0</div>
-            <div class="metric-label">Supporting</div>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Document Title</th>
-                <th>Current Role</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="materialTable"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="panel">
-        <h2>Documents</h2>
-        <div class="grid-4" id="ingestionMetrics"></div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>Title</th><th>Category</th><th>Pages</th><th>Lines</th><th>Status</th></tr></thead>
-            <tbody id="documentsTable"></tbody>
-          </table>
-        </div>
+    <!-- ═══════════════ TRACKER VIEW ═══════════════ -->
+    <section class="view" id="view-tracker" data-view-panel="tracker" aria-label="Topic Tracker">
+      <div class="tracker-view">
+        <div id="tracker-content"></div>
       </div>
     </section>
+
+    <!-- ═══════════════ UPDATES VIEW ═══════════════ -->
+    <section class="view" id="view-updates" data-view-panel="updates" aria-label="Law Amendments">
+      <div class="updates-view">
+        <div id="updates-content"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ REVIEW VIEW ═══════════════ -->
+    <section class="view" id="view-review" data-view-panel="review" aria-label="Wrong Queue Review">
+      <div class="review-view">
+        <div id="review-content"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ RESULTS VIEW ═══════════════ -->
+    <section class="view" id="view-results" data-view-panel="results" aria-label="Examination Results">
+      <div class="results-view">
+        <div id="results-content"></div>
+      </div>
+    </section>
+
   </main>
 
-  <script>
-    const API_BASE = '/api';
-    let topics = [];
-    let dashboardCache = null;
-    let currentMock = null;
-    let examState = null;
-
-    function qs(id) {
-      if (!id) return null;
-      const byId = document.getElementById(id);
-      if (byId) return byId;
-      try {
-        return document.querySelector(id);
-      } catch (_) {
-        return null;
-      }
-    }
-
-    function escapeHtml(value) {
-      return String(value ?? '')
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
-    }
-
-    async function api(path, options = {}) {
-      const normalizedPath = path.startsWith('/api/') ? path.slice(4) : path;
-      const response = await fetch(`${API_BASE}${normalizedPath}`, {
-        headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
-        ...options
-      });
-      if (!response.ok) {
-        const text = await response.text();
-        throw new Error(text || `Request failed: ${response.status}`);
-      }
-      return response.json();
-    }
-
-    async function rawApi(path, options = {}) {
-      const response = await fetch(path, options);
-      if (!response.ok) throw new Error(await response.text());
-      return response.json();
-    }
-
-    function switchView(viewId) {
-      document.querySelectorAll('.tabs button').forEach(button => button.classList.toggle('active', button.dataset.view === viewId));
-      document.querySelectorAll('.view').forEach(section => section.classList.toggle('active', section.id === viewId));
-    }
-
-    document.querySelectorAll('.tabs button').forEach(button => {
-      button.addEventListener('click', () => switchView(button.dataset.view));
-    });
-
-    function badgeForStatus(status) {
-      const value = String(status || '').toUpperCase();
-      if (['STRONG', 'READY', 'MASTERED', 'OK', 'SESSION'].includes(value)) return 'ok';
-      if (['WEAK', 'MEDIUM', 'NEW', 'UNKNOWN'].includes(value)) return 'warn';
-      if (['CRITICAL', 'REJECTED_LOW_QUALITY'].includes(value)) return 'danger';
-      return 'neutral';
-    }
-
-    function renderMetrics(containerId, metrics) {
-      qs(containerId).innerHTML = metrics.map(item => `
-        <div class="metric">
-          <div class="metric-value">${escapeHtml(item.value)}</div>
-          <div class="metric-label">${escapeHtml(item.label)}</div>
-        </div>
-      `).join('');
-    }
-
-    function renderRuntime(status) {
-      qs('runtimeChip').innerHTML = `
-        <span><strong>${escapeHtml(status.model || 'Gemini')}</strong><span>thinking ${escapeHtml(status.thinking_level || 'high')}</span></span>
-        <span class="badge ${status.startup_probe_ok ? 'ok' : 'warn'}">${status.available_keys ?? 0}/${status.total_keys ?? 0} keys</span>
-      `;
-      qs('runtimeDetails').innerHTML = `
-        <div class="source-box">
-          <strong>Model:</strong> ${escapeHtml(status.model || '-')}<br>
-          <strong>Thinking:</strong> ${escapeHtml(status.thinking_level || '-')}<br>
-          <strong>Last operation:</strong> ${escapeHtml(status.last_operation || '-')}<br>
-          <strong>Fallback mode:</strong> ${status.fallback_mode ? 'yes' : 'no'}<br>
-          <strong>Last error:</strong> ${escapeHtml(status.last_error || 'none')}
-        </div>
-      `;
-    }
-
-    function renderArray(items) {
-      return items?.length ? `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '<div class="muted">None.</div>';
-    }
-
-    function renderFocusPlan(plan, fallback) {
-      if (!plan) {
-        qs('focusPlan').innerHTML = `<div class="source-box">${escapeHtml(fallback || 'No action.')}</div>`;
-        return;
-      }
-      qs('focusPlan').innerHTML = `
-        <div class="source-box">
-          <strong>${escapeHtml(plan.primary_recommendation || fallback || 'Next action')}</strong>
-          <p>${escapeHtml(plan.why_now || plan.readiness_summary || '')}</p>
-          ${renderArray(plan.next_actions || plan.tasks?.map(task => task.action) || [])}
-        </div>
-      `;
-    }
-
-    function renderWatchlist(containerId, items) {
-      qs(containerId).innerHTML = items?.length ? items.map(item => `
-        <div class="source-box">
-          <strong>${escapeHtml(item.title || item.rule_name || 'Update')}</strong><br>
-          <span class="badge ${badgeForStatus(item.priority)}">${escapeHtml(item.priority || 'WATCH')}</span>
-          <span class="muted">${escapeHtml(item.topic_id || item.topic || '')} ${escapeHtml(item.effective_date || '')}</span>
-          <p>${escapeHtml(item.why_it_matters || item.summary || item.new_value || '')}</p>
-        </div>
-      `).join('') : '<div class="muted">No items.</div>';
-    }
-
-    async function loadRuntime() {
-      try {
-        const health = await rawApi('/health');
-        renderRuntime(health.gemini || {});
-      } catch (error) {
-        qs('runtimeChip').innerHTML = `<span><strong>Runtime error</strong><span>${escapeHtml(error.message)}</span></span>`;
-      }
-    }
-
-    async function loadTopics() {
-      topics = await api('/topics');
-      const withBlank = '<option value="">No filter</option>' + topics.map(topic => `<option value="${topic.topic_id}">${escapeHtml(topic.display_name)}</option>`).join('');
-      const topicOnly = topics.map(topic => `<option value="${topic.topic_id}">${escapeHtml(topic.display_name)}</option>`).join('');
-      ['sourceTopic'].forEach(id => qs(id).innerHTML = withBlank);
-      ['drillTopic', 'essayTopic', 'amendmentTopic'].forEach(id => qs(id).innerHTML = topicOnly);
-    }
-
-    async function loadDashboard() {
-      dashboardCache = await api('/dashboard?include_ai=true');
-      renderMetrics('dashboardMetrics', [
-        { label: 'Documents', value: dashboardCache.ingestion.documents },
-        { label: 'Chunks', value: dashboardCache.ingestion.chunks },
-        { label: 'Attempts', value: dashboardCache.total_questions_attempted },
-        { label: 'Mock Accuracy %', value: dashboardCache.estimated_score }
-      ]);
-      renderMetrics('ingestionMetrics', [
-        { label: 'Documents', value: dashboardCache.ingestion.documents },
-        { label: 'Chunks', value: dashboardCache.ingestion.chunks },
-        { label: 'Topic Links', value: dashboardCache.ingestion.chunk_topic_links },
-        { label: 'Questions', value: dashboardCache.ingestion.questions }
-      ]);
-      renderRuntime(dashboardCache.ai_status || {});
-      renderFocusPlan(dashboardCache.focus_plan, dashboardCache.next_recommended_action);
-      renderWatchlist('amendmentWatchlist', dashboardCache.amendment_watchlist || []);
-      qs('weakTopics').innerHTML = dashboardCache.weak_topics?.length ? dashboardCache.weak_topics.map(topic => `
-        <div class="source-box">
-          <strong>${escapeHtml(topic.display_name || topic.topic)}</strong><br>
-          <span class="badge ${badgeForStatus(topic.status)}">${escapeHtml(topic.status)}</span>
-          <span class="muted">${Number(topic.accuracy_pct).toFixed(1)}% accuracy, weakness ${Number(topic.weakness_score).toFixed(3)}</span>
-        </div>
-      `).join('') : '<div class="muted">No weak topics after recorded attempts.</div>';
-      qs('topicHeatmap').innerHTML = dashboardCache.topic_heatmap.map(topic => `
-        <tr>
-          <td>${escapeHtml(topic.display_name || topic.topic)}</td>
-          <td><span class="badge ${badgeForStatus(topic.status)}">${escapeHtml(topic.status)}</span></td>
-          <td>${Number(topic.accuracy_pct).toFixed(1)}%</td>
-          <td>${topic.total_seen}</td>
-          <td>${Number(topic.weakness_score).toFixed(3)}</td>
-          <td>${escapeHtml(topic.trend)}</td>
-        </tr>
-      `).join('');
-      await loadAmendmentRadar();
-      await loadAnalytics();
-      await loadSRSPanel();
-      await loadStudyPathPanel();
-    }
-
-    async function loadAmendmentRadar() {
-      try {
-        const data = await api('/amendments/status');
-        const html = `
-          <div style="margin-bottom: 1.5rem;">
-            <div class="badge neutral">${data.new_count_this_week} New This Week</div>
-            <span class="muted" style="font-size: 0.9rem;">Last poll: ${data.last_poll_at}</span>
-          </div>
-          ${data.amendments.length ? data.amendments.map(amend => `
-            <div class="source-box" style="margin-bottom: 1rem;">
-              <strong>${escapeHtml(amend.rule_name)}</strong>
-              <span class="badge ${amend.priority === 'CRITICAL' ? 'danger' : amend.priority === 'HIGH' ? 'warning' : 'neutral'}">${amend.priority}</span><br>
-              <span class="muted">Effective: ${amend.effective_date}</span><br>
-              <span class="muted" style="font-size: 0.85rem;">Topic: ${escapeHtml(amend.topic)}</span>
-              ${amend.source_url ? `<br><a href="${amend.source_url}" target="_blank" style="font-size: 0.9rem;">📄 Source</a>` : ''}
-            </div>
-          `).join('') : '<div class="muted">No new amendments detected.</div>'}
-        `;
-        qs('amendmentWatchlist').innerHTML = html;
-      } catch (error) {
-        qs('amendmentWatchlist').innerHTML = `<div class="muted">Error loading amendments: ${error.message}</div>`;
-      }
-    }
-
-    async function loadAnalytics() {
-      try {
-        const timeline = await api('/analytics/timeline?limit=5');
-        if (!timeline || timeline.length === 0) {
-          qs('analyticsPanel').innerHTML = '<div class="muted">No exam data yet. Take a mock to see analytics.</div>';
-          return;
-        }
-        const latest = timeline[0];
-        const html = `
-          <div style="margin-bottom: 1rem;">
-            <div class="badge neutral">Latest: ${(latest.accuracy || 0).toFixed(1)}%</div>
-            <span class="muted">Exams: ${timeline.length}</span>
-          </div>
-          ${timeline.map((item, idx) => `
-            <div class="source-box" style="margin-bottom: 0.8rem; padding: 0.8rem;">
-              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
-                <strong>Exam ${timeline.length - idx}</strong>
-                <span class="badge neutral">${(item.accuracy || 0).toFixed(1)}%</span>
-              </div>
-              <div class="muted" style="font-size: 0.85rem;">Avg Topics: ${(item.avg_topic_accuracy || 0).toFixed(1)}%</div>
-            </div>
-          `).join('')}
-        `;
-        qs('analyticsPanel').innerHTML = html;
-      } catch (error) {
-        qs('analyticsPanel').innerHTML = `<div class="muted">Error: ${error.message}</div>`;
-      }
-    }
-
-    async function loadSRSPanel() {
-      try {
-        const due = await api('/srs/due-topics');
-        const stats = await api('/srs/stats');
-        if (!due || due.length === 0) {
-          qs('srsPanel').innerHTML = `
-            <div class="muted">No topics due today.</div>
-            <div style="margin-top: 1rem; font-size: 0.9rem;">
-              <strong>SRS Status:</strong><br>
-              Topics tracked: ${stats.total_topics_in_srs || 0}<br>
-              Due soon: ${stats.due_today || 0}<br>
-              Completed: ${stats.completed_reviews || 0}
-            </div>
-          `;
-          return;
-        }
-        const html = `
-          <div style="margin-bottom: 1rem;">
-            <div class="badge danger">${due.length} Due Today</div>
-            <span class="muted">Retention: ${(stats.retention_estimate || 0).toFixed(0)}%</span>
-          </div>
-          ${due.slice(0, 5).map(topic => `
-            <div class="source-box" style="margin-bottom: 0.8rem; padding: 0.8rem;">
-              <strong>${escapeHtml(topic.display_name || topic.topic_id)}</strong>
-              <div class="muted" style="font-size: 0.85rem;">Interval: ${topic.interval_days} days</div>
-              <button class="btn" style="margin-top: 0.5rem; font-size: 0.85rem;" onclick="markSRSComplete('${topic.topic_id}')">✓ Reviewed</button>
-            </div>
-          `).join('')}
-        `;
-        qs('srsPanel').innerHTML = html;
-      } catch (error) {
-        qs('srsPanel').innerHTML = `<div class="muted">Error: ${error.message}</div>`;
-      }
-    }
-
-    async function markSRSComplete(topicId) {
-      try {
-        await api(`/srs/mark-reviewed/${topicId}`, { method: 'POST' });
-        loadSRSPanel();
-      } catch (error) {
-        alert(`Error: ${error.message}`);
-      }
-    }
-
-    async function loadStudyPathPanel() {
-      try {
-        const path = await api('/study-paths/current');
-        if (!path || !path.weeks || path.weeks.length === 0) {
-          qs('studyPathPanel').innerHTML = '<div class="muted"><button class="btn" onclick="generateStudyPath()">Generate 12-Week Path</button></div>';
-          return;
-        }
-        const currentWeek = path.weeks[0];
-        const html = `
-          <div style="margin-bottom: 1rem;">
-            <div class="badge neutral">Exam: ${path.exam_date}</div>
-            <span class="muted">12-week plan</span>
-          </div>
-          <div class="source-box" style="margin-bottom: 1rem; padding: 1rem;">
-            <strong>Week 1 Goals</strong>
-            <div style="margin-top: 0.5rem;">
-              <div class="muted">Focus: ${currentWeek.focus_topics.slice(0, 2).join(', ')}</div>
-              <div class="muted">Daily: ${currentWeek.daily_questions} questions</div>
-              <div style="margin-top: 0.5rem;"><em>${currentWeek.milestone}</em></div>
-            </div>
-          </div>
-        `;
-        qs('studyPathPanel').innerHTML = html;
-      } catch (error) {
-        qs('studyPathPanel').innerHTML = `<div class="muted">Error: ${error.message}</div>`;
-      }
-    }
-
-    async function generateStudyPath() {
-      try {
-        qs('studyPathPanel').innerHTML = '<div class="muted">Generating personalized plan...</div>';
-        const weakTopics = [];
-        await api('/study-paths/generate?weak_topics=' + weakTopics.join(','), { method: 'POST' });
-        loadStudyPathPanel();
-      } catch (error) {
-        qs('studyPathPanel').innerHTML = `<div class="muted">Error: ${error.message}</div>`;
-      }
-    }
-
-    async function loadMockBlueprint() {
-      qs('mockBlueprint').textContent = 'Generating blueprint.';
-      const params = new URLSearchParams({
-        total_questions: qs('mockCount').value,
-        mode: qs('mockMode').value
-      });
-      try {
-        const data = await api(`/ai/mock-blueprint?${params.toString()}`);
-        renderRuntime(data.ai_status || {});
-        qs('mockBlueprint').innerHTML = `
-          <strong>${escapeHtml(data.blueprint?.blueprint_summary || 'Blueprint')}</strong>
-          ${renderArray(data.blueprint?.allocation_rationale || [])}
-        `;
-      } catch (error) {
-        qs('mockBlueprint').textContent = error.message;
-      }
-    }
-
-    async function generateSmartMock() {
-      qs('mockStatus').textContent = 'Generating Gemini structured mock. This can take time because local fallback is disabled.';
-      qs('examAnalysis').classList.add('hidden');
-      qs('examAnalysis').innerHTML = '';
-      try {
-        currentMock = await api('/generate-smart-mock', {
-          method: 'POST',
-          body: JSON.stringify({
-            total_questions: Number(qs('mockCount').value),
-            mode: qs('mockMode').value,
-            use_gemini: true
-          })
-        });
-        qs('mockStatus').textContent = `${currentMock.mock_id}: ${currentMock.total_questions} Gemini questions ready.`;
-        startExamMode(currentMock);
-      } catch (error) {
-        qs('mockStatus').textContent = error.message;
-      }
-    }
-
-    function startExamMode(mock) {
-      clearInterval(examState?.timerId);
-      const seconds = Number(mock.time_limit_minutes || 60) * 60;
-      examState = {
-        currentIndex: 0,
-        answers: {},
-        marked: {},
-        visited: new Set([0]),
-        questionTimes: {},
-        enteredAt: Date.now(),
-        remainingSeconds: seconds,
-        timerId: null,
-        submitted: false
-      };
-      qs('preExam').classList.add('hidden');
-      qs('examShell').classList.remove('hidden');
-      qs('examName').textContent = `Mock ID: ${mock.mock_id}`;
-      qs('examMeta').textContent = ` | ${mock.total_questions} questions | ${mock.marks_per_question} marks each | -${mock.negative_marking_per_wrong} wrong`;
-      examState.timerId = setInterval(tickTimer, 1000);
-      renderExamQuestion();
-    }
-
-    function tickTimer() {
-      if (!examState || examState.submitted) return;
-      examState.remainingSeconds -= 1;
-      updateTimer();
-      if (examState.remainingSeconds <= 0) submitCurrentMock(true);
-    }
-
-    function updateTimer() {
-      const total = Math.max(0, examState?.remainingSeconds || 0);
-      const minutes = String(Math.floor(total / 60)).padStart(2, '0');
-      const seconds = String(total % 60).padStart(2, '0');
-      qs('examTimer').textContent = `${minutes}:${seconds}`;
-      qs('examTimer').classList.toggle('warning', total <= 300);
-    }
-
-    function commitQuestionTime() {
-      if (!examState) return;
-      const elapsed = Math.max(0, Math.round((Date.now() - examState.enteredAt) / 1000));
-      const id = currentMock.questions[examState.currentIndex]?.question_id;
-      if (id) examState.questionTimes[id] = (examState.questionTimes[id] || 0) + elapsed;
-      examState.enteredAt = Date.now();
-    }
-
-    function renderExamQuestion() {
-      if (!currentMock || !examState) return;
-      updateTimer();
-      const q = currentMock.questions[examState.currentIndex];
-      examState.visited.add(examState.currentIndex);
-      qs('questionCounter').textContent = `Question ${examState.currentIndex + 1} of ${currentMock.questions.length}`;
-      qs('questionTopic').textContent = q.topic;
-      qs('questionArea').innerHTML = `
-        <div class="question-text">${escapeHtml(q.question_text)}</div>
-        ${q.options.map(option => {
-          const selected = examState.answers[q.question_id] === option.label;
-          return `
-            <label class="option-row ${selected ? 'selected' : ''}">
-              <input type="radio" name="currentQuestion" value="${option.label}" ${selected ? 'checked' : ''} onchange="selectAnswer('${q.question_id}', '${option.label}')">
-              <span><strong>${option.label}.</strong> ${escapeHtml(option.text)}</span>
-            </label>
-          `;
-        }).join('')}
-      `;
-      renderPalette();
-    }
-
-    function questionStatus(index) {
-      const q = currentMock.questions[index];
-      const answered = Boolean(examState.answers[q.question_id]);
-      const marked = Boolean(examState.marked[q.question_id]);
-      const visited = examState.visited.has(index);
-      if (answered && marked) return 'answered-marked';
-      if (marked) return 'marked';
-      if (answered) return 'answered';
-      if (visited) return 'not-answered';
-      return '';
-    }
-
-    function renderPalette() {
-      const answered = currentMock.questions.filter(q => examState.answers[q.question_id]).length;
-      const marked = currentMock.questions.filter(q => examState.marked[q.question_id]).length;
-      qs('paletteSummary').textContent = `${answered} answered, ${marked} marked`;
-      qs('questionPalette').innerHTML = currentMock.questions.map((q, index) => `
-        <button class="qnum ${questionStatus(index)} ${index === examState.currentIndex ? 'current' : ''}" onclick="goToQuestion(${index})">${index + 1}</button>
-      `).join('');
-    }
-
-    function selectAnswer(questionId, label) {
-      examState.answers[questionId] = label;
-      renderExamQuestion();
-    }
-
-    function goToQuestion(index) {
-      commitQuestionTime();
-      examState.currentIndex = Math.max(0, Math.min(index, currentMock.questions.length - 1));
-      examState.enteredAt = Date.now();
-      renderExamQuestion();
-    }
-
-    function previousQuestion() {
-      goToQuestion(examState.currentIndex - 1);
-    }
-
-    function saveAndNext() {
-      goToQuestion(Math.min(examState.currentIndex + 1, currentMock.questions.length - 1));
-    }
-
-    function markReviewAndNext() {
-      const q = currentMock.questions[examState.currentIndex];
-      examState.marked[q.question_id] = true;
-      saveAndNext();
-    }
-
-    function clearResponse() {
-      const q = currentMock.questions[examState.currentIndex];
-      delete examState.answers[q.question_id];
-      renderExamQuestion();
-    }
-
-    async function submitCurrentMock(autoSubmit) {
-      if (!currentMock || !examState || examState.submitted) return;
-      commitQuestionTime();
-      if (!autoSubmit && !confirm('Submit this mock now?')) return;
-      examState.submitted = true;
-      clearInterval(examState.timerId);
-      const answers = currentMock.questions.map(q => ({
-        question_id: q.question_id,
-        selected_answer: examState.answers[q.question_id] || null,
-        time_spent_seconds: examState.questionTimes[q.question_id] || 0,
-        marked_for_review: Boolean(examState.marked[q.question_id])
-      }));
-      try {
-        const result = await api(`/mocks/${currentMock.mock_id}/submit`, {
-          method: 'POST',
-          body: JSON.stringify({ answers })
-        });
-        qs('mockStatus').textContent = `Submitted. Final score ${result.final_score}/100.`;
-        qs('examShell').classList.add('hidden');
-        renderExamAnalysis(result);
-        await loadDashboard();
-      } catch (error) {
-        examState.submitted = false;
-        qs('mockStatus').textContent = error.message;
-      }
-    }
-
-    function renderExamAnalysis(result) {
-      qs('examAnalysis').classList.remove('hidden');
-      qs('examAnalysis').innerHTML = `
-        <div class="panel">
-          <h2>Mock Analysis</h2>
-          <div class="grid-4">
-            <div class="metric"><div class="metric-value">${result.final_score}</div><div class="metric-label">Final Score</div></div>
-            <div class="metric"><div class="metric-value">${result.total_correct}/${result.total_questions}</div><div class="metric-label">Correct</div></div>
-            <div class="metric"><div class="metric-value">${result.total_wrong}</div><div class="metric-label">Wrong</div></div>
-            <div class="metric"><div class="metric-value">${result.total_unanswered}</div><div class="metric-label">Unanswered</div></div>
-          </div>
-          <p class="muted">Raw score ${result.raw_score}, negative marks ${result.negative_marks}, accuracy ${result.accuracy_pct}%.</p>
-        </div>
-        <div class="panel">
-          <h2>Topic Breakdown</h2>
-          <div class="table-wrap"><table>
-            <thead><tr><th>Topic</th><th>Correct</th><th>Seen</th><th>Accuracy</th><th>Status</th></tr></thead>
-            <tbody>${result.topic_breakdown.map(row => `
-              <tr>
-                <td>${escapeHtml(row.display_name || row.topic)}</td>
-                <td>${row.total_correct}</td>
-                <td>${row.total_seen}</td>
-                <td>${Number(row.accuracy_pct).toFixed(1)}%</td>
-                <td><span class="badge ${badgeForStatus(row.status)}">${escapeHtml(row.status)}</span></td>
-              </tr>
-            `).join('')}</tbody>
-          </table></div>
-        </div>
-        <div class="panel">
-          <h2>Question Review</h2>
-          ${result.question_analysis.map(item => {
-            const state = item.selected_answer ? (item.is_correct ? 'correct' : 'wrong') : 'skipped';
-            return `
-              <div class="analysis-item ${state}">
-                <strong>Q${item.question_number}. ${escapeHtml(item.question_text)}</strong>
-                <div class="muted">Selected ${escapeHtml(item.selected_answer || 'Not answered')} | Correct ${escapeHtml(item.correct_answer)} | Time ${item.time_spent_seconds}s | ${escapeHtml(item.topic)}</div>
-                <div class="citation">${escapeHtml(item.explanation || '')}<br>Source: ${escapeHtml(item.source || 'None')} ${item.page_start ? `| page ${item.page_start}` : ''}</div>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      `;
-    }
-
-    function resetExam() {
-      clearInterval(examState?.timerId);
-      currentMock = null;
-      examState = null;
-      qs('preExam').classList.remove('hidden');
-      qs('examShell').classList.add('hidden');
-      qs('examAnalysis').classList.add('hidden');
-      qs('examAnalysis').innerHTML = '';
-      qs('mockStatus').textContent = 'Gemini is mandatory. Local fallback is disabled for mocks.';
-    }
-
-    // ========== PYQ (PREVIOUS YEAR QUESTIONS) FUNCTIONS ==========
-
-    let currentPYQ = null;
-    let pyqState = null;
-    let pyqPapers = [];
-
-    async function loadPYQList() {
-      qs('pyqStatus').textContent = 'Loading available papers...';
-      try {
-        const data = await api('/pyq/list');
-        qs('pyqStatus').textContent = `Found ${data.papers.length} available papers`;
-        // Cards reference papers by INDEX, not by interpolating the id/title into
-        // an inline handler: document ids are strings (doc_...) and titles can
-        // contain apostrophes, both of which broke the unquoted inline calls.
-        pyqPapers = data.papers;
-        qs('pyqPaperGrid').innerHTML = data.papers.map((paper, idx) => `
-          <div class="panel" style="cursor: pointer; border: 2px solid #cfd8e3;" onclick="startPYQPaper(${idx})">
-            <h3>${escapeHtml(paper.title)}</h3>
-            <div class="muted">
-              ${paper.year ? `Year: ${paper.year}<br>` : ''}
-              ${paper.phase ? `Phase: ${paper.phase}<br>` : ''}
-              ${paper.paper ? `Paper: ${paper.paper}` : ''}
-            </div>
-            <div style="margin-top: 0.5rem;"><button class="btn primary" onclick="event.stopPropagation(); startPYQPaper(${idx})">Attempt</button></div>
-          </div>
-        `).join('');
-      } catch (error) {
-        qs('pyqStatus').textContent = error.message;
-      }
-    }
-
-    async function startPYQPaper(index) {
-      const paper = pyqPapers[index];
-      if (!paper) return;
-      const docId = paper.pyq_doc_id;
-      const title = paper.title;
-      qs('pyqStatus').textContent = `Loading ${title}...`;
-      try {
-        // POST: /api/pyq/{id}/load is a POST-only route (GET returned 405)
-        currentPYQ = await api(`/pyq/${docId}/load`, { method: 'POST' });
-        pyqState = {
-          currentIndex: 0,
-          answers: {},
-          marked: {},
-          visited: new Set([0]),
-          timerId: null,
-          remainingSeconds: (currentPYQ.time_limit_minutes || 60) * 60,
-          enteredAt: Date.now(),
-          submitted: false
-        };
-
-        qs('preParty').classList.add('hidden');
-        qs('pyqExamShell').classList.remove('hidden');
-        qs('pyqExamName').textContent = `Previous Year Paper: ${currentPYQ.title}`;
-        qs('pyqExamMeta').textContent = ` | ${currentPYQ.total_questions} questions | ${currentPYQ.marks_per_question} marks each`;
-
-        pyqState.timerId = setInterval(pyqTickTimer, 1000);
-        renderPYQQuestion();
-      } catch (error) {
-        qs('pyqStatus').textContent = error.message;
-      }
-    }
-
-    function pyqTickTimer() {
-      if (!pyqState || pyqState.submitted) return;
-      pyqState.remainingSeconds -= 1;
-      pyqUpdateTimer();
-      if (pyqState.remainingSeconds <= 0) submitPYQAttempt(true);
-    }
-
-    function pyqUpdateTimer() {
-      const total = Math.max(0, pyqState?.remainingSeconds || 0);
-      const minutes = String(Math.floor(total / 60)).padStart(2, '0');
-      const seconds = String(total % 60).padStart(2, '0');
-      qs('pyqTimer').textContent = `${minutes}:${seconds}`;
-      qs('pyqTimer').classList.toggle('warning', total <= 300);
-    }
-
-    function renderPYQQuestion() {
-      if (!currentPYQ || !pyqState) return;
-      pyqUpdateTimer();
-      const q = currentPYQ.questions[pyqState.currentIndex];
-      pyqState.visited.add(pyqState.currentIndex);
-
-      qs('pyqQuestionCounter').textContent = `Question ${pyqState.currentIndex + 1} of ${currentPYQ.questions.length}`;
-      qs('pyqQuestionTopic').textContent = q.topic || 'Unknown';
-
-      qs('pyqQuestionArea').innerHTML = `
-        <div class="question-text">${escapeHtml(q.question_text)}</div>
-        ${q.options.map(option => {
-          const selected = pyqState.answers[q.question_id] === option.label;
-          return `
-            <label class="option-row ${selected ? 'selected' : ''}">
-              <input type="radio" name="currentPYQQuestion" value="${option.label}" ${selected ? 'checked' : ''} onchange="pyqSelectAnswer('${q.question_id}', '${option.label}')">
-              <span><strong>${option.label}.</strong> ${escapeHtml(option.text)}</span>
-            </label>
-          `;
-        }).join('')}
-      `;
-
-      pyqRenderPalette();
-    }
-
-    function pyqRenderPalette() {
-      const answered = currentPYQ.questions.filter(q => pyqState.answers[q.question_id]).length;
-      const marked = currentPYQ.questions.filter(q => pyqState.marked[q.question_id]).length;
-      qs('pyqPaletteSummary').textContent = `${answered} answered, ${marked} marked`;
-
-      qs('pyqQuestionPalette').innerHTML = currentPYQ.questions.map((q, index) => `
-        <button class="qnum ${pyqQuestionStatus(index)} ${index === pyqState.currentIndex ? 'current' : ''}" onclick="pyqGoToQuestion(${index})">${index + 1}</button>
-      `).join('');
-    }
-
-    function pyqQuestionStatus(index) {
-      const q = currentPYQ.questions[index];
-      const answered = Boolean(pyqState.answers[q.question_id]);
-      const marked = Boolean(pyqState.marked[q.question_id]);
-      const visited = pyqState.visited.has(index);
-      if (answered && marked) return 'answered-marked';
-      if (marked) return 'marked';
-      if (answered) return 'answered';
-      if (visited) return 'not-answered';
-      return '';
-    }
-
-    function pyqSelectAnswer(questionId, label) {
-      pyqState.answers[questionId] = label;
-      renderPYQQuestion();
-    }
-
-    function pyqGoToQuestion(index) {
-      pyqState.currentIndex = Math.max(0, Math.min(index, currentPYQ.questions.length - 1));
-      pyqState.enteredAt = Date.now();
-      renderPYQQuestion();
-    }
-
-    function pyqPreviousQuestion() {
-      pyqGoToQuestion(pyqState.currentIndex - 1);
-    }
-
-    function pyqSaveAndNext() {
-      pyqGoToQuestion(Math.min(pyqState.currentIndex + 1, currentPYQ.questions.length - 1));
-    }
-
-    function pyqMarkReviewAndNext() {
-      const q = currentPYQ.questions[pyqState.currentIndex];
-      pyqState.marked[q.question_id] = true;
-      pyqSaveAndNext();
-    }
-
-    function pyqClearResponse() {
-      const q = currentPYQ.questions[pyqState.currentIndex];
-      delete pyqState.answers[q.question_id];
-      renderPYQQuestion();
-    }
-
-    async function submitPYQAttempt(autoSubmit) {
-      if (!currentPYQ || !pyqState || pyqState.submitted) return;
-      if (!autoSubmit && !confirm('Submit this PYQ attempt?')) return;
-
-      pyqState.submitted = true;
-      clearInterval(pyqState.timerId);
-
-      const answers = currentPYQ.questions.map(q => ({
-        question_id: q.question_id,
-        selected_answer: pyqState.answers[q.question_id] || null,
-        time_spent_seconds: 0,
-        marked_for_review: Boolean(pyqState.marked[q.question_id])
-      }));
-
-      try {
-        const result = await api(`/pyq/${currentPYQ.pyq_id}/submit`, {
-          method: 'POST',
-          body: JSON.stringify({ answers })
-        });
-
-        qs('pyqStatus').textContent = `Submitted. Score: ${result.final_score}/${result.total_questions * 2}`;
-        qs('pyqExamShell').classList.add('hidden');
-
-        const html = `
-          <div class="panel">
-            <h2>PYQ Analysis</h2>
-            <div class="grid-4">
-              <div class="metric"><div class="metric-value">${result.final_score}</div><div class="metric-label">Score</div></div>
-              <div class="metric"><div class="metric-value">${result.total_correct}</div><div class="metric-label">Correct</div></div>
-              <div class="metric"><div class="metric-value">${result.total_wrong}</div><div class="metric-label">Wrong</div></div>
-              <div class="metric"><div class="metric-value">${result.accuracy_pct.toFixed(1)}%</div><div class="metric-label">Accuracy</div></div>
-            </div>
-          </div>
-        `;
-        qs('pyqAnalysis').classList.remove('hidden');
-        qs('pyqAnalysis').innerHTML = html;
-
-        loadPYQAnalytics();
-      } catch (error) {
-        pyqState.submitted = false;
-        qs('pyqStatus').textContent = error.message;
-      }
-    }
-
-    async function loadPYQAnalytics() {
-      try {
-        const data = await api('/pyq/analytics');
-        qs('pyqHistory').innerHTML = data.attempts.map(att => `
-          <div class="source-box">
-            <strong>${escapeHtml(att.pyq_id)}</strong><br>
-            Score: ${att.score}<br>
-            Accuracy: ${att.accuracy?.toFixed(1)}%<br>
-            Questions attempted: ${att.questions_attempted}
-          </div>
-        `).join('');
-      } catch (error) {
-        qs('pyqHistory').textContent = error.message;
-      }
-    }
-
-    async function generateDrill() {
-      qs('drillStatus').textContent = 'Generating Gemini drill from exam/material corpus.';
-      qs('drillOutput').innerHTML = '';
-      try {
-        const data = await api('/penalty-drill', {
-          method: 'POST',
-          body: JSON.stringify({
-            topic: qs('drillTopic').value,
-            question_count: Number(qs('drillCount').value),
-            difficulty: qs('drillDifficulty').value,
-            current_accuracy: 0,
-            drill_type: 'weakness'
-          })
-        });
-        qs('drillStatus').textContent = `${data.drill_id}: ${data.questions.length} questions.`;
-        qs('drillOutput').innerHTML = data.questions.map((q, index) => `
-          <div class="source-box">
-            <strong>${index + 1}. ${escapeHtml(q.question_text)}</strong>
-            ${q.options.map(opt => `<div>${opt.label}. ${escapeHtml(opt.text)}</div>`).join('')}
-            <div class="citation">Correct: ${q.correct_option}. ${escapeHtml(q.explanation)}<br>Source: ${escapeHtml(q.source || '')}</div>
-          </div>
-        `).join('');
-      } catch (error) {
-        qs('drillStatus').textContent = error.message;
-      }
-    }
-
-    async function buildQuestionBank() {
-      qs('targetingOutput').textContent = 'Building Gemini question bank. Local fallback is disabled.';
-      try {
-        const data = await api('/questions/build-bank?target_per_topic=20&max_new_questions=10&use_gemini=true', { method: 'POST' });
-        qs('targetingOutput').innerHTML = `
-          <div class="source-box"><strong>Thin banks remaining:</strong> ${data.thin_question_banks_remaining}</div>
-          ${data.results.map(item => `<div class="source-box">${escapeHtml(item.display_name)}: generated ${item.generated}, reusable ${item.reusable_before} to ${item.reusable_after}</div>`).join('')}
-        `;
-        await loadDashboard();
-      } catch (error) {
-        qs('targetingOutput').textContent = error.message;
-      }
-    }
-
-    async function loadTargetingSnapshot() {
-      qs('targetingOutput').textContent = 'Loading targeting snapshot.';
-      try {
-        const data = await api('/intelligence/targeting-snapshot');
-        qs('targetingOutput').innerHTML = `
-          <h3>Top Targets</h3>
-          ${data.top_targets.map(item => `<div class="source-box"><strong>${escapeHtml(item.display_name)}</strong><br>Score ${Number(item.target_score).toFixed(3)} | ${escapeHtml(item.recommended_action)}</div>`).join('')}
-        `;
-      } catch (error) {
-        qs('targetingOutput').textContent = error.message;
-      }
-    }
-
-    async function loadEssayPrompts() {
-      const prompts = await api('/essays/prompts');
-      qs('essayPrompt').innerHTML = prompts.map(prompt => `<option value="${escapeHtml(prompt.prompt)}" data-topic="${prompt.topic}">${escapeHtml(prompt.prompt)}</option>`).join('');
-      qs('essayPrompt').addEventListener('change', event => {
-        const selected = event.target.selectedOptions[0];
-        if (selected?.dataset.topic) qs('essayTopic').value = selected.dataset.topic;
-      });
-      if (prompts[0]) qs('essayTopic').value = prompts[0].topic;
-    }
-
-    async function gradeEssay() {
-      qs('essayStatus').textContent = 'Grading essay with Gemini.';
-      try {
-        const data = await api('/grade-essay', {
-          method: 'POST',
-          body: JSON.stringify({
-            prompt: qs('essayPrompt').value,
-            topic: qs('essayTopic').value,
-            essay_text: qs('essayText').value,
-            time_limit_minutes: null
-          })
-        });
-        qs('essayStatus').textContent = `Saved as ${data.essay_id}.`;
-        qs('essayResult').innerHTML = `
-          <div class="grid-4">
-            ${[
-              ['Content', data.content_accuracy],
-              ['Structure', data.structure_clarity],
-              ['Regulation', data.regulatory_knowledge],
-              ['Evidence', data.examples_evidence]
-            ].map(([label, score]) => `<div class="metric"><div class="metric-value">${score.score}/25</div><div class="metric-label">${label}</div></div>`).join('')}
-          </div>
-          <p><strong>Total:</strong> ${data.total_score}/100</p>
-          <p>${escapeHtml(data.overall_feedback)}</p>
-          ${data.suggested_sources.map(source => `<div class="citation">${escapeHtml(source.title)} | page ${source.page_start || '-'}<br>${escapeHtml(source.excerpt)}</div>`).join('')}
-        `;
-        await loadEssayHistory();
-        await loadDashboard();
-      } catch (error) {
-        qs('essayStatus').textContent = error.message;
-      }
-    }
-
-    async function loadEssayHistory() {
-      const data = await api('/essays/history');
-      qs('essayHistory').innerHTML = data.essays?.length ? `
-        <div class="table-wrap"><table>
-          <thead><tr><th>Date</th><th>Prompt</th><th>Words</th><th>Score</th></tr></thead>
-          <tbody>${data.essays.map(row => `<tr><td>${escapeHtml(row.submitted_at || '')}</td><td>${escapeHtml(row.prompt || '')}</td><td>${row.word_count || 0}</td><td>${row.overall_score || '-'}</td></tr>`).join('')}</tbody>
-        </table></div>
-      ` : '<div class="muted">No essays submitted.</div>';
-    }
-
-    async function loadDailyLawRevision() {
-      qs('lawStatus').textContent = 'Loading daily Act revision.';
-      try {
-        const data = await api('/law/daily-revision?lines_per_day=80&include_ai=true');
-        const aiRevision = data.ai_revision || {};
-        qs('lawStatus').textContent = `${data.title || 'IFSCA Act'}: lines ${data.line_start || 0}-${data.line_end || 0}`;
-        qs('lawRevisionOutput').innerHTML = `
-          <div class="source-box">
-            <strong>${escapeHtml(aiRevision.revision_focus || data.ai_revision_focus || 'Daily revision')}</strong>
-            <h3>Key Points</h3>${renderArray(aiRevision.key_points || [])}
-            <h3>MCQ Traps</h3>${renderArray(aiRevision.mcq_traps || [])}
-            <h3>Self Test</h3>${renderArray(aiRevision.self_test || [])}
-            <h3>High Yield Provisions</h3>${renderArray((data.high_yield_provisions || []).slice(0, 5).map(item => item.title || item.provision_id || 'Provision'))}
-          </div>
-          <pre class="law-text">${escapeHtml(data.daily_text || '')}</pre>
-        `;
-        renderRuntime(data.ai_status || {});
-      } catch (error) {
-        qs('lawStatus').textContent = error.message;
-      }
-    }
-
-    async function loadFullAct() {
-      try {
-        const data = await api('/law/ifsca-act');
-        qs('fullActText').textContent = data.full_text || 'No Act text available.';
-      } catch (error) {
-        qs('fullActText').textContent = error.message;
-      }
-    }
-
-    async function loadAmendmentIntelligence() {
-      qs('amendmentStatus').textContent = 'Scanning amendments with Gemini.';
-      try {
-        const data = await api('/amendments/intelligence?limit=12');
-        renderRuntime(data.ai_status || {});
-        renderWatchlist('amendmentIntelligence', data.watchlist || []);
-        qs('amendmentStatus').textContent = `Scanned ${data.candidate_count} candidate chunks.`;
-      } catch (error) {
-        qs('amendmentStatus').textContent = error.message;
-      }
-    }
-
-    async function loadStartupAmendmentScan() {
-      qs('amendmentStatus').textContent = 'Loading startup scan.';
-      try {
-        const data = await api('/amendments/startup-scan');
-        renderRuntime(data.ai_status || {});
-        renderWatchlist('amendmentIntelligence', data.scan?.watchlist || []);
-        qs('amendmentStatus').textContent = `Startup scan: ${data.scan?.candidate_count || 0} candidates.`;
-      } catch (error) {
-        qs('amendmentStatus').textContent = error.message;
-      }
-    }
-
-    async function seedAmendments() {
-      qs('amendmentStatus').textContent = 'Seeding critical amendments.';
-      try {
-        const data = await api('/amendments/seed', { method: 'POST' });
-        qs('amendmentStatus').textContent = `Seeded ${data.seeded}; generated ${data.questions_generated} questions.`;
-        await loadAmendments();
-      } catch (error) {
-        qs('amendmentStatus').textContent = error.message;
-      }
-    }
-
-    async function loadAmendments() {
-      const data = await api('/amendments');
-      qs('amendmentsTable').innerHTML = data.amendments.map(item => `
-        <tr>
-          <td>${escapeHtml(item.title)}</td>
-          <td>${escapeHtml(item.topic_id)}</td>
-          <td>${escapeHtml(item.effective_date || 'TBD')}</td>
-          <td>${item.exam_priority}</td>
-          <td><span class="badge ${badgeForStatus(item.mastery_status)}">${escapeHtml(item.mastery_status)}</span></td>
-        </tr>
-      `).join('');
-    }
-
-    async function recordAmendment() {
-      qs('amendmentStatus').textContent = 'Recording amendment.';
-      try {
-        const data = await api('/record-amendment?auto_generate_questions=true', {
-          method: 'POST',
-          body: JSON.stringify({
-            amendment_id: qs('amendmentId').value || `AMN_CUSTOM_${Date.now()}`,
-            topic: qs('amendmentTopic').value,
-            rule_name: qs('amendmentRule').value,
-            effective_date: qs('amendmentDate').value || new Date().toISOString().slice(0, 10),
-            old_value: qs('amendmentOld').value || null,
-            new_value: qs('amendmentNew').value,
-            source_url: 'manual',
-            priority: 'HIGH',
-            questions_needed: 3
-          })
-        });
-        qs('amendmentStatus').textContent = `${data.amendment_id} recorded; generated ${data.questions_generated} questions.`;
-        await loadAmendments();
-      } catch (error) {
-        qs('amendmentStatus').textContent = error.message;
-      }
-    }
-
-    async function searchSources() {
-      const params = new URLSearchParams({ q: qs('sourceQuery').value.trim(), limit: 10 });
-      if (qs('sourceTopic').value) params.set('topic_id', qs('sourceTopic').value);
-      qs('sourceResults').textContent = 'Searching.';
-      try {
-        const data = await api(`/source-search?${params.toString()}`);
-        qs('sourceResults').innerHTML = data.results?.length ? data.results.map(result => `
-          <div class="source-box">
-            <strong>${escapeHtml(result.title)}</strong><br>
-            <span class="muted">Page ${result.page_start || '-'} | Lines ${result.line_start || '-'}-${result.line_end || '-'}</span><br>
-            <span class="badge neutral">source ${Number(result.exam_source_score || 0).toFixed(2)}</span>
-            <span class="badge neutral">authority ${Number(result.authority_score || 0).toFixed(2)}</span>
-            <p>${escapeHtml(result.excerpt)}</p>
-          </div>
-        `).join('') : '<div class="muted">No matching chunks.</div>';
-      } catch (error) {
-        qs('sourceResults').textContent = error.message;
-      }
-    }
-
-    async function ingestCorpus() {
-      qs('lawStatus').textContent = 'Ingesting local corpus.';
-      try {
-        const data = await api('/admin/ingest-documents', { method: 'POST' });
-        qs('lawStatus').textContent = `Indexed ${data.documents_indexed}, chunks ${data.chunks_indexed}, skipped ${data.skipped_existing}.`;
-        await loadDashboard();
-        await loadDocuments();
-      } catch (error) {
-        qs('lawStatus').textContent = error.message;
-      }
-    }
-
-    async function loadDocuments() {
-      const data = await api('/documents?limit=250');
-      qs('documentsTable').innerHTML = data.documents.map(doc => `
-        <tr>
-          <td>${escapeHtml(doc.title)}</td>
-          <td>${escapeHtml(doc.category)}</td>
-          <td>${doc.pages}</td>
-          <td>${doc.line_count}</td>
-          <td><span class="badge neutral">${escapeHtml(doc.status)}</span></td>
-        </tr>
-      `).join('');
-    }
-
-    async function loadMaterialCategories() {
-      try {
-        const data = await api('/admin/materials');
-        qs('materialTable').innerHTML = data.materials.map(mat => `
-          <tr>
-            <td>${escapeHtml(mat.name)}</td>
-            <td>
-              <select onchange="updateMaterialRole('${mat.doc_id}', this.value)">
-                <option value="pyq_phase_paper" ${mat.source_role === 'pyq_phase_paper' ? 'selected' : ''}>PYQ Phase Paper</option>
-                <option value="regulatory_core" ${mat.source_role === 'regulatory_core' ? 'selected' : ''}>Regulatory Core</option>
-                <option value="amendment_tracking" ${mat.source_role === 'amendment_tracking' ? 'selected' : ''}>Amendment Tracking</option>
-                <option value="essay_examples" ${mat.source_role === 'essay_examples' ? 'selected' : ''}>Essay Examples</option>
-                <option value="supporting_material" ${mat.source_role === 'supporting_material' ? 'selected' : ''}>Supporting Material</option>
-              </select>
-            </td>
-            <td><span class="badge neutral">${mat.source_role}</span></td>
-          </tr>
-        `).join('');
-      } catch (error) {
-        qs('materialTable').innerHTML = `<tr><td colspan="3" class="muted">${error.message}</td></tr>`;
-      }
-    }
-
-    async function updateMaterialRole(docId, newRole) {
-      try {
-        await api(`/admin/materials/${docId}/role`, {
-          method: 'POST',
-          body: JSON.stringify({ source_role: newRole })
-        });
-        loadMaterialCategories();
-      } catch (error) {
-        alert(error.message);
-        loadMaterialCategories();
-      }
-    }
-
-    async function showMaterialStats() {
-      try {
-        const data = await api('/admin/analysis/grounding');
-        qs('stat-pyq').textContent = data.by_role?.pyq_phase_paper || 0;
-        qs('stat-regulatory').textContent = data.by_role?.regulatory_core || 0;
-        qs('stat-amendment').textContent = data.by_role?.amendment_tracking || 0;
-        qs('stat-essay').textContent = data.by_role?.essay_examples || 0;
-        qs('stat-supporting').textContent = data.by_role?.supporting_material || 0;
-      } catch (error) {
-        alert(error.message);
-      }
-    }
-
-    function loadSampleUpload() {
-      qs('uploadDate').value = new Date().toISOString().slice(0, 10);
-      qs('uploadQuestions').value = JSON.stringify([
-        { id: 1, topic: 'PH2_FM_REGS', question_text: 'Sample FM question', correct_option: 'A', your_option: 'B', is_correct: false, time_spent_seconds: 50 },
-        { id: 2, topic: 'PH2_BANKING', question_text: 'Sample Banking question', correct_option: 'C', your_option: 'C', is_correct: true, time_spent_seconds: 42 }
-      ], null, 2);
-    }
-
-    async function uploadMock() {
-      qs('uploadStatus').textContent = 'Uploading mock.';
-      try {
-        const data = await api('/upload-mock', {
-          method: 'POST',
-          body: JSON.stringify({
-            mock_id: qs('uploadMockId').value,
-            date: qs('uploadDate').value || new Date().toISOString().slice(0, 10),
-            phase: 'phase_2',
-            paper: 'paper_2',
-            source: qs('uploadSource').value || 'QRE',
-            questions: JSON.parse(qs('uploadQuestions').value)
-          })
-        });
-        qs('uploadStatus').textContent = data.message;
-        await loadDashboard();
-      } catch (error) {
-        qs('uploadStatus').textContent = error.message;
-      }
-    }
-
-    async function refreshAll() {
-      await loadRuntime();
-      await loadTopics();
-      await loadDashboard();
-      await loadDocuments();
-      await loadAmendments();
-      await loadEssayPrompts();
-      await loadEssayHistory();
-      await loadDailyLawRevision();
-      await loadFullAct();
-    }
-
-    // Phase 1: Content Intelligence - Source Search Functions
-
-    async function performSourceSearch() {
-      const query = qs('sourceSearchInput')?.value?.trim();
-      if (!query) {
-        qs('searchResults').textContent = 'Enter a search query.';
-        return;
-      }
-
-      qs('searchResults').innerHTML = '<div class="muted">Searching...</div>';
-      try {
-        const data = await api(`/questions/search?query=${encodeURIComponent(query)}&limit=20`);
-        const results = data.results || [];
-
-        if (results.length === 0) {
-          qs('searchResults').innerHTML = `<div class="muted">No results found for "${escapeHtml(query)}"</div>`;
-          return;
-        }
-
-        qs('searchResults').innerHTML = `
-          <div style="margin-bottom: 10px;"><strong>Found ${results.length} sources</strong></div>
-          ${results.map((result, idx) => `
-            <div class="source-box" style="margin-bottom: 15px; padding: 12px; background: #f5f5f5; border-radius: 6px;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div style="flex: 1;">
-                  <strong style="font-size: 14px;">${escapeHtml(result.title || 'Unknown')}</strong>
-                  <div class="muted" style="font-size: 12px; margin-top: 4px;">
-                    Category: ${escapeHtml(result.category || 'N/A')} | Page ${result.page_start || '?'}
-                  </div>
-                </div>
-                <span class="badge" style="margin-left: 10px;">Authority: ${result.authority_score || 50}</span>
-              </div>
-              <div style="margin-top: 8px; font-size: 13px; line-height: 1.4;">
-                ${escapeHtml((result.excerpt || '').substring(0, 250))}...
-              </div>
-              <button class="btn" style="font-size: 11px; margin-top: 8px;" onclick="showCitationDetail('${escapeHtml(result.chunk_id)}')">
-                View Citation
-              </button>
-            </div>
-          `).join('')}
-        `;
-      } catch (error) {
-        qs('searchResults').innerHTML = `<div class="muted">Search error: ${escapeHtml(error.message)}</div>`;
-      }
-    }
-
-    async function loadSourceDistribution() {
-      qs('sourceDistribution').innerHTML = '<div class="muted">Loading distribution...</div>';
-      try {
-        const data = await api('/sources/distribution-by-topic');
-        const distribution = data.distribution || [];
-        const total = data.total_chunks || 0;
-
-        qs('sourceDistribution').innerHTML = `
-          <div style="font-size: 13px;">
-            <div style="margin-bottom: 12px;"><strong>Total Chunks: ${total}</strong></div>
-            ${distribution.map(item => {
-              const pct = total > 0 ? Math.round((item.chunks / total) * 100) : 0;
-              return `
-                <div style="margin-bottom: 10px; padding: 8px; background: #f9f9f9; border-radius: 4px;">
-                  <div style="display: flex; justify-content: space-between;">
-                    <strong style="font-size: 12px;">${escapeHtml(item.label || 'Unknown')}</strong>
-                    <span style="font-size: 11px; color: #666;">${pct}%</span>
-                  </div>
-                  <div style="display: flex; gap: 10px; margin-top: 4px; font-size: 11px;">
-                    <span>📄 ${item.chunks} chunks</span>
-                    <span>❓ ${item.questions} Qs</span>
-                    <span>⭐ auth ${Number(item.avg_authority).toFixed(1)}</span>
-                  </div>
-                  <div style="width: 100%; height: 6px; background: #eee; border-radius: 3px; margin-top: 4px;">
-                    <div style="width: ${pct}%; height: 100%; background: #4CAF50; border-radius: 3px;"></div>
-                  </div>
-                </div>
-              `;
-            }).join('')}
-          </div>
-        `;
-      } catch (error) {
-        qs('sourceDistribution').innerHTML = `<div class="muted">Error: ${escapeHtml(error.message)}</div>`;
-      }
-    }
-
-    async function showCitationDetail(chunkId) {
-      qs('citationDetail').innerHTML = '<div class="muted">Loading citation...</div>';
-      try {
-        const data = await api(`/source-chunks/${encodeURIComponent(chunkId)}`);
-
-        if (data.status !== 'found' || !data.source) {
-          qs('citationDetail').innerHTML = '<div class="muted">Citation not found.</div>';
-          qs('citationModal').classList.remove('hidden');
-          return;
-        }
-
-        const source = data.source || {};
-        qs('citationDetail').innerHTML = `
-          <div style="line-height: 1.6;">
-            <h3 style="margin-bottom: 8px;">Source Information</h3>
-            <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
-              <div><strong>Document:</strong> ${escapeHtml(source.title || source.document_name || 'Unknown')}</div>
-              <div><strong>Category:</strong> ${escapeHtml(source.category || 'N/A')}</div>
-              <div><strong>Page:</strong> ${source.page_start || '?'}${source.page_end && source.page_end !== source.page_start ? `-${source.page_end}` : ''}</div>
-              <div><strong>Authority Score:</strong> <span style="font-weight: bold; color: #2196F3;">${source.authority_score || 50}</span></div>
-              <div><strong>Linked Questions:</strong> ${(source.linked_question_ids || []).length}</div>
-            </div>
-
-            <h3 style="margin-bottom: 8px;">Citation Note</h3>
-            <div style="background: #f9f9f9; padding: 12px; border-left: 4px solid #2196F3; margin-bottom: 12px;">
-              <code style="font-size: 13px;">${escapeHtml(data.citation_note || '[Source citation]')}</code>
-            </div>
-
-            <h3 style="margin-bottom: 8px;">Excerpt</h3>
-            <div style="background: #fafafa; padding: 12px; border-radius: 6px; font-size: 12px; line-height: 1.5; max-height: 200px; overflow-y: auto;">
-              ${escapeHtml((source.excerpt || source.text || '').substring(0, 800))}
-              ${((source.excerpt || source.text || '').length || 0) > 800 ? '...' : ''}
-            </div>
-          </div>
-        `;
-      } catch (error) {
-        qs('citationDetail').innerHTML = `<div class="muted">Error loading citation: ${escapeHtml(error.message)}</div>`;
-      }
-
-      qs('citationModal').classList.remove('hidden');
-    }
-
-    function closeCitationModal() {
-      qs('citationModal').classList.add('hidden');
-    }
-
-    /* ============ TCS iON Exam Mode (Week 6) ============ */
-
-    let examTimerInterval = null;
-    let currentExamSecondsRemaining = 3600; // 60 minutes
-
-    function startExamTimer() {
-      const startTime = Date.now();
-      const totalSeconds = 3600; // 60 minutes
-
-      examTimerInterval = setInterval(() => {
-        const elapsed = Math.floor((Date.now() - startTime) / 1000);
-        currentExamSecondsRemaining = totalSeconds - elapsed;
-
-        if (currentExamSecondsRemaining <= 0) {
-          clearInterval(examTimerInterval);
-          autoSubmitExam();
-          return;
-        }
-
-        updateExamTimer(currentExamSecondsRemaining);
-      }, 1000);
-    }
-
-    function updateExamTimer(secondsRemaining) {
-      const minutes = Math.floor(secondsRemaining / 60);
-      const seconds = secondsRemaining % 60;
-      const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-      const timerEl = qs('examTimer');
-      if (timerEl) {
-        timerEl.textContent = display;
-
-        // Red when <5 minutes
-        if (secondsRemaining < 300) {
-          timerEl.classList.add('warning');
-        }
-
-        // Blink when <1 minute
-        if (secondsRemaining < 60) {
-          timerEl.classList.add('critical');
-        }
-      }
-
-      // Enable submit button when <5 minutes
-      const submitBtn = qs('button[onclick="submitCurrentMock(false)"]');
-      if (submitBtn && secondsRemaining < 300) {
-        submitBtn.disabled = false;
-      }
-    }
-
-    function stopExamTimer() {
-      if (examTimerInterval) {
-        clearInterval(examTimerInterval);
-        examTimerInterval = null;
-      }
-    }
-
-    function autoSubmitExam() {
-      alert('Time limit reached. Submitting exam automatically...');
-      submitCurrentMock(false);
-    }
-
-    function showInstructions() {
-      if (qs('#instructionsModal')) {
-        qs('#instructionsModal').classList.add('active');
-      }
-    }
-
-    function closeInstructions() {
-      if (qs('#instructionsModal')) {
-        qs('#instructionsModal').classList.remove('active');
-      }
-    }
-
-    function showResultPage(scoreData) {
-      const resultPage = qs('#resultPage');
-      if (!resultPage) return;
-
-      const normalized = {
-        score: scoreData.score ?? scoreData.final_score,
-        correct: scoreData.correct ?? scoreData.total_correct,
-        wrong: scoreData.wrong ?? scoreData.total_wrong,
-        unanswered: scoreData.unanswered ?? scoreData.total_unanswered,
-        accuracy: scoreData.accuracy ?? scoreData.accuracy_pct,
-        weakAreas: scoreData.weakAreas ?? scoreData.weak_areas ?? []
-      };
-
-      // Populate result data
-      if (normalized.score !== undefined) {
-        qs('#resultScore').textContent = normalized.score;
-      }
-      if (normalized.correct !== undefined) {
-        qs('#statCorrect').textContent = normalized.correct;
-      }
-      if (normalized.wrong !== undefined) {
-        qs('#statWrong').textContent = normalized.wrong;
-      }
-      if (normalized.unanswered !== undefined) {
-        qs('#statUnanswered').textContent = normalized.unanswered;
-      }
-      if (normalized.accuracy !== undefined) {
-        qs('#statAccuracy').textContent = normalized.accuracy + '%';
-      }
-
-      // Show weak areas
-      if (normalized.weakAreas && normalized.weakAreas.length > 0) {
-        qs('#weakList').innerHTML = normalized.weakAreas
-          .map(w => `<li>${escapeHtml(w.topic || 'Unknown')}: ${w.accuracy ?? w.accuracy_pct ?? 0}% accuracy</li>`)
-          .join('');
-      }
-
-      resultPage.classList.add('active');
-      qs('#examShell').classList.add('hidden');
-      qs('#preExam').classList.add('hidden');
-      stopExamTimer();
-    }
-
-    function returnToDashboard() {
-      switchView('today');
-    }
-
-    function reviewAnswers() {
-      // Switch to review tab for answer review
-      switchView('review');
-    }
-
-    // Handle keyboard shortcuts in exam mode
-    document.addEventListener('keydown', (e) => {
-      if (!qs('#examShell') || qs('#examShell').classList.contains('hidden')) return;
-
-      // Arrow keys for navigation
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        previousQuestion();
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        saveAndNext();
-      }
-
-      // Number keys for options (1-4 or A-D)
-      if (['1', '2', '3', '4'].includes(e.key)) {
-        e.preventDefault();
-        const option = String.fromCharCode(64 + parseInt(e.key)); // Convert 1-4 to A-D
-        selectOption(option);
-      }
-
-      // Letter keys for options (A-D, a-d)
-      if (['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D'].includes(e.key)) {
-        e.preventDefault();
-        selectOption(e.key.toUpperCase());
-      }
-
-      // M for mark for review
-      if (e.key === 'm' || e.key === 'M') {
-        e.preventDefault();
-        markReviewAndNext();
-      }
-
-      // S for submit (only if enabled)
-      if ((e.key === 's' || e.key === 'S') && currentExamSecondsRemaining < 300) {
-        e.preventDefault();
-        submitCurrentMock(false);
-      }
-    });
-
-    function selectOption(option) {
-      const radio = qs(`input[value="${option}"]`);
-      if (radio) {
-        radio.checked = true;
-        document.querySelectorAll('input[name="currentQuestion"]').forEach(input => {
-          input.closest('.option-row')?.classList.toggle('selected', input.value === option);
-        });
-
-        const currentQ = currentMock?.questions?.[examState?.currentIndex ?? 0];
-        if (currentQ) {
-          selectAnswer(currentQ.question_id, option);
-        }
-
-        // Auto-save
-        const qIdx = (examState?.currentIndex ?? 0) + 1;
-        localStorage.setItem(`answer_q${qIdx}`, option);
-
-        // Update palette
-        const cell = qs(`[data-q-idx="${qIdx}"]`);
-        if (cell) {
-          cell.classList.remove('unanswered');
-          cell.classList.add('answered');
-        }
-      }
-    }
-
-    // Auto-save on radio selection
-    document.addEventListener('change', (e) => {
-      if (e.target.type === 'radio' && qs('examShell') && !qs('examShell').classList.contains('hidden')) {
-        const qIdx = (examState?.currentIndex ?? 0) + 1;
-        const value = e.target.value;
-
-        // Save to localStorage
-        localStorage.setItem(`answer_q${qIdx}`, value);
-
-        // Update examState answers
-        if (examState && currentMock) {
-          const currentQ = currentMock.questions[examState.currentIndex];
-          if (currentQ) {
-            examState.answers[currentQ.question_id] = value;
-          }
-        }
-
-        // Show "Saved" indicator briefly
-        const saveBtn = Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('Save'));
-        if (saveBtn) {
-          saveBtn.textContent = '✓ Saved';
-          setTimeout(() => {
-            saveBtn.textContent = '💾 Save Answer';
-          }, 1500);
-        }
-
-        // Update palette cell
-        const cell = qs(`q${qIdx}`);
-        if (cell) {
-          cell.classList.add('answered');
-          cell.classList.remove('unanswered');
-        }
-      }
-    });
-
-    window.addEventListener('load', async () => {
-      qs('uploadDate').value = new Date().toISOString().slice(0, 10);
-      qs('amendmentDate').value = new Date().toISOString().slice(0, 10);
-      loadSampleUpload();
-      try {
-        await refreshAll();
-      } catch (error) {
-        qs('runtimeChip').innerHTML = `<span><strong>Startup issue</strong><span>${escapeHtml(error.message)}</span></span>`;
-      }
-    });
-  </script>
-
-  <!-- Exam Instructions Modal -->
-  <div id="instructionsModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 style="margin: 0;">📋 Exam Instructions</h2>
-        <button class="btn-close" onclick="closeInstructions()">✕</button>
+  <!-- A25: Numbered Index Footer -->
+  <footer class="ledger-footer" data-scene="brass-close" id="ledger-footer">
+    <div class="footer__watermark" aria-hidden="true">THE LEDGER</div>
+    <ol class="footer__index" role="navigation" aria-label="Ledger index">
+      <li class="footer__row" tabindex="0" data-view="today">
+        <span class="footer__num">§01</span>
+        <span class="footer__label">Today's Docket</span>
+        <span class="footer__desc">Readiness · Next Action · Statute Path</span>
+      </li>
+      <li class="footer__row" tabindex="0" data-view="exam">
+        <span class="footer__num">§02</span>
+        <span class="footer__label">Mock Hall</span>
+        <span class="footer__desc">TCS-iON Console · Timed Examination</span>
+      </li>
+      <li class="footer__row" tabindex="0" data-view="pyq">
+        <span class="footer__num">§03</span>
+        <span class="footer__label">Previous Year Papers</span>
+        <span class="footer__desc">IFSCA · SEBI · RBI Archives</span>
+      </li>
+      <li class="footer__row" tabindex="0" data-view="updates">
+        <span class="footer__num">§04</span>
+        <span class="footer__label">Law Amendments</span>
+        <span class="footer__desc">Gazette Watch · Amendment Intelligence</span>
+      </li>
+    </ol>
+    <div class="footer__exit">
+      <p class="footer__exit-line" style="font-family:var(--f-serif);font-style:italic;color:var(--ink-3)">The hall is patient. The ledger is not.</p>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__status">
+        <div class="footer__status-dot" id="foot-status-dot"></div>
+        <span id="foot-status">ENGINE STARTING</span>
       </div>
-      <div class="modal-body">
-        <h3>IFSCA Grade A Exam - Exam Mode Rules</h3>
-        <ol>
-          <li><strong>Total Questions:</strong> 50 MCQ (or as selected)</li>
-          <li><strong>Time Limit:</strong> 60 minutes</li>
-          <li><strong>Marking:</strong> +4 for correct, -1 for wrong, 0 for unanswered</li>
-          <li><strong>Navigation:</strong> Use Previous/Next buttons only (no skip allowed)</li>
-          <li><strong>Mark for Review:</strong> Click button to mark, review later</li>
-          <li><strong>Submit:</strong> Enabled only in last 5 minutes</li>
-          <li><strong>Auto-Submit:</strong> Exam auto-submits when timer reaches 00:00</li>
-          <li><strong>Offline Mode:</strong> Answers saved locally, synced on submit</li>
-        </ol>
-        <h3>Keyboard Shortcuts</h3>
-        <ul>
-          <li><kbd>←</kbd> <kbd>→</kbd> Previous/Next question</li>
-          <li><kbd>1</kbd>-<kbd>4</kbd> or <kbd>A</kbd>-<kbd>D</kbd> Select option</li>
-          <li><kbd>M</kbd> Mark for Review</li>
-          <li><kbd>S</kbd> Submit (when enabled)</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button class="btn primary" onclick="closeInstructions()">Got it! Start →</button>
-      </div>
+      <span class="footer__coords">26°55′N 70°56′E · GIFT CITY · LOCAL BUILD · NO CLOUD · <span id="foot-year">2026</span></span>
     </div>
-  </div>
+  </footer>
 
-  <!-- Exam Result Page -->
-  <div id="resultPage" class="result-page">
-    <div class="result-header">
-      <h1>🎉 Exam Submitted Successfully</h1>
-      <p>Your answers have been recorded and analyzed.</p>
-    </div>
+  <!-- Toast notifications -->
+  <div class="toasts" id="toasts"></div>
 
-    <div class="result-score-box">
-      <div class="score-label">Your Score</div>
-      <div>
-        <span class="score-value" id="resultScore">0</span>
-        <span class="score-max">/ 200</span>
-      </div>
-    </div>
+  <!-- Screen reader live region -->
+  <p class="sr-only" id="sr-live" aria-live="polite"></p>
 
-    <div>
-      <h2>Score Breakdown</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <span class="score-label">Correct</span>
-          <div class="stat-value" id="statCorrect">0</div>
-        </div>
-        <div class="stat-card">
-          <span class="score-label">Wrong</span>
-          <div class="stat-value" id="statWrong">0</div>
-        </div>
-        <div class="stat-card">
-          <span class="score-label">Unanswered</span>
-          <div class="stat-value" id="statUnanswered">0</div>
-        </div>
-        <div class="stat-card">
-          <span class="score-label">Accuracy</span>
-          <div class="stat-value" id="statAccuracy">0%</div>
-        </div>
-      </div>
-    </div>
+  <!-- No-JS fallback -->
+  <noscript><p style="padding:2rem;font-family:monospace">The Ledger requires JavaScript to read the engine.</p></noscript>
 
-    <div class="weak-areas-list">
-      <h2 style="margin-top: 0;">🎯 Weak Areas Detected</h2>
-      <ul id="weakList" style="margin: 0; padding-left: 20px;"></ul>
-    </div>
+  <!-- Vendor: GSAP + Lenis + Three.js (defer preserves execution order) -->
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/vendor/SplitText.min.js" defer></script>
+  <script src="/vendor/Flip.min.js" defer></script>
+  <script src="/vendor/Observer.min.js" defer></script>
+  <script src="/vendor/lenis.min.js" defer></script>
+  <script src="/vendor/three.min.js" defer></script>
 
-    <div class="action-buttons" style="margin-top: 30px;">
-      <button class="btn primary" onclick="returnToDashboard()">← Back to Dashboard</button>
-      <button class="btn" onclick="reviewAnswers()">📝 Review Answers</button>
-    </div>
-  </div>
+  <!-- Bridge + Nav -->
+  <script src="/js/smooth.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+
+  <!-- App scripts -->
+  <script src="/js/api.js" defer></script>
+  <script src="/js/router.js" defer></script>
+  <script src="/js/seal.js" defer></script>
+  <script src="/js/today.js" defer></script>
+  <script src="/js/exam.js" defer></script>
+  <script src="/js/views.js" defer></script>
+  <script src="/js/app.js" defer></script>
 </body>
 </html>

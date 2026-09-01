@@ -1,0 +1,276 @@
+/* ==========================================================================
+   THE LEDGER — Design Tokens · Edition III
+   Research-derived from 52-site Awwwards corpus analysis.
+   Warm noir field, bone ink ladder, brass = action, emerald = data/truth.
+   Layer 1: primitives. Layer 2: semantic. No arbitrary values elsewhere.
+   ========================================================================== */
+
+/* Registered @property for GSAP animation of custom properties */
+@property --light-x   { syntax: "<percentage>"; inherits: true; initial-value: 30%; }
+@property --light-y   { syntax: "<percentage>"; inherits: true; initial-value: 20%; }
+@property --sweep     { syntax: "<angle>";      inherits: true; initial-value: 0deg; }
+@property --ring-progress { syntax: "<number>"; inherits: true; initial-value: 0; }
+@property --mask-rise  { syntax: "<percentage>"; inherits: true; initial-value: 110%; }
+@property --counter-val { syntax: "<integer>";  inherits: true; initial-value: 0; }
+
+:root {
+  /* ── Layer 1 · Color Primitives ───────────────────────────── */
+
+  /* Noir ramp (warm-neutral, never cool-blue) */
+  --p-noir-000: #07090B;
+  --p-noir-050: #0A0C0E;
+  --p-noir-100: #0C0E10;
+  --p-noir-200: #15181B;
+  --p-noir-300: #1D2124;
+  --p-noir-400: #262B2F;
+  --p-noir-500: #303639;
+
+  /* Ink ladder (bone warmth — never cool white) */
+  --p-ink-000: #EFEAE0;
+  --p-ink-100: #E2DDD2;
+  --p-ink-300: #D6CFC2;
+  --p-ink-500: #B4ACA0;
+  --p-ink-700: #857E72;
+  --p-ink-900: #5C584E;
+
+  /* Paper (hall-paper theme) */
+  --p-paper-000: #F1EDE3;
+  --p-paper-200: #E5DECF;
+  --p-paper-400: #D6CDBA;
+  --p-paper-ink:  #23221C;
+  --p-paper-ink2: #5C584E;
+
+  /* Brass (action accent — FILL only, never glow) */
+  --p-brass-100: #F0D49A;
+  --p-brass-300: #E3C07C;
+  --p-brass-500: #C79E4F;
+  --p-brass-700: #8F6F35;
+  --p-brass-900: #5A4520;
+
+  /* Emerald (data/truth accent — FILL only, never glow) */
+  --p-emerald-100: #7BEBC9;
+  --p-emerald-300: #52DCAE;
+  --p-emerald-500: #37C092;
+  --p-emerald-700: #1E7A5E;
+  --p-emerald-900: #06251B;
+
+  /* Status */
+  --p-red-400:    #FF6B7A;
+  --p-red-500:    #FF4D5E;
+  --p-red-700:    #B3273A;
+  --p-amber-400:  #FFC94D;
+  --p-amber-500:  #FFB020;
+  --p-amber-700:  #9A6A0B;
+  --p-violet-500: #7C8CFF;
+
+  /* Rules (hairline borders — from Linear's rgba(255,255,255,0.08) methodology) */
+  --p-rule-light:       rgba(239, 234, 224, 0.09);
+  --p-rule-strong:      rgba(239, 234, 224, 0.24);
+  --p-rule-dark:        rgba(35, 34, 28, 0.16);
+  --p-rule-dark-strong: rgba(35, 34, 28, 0.36);
+
+  /* ── Layer 1 · Typography ─────────────────────────────────── */
+  /* Display: Inter (loaded) at whisper weights (300-400)
+     Body: Inter at 400
+     Serif: Charter for quiet-beat law text
+     Mono: Cascadia Mono for statute labels and data */
+  --f-display: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-body:    "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-serif:   Charter, "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
+  --f-mono:    "Cascadia Mono", "JetBrains Mono", Consolas, ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Fluid type scale — clamp for responsive without breakpoints */
+  --fs-hero: clamp(4rem, 12vw, 10rem);
+  --fs-900:  clamp(3.4rem, 9vw, 8.5rem);
+  --fs-800:  clamp(2.6rem, 6.4vw, 5.6rem);
+  --fs-700:  clamp(1.7rem, 3.2vw, 2.6rem);
+  --fs-600:  clamp(1.4rem, 2.6vw, 1.9rem);
+  --fs-500:  clamp(1.2rem, 2.1vw, 1.55rem);
+  --fs-400:  1.125rem;
+  --fs-300:  1rem;
+  --fs-200:  0.875rem;
+  --fs-100:  0.75rem;
+  --fs-050:  0.6875rem;
+
+  --lh-tight: 1.02;
+  --lh-snug:  1.18;
+  --lh-body:  1.6;
+  --lh-mono:  1.45;
+
+  --track-display: -0.02em;
+  --track-tight:   -0.01em;
+  --track-caps:     0.12em;
+  --track-mono:     0;
+
+  /* ── Layer 1 · Space ──────────────────────────────────────── */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;   --sp-3: 0.75rem;
+  --sp-4: 1rem;     --sp-5: 1.5rem;   --sp-6: 2.25rem;
+  --sp-7: 3.5rem;   --sp-8: 5.5rem;   --sp-9: 9rem;
+  --sp-10: 14rem;
+
+  --w-stage:     min(1440px, 100%);
+  --w-container: min(1200px, 92vw);
+  --w-read:      68ch;
+  --w-narrow:    52ch;
+
+  /* ── Layer 1 · Shape ──────────────────────────────────────── */
+  --r-1: 3px;   --r-2: 6px;  --r-3: 10px;
+  --r-4: 16px;  --r-pill: 999px;
+  --rule-1: 1px;  --rule-2: 2px;  --rule-3: 4px;
+
+  /* ── Layer 1 · Depth ──────────────────────────────────────── */
+  --z-base: 0;      --z-raised: 10;    --z-sticky: 40;
+  --z-nav: 60;      --z-overlay: 80;   --z-stamp: 90;
+  --z-veil: 100;    --persp: 1200px;
+
+  /* ── Layer 1 · Motion ─────────────────────────────────────── */
+  --t-fast:  140ms;   --t-med:  320ms;
+  --t-slow:  640ms;   --t-scene: 1100ms;
+
+  --e-out:        cubic-bezier(0.16, 1, 0.3, 1);
+  --e-inout:      cubic-bezier(0.65, 0, 0.35, 1);
+  --e-instrument: cubic-bezier(0.22, 1, 0.36, 1);
+  --e-stamp:      cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --stagger-word:    60ms;
+  --stagger-char:    30ms;
+  --stagger-section: 200ms;
+  --flip-dur:        400ms;
+  --flip-settle:     180ms;
+  --parallax-near:   1.15;
+  --parallax-far:    0.85;
+  --scrub-smooth:    0.8;
+  --scroll-lerp:     0.1;
+  --scroll-duration: 1.2;
+  --mag-range: 6px;
+  --pointer-lag: 0.12;
+
+  /* ── Layer 1 · 3D Bridge ──────────────────────────────────── */
+  --gl-env:       #0C0E10;
+  --gl-fog:       #07090B;
+  --gl-key:       #E3C07C;
+  --gl-fill:      #3A4A46;
+  --gl-rim:       #37C092;
+  --gl-metal:     #C79E4F;
+  --gl-fov:       35;
+  --gl-dpr-full:  2;
+  --gl-dpr-lite:  1.25;
+
+  /* ── Layer 1 · Quality ────────────────────────────────────── */
+  --q-layers-full:    6;    --q-layers-lite:    3;
+  --q-particles-full: 220;  --q-particles-lite: 60;
+
+  /* ── Layer 2 · Semantic Mapping ───────────────────────────── */
+  --canvas:       var(--p-noir-100);
+  --canvas-deep:  var(--p-noir-000);
+  --surface-1:    var(--p-noir-200);
+  --surface-2:    var(--p-noir-300);
+  --surface-3:    var(--p-noir-400);
+
+  --ink-1: var(--p-ink-000);     /* Primary text */
+  --ink-2: var(--p-ink-500);     /* Secondary text */
+  --ink-3: var(--p-ink-700);     /* Tertiary/muted text */
+  --ink-inverse: var(--p-noir-100);
+
+  --rule:        var(--p-rule-light);
+  --rule-strong: var(--p-rule-strong);
+
+  --signal:       var(--p-emerald-500);
+  --signal-hover: var(--p-emerald-300);
+  --signal-active:var(--p-emerald-700);
+  --on-signal:    var(--p-emerald-900);
+
+  --metal:    var(--p-brass-500);
+  --metal-hi: var(--p-brass-300);
+  --metal-lo: var(--p-brass-700);
+  --on-metal: #201503;
+
+  --danger:      var(--p-red-500);
+  --danger-deep: var(--p-red-700);
+  --warn:        var(--p-amber-500);
+  --warn-deep:   var(--p-amber-700);
+  --info:        var(--p-violet-500);
+
+  --focus:     var(--p-emerald-300);
+  --selection: rgba(55, 192, 146, 0.28);
+  --scrim:     rgba(7, 9, 11, 0.72);
+  --plate:     rgba(12, 14, 16, 0.86);
+
+  --grain-opacity: 0.035;
+  --light-x: 30%;
+  --light-y: 20%;
+
+  color-scheme: dark;
+}
+
+/* ── Scene Themes ───────────────────────────────────────────── */
+
+/* Default: ledger-noir (restated for clarity) */
+[data-scene="ledger-noir"] {
+  --canvas: var(--p-noir-100);  --canvas-deep: var(--p-noir-000);
+  --surface-1: var(--p-noir-200);  --surface-2: var(--p-noir-300);
+  --ink-1: var(--p-ink-000);  --ink-2: var(--p-ink-500);  --ink-3: var(--p-ink-700);
+  --rule: var(--p-rule-light);  --rule-strong: var(--p-rule-strong);
+  --signal: var(--p-emerald-500);  --metal: var(--p-brass-500);
+  color-scheme: dark;
+}
+
+/* hall-paper: warm cream for Quiet Beat law column */
+[data-scene="hall-paper"] {
+  --canvas: var(--p-paper-000);  --canvas-deep: var(--p-paper-200);
+  --surface-1: #FBF8F2;  --surface-2: var(--p-paper-200);  --surface-3: var(--p-paper-400);
+  --ink-1: var(--p-paper-ink);  --ink-2: var(--p-paper-ink2);  --ink-3: #7A7568;
+  --rule: var(--p-rule-dark);  --rule-strong: var(--p-rule-dark-strong);
+  --signal: var(--p-emerald-700);  --signal-hover: var(--p-emerald-500);
+  --on-signal: #F2EEE6;
+  --metal: var(--p-brass-700);  --metal-hi: var(--p-brass-500);
+  --danger: var(--p-red-700);  --warn: var(--p-amber-700);
+  --focus: var(--p-emerald-700);
+  --selection: rgba(30, 122, 94, 0.22);
+  --plate: rgba(242, 238, 230, 0.92);  --scrim: rgba(230, 223, 210, 0.8);
+  --grain-opacity: 0.03;
+  color-scheme: light;
+}
+
+/* signal-ledger: deep noir with emerald data glow */
+[data-scene="signal-ledger"] {
+  --canvas: var(--p-noir-000);  --canvas-deep: #040606;
+  --surface-1: #101614;  --surface-2: #16211D;  --surface-3: #1D2B26;
+  --ink-1: var(--p-ink-000);  --ink-2: #9FB4AC;  --ink-3: #6E837B;
+  --rule: rgba(74, 219, 175, 0.1);  --rule-strong: rgba(74, 219, 175, 0.28);
+  --signal: var(--p-emerald-300);  --signal-hover: #7BEBC9;
+  --metal: var(--p-brass-500);
+  --plate: rgba(7, 9, 10, 0.88);  --grain-opacity: 0.04;
+  color-scheme: dark;
+}
+
+/* brass-close: finale, stamp approaches */
+[data-scene="brass-close"] {
+  --canvas: var(--p-noir-000);  --canvas-deep: #050403;
+  --surface-1: #171310;  --surface-2: #201A14;  --surface-3: #2A221A;
+  --ink-1: #F4EFE4;  --ink-2: #B3A38B;  --ink-3: #847659;
+  --rule: rgba(224, 190, 126, 0.12);  --rule-strong: rgba(224, 190, 126, 0.3);
+  --signal: var(--p-emerald-500);
+  --metal: var(--p-brass-300);  --metal-hi: #F0D49A;
+  --focus: var(--p-brass-300);
+  --selection: rgba(198, 158, 85, 0.3);
+  --plate: rgba(5, 4, 3, 0.88);  --grain-opacity: 0.05;
+  color-scheme: dark;
+}
+
+/* Theme transition: crossfade via GSAP-animated custom properties */
+[data-scene] {
+  background: var(--canvas);
+  color: var(--ink-1);
+  transition: background-color var(--t-slow) var(--e-inout),
+              color var(--t-slow) var(--e-inout);
+}
+[data-scene] ::selection { background: var(--selection); }
+
+/* ── Reduced Motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 1ms;  --t-med: 1ms;  --t-slow: 1ms;  --t-scene: 1ms;
+    --stagger-word: 0ms;  --stagger-char: 0ms;  --stagger-section: 0ms;
+  }
+}

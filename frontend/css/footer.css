@@ -1,0 +1,196 @@
+/* ==========================================================================
+   THE LEDGER — numbered index footer (A25)
+   Giant §01-§04 menu rows, exit sticker, operational status badge.
+   Source: Trevor Noah's numbered footer + Resend's giant watermark.
+   ========================================================================== */
+
+/* ---- footer shell ---- */
+.ledger-footer {
+  position: relative;
+  padding: var(--sp-9) 0 var(--sp-7);
+  border-top: var(--rule-1) solid var(--rule);
+  overflow: hidden;
+}
+
+/* ---- giant watermark behind footer ---- */
+.footer__watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--f-display);
+  font-size: clamp(6rem, 20vw, 18rem);
+  font-weight: 300;
+  font-stretch: condensed;
+  letter-spacing: -0.03em;
+  color: var(--ink-3);
+  opacity: 0.04;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---- numbered index rows ---- */
+.footer__index {
+  position: relative;
+  z-index: 1;
+  max-width: var(--w-container);
+  margin: 0 auto;
+  padding: 0 var(--sp-5);
+  list-style: none;
+}
+
+.footer__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-4);
+  padding: var(--sp-5) 0;
+  border-bottom: var(--rule-1) solid var(--rule);
+  cursor: pointer;
+  transition: color var(--t-fast) var(--e-out);
+}
+
+.footer__row:hover {
+  color: var(--ink-1);
+}
+
+.footer__row:hover .footer__num {
+  color: var(--metal);
+}
+
+.footer__row:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: var(--r-2);
+}
+
+/* Statute number */
+.footer__num {
+  font-family: var(--f-mono);
+  font-size: var(--fs-700);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-3);
+  min-width: 3ch;
+  flex-shrink: 0;
+  transition: color var(--t-fast) var(--e-out);
+}
+
+/* Row label */
+.footer__label {
+  font-family: var(--f-display);
+  font-size: var(--fs-700);
+  font-weight: 300;
+  font-stretch: condensed;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+}
+
+/* Row description (visible on hover) */
+.footer__desc {
+  margin-left: auto;
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+  opacity: 0;
+  transform: translateX(8px);
+  transition:
+    opacity var(--t-fast) var(--e-out),
+    transform var(--t-fast) var(--e-out);
+}
+
+.footer__row:hover .footer__desc {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---- exit sticker ---- */
+.footer__exit {
+  position: relative;
+  z-index: 1;
+  max-width: var(--w-container);
+  margin: var(--sp-8) auto var(--sp-6);
+  padding: 0 var(--sp-5);
+  text-align: center;
+}
+
+.footer__exit-line {
+  font-family: var(--f-serif);
+  font-size: var(--fs-500);
+  font-style: italic;
+  color: var(--ink-3);
+  line-height: var(--lh-snug);
+}
+
+/* ---- bottom bar: status + coords ---- */
+.footer__bottom {
+  position: relative;
+  z-index: 1;
+  max-width: var(--w-container);
+  margin: 0 auto;
+  padding: var(--sp-5) var(--sp-5) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  border-top: var(--rule-1) solid var(--rule);
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: var(--track-caps);
+}
+
+/* Operational status badge */
+.footer__status {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.footer__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+}
+
+.footer__status-dot[data-status="error"] {
+  background: var(--danger);
+}
+
+.footer__coords {
+  color: var(--ink-3);
+  opacity: 0.7;
+}
+
+/* ---- mobile footer ---- */
+@media (max-width: 768px) {
+  .ledger-footer {
+    padding: var(--sp-7) 0 calc(var(--sp-9) + 60px); /* Account for bottom nav */
+  }
+
+  .footer__row {
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+
+  .footer__num {
+    font-size: var(--fs-600);
+  }
+
+  .footer__label {
+    font-size: var(--fs-600);
+  }
+
+  .footer__desc {
+    display: none;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-3);
+  }
+}

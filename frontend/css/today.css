@@ -1,0 +1,687 @@
+/* ==========================================================================
+   THE LEDGER — Today View · The Cinematic Scroll Route
+   9-chapter narrative: Cold Open → Premise → Next Action → Ticker →
+   Statute Path → Proof → Quiet Beat → Burst → Finale
+   Each section has a unique silhouette. No two look alike.
+   ========================================================================== */
+
+/* ── Cold Open · The Number (A01, A02) ──────────────────────── */
+.cold-open {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--sp-9) 0;
+  overflow: hidden;
+}
+
+.cold-open__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+}
+
+/* Split-flap readiness counter */
+.splitflap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-6);
+}
+
+.splitflap__digit {
+  position: relative;
+  width: clamp(60px, 10vw, 120px);
+  height: clamp(80px, 14vw, 160px);
+  background: var(--surface-1);
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitflap__digit::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--rule-strong);
+  z-index: 3;
+}
+
+.splitflap__char {
+  font-family: var(--f-mono);
+  font-size: clamp(2.4rem, 8vw, 6rem);
+  font-weight: 400;
+  color: var(--ink-1);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.splitflap__unit {
+  font-family: var(--f-mono);
+  font-size: var(--fs-700);
+  color: var(--metal);
+  font-weight: 300;
+  margin-left: var(--sp-2);
+  align-self: flex-end;
+  padding-bottom: clamp(12px, 2vw, 28px);
+}
+
+/* Readiness meta line below counter */
+.cold-open__meta {
+  font-family: var(--f-mono);
+  font-size: var(--fs-100);
+  color: var(--ink-3);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-7);
+}
+
+.cold-open__meta span { color: var(--metal); }
+
+/* Seal canvas container */
+.cold-open__seal {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(200px, 30vw, 420px);
+  height: clamp(200px, 30vw, 420px);
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.cold-open__seal canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Scroll hint */
+.cold-open__scroll-hint {
+  position: absolute;
+  bottom: var(--sp-6);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--ink-3);
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  animation: pulse-hint 2s ease-in-out infinite;
+}
+
+.cold-open__scroll-hint svg {
+  width: 16px; height: 16px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.5;
+}
+
+@keyframes pulse-hint {
+  0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.7; transform: translateX(-50%) translateY(4px); }
+}
+
+/* ── Premise · The Sentence (A03) ───────────────────────────── */
+.premise {
+  padding: var(--sp-10) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.premise__text {
+  max-width: var(--w-read);
+  margin-inline: auto;
+  padding-inline: var(--sp-5);
+}
+
+.premise__line {
+  font-family: var(--f-display);
+  font-size: var(--fs-800);
+  font-weight: 300;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--track-display);
+}
+
+/* Luminance dimming: second line fades to ink-2 */
+.premise__line--dim {
+  color: var(--ink-2);
+}
+
+/* SplitText words start invisible, GSAP reveals them */
+.premise__line .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ── Next Action Card (A06) ─────────────────────────────────── */
+.next-action {
+  padding: var(--sp-8) 0;
+}
+
+.next-action__card {
+  position: relative;
+  max-width: 640px;
+  margin-inline: auto;
+  padding: var(--sp-6) var(--sp-7);
+  background: var(--surface-1);
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-3);
+  border-left: var(--rule-3) solid var(--metal);
+  overflow: hidden;
+}
+
+.next-action__card[data-priority="critical"] { border-left-color: var(--danger); }
+.next-action__card[data-priority="high"]     { border-left-color: var(--warn); }
+.next-action__card[data-priority="medium"]   { border-left-color: var(--metal); }
+.next-action__card[data-priority="low"]      { border-left-color: var(--signal); }
+
+.next-action__eyebrow {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-3);
+}
+
+.next-action__title {
+  font-family: var(--f-display);
+  font-size: var(--fs-600);
+  font-weight: 400;
+  line-height: var(--lh-snug);
+  margin-bottom: var(--sp-3);
+}
+
+.next-action__reason {
+  font-size: var(--fs-200);
+  color: var(--ink-2);
+  margin-bottom: var(--sp-5);
+}
+
+.next-action__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-5);
+  background: var(--metal);
+  color: var(--on-metal);
+  font-family: var(--f-mono);
+  font-size: var(--fs-100);
+  font-weight: 500;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  border-radius: var(--r-pill);
+  transition: background var(--t-fast) var(--e-out), transform var(--t-fast) var(--e-out);
+}
+
+.next-action__cta:hover {
+  background: var(--metal-hi);
+  transform: translateY(-1px);
+}
+
+/* ── Constellation (A07) ────────────────────────────────────── */
+.constellation {
+  padding: var(--sp-7) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.constellation__svg {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  aspect-ratio: 16 / 10;
+}
+
+/* ── Ticker Tape (A08) ──────────────────────────────────────── */
+.ticker {
+  position: relative;
+  padding: var(--sp-4) 0;
+  border-top: var(--rule-1) solid var(--rule);
+  border-bottom: var(--rule-1) solid var(--rule);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker__track {
+  display: flex;
+  gap: var(--sp-7);
+  animation: ticker-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.ticker__track[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+.ticker__item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.ticker__label {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+
+.ticker__value {
+  font-family: var(--f-mono);
+  font-size: var(--fs-200);
+  color: var(--ink-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.ticker__dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--ink-3);
+  flex-shrink: 0;
+}
+
+.ticker__pause {
+  position: absolute;
+  right: var(--sp-4);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  padding: var(--sp-1) var(--sp-2);
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-2);
+  background: var(--plate);
+  backdrop-filter: blur(8px);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── Statute Path Scrollytelling (A09) ──────────────────────── */
+.statute-path {
+  position: relative;
+  min-height: 300vh; /* ScrollTrigger scrub range */
+}
+
+.statute-path__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-7);
+  align-items: center;
+  padding-inline: var(--sp-7);
+  max-width: var(--w-container);
+  margin-inline: auto;
+}
+
+/* Progress ring (left side) */
+.statute-path__ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statute-path__ring svg {
+  width: clamp(180px, 25vw, 320px);
+  height: clamp(180px, 25vw, 320px);
+}
+
+.statute-path__ring-track {
+  fill: none;
+  stroke: var(--surface-2);
+  stroke-width: 3;
+}
+
+.statute-path__ring-fill {
+  fill: none;
+  stroke: var(--metal);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 0.1s linear;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.statute-path__ring-num {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  fill: var(--ink-3);
+  text-anchor: middle;
+  dominant-baseline: central;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Text panels (right side) — only one visible at a time */
+.statute-path__panels {
+  position: relative;
+  min-height: 300px;
+}
+
+.statute-path__panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity var(--t-med) var(--e-out), transform var(--t-med) var(--e-out);
+}
+
+.statute-path__panel.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.statute-path__statute-num {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--metal);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-3);
+}
+
+.statute-path__title {
+  font-family: var(--f-display);
+  font-size: var(--fs-700);
+  font-weight: 300;
+  line-height: var(--lh-snug);
+  margin-bottom: var(--sp-4);
+}
+
+.statute-path__desc {
+  font-size: var(--fs-300);
+  color: var(--ink-2);
+  line-height: var(--lh-body);
+  max-width: var(--w-narrow);
+}
+
+/* ── Proof Section (A10-A12) ────────────────────────────────── */
+.proof {
+  padding: var(--sp-9) 0;
+}
+
+.proof__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6);
+  max-width: var(--w-container);
+  margin-inline: auto;
+  padding-inline: var(--sp-5);
+}
+
+.proof__chart {
+  background: var(--surface-1);
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-3);
+  padding: var(--sp-5);
+  min-height: 280px;
+}
+
+.proof__chart-title {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-4);
+}
+
+.proof__chart svg { width: 100%; height: auto; }
+
+.proof__timeline {
+  grid-column: 1 / -1;
+  background: var(--surface-1);
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-3);
+  padding: var(--sp-5);
+  min-height: 120px;
+}
+
+/* ── Quiet Beat · Law Column (A13, A14) ─────────────────────── */
+.quiet-beat {
+  padding: var(--sp-10) 0;
+  transition: background-color var(--t-scene) var(--e-inout),
+              color var(--t-scene) var(--e-inout);
+}
+
+.quiet-beat__content {
+  max-width: var(--w-read);
+  margin-inline: auto;
+  padding-inline: var(--sp-5);
+}
+
+.quiet-beat__eyebrow {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-5);
+}
+
+/* Drop cap for law text */
+.quiet-beat__text {
+  font-family: var(--f-serif);
+  font-size: var(--fs-500);
+  line-height: var(--lh-body);
+  color: var(--ink-1);
+}
+
+.quiet-beat__text::first-letter {
+  float: left;
+  font-size: 3.5em;
+  line-height: 0.8;
+  padding-right: var(--sp-3);
+  color: var(--metal);
+  font-weight: 400;
+}
+
+/* Ghost→solid scrub effect */
+.quiet-beat__text .ghost-word {
+  opacity: 0.12;
+  transition: opacity 0.05s linear;
+}
+
+.quiet-beat__text .ghost-word.is-lit {
+  opacity: 1;
+}
+
+.quiet-beat__actions {
+  display: flex;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+.quiet-beat__btn {
+  padding: var(--sp-2) var(--sp-5);
+  border: var(--rule-1) solid var(--rule-strong);
+  border-radius: var(--r-pill);
+  font-family: var(--f-mono);
+  font-size: var(--fs-100);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-2);
+  transition: all var(--t-fast) var(--e-out);
+}
+
+.quiet-beat__btn:hover {
+  color: var(--ink-1);
+  border-color: var(--metal);
+}
+
+.quiet-beat__btn--primary {
+  background: var(--metal);
+  color: var(--on-metal);
+  border-color: var(--metal);
+}
+
+.quiet-beat__btn--primary:hover {
+  background: var(--metal-hi);
+}
+
+/* ── Burst · Particle Band (A15) ────────────────────────────── */
+.burst {
+  position: relative;
+  padding: var(--sp-9) 0;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.burst__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.burst__overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.burst__count {
+  font-family: var(--f-mono);
+  font-size: var(--fs-900);
+  font-weight: 300;
+  color: var(--ink-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.burst__label {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  margin-top: var(--sp-3);
+}
+
+/* ── Finale · Stamp (A16) ───────────────────────────────────── */
+.finale {
+  padding: var(--sp-10) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.finale__seal-return {
+  width: clamp(160px, 22vw, 300px);
+  height: clamp(160px, 22vw, 300px);
+  margin-bottom: var(--sp-7);
+}
+
+.finale__seal-return canvas { width: 100%; height: 100%; }
+
+.finale__text {
+  font-family: var(--f-serif);
+  font-size: var(--fs-600);
+  font-style: italic;
+  color: var(--ink-2);
+  margin-bottom: var(--sp-6);
+  max-width: var(--w-narrow);
+}
+
+.finale__stamp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-7);
+  background: var(--metal);
+  color: var(--on-metal);
+  font-family: var(--f-mono);
+  font-size: var(--fs-200);
+  font-weight: 500;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  border-radius: var(--r-pill);
+  border: 2px solid transparent;
+  transition: all var(--t-med) var(--e-instrument);
+}
+
+.finale__stamp-btn:hover {
+  background: var(--metal-hi);
+  transform: scale(1.02);
+}
+
+.finale__stamp-btn:active {
+  transform: scale(0.98);
+}
+
+.finale__stamp-btn svg {
+  width: 20px; height: 20px;
+  fill: currentColor;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cold-open {
+    flex-direction: column;
+    padding-top: calc(var(--sp-9) + 60px);
+  }
+
+  .cold-open__seal {
+    position: relative;
+    right: auto; top: auto;
+    transform: none;
+    width: 180px; height: 180px;
+    margin-top: var(--sp-6);
+  }
+
+  .statute-path__pin {
+    grid-template-columns: 1fr;
+    padding-inline: var(--sp-4);
+  }
+
+  .statute-path__ring {
+    display: none; /* Show as top progress bar on mobile instead */
+  }
+
+  .proof__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiet-beat__actions {
+    flex-direction: column;
+  }
+}
