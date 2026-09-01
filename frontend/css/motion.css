@@ -16,26 +16,6 @@
               transform var(--t-med) var(--e-out);
 }
 
-/* Staggered children */
-.reveal-stagger > * {
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-.reveal-stagger.is-visible > * {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity var(--t-med) var(--e-out),
-              transform var(--t-med) var(--e-out);
-}
-
-.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
-.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 60ms; }
-.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 120ms; }
-.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 180ms; }
-.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 240ms; }
-.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 300ms; }
-
 /* ── Wipe transition (exam entry) ───────────────────────────── */
 .wipe-enter {
   clip-path: inset(0 0 100% 0);
@@ -46,13 +26,14 @@
   clip-path: inset(0 0 0 0);
 }
 
-/* ── Seal rotation ──────────────────────────────────────────── */
-@keyframes seal-ambient {
-  from { transform: rotateY(0deg); }
-  to   { transform: rotateY(360deg); }
+/* ── No-JS fallback — content visible without scripts (B7) ── */
+html.no-js .reveal,
+html.no-js .reveal-stagger > * {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
-/* ── Reduced motion ─────────────────────────────────────────── */
+/* ── Reduced motion — authored end states ── */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-stagger > * {
@@ -67,6 +48,9 @@
   .cold-open__scroll-hint { animation: none !important; opacity: 0.5; }
   .loading-state__ring { animation: none !important; }
   .exam-bar__timer[data-warning] { animation: none !important; }
+  .ledger-thread,
+  .scroll-progress,
+  .cold-open::before { animation: none !important; }
 
-  /* All GSAP-driven animations should check LedgerMedia.isReduced */
+  /* All GSAP-driven animation checks LedgerMotion.isReduced */
 }
