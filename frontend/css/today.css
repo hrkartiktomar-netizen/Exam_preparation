@@ -685,3 +685,6 @@
     flex-direction: column;
   }
 }
+
+/* N-cell split-flap digits (B3, M2) */
+.splitflap__digits { display: flex; }

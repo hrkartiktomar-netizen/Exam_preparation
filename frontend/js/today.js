@@ -20,30 +20,37 @@
     return e;
   }
 
-  /* ────── A01: Split-Flap Counter ────── */
+  /* ────── A01: Split-Flap Counter · N cells + railway roll (B3, M2) ────── */
   function animateCounter(container, targetValue) {
-    var digits = container.querySelectorAll(".splitflap__char");
-    var target = String(Math.round(targetValue)).padStart(digits.length, "0");
+    var digitsWrap = container.querySelector(".splitflap__digits");
+    if (!digitsWrap) return;
 
-    if (typeof gsap === "undefined" || (window.LedgerMedia && window.LedgerMedia.isReduced)) {
+    var pct = Math.max(0, Math.min(100, Math.round(targetValue)));
+    var target = String(pct);
+
+    digitsWrap.innerHTML = target.split("").map(function () {
+      return '<div class="splitflap__digit"><span class="splitflap__char">0</span></div>';
+    }).join("");
+
+    var digits = Array.prototype.slice.call(digitsWrap.querySelectorAll(".splitflap__char"));
+
+    if (typeof gsap === "undefined" || (window.LedgerMotion && window.LedgerMotion.isReduced)) {
       digits.forEach(function (d, i) { d.textContent = target[i]; });
       return;
     }
 
+    // Each flap cycles intermediate digits before settling (railway board)
     digits.forEach(function (d, i) {
       var finalVal = parseInt(target[i], 10);
-      var obj = { val: 0 };
+      var rolls = 8 + i * 4 + finalVal;
+      var obj = { step: 0 };
       gsap.to(obj, {
-        val: finalVal,
-        duration: 1.2 + (i * 0.15),
-        delay: 0.3 + (i * 0.1),
+        step: rolls,
+        duration: 1.1 + i * 0.18,
+        delay: 0.25 + i * 0.08,
         ease: "power2.out",
-        onUpdate: function () {
-          d.textContent = Math.round(obj.val);
-        },
-        onComplete: function () {
-          d.textContent = finalVal;
-        }
+        onUpdate: function () { d.textContent = Math.floor(obj.step) % 10; },
+        onComplete: function () { d.textContent = finalVal; },
       });
     });
   }
@@ -81,10 +88,10 @@
     var card = qs(".next-action__card");
     if (!card || !data) return;
 
-    var priority = "medium";
-    if (data.priority_score >= 9) priority = "critical";
-    else if (data.priority_score >= 7) priority = "high";
-    else if (data.priority_score <= 4) priority = "low";
+    var priority = "low";                                  // ≤5 · emerald
+    if (data.priority_score >= 10) priority = "critical";  // 10 · red
+    else if (data.priority_score >= 8) priority = "high";  // 8-9 · amber
+    else if (data.priority_score >= 6) priority = "medium"; // 6-7 · brass
 
     card.dataset.priority = priority;
     var eyebrow = qs(".next-action__eyebrow", card);
@@ -407,6 +414,7 @@
     if (!canvas) return;
     var ctx = canvas.getContext("2d");
     if (!ctx) return;
+    canvas.dataset.sized = "true";
 
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var rect = canvas.parentElement.getBoundingClientRect();
@@ -492,12 +500,12 @@
       }
       var counterContainer = qs(".splitflap");
       if (counterContainer) animateCounter(counterContainer, readinessPercent);
+      document.dispatchEvent(new CustomEvent("ledger:readiness", { detail: { percent: readinessPercent } }));
 
-      // Meta line
-      var metaEl = qs(".cold-open__meta");
-      if (metaEl && readinessData) {
-        metaEl.innerHTML = "PERCENT · MEASURED NIGHTLY · CONFIDENCE <span>" +
-          (readinessData.confidence || "—").toUpperCase() + "</span>";
+      // Meta line (verb-pill markup preserved — only the value updates)
+      var confEl = qs("#confidence-val");
+      if (confEl && readinessData) {
+        confEl.textContent = (readinessData.confidence || "—").toUpperCase();
       }
 
       // A06: Next Action
@@ -564,17 +572,22 @@
     }
   }
 
-  // Route-aware init
-  if (window.LedgerRouter) {
-    window.LedgerRouter.onRoute(function (route) {
-      if (route === "today" && !initialized) init();
-    });
+  function remeasureBurst() {
+    var canvas = qs(".burst__canvas canvas");
+    if (!canvas || !canvas.parentElement) return;
+    var rect = canvas.parentElement.getBoundingClientRect();
+    if (rect.width > 0 && canvas.dataset.sized !== "true") {
+      // Was sized 0×0 against a display:none view — force re-render next data pass
+      canvas.dataset.sized = "";
+    }
   }
 
-  // Also init if already on today
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () { setTimeout(init, 50); });
-  } else {
-    setTimeout(init, 50);
+  // Route-aware init: replay guarantees first-paint coverage (B1/B2)
+  if (window.LedgerRouter) {
+    window.LedgerRouter.onRoute(function (route) {
+      if (route !== "today") return;
+      if (!initialized) init();
+      else remeasureBurst();
+    });
   }
 })();
