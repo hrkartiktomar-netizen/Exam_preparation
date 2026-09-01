@@ -566,10 +566,17 @@
       if (counterContainer) animateCounter(counterContainer, readinessPercent);
       document.dispatchEvent(new CustomEvent("ledger:readiness", { detail: { percent: readinessPercent } }));
 
-      // Meta line (verb-pill markup preserved — only the value updates)
+      // Meta line — render nothing for missing fields
       var confEl = qs("#confidence-val");
-      if (confEl && readinessData) {
-        confEl.textContent = (readinessData.confidence || "—").toUpperCase();
+      if (confEl && readinessData && readinessData.confidence != null) {
+        confEl.textContent = String(readinessData.confidence).toUpperCase();
+      }
+      var projEl = qs("#cold-open-projected");
+      if (projEl && readinessData && readinessData.final_score_estimate != null) {
+        projEl.textContent = " · PROJECTED " + Math.round(readinessData.final_score_estimate) + "/130";
+        if (readinessData.days_to_exam != null) {
+          projEl.textContent += " · " + readinessData.days_to_exam + " DAYS TO THE HALL";
+        }
       }
 
       // A06: Next Action

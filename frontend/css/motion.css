@@ -51,9 +51,13 @@ html.no-js .reveal-stagger > * {
   .ledger-thread,
   .scroll-progress,
   .cold-open::before { animation: none !important; }
+  .verb-pill > span { animation: none !important; }
 
   /* All GSAP-driven animation checks LedgerMotion.isReduced */
 }
+
+/* Quality-tier kill — reduced tier can be user-selected without the OS media query */
+body[data-quality="reduced"] .verb-pill > span { animation: none !important; }
 
 /* ── M7 · Scroll progress hairline — journey.js drives scaleY ── */
 .scroll-progress {

@@ -688,3 +688,57 @@
 
 /* N-cell split-flap digits (B3, M2) */
 .splitflap__digits { display: flex; }
+
+/* Cold-open sub-line: verb pill + projection readout */
+.cold-open__sub {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  font-family: var(--f-mono);
+  font-size: var(--fs-100);
+  letter-spacing: var(--track-caps);
+  color: var(--ink-3);
+}
+.cold-open__meta-rest { white-space: nowrap; }
+
+/* M3 · Verb pill rotator — pure CSS, three ledger verbs */
+.verb-pill {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1em;
+  overflow: hidden;
+  color: var(--metal);
+}
+.verb-pill > span {
+  display: block;
+  height: 1em;
+  line-height: 1;
+  animation: verb-rotator 6s var(--e-inout) infinite;
+}
+@keyframes verb-rotator {
+  0%, 28%   { transform: translateY(0); }
+  33%, 61%  { transform: translateY(-1em); }
+  66%, 94%  { transform: translateY(-2em); }
+  100%      { transform: translateY(-3em); }
+}
+
+/* M4 · Ambient emerald field behind the cold open (full tier only) */
+body[data-quality="full"] .cold-open { position: relative; }
+body[data-quality="full"] .cold-open::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(600px 420px at var(--light-x) var(--light-y), rgba(55, 192, 146, 0.07), transparent 70%),
+    radial-gradient(500px 380px at 70% 65%, rgba(199, 158, 79, 0.05), transparent 70%);
+  animation: cold-field-drift 26s var(--e-inout) infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes cold-field-drift {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); }
+  to   { transform: translate3d(2%, 1.5%, 0) scale(1.04); }
+}
+body[data-quality="full"] .cold-open__content,
+body[data-quality="full"] .cold-open__seal,
+body[data-quality="full"] .cold-open__scroll-hint { position: relative; z-index: 1; }
