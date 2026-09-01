@@ -334,14 +334,15 @@
   <!-- No-JS fallback -->
   <noscript><p style="padding:2rem;font-family:monospace">The Ledger requires JavaScript to read the engine.</p></noscript>
 
-  <!-- Vendor: GSAP + Lenis + Three.js (defer preserves execution order) -->
-  <script src="/vendor/gsap.min.js" defer></script>
-  <script src="/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="/vendor/SplitText.min.js" defer></script>
-  <script src="/vendor/Flip.min.js" defer></script>
-  <script src="/vendor/Observer.min.js" defer></script>
-  <script src="/vendor/lenis.min.js" defer></script>
-  <script src="/vendor/three.min.js" defer></script>
+  <!-- Vendor: GSAP + Lenis + Three.js (defer preserves execution order).
+       Served via the /app static mount — the backend has no /vendor route. -->
+  <script src="/app/vendor/gsap.min.js" defer></script>
+  <script src="/app/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/app/vendor/SplitText.min.js" defer></script>
+  <script src="/app/vendor/Flip.min.js" defer></script>
+  <script src="/app/vendor/Observer.min.js" defer></script>
+  <script src="/app/vendor/lenis.min.js" defer></script>
+  <script src="/app/vendor/three.min.js" defer></script>
 
   <!-- Bridge + Nav -->
   <script src="/js/smooth.js" defer></script>
