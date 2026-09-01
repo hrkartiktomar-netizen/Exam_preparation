@@ -1,16 +1,27 @@
 /* THE LEDGER — Three.js Brass Seal · Readiness Gauge (A04)
    PBR brass material. 24-tick ring. Ring arc = readiness %.
-   Camera: scroll orbit in hero, fixed in nav, return orbit in finale.
-   Fallback: SVG poster when WebGL unavailable or quality=reduced. */
+   Docs-faithful lifecycle: lazy three.js load, arc geometry rebuilt only on
+   ≥0.5 pt change (dispose-before-assign), rAF gated by IntersectionObserver
+   + route, webglcontextlost/restored handled, full traverse-dispose destroy.
+   Reduced quality / no WebGL → SVG poster (static beauty frame). */
 (function () {
   "use strict";
 
   var scene, camera, renderer, sealGroup, ringMesh;
+  var containerEl = null;
   var isWebGL = false;
   var readinessPercent = 0;
   var targetPercent = 0;
+  var lastBuiltPercent = -1;
   var animFrame = null;
+  var running = false;
+  var inViewport = true;
+  var routeActive = true;
+  var contextLost = false;
   var mouseX = 0, mouseY = 0;
+  var io = null;
+
+  function qs(sel) { return document.querySelector(sel); }
 
   function hasWebGL() {
     try {
@@ -19,37 +30,78 @@
     } catch (e) { return false; }
   }
 
+  /* ────── Lazy three.js (G7) — promise-guarded single load ────── */
+  var threePromise = null;
+  function loadThree() {
+    if (window.THREE) return Promise.resolve(window.THREE);
+    if (!threePromise) {
+      threePromise = new Promise(function (resolve, reject) {
+        var s = document.createElement("script");
+        s.src = "/app/vendor/three.min.js?v=r160-umd";
+        // UMD build prints an r150+ deprecation warning on execution — mute it
+        var prevWarn = console.warn;
+        console.warn = function (msg) {
+          if (typeof msg === "string" && msg.indexOf("three.min.js") !== -1) return;
+          prevWarn.apply(console, arguments);
+        };
+        s.onload = function () { console.warn = prevWarn; resolve(window.THREE); };
+        s.onerror = function () { console.warn = prevWarn; threePromise = null; reject(new Error("three.js failed to load")); };
+        document.head.appendChild(s);
+      });
+    }
+    return threePromise;
+  }
+
+  function quality() {
+    return window.LedgerMotion ? window.LedgerMotion.quality : (document.body.dataset.quality || "full");
+  }
+
+  function isReduced() {
+    return window.LedgerMotion ? window.LedgerMotion.isReduced : quality() === "reduced";
+  }
+
+  /* ────── Init ────── */
   function init(container, percent) {
+    containerEl = container;
     readinessPercent = 0;
     targetPercent = percent || 0;
+    lastBuiltPercent = -1;
 
-    if (!hasWebGL() || (window.LedgerMedia && window.LedgerMedia.isReduced)) {
-      renderSVGFallback(container, percent);
+    subscribeRoute();
+
+    if (isReduced() || !hasWebGL()) {
+      renderSVGFallback(container, targetPercent);
       return;
     }
 
-    if (typeof THREE === "undefined") {
-      // Three.js not loaded — use SVG fallback
-      renderSVGFallback(container, percent);
-      return;
-    }
+    // SVG poster holds the frame until three.js arrives (G7 race guard)
+    renderSVGFallback(container, targetPercent);
+
+    loadThree().then(function () {
+      if (!containerEl || isReduced()) return;
+      buildWebGL(containerEl);
+    }).catch(function () {
+      // poster already showing — nothing to do
+    });
+  }
+
+  function buildWebGL(container) {
+    if (typeof THREE === "undefined") return;
+
+    // Remove poster before mounting canvas
+    container.innerHTML = "";
 
     isWebGL = true;
-    var quality = (window.LedgerMedia && window.LedgerMedia.quality) || "full";
-    var dpr = quality === "full" ? Math.min(window.devicePixelRatio, 2) : 1.25;
+    var q = quality();
+    var dpr = q === "full" ? Math.min(window.devicePixelRatio || 1, 2) : 1.25;
 
     var w = container.clientWidth || 300;
     var h = container.clientHeight || 300;
 
-    // Scene
     scene = new THREE.Scene();
-    scene.background = null; // Transparent
-
-    // Camera
     camera = new THREE.PerspectiveCamera(35, w / h, 0.1, 100);
     camera.position.set(0, 0, 4.5);
 
-    // Renderer
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(w, h);
     renderer.setPixelRatio(dpr);
@@ -57,7 +109,18 @@
     renderer.toneMappingExposure = 1.1;
     container.appendChild(renderer.domElement);
 
-    // Lighting — warm key + cool fill + emerald rim
+    // Context loss (docs: preventDefault, pause; restore → rebuild)
+    renderer.domElement.addEventListener("webglcontextlost", function (e) {
+      e.preventDefault();
+      contextLost = true;
+      stopLoop();
+    });
+    renderer.domElement.addEventListener("webglcontextrestored", function () {
+      contextLost = false;
+      lastBuiltPercent = -1; // force arc rebuild
+      startLoop();
+    });
+
     var keyLight = new THREE.DirectionalLight(0xE3C07C, 1.2);
     keyLight.position.set(2, 3, 4);
     scene.add(keyLight);
@@ -70,96 +133,116 @@
     rimLight.position.set(0, -2, 3);
     scene.add(rimLight);
 
-    var ambient = new THREE.AmbientLight(0x2A2520, 0.3);
-    scene.add(ambient);
+    scene.add(new THREE.AmbientLight(0x2A2520, 0.3));
 
-    // Seal group
     sealGroup = new THREE.Group();
 
-    // Outer ring (24 ticks + progress arc)
-    var brassColor = 0xC79E4F;
-    var brassMat = new THREE.MeshStandardMaterial({
-      color: brassColor,
-      metalness: 0.85,
-      roughness: 0.25,
-    });
+    var brassMat = new THREE.MeshStandardMaterial({ color: 0xC79E4F, metalness: 0.85, roughness: 0.25 });
 
-    // Outer ring torus
-    var outerRing = new THREE.Mesh(
-      new THREE.TorusGeometry(1.4, 0.04, 16, 64),
-      brassMat
-    );
-    sealGroup.add(outerRing);
+    sealGroup.add(new THREE.Mesh(new THREE.TorusGeometry(1.4, 0.04, 16, 64), brassMat));
 
-    // Inner ring (progress — drawn as torus arc)
-    var innerRingGeo = new THREE.TorusGeometry(1.2, 0.06, 16, 64, Math.PI * 2);
     var progressMat = new THREE.MeshStandardMaterial({
-      color: 0x37C092,
-      metalness: 0.7,
-      roughness: 0.3,
-      emissive: 0x37C092,
-      emissiveIntensity: 0.15,
+      color: 0x37C092, metalness: 0.7, roughness: 0.3,
+      emissive: 0x37C092, emissiveIntensity: 0.15,
     });
-    ringMesh = new THREE.Mesh(innerRingGeo, progressMat);
-    ringMesh.rotation.z = -Math.PI / 2; // Start from top
+    ringMesh = new THREE.Mesh(new THREE.TorusGeometry(1.2, 0.06, 16, 64, 0.001), progressMat);
+    ringMesh.rotation.z = -Math.PI / 2;
     sealGroup.add(ringMesh);
 
-    // 24 tick marks
     for (var i = 0; i < 24; i++) {
       var angle = (i / 24) * Math.PI * 2;
-      var tickGeo = new THREE.BoxGeometry(0.015, 0.08, 0.01);
-      var tick = new THREE.Mesh(tickGeo, brassMat);
+      var tick = new THREE.Mesh(new THREE.BoxGeometry(0.015, 0.08, 0.01), brassMat);
       tick.position.x = Math.cos(angle) * 1.4;
       tick.position.y = Math.sin(angle) * 1.4;
       tick.rotation.z = angle + Math.PI / 2;
       sealGroup.add(tick);
     }
 
-    // Center disc
-    var discGeo = new THREE.CircleGeometry(0.5, 32);
-    var discMat = new THREE.MeshStandardMaterial({
-      color: brassColor,
-      metalness: 0.9,
-      roughness: 0.2,
-      side: THREE.DoubleSide,
-    });
-    var disc = new THREE.Mesh(discGeo, discMat);
+    var disc = new THREE.Mesh(
+      new THREE.CircleGeometry(0.5, 32),
+      new THREE.MeshStandardMaterial({ color: 0xC79E4F, metalness: 0.9, roughness: 0.2, side: THREE.DoubleSide })
+    );
     sealGroup.add(disc);
 
     scene.add(sealGroup);
 
-    // Pointer tracking
-    container.addEventListener("mousemove", function (e) {
-      var rect = container.getBoundingClientRect();
-      mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-      mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-    }, { passive: true });
+    container.addEventListener("mousemove", onMouseMove, { passive: true });
 
+    observeViewport(container);
+    startLoop();
+  }
+
+  function onMouseMove(e) {
+    if (!containerEl) return;
+    var rect = containerEl.getBoundingClientRect();
+    mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+  }
+
+  /* ────── Loop gating (G8): viewport + route + context ────── */
+  function shouldRun() {
+    return isWebGL && running === false && inViewport && routeActive && !contextLost && !isReduced();
+  }
+
+  function startLoop() {
+    if (!shouldRun() || animFrame !== null) return;
+    running = true;
     animate();
   }
 
+  function stopLoop() {
+    running = false;
+    if (animFrame) { cancelAnimationFrame(animFrame); animFrame = null; }
+  }
+
+  function observeViewport(container) {
+    if (typeof IntersectionObserver === "undefined") return;
+    if (io) io.disconnect();
+    io = new IntersectionObserver(function (entries) {
+      inViewport = entries[0].isIntersecting;
+      if (inViewport) startLoop(); else stopLoop();
+    }, { threshold: 0.05 });
+    io.observe(container);
+  }
+
+  function subscribeRoute() {
+    if (subscribeRoute.done) return;
+    subscribeRoute.done = true;
+    document.addEventListener("ledger:routechange", function (e) {
+      routeActive = e.detail.route === "today";
+      if (routeActive) startLoop(); else stopLoop();
+    });
+    document.addEventListener("ledger:qualitychange", function () {
+      // Tier change → rebuild with the appropriate renderer
+      if (!containerEl) return;
+      var pct = targetPercent;
+      destroy();
+      init(containerEl, pct);
+    });
+  }
+
+  /* ────── Frame ────── */
   function animate() {
+    if (!running) return;
     animFrame = requestAnimationFrame(animate);
 
-    // Lerp readiness toward target
     readinessPercent += (targetPercent - readinessPercent) * 0.02;
 
-    // Update ring arc
-    if (ringMesh) {
-      var progress = Math.max(0, Math.min(1, readinessPercent / 100));
+    // Rebuild arc geometry only when displayed percent moves ≥0.5 pts (C3)
+    if (ringMesh && Math.abs(readinessPercent - lastBuiltPercent) >= 0.5) {
+      lastBuiltPercent = readinessPercent;
+      var progress = Math.max(0.001, Math.min(1, readinessPercent / 100));
+      var next = new THREE.TorusGeometry(1.2, 0.06, 16, 64, Math.PI * 2 * progress);
       ringMesh.geometry.dispose();
-      ringMesh.geometry = new THREE.TorusGeometry(1.2, 0.06, 16, 64, Math.PI * 2 * progress);
+      ringMesh.geometry = next;
     }
 
-    // Pointer-responsive rotation
     if (sealGroup) {
       sealGroup.rotation.y += (mouseX * 0.3 - sealGroup.rotation.y) * 0.05;
       sealGroup.rotation.x += (-mouseY * 0.15 - sealGroup.rotation.x) * 0.05;
     }
 
-    if (renderer && scene && camera) {
-      renderer.render(scene, camera);
-    }
+    if (renderer && scene && camera) renderer.render(scene, camera);
   }
 
   function updateReadiness(percent) {
@@ -170,17 +253,16 @@
     if (!renderer || !camera) return;
     var w = container.clientWidth;
     var h = container.clientHeight;
+    if (!w || !h) return;
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
   }
 
   function destroy() {
-    if (animFrame) cancelAnimationFrame(animFrame);
-    if (renderer) {
-      renderer.dispose();
-      renderer.domElement.remove();
-    }
+    stopLoop();
+    if (io) { io.disconnect(); io = null; }
+    if (containerEl) containerEl.removeEventListener("mousemove", onMouseMove);
     if (scene) {
       scene.traverse(function (obj) {
         if (obj.geometry) obj.geometry.dispose();
@@ -190,11 +272,20 @@
         }
       });
     }
+    if (renderer) {
+      renderer.dispose();
+      if (renderer.domElement && renderer.domElement.parentNode) renderer.domElement.remove();
+    }
+    scene = camera = renderer = sealGroup = ringMesh = null;
+    isWebGL = false;
+    contextLost = false;
+    lastBuiltPercent = -1;
+    mouseX = 0; mouseY = 0;
   }
 
-  /* ────── SVG Fallback ────── */
+  /* ────── SVG poster / static beauty frame ────── */
   function renderSVGFallback(container, percent) {
-    var pct = percent || 0;
+    var pct = Math.round(percent || 0);
     var circumference = 283;
     var offset = circumference - (circumference * pct / 100);
 
@@ -205,14 +296,11 @@
         '<circle cx="50" cy="50" r="38" fill="none" stroke="#37C092" stroke-width="2.5" ' +
           'stroke-dasharray="' + circumference + '" stroke-dashoffset="' + offset + '" ' +
           'stroke-linecap="round" transform="rotate(-90 50 50)" />' +
-        // 24 ticks
         Array.from({ length: 24 }, function (_, i) {
           var angle = (i / 24) * Math.PI * 2 - Math.PI / 2;
-          var x1 = 50 + Math.cos(angle) * 43;
-          var y1 = 50 + Math.sin(angle) * 43;
-          var x2 = 50 + Math.cos(angle) * 45;
-          var y2 = 50 + Math.sin(angle) * 45;
-          return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="#C79E4F" stroke-width="0.5" opacity="0.5" />';
+          return '<line x1="' + (50 + Math.cos(angle) * 43) + '" y1="' + (50 + Math.sin(angle) * 43) +
+            '" x2="' + (50 + Math.cos(angle) * 45) + '" y2="' + (50 + Math.sin(angle) * 45) +
+            '" stroke="#C79E4F" stroke-width="0.5" opacity="0.5" />';
         }).join("") +
         '<circle cx="50" cy="50" r="16" fill="#C79E4F" opacity="0.15" />' +
         '<circle cx="50" cy="50" r="16" fill="none" stroke="#C79E4F" stroke-width="0.8" />' +
@@ -220,7 +308,7 @@
       '</svg>';
   }
 
-  /* ────── Public API ────── */
+  /* ────── Public API (unchanged contract) ────── */
   window.LedgerSeal = {
     init: init,
     updateReadiness: updateReadiness,
