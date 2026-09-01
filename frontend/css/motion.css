@@ -54,3 +54,37 @@ html.no-js .reveal-stagger > * {
 
   /* All GSAP-driven animation checks LedgerMotion.isReduced */
 }
+
+/* ── M7 · Scroll progress hairline — journey.js drives scaleY ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100vh;
+  background: var(--metal);
+  transform: scaleY(0);
+  transform-origin: top;
+  z-index: var(--z-sticky);
+  pointer-events: none;
+}
+
+/* ── M15 · Finale stamp ghost wordmark ── */
+.finale { position: relative; overflow: hidden; }
+.finale__ghost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: var(--fs-900);
+  letter-spacing: var(--track-caps);
+  color: var(--metal);
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+.finale__seal-return, .finale__text, .finale__stamp-btn { position: relative; z-index: 1; }

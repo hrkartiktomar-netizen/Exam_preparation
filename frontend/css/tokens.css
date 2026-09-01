@@ -12,6 +12,12 @@
 @property --ring-progress { syntax: "<number>"; inherits: true; initial-value: 0; }
 @property --mask-rise  { syntax: "<percentage>"; inherits: true; initial-value: 110%; }
 @property --counter-val { syntax: "<integer>";  inherits: true; initial-value: 0; }
+@property --canvas { syntax: "<color>"; inherits: true; initial-value: #0C0E10; }
+@property --ink-1  { syntax: "<color>"; inherits: true; initial-value: #EFEAE0; }
+@property --ink-2  { syntax: "<color>"; inherits: true; initial-value: #B4ACA0; }
+@property --ink-3  { syntax: "<color>"; inherits: true; initial-value: #857E72; }
+@property --signal { syntax: "<color>"; inherits: true; initial-value: #37C092; }
+@property --metal  { syntax: "<color>"; inherits: true; initial-value: #C79E4F; }
 
 :root {
   /* ── Layer 1 · Color Primitives ───────────────────────────── */

@@ -53,6 +53,9 @@
     </div>
   </header>
 
+  <!-- M7 · scroll progress hairline (driven by journey.js) -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <main id="main">
 
     <!-- ═══════════════ TODAY VIEW ═══════════════ -->
@@ -164,6 +167,7 @@
       <!-- Finale · Stamp (A16) -->
       <div class="finale section" data-scene="brass-close">
         <div class="finale__seal-return" id="seal-finale" aria-hidden="true"></div>
+        <div class="finale__ghost" aria-hidden="true">SEALED</div>
         <p class="finale__text">The hall is patient. The ledger is not.</p>
         <button class="finale__stamp-btn" type="button">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5" /><circle cx="12" cy="12" r="4" fill="currentColor" /></svg>
@@ -353,6 +357,7 @@
   <script src="/js/router.js" defer></script>
   <script src="/js/seal.js" defer></script>
   <script src="/js/today.js" defer></script>
+  <script src="/js/journey.js" defer></script>
   <script src="/js/exam.js" defer></script>
   <script src="/js/views.js" defer></script>
   <script src="/js/app.js" defer></script>

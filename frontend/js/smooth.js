@@ -59,7 +59,7 @@
 
   function attach(entry, m) {
     m.add(deviceConditions(), function (context) {
-      const cleanup = entry(conditionsFor(context.conditions));
+      const cleanup = entry({ conditions: conditionsFor(context.conditions) });
       return typeof cleanup === "function" ? cleanup : undefined;
     });
   }

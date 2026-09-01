@@ -8,6 +8,7 @@
   var API = null;
   var dashData = null;
   var readinessData = null;
+  var lawData = null;
   var initialized = false;
 
   /* ────── Utility ────── */
@@ -365,7 +366,7 @@
     var textEl = qs(".quiet-beat__text");
     if (!textEl || !lawData) return;
 
-    var text = lawData.text || lawData.content || "Today's law revision content will appear here when available.";
+    var text = lawData.daily_text || lawData.text || lawData.content || "Today's law revision content will appear here when available.";
 
     // Wrap each word for ghost→solid effect
     var words = text.split(/\s+/);
@@ -375,7 +376,10 @@
 
     var eyebrow = qs(".quiet-beat__eyebrow");
     if (eyebrow) {
-      eyebrow.textContent = "§ DAILY ACT REVISION · DAY " + (lawData.day_index || 1) + " · " + (lawData.lines_count || 0) + " LINES";
+      var dayLines = (lawData.line_end != null && lawData.line_start != null)
+        ? (lawData.line_end - lawData.line_start + 1)
+        : (lawData.lines_count || 0);
+      eyebrow.textContent = "§ DAILY ACT REVISION · DAY " + (lawData.day_index || 1) + " · " + dayLines + " LINES";
     }
 
     // Ghost→solid scroll scrub
@@ -489,7 +493,7 @@
       readinessData = results[1].status === "fulfilled" ? results[1].value : null;
       var nextActionData = results[2].status === "fulfilled" ? results[2].value : null;
       var topicData = results[3].status === "fulfilled" ? results[3].value : null;
-      var lawData = results[4].status === "fulfilled" ? results[4].value : null;
+      lawData = results[4].status === "fulfilled" ? results[4].value : null;
 
       // A01: Counter
       var readinessPercent = 0;
@@ -542,19 +546,26 @@
     initPremise();
     loadData();
 
-    // Stamp CTA
+    // Stamp CTA — seals today's Act slice server-side; slam visuals live in journey.js
     var stampBtn = qs(".finale__stamp-btn");
     if (stampBtn) {
-      stampBtn.addEventListener("click", function () {
-        if (typeof gsap !== "undefined") {
-          gsap.to(stampBtn, {
-            scale: 0.95, duration: 0.1, yoyo: true, repeat: 1,
-            ease: "power2.inOut",
-          });
-        }
-        // Show success toast
+      stampBtn.addEventListener("click", async function () {
         if (window.LedgerApp && window.LedgerApp.toast) {
           window.LedgerApp.toast("Day stamped. The ledger records.", "success");
+        }
+        if (window.LedgerApp && window.LedgerApp.announce) {
+          window.LedgerApp.announce("Day sealed");
+        }
+        if (!API || !lawData) return;
+        var dayLines = (lawData.line_end != null && lawData.line_start != null)
+          ? Math.max(30, Math.min(180, lawData.line_end - lawData.line_start + 1))
+          : 80;
+        try {
+          await API.lawComplete(lawData.day_index || 1, dayLines);
+        } catch (err) {
+          if (window.LedgerApp && window.LedgerApp.toast) {
+            window.LedgerApp.toast("Seal failed: " + err.message, "error");
+          }
         }
       });
     }
