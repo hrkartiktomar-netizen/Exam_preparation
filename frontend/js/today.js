@@ -61,10 +61,12 @@
     var card = qs(".next-action__card");
     if (!card || !data) return;
 
-    var priority = "low";                                  // ≤5 · emerald
-    if (data.priority_score >= 10) priority = "critical";  // 10 · red
-    else if (data.priority_score >= 8) priority = "high";  // 8-9 · amber
-    else if (data.priority_score >= 6) priority = "medium"; // 6-7 · brass
+    // Map backend 'priority' to frontend display
+    var priorityVal = data.priority || data.priority_score || 1;
+    var priority = "low";
+    if (priorityVal >= 10) priority = "critical";
+    else if (priorityVal >= 8) priority = "high";
+    else if (priorityVal >= 6) priority = "medium";
 
     card.dataset.priority = priority;
     var eyebrow = qs(".next-action__eyebrow", card);
@@ -72,7 +74,7 @@
     var reason = qs(".next-action__reason", card);
     var cta = qs(".next-action__cta", card);
 
-    if (eyebrow) eyebrow.textContent = "§ NEXT ACTION · PRIORITY " + (data.priority_score || "—");
+    if (eyebrow) eyebrow.textContent = "§ NEXT ACTION · PRIORITY " + priorityVal;
     if (title) title.textContent = (data.action || "STUDY") + " · " + (data.topic || "General");
     if (reason) reason.textContent = data.reason || "Based on your current progress.";
     if (cta) {
@@ -94,15 +96,18 @@
     svg.setAttribute("viewBox", "0 0 " + w + " " + h);
     svg.innerHTML = "";
 
+    // Normalize to array format (handle dashboard weak_topics which uses display_name)
+    var topics = Array.isArray(stats) ? stats : (stats.topics || stats.weak_topics || []);
+    
     // Deterministic ring layout — same data, same sky, every render
-    var nodes = stats.map(function (t, i) {
-      var angle = (i / stats.length) * Math.PI * 2;
+    var nodes = topics.map(function (t, i) {
+      var angle = (i / topics.length) * Math.PI * 2;
       var radius = 150 + (i % 3) * 30;
       return {
         x: w / 2 + Math.cos(angle) * radius,
         y: h / 2 + Math.sin(angle) * radius,
         r: Math.max(8, (t.target_score || 0.3) * 28),
-        topic: t.topic_name || t.topic || "Topic " + i,
+        topic: t.display_name || t.topic_name || t.topic || "Topic " + i,
         status: t.status || "medium",
         score: t.accuracy_pct || 0,
       };
