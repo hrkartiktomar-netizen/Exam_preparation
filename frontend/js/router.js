@@ -16,20 +16,38 @@
   function showView(routeId) {
     var panels = document.querySelectorAll("[data-view-panel]");
     var entering = null;
+    var outgoing = null;
 
     panels.forEach(function (panel) {
-      if (panel.dataset.viewPanel === routeId) {
-        entering = panel;
-        panel.classList.add("is-active");
-      } else {
-        panel.classList.remove("is-active");
-      }
+      if (panel.dataset.viewPanel === routeId) entering = panel;
+      else if (panel.classList.contains("is-active")) outgoing = panel;
     });
 
-    // Update nav
-    if (window.LedgerNav) {
-      window.LedgerNav.selectTab(routeId);
+    var hallActive = !!document.querySelector(".exam-live.is-active");
+    var canFlip = !hallActive &&
+      typeof Flip !== "undefined" && typeof gsap !== "undefined" &&
+      window.LedgerMotion && !window.LedgerMotion.isReduced && outgoing && entering;
+
+    if (canFlip) {
+      var state = Flip.getState(panels);
+      panels.forEach(function (panel) {
+        panel.classList.toggle("is-active", panel === entering);
+      });
+      Flip.from(state, {
+        duration: 0.4,
+        ease: "power2.inOut",
+        absolute: false,
+        fade: true,
+        nested: true,
+      });
+    } else {
+      panels.forEach(function (panel) {
+        panel.classList.toggle("is-active", panel === entering);
+      });
     }
+
+    // Update nav
+    if (window.LedgerNav) window.LedgerNav.selectTab(routeId);
 
     // Scroll to top
     if (window.LedgerSmooth && window.LedgerSmooth.lenis) {
