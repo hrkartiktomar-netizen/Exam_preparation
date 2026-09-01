@@ -33,39 +33,21 @@
     clockEl.textContent = h + ":" + m + ":" + s;
   }
 
-  /* ---------- health dot ---------- */
-  async function pollHealth() {
-    if (!healthEl) return;
-    try {
-      const res = await fetch("/health");
-      if (res.ok) {
-        healthEl.dataset.status = "ok";
-      } else {
-        healthEl.dataset.status = "warning";
-      }
-    } catch (e) {
-      healthEl.dataset.status = "error";
-    }
+  /* ---------- health dot (single poller lives in app.js; we subscribe) ---------- */
+  function subscribeHealth() {
+    document.addEventListener("ledger:health", function (e) {
+      if (!healthEl) return;
+      healthEl.dataset.status = e.detail && e.detail.ok ? "ok" : "error";
+    });
   }
 
-  /* ---------- quality toggle ---------- */
+  /* ---------- quality toggle (delegates to LedgerMotion — C7) ---------- */
   function cycleQuality() {
     const tiers = ["full", "lite", "reduced"];
-    const current = document.body.dataset.quality || "full";
-    const idx = tiers.indexOf(current);
-    const next = tiers[(idx + 1) % tiers.length];
-    document.body.dataset.quality = next;
-    if (qualityBtn) qualityBtn.textContent = next;
-
-    // Notify smooth.js and other modules
-    if (window.LedgerSmooth) {
-      window.LedgerSmooth.quality = next;
-    }
-
-    // Refresh ScrollTrigger for any quality-dependent changes
-    if (typeof ScrollTrigger !== "undefined") {
-      ScrollTrigger.refresh();
-    }
+    const current = window.LedgerMotion ? window.LedgerMotion.quality : (document.body.dataset.quality || "full");
+    const next = tiers[(tiers.indexOf(current) + 1) % tiers.length];
+    if (window.LedgerMotion) window.LedgerMotion.setQuality(next);
+    else document.body.dataset.quality = next;
   }
 
   /* ---------- brass tab indicator animation ---------- */
@@ -143,9 +125,13 @@
     tickClock();
     clockInterval = setInterval(tickClock, 1000);
 
-    // Start health polling
-    pollHealth();
-    setInterval(pollHealth, 30000);
+    // Health updates arrive via ledger:health (polled once in app.js)
+    subscribeHealth();
+
+    // Clear clock interval on page exit
+    window.addEventListener("pagehide", function () {
+      if (clockInterval) clearInterval(clockInterval);
+    });
   }
 
   /* ---------- hash-based tab sync ---------- */
@@ -154,46 +140,16 @@
     selectTab(hash);
   }
 
-  /* ---------- scroll-based nav hide/show ---------- */
-  function setupScrollBehavior() {
-    if (typeof ScrollTrigger === "undefined") return;
-
-    // Hide nav during pinned scrollytelling, show otherwise
-    const nav = document.querySelector(".ledger-nav");
-    if (!nav) return;
-
-    let lastY = 0;
-    let ticking = false;
-
-    window.addEventListener("scroll", function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        const y = window.scrollY;
-        const delta = y - lastY;
-
-        // Show seal mini in nav when scrolled past hero
-        const sealMini = nav.querySelector(".nav__seal");
-        if (sealMini) {
-          if (y > window.innerHeight * 0.5) {
-            sealMini.dataset.active = "";
-          } else {
-            delete sealMini.dataset.active;
-          }
-        }
-
-        lastY = y;
-        ticking = false;
-      });
-    }, { passive: true });
-  }
-
   /* ---------- init ---------- */
   function init() {
+    document.addEventListener("ledger:qualitychange", function (e) {
+      const btn = document.querySelector(".nav__quality");
+      if (btn) btn.textContent = e.detail.quality;
+    });
+
     buildNav();
     syncTabFromHash();
     window.addEventListener("hashchange", syncTabFromHash);
-    setupScrollBehavior();
 
     // Expose for router integration
     window.LedgerNav = {
