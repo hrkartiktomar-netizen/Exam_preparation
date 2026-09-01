@@ -742,3 +742,50 @@ body[data-quality="full"] .cold-open::before {
 body[data-quality="full"] .cold-open__content,
 body[data-quality="full"] .cold-open__seal,
 body[data-quality="full"] .cold-open__scroll-hint { position: relative; z-index: 1; }
+
+#view-today { position: relative; }
+
+/* M6 · Brass thread drifting along the route (full + lite tiers) */
+body[data-quality="full"] .ledger-thread,
+body[data-quality="lite"] .ledger-thread {
+  position: absolute;
+  top: 12vh;
+  bottom: 12vh;
+  left: clamp(12px, 3vw, 48px);
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--metal) 18%, var(--metal) 82%, transparent);
+  opacity: 0.28;
+  animation: thread-drift 14s var(--e-inout) infinite alternate;
+  pointer-events: none;
+}
+@keyframes thread-drift {
+  from { transform: translateY(-1.2%) scaleY(0.98); opacity: 0.2; }
+  to   { transform: translateY(1.2%) scaleY(1.02); opacity: 0.34; }
+}
+
+/* M8 · Chapter markers */
+.chapter-marker {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  max-width: var(--w-container);
+  margin: 0 auto;
+  padding-top: var(--sp-6);
+}
+.chapter-marker__rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule-strong);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-scene) var(--e-instrument);
+}
+.chapter-marker__rule:last-child { transform-origin: right; }
+.chapter-marker__name {
+  font-family: var(--f-mono);
+  font-size: var(--fs-100);
+  letter-spacing: var(--track-caps);
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+.chapter-marker.is-visible .chapter-marker__rule { transform: scaleX(1); }

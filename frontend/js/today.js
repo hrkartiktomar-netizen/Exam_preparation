@@ -56,34 +56,6 @@
     });
   }
 
-  /* ────── A03: Premise Word Reveal ────── */
-  function initPremise() {
-    if (typeof gsap === "undefined" || typeof SplitText === "undefined") return;
-    var lines = qsa(".premise__line");
-    if (!lines.length) return;
-
-    lines.forEach(function (line, lineIdx) {
-      var split = new SplitText(line, { type: "words", wordsClass: "word" });
-      var isDim = line.classList.contains("premise__line--dim");
-
-      gsap.fromTo(split.words, {
-        opacity: 0,
-        y: 20,
-      }, {
-        opacity: isDim ? 0.5 : 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.06,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: line,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      });
-    });
-  }
-
   /* ────── A06: Next Action Card ────── */
   function renderNextAction(data) {
     var card = qs(".next-action__card");
@@ -534,6 +506,73 @@
     });
   }
 
+  /* ────── M8 · Chapter markers — the route is numbered ────── */
+  var CHAPTERS = [
+    { sel: ".premise",       num: "§01", name: "THE PREMISE" },
+    { sel: ".next-action",   num: "§02", name: "NEXT ACTION" },
+    { sel: ".constellation", num: "§03", name: "CONSTELLATION" },
+    { sel: ".statute-path",  num: "§04", name: "THE STATUTE PATH" },
+    { sel: ".proof",         num: "§05", name: "THE PROOF" },
+    { sel: ".burst",         num: "§06", name: "THE BURST" },
+    { sel: ".finale",        num: "§07", name: "THE SEAL" },
+  ];
+
+  function injectChapterMarkers() {
+    CHAPTERS.forEach(function (ch) {
+      var section = qs(ch.sel);
+      if (!section || qs(".chapter-marker", section)) return;
+      var marker = el("div", "chapter-marker reveal",
+        '<span class="chapter-marker__rule"></span>' +
+        '<span class="chapter-marker__name">' + ch.num + ' · ' + ch.name + '</span>' +
+        '<span class="chapter-marker__rule"></span>'
+      );
+      section.insertBefore(marker, section.firstChild);
+    });
+  }
+
+  /* ────── M5 · Ghost→solid word reveals (registered, revertible — C4) ────── */
+  function attachWordReveals(m) {
+    if (!m.conditions.animated) return;
+    if (typeof gsap === "undefined" || typeof SplitText === "undefined" || typeof ScrollTrigger === "undefined") return;
+
+    var targets = qsa(".premise__line").concat(qsa(".chapter-marker__name"));
+    if (!targets.length) return;
+
+    var splits = [];
+    var tweens = [];
+    var stagger = m.conditions.isLite ? 0.12 : 0.06;
+
+    targets.forEach(function (line) {
+      var split = new SplitText(line, { type: "words", wordsClass: "word" });
+      splits.push(split);
+      var isDim = line.classList.contains("premise__line--dim");
+      tweens.push(gsap.fromTo(split.words,
+        { opacity: 0, y: 18, filter: "blur(6px)" },
+        {
+          opacity: isDim ? 0.5 : 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.6,
+          stagger: stagger,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: line,
+            start: "top 82%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      ));
+    });
+
+    return function () {
+      tweens.forEach(function (t) {
+        if (t.scrollTrigger) t.scrollTrigger.kill();
+        t.kill();
+      });
+      splits.forEach(function (s) { s.revert(); }); // restores original text nodes (C4)
+    };
+  }
+
   /* ────── Data Loading ────── */
   async function loadData() {
     API = window.LedgerAPI;
@@ -611,7 +650,6 @@
     initialized = true;
 
     initStatutePath();
-    initPremise();
     loadData();
 
     // Stamp CTA — seals today's Act slice server-side; slam visuals live in journey.js
@@ -649,6 +687,14 @@
         });
       });
     }
+  }
+
+  // Structural markers exist before any motion attaches — must precede the
+  // route replay below, which runs init()'s .reveal loop synchronously.
+  injectChapterMarkers();
+
+  if (window.LedgerMotion && typeof window.LedgerMotion.register === "function") {
+    window.LedgerMotion.register(attachWordReveals);
   }
 
   // Route-aware init: replay guarantees first-paint coverage (B1/B2)
