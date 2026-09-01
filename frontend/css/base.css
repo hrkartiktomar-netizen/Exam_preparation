@@ -204,3 +204,26 @@ input, textarea, select { font: inherit; color: inherit; }
   .container { padding-inline: var(--sp-4); }
   .section { padding-block: var(--sp-7); }
 }
+
+/* ── Veil numeral beat (M1) ── */
+.veil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+}
+.veil__numeral {
+  font-family: var(--f-mono);
+  font-size: var(--fs-800);
+  font-weight: 300;
+  color: var(--ink-1);
+  letter-spacing: var(--track-display);
+  line-height: 1;
+}
+.veil__text {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  color: var(--ink-3);
+}

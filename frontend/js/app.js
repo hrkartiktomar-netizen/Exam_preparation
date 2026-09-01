@@ -1,6 +1,7 @@
 /* THE LEDGER — App Bootstrap
-   Loads in order: smooth → nav → router → seal → API → views → today.
-   Manages toasts, veil, health polling, and foot-year. */
+   Toasts, veil numeral beat (M1), single health poller + ledger:health,
+   aria-live announce hub (G12), seal init, foot year.
+   Footer/CTA navigation is delegated in router.js — no bindings here (B5). */
 (function () {
   "use strict";
 
@@ -25,7 +26,55 @@
     }, 4000);
   }
 
-  /* ────── Veil ────── */
+  /* ────── aria-live announce hub (G12) ────── */
+  function announce(msg) {
+    var el = qs("#sr-live");
+    if (!el) return;
+    el.textContent = "";
+    requestAnimationFrame(function () { el.textContent = msg; });
+  }
+
+  /* ────── Veil · numeral beat (M1) ────── */
+  function bootVeil() {
+    var veil = qs("#veil");
+    if (!veil) return;
+    var numeral = veil.querySelector(".veil__numeral");
+    var pct = 0;
+    var settled = false;
+
+    function dissolve() {
+      if (settled) return;
+      settled = true;
+      veil.style.opacity = "0";
+      veil.style.transition = "opacity 0.6s ease";
+      setTimeout(function () { veil.remove(); }, 620);
+    }
+
+    function finish() {
+      var reduced = window.LedgerMotion && window.LedgerMotion.isReduced;
+      if (reduced || typeof gsap === "undefined" || !numeral) {
+        if (numeral) numeral.textContent = pct;
+        dissolve();
+        return;
+      }
+      var obj = { v: 0 };
+      gsap.to(obj, {
+        v: pct,
+        duration: 0.8,
+        ease: "power2.out",
+        onUpdate: function () { numeral.textContent = Math.round(obj.v); },
+        onComplete: dissolve,
+      });
+    }
+
+    var timeout = setTimeout(finish, 1600);
+    document.addEventListener("ledger:readiness", function (e) {
+      pct = (e.detail && e.detail.percent) || 0;
+      clearTimeout(timeout);
+      finish();
+    }, { once: true });
+  }
+
   function hideVeil() {
     var veil = qs("#veil");
     if (!veil) return;
@@ -34,21 +83,20 @@
     setTimeout(function () { veil.remove(); }, 600);
   }
 
-  /* ────── Health & Status ────── */
+  /* ────── Single health poller → ledger:health (B8) ────── */
   async function checkHealth() {
-    var dot = qs("#health-dot");
+    var ok = false;
+    try {
+      await window.LedgerAPI.health();
+      ok = true;
+    } catch (e) { ok = false; }
+
     var footDot = qs("#foot-status-dot");
     var footText = qs("#foot-status");
+    if (footDot) footDot.dataset.status = ok ? "" : "error";
+    if (footText) footText.textContent = ok ? "ENGINE RUNNING" : "ENGINE OFFLINE";
 
-    try {
-      var h = await window.LedgerAPI.health();
-      if (dot) dot.dataset.status = "ok";
-      if (footDot) footDot.dataset.status = "";
-      if (footText) footText.textContent = "ENGINE RUNNING";
-    } catch (e) {
-      if (dot) dot.dataset.status = "error";
-      if (footText) footText.textContent = "ENGINE OFFLINE";
-    }
+    document.dispatchEvent(new CustomEvent("ledger:health", { detail: { ok: ok } }));
   }
 
   /* ────── Init Seal ────── */
@@ -56,7 +104,6 @@
     var container = qs(".cold-open__seal");
     if (!container || !window.LedgerSeal) return;
 
-    // Get readiness from dashboard
     if (window.LedgerAPI) {
       window.LedgerAPI.readiness(130, 28).then(function (data) {
         var pct = data && data.readiness_percentage != null ? data.readiness_percentage : 0;
@@ -68,7 +115,6 @@
       window.LedgerSeal.init(container, 0);
     }
 
-    // Resize handler
     window.addEventListener("resize", function () {
       window.LedgerSeal.resize(container);
     });
@@ -76,41 +122,22 @@
 
   /* ────── Boot ────── */
   function boot() {
-    // Set foot year
     var yearEl = qs("#foot-year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Health check
     if (window.LedgerAPI) {
       checkHealth();
       setInterval(checkHealth, 30000);
     }
 
-    // Init seal
     initSeal();
-
-    // Hide veil after short delay
-    setTimeout(hideVeil, 800);
-
-    // Footer row click routing
-    document.querySelectorAll(".footer__row[data-view]").forEach(function (row) {
-      row.addEventListener("click", function () {
-        if (window.LedgerRouter) {
-          window.LedgerRouter.navigate(row.dataset.view);
-        }
-      });
-      row.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          if (window.LedgerRouter) window.LedgerRouter.navigate(row.dataset.view);
-        }
-      });
-    });
+    bootVeil();
   }
 
   /* ────── Expose globals ────── */
   window.LedgerApp = {
     toast: toast,
+    announce: announce,
     hideVeil: hideVeil,
   };
 
