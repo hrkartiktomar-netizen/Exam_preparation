@@ -798,3 +798,23 @@ body[data-quality="lite"] .ledger-thread {
 
 /* M13 · Ticker pause on hover */
 .ticker:hover .ticker__track { animation-play-state: paused; }
+
+/* ── M14 · Line-mask reveal ── */
+.mask-reveal { overflow: hidden; }
+.mask-reveal__inner { display: inline-block; will-change: transform; }
+
+/* ── Quiet beat · drop cap + settle ── */
+.quiet-beat__text .ghost-word:first-child::first-letter {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 3.2em;
+  line-height: 0.82;
+  float: left;
+  padding-right: 0.09em;
+  color: var(--signal);
+}
+.quiet-beat.is-visible .quiet-beat__text { animation: quiet-settle 1.2s var(--e-out) both; }
+@keyframes quiet-settle {
+  from { opacity: 0.55; letter-spacing: 0.012em; }
+  to   { opacity: 1;     letter-spacing: 0; }
+}

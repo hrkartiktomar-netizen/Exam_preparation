@@ -391,7 +391,7 @@
       return '<span class="ghost-word">' + w + '</span>';
     }).join(" ");
 
-    var eyebrow = qs(".quiet-beat__eyebrow");
+    var eyebrow = qs(".quiet-beat__eyebrow .mask-reveal__inner") || qs(".quiet-beat__eyebrow");
     if (eyebrow) {
       var dayLines = (lawData.line_end != null && lawData.line_start != null)
         ? (lawData.line_end - lawData.line_start + 1)
@@ -670,6 +670,35 @@
     };
   }
 
+  /* ────── M14 · Line-mask reveal (animated tiers) ────── */
+  function attachMaskReveals(m) {
+    if (!m.conditions.animated || typeof gsap === "undefined") return;
+    var inners = qsa(".mask-reveal__inner");
+    if (!inners.length) return;
+
+    gsap.set(inners, { yPercent: 110 });
+    var tweens = inners.map(function (inner) {
+      return gsap.to(inner, {
+        yPercent: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: inner.parentElement,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+
+    return function () {
+      tweens.forEach(function (t) {
+        if (t.scrollTrigger) t.scrollTrigger.kill();
+        t.kill();
+      });
+      gsap.set(inners, { clearProps: "transform" });
+    };
+  }
+
   /* ────── Data Loading ────── */
   async function loadData() {
     API = window.LedgerAPI;
@@ -793,6 +822,7 @@
   if (window.LedgerMotion && typeof window.LedgerMotion.register === "function") {
     window.LedgerMotion.register(attachWordReveals);
     window.LedgerMotion.register(attachPointerTilt);
+    window.LedgerMotion.register(attachMaskReveals);
   }
 
   // Route-aware init: replay guarantees first-paint coverage (B1/B2)

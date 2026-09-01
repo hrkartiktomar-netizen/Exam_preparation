@@ -52,12 +52,15 @@ html.no-js .reveal-stagger > * {
   .scroll-progress,
   .cold-open::before { animation: none !important; }
   .verb-pill > span { animation: none !important; }
+  .mask-reveal__inner { transform: none !important; }
+  .quiet-beat.is-visible .quiet-beat__text { animation: none; }
 
   /* All GSAP-driven animation checks LedgerMotion.isReduced */
 }
 
 /* Quality-tier kill — reduced tier can be user-selected without the OS media query */
 body[data-quality="reduced"] .verb-pill > span { animation: none !important; }
+body[data-quality="reduced"] .quiet-beat.is-visible .quiet-beat__text { animation: none; }
 
 /* ── M7 · Scroll progress hairline — journey.js drives scaleY ── */
 .scroll-progress {
