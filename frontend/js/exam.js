@@ -6,6 +6,7 @@
 
   var API = window.LedgerAPI;
   var examState = null; // { id, questions, currentIdx, answers, states, timerInterval }
+  var starting = false; // in-flight guard for startExam (B6)
 
   function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
   function qsa(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); }
@@ -23,22 +24,18 @@
     var form = qs(".exam-setup__form");
     if (!form) return;
 
+    // Submit only — the start button is type="submit" inside the form.
+    // (Click + submit was double-bound; a double start orphaned the timer — B6.)
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       startExam();
     });
-
-    var startBtn = qs(".exam-setup__start");
-    if (startBtn) {
-      startBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        startExam();
-      });
-    }
   }
 
   async function startExam() {
     if (!API) return;
+    if (examState || starting) return; // re-entry guard (B6)
+    starting = true;
 
     var examSelect = qs("#exam-type");
     var countInput = qs("#exam-count");
@@ -60,6 +57,7 @@
         states: {},
         timerInterval: null,
       };
+      starting = false; // examState now guards re-entry
 
       // Initialize all states to NOT_VISITED
       examState.questions.forEach(function (q, i) {
@@ -75,6 +73,7 @@
       renderPalette();
 
     } catch (err) {
+      starting = false;
       if (window.LedgerApp && window.LedgerApp.toast) {
         window.LedgerApp.toast("Failed to start exam: " + err.message, "error");
       }
@@ -124,6 +123,12 @@
             timerEl.dataset.warning = "";
           } else {
             delete timerEl.dataset.warning;
+          }
+        }
+
+        if (remaining === 600 || remaining === 300 || remaining === 60) {
+          if (window.LedgerApp && window.LedgerApp.announce) {
+            window.LedgerApp.announce(Math.round(remaining / 60) + " minute" + (remaining === 60 ? "" : "s") + " remaining");
           }
         }
 
