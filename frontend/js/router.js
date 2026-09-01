@@ -138,4 +138,23 @@
     },
     routes: ROUTES,
   };
+
+  /* Ceremonial threshold: clip-path wipe when entering the hall (G2).
+     lite/reduced fall through to the instant swap above. */
+  document.addEventListener("ledger:routechange", function (e) {
+    if (e.detail.route !== "exam") return;
+    if (typeof gsap === "undefined") return;
+    if (!window.LedgerMotion || window.LedgerMotion.isReduced || window.LedgerMotion.isLite) return;
+    var panel = document.querySelector('[data-view-panel="exam"]');
+    if (!panel) return;
+    gsap.fromTo(panel,
+      { clipPath: "inset(0 0 100% 0)" },
+      {
+        clipPath: "inset(0 0 0% 0)",
+        duration: 1.1,
+        ease: "power2.inOut",
+        clearProps: "clipPath",
+      }
+    );
+  });
 })();
