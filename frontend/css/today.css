@@ -789,3 +789,12 @@ body[data-quality="lite"] .ledger-thread {
   white-space: nowrap;
 }
 .chapter-marker.is-visible .chapter-marker__rule { transform: scaleX(1); }
+
+/* M10 · Constellation hover glow */
+.constellation__svg g:hover circle {
+  filter: drop-shadow(0 0 6px rgba(55, 192, 146, 0.8));
+  opacity: 1 !important;
+}
+
+/* M13 · Ticker pause on hover */
+.ticker:hover .ticker__track { animation-play-state: paused; }

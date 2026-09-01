@@ -94,10 +94,10 @@
     svg.setAttribute("viewBox", "0 0 " + w + " " + h);
     svg.innerHTML = "";
 
-    // Arrange topics in a force-directed-like layout
+    // Deterministic ring layout — same data, same sky, every render
     var nodes = stats.map(function (t, i) {
       var angle = (i / stats.length) * Math.PI * 2;
-      var radius = 140 + Math.random() * 60;
+      var radius = 150 + (i % 3) * 30;
       return {
         x: w / 2 + Math.cos(angle) * radius,
         y: h / 2 + Math.sin(angle) * radius,
@@ -108,18 +108,15 @@
       };
     });
 
-    // Draw connection lines
+    // Ring edges: each topic bound to its neighbour
     nodes.forEach(function (a, i) {
-      nodes.forEach(function (b, j) {
-        if (j <= i) return;
-        if (Math.random() > 0.3) return; // Sparse connections
-        var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute("x1", a.x); line.setAttribute("y1", a.y);
-        line.setAttribute("x2", b.x); line.setAttribute("y2", b.y);
-        line.setAttribute("stroke", "var(--rule)");
-        line.setAttribute("stroke-width", "0.5");
-        svg.appendChild(line);
-      });
+      var b = nodes[(i + 1) % nodes.length];
+      var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", a.x); line.setAttribute("y1", a.y);
+      line.setAttribute("x2", b.x); line.setAttribute("y2", b.y);
+      line.setAttribute("stroke", "var(--rule)");
+      line.setAttribute("stroke-width", "0.5");
+      svg.appendChild(line);
     });
 
     // Draw nodes
@@ -163,6 +160,20 @@
         opacity: 0, duration: 0.6, stagger: 0.02, ease: "power2.out",
         scrollTrigger: { trigger: svg, start: "top 80%" }
       });
+      // Breathing pulse while the constellation is on screen
+      if (!(window.LedgerMotion && window.LedgerMotion.isReduced)) {
+        gsap.to(svg.querySelectorAll("circle"), {
+          opacity: 0.95,
+          duration: 1.6,
+          stagger: { each: 0.12, repeat: -1, yoyo: true },
+          ease: "sine.inOut",
+          scrollTrigger: {
+            trigger: svg,
+            start: "top 60%",
+            toggleActions: "play pause resume pause",
+          },
+        });
+      }
     }
   }
 
@@ -192,6 +203,14 @@
       });
     }
     track.innerHTML = html;
+
+    // M13 · flash the freshly printed values
+    if (typeof gsap !== "undefined" && !(window.LedgerMotion && window.LedgerMotion.isReduced)) {
+      gsap.fromTo(qsa(".ticker__value", track),
+        { opacity: 0.3 },
+        { opacity: 1, duration: 0.5, stagger: 0.04, ease: "power2.out", overwrite: "auto" }
+      );
+    }
 
     // Pause button
     var pauseBtn = qs(".ticker__pause");
@@ -241,7 +260,11 @@
     var ringNum = qs(".statute-path__ring-num");
     var totalStates = STATUTES.length;
 
-    ScrollTrigger.create({
+    var lastStateIdx = -1;
+    var canPin = window.LedgerMotion && !window.LedgerMotion.isReduced &&
+      window.matchMedia("(min-width: 641px)").matches;
+
+    var cfg = {
       trigger: section,
       start: "top top",
       end: "bottom bottom",
@@ -249,6 +272,22 @@
       onUpdate: function (self) {
         var progress = self.progress;
         var stateIdx = Math.min(Math.floor(progress * totalStates), totalStates - 1);
+
+        if (stateIdx !== lastStateIdx) {
+          lastStateIdx = stateIdx;
+          if (typeof gsap !== "undefined" && !(window.LedgerMotion && window.LedgerMotion.isReduced)) {
+            if (ringNum) {
+              gsap.fromTo(ringNum, { opacity: 0.2 }, { opacity: 1, duration: 0.3, ease: "power2.out", overwrite: "auto" });
+            }
+            var activePanel = panelEls[stateIdx];
+            if (activePanel) {
+              gsap.fromTo(activePanel.children,
+                { opacity: 0, y: 14 },
+                { opacity: 1, y: 0, duration: 0.4, stagger: 0.07, ease: "power3.out", overwrite: "auto" }
+              );
+            }
+          }
+        }
 
         // Update panels
         panelEls.forEach(function (p, i) {
@@ -268,7 +307,13 @@
           ringNum.textContent = STATUTES[stateIdx].num + " " + STATUTES[stateIdx].title;
         }
       }
-    });
+    };
+    if (canPin) {
+      cfg.pin = qs(".statute-path__pin");
+      cfg.pinSpacing = false;
+      cfg.anticipatePin = 1;
+    }
+    ScrollTrigger.create(cfg);
   }
 
   /* ────── A10-A12: Proof Section ────── */
@@ -573,6 +618,58 @@
     };
   }
 
+  /* ────── M9 · Pointer tilt + magnetic CTA (desktop · full tier) ────── */
+  function attachPointerTilt(m) {
+    if (!m.conditions.isDesktop || !m.conditions.isFull) return;
+    if (typeof gsap === "undefined" || !gsap.quickTo) return;
+    var card = qs(".next-action__card");
+    var cta = qs(".next-action__cta");
+    if (!card) return;
+
+    gsap.set(card, { transformPerspective: 900 });
+    var rx = gsap.quickTo(card, "rotationX", { duration: 0.4, ease: "power2.out" });
+    var ry = gsap.quickTo(card, "rotationY", { duration: 0.4, ease: "power2.out" });
+    var mx = cta ? gsap.quickTo(cta, "x", { duration: 0.3, ease: "power2.out" }) : null;
+    var my = cta ? gsap.quickTo(cta, "y", { duration: 0.3, ease: "power2.out" }) : null;
+
+    function onMove(e) {
+      var rect = card.getBoundingClientRect();
+      var px = (e.clientX - rect.left) / rect.width - 0.5;
+      var py = (e.clientY - rect.top) / rect.height - 0.5;
+      ry(px * 12);    // ±6°
+      rx(-py * 12);
+    }
+    function onLeave() {
+      rx(0); ry(0);
+      if (mx) mx(0);
+      if (my) my(0);
+    }
+    function onCtaMove(e) {
+      if (!mx || !my || !cta) return;
+      var rect = cta.getBoundingClientRect();
+      mx((e.clientX - (rect.left + rect.width / 2)) * 0.25);
+      my((e.clientY - (rect.top + rect.height / 2)) * 0.25);
+    }
+
+    card.addEventListener("mousemove", onMove);
+    card.addEventListener("mouseleave", onLeave);
+    if (cta) {
+      cta.addEventListener("mousemove", onCtaMove);
+      cta.addEventListener("mouseleave", onLeave);
+    }
+
+    return function () {
+      card.removeEventListener("mousemove", onMove);
+      card.removeEventListener("mouseleave", onLeave);
+      if (cta) {
+        cta.removeEventListener("mousemove", onCtaMove);
+        cta.removeEventListener("mouseleave", onLeave);
+      }
+      gsap.set(card, { clearProps: "transform,transformPerspective" });
+      if (cta) gsap.set(cta, { clearProps: "transform" });
+    };
+  }
+
   /* ────── Data Loading ────── */
   async function loadData() {
     API = window.LedgerAPI;
@@ -695,6 +792,7 @@
 
   if (window.LedgerMotion && typeof window.LedgerMotion.register === "function") {
     window.LedgerMotion.register(attachWordReveals);
+    window.LedgerMotion.register(attachPointerTilt);
   }
 
   // Route-aware init: replay guarantees first-paint coverage (B1/B2)
@@ -702,7 +800,10 @@
     window.LedgerRouter.onRoute(function (route) {
       if (route !== "today") return;
       if (!initialized) init();
-      else remeasureBurst();
+      else {
+        remeasureBurst();
+        if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+      }
     });
   }
 })();
