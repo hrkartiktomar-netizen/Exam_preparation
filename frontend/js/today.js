@@ -407,71 +407,131 @@
     }
   }
 
-  /* ────── A15: Burst Particles ────── */
+  /* ────── A15: Burst — Data-true particle field ────── */
+  var burstParticles = null;
+  var burstSize = { w: 0, h: 0 };
+  var burstCounted = false;
+  var burstTopicStats = null; // /api/topics/stats rows: {topic_id, accuracy_pct, total_attempts}
+
+  function sizeBurstCanvas(canvas) {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = Math.max(1, Math.round(rect.width * dpr));
+    canvas.height = Math.max(1, Math.round(rect.height * dpr));
+    canvas.style.width = rect.width + "px";
+    canvas.style.height = rect.height + "px";
+    var ctx = canvas.getContext("2d");
+    if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    burstSize = { w: rect.width, h: rect.height };
+    return ctx;
+  }
+
+  function buildBurstParticles(data, w, h) {
+    var stats = Array.isArray(burstTopicStats) ? burstTopicStats : [];
+    var total = (data && data.total_questions_attempted) || 0;
+    var cap = (window.LedgerMotion && window.LedgerMotion.isFull) ? 220 : 60;
+    var n = Math.min(total, cap);
+    if (n <= 0 || !stats.length) return [];
+
+    var sumAttempts = stats.reduce(function (s, t) { return s + (t.total_attempts || 0); }, 0) || 1;
+    var particles = [];
+    stats.forEach(function (t) {
+      var share = Math.round(((t.total_attempts || 0) / sumAttempts) * n);
+      var correct = Math.round(share * ((t.accuracy_pct || 0) / 100));
+      for (var j = 0; j < share && particles.length < n; j++) {
+        var i = particles.length;
+        var jitter = ((i * 37) % 40) - 20;
+        particles.push({
+          x: ((i + 0.5) / n) * w + jitter,
+          y: (j < correct ? 0.3 : 0.7) * h + (((i * 53) % 40) - 20),
+          r: 1.5 + ((i * 13) % 10) / 4,
+          alpha: 0.35 + ((i * 29) % 45) / 100,
+          color: j < correct ? "#37C092" : "#FF4D5E",
+          phase: ((i * 53) % 360) * Math.PI / 180,
+        });
+      }
+    });
+    return particles;
+  }
+
+  function drawBurst(ctx, particles, drift) {
+    if (!ctx || !particles) return;
+    ctx.clearRect(0, 0, burstSize.w, burstSize.h);
+    particles.forEach(function (p) {
+      var dx = Math.cos(drift + p.phase) * 6;
+      var dy = Math.sin(drift + p.phase) * 4;
+      ctx.beginPath();
+      ctx.arc(p.x + dx, p.y + dy, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  function remeasureBurst() {
+    var canvas = qs(".burst__canvas canvas");
+    if (!canvas || !canvas.parentElement) return;
+    var rect = canvas.parentElement.getBoundingClientRect();
+    if (rect.width <= 0) return; // still display:none — wait for next activation
+    var ctx = sizeBurstCanvas(canvas);
+    burstParticles = buildBurstParticles(dashData, burstSize.w, burstSize.h);
+    canvas.dataset.sized = "true";
+    drawBurst(ctx, burstParticles, 0);
+  }
+
   function renderBurst(data) {
     var canvas = qs(".burst__canvas canvas");
     var countEl = qs(".burst__count");
-    var totalAttempts = data.total_attempts || 0;
+    var totalAttempts = data.total_questions_attempted || 0;
+    if (!canvas || !canvas.parentElement) return;
 
-    if (countEl) countEl.textContent = totalAttempts;
-
-    if (!canvas) return;
-    var ctx = canvas.getContext("2d");
+    var ctx = sizeBurstCanvas(canvas);
     if (!ctx) return;
+
+    burstParticles = buildBurstParticles(data, burstSize.w, burstSize.h);
     canvas.dataset.sized = "true";
+    drawBurst(ctx, burstParticles, 0);
 
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var rect = canvas.parentElement.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    canvas.style.width = rect.width + "px";
-    canvas.style.height = rect.height + "px";
-    ctx.scale(dpr, dpr);
-
-    // Generate particles from data
-    var particleCount = Math.min(totalAttempts, window.LedgerMedia && window.LedgerMedia.isMobile ? 60 : 220);
-    var particles = [];
-    for (var i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * rect.width,
-        y: Math.random() * rect.height,
-        r: 1.5 + Math.random() * 2.5,
-        color: Math.random() > 0.6 ? "#37C092" : (Math.random() > 0.4 ? "#C79E4F" : "#FF4D5E"),
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        alpha: 0.3 + Math.random() * 0.5,
-      });
+    var reduced = window.LedgerMotion && window.LedgerMotion.isReduced;
+    if (reduced || typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+      if (countEl) countEl.textContent = totalAttempts;
+      return;
     }
 
-    var animating = true;
-    function draw() {
-      if (!animating) return;
-      ctx.clearRect(0, 0, rect.width, rect.height);
-      particles.forEach(function (p) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = p.alpha;
-        ctx.fill();
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > rect.width) p.vx *= -1;
-        if (p.y < 0 || p.y > rect.height) p.vy *= -1;
-      });
-      ctx.globalAlpha = 1;
-      requestAnimationFrame(draw);
-    }
+    // Drift is scroll-scrub driven: one draw per scroll update, no rAF loop
+    ScrollTrigger.create({
+      trigger: ".burst",
+      start: "top bottom",
+      end: "bottom top",
+      onUpdate: function (self) {
+        drawBurst(ctx, burstParticles, self.progress * Math.PI * 2);
+      },
+    });
 
-    // Only animate when in viewport
-    if (typeof IntersectionObserver !== "undefined") {
-      var obs = new IntersectionObserver(function (entries) {
-        animating = entries[0].isIntersecting;
-        if (animating) draw();
-      }, { threshold: 0.1 });
-      obs.observe(canvas.parentElement);
-    } else {
-      draw();
-    }
+    // M12: count the ledger entries once when the band enters
+    ScrollTrigger.create({
+      trigger: ".burst",
+      start: "top 80%",
+      onEnter: function () {
+        if (burstCounted || !countEl) return;
+        burstCounted = true;
+        var obj = { val: 0 };
+        gsap.to(obj, {
+          val: totalAttempts,
+          duration: 1.4,
+          ease: "power2.out",
+          onUpdate: function () { countEl.textContent = Math.floor(obj.val); },
+          onComplete: function () { countEl.textContent = totalAttempts; },
+        });
+      },
+    });
+
+    var resizeTimer = null;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(remeasureBurst, 150);
+    });
   }
 
   /* ────── Data Loading ────── */
@@ -530,6 +590,7 @@
       if (dashData) renderProof(dashData);
 
       // A15: Burst
+      burstTopicStats = topicData ? (Array.isArray(topicData) ? topicData : topicData.topics || []) : [];
       if (dashData) renderBurst(dashData);
 
     } catch (err) {
@@ -580,16 +641,6 @@
           onLeaveBack: function () { el.classList.remove("is-visible"); },
         });
       });
-    }
-  }
-
-  function remeasureBurst() {
-    var canvas = qs(".burst__canvas canvas");
-    if (!canvas || !canvas.parentElement) return;
-    var rect = canvas.parentElement.getBoundingClientRect();
-    if (rect.width > 0 && canvas.dataset.sized !== "true") {
-      // Was sized 0×0 against a display:none view — force re-render next data pass
-      canvas.dataset.sized = "";
     }
   }
 
