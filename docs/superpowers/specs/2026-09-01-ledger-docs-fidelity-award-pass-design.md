@@ -112,6 +112,32 @@
 8. **Observer earns its place:** `Observer.create({type:"wheel,touch,scroll", onUp/onDown, tolerance})` drives direction-aware nav (compress on down, restore on up) replacing the dead handler (B9). Killed under reduced.
 9. **aria-live (G12):** `#sr-live` polite announcements: readiness value on load, route changes, exam timer warnings (10/5/1 min), submit/score reveal, quality changes.
 
+### S4+ · Today motion maximum (approved expansion, M1–M16)
+
+User-approved addition: push the Today page to maximum motion density, tiered — `full` gets everything, `lite` gets reduced density (fewer particles/instances, no parallax/ambient), `reduced` gets authored stills. Every pattern is frame-evidenced in the corpus. Governance: **no new persistent rAF loops** — each item is ScrollTrigger-gated to its viewport, IO-gated, or a CSS animation; the particle scrub stays scroll-driven; `lite` halves stagger counts and drops pointer-driven items.
+
+**Cold open**
+- M1 Numeral preloader beat: veil shows readiness % counting up as a lone numeral, then dissolves (trevornoah "70" pattern).
+- M2 Split-flap roll: digits physically cycle intermediate values before settling on readiness (railway flap).
+- M3 Verb-pill rotator in cold-open meta: `MEASURED / SEALED / STAMPED` cycle (notion pill).
+- M4 Ambient emerald light field drifting behind the seal — accent-as-light, `full` only (raycast).
+
+**Chapter grammar**
+- M5 Ghost→solid word reveals on premise lines + every chapter title (SplitText word stagger + blur-out, condition-scoped; pitch).
+- M6 Line-flow brass hairline threading cold-open → premise → proof → finale (SVG dash-offset drift; mintlify).
+- M7 Scroll-progress hairline rule (1px brass, Lenis-scroll-position driven, right edge).
+- M8 § hairline section markers draw themselves in on entry (upgrades the static S5 marker).
+
+**Per-section life**
+- M9 Next-action card pointer-parallax tilt + magnetic CTA hover (desktop + `full` only; trevor/figma drift).
+- M10 Constellation: edge draw-in stagger, readiness-linked node pulses, emerald hover glow (only within its viewport).
+- M11 Statute ring numeral tick on state change + panel word stagger (railway spine).
+- M12 Proof charts: sparkline stroke-draw, scatter pop stagger, count-up labels (coursera draw band).
+- M13 Ticker: pause-on-hover + value tick-flash on update (warp/mercury).
+- M14 Quiet beat: line-mask serif reveal + drop-cap settle (editorial-soft 400–700ms).
+- M15 Finale: ghost `SEALED` wordmark rises behind the stamp slam.
+- M16 Footer: index rows stagger-rise + watermark drift on scroll-in.
+
 ### S5 · Research polish (high-leverage only)
 
 - **Hairline section markers:** "§ NN · NAME" mono eyebrow centered on a drawn 1px rule at Today chapter boundaries (synthesis PASS-7 #2).
@@ -131,7 +157,7 @@ Every element `id`; all `/api` paths; exam state machine, timers, keyboard short
 | P1 | S1 motion authority + S2 docs compliance (smooth.js, tokens.css, index.html, seal-less boot) | — |
 | P2 | S3 functional bugs (router, views, today, exam, nav, app, motion.css) | P1 |
 | P3 | Seal rebuild + lazy three.min.js (seal.js, index.html) | P1 |
-| P4 | S4 spectacle items 1–9 (router Flip, wipe, seal journey, crossfades, pin, particles, cold-open, Observer, aria-live) | P1–P3 |
+| P4 | S4 spectacle items 1–9 + S4+ Today motion maximum M1–M16 (router Flip, wipe, seal journey, crossfades, pin, particles, cold-open, Observer, aria-live, M inventory) | P1–P3 |
 | P5 | S5 polish | P4 |
 | P6 | Verification matrix (§7) | P5 |
 
@@ -139,7 +165,7 @@ Every element `id`; all `/api` paths; exam state machine, timers, keyboard short
 
 Server: `venv/Scripts/python -m uvicorn main:app --port 8000` from `backend/` (serves frontend). Browser-use matrix:
 
-1. Desktop 1440×900 + 1280×800: full scroll of Today (cold-open → finale), verify seal journey, crossfades, pin, particles, ticker pause.
+1. Desktop 1440×900 + 1280×800: full scroll of Today (cold-open → finale), verify seal journey, crossfades, pin, particles, ticker pause, and every M1–M16 item alive at `full` (veil numeral beat, flap roll, verb pill, word reveals, brass thread, progress rule, section markers, parallax card, constellation life, ring tick, chart draws, ticker flash, quiet-beat masks, SEALED ghost, footer stagger).
 2. Quality toggle cycle full→lite→reduced→full: observe Lenis teardown, seal DPR/static frame, particle count, animation revert; persist across reload.
 3. `prefers-reduced-motion: reduce` emulation: authored stills everywhere, no racing animations, Flip/wipe skipped.
 4. Deep links `#pyq`, `#exam`, `#results` on cold load render their views.
@@ -158,4 +184,5 @@ Server: `venv/Scripts/python -m uvicorn main:app --port 8000` from `backend/` (s
 | Crossfade of many CSS vars costs paint | animate only 5 core vars, single trigger per boundary, `scrub` not tween storms |
 | Readiness API may lack `final_score_estimate`/`days_to_exam` | render-nothing guard; verify payload in P4 before wiring |
 | Lazy three.min.js race with seal init | promise-guarded loader; SVG poster until loaded |
+| Motion-max density causes jank at `full` | no new persistent rAF; every M item ST/IO-gated to its viewport; `lite` halves staggers and drops pointer/ambient items; verify smoothness in §7 item 1 |
 | Git hazard (concurrent automations) | never pull/rebase; check `.git/index.lock`; commit only explicit paths |
