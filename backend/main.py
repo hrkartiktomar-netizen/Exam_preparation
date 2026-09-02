@@ -9,12 +9,14 @@ import json
 import os
 from pathlib import Path as PathLib
 import re
+import threading
+import time as _time
 from typing import Any
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from apscheduler.triggers.interval import IntervalTrigger
-from fastapi import BackgroundTasks, FastAPI, HTTPException, Path, Query
+from fastapi import BackgroundTasks, Depends, FastAPI, HTTPException, Path, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -516,6 +518,58 @@ def _function_improvement_audit() -> list[dict[str, Any]]:
     ]
 
 
+# A route that can reach a model call bills an API key, and the generator
+# endpoints also write rows, so a double-clicked button or a frontend retry pays
+# twice for one result. The guard below claims a key for the duration of the
+# work and refuses an overlapping duplicate with 409. Keying on the query string
+# keeps genuinely different requests (two topics, two limits) independent; only
+# a true duplicate is rejected, so sequential callers never see the 409.
+_SPEND_GUARD_LOCK = threading.Lock()
+_SPEND_IN_FLIGHT: set[str] = set()
+
+
+def spend_guard_key(base: str, query: str) -> str:
+    return f"{base}|{query}"
+
+
+def _begin_spend_guard(key: str) -> bool:
+    """Claim `key`. False means the same operation is already running."""
+    with _SPEND_GUARD_LOCK:
+        if key in _SPEND_IN_FLIGHT:
+            return False
+        _SPEND_IN_FLIGHT.add(key)
+        return True
+
+
+def _end_spend_guard(key: str) -> None:
+    with _SPEND_GUARD_LOCK:
+        _SPEND_IN_FLIGHT.discard(key)
+
+
+def gemini_spend_guard(base_key: str):
+    """Route dependency that makes a Gemini-spending request idempotent.
+
+    The claim spans the request only. A handler that hands its work to a thread
+    returns long before the spend ends, so it must bracket the job with
+    _begin_spend_guard/_end_spend_guard itself instead of using this.
+    """
+
+    def guard(request: Request):
+        key = spend_guard_key(base_key, request.url.query)
+        if not _begin_spend_guard(key):
+            raise HTTPException(
+                status_code=409,
+                detail="That AI request is still running. Wait for it to finish before starting another.",
+            )
+        try:
+            yield
+        finally:
+            _end_spend_guard(key)
+
+    guard.spend_guard_key = base_key
+    return guard
+
+
 @app.get("/")
 def root():
     index_path = FRONTEND_DIR / "index.html"
@@ -550,7 +604,7 @@ def gemini_health():
     return get_gemini_health()
 
 
-@app.post("/api/ai/reinitialize")
+@app.post("/api/ai/reinitialize", dependencies=[Depends(gemini_spend_guard("ai:reinitialize"))])
 def reinitialize_ai():
     return initialize_gemini_runtime(run_probe=True)
 
@@ -569,7 +623,7 @@ def ai_usecases():
     }
 
 
-@app.post("/api/ai/study-session")
+@app.post("/api/ai/study-session", dependencies=[Depends(gemini_spend_guard("ai:study-session"))])
 def ai_study_session(request: StudySessionRequestModel | None = None):
     request = request or StudySessionRequestModel()
     dashboard_data = db.dashboard_data()
@@ -596,7 +650,7 @@ def ai_study_session(request: StudySessionRequestModel | None = None):
     }
 
 
-@app.get("/api/ai/topic-brief")
+@app.get("/api/ai/topic-brief", dependencies=[Depends(gemini_spend_guard("ai:topic-brief"))])
 def ai_topic_brief(topic_id: str = Query(..., min_length=1), limit: int = Query(default=10, ge=3, le=25)):
     normalized = topic_id.upper()
     topic_name = db.topic_display(normalized)
@@ -607,20 +661,20 @@ def ai_topic_brief(topic_id: str = Query(..., min_length=1), limit: int = Query(
     return {"ai_status": get_gemini_health(), "brief": brief, "sources": chunks}
 
 
-@app.get("/api/ai/pyq-calibration")
+@app.get("/api/ai/pyq-calibration", dependencies=[Depends(gemini_spend_guard("ai:pyq-calibration"))])
 def ai_pyq_calibration(limit: int = Query(default=18, ge=5, le=40)):
     chunks = db.pyq_candidate_chunks(limit=limit)
     calibration = generate_pyq_calibration(chunks, _digest_profile())
     return {"ai_status": get_gemini_health(), "calibration": calibration, "sources": chunks}
 
 
-@app.get("/api/ai/product-gap-analysis")
+@app.get("/api/ai/product-gap-analysis", dependencies=[Depends(gemini_spend_guard("ai:product-gap-analysis"))])
 def ai_product_gap_analysis():
     analysis = generate_product_gap_analysis(_digest_profile(), _app_inventory(), _plan_excerpt())
     return {"ai_status": get_gemini_health(), "analysis": analysis}
 
 
-@app.get("/api/ai/mock-blueprint")
+@app.get("/api/ai/mock-blueprint", dependencies=[Depends(gemini_spend_guard("ai:mock-blueprint"))])
 def ai_mock_blueprint(
     total_questions: int = Query(default=50, ge=5, le=100),
     mode: str = Query(default="balanced", pattern="^(balanced|weakness-heavy|amendment-heavy|pyq-like)$"),
@@ -766,15 +820,13 @@ def get_topic_stats_by_user(
 # dashboard_data() runs intelligent_targeting_snapshot() on every call; caching it
 # for 60s removes that churn. A shallow copy is returned so the endpoint's in-place
 # additions (focus_plan, amendment_watchlist) do not mutate the cached dict.
-import threading
-import time as _time
-
 _DASHBOARD_CACHE: dict[str, Any] = {"data": None, "ts": 0.0}
 _DASHBOARD_TTL_SECONDS = 60.0
 _TARGETING_CACHE: dict[str, Any] = {"data": None, "ts": 0.0}
 _DASHBOARD_FULL_CACHE: dict[str, Any] = {"ai": {"data": None, "ts": 0.0}, "local": {"data": None, "ts": 0.0}}
 _DASHBOARD_WARMING: set[str] = set()
 _DASHBOARD_WARM_LOCK = threading.Lock()
+
 
 
 def _cached_dashboard_data() -> dict[str, Any]:
@@ -977,7 +1029,7 @@ def complete_law_revision_day(
     return law_revision_engine.complete_law_revision_day(day_index=day_index, lines_per_day=lines_per_day)
 
 
-@app.post("/api/questions/generate-from-source")
+@app.post("/api/questions/generate-from-source", dependencies=[Depends(gemini_spend_guard("questions:generate-from-source"))])
 def generate_questions_from_source(request: QuestionGenerationRequestModel):
     questions = db.generate_topic_questions(
         request.topic,
@@ -996,7 +1048,7 @@ def generate_questions_from_source(request: QuestionGenerationRequestModel):
     return {"questions": [_coerce_question(question) for question in questions]}
 
 
-@app.post("/api/questions/build-bank")
+@app.post("/api/questions/build-bank", dependencies=[Depends(gemini_spend_guard("questions:build-bank"))])
 def build_question_bank(
     topic_ids: str | None = Query(default=None, description="Comma-separated topic ids; omit to target current weakest/thinnest topics."),
     target_per_topic: int = Query(default=20, ge=5, le=100),
@@ -1049,7 +1101,7 @@ def get_question(question_id: str):
     return QuestionModel.model_validate(question)
 
 
-@app.post("/api/penalty-drill", response_model=PenaltyDrillResponseModel)
+@app.post("/api/penalty-drill", response_model=PenaltyDrillResponseModel, dependencies=[Depends(gemini_spend_guard("penalty-drill"))])
 def generate_penalty_drill(request: PenaltyDrillRequestModel):
     try:
         questions = db.generate_topic_questions(
@@ -1106,7 +1158,7 @@ def wrong_answer_queue(
         conn.close()
 
 
-@app.post("/api/drills/replay")
+@app.post("/api/drills/replay", dependencies=[Depends(gemini_spend_guard("drills:replay"))])
 def replay_wrong_answers(
     topic: str = Query(..., min_length=1),
     question_count: int = Query(default=5, ge=1, le=20),
@@ -1172,7 +1224,7 @@ def replay_wrong_answers(
     }
 
 
-@app.post("/api/generate-smart-mock", response_model=SmartMockResponseModel)
+@app.post("/api/generate-smart-mock", response_model=SmartMockResponseModel, dependencies=[Depends(gemini_spend_guard("mock:generate"))])
 def generate_smart_mock(request: SmartMockRequestModel | None = None):
     request = request or SmartMockRequestModel()
     try:
@@ -1216,7 +1268,7 @@ def generate_smart_mock(request: SmartMockRequestModel | None = None):
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
-@app.post("/api/mocks/generate", response_model=SmartMockResponseModel)
+@app.post("/api/mocks/generate", response_model=SmartMockResponseModel, dependencies=[Depends(gemini_spend_guard("mock:generate"))])
 def generate_mock_alias(request: SmartMockRequestModel | None = None):
     return generate_smart_mock(request)
 
@@ -1230,7 +1282,7 @@ def submit_mock(mock_id: str, request: MockSubmitRequestModel):
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@app.post("/api/exams/start")
+@app.post("/api/exams/start", dependencies=[Depends(gemini_spend_guard("exams:start"))])
 def exam_start(request: SmartMockRequestModel | None = None):
     """Start a new exam session with adaptive mock generation.
 
@@ -2158,7 +2210,7 @@ def descriptive_start(request: DescriptiveStartRequestModel):
     }
 
 
-@app.post("/api/descriptive/grade", response_model=DescriptiveGradeResponseModel)
+@app.post("/api/descriptive/grade", response_model=DescriptiveGradeResponseModel, dependencies=[Depends(gemini_spend_guard("descriptive:grade"))])
 def descriptive_grade(request: DescriptiveGradeRequestModel):
     """Grade essay + précis + RC against stored model answers (blind grading)."""
     from precis_grader import grade_precis
@@ -2476,7 +2528,7 @@ def get_high_yield_provisions(limit: int = Query(default=15, ge=1, le=30)):
     return law_revision_engine.get_high_yield_provisions(limit=limit)
 
 
-@app.post("/api/record-amendment", response_model=AmendmentResponseModel)
+@app.post("/api/record-amendment", response_model=AmendmentResponseModel, dependencies=[Depends(gemini_spend_guard("amendments:record"))])
 def record_amendment(amendment: AmendmentModel, auto_generate_questions: bool = Query(default=True)):
     try:
         db.record_amendment(amendment.model_dump())
@@ -2494,7 +2546,7 @@ def record_amendment(amendment: AmendmentModel, auto_generate_questions: bool = 
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@app.post("/api/amendments/seed")
+@app.post("/api/amendments/seed", dependencies=[Depends(gemini_spend_guard("amendments:seed"))])
 def seed_amendments():
     if db.table_count("documents") == 0:
         db.ingest_documents(force=False)
@@ -2532,14 +2584,14 @@ def mark_amendment_mastered(amendment_id: str):
         conn.close()
 
 
-@app.get("/api/amendments/intelligence")
+@app.get("/api/amendments/intelligence", dependencies=[Depends(gemini_spend_guard("amendments:intelligence"))])
 def amendment_intelligence(limit: int = Query(default=12, ge=1, le=50)):
     candidates = db.amendment_candidate_chunks(limit=max(limit, 15))
     watchlist = generate_amendment_watchlist(candidates)
     return {"ai_status": get_gemini_health(), "watchlist": watchlist[:limit], "candidate_count": len(candidates)}
 
 
-@app.get("/api/amendments/startup-scan")
+@app.get("/api/amendments/startup-scan", dependencies=[Depends(gemini_spend_guard("amendments:startup-scan"))])
 def startup_amendment_scan(refresh: bool = Query(default=False)):
     if refresh or not hasattr(app.state, "startup_amendment_scan"):
         app.state.startup_amendment_scan = _run_startup_amendment_scan(force_local=False)
@@ -2549,7 +2601,7 @@ def startup_amendment_scan(refresh: bool = Query(default=False)):
     }
 
 
-@app.post("/api/amendments/extract")
+@app.post("/api/amendments/extract", dependencies=[Depends(gemini_spend_guard("amendments:extract"))])
 def extract_amendment(request: AmendmentExtractRequestModel):
     extracted = extract_and_verify_amendment(request.amendment_text, request.amendment_url)
     saved = False
@@ -2825,7 +2877,7 @@ def get_srs_stats():
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
-@app.post("/api/study-paths/generate", response_model=StudyPathModel)
+@app.post("/api/study-paths/generate", response_model=StudyPathModel, dependencies=[Depends(gemini_spend_guard("study-paths:generate"))])
 def generate_study_path_endpoint(weak_topics: list[str] = Query(default=[])):
     """Generate personalized 12-week study path."""
     try:
@@ -3015,20 +3067,50 @@ def get_updates_status():
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
+_JOB_UPDATE_TRACKER = "job:update-tracker"
+_JOB_ENRICH_REASONS = "job:enrich-reasons"
+
+
+def _spawn_guarded_job(key: str, target, label: str) -> dict[str, str]:
+    """Start `target` in a daemon thread that owns `key` until it finishes.
+
+    The request returns long before the spend ends, so the thread has to hold
+    the guard rather than a request-scoped dependency. Without it a second POST
+    starts a duplicate job that bills again and writes duplicate rows, and a
+    manual trigger can collide with the scheduler's own run.
+    """
+    if not _begin_spend_guard(key):
+        raise HTTPException(
+            status_code=409,
+            detail=f"{label} is still running. Wait for it to finish before starting another.",
+        )
+
+    def run():
+        try:
+            target()
+        finally:
+            _end_spend_guard(key)
+
+    threading.Thread(target=run, daemon=True).start()
+    return {"status": "started"}
+
+
 @app.post("/api/updates/run")
 def trigger_update_tracker():
     """Spawn the update tracker in a background thread; return immediately."""
-    t = threading.Thread(target=update_tracker.run_update_tracker, daemon=True)
-    t.start()
-    return {"status": "started"}
+    return _spawn_guarded_job(
+        _JOB_UPDATE_TRACKER, update_tracker.run_update_tracker, "The amendment update tracker"
+    )
 
 
 @app.post("/api/updates/enrich-reasons")
 def trigger_enrich_reasons():
     """Spawn enrich_past_amendment_reasons in a background thread; return immediately."""
-    t = threading.Thread(target=update_tracker.enrich_past_amendment_reasons, daemon=True)
-    t.start()
-    return {"status": "started"}
+    return _spawn_guarded_job(
+        _JOB_ENRICH_REASONS,
+        update_tracker.enrich_past_amendment_reasons,
+        "The amendment reason enrichment",
+    )
 
 
 @app.post("/api/updates/{update_id}/status")

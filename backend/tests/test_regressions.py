@@ -1308,3 +1308,262 @@ def test_no_route_handler_blocks_the_event_loop():
         f"{len(offenders)} route handler(s) are `async def` but never await; "
         f"they block the event loop and must be plain `def`: {offenders}"
     )
+
+
+# ---------------------------------------------------------------------------
+# 20. Gemini-spending routes must reject a concurrent duplicate with 409
+# ---------------------------------------------------------------------------
+
+# A route that can reach a model call bills an API key, and the generator
+# endpoints also write rows. A double-clicked button or a frontend retry then
+# pays twice for one result. The guard claims a key for the duration of the
+# work and answers a concurrent duplicate with 409; sequential requests are
+# unaffected because the key is released when the work ends.
+
+SPEND_GRAPH_MODULES = (
+    "main",
+    "database",
+    "gemini_integration",
+    "precis_grader",
+    "rc_grader",
+    "update_tracker",
+    "amendment_poller",
+    "smart_material_classification",
+    "recommendation_engine",
+    "pyq_cache",
+)
+
+# The one route allowed to reach the model without this guard: its background
+# warmer already dedupes on _DASHBOARD_WARMING under _DASHBOARD_WARM_LOCK.
+SPEND_ROUTES_ALREADY_GUARDED = {"GET /api/dashboard"}
+
+# These hand the work to threading.Thread(target=...), so the guard must be
+# held for the job's lifetime rather than the request's, which a request-scoped
+# dependency cannot express. Verified behaviourally instead of structurally.
+SPEND_JOB_ROUTES = {"POST /api/updates/run", "POST /api/updates/enrich-reasons"}
+
+
+def _spend_call_graph():
+    """Return (edges, model_calling_functions) for the backend modules.
+
+    References are collected whether or not they are called, so a function
+    passed as `threading.Thread(target=...)` still produces an edge. The
+    over-approximation is harmless: a name that is not a function definition
+    simply dead-ends during the walk.
+    """
+    import ast
+    from pathlib import Path
+
+    backend_dir = Path(__file__).resolve().parents[1]
+    aliases_by_module, defs_by_module = {}, {}
+
+    for mod in SPEND_GRAPH_MODULES:
+        path = backend_dir / f"{mod}.py"
+        if not path.exists():
+            continue
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        aliases = {}
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ImportFrom) and node.module in SPEND_GRAPH_MODULES:
+                for alias in node.names:
+                    aliases[alias.asname or alias.name] = (node.module, alias.name)
+            elif isinstance(node, ast.Import):
+                for alias in node.names:
+                    if alias.name in SPEND_GRAPH_MODULES:
+                        aliases[alias.asname or alias.name] = (alias.name, None)
+        aliases_by_module[mod] = aliases
+        defs_by_module[mod] = {
+            node.name: node
+            for node in tree.body
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+        }
+
+    edges, model_calls = {}, set()
+    for mod, funcs in defs_by_module.items():
+        aliases = aliases_by_module[mod]
+        for name, node in funcs.items():
+            dumped = ast.dump(node)
+            if mod == "gemini_integration" and (
+                "generate_content" in dumped or "_client.models" in dumped
+            ):
+                model_calls.add((mod, name))
+            targets = set()
+            for sub in ast.walk(node):
+                if isinstance(sub, ast.Name):
+                    ref = sub.id
+                    if ref in aliases and aliases[ref][1] is not None:
+                        targets.add(aliases[ref])
+                    elif ref in funcs:
+                        targets.add((mod, ref))
+                elif isinstance(sub, ast.Attribute) and isinstance(sub.value, ast.Name):
+                    owner = aliases.get(sub.value.id)
+                    if owner and owner[1] is None:
+                        targets.add((owner[0], sub.attr))
+            edges[(mod, name)] = targets
+    return edges, model_calls
+
+
+def _gemini_spending_routes():
+    import main
+    from fastapi.routing import APIRoute
+
+    edges, model_calls = _spend_call_graph()
+
+    def reaches_model(key, seen):
+        if key in seen:
+            return False
+        seen.add(key)
+        return any(
+            nxt in model_calls or reaches_model(nxt, seen) for nxt in edges.get(key, ())
+        )
+
+    spending = set()
+    for route in main.app.routes:
+        if not isinstance(route, APIRoute):
+            continue
+        key = (route.endpoint.__module__, route.endpoint.__name__)
+        if key not in edges or not reaches_model(key, set()):
+            continue
+        methods = ",".join(sorted(route.methods - {"HEAD", "OPTIONS"}))
+        spending.add(f"{methods} {route.path}")
+    return spending
+
+
+def _route_label(route):
+    methods = ",".join(sorted(route.methods - {"HEAD", "OPTIONS"}))
+    return f"{methods} {route.path}"
+
+
+def _spend_guard_key_on(route):
+    for dep in route.dependencies:
+        key = getattr(dep.dependency, "spend_guard_key", None)
+        if key:
+            return key
+    return None
+
+
+def test_every_gemini_spending_route_carries_an_idempotency_guard():
+    """A route that can bill the API key must reject a concurrent duplicate.
+
+    The spending set is derived from the call graph rather than hardcoded, so a
+    newly added endpoint that reaches a model call fails here until it is
+    guarded.
+    """
+    import inspect
+
+    import main
+    from fastapi.routing import APIRoute
+
+    spending = _gemini_spending_routes()
+
+    # Both sanity checks below exist so the exemptions cannot outlive their
+    # justification: if the walk stops finding these routes it has broken.
+    assert SPEND_ROUTES_ALREADY_GUARDED <= spending, (
+        "the dashboard fell out of the spending set, so the call-graph walk is "
+        f"broken and this test is vacuous; found {sorted(spending)}"
+    )
+    assert SPEND_JOB_ROUTES <= spending, (
+        "the update-tracker jobs fell out of the spending set, so attribute "
+        f"references are no longer followed; found {sorted(spending)}"
+    )
+    warm_src = inspect.getsource(main._warm_dashboard_ai)
+    assert "_DASHBOARD_WARMING" in warm_src and "_DASHBOARD_WARM_LOCK" in warm_src, (
+        "GET /api/dashboard is exempt only because _warm_dashboard_ai dedupes "
+        "itself; that dedupe is gone, so the route needs the guard too"
+    )
+
+    unguarded = sorted(
+        _route_label(route)
+        for route in main.app.routes
+        if isinstance(route, APIRoute)
+        and _route_label(route) in spending
+        and _route_label(route) not in SPEND_ROUTES_ALREADY_GUARDED
+        and _route_label(route) not in SPEND_JOB_ROUTES
+        and _spend_guard_key_on(route) is None
+    )
+    assert not unguarded, (
+        f"{len(unguarded)} Gemini-spending route(s) have no idempotency guard, "
+        f"so a double-submit bills twice: {unguarded}"
+    )
+
+
+def test_spend_guard_releases_so_sequential_requests_are_never_blocked():
+    """Only an *overlapping* duplicate is rejected; the key must not leak."""
+    import main
+
+    key = main.spend_guard_key("selftest", "a=1")
+    try:
+        assert main._begin_spend_guard(key), "a previous test leaked this key"
+        assert not main._begin_spend_guard(key), "a claimed key must not be re-claimable"
+        main._end_spend_guard(key)
+        assert main._begin_spend_guard(key), "the key was not released"
+    finally:
+        main._end_spend_guard(key)
+
+
+def test_guarded_spend_route_returns_409_while_the_same_key_is_in_flight(client):
+    """The duplicate is refused before the handler runs, and says why."""
+    import main
+    from fastapi.routing import APIRoute
+
+    path = "/api/ai/product-gap-analysis"
+    route = next(
+        r for r in main.app.routes if isinstance(r, APIRoute) and r.path == path
+    )
+    base = _spend_guard_key_on(route)
+    assert base, f"{path} is unguarded"
+
+    key = main.spend_guard_key(base, "")
+    assert main._begin_spend_guard(key), "a previous test leaked this key"
+    try:
+        response = client.get(path)
+        assert response.status_code == 409, response.text
+        # api.js renders `detail` verbatim, so it must be a non-empty string.
+        detail = response.json()["detail"]
+        assert isinstance(detail, str) and detail.strip(), detail
+    finally:
+        main._end_spend_guard(key)
+
+
+def test_update_tracker_run_holds_its_guard_for_the_job_not_the_request(
+    client, monkeypatch
+):
+    """The request returns immediately, so a request-scoped guard is useless.
+
+    The thread must own the key until it finishes; otherwise a second POST
+    starts a duplicate tracker that spends again and writes duplicate rows.
+    """
+    import threading
+
+    import update_tracker
+
+    started, release = threading.Event(), threading.Event()
+    runs = []
+
+    def fake_tracker():
+        runs.append(1)
+        started.set()
+        release.wait(timeout=15)
+        return {"status": "ok"}
+
+    monkeypatch.setattr(update_tracker, "run_update_tracker", fake_tracker)
+
+    first = client.post("/api/updates/run")
+    assert first.status_code == 200, first.text
+    assert started.wait(timeout=10), "the tracker thread never started"
+
+    duplicate = client.post("/api/updates/run")
+    assert duplicate.status_code == 409, duplicate.text
+    assert isinstance(duplicate.json()["detail"], str)
+
+    release.set()
+    retry, deadline = None, time.time() + 10
+    while time.time() < deadline:
+        retry = client.post("/api/updates/run")
+        if retry.status_code == 200:
+            break
+        time.sleep(0.05)
+    assert retry is not None and retry.status_code == 200, (
+        "the job guard was never released after the tracker finished"
+    )
+    assert len(runs) == 2, f"the rejected request still ran the tracker: {len(runs)} runs"
