@@ -196,17 +196,19 @@
   }
 
   /* ────── A08: Ticker Tape ────── */
-  function renderTicker(data) {
+  // Readiness and the SRS due count are not dashboard fields, so they arrive
+  // from their own endpoints; reading them off `data` printed a permanent 0.
+  function renderTicker(data, readiness, srsDue) {
     var track = qs(".ticker__track");
     if (!track || !data) return;
 
     var items = [
-      { label: "READINESS", value: (data.readiness_percentage || 0) + "%" },
-      { label: "MOCKS", value: String(data.total_mocks || 0) },
+      { label: "READINESS", value: ((readiness && readiness.readiness_percentage) || 0) + "%" },
+      { label: "MOCKS", value: String(data.total_mocks_completed || 0) },
       { label: "ACCURACY", value: (data.overall_accuracy || 0).toFixed(1) + "%" },
-      { label: "AMENDMENTS", value: String(data.pending_amendments || 0) },
-      { label: "SRS DUE", value: String(data.srs_due || 0) },
-      { label: "QUESTIONS", value: String(data.total_attempts || 0) },
+      { label: "AMENDMENTS", value: String((data.recent_amendments || []).length) },
+      { label: "SRS DUE", value: String((srsDue || []).length) },
+      { label: "QUESTIONS", value: String(data.total_questions_attempted || 0) },
     ];
 
     // Duplicate for seamless loop
@@ -730,6 +732,7 @@
         API.nextAction(),
         API.topicStats(),
         API.lawDaily(),
+        API.srsDue(),
       ]);
 
       dashData = results[0].status === "fulfilled" ? results[0].value : null;
@@ -737,6 +740,7 @@
       var nextActionData = results[2].status === "fulfilled" ? results[2].value : null;
       var topicData = results[3].status === "fulfilled" ? results[3].value : null;
       lawData = results[4].status === "fulfilled" ? results[4].value : null;
+      var srsDueData = results[5].status === "fulfilled" ? results[5].value : null;
 
       // A01: Counter
       var readinessPercent = 0;
@@ -771,7 +775,7 @@
       }
 
       // A08: Ticker
-      if (dashData) renderTicker(dashData);
+      if (dashData) renderTicker(dashData, readinessData, srsDueData);
 
       // A13: Quiet Beat
       renderQuietBeat(lawData);

@@ -1918,3 +1918,82 @@ def test_readiness_with_no_submitted_mock_is_zero_not_fifty(temp_db):
         f"an unmeasured user must be reported as LOW confidence, got "
         f"{payload['confidence']!r}"
     )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 26. The Today ticker must not print numbers the API never sent
+#
+# renderTicker(dashData) read readiness_percentage, total_mocks,
+# pending_amendments, srs_due and total_attempts. /api/dashboard is serialised
+# through DashboardStatsModel, whose fields are total_mocks_completed,
+# total_questions_attempted and recent_amendments -- and response_model strips
+# anything else the builder adds. Five of the six cells therefore read
+# `undefined || 0` and printed a permanent 0 that looked like a measurement,
+# the same false-number class as the 62% readiness seal.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _today_function(name):
+    """Return the body of a two-space-indented function in today.js."""
+    text = _frontend_text("js", "today.js")
+    match = re.search(rf"^  (?:async )?function {name}\(", text, re.MULTILINE)
+    assert match, f"{name} vanished from today.js, so this test is vacuous"
+    rest = text[match.end():]
+    end = re.search(r"^  (?:async )?function ", rest, re.MULTILINE)
+    return rest[: end.start()] if end else rest
+
+
+def test_ticker_reads_only_fields_the_dashboard_actually_returns():
+    """Every `data.<key>` renderTicker reads must exist on DashboardStatsModel.
+
+    The allowed set comes from the model rather than a hardcoded list, so
+    renaming a field fails here instead of silently rendering 0 in the browser.
+    """
+    from models import DashboardStatsModel
+
+    declared = set(DashboardStatsModel.model_fields)
+    # Stops the assertion passing because both sides went empty.
+    assert {"total_mocks_completed", "overall_accuracy"} <= declared, (
+        f"DashboardStatsModel no longer declares the stat fields the ticker "
+        f"needs: {sorted(declared)}"
+    )
+
+    src = _today_function("renderTicker")
+    read = set(re.findall(r"\bdata\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no dashboard field reads found, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"renderTicker reads {undeclared} from /api/dashboard, but "
+        f"DashboardStatsModel only returns {sorted(declared)}. Undefined keys "
+        "fall through `|| 0`, so the ticker prints a hard zero that reads as a "
+        "measured value instead of the count the API actually supplied."
+    )
+
+
+def test_ticker_readiness_and_srs_cells_are_fed_from_their_own_endpoints():
+    """READINESS and SRS DUE have no dashboard field, so they need real sources.
+
+    readiness_percentage lives on /api/dashboard/readiness and the due count on
+    /api/srs/due-topics; both were already being fetched or fetchable, but
+    renderTicker was handed the dashboard payload alone.
+    """
+    api_js = _frontend_text("js", "api.js")
+    assert "srsDue:" in api_js, (
+        "api.js no longer exposes srsDue(), so the SRS cell has no source to read"
+    )
+
+    loader = _today_function("loadData")
+    assert "API.srsDue()" in loader, (
+        "loadData never fetches /api/srs/due-topics, so the SRS DUE cell can "
+        "only ever print 0 no matter how many topics are due."
+    )
+
+    call = re.search(r"renderTicker\(([^)]*)\)", loader)
+    assert call, "loadData stopped calling renderTicker, so the ticker is dead"
+    args = [a.strip() for a in call.group(1).split(",") if a.strip()]
+    assert len(args) == 3, (
+        f"renderTicker is called with {args}; it needs the dashboard payload "
+        "plus the readiness and SRS results, because the dashboard carries "
+        "neither readiness_percentage nor an SRS due count."
+    )
