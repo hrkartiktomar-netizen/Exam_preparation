@@ -13,6 +13,7 @@ from typing import Any
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
+from apscheduler.triggers.interval import IntervalTrigger
 from fastapi import BackgroundTasks, FastAPI, HTTPException, Path, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -27,6 +28,7 @@ import recommendation_engine
 import readiness_engine
 import error_handling
 import gemini_integration
+import update_tracker
 import pyq_parser
 import pyq_cache
 from gemini_integration import (
@@ -87,6 +89,11 @@ from models import (
     HighYieldProvisionModel,
     RecentAmendmentModel,
     WeakLegalAreaModel,
+    DescriptiveStartRequestModel,
+    DescriptiveGradeRequestModel,
+    DescriptiveComponentGradeModel,
+    DescriptiveGradeResponseModel,
+    ExamAggregateResponseModel,
 )
 
 
@@ -123,12 +130,29 @@ def _run_startup_amendment_scan(force_local: bool = False) -> dict[str, Any]:
     }
 
 
+async def _idle_validate_questions() -> None:
+    """Plan v6 4.6: verify a batch of unverified questions against their cited facts.
+
+    Runs on the scheduler as an idle job. verify_unverified_questions is quota-aware
+    and stops when Gemini is unavailable; wrap so a failure never crashes the scheduler.
+    """
+    try:
+        result = db.verify_unverified_questions(limit=10)
+        print(f"[validator] verified={result.get('verified')} rejected={result.get('rejected')} skipped={result.get('skipped')}")
+    except Exception as exc:
+        print(f"[validator] idle validation error: {exc}")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
     db.init_db()
     job_queue.init_job_queue_schema()
 
+    # Knowledge-layer bootstrap: loads the committed knowledge pack (facts, PYQ
+    # banks, descriptive items, exam templates, Act full text) into SQLite.
+    # Runtime never reads md/pdf files after this (plan v6, WS-1).
+    app.state.knowledge_bootstrap = db.bootstrap_from_knowledge()
     if db.table_count("documents") == 0:
         db.ingest_documents(force=False)
     app.state.gemini = initialize_gemini_runtime(run_probe=True)
@@ -160,6 +184,26 @@ async def lifespan(app: FastAPI):
         CronTrigger(minute="*/15", timezone="UTC"),
         id="job_queue_processor",
         name="Job Queue Processor (every 15 min)",
+        coalesce=True,
+        max_instances=1,
+    )
+    # Plan v6 4.6: idle verifier. verify_unverified_questions is quota-aware and
+    # stops safely when Gemini is unavailable, so it is safe to schedule.
+    scheduler.add_job(
+        _idle_validate_questions,
+        CronTrigger(minute="*/30", timezone="UTC"),
+        id="question_validator",
+        name="Question Verifier (every 30 min)",
+        coalesce=True,
+        max_instances=1,
+    )
+    # Autonomous agentic update tracker (plan v6, multi-model phase B)
+    _tracker_interval_hours = int(os.getenv("UPDATE_TRACK_INTERVAL_HOURS", "6"))
+    scheduler.add_job(
+        update_tracker.run_update_tracker,
+        IntervalTrigger(hours=_tracker_interval_hours, jitter=300),
+        id="update_tracker_agent",
+        name="Update Tracker Agent",
         coalesce=True,
         max_instances=1,
     )
@@ -364,7 +408,7 @@ def _app_inventory() -> dict[str, Any]:
 
 
 def _function_improvement_audit() -> list[dict[str, Any]]:
-    snapshot = db.intelligent_targeting_snapshot()
+    snapshot = _cached_targeting_snapshot()
     low_bank_topics = [item for item in snapshot["question_bank"] if item.get("bank_status") != "READY"]
     thin_coverage_topics = [item for item in snapshot["coverage"] if item.get("coverage_status") == "THIN"]
     return [
@@ -590,7 +634,7 @@ async def ai_mock_blueprint(
 
 @app.get("/api/intelligence/targeting-snapshot")
 async def targeting_snapshot():
-    return db.intelligent_targeting_snapshot()
+    return _cached_targeting_snapshot()
 
 
 @app.get("/api/intelligence/function-audit")
@@ -713,9 +757,32 @@ async def get_topic_stats_by_user(
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
-@app.get("/api/dashboard", response_model=DashboardStatsModel)
-async def dashboard(include_ai: bool = Query(default=True)):
-    data = db.dashboard_data()
+# Plan v6 6.7: TTL cache for the expensive dashboard_data() / targeting snapshot.
+# dashboard_data() runs intelligent_targeting_snapshot() on every call; caching it
+# for 60s removes that churn. A shallow copy is returned so the endpoint's in-place
+# additions (focus_plan, amendment_watchlist) do not mutate the cached dict.
+import threading
+import time as _time
+
+_DASHBOARD_CACHE: dict[str, Any] = {"data": None, "ts": 0.0}
+_DASHBOARD_TTL_SECONDS = 60.0
+_TARGETING_CACHE: dict[str, Any] = {"data": None, "ts": 0.0}
+_DASHBOARD_FULL_CACHE: dict[str, Any] = {"ai": {"data": None, "ts": 0.0}, "local": {"data": None, "ts": 0.0}}
+_DASHBOARD_WARMING: set[str] = set()
+_DASHBOARD_WARM_LOCK = threading.Lock()
+
+
+def _cached_dashboard_data() -> dict[str, Any]:
+    now = _time.time()
+    if _DASHBOARD_CACHE["data"] is None or (now - _DASHBOARD_CACHE["ts"]) > _DASHBOARD_TTL_SECONDS:
+        _DASHBOARD_CACHE["data"] = db.dashboard_data()
+        _DASHBOARD_CACHE["ts"] = now
+    return dict(_DASHBOARD_CACHE["data"])
+
+
+def _build_dashboard_enrichment(include_ai: bool) -> dict[str, Any]:
+    """Compose one fully enriched dashboard payload (blocking; Gemini if allowed)."""
+    data = _cached_dashboard_data()
     weak = data.get("weak_topics", [])
     amendments_data = data.get("recent_amendments", [])
     data["focus_plan"] = generate_focus_plan(data, weak, amendments_data, force_local=not include_ai)
@@ -725,6 +792,65 @@ async def dashboard(include_ai: bool = Query(default=True)):
         operation="dashboard_live_amendment_watchlist",
     )
     data["ai_status"] = get_gemini_health()
+    return data
+
+
+def _warm_dashboard_ai(mode: str, include_ai: bool) -> None:
+    """Refresh the AI-enriched dashboard in the background (never blocks requests)."""
+    with _DASHBOARD_WARM_LOCK:
+        if mode in _DASHBOARD_WARMING:
+            return
+        _DASHBOARD_WARMING.add(mode)
+
+    def _work() -> None:
+        try:
+            enriched = _build_dashboard_enrichment(include_ai)
+            slot = _DASHBOARD_FULL_CACHE[mode]
+            slot["data"] = enriched
+            slot["ts"] = _time.time()
+        except Exception as exc:
+            print(f"[dashboard] background AI warm failed: {exc}")
+        finally:
+            with _DASHBOARD_WARM_LOCK:
+                _DASHBOARD_WARMING.discard(mode)
+
+    threading.Thread(target=_work, daemon=True).start()
+
+
+def _cached_targeting_snapshot() -> dict[str, Any]:
+    now = _time.time()
+    if _TARGETING_CACHE["data"] is None or (now - _TARGETING_CACHE["ts"]) > _DASHBOARD_TTL_SECONDS:
+        _TARGETING_CACHE["data"] = db.intelligent_targeting_snapshot()
+        _TARGETING_CACHE["ts"] = now
+    return dict(_TARGETING_CACHE["data"])
+
+
+@app.get("/api/dashboard", response_model=DashboardStatsModel)
+async def dashboard(include_ai: bool = Query(default=True)):
+    # Plan v6 6.7 + V6.9: the dashboard must stay fast (<0.5s) even with live
+    # Gemini. Fresh cache serves at once; stale cache serves while refreshing in
+    # the background; a cold AI cache returns fast local enrichment immediately
+    # and warms the Gemini version in the background for subsequent loads.
+    mode = "ai" if include_ai else "local"
+    slot = _DASHBOARD_FULL_CACHE[mode]
+    now = _time.time()
+    if slot["data"] is not None and (now - slot["ts"]) <= _DASHBOARD_TTL_SECONDS:
+        return DashboardStatsModel.model_validate(dict(slot["data"]))
+
+    if not include_ai:
+        data = _build_dashboard_enrichment(False)
+        slot["data"] = dict(data)
+        slot["ts"] = _time.time()
+        return DashboardStatsModel.model_validate(data)
+
+    if slot["data"] is not None:
+        # Stale-while-revalidate: serve the last enriched payload, refresh async.
+        _warm_dashboard_ai(mode, True)
+        return DashboardStatsModel.model_validate(dict(slot["data"]))
+
+    # Cold AI cache: serve a fast local enrichment now; warm Gemini in background.
+    data = _build_dashboard_enrichment(False)
+    _warm_dashboard_ai(mode, True)
     return DashboardStatsModel.model_validate(data)
 
 
@@ -831,6 +957,21 @@ async def get_daily_law_revision(
     )
 
 
+@app.get("/api/law/daily-revision/progress")
+async def get_law_revision_progress():
+    """Completion-driven Act revision progress (plan v6 6.5)."""
+    return db.get_law_revision_progress()
+
+
+@app.post("/api/law/daily-revision/complete-day")
+async def complete_law_revision_day(
+    day_index: int | None = Query(default=None, ge=0),
+    lines_per_day: int = Query(default=80, ge=30, le=180),
+):
+    """Mark today's Act slice completed; the resume day index then advances."""
+    return law_revision_engine.complete_law_revision_day(day_index=day_index, lines_per_day=lines_per_day)
+
+
 @app.post("/api/questions/generate-from-source")
 async def generate_questions_from_source(request: QuestionGenerationRequestModel):
     questions = db.generate_topic_questions(
@@ -907,17 +1048,125 @@ async def generate_penalty_drill(request: PenaltyDrillRequestModel):
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
+@app.get("/api/drills/wrong-queue")
+async def wrong_answer_queue(
+    topic: str | None = Query(default=None),
+    limit: int = Query(default=20, ge=1, le=100),
+):
+    """Plan v6 7.7: recent wrong answers feeding the replay drill UI."""
+    conn = db.get_connection()
+    try:
+        if topic:
+            rows = conn.execute(
+                """
+                SELECT question_id, topic, question_text, correct_option, your_option, attempt_date
+                FROM question_attempts
+                WHERE is_correct = 0 AND topic = ?
+                ORDER BY created_at DESC
+                LIMIT ?
+                """,
+                (topic.upper(), limit),
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                """
+                SELECT question_id, topic, question_text, correct_option, your_option, attempt_date
+                FROM question_attempts
+                WHERE is_correct = 0
+                ORDER BY created_at DESC
+                LIMIT ?
+                """,
+                (limit,),
+            ).fetchall()
+        return {"wrong_answers": [dict(row) for row in rows]}
+    finally:
+        conn.close()
+
+
+@app.post("/api/drills/replay")
+async def replay_wrong_answers(
+    topic: str = Query(..., min_length=1),
+    question_count: int = Query(default=5, ge=1, le=20),
+):
+    """Plan v6 6.8: wrong-answer replay drill (completes the REPLAY_WRONG loop).
+
+    Finds the user's recently missed questions for a topic and regenerates similar
+    practice questions grounded in the same source chunks, so the candidate retries
+    the exact concepts they got wrong.
+    """
+    topic_id = topic.upper()
+    conn = db.get_connection()
+    try:
+        wrong_rows = conn.execute(
+            """
+            SELECT DISTINCT qa.question_id, qc.chunk_id, qc.document_id, q.topic_id
+            FROM question_attempts qa
+            LEFT JOIN question_citations qc ON qc.question_id = qa.question_id
+            LEFT JOIN questions q ON q.question_id = qa.question_id
+            WHERE qa.topic = ? AND qa.is_correct = 0
+            ORDER BY qa.created_at DESC
+            LIMIT ?
+            """,
+            (topic_id, question_count),
+        ).fetchall()
+    finally:
+        conn.close()
+
+    if not wrong_rows:
+        return {
+            "status": "no_wrong_answers",
+            "topic": topic_id,
+            "message": "No wrong answers recorded for this topic yet. Take a mock or drill first.",
+            "questions": [],
+        }
+
+    # Build source queries from the missed questions' source chunks / topics.
+    query_terms = []
+    for row in wrong_rows:
+        if row["chunk_id"]:
+            query_terms.append(str(row["chunk_id"]))
+    query = " ".join(query_terms[:5]) or topic_display(topic_id)
+
+    questions = db.generate_topic_questions(
+        topic_id,
+        question_count,
+        difficulty="medium",
+        query=query,
+        question_type="replay_wrong",
+        use_gemini=True,
+        strict_gemini=False,
+        allow_local_fallback=True,
+        reuse_existing=False,
+        source_policy="exam_material",
+    )
+
+    return {
+        "status": "ok",
+        "topic": topic_id,
+        "replayed_from_wrong": len(wrong_rows),
+        "questions": [_coerce_question(question) for question in questions],
+        "source_grounded": any(question.get("source_chunk_id") for question in questions),
+    }
+
+
 @app.post("/api/generate-smart-mock", response_model=SmartMockResponseModel)
 async def generate_smart_mock(request: SmartMockRequestModel | None = None):
     request = request or SmartMockRequestModel()
     try:
         if not request.use_gemini:
             raise HTTPException(status_code=400, detail="Gemini is mandatory for every mock; local generation is disabled.")
-        result = db.generate_smart_mock(total_questions=request.total_questions, mode=request.mode, use_gemini=True)
+        result = await asyncio.to_thread(
+            db.generate_smart_mock,
+            total_questions=request.total_questions,
+            mode=request.mode,
+            use_gemini=True,
+            template_id=request.template,
+        )
         questions = [_coerce_question(question) for question in result["questions"]]
         gemini_questions = sum(1 for question in result["questions"] if question.get("created_by") == "gemini" or str(question.get("question_id", "")).startswith("Q_AI_"))
         local_questions = len(result["questions"]) - gemini_questions
-        marks_per_question = round(100 / max(1, len(questions)), 4)
+        marks_per_question = round(result.get("marks_per_question") or (100 / max(1, len(questions))), 4)
+        time_limit = result.get("time_limit_minutes") or 60
         return SmartMockResponseModel(
             status="success",
             mock_id=result["mock_id"],
@@ -928,11 +1177,11 @@ async def generate_smart_mock(request: SmartMockRequestModel | None = None):
             questions=questions,
             source_grounded=any(question.source_chunk_id for question in questions),
             message=f"Smart mock generated with Gemini structured output: {gemini_questions} Gemini questions, {local_questions} local fallback questions.",
-            time_limit_minutes=60,
+            time_limit_minutes=time_limit,
             marks_per_question=marks_per_question,
             negative_marking_per_wrong=round(marks_per_question * 0.25, 4),
             exam_rules={
-                "timer": "60 minutes",
+                "timer": f"{time_limit} minutes",
                 "navigation": "one question at a time with review palette",
                 "marking": "+marks_per_question for correct, one-fourth negative for wrong",
                 "source_policy": "PYQ/phase-paper/information-handout/study-material/official IFSCA corpus only",
@@ -970,8 +1219,13 @@ async def exam_start(request: SmartMockRequestModel | None = None):
     """
     try:
         request = request or SmartMockRequestModel()
-        # Generate adaptive mock
-        result = db.generate_smart_mock(total_questions=request.total_questions, mode=request.mode, use_gemini=True)
+        # Generate adaptive mock (offload to thread to avoid blocking event loop)
+        result = await asyncio.to_thread(
+            db.generate_smart_mock,
+            total_questions=request.total_questions,
+            mode=request.mode,
+            use_gemini=True,
+        )
 
         # exam_id = mock_id for simplicity and consistency
         mock_id = result["mock_id"]
@@ -1130,30 +1384,33 @@ async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
 
 @app.get("/api/pyq/list")
 async def list_pyq_papers():
-    """List available previous year question papers for attempt."""
+    """List available previous year papers from the compiled bank store."""
     try:
         conn = db.get_connection()
         try:
-            # The legacy source_documents table is never populated by current
-            # ingestion (which writes to `documents`), so PYQ papers were invisible
-            # on fresh installations. Query the canonical documents table instead.
-            pyq_docs = conn.execute(
-                "SELECT document_id, title FROM documents WHERE source_role = 'pyq_phase_paper' ORDER BY title"
+            rows = conn.execute(
+                """
+                SELECT exam, year, phase, paper,
+                       COUNT(*) AS question_count,
+                       SUM(CASE WHEN incomplete = 1 THEN 1 ELSE 0 END) AS incomplete_count
+                FROM previous_year_questions
+                GROUP BY exam, year, phase, paper
+                ORDER BY exam, year, phase, paper
+                """
             ).fetchall()
 
             papers = []
-            for doc in pyq_docs:
-                # Extract metadata from document title
-                name = doc["title"]
-                year_match = re.search(r"(?:19|20)\d{2}", name)
-                phase_match = re.search(r"[Pp]hase[\s_-]*(\d)", name)
-                paper_match = re.search(r"[Pp]aper[\s_-]*(\d)", name)
+            for row in rows:
+                doc_id = f"{row['exam']}_{row['year']}_P{row['phase']}_PAPER{row['paper']}"
                 papers.append({
-                    "pyq_doc_id": doc["document_id"],
-                    "title": name,
-                    "year": int(year_match.group(0)) if year_match else None,
-                    "phase": int(phase_match.group(1)) if phase_match else None,
-                    "paper": int(paper_match.group(1)) if paper_match else None,
+                    "pyq_doc_id": doc_id,
+                    "title": f"{row['exam']} Grade A {row['year']} - Phase {row['phase']} Paper {row['paper']}",
+                    "exam": row["exam"],
+                    "year": row["year"],
+                    "phase": row["phase"],
+                    "paper": row["paper"],
+                    "question_count": row["question_count"],
+                    "incomplete_count": row["incomplete_count"],
                 })
 
             return {"status": "ok", "papers": papers}
@@ -1163,89 +1420,171 @@ async def list_pyq_papers():
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
+def _parse_pyq_doc_id(doc_id: str) -> dict[str, Any] | None:
+    """Parse '{EXAM}_{year}_P{phase}_PAPER{paper}' into components."""
+    match = re.match(r"^(IFSCA|SEBI)_(\d{4})_P(\d+)_PAPER(\d+)$", doc_id)
+    if not match:
+        return None
+    return {
+        "exam": match.group(1),
+        "year": int(match.group(2)),
+        "phase": int(match.group(3)),
+        "paper": int(match.group(4)),
+    }
+
+
+def _load_bank_questions(doc: dict[str, Any], conn: sqlite3.Connection, limit: int = 50) -> list[dict[str, Any]]:
+    """Fetch complete bank questions for a paper, ordered by section then number."""
+    rows = conn.execute(
+        """
+        SELECT * FROM previous_year_questions
+        WHERE exam = ? AND year = ? AND phase = ? AND paper = ? AND incomplete = 0
+        ORDER BY COALESCE(section, subject_id, ''), question_number, rowid
+        LIMIT ?
+        """,
+        (doc["exam"], doc["year"], doc["phase"], doc["paper"], limit),
+    ).fetchall()
+    return [dict(row) for row in rows]
+
+
+def _format_bank_session(doc: dict[str, Any], rows: list[dict[str, Any]], title: str) -> dict[str, Any]:
+    """Build a blind attempt session from bank rows and cache the answers."""
+    pyq_id = f"PYQ_DOC{doc['exam']}_{doc['year']}_P{doc['phase']}_PAPER{doc['paper']}"
+
+    parsed = []
+    for index, row in enumerate(rows, start=1):
+        options = {
+            letter: row[f"option_{letter.lower()}"]
+            for letter in "ABCDE"
+            if row.get(f"option_{letter.lower()}")
+        }
+        parsed.append(
+            pyq_parser.ParsedQuestion(
+                question_number=index,
+                question_text=row["question_text"],
+                options=options,
+                correct_answer=row["correct_option"] or "A",
+                direction_text=row.get("direction_text"),
+            )
+        )
+    marks = rows[0].get("marks") if rows else 1
+    negative = round((marks or 1) * 0.25, 4)
+    pyq_cache.cache_pyq_questions(pyq_id, parsed, marks_per_question=marks, negative_marking_per_wrong=negative)
+
+    formatted_questions = []
+    for pq in parsed:
+        formatted_questions.append({
+            "question_id": f"{pyq_id}_Q{pq.question_number}",
+            "question_number": pq.question_number,
+            "question_text": pq.question_text,
+            "direction_text": pq.direction_text,
+            "options": [{"label": label, "text": text} for label, text in pq.options.items()],
+            # Correct answer NOT sent to frontend (blind submission)
+        })
+
+    return {
+        "status": "ok",
+        "pyq_id": pyq_id,
+        "title": title,
+        "exam": doc["exam"],
+        "total_questions": len(formatted_questions),
+        "time_limit_minutes": max(20, len(formatted_questions)),
+        "marks_per_question": marks,
+        "negative_marking_per_wrong": negative,
+        "questions": formatted_questions,
+    }
+
+
 @app.post("/api/pyq/{doc_id}/load")
 async def load_pyq_paper(doc_id: str):
-    """Load a previous year question paper with its parsed questions."""
+    """Load a previous year paper from the compiled bank (blind, capped at 50)."""
     conn = None
     try:
-        conn = db.get_connection()
-
-        # Get PYQ document metadata from the canonical documents table
-        doc = conn.execute(
-            "SELECT * FROM documents WHERE document_id = ? AND source_role = 'pyq_phase_paper' LIMIT 1",
-            (doc_id,)
-        ).fetchone()
-
+        doc = _parse_pyq_doc_id(doc_id)
         if not doc:
             raise HTTPException(status_code=404, detail="PYQ paper not found")
 
-        # Fetch all chunks for this document in order
-        chunks = conn.execute(
-            "SELECT text FROM document_chunks WHERE document_id = ? ORDER BY line_start, chunk_id",
-            (doc_id,)
-        ).fetchall()
+        conn = db.get_connection()
+        rows = _load_bank_questions(doc, conn, limit=50)
+        if not rows:
+            raise HTTPException(status_code=400, detail="No complete questions available for this PYQ paper")
 
-        if not chunks:
-            raise HTTPException(status_code=400, detail="No content available for this PYQ paper")
-
-        # Combine all chunks into full text
-        # Per Context7 docs for Python: use ''.join() for efficient string concatenation
-        full_text = ''.join([chunk['text'] for chunk in chunks])
-
-        # Parse questions from full text
-        # Per Context7 docs: wrap in try/except for proper error handling
-        try:
-            parsed_questions = pyq_parser.parse_pyq_paper(full_text)
-        except ValueError as parse_err:
-            raise HTTPException(status_code=400, detail=f"Failed to parse PYQ paper: {str(parse_err)}")
-
-        if not parsed_questions:
-            raise HTTPException(status_code=400, detail="No valid questions found in PYQ paper")
-
-        # Create PYQ session ID and cache questions
-        pyq_id = f"PYQ_DOC{doc_id}"
-
-        # Cache ONLY the questions actually shown to the user (capped at 50).
-        # Previously the full parsed set was cached while only 50 were displayed,
-        # so submissions could score hidden questions, and the displayed count and
-        # the scoring denominator could diverge.
-        displayed_questions = parsed_questions[:50]
-        pyq_cache.cache_pyq_questions(pyq_id, displayed_questions)
-
-        # Format questions for frontend response
-        # Note: Correct answers are stored in cache, not sent to frontend (blind submission)
-        formatted_questions = []
-        for pq in displayed_questions:
-            formatted_questions.append({
-                "question_id": f"PYQ_DOC{doc_id}_Q{pq.question_number}",
-                "question_number": pq.question_number,
-                "question_text": pq.question_text,
-                "options": [
-                    {"label": label, "text": text}
-                    for label, text in pq.options.items()
-                ],
-                # Correct answer NOT sent to frontend (blind submission)
-            })
-
-        return {
-            "status": "ok",
-            "pyq_id": pyq_id,
-            "title": doc["title"],
-            "total_questions": len(formatted_questions),
-            "time_limit_minutes": 60,
-            "marks_per_question": 2,
-            "negative_marking_per_wrong": 0.67,
-            "questions": formatted_questions,
-        }
+        title = f"{doc['exam']} Grade A {doc['year']} - Phase {doc['phase']} Paper {doc['paper']}"
+        return _format_bank_session(doc, rows, title)
 
     except HTTPException:
         raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Error loading PYQ paper: {str(exc)}") from exc
     finally:
-        # Per Context7 docs for SQLite: use try/finally to ensure connection cleanup
         if conn:
             conn.close()
+
+
+@app.get("/api/pyq/drill")
+async def pyq_subject_drill(
+    subject_id: str = Query(..., min_length=1),
+    exam: str | None = Query(default=None, pattern="^(IFSCA|SEBI)$"),
+    limit: int = Query(default=20, ge=5, le=50),
+):
+    """Cross-exam drill: random complete bank questions for one subject."""
+    conn = None
+    try:
+        conn = db.get_connection()
+        if exam:
+            rows = conn.execute(
+                """
+                SELECT * FROM previous_year_questions
+                WHERE subject_id = ? AND exam = ? AND incomplete = 0
+                ORDER BY RANDOM() LIMIT ?
+                """,
+                (subject_id, exam, limit),
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                """
+                SELECT * FROM previous_year_questions
+                WHERE subject_id = ? AND incomplete = 0
+                ORDER BY RANDOM() LIMIT ?
+                """,
+                (subject_id, limit),
+            ).fetchall()
+        rows = [dict(row) for row in rows]
+        if not rows:
+            raise HTTPException(status_code=404, detail=f"No bank questions for subject {subject_id}")
+
+        first = rows[0]
+        doc = {
+            "exam": first.get("exam") or "MIXED",
+            "year": 0,
+            "phase": first.get("phase") or 0,
+            "paper": first.get("paper") or 0,
+        }
+        title = f"{exam or 'IFSCA+SEBI'} drill - {subject_id}"
+        session = _format_bank_session(doc, rows, title)
+        session["time_limit_minutes"] = max(10, len(rows))
+        return session
+
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Error building drill: {str(exc)}") from exc
+    finally:
+        if conn:
+            conn.close()
+
+
+@app.post("/api/admin/ingest-pyq-bank")
+async def ingest_pyq_bank(force: bool = Query(default=False)):
+    """Re-seed the compiled knowledge pack (facts, banks, templates) into SQLite.
+
+    Reads only the committed backend/knowledge pack - never md/pdf files.
+    """
+    try:
+        result = db.bootstrap_from_knowledge(force=force)
+        return result
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
 @app.post("/api/pyq/{pyq_id}/submit")
@@ -1361,9 +1700,16 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                     )
                 )
 
-            # 2 marks per correct answer, -0.67 per wrong answer (as advertised at load)
-            raw_score = total_correct * 2
-            negative_marks = round(total_wrong * 0.67, 2)
+            # Plan v6 2.3: score with the session's real marking scheme
+            # (marks x correct, 1/4 x marks per wrong). Fall back to the
+            # common 2-mark paper with 0.5 negative; never the legacy 0.67.
+            marking = pyq_cache.get_pyq_marking(pyq_id) or {}
+            marks_each = marking.get("marks_per_question") or 2
+            neg_each = marking.get("negative_marking_per_wrong")
+            if neg_each is None:
+                neg_each = round(marks_each * 0.25, 4)
+            raw_score = round(total_correct * marks_each, 2)
+            negative_marks = round(total_wrong * neg_each, 2)
             final_score = round(max(0.0, raw_score - negative_marks), 2)
             total_unanswered = max(0, total_questions - total_answered)
             accuracy = round((total_correct / total_questions * 100), 2) if total_questions > 0 else 0.0
@@ -1407,6 +1753,25 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
         raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Error submitting PYQ attempt: {str(exc)}") from exc
+
+
+@app.get("/api/pyq/{pyq_id}/answers")
+async def pyq_attempt_answers(pyq_id: str):
+    """Plan v6 7.4: post-attempt model-answer reveal from persisted attempt rows."""
+    conn = db.get_connection()
+    try:
+        rows = conn.execute(
+            """
+            SELECT question_number, selected_answer, official_answer, is_correct, time_spent_seconds
+            FROM pyq_question_attempts
+            WHERE pyq_id = ?
+            ORDER BY question_number
+            """,
+            (pyq_id,),
+        ).fetchall()
+        return {"pyq_id": pyq_id, "answers": [dict(row) for row in rows]}
+    finally:
+        conn.close()
 
 
 @app.get("/api/pyq/analytics")
@@ -1571,6 +1936,287 @@ async def essay_history(limit: int = Query(default=25, ge=1, le=100)):
     return {"essays": db.list_essays(limit=limit)}
 
 
+# ============================================================================
+# PHASE 5: Descriptive lab (Paper 1) endpoints
+# ============================================================================
+
+def _descriptive_items_for(exam: str, year: int | None = None) -> list[dict[str, Any]]:
+    conn = db.get_connection()
+    try:
+        if year:
+            rows = conn.execute(
+                "SELECT * FROM descriptive_items WHERE exam = ? AND year = ? ORDER BY item_type, year",
+                (exam, year),
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                "SELECT * FROM descriptive_items WHERE exam = ? ORDER BY year DESC, item_type",
+                (exam,),
+            ).fetchall()
+        return [dict(row) for row in rows]
+    finally:
+        conn.close()
+
+
+def _pick_complete_year_set(items: list[dict[str, Any]], year: int | None) -> tuple[int | None, list[dict[str, Any]]]:
+    """Select one year's items, preferring the set with the most gradable components.
+
+    A component is gradable when it has a model answer (essay/précis) or sub-question
+    model answers (RC). This prefers a fully-gradable sitting (e.g. IFSCA 2023, where
+    the essay has a model answer) over a newer but partially-gradable year.
+    """
+    if year:
+        return year, [i for i in items if i.get("year") == year]
+
+    def gradable(item: dict[str, Any]) -> bool:
+        if item.get("item_type") == "RC":
+            return (item.get("sub_questions_json") or "") not in ("", "[]")
+        return bool(item.get("model_answer"))
+
+    years = sorted({i.get("year") for i in items if i.get("year")}, reverse=True)
+    best_year = None
+    best_count = -1
+    for candidate in years:
+        subset = [i for i in items if i.get("year") == candidate]
+        count = sum(1 for i in subset if gradable(i))
+        if count > best_count:
+            best_count = count
+            best_year = candidate
+    if best_year is None:
+        return (years[0] if years else None), items
+    return best_year, [i for i in items if i.get("year") == best_year]
+
+
+@app.post("/api/descriptive/start")
+async def descriptive_start(request: DescriptiveStartRequestModel):
+    """Return blind descriptive items (essay + précis + RC) for a Paper-1 sitting."""
+    items = _descriptive_items_for(request.exam, request.year)
+    if not items:
+        raise HTTPException(status_code=404, detail=f"No descriptive items for {request.exam}")
+
+    selected_year, subset = _pick_complete_year_set(items, request.year)
+    by_type: dict[str, dict[str, Any]] = {}
+    for item in subset:
+        by_type.setdefault(item["item_type"], item)
+
+    # Blind: never ship model answers to the client.
+    def blind(item: dict[str, Any] | None) -> dict[str, Any] | None:
+        if not item:
+            return None
+        sub_questions = []
+        try:
+            for sq in json.loads(item.get("sub_questions_json") or "[]"):
+                sub_questions.append({"qnum": sq.get("qnum"), "question": sq.get("question")})
+        except (json.JSONDecodeError, TypeError):
+            sub_questions = []
+        topics = []
+        try:
+            topics = json.loads(item.get("topics_json") or "[]")
+        except (json.JSONDecodeError, TypeError):
+            topics = []
+        return {
+            "item_id": item.get("item_id"),
+            "item_type": item.get("item_type"),
+            "prompt_text": item.get("prompt_text"),
+            "passage_text": item.get("passage_text") or "",
+            "topics": topics,
+            "sub_questions": sub_questions,
+            "marks": item.get("marks"),
+            "word_limit_min": item.get("word_limit_min"),
+            "word_limit_max": item.get("word_limit_max"),
+            "title_required": bool(item.get("title_required")),
+            "gradable": bool(item.get("model_answer") or sub_questions),
+        }
+
+    cutoff = 30.0
+    return {
+        "exam": request.exam,
+        "year": selected_year,
+        "time_limit_minutes": 60,
+        "cutoff_pct": cutoff,
+        "components": {
+            "essay": blind(by_type.get("ESSAY")),
+            "precis": blind(by_type.get("PRECIS")),
+            "rc": blind(by_type.get("RC")),
+        },
+    }
+
+
+@app.post("/api/descriptive/grade", response_model=DescriptiveGradeResponseModel)
+async def descriptive_grade(request: DescriptiveGradeRequestModel):
+    """Grade essay + précis + RC against stored model answers (blind grading)."""
+    from precis_grader import grade_precis
+    from rc_grader import grade_rc
+
+    items = _descriptive_items_for(request.exam, request.year)
+    if not items:
+        raise HTTPException(status_code=404, detail=f"No descriptive items for {request.exam}")
+    selected_year, subset = _pick_complete_year_set(items, request.year)
+    by_type: dict[str, dict[str, Any]] = {}
+    for item in subset:
+        by_type.setdefault(item["item_type"], item)
+
+    components: list[DescriptiveComponentGradeModel] = []
+
+    # Essay (reuse the existing 4-rubric essay grader, scaled to 30 marks).
+    essay_item = by_type.get("ESSAY")
+    if request.essay_text.strip():
+        essay_grade = essay_grader.grade_essay_with_sources(
+            request.essay_text,
+            (essay_item or {}).get("subject_id") or "PH2_ESSAY",
+            [],
+            force_local=False,
+        )
+        # 4 rubrics x 25 = 100; scale to the essay's marks (30).
+        essay_marks = (essay_item or {}).get("marks") or 30
+        scaled = round(essay_grade.total_score / 100.0 * essay_marks, 2)
+        components.append(DescriptiveComponentGradeModel(
+            component="essay",
+            score=scaled,
+            max_marks=float(essay_marks),
+            feedback=essay_grade.overall_feedback,
+            ai_model=essay_grade.ai_model,
+        ))
+
+    # Précis.
+    precis_item = by_type.get("PRECIS")
+    if request.precis_text.strip() and precis_item:
+        p = grade_precis(
+            request.precis_text,
+            precis_item.get("passage_text") or "",
+            precis_item.get("model_answer") or "",
+            precis_item.get("word_limit_min") or 120,
+            precis_item.get("word_limit_max") or 130,
+            title_required=bool(precis_item.get("title_required")),
+            max_marks=precis_item.get("marks") or 35,
+        )
+        components.append(DescriptiveComponentGradeModel(
+            component="precis",
+            score=p["score"],
+            max_marks=float(p["max_marks"]),
+            feedback=p["feedback"],
+            ai_model=p["ai_model"],
+        ))
+
+    # Reading comprehension.
+    rc_item = by_type.get("RC")
+    if request.rc_answers and rc_item:
+        sub_questions = []
+        try:
+            sub_questions = json.loads(rc_item.get("sub_questions_json") or "[]")
+        except (json.JSONDecodeError, TypeError):
+            sub_questions = []
+        questions = [sq.get("question", "") for sq in sub_questions]
+        model_answers = [sq.get("model_answer", "") for sq in sub_questions]
+        rc = grade_rc(
+            request.rc_answers,
+            questions,
+            model_answers,
+            rc_item.get("passage_text") or "",
+            max_marks=rc_item.get("marks") or 35,
+        )
+        components.append(DescriptiveComponentGradeModel(
+            component="rc",
+            score=rc["score"],
+            max_marks=float(rc["max_marks"]),
+            feedback=rc.get("overall_feedback", ""),
+            ai_model=rc.get("ai_model"),
+        ))
+
+    total_score = round(sum(c.score for c in components), 2)
+    total_max = round(sum(c.max_marks for c in components), 2) or 100.0
+    cutoff_pct = 30.0
+    cleared = total_score >= (cutoff_pct / 100.0 * total_max)
+
+    # Plan v6 6.2: persist the sitting so readiness can map Paper-1 performance.
+    try:
+        db.record_descriptive_score(
+            exam=request.exam,
+            year=selected_year,
+            components=[c.model_dump() for c in components],
+            total_score=total_score,
+            total_max_marks=total_max,
+            cutoff_pct=cutoff_pct,
+            cleared_cutoff=cleared,
+            ai_status=get_gemini_health(),
+        )
+    except Exception as exc:
+        print(f"[descriptive] score persistence failed: {exc}")
+
+    return DescriptiveGradeResponseModel(
+        exam=request.exam,
+        year=selected_year,
+        components=components,
+        total_score=total_score,
+        total_max_marks=total_max,
+        cutoff_pct=cutoff_pct,
+        cleared_cutoff=cleared,
+        ai_status=get_gemini_health(),
+    )
+
+
+@app.get("/api/descriptive/history")
+async def descriptive_history(limit: int = Query(default=25, ge=1, le=100)):
+    """Return descriptive items (prompt catalogue) for review."""
+    return {
+        "IFSCA": _descriptive_items_for("IFSCA")[:limit],
+        "SEBI": _descriptive_items_for("SEBI")[:limit],
+    }
+
+
+@app.get("/api/descriptive/scores")
+async def descriptive_scores(
+    exam: str | None = Query(default=None, pattern="^(IFSCA|SEBI)$"),
+    limit: int = Query(default=25, ge=1, le=100),
+):
+    """Plan v6 7.3: graded descriptive sittings (feed aggregate panels)."""
+    rows = db.list_descriptive_scores(exam=exam, limit=limit)
+    for row in rows:
+        for field in ("components_json", "ai_status_json"):
+            if isinstance(row.get(field), str):
+                try:
+                    row[field] = json.loads(row[field]) if row[field] else None
+                except json.JSONDecodeError:
+                    row[field] = None
+    return {"scores": rows}
+
+
+@app.get("/api/exams/{exam_id}/aggregate", response_model=ExamAggregateResponseModel)
+async def exam_aggregate(
+    exam_id: str,
+    exam: str = Query(default="IFSCA", pattern="^(IFSCA|SEBI)$"),
+    paper1_score: float = Query(..., ge=0, le=100),
+    paper2_score: float = Query(..., ge=0, le=100),
+):
+    """Compute Phase-II aggregate with Paper-2 gating.
+
+    Paper 1 is counted ONLY if Paper 2 clears its cut-off (IFSCA 40%, SEBI 40%).
+    Aggregate = Paper1 x 1/3 + Paper2 x 2/3. Aggregate cut-off: IFSCA 40%, SEBI 50%.
+    """
+    paper2_cutoff = 40.0
+    aggregate_cutoff = 50.0 if exam == "SEBI" else 40.0
+
+    paper2_cleared = paper2_score >= paper2_cutoff
+    paper1_counted = paper2_cleared  # gating: Paper 1 counts only if Paper 2 cleared
+
+    if paper1_counted:
+        aggregate = round(paper1_score * (1.0 / 3.0) + paper2_score * (2.0 / 3.0), 2)
+    else:
+        aggregate = 0.0  # Paper 1 not evaluated/counted because Paper 2 failed
+
+    return ExamAggregateResponseModel(
+        exam=exam,
+        paper1_score=paper1_score,
+        paper2_score=paper2_score,
+        paper2_cutoff_pct=paper2_cutoff,
+        paper2_cleared=paper2_cleared,
+        paper1_counted=paper1_counted,
+        aggregate_score=aggregate,
+        aggregate_cutoff_pct=aggregate_cutoff,
+        aggregate_cleared=aggregate >= aggregate_cutoff,
+    )
+
+
 @app.get("/api/history/search")
 async def history_search(query: str = Query(..., min_length=1), limit: int = Query(default=20, ge=1, le=100)):
     """Search the local study history and indexed source corpus."""
@@ -1583,12 +2229,17 @@ async def history_search(query: str = Query(..., min_length=1), limit: int = Que
         item for item in db.list_amendments(limit=limit)
         if query.lower() in f"{item.get('title', '')} {item.get('topic_id', '')} {item.get('new_value', '')}".lower()
     ]
+    # Plan v6 6.8: history search extended to the unified PYQ bank + descriptive lab.
+    pyqs = db.search_pyqs(query, limit=limit)
+    descriptive = db.search_descriptive_items(query, limit=limit)
     return {
         "query": query,
-        "total": len(source_results) + len(essays) + len(amendments),
+        "total": len(source_results) + len(essays) + len(amendments) + len(pyqs) + len(descriptive),
         "sources": source_results[:limit],
         "essays": essays[:limit],
         "amendments": amendments[:limit],
+        "pyqs": pyqs,
+        "descriptive": descriptive,
     }
 
 
@@ -1739,6 +2390,32 @@ async def amendments(limit: int = Query(default=100, ge=1, le=500)):
     return {"amendments": db.list_amendments(limit=limit)}
 
 
+@app.post("/api/amendments/{amendment_id}/mastered")
+async def mark_amendment_mastered(amendment_id: str):
+    """Plan v6 6.6: close the drill loop by marking an amendment mastered."""
+    conn = db.get_connection()
+    try:
+        now = datetime.now().isoformat()
+        events = conn.execute(
+            "UPDATE amendment_events SET mastery_status = 'MASTERED', last_reviewed_at = ? WHERE amendment_id = ?",
+            (now, amendment_id),
+        ).rowcount
+        drilled = conn.execute(
+            "UPDATE amendments SET drilled = 1 WHERE amendment_id = ?",
+            (amendment_id,),
+        ).rowcount
+        conn.commit()
+        if events == 0 and drilled == 0:
+            raise HTTPException(status_code=404, detail=f"Amendment {amendment_id} not found")
+        return {"status": "mastered", "amendment_id": amendment_id, "events_updated": events, "amendments_drilled": drilled}
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    finally:
+        conn.close()
+
+
 @app.get("/api/amendments/intelligence")
 async def amendment_intelligence(limit: int = Query(default=12, ge=1, le=50)):
     candidates = db.amendment_candidate_chunks(limit=max(limit, 15))
@@ -1820,12 +2497,14 @@ async def amendments_status():
             (week_ago,),
         ).fetchone()[0]
 
-        # Get recent amendments
+        # Get recent amendments (with mastery state so the radar can render it).
         recent = conn.execute(
             """
-            SELECT amendment_id, topic, rule_name, effective_date, source_url, priority, created_at
-            FROM amendments
-            ORDER BY created_at DESC
+            SELECT a.amendment_id, a.topic, a.rule_name, a.effective_date, a.source_url,
+                   a.priority, a.created_at, COALESCE(e.mastery_status, 'NEW') AS mastery_status
+            FROM amendments a
+            LEFT JOIN amendment_events e ON e.amendment_id = a.amendment_id
+            ORDER BY a.created_at DESC
             LIMIT 10
             """,
         ).fetchall()
@@ -1839,6 +2518,7 @@ async def amendments_status():
                 "source_url": row[4],
                 "priority": row[5],
                 "created_at": row[6],
+                "mastery_status": row[7],
             }
             for row in recent
         ]
@@ -2175,6 +2855,108 @@ async def mark_week_complete(path_id: str, week: int = Path(ge=1, le=12)):
         }
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+# ============================================================================
+# UPDATE TRACKER ENDPOINTS (plan v6, multi-model phase B)
+# ============================================================================
+
+
+@app.get("/api/updates")
+async def get_updates(
+    sort: str = Query("date_desc", pattern="^(date_desc|date_asc|priority|category)$"),
+    category: str | None = Query(None),
+    exam: str | None = Query(None),
+    status: str | None = Query(None),
+    limit: int = Query(100, ge=1, le=500),
+):
+    """List amendment updates with sorting/filtering + recent tracker runs."""
+    try:
+        updates = db.list_amendment_updates(
+            sort=sort, category=category, exam=exam, status=status, limit=limit,
+        )
+        runs = db.get_tracker_runs(limit=5)
+        return {"updates": updates, "runs": runs}
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/updates/status")
+async def get_updates_status():
+    """Latest run + counts by verification_status and status + tracker interval."""
+    try:
+        latest = db.get_latest_tracker_run()
+        all_updates = db.list_amendment_updates(limit=1000)
+        by_verification: dict[str, int] = {}
+        by_status: dict[str, int] = {}
+        for u in all_updates:
+            vs = u.get("verification_status", "UNKNOWN")
+            by_verification[vs] = by_verification.get(vs, 0) + 1
+            st = u.get("status", "ACTIVE")
+            by_status[st] = by_status.get(st, 0) + 1
+        interval_hours = int(os.getenv("UPDATE_TRACK_INTERVAL_HOURS", "6"))
+        next_run = None
+        if latest and latest.get("finished_at"):
+            try:
+                from datetime import datetime as _dt
+                finished = _dt.fromisoformat(latest["finished_at"])
+                next_run = (finished + timedelta(hours=interval_hours)).isoformat()
+            except Exception:
+                pass
+        return {
+            "latest_run": latest,
+            "counts_by_verification_status": by_verification,
+            "counts_by_status": by_status,
+            "tracker_interval_hours": interval_hours,
+            "next_run": next_run,
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/updates/run")
+async def trigger_update_tracker():
+    """Spawn the update tracker in a background thread; return immediately."""
+    t = threading.Thread(target=update_tracker.run_update_tracker, daemon=True)
+    t.start()
+    return {"status": "started"}
+
+
+@app.post("/api/updates/enrich-reasons")
+async def trigger_enrich_reasons():
+    """Spawn enrich_past_amendment_reasons in a background thread; return immediately."""
+    t = threading.Thread(target=update_tracker.enrich_past_amendment_reasons, daemon=True)
+    t.start()
+    return {"status": "started"}
+
+
+@app.post("/api/updates/{update_id}/status")
+async def set_update_status(
+    update_id: str,
+    status: str = Query(..., pattern="^(REVIEWED|DISMISSED)$"),
+):
+    """Set an amendment update's status to REVIEWED or DISMISSED."""
+    try:
+        updated = db.set_amendment_update_status(update_id, status)
+        if not updated:
+            raise HTTPException(status_code=404, detail=f"Update {update_id} not found")
+        return {"update_id": update_id, "status": status}
+    except HTTPException:
+        raise
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+# Serve frontend assets at root so index.html's relative css/app.css and js/app.js
+# resolve whether the app is opened at / or /app. Registered after all API routes so
+# these mounts only catch /css/* and /js/* and never shadow API routes.
+if FRONTEND_DIR.exists():
+    if (FRONTEND_DIR / "css").exists():
+        app.mount("/css", StaticFiles(directory=str(FRONTEND_DIR / "css")), name="css")
+    if (FRONTEND_DIR / "js").exists():
+        app.mount("/js", StaticFiles(directory=str(FRONTEND_DIR / "js")), name="js")
 
 
 if __name__ == "__main__":

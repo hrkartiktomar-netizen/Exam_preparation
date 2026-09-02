@@ -5,15 +5,18 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import os
 import random
 import re
 import sqlite3
 import uuid
-from collections import defaultdict
+from collections import Counter, defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
+import knowledge
 from gemini_integration import generate_questions_with_gemini, gemini_available
 from authority_scoring import source_authority_score as calculate_source_authority
 
@@ -24,6 +27,10 @@ DB_PATH = BACKEND_DIR / "ifsca_exam.db"
 EXTRACTED_DIR = PROJECT_ROOT / "extracted_pdfs"
 SOURCE_PDF_DIR = PROJECT_ROOT / "source_documents" / "pdfs"
 INDEX_PATH = EXTRACTED_DIR / "COMPREHENSIVE_INDEX.json"
+
+# Runtime grounding source: "knowledge" reads the committed knowledge pack
+# (zero file dependence); "chunks" keeps the legacy md/txt FTS path for research.
+SOURCE_MODE = os.getenv("SOURCE_MODE", "knowledge")
 
 
 TOPIC_DEFINITIONS: list[dict[str, Any]] = [
@@ -43,7 +50,7 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
         "base_weight": 0.85,
         "exam_priority": 8,
         "is_amendment_sensitive": False,
-        "keywords": ["gift city", "gift ifsc", "ifsc ecosystem", "global financial centre", "gandhinagar"],
+        "keywords": ["gift city", "gift ifsc", "ifsc ecosystem", "global financial centre", "gandhinagar", "gihc", "global in-house centre", "foreign university", "swit"],
     },
     {
         "topic_id": "PH2_FM_REGS",
@@ -169,7 +176,7 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
         "base_weight": 0.84,
         "exam_priority": 8,
         "is_amendment_sensitive": True,
-        "keywords": ["current affairs", "budget", "annual report", "statistics", "turnover", "employment", "gfcI", "market update"],
+        "keywords": ["current affairs", "annual report", "statistics", "turnover", "employment", "gfcI", "market update"],
     },
     {
         "topic_id": "PH2_MANAGEMENT_ORG",
@@ -189,11 +196,123 @@ TOPIC_DEFINITIONS: list[dict[str, Any]] = [
         "is_amendment_sensitive": True,
         "keywords": ["essay", "write", "discuss", "explain", "critically examine", "currenttap", "booster"],
     },
+    {
+        "topic_id": "PH2_PENSION",
+        "display_name": "Pension Sector",
+        "description": "Pension sector in India, retirement schemes, NPS, APY, annuity plans, basics of investment.",
+        "base_weight": 0.72,
+        "exam_priority": 7,
+        "is_amendment_sensitive": False,
+        "keywords": ["pension", "pfrda", "nps", "national pension system", "atal pension", "apy", "annuity", "retirement scheme", "unified pension"],
+    },
+    {
+        "topic_id": "PH2_BUDGET_ECON_SURVEY",
+        "display_name": "Union Budget and Economic Survey",
+        "description": "Union Budget concepts, approach, broad trends, and Economic Survey highlights.",
+        "base_weight": 0.76,
+        "exam_priority": 8,
+        "is_amendment_sensitive": True,
+        "keywords": ["union budget", "budget", "economic survey", "fiscal deficit", "finance commission", "budget allocation", "frbm"],
+    },
+    {
+        "topic_id": "SUBJ_QUANT",
+        "display_name": "Quantitative Aptitude",
+        "description": "Shared aptitude subject (IFSCA Phase I P1 / SEBI P1): DI, series, arithmetic.",
+        "base_weight": 0.50, "exam_priority": 5, "is_amendment_sensitive": False,
+        "keywords": ["quantitative aptitude", "quant", "data interpretation", "number series", "percentage", "ratio", "profit", "time and work"],
+    },
+    {
+        "topic_id": "SUBJ_REASONING",
+        "display_name": "Reasoning Ability",
+        "description": "Shared aptitude subject: seating, puzzles, syllogism, coding, direction.",
+        "base_weight": 0.50, "exam_priority": 5, "is_amendment_sensitive": False,
+        "keywords": ["reasoning", "seating", "puzzle", "syllogism", "coding", "direction", "blood relation", "inequality"],
+    },
+    {
+        "topic_id": "SUBJ_ENGLISH",
+        "display_name": "English Language",
+        "description": "Shared aptitude subject: reading comprehension, error spotting, vocabulary.",
+        "base_weight": 0.50, "exam_priority": 5, "is_amendment_sensitive": False,
+        "keywords": ["english", "comprehension", "synonym", "antonym", "error detection", "cloze", "para jumble"],
+    },
+    {
+        "topic_id": "SUBJ_GA",
+        "display_name": "General Awareness",
+        "description": "Shared aptitude subject: current affairs, schemes, awards, static GK.",
+        "base_weight": 0.50, "exam_priority": 5, "is_amendment_sensitive": False,
+        "keywords": ["general awareness", "current affairs", "scheme", "award", "appointment", "sports", "summit"],
+    },
+    {
+        "topic_id": "SUBJ_FINANCE",
+        "display_name": "Finance (Stream)",
+        "description": "Shared stream subject (Phase I P2 / SEBI): financial system, markets, derivatives.",
+        "base_weight": 0.60, "exam_priority": 6, "is_amendment_sensitive": False,
+        "keywords": ["finance", "financial markets", "derivatives", "money market", "capital market", "time value"],
+    },
+    {
+        "topic_id": "SUBJ_MANAGEMENT",
+        "display_name": "Management (Stream)",
+        "description": "Shared stream subject: management processes, leadership, HR, motivation.",
+        "base_weight": 0.55, "exam_priority": 5, "is_amendment_sensitive": False,
+        "keywords": ["management", "leadership", "motivation", "organizational", "human resource"],
+    },
+    {
+        "topic_id": "SUBJ_COMMERCE_ACCOUNTS",
+        "display_name": "Commerce and Accounts (Stream)",
+        "description": "Shared stream subject: accounting standards, ratios, share capital.",
+        "base_weight": 0.55, "exam_priority": 5, "is_amendment_sensitive": False,
+        "keywords": ["commerce", "accounts", "accounting", "accounting standards", "ratio analysis", "share capital"],
+    },
+    {
+        "topic_id": "SUBJ_COSTING",
+        "display_name": "Costing (Stream)",
+        "description": "Shared stream subject: costing methods, standard/marginal costing, lean systems.",
+        "base_weight": 0.50, "exam_priority": 5, "is_amendment_sensitive": False,
+        "keywords": ["costing", "marginal costing", "standard costing", "budget", "lean", "kaizen"],
+    },
+    {
+        "topic_id": "SUBJ_ECONOMICS",
+        "display_name": "Economics (Stream)",
+        "description": "Shared stream subject: macro/micro economics, IS-LM, inflation, BoP.",
+        "base_weight": 0.55, "exam_priority": 5, "is_amendment_sensitive": False,
+        "keywords": ["economics", "inflation", "phillips", "is-lm", "national income", "balance of payments", "monetary policy"],
+    },
+    {
+        "topic_id": "SUBJ_COMPANIES_ACT",
+        "display_name": "Companies Act (Stream)",
+        "description": "Shared stream subject (SEBI-heavy): Companies Act 2013 chapters and procedures.",
+        "base_weight": 0.50, "exam_priority": 5, "is_amendment_sensitive": False,
+        "keywords": ["companies act", "company law", "prospectus", "dividend", "nclt"],
+    },
+    {
+        "topic_id": "SUBJ_ESSAY",
+        "display_name": "Essay (Descriptive)",
+        "description": "Shared descriptive component across IFSCA and SEBI Phase-II papers.",
+        "base_weight": 0.55, "exam_priority": 6, "is_amendment_sensitive": False,
+        "keywords": ["essay writing", "essay"],
+    },
+    {
+        "topic_id": "SUBJ_PRECIS",
+        "display_name": "Precis (Descriptive)",
+        "description": "Shared descriptive component: precis writing with title.",
+        "base_weight": 0.55, "exam_priority": 6, "is_amendment_sensitive": False,
+        "keywords": ["precis", "precis writing"],
+    },
+    {
+        "topic_id": "SUBJ_RC",
+        "display_name": "Reading Comprehension (Descriptive)",
+        "description": "Shared descriptive component: passage-based questions answered in own words.",
+        "base_weight": 0.55, "exam_priority": 6, "is_amendment_sensitive": False,
+        "keywords": ["reading comprehension", "comprehension passage"],
+    },
 ]
 
 TOPIC_BY_ID = {topic["topic_id"]: topic for topic in TOPIC_DEFINITIONS}
 TOPIC_IDS = [topic["topic_id"] for topic in TOPIC_DEFINITIONS]
-OBJECTIVE_MOCK_TOPIC_IDS = [topic_id for topic_id in TOPIC_IDS if topic_id != "PH2_ESSAY"]
+OBJECTIVE_MOCK_TOPIC_IDS = [
+    topic_id for topic_id in TOPIC_IDS
+    if topic_id != "PH2_ESSAY" and not topic_id.startswith("SUBJ_")
+]
 
 
 SOURCE_CATEGORY_PRIORITY = {
@@ -914,6 +1033,25 @@ def init_db() -> None:
     except Exception as e:
         print(f"PYQ schema repair error: {e}")
 
+    # Knowledge layer: five-option PYQ rebuild + facts/templates/fulltext tables.
+    try:
+        _migrate_pyq_table_v2(conn)
+        conn.commit()
+    except Exception as e:
+        print(f"PYQ table v2 migration error: {e}")
+
+    try:
+        _run_migration_005(conn)
+        conn.commit()
+    except Exception as e:
+        print(f"Phase 5 migration already applied or error: {e}")
+
+    try:
+        _run_migration_006(conn)
+        conn.commit()
+    except Exception as e:
+        print(f"Phase 6 update-tracker migration already applied or error: {e}")
+
     conn.close()
     _INITIALIZED_DB_PATHS.add(db_key)
 
@@ -930,6 +1068,12 @@ def _ensure_runtime_schema(conn: sqlite3.Connection) -> None:
         "tested_fact": "TEXT",
         "trap_logic": "TEXT",
         "source_policy": "TEXT",
+        # Knowledge layer (plan v6): five options, verification, fact linkage
+        "option_e": "TEXT",
+        "verified_at": "TEXT",
+        "verification_details": "TEXT",
+        "subject_id": "TEXT",
+        "fact_id": "TEXT",
     }
     for column, column_type in additions.items():
         if column not in question_columns:
@@ -942,6 +1086,26 @@ def _ensure_runtime_schema(conn: sqlite3.Connection) -> None:
     doc_columns = _table_columns(conn, "documents")
     if "source_role" not in doc_columns:
         conn.execute("ALTER TABLE documents ADD COLUMN source_role TEXT DEFAULT 'supporting_material'")
+
+    # Plan v6 6.2: persisted descriptive grading results feed the readiness
+    # aggregate mapping (Paper-1 descriptive × 1/3 + Paper-2 objective × 2/3).
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS descriptive_scores (
+            score_id TEXT PRIMARY KEY,
+            exam TEXT NOT NULL,
+            year INTEGER,
+            components_json TEXT NOT NULL,
+            total_score REAL NOT NULL,
+            total_max_marks REAL NOT NULL,
+            total_pct REAL NOT NULL,
+            cutoff_pct REAL,
+            cleared_cutoff INTEGER,
+            ai_status_json TEXT,
+            graded_at TEXT NOT NULL
+        )
+        """
+    )
 
 
 def _repair_pyq_schema(conn: sqlite3.Connection) -> None:
@@ -1036,6 +1200,119 @@ def _repair_pyq_schema(conn: sqlite3.Connection) -> None:
             conn.execute("ALTER TABLE pyq_question_attempts_new RENAME TO pyq_question_attempts")
         finally:
             conn.execute("PRAGMA foreign_keys = ON")
+
+
+def _migrate_pyq_table_v2(conn: sqlite3.Connection) -> None:
+    """Rebuild previous_year_questions for five options + exam discriminator.
+
+    Migration 003 created the table with CHECK(correct_option IN ('A','B','C','D'))
+    which cannot be ALTERed; rebuild via scratch table preserving rows (same
+    pattern as _repair_pyq_schema). Skipped when option_e already exists.
+    """
+    columns = _table_columns(conn, "previous_year_questions")
+    v2_schema = """
+            CREATE TABLE {table} (
+                pyq_id TEXT PRIMARY KEY,
+                exam TEXT NOT NULL DEFAULT 'IFSCA',
+                year INTEGER NOT NULL,
+                phase INTEGER NOT NULL,
+                paper INTEGER NOT NULL,
+                section TEXT,
+                subject_id TEXT,
+                question_number INTEGER,
+                question_text TEXT NOT NULL,
+                direction_text TEXT,
+                option_a TEXT,
+                option_b TEXT,
+                option_c TEXT,
+                option_d TEXT,
+                option_e TEXT,
+                correct_option TEXT CHECK(correct_option IN ('A', 'B', 'C', 'D', 'E')),
+                hint TEXT,
+                marks INTEGER NOT NULL DEFAULT 1,
+                negative_marking REAL DEFAULT 0.25,
+                topic_id TEXT,
+                difficulty TEXT CHECK(difficulty IN ('EASY', 'MEDIUM', 'HARD')),
+                incomplete BOOLEAN DEFAULT 0,
+                incomplete_reason TEXT,
+                attempted BOOLEAN DEFAULT 0,
+                user_answer TEXT,
+                is_correct BOOLEAN,
+                time_spent_seconds INTEGER,
+                attempt_date TEXT,
+                source_pdf TEXT NOT NULL DEFAULT 'question_bank',
+                source_line_start INTEGER,
+                source_line_end INTEGER,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+    """
+    if not columns:
+        # Fresh DB: migration 003 is not wired into init_db, so create v2 directly.
+        conn.executescript(v2_schema.format(table="previous_year_questions"))
+        return
+    if "option_e" in columns:
+        return
+    conn.execute("PRAGMA foreign_keys = OFF")
+    try:
+        conn.execute("DROP TABLE IF EXISTS previous_year_questions_v2")
+        conn.executescript(v2_schema.format(table="previous_year_questions_v2"))
+        old_columns = _table_columns(conn, "previous_year_questions")
+        copy_columns = [
+            name for name in (
+                "pyq_id", "year", "phase", "paper", "section", "question_number",
+                "question_text", "option_a", "option_b", "option_c", "option_d",
+                "correct_option", "marks", "negative_marking", "topic_id",
+                "difficulty", "attempted", "user_answer", "is_correct",
+                "time_spent_seconds", "attempt_date", "source_pdf",
+                "source_line_start", "source_line_end", "created_at",
+            ) if name in old_columns
+        ]
+        selection = ", ".join(copy_columns)
+        conn.execute(
+            f"INSERT INTO previous_year_questions_v2 ({selection}) SELECT {selection} FROM previous_year_questions"
+        )
+        conn.execute("DROP TABLE previous_year_questions")
+        conn.execute("ALTER TABLE previous_year_questions_v2 RENAME TO previous_year_questions")
+    finally:
+        conn.execute("PRAGMA foreign_keys = ON")
+
+
+def _run_migration_005(conn: sqlite3.Connection | None = None) -> None:
+    """Execute Phase 5 knowledge-layer migration (additive + FTS5 virtual table)."""
+    owns_conn = conn is None
+    if owns_conn:
+        conn = get_connection()
+    try:
+        migration_path = BACKEND_DIR / "migrations" / "005_knowledge_layer.sql"
+        if not migration_path.exists():
+            return
+        conn.executescript(migration_path.read_text(encoding="utf-8"))
+        if owns_conn:
+            conn.commit()
+    except Exception as e:
+        print(f"Phase 5 migration error: {e}")
+        if owns_conn:
+            conn.rollback()
+            conn.close()
+
+
+def _run_migration_006(conn: sqlite3.Connection | None = None) -> None:
+    """Execute update-tracker migration (amendment_updates + tracker_runs)."""
+    owns_conn = conn is None
+    if owns_conn:
+        conn = get_connection()
+    try:
+        migration_path = BACKEND_DIR / "migrations" / "006_update_tracker.sql"
+        if not migration_path.exists():
+            return
+        conn.executescript(migration_path.read_text(encoding="utf-8"))
+        if owns_conn:
+            conn.commit()
+    except Exception as e:
+        print(f"Update-tracker migration error: {e}")
+        if owns_conn:
+            conn.rollback()
+            conn.close()
 
 
 def _create_performance_indexes(conn: sqlite3.Connection) -> None:
@@ -1143,6 +1420,363 @@ def _seed_topics_fallback(conn: sqlite3.Connection) -> None:
             ),
         )
     conn.commit()
+
+
+FACT_AUTHORITY_RANK = {
+    "OFFICIAL_REGULATORY": 5,
+    "ICSI_STUDY": 4,
+    "IFSCA_PUBLICATION": 4,
+    "CONSULTING": 2,
+    "CURRENT_AFFAIRS": 2,
+    "COACHING": 1,
+}
+FACT_YIELD_RANK = {"HIGH": 2, "MED": 1, "LOW": 0}
+
+ROLE_TO_AUTHORITIES = {
+    "regulatory_core": {"OFFICIAL_REGULATORY", "ICSI_STUDY"},
+    "amendment_tracking": {"OFFICIAL_REGULATORY", "IFSCA_PUBLICATION"},
+    "essay_examples": {"IFSCA_PUBLICATION", "CONSULTING"},
+    "consulting_case": {"CONSULTING"},
+    "supporting_material": set(FACT_AUTHORITY_RANK),
+}
+
+PYQ_MARKS_BY_PAPER = {
+    ("IFSCA", 1, 1): 1,
+    ("IFSCA", 1, 2): 2,
+    ("IFSCA", 2, 2): 2,
+    ("SEBI", 1, 1): 1.25,
+    ("SEBI", 1, 2): 2,
+    ("SEBI", 2, 2): 1,
+}
+
+
+def bootstrap_from_knowledge(force: bool = False) -> dict[str, Any]:
+    """Load the committed knowledge pack into SQLite (zero file dependence).
+
+    Idempotent: skipped when knowledge_meta.bootstrapped is set unless force.
+    """
+    init_db()
+    conn = get_connection()
+    try:
+        already = conn.execute(
+            "SELECT value FROM knowledge_meta WHERE key = 'bootstrapped'"
+        ).fetchone()
+        if already and not force:
+            return {"status": "skipped", "reason": "already bootstrapped"}
+
+        facts = knowledge.load_all_facts()
+        for fact in facts:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO facts
+                (fact_id, domain, module, statement, detail, numbers_json, effective_date,
+                 authority, yield, source_doc, source_page, source_ref, tags_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    fact["fact_id"], fact.get("domain"), fact.get("module"),
+                    fact["statement"], fact.get("detail"),
+                    json.dumps(fact.get("numbers") or {}),
+                    fact.get("effective_date"), fact["authority"], fact["yield"],
+                    fact["source_doc"], fact.get("source_page"), fact.get("source_ref"),
+                    json.dumps(fact.get("tags") or []),
+                ),
+            )
+            conn.execute("DELETE FROM fact_topics WHERE fact_id = ?", (fact["fact_id"],))
+            conn.execute("DELETE FROM fact_subjects WHERE fact_id = ?", (fact["fact_id"],))
+            for topic_id in fact.get("topic_ids") or []:
+                conn.execute(
+                    "INSERT OR REPLACE INTO fact_topics (fact_id, topic_id) VALUES (?, ?)",
+                    (fact["fact_id"], topic_id),
+                )
+            for subject_id in fact.get("subject_ids") or []:
+                conn.execute(
+                    "INSERT OR REPLACE INTO fact_subjects (fact_id, subject_id) VALUES (?, ?)",
+                    (fact["fact_id"], subject_id),
+                )
+        conn.execute("DELETE FROM fact_fts")
+        for fact in facts:
+            conn.execute(
+                "INSERT INTO fact_fts (fact_id, statement, detail, tags) VALUES (?, ?, ?, ?)",
+                (
+                    fact["fact_id"],
+                    fact["statement"],
+                    fact.get("detail") or "",
+                    " ".join(fact.get("tags") or []),
+                ),
+            )
+
+        patterns = knowledge.load_exam_patterns()
+        for template in patterns.get("templates", []):
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO exam_templates
+                (template_id, exam, name, phase, paper, total_questions, marks_per_question,
+                 total_marks, time_limit_minutes, cutoff_pct, aggregate_cutoff_pct,
+                 sections_json, syllabus_units_json, descriptive_components_json, notes)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    template["template_id"], template.get("exam"), template.get("name"),
+                    template.get("phase"), template.get("paper"),
+                    template.get("total_questions"), template.get("marks_per_question"),
+                    template.get("total_marks"), template.get("time_limit_minutes"),
+                    template.get("cutoff_pct"), template.get("aggregate_cutoff_pct"),
+                    json.dumps(template.get("sections") or []),
+                    json.dumps(template.get("syllabus_units") or []),
+                    json.dumps(template.get("descriptive_components") or []),
+                    template.get("notes"),
+                ),
+            )
+
+        objective = knowledge.load_objective()
+        for question in objective:
+            exam = question.get("exam") or "IFSCA"
+            phase = question.get("phase") or 0
+            paper = question.get("paper") or 0
+            marks = PYQ_MARKS_BY_PAPER.get((exam, phase, paper), 1)
+            options = question.get("options") or {}
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO previous_year_questions
+                (pyq_id, exam, year, phase, paper, section, subject_id, question_number,
+                 question_text, direction_text, option_a, option_b, option_c, option_d,
+                 option_e, correct_option, hint, marks, negative_marking, topic_id,
+                 incomplete, incomplete_reason, source_pdf)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    question["pyq_key"], exam, question.get("year") or 0, phase, paper,
+                    question.get("section"), question.get("subject_id"),
+                    question.get("qnum"), question.get("question_text"),
+                    question.get("direction_text"),
+                    options.get("A"), options.get("B"), options.get("C"),
+                    options.get("D"), options.get("E"),
+                    question.get("answer"), question.get("hint") or None,
+                    marks, round(marks * 0.25, 4),
+                    question.get("subject_id"),
+                    1 if question.get("incomplete") else 0,
+                    question.get("incomplete_reason"),
+                    "question_bank",
+                ),
+            )
+
+        descriptive = knowledge.load_descriptive()
+        for item in descriptive:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO descriptive_items
+                (item_id, exam, item_type, year, phase, paper, section, subject_id,
+                 question_number, prompt_text, topics_json, passage_text, model_answer,
+                 model_answers_json, sub_questions_json, marks, word_limit_min,
+                 word_limit_max, title_required, incomplete, incomplete_reason)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    item["item_key"], item.get("exam"), item.get("item_type"),
+                    item.get("year"), item.get("phase"), item.get("paper"),
+                    item.get("section"), item.get("subject_id"),
+                    str(item.get("qnum")) if item.get("qnum") is not None else None,
+                    item.get("prompt_text") or "",
+                    json.dumps(item.get("topics") or []),
+                    item.get("passage_text") or "",
+                    item.get("model_answer") or "",
+                    json.dumps(item.get("model_answers") or {}),
+                    json.dumps(item.get("sub_questions") or []),
+                    item.get("marks"), item.get("word_limit_min"),
+                    item.get("word_limit_max"),
+                    1 if item.get("title_required") else 0,
+                    1 if item.get("incomplete") else 0,
+                    item.get("incomplete_reason"),
+                ),
+            )
+
+        act = knowledge.load_act_text()
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO document_fulltext
+            (document_id, title, source_doc, line_count, full_text)
+            VALUES (?, ?, ?, ?, ?)
+            """,
+            ("doc_ifsca_act_2019", act["title"], act["source_doc"], act["line_count"], act["text"]),
+        )
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO documents
+            (document_id, title, category, source_type, local_pdf_path, local_text_path,
+             sha256, pages, line_count, status, notes)
+            VALUES (?, ?, ?, ?, NULL, NULL, NULL, 0, ?, 'indexed', 'knowledge pack')
+            """,
+            ("doc_ifsca_act_2019", "IndiaCode IFSCA Act 2019 current", "Regulations", "knowledge_pack", act["line_count"]),
+        )
+
+        meta = knowledge.load_manifest()
+        for key, value in (
+            ("bootstrapped", "1"),
+            ("schema_version", str(meta.get("schema_version", knowledge.SCHEMA_VERSION))),
+            ("total_facts", str(len(facts))),
+            ("objective_questions", str(len(objective))),
+            ("descriptive_items", str(len(descriptive))),
+        ):
+            conn.execute(
+                "INSERT OR REPLACE INTO knowledge_meta (key, value) VALUES (?, ?)",
+                (key, value),
+            )
+        conn.commit()
+        return {
+            "status": "ok",
+            "facts": len(facts),
+            "objective_questions": len(objective),
+            "descriptive_items": len(descriptive),
+            "exam_templates": len(patterns.get("templates", [])),
+        }
+    finally:
+        conn.close()
+
+
+def _fact_row_to_dict(row: sqlite3.Row) -> dict[str, Any]:
+    fact = dict(row)
+    fact_id = fact["fact_id"]
+    conn = get_connection()
+    try:
+        fact["topic_ids"] = [
+            item["topic_id"]
+            for item in conn.execute("SELECT topic_id FROM fact_topics WHERE fact_id = ?", (fact_id,))
+        ]
+        fact["subject_ids"] = [
+            item["subject_id"]
+            for item in conn.execute("SELECT subject_id FROM fact_subjects WHERE fact_id = ?", (fact_id,))
+        ]
+    finally:
+        conn.close()
+    try:
+        fact["numbers"] = json.loads(fact.get("numbers_json") or "{}")
+    except json.JSONDecodeError:
+        fact["numbers"] = {}
+    try:
+        fact["tags"] = json.loads(fact.get("tags_json") or "[]")
+    except json.JSONDecodeError:
+        fact["tags"] = []
+    return fact
+
+
+def _fact_rank(fact: dict[str, Any]) -> tuple[int, int, str]:
+    return (
+        FACT_AUTHORITY_RANK.get(fact.get("authority") or "", 0),
+        FACT_YIELD_RANK.get(fact.get("yield") or "", 0),
+        fact.get("effective_date") or "",
+    )
+
+
+def facts_for_topic(
+    topic_id: str,
+    limit: int = 8,
+    authority_filter: set[str] | None = None,
+    query: str | None = None,
+) -> list[dict[str, Any]]:
+    """Facts tagged with the topic (or shared subject), best authority/yield first."""
+    init_db()
+    conn = get_connection()
+    try:
+        if topic_id.startswith("SUBJ_"):
+            rows = conn.execute(
+                """
+                SELECT f.* FROM facts f
+                JOIN fact_subjects fs ON fs.fact_id = f.fact_id
+                WHERE fs.subject_id = ?
+                """,
+                (topic_id,),
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                """
+                SELECT f.* FROM facts f
+                JOIN fact_topics ft ON ft.fact_id = f.fact_id
+                WHERE ft.topic_id = ?
+                """,
+                (topic_id,),
+            ).fetchall()
+    finally:
+        conn.close()
+    facts = [_fact_row_to_dict(row) for row in rows]
+    if authority_filter:
+        filtered = [fact for fact in facts if fact.get("authority") in authority_filter]
+        if filtered:
+            facts = filtered
+    if query:
+        tokens = [token for token in re.findall(r"[a-z0-9]+", query.lower()) if len(token) > 2]
+        if tokens:
+            scored = [
+                (sum(1 for token in tokens if token in (fact["statement"] + " " + (fact.get("detail") or "")).lower()), fact)
+                for fact in facts
+            ]
+            matched = [item for hits, item in scored if hits > 0]
+            if matched:
+                facts = matched
+    facts.sort(key=_fact_rank, reverse=True)
+    return facts[: max(1, min(limit, 25))]
+
+
+def search_facts(query: str, limit: int = 10) -> list[dict[str, Any]]:
+    """FTS over committed facts with LIKE fallback; ranked by authority/yield."""
+    init_db()
+    tokens = re.findall(r"[A-Za-z0-9_]+", query or "")[:12]
+    conn = get_connection()
+    try:
+        rows: list[sqlite3.Row] = []
+        if tokens:
+            try:
+                expression = " OR ".join(tokens)
+                rows = conn.execute(
+                    """
+                    SELECT f.* FROM facts f
+                    JOIN fact_fts x ON x.fact_id = f.fact_id
+                    WHERE fact_fts MATCH ?
+                    LIMIT ?
+                    """,
+                    (expression, max(1, min(limit * 3, 60))),
+                ).fetchall()
+            except sqlite3.OperationalError:
+                rows = []
+        if not rows and tokens:
+            like = f"%{query.strip()}%"
+            rows = conn.execute(
+                "SELECT * FROM facts WHERE statement LIKE ? OR detail LIKE ? LIMIT ?",
+                (like, like, max(1, min(limit * 3, 60))),
+            ).fetchall()
+    finally:
+        conn.close()
+    facts = [_fact_row_to_dict(row) for row in rows]
+    facts.sort(key=_fact_rank, reverse=True)
+    return facts[: max(1, min(limit, 25))]
+
+
+def fact_as_chunk(fact: dict[str, Any]) -> dict[str, Any]:
+    """Shape a fact like a legacy source chunk so the generation stack works unchanged."""
+    excerpt = fact["statement"]
+    if fact.get("detail"):
+        excerpt = f"{excerpt} {fact['detail']}"
+    tags = list(fact.get("tags") or [])
+    return {
+        "chunk_id": fact["fact_id"],
+        "document_id": f"fact:{fact.get('domain') or 'knowledge'}",
+        "title": fact.get("source_doc") or "Knowledge pack",
+        "category": fact.get("authority") or "OFFICIAL_REGULATORY",
+        "page_start": fact.get("source_page"),
+        "page_end": fact.get("source_page"),
+        "line_start": None,
+        "line_end": None,
+        "topic_tags": list(fact.get("topic_ids") or []) + list(fact.get("subject_ids") or []),
+        "excerpt": excerpt[:1200],
+        "rank": 0.0,
+        "authority_score": round(FACT_AUTHORITY_RANK.get(fact.get("authority") or "", 0) / 5.0, 3),
+        "exam_signal_score": round(FACT_YIELD_RANK.get(fact.get("yield") or "", 0) / 2.0, 3),
+        "exam_material_score": 0.5,
+        "exam_source_score": round(FACT_AUTHORITY_RANK.get(fact.get("authority") or "", 0) / 5.0, 3),
+        "citation_note": f"[{fact.get('source_doc') or 'knowledge pack'}{', ' + str(fact['source_ref']) if fact.get('source_ref') else ''}]",
+        "source_ref": fact.get("source_ref"),
+        "tags": tags,
+    }
 
 
 def ingest_extracted_pdfs(conn: sqlite3.Connection | None = None) -> int:
@@ -1792,6 +2426,19 @@ def rank_source_results(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def search_sources(query: str, topic_id: str | None = None, limit: int = 10) -> list[dict[str, Any]]:
+    if SOURCE_MODE == "knowledge":
+        facts = search_facts(query, limit=max(limit, 10))
+        if topic_id:
+            tagged = [
+                fact for fact in facts
+                if topic_id in (fact.get("topic_ids") or []) or topic_id in (fact.get("subject_ids") or [])
+            ]
+            if tagged:
+                facts = tagged
+        if facts:
+            return [fact_as_chunk(fact) for fact in facts][:limit]
+        # No fact matched: fall through to the dormant chunk path so databases
+        # without a bootstrapped knowledge pack still get search results.
     init_db()
     limit = max(1, min(limit, 50))
     conn = get_connection()
@@ -1842,6 +2489,136 @@ def search_sources(query: str, topic_id: str | None = None, limit: int = 10) -> 
         conn.close()
 
     return rank_source_results([enrich_source_result(row, query=query, topic_id=topic_id) for row in rows])[:limit]
+
+
+def search_pyqs(query: str, limit: int = 20) -> list[dict[str, Any]]:
+    """Plan v6 6.8: search the compiled PYQ bank by question text/hint."""
+    init_db()
+    limit = max(1, min(limit, 100))
+    like = f"%{query}%"
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            """
+            SELECT pyq_id, exam, year, phase, paper, section, subject_id, question_number,
+                   question_text, hint, marks, incomplete
+            FROM previous_year_questions
+            WHERE question_text LIKE ? OR COALESCE(hint, '') LIKE ?
+            ORDER BY exam, year DESC, phase, paper, question_number
+            LIMIT ?
+            """,
+            (like, like, limit),
+        ).fetchall()
+        return rows_to_dicts(rows)
+    except sqlite3.OperationalError:
+        return []
+    finally:
+        conn.close()
+
+
+def search_descriptive_items(query: str, limit: int = 20) -> list[dict[str, Any]]:
+    """Plan v6 6.8: search descriptive prompts/passages in the compiled pack."""
+    init_db()
+    limit = max(1, min(limit, 100))
+    like = f"%{query}%"
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            """
+            SELECT item_id, exam, item_type, year, phase, paper, question_number,
+                   prompt_text, marks, word_limit_min, word_limit_max, incomplete
+            FROM descriptive_items
+            WHERE prompt_text LIKE ? OR COALESCE(passage_text, '') LIKE ?
+            ORDER BY exam, year DESC, item_type
+            LIMIT ?
+            """,
+            (like, like, limit),
+        ).fetchall()
+        return rows_to_dicts(rows)
+    except sqlite3.OperationalError:
+        return []
+    finally:
+        conn.close()
+
+
+def record_descriptive_score(
+    exam: str,
+    year: int | None,
+    components: list[dict[str, Any]],
+    total_score: float,
+    total_max_marks: float,
+    cutoff_pct: float,
+    cleared_cutoff: bool,
+    ai_status: dict[str, Any] | None = None,
+) -> str:
+    """Plan v6 6.2: persist a graded descriptive sitting for readiness mapping."""
+    init_db()
+    score_id = f"DESC_SCORE_{uuid.uuid4().hex[:12]}"
+    total_pct = round(total_score / total_max_marks * 100, 2) if total_max_marks else 0.0
+    conn = get_connection()
+    try:
+        conn.execute(
+            """
+            INSERT INTO descriptive_scores
+            (score_id, exam, year, components_json, total_score, total_max_marks,
+             total_pct, cutoff_pct, cleared_cutoff, ai_status_json, graded_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                score_id, exam, year, json.dumps(components),
+                total_score, total_max_marks, total_pct, cutoff_pct,
+                1 if cleared_cutoff else 0,
+                json.dumps(ai_status) if ai_status else None,
+                datetime.now().isoformat(),
+            ),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return score_id
+
+
+def latest_descriptive_performance(exam: str | None = None) -> dict[str, Any] | None:
+    """Most recent graded descriptive sitting (plan v6 6.2 readiness mapping)."""
+    init_db()
+    conn = get_connection()
+    try:
+        if exam:
+            row = conn.execute(
+                "SELECT * FROM descriptive_scores WHERE exam = ? ORDER BY graded_at DESC LIMIT 1",
+                (exam,),
+            ).fetchone()
+        else:
+            row = conn.execute(
+                "SELECT * FROM descriptive_scores ORDER BY graded_at DESC LIMIT 1"
+            ).fetchone()
+        return dict(row) if row else None
+    except sqlite3.OperationalError:
+        return None
+    finally:
+        conn.close()
+
+
+def list_descriptive_scores(exam: str | None = None, limit: int = 25) -> list[dict[str, Any]]:
+    init_db()
+    limit = max(1, min(limit, 100))
+    conn = get_connection()
+    try:
+        if exam:
+            rows = conn.execute(
+                "SELECT * FROM descriptive_scores WHERE exam = ? ORDER BY graded_at DESC LIMIT ?",
+                (exam, limit),
+            ).fetchall()
+        else:
+            rows = conn.execute(
+                "SELECT * FROM descriptive_scores ORDER BY graded_at DESC LIMIT ?",
+                (limit,),
+            ).fetchall()
+        return rows_to_dicts(rows)
+    except sqlite3.OperationalError:
+        return []
+    finally:
+        conn.close()
 
 
 def get_source_chunk_detail(chunk_id: str) -> dict[str, Any] | None:
@@ -1958,6 +2735,16 @@ def source_distribution_by_category() -> dict[str, Any]:
 
 
 def chunks_for_topic(topic_id: str, limit: int = 8, query: str | None = None, source_role_filter: list[str] | None = None) -> list[dict[str, Any]]:
+    if SOURCE_MODE == "knowledge":
+        authorities: set[str] | None = None
+        if source_role_filter:
+            authorities = set()
+            for role in source_role_filter:
+                authorities |= ROLE_TO_AUTHORITIES.get(role, set(FACT_AUTHORITY_RANK))
+        facts = facts_for_topic(topic_id, limit=limit, authority_filter=authorities, query=query)
+        if not facts:
+            facts = search_facts(query or topic_display(topic_id), limit=limit)
+        return [fact_as_chunk(fact) for fact in facts][:limit]
     if query:
         results = search_sources(query, topic_id=topic_id, limit=limit)
         if results:
@@ -2046,9 +2833,26 @@ def chunks_for_topic(topic_id: str, limit: int = 8, query: str | None = None, so
     return rank_source_results(results)[:limit]
 
 
+def _is_pack_fact_chunk(item: dict[str, Any]) -> bool:
+    """True for knowledge-pack fact chunks (document_id 'fact:<domain>').
+
+    Compiled facts are curated, provenance-backed exam material (plan v6
+    Phase 0), so they must not be filtered by the legacy document-category
+    heuristic in is_exam_material_source — their category carries the authority
+    label, not a corpus category, which made the heuristic drop every fact.
+    """
+    return str(item.get("document_id") or "").startswith("fact:")
+
+
 def rank_exam_material_results(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
     ranked = []
     for item in results:
+        if _is_pack_fact_chunk(item):
+            # Curated pack facts are exam material by construction; keep the
+            # existing score if fact_as_chunk set one, else a solid default.
+            item.setdefault("exam_material_score", 0.5)
+            ranked.append(item)
+            continue
         item["exam_material_score"] = exam_material_source_score(item.get("category"), item.get("title"), item.get("excerpt"))
         if is_exam_material_source(item):
             ranked.append(item)
@@ -2134,7 +2938,7 @@ def mock_source_chunks(topic_id: str, limit: int = 10, query: str | None = None,
             if item.get("chunk_id"):
                 by_chunk[item["chunk_id"]] = item
         for item in search_sources(source_query, limit=20):
-            if item.get("chunk_id") and (topic_id in item.get("topic_tags", []) or is_exam_material_source(item, min_score=0.45)):
+            if item.get("chunk_id") and (topic_id in item.get("topic_tags", []) or _is_pack_fact_chunk(item) or is_exam_material_source(item, min_score=0.45)):
                 by_chunk[item["chunk_id"]] = item
     topic_keywords = [topic_name.lower(), *[keyword.lower() for keyword in TOPIC_BY_ID.get(topic_id, {}).get("keywords", [])]]
     for item in by_chunk.values():
@@ -2189,22 +2993,86 @@ def ifsca_act_document() -> dict[str, Any] | None:
 def read_document_lines(document: dict[str, Any] | None) -> list[str]:
     if not document:
         return []
-    path = Path(document.get("local_text_path") or "")
-    if not path.exists():
-        return []
-    return path.read_text(encoding="utf-8", errors="replace").splitlines()
+    conn = get_connection()
+    try:
+        row = conn.execute(
+            "SELECT full_text FROM document_fulltext WHERE document_id = ?",
+            (document.get("document_id"),),
+        ).fetchone()
+    finally:
+        conn.close()
+    if row and row["full_text"]:
+        return row["full_text"].splitlines()
+    text_path = document.get("local_text_path") or ""
+    path = Path(text_path) if text_path else None
+    if path is not None and path.is_file():
+        return path.read_text(encoding="utf-8", errors="replace").splitlines()
+    return []
 
 
 def ifsca_act_full_text() -> dict[str, Any]:
-    if table_count("documents") == 0:
-        ingest_documents(force=False)
     document = ifsca_act_document()
+    if document is None:
+        bootstrap_from_knowledge()
+        document = ifsca_act_document()
     lines = read_document_lines(document)
     return {
         "document": document,
         "line_count": len(lines),
         "full_text": "\n".join(lines),
     }
+
+
+def get_law_revision_progress() -> dict[str, Any]:
+    """Completion-driven IFSCA Act revision progress (plan v6 6.5).
+
+    Each row in law_revision_progress is one completed daily session.
+    The day index advances with completions instead of the calendar, so the
+    user always picks up where they left off.
+    """
+    init_db()
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            "SELECT day_index, completed_at FROM law_revision_progress ORDER BY rowid"
+        ).fetchall()
+    finally:
+        conn.close()
+    events = [{"day_index": int(row["day_index"]), "completed_at": row["completed_at"]} for row in rows]
+    return {
+        "completed_sessions": len(events),
+        "completed_day_indexes": sorted({event["day_index"] for event in events}),
+        "last_day_index": events[-1]["day_index"] if events else None,
+        "last_completed_at": events[-1]["completed_at"] if events else None,
+    }
+
+
+def next_law_revision_day_index(total_days: int) -> int:
+    if total_days <= 0:
+        return 0
+    progress = get_law_revision_progress()
+    return progress["completed_sessions"] % total_days
+
+
+def complete_law_revision_day(day_index: int, total_days: int | None = None) -> dict[str, Any]:
+    init_db()
+    conn = get_connection()
+    try:
+        conn.execute(
+            "INSERT INTO law_revision_progress (day_index, completed_at) VALUES (?, ?)",
+            (int(day_index), datetime.now().isoformat()),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    progress = get_law_revision_progress()
+    result = {
+        "status": "completed",
+        "day_index": int(day_index),
+        "next_day_index": progress["completed_sessions"] % total_days if total_days else None,
+        **progress,
+    }
+    return result
 
 
 def daily_ifsca_act_revision(lines_per_day: int = 80, day_index: int | None = None) -> dict[str, Any]:
@@ -2227,7 +3095,7 @@ def daily_ifsca_act_revision(lines_per_day: int = 80, day_index: int | None = No
     lines_per_day = max(30, min(lines_per_day, 180))
     total_days = max(1, math.ceil(len(content_lines) / lines_per_day))
     if day_index is None:
-        day_index = datetime.now().toordinal() % total_days
+        day_index = next_law_revision_day_index(total_days)
     day_index = max(0, min(total_days - 1, day_index))
     selected = content_lines[day_index * lines_per_day : (day_index + 1) * lines_per_day]
     line_start = selected[0][0]
@@ -2535,6 +3403,30 @@ def calculate_topic_accuracy() -> list[dict[str, Any]]:
         conn.close()
 
 
+def _coverage_gap_for_topic(topic_id: str, conn: sqlite3.Connection) -> float:
+    """Plan v6 6.1: how thin the study corpus is for a topic.
+
+    High coverage gap = almost no source chunks or compiled facts back the
+    topic, so mocks have little grounded material and the user cannot study it
+    adequately. Normalized against a depth target of 120 items to mirror
+    source_coverage_by_topic's source_depth. In knowledge mode (file-free) the
+    chunk tables may be empty, in which case compiled facts carry the signal.
+    """
+    try:
+        chunk_row = conn.execute(
+            "SELECT COUNT(*) AS count FROM chunk_topics WHERE topic_id = ?", (topic_id,)
+        ).fetchone()
+        fact_row = conn.execute(
+            "SELECT COUNT(*) AS count FROM fact_topics WHERE topic_id = ?", (topic_id,)
+        ).fetchone()
+    except sqlite3.OperationalError:
+        return 0.0
+    chunks = chunk_row["count"] if chunk_row else 0
+    facts = fact_row["count"] if fact_row else 0
+    depth = min(1.0, (chunks + facts) / 120)
+    return round(1.0 - depth, 3)
+
+
 def calculate_weakness_score(topic_id: str, conn: sqlite3.Connection | None = None) -> dict[str, Any]:
     owns_conn = conn is None
     if conn is None:
@@ -2551,6 +3443,8 @@ def calculate_weakness_score(topic_id: str, conn: sqlite3.Connection | None = No
     ).fetchall()
     attempts = len(rows)
     exam_weight = float(topic_def.get("base_weight", 0.7))
+    # Plan v6 6.1: coverage-gap term applies to both untried and attempted topics.
+    coverage_gap = _coverage_gap_for_topic(topic_id, conn)
     amendment_recency = 0.0
     if topic_def.get("is_amendment_sensitive"):
         amendment_row = conn.execute(
@@ -2561,7 +3455,13 @@ def calculate_weakness_score(topic_id: str, conn: sqlite3.Connection | None = No
 
     if attempts == 0:
         low_attempt_confidence = 1.0
-        weakness = 0.15 * low_attempt_confidence + 0.10 * exam_weight + 0.10 * amendment_recency + 0.25
+        weakness = (
+            0.15 * low_attempt_confidence
+            + 0.10 * exam_weight
+            + 0.10 * amendment_recency
+            + 0.05 * coverage_gap
+            + 0.20
+        )
         result = {
             "topic": topic_id,
             "display_name": topic_display(topic_id),
@@ -2584,17 +3484,26 @@ def calculate_weakness_score(topic_id: str, conn: sqlite3.Connection | None = No
     recent_correct = sum(1 for row in recent_rows if row["is_correct"])
     recent_accuracy = recent_correct / len(recent_rows)
     avg_time = sum((row["time_spent_seconds"] or 0) for row in rows) / attempts
-    time_pressure = min(1.0, max(0.0, (avg_time - 60) / 120))
+    # Plan v6 6.1: topic-aware time baseline. Phase-I aptitude (SUBJ_*) questions are
+    # fast (~60s); Phase-II regulatory questions are slower (~180s). Pressure measures
+    # how far the average exceeds the expected baseline for that topic class.
+    time_baseline = 60 if topic_id.startswith("SUBJ_") else 180
+    time_pressure = min(1.0, max(0.0, (avg_time - time_baseline) / 120))
     low_attempt_confidence = max(0.0, 1.0 - min(1.0, attempts / 30))
-    historical_error = 1 - historical_accuracy
+    # Plan v6 6.1: Bayesian smoothing pulls small-sample accuracy toward 50% so a
+    # topic with 1-2 attempts does not dominate weakness from a single lucky/unlucky run.
+    smoothed_accuracy = (correct + 3) / (attempts + 6)
+    historical_error = 1 - smoothed_accuracy
     recent_error = 1 - recent_accuracy
+    # Plan v6 6.1: weights renormalized to include the coverage-gap term (sum = 1.0).
     weakness = (
-        0.35 * historical_error
+        0.30 * historical_error
         + 0.25 * recent_error
         + 0.15 * low_attempt_confidence
         + 0.10 * exam_weight
         + 0.10 * amendment_recency
         + 0.05 * time_pressure
+        + 0.05 * coverage_gap
     )
     trend = "IMPROVING" if recent_accuracy > historical_accuracy + 0.05 else "DECLINING" if recent_accuracy < historical_accuracy - 0.05 else "STABLE"
     accuracy_pct = round((0.7 * historical_accuracy + 0.3 * recent_accuracy) * 100, 2)
@@ -2784,7 +3693,13 @@ def correct_label(options: list[dict[str, str]], correct_text: str) -> str:
     return "A"
 
 
-def question_quality_score(question_text: str | None, created_by: str | None = None, has_citation: bool = False) -> float:
+def question_quality_score(
+    question_text: str | None,
+    created_by: str | None = None,
+    has_citation: bool = False,
+    verified: bool = False,
+    option_count: int = 5,
+) -> float:
     text = (question_text or "").strip()
     lower = text.lower()
     if not text:
@@ -2794,6 +3709,10 @@ def question_quality_score(question_text: str | None, created_by: str | None = N
         score += 0.22
     if has_citation:
         score += 0.18
+    if verified:
+        score += 0.25  # verifier re-answered from the cited fact (plan v6 4.7)
+    if option_count < 5:
+        score -= 0.30  # real exam questions carry five options
     if any(term in lower for term in ["which statement", "what is", "which of the following", "scenario", "effective", "regulation"]):
         score += 0.08
     if lower.startswith("based on the cited source excerpt, which ifsca exam topic"):
@@ -2896,10 +3815,11 @@ def local_question_from_chunk(topic_id: str, chunk: dict[str, Any], number: int,
         f"The cited source treats {topic_display(topic_id)} as outside the IFSC regulatory perimeter.",
         "The cited source removes registration, authorisation, and continuing compliance obligations.",
         "The cited source applies only to domestic financial services outside GIFT IFSC.",
+        "The cited source transfers these powers to the state government instead of IFSCA.",
     ]
     options_text = [correct_text] + distractors
     random.shuffle(options_text)
-    options = [{"label": label, "text": text} for label, text in zip(["A", "B", "C", "D"], options_text)]
+    options = [{"label": label, "text": text} for label, text in zip(["A", "B", "C", "D", "E"], options_text)]
     question_id = f"Q_{slugify(topic_id)}_{uuid.uuid4().hex[:10]}"
     return {
         "question_id": question_id,
@@ -2933,10 +3853,11 @@ def save_question(question: dict[str, Any], created_by: str = "local_source_engi
         conn.execute(
             """
             INSERT OR REPLACE INTO questions
-            (question_id, source, topic_id, subtopic_id, question_text, option_a, option_b, option_c, option_d,
+            (question_id, source, topic_id, subtopic_id, question_text, option_a, option_b, option_c, option_d, option_e,
              correct_answer, explanation, difficulty, question_type, is_amendment_based, amendment_id,
-             created_by, prompt_version, verification_status, tested_fact, trap_logic, source_policy)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+             created_by, prompt_version, verification_status, tested_fact, trap_logic, source_policy,
+             subject_id, fact_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 question["question_id"],
@@ -2948,6 +3869,7 @@ def save_question(question: dict[str, Any], created_by: str = "local_source_engi
                 option_map.get("B", ""),
                 option_map.get("C", ""),
                 option_map.get("D", ""),
+                option_map.get("E"),
                 question.get("correct_option"),
                 question.get("explanation"),
                 question.get("difficulty", "medium"),
@@ -2960,6 +3882,12 @@ def save_question(question: dict[str, Any], created_by: str = "local_source_engi
                 question.get("tested_fact"),
                 question.get("trap_logic"),
                 question.get("source_policy"),
+                question.get("subject_id"),
+                question.get("fact_id") or (
+                    question.get("source_chunk_id")
+                    if str(question.get("source_document_id") or "").startswith("fact:")
+                    else None
+                ),
             ),
         )
         if question.get("source_chunk_id"):
@@ -3034,6 +3962,11 @@ def row_to_question(row: sqlite3.Row, citation: sqlite3.Row | None = None) -> di
         {"label": "C", "text": row["option_c"]},
         {"label": "D", "text": row["option_d"]},
     ]
+    try:
+        if row["option_e"]:
+            options.append({"label": "E", "text": row["option_e"]})
+    except (IndexError, KeyError):
+        pass
     return {
         "question_id": row["question_id"],
         "topic": row["topic_id"],
@@ -3074,6 +4007,59 @@ def get_question(question_id: str, conn: sqlite3.Connection | None = None) -> di
     return question
 
 
+def irt_lite_question_stats(min_attempts: int = 3) -> dict[str, dict[str, Any]]:
+    """Plan v6 6.8: IRT-lite per-question stats from observed attempts.
+
+    p-value (proportion correct) and median answer time come from
+    question_attempts; they feed empirical difficulty when questions are
+    reused so mocks calibrate to real performance instead of the label alone.
+    """
+    init_db()
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            """
+            SELECT question_id,
+                   COUNT(*) AS attempts,
+                   SUM(CASE WHEN is_correct = 1 THEN 1 ELSE 0 END) AS correct
+            FROM question_attempts
+            WHERE question_id IS NOT NULL
+            GROUP BY question_id
+            HAVING COUNT(*) >= ?
+            """,
+            (min_attempts,),
+        ).fetchall()
+        time_rows = conn.execute(
+            """
+            SELECT question_id, time_spent_seconds
+            FROM question_attempts
+            WHERE question_id IS NOT NULL AND time_spent_seconds > 0
+            """
+        ).fetchall()
+    finally:
+        conn.close()
+    time_map: dict[str, list[float]] = defaultdict(list)
+    for row in time_rows:
+        time_map[row["question_id"]].append(float(row["time_spent_seconds"]))
+    stats: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        p_value = (row["correct"] or 0) / row["attempts"]
+        if p_value < 0.4:
+            observed = "hard"
+        elif p_value > 0.8:
+            observed = "easy"
+        else:
+            observed = "medium"
+        values = sorted(time_map.get(row["question_id"], []))
+        stats[row["question_id"]] = {
+            "attempts": row["attempts"],
+            "p_value": round(p_value, 3),
+            "median_time_seconds": values[len(values) // 2] if values else None,
+            "observed_difficulty": observed,
+        }
+    return stats
+
+
 def existing_questions_for_topic(topic_id: str, limit: int, created_by: str | None = None) -> list[dict[str, Any]]:
     conn = get_connection()
     try:
@@ -3095,9 +4081,19 @@ def existing_questions_for_topic(topic_id: str, limit: int, created_by: str | No
             citation = conn.execute("SELECT * FROM question_citations WHERE question_id = ? LIMIT 1", (row["question_id"],)).fetchone()
             if reusable_question_row(row, citation):
                 questions.append(row_to_question(row, citation))
-        return questions
     finally:
         conn.close()
+    # Plan v6 6.8: IRT-lite — empirical difficulty from observed attempts drives
+    # reuse selection; the stored label is preserved as labeled_difficulty.
+    stats = irt_lite_question_stats()
+    for question in questions:
+        observed = stats.get(question.get("question_id"))
+        if observed:
+            question["labeled_difficulty"] = question.get("difficulty")
+            question["difficulty"] = observed["observed_difficulty"]
+            question["p_value"] = observed["p_value"]
+            question["median_time_seconds"] = observed["median_time_seconds"]
+    return questions
 
 
 def generate_local_questions(topic_id: str, count: int, difficulty: str = "medium", query: str | None = None, question_type: str = "source_grounded") -> list[dict[str, Any]]:
@@ -3170,6 +4166,31 @@ def generate_gemini_questions(
         chunks = search_sources(query or topic_display(topic_id), limit=max(count * 2, 6))
     if not chunks:
         return []
+    # PYQ style calibration (plan v6 sub-phase 4.4): sample real bank stems.
+    # Enriched per user intent: Gemini sees past stems WITH their correct answer so
+    # it internalizes real exam style + answer shape as grounding context (never
+    # copied verbatim into new questions).
+    style_anchors: list[str] = []
+    try:
+        conn = get_connection()
+        try:
+            anchor_rows = conn.execute(
+                """
+                SELECT question_text, correct_option, hint FROM previous_year_questions
+                WHERE incomplete = 0 AND (subject_id = ? OR topic_id = ?)
+                ORDER BY RANDOM() LIMIT 6
+                """,
+                (topic_id, topic_id),
+            ).fetchall()
+            style_anchors = [
+                f"{row['question_text']} [Answer: {row['correct_option'] or '?'}]"
+                + (f" (note: {row['hint']})" if row["hint"] else "")
+                for row in anchor_rows
+            ]
+        finally:
+            conn.close()
+    except Exception:
+        style_anchors = []
     questions = generate_questions_with_gemini(
         topic_id,
         count,
@@ -3178,6 +4199,7 @@ def generate_gemini_questions(
         question_type=question_type,
         is_amendment_based=is_amendment_based,
         source_policy=source_policy,
+        style_anchors=style_anchors,
     )
     saved: list[dict[str, Any]] = []
     for question in questions[:count]:
@@ -3249,6 +4271,76 @@ def generate_topic_questions(
                 selected.append(question)
                 seen.add(question["question_id"])
     return selected[:count]
+
+
+def verify_unverified_questions(limit: int = 10) -> dict[str, Any]:
+    """Re-answer unverified Gemini questions against their cited fact (plan v6 4.6).
+
+    Questions with a fact citation are re-answered from that fact alone via
+    gemini_integration.verify_question_against_fact. Matches are stamped
+    VERIFIED_AI_CHECKED; mismatches are stamped REJECTED_UNGROUNDED so they are
+    excluded from mock assembly. Quota-aware: stops when Gemini is unavailable.
+    """
+    from gemini_integration import verify_question_against_fact, gemini_available
+
+    verified = 0
+    rejected = 0
+    skipped = 0
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            """
+            SELECT q.question_id, q.question_text, q.correct_answer AS correct_option, q.option_a,
+                   q.option_b, q.option_c, q.option_d, q.option_e, q.fact_id,
+                   f.statement, f.detail
+            FROM questions q
+            LEFT JOIN facts f ON f.fact_id = q.fact_id
+            WHERE q.created_by = 'gemini'
+              AND COALESCE(q.verification_status, '') NOT IN ('VERIFIED_AI_CHECKED', 'REJECTED_UNGROUNDED', 'REJECTED_LOW_QUALITY')
+              AND q.fact_id IS NOT NULL
+            LIMIT ?
+            """,
+            (limit,),
+        ).fetchall()
+    finally:
+        conn.close()
+
+    for row in rows:
+        if not gemini_available():
+            skipped += len(rows) - rows.index(row)
+            break
+        options = []
+        for letter in "ABCDE":
+            text = row["option_a"] if letter == "A" else row["option_b"] if letter == "B" else row["option_c"] if letter == "C" else row["option_d"] if letter == "D" else row["option_e"]
+            if text:
+                options.append({"label": letter, "text": text})
+        fact_excerpt = ((row["statement"] or "") + " " + (row["detail"] or "")).strip()
+        verdict = verify_question_against_fact(
+            {"question_text": row["question_text"], "correct_option": row["correct_option"], "options": options},
+            fact_excerpt,
+        )
+        conn = get_connection()
+        try:
+            if verdict is None:
+                skipped += 1
+                continue
+            if verdict["correct"]:
+                conn.execute(
+                    "UPDATE questions SET verification_status = 'VERIFIED_AI_CHECKED', verified_at = ?, verification_details = ? WHERE question_id = ?",
+                    (datetime.now().isoformat(), verdict.get("issue") or "grounded", row["question_id"]),
+                )
+                verified += 1
+            else:
+                conn.execute(
+                    "UPDATE questions SET verification_status = 'REJECTED_UNGROUNDED', verified_at = ?, verification_details = ? WHERE question_id = ?",
+                    (datetime.now().isoformat(), f"verifier answered {verdict['correct_letter']}: {verdict.get('issue') or ''}", row["question_id"]),
+                )
+                rejected += 1
+            conn.commit()
+        finally:
+            conn.close()
+
+    return {"verified": verified, "rejected": rejected, "skipped": skipped, "considered": len(rows)}
 
 
 def build_question_bank(
@@ -3475,39 +4567,240 @@ def save_smart_mock(mock_id: str, ranked_topics: list[dict[str, Any]], allocatio
         conn.close()
 
 
-def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_gemini: bool = True) -> dict[str, Any]:
+def _recently_cited_fact_ids(hours: int = 48) -> set[str]:
+    """Fact ids cited by questions created within the last N hours (cooldown)."""
+    conn = get_connection()
+    try:
+        cutoff = (datetime.now() - timedelta(hours=hours)).isoformat()
+        rows = conn.execute(
+            """
+            SELECT DISTINCT fact_id FROM questions
+            WHERE fact_id IS NOT NULL AND created_at >= ?
+            """,
+            (cutoff,),
+        ).fetchall()
+        return {row["fact_id"] for row in rows if row["fact_id"]}
+    except Exception:
+        return set()
+    finally:
+        conn.close()
+
+
+def get_exam_template(template_id: str) -> dict[str, Any] | None:
+    conn = get_connection()
+    try:
+        row = conn.execute(
+            "SELECT * FROM exam_templates WHERE template_id = ?", (template_id,)
+        ).fetchone()
+        return dict(row) if row else None
+    finally:
+        conn.close()
+
+
+TEMPLATE_UNIT_TOPICS: dict[str, list[str]] = {
+    "IFSCA_PH1_P2_GENERAL": [
+        "SUBJ_GA", "SUBJ_ECONOMICS", "SUBJ_COMMERCE_ACCOUNTS",
+        "SUBJ_MANAGEMENT", "SUBJ_FINANCE", "SUBJ_COSTING",
+    ],
+    "IFSCA_PH2_P2_GENERAL": [
+        "PH2_IFSCA_ACT", "PH2_GIFT_IFSC", "PH2_BUDGET_ECON_SURVEY",
+        "PH2_BANKING", "PH2_CAPITAL", "PH2_INSURANCE", "PH2_PENSION",
+    ],
+    "SEBI_PH1_P2_GENERAL": [
+        "SUBJ_COMMERCE_ACCOUNTS", "SUBJ_MANAGEMENT", "SUBJ_FINANCE",
+        "SUBJ_COSTING", "SUBJ_COMPANIES_ACT", "SUBJ_ECONOMICS",
+    ],
+    "SEBI_PH2_P2_GENERAL": [
+        "SUBJ_COMMERCE_ACCOUNTS", "SUBJ_MANAGEMENT", "SUBJ_FINANCE",
+        "SUBJ_COSTING", "SUBJ_COMPANIES_ACT", "SUBJ_ECONOMICS",
+    ],
+}
+
+
+def _template_allocation(template: dict[str, Any], total_questions: int) -> dict[str, int]:
+    """Distribute questions across a template's syllabus units/sections.
+
+    Weights come from weakness scores (falling back to exam_priority), with a
+    guaranteed minimum of 2 questions per unit so every syllabus area appears.
+    """
+    template_id = template["template_id"]
+    sections = json.loads(template.get("sections_json") or "[]")
+    if sections:
+        # Section-based paper (Phase I Paper 1): fixed per-section counts,
+        # scaled proportionally when total_questions differs from the template.
+        section_total = sum(section.get("questions", 0) for section in sections) or total_questions
+        allocation: dict[str, int] = {}
+        section_subjects = {"General Awareness (Financial Sector)": "SUBJ_GA", "General Awareness": "SUBJ_GA",
+                            "English Language": "SUBJ_ENGLISH",
+                            "Quantitative Aptitude": "SUBJ_QUANT", "Reasoning": "SUBJ_REASONING"}
+        for section in sections:
+            subject = section_subjects.get(section.get("name"), "SUBJ_GA")
+            scaled = max(1, round(section.get("questions", 0) * total_questions / section_total))
+            allocation[subject] = allocation.get(subject, 0) + scaled
+        return allocation
+
+    units = TEMPLATE_UNIT_TOPICS.get(template_id) or [
+        unit for unit in json.loads(template.get("syllabus_units_json") or "[]")
+    ]
+    if not units:
+        return {}
+
+    weights: dict[str, float] = {}
+    stats_by_topic = {item["topic"]: item for item in get_topic_stats()}
+    for unit in units:
+        if unit in stats_by_topic:
+            weights[unit] = 0.4 + stats_by_topic[unit].get("weakness_score", 0.4)
+        else:
+            weights[unit] = 0.6  # unknown units get moderate weight
+
+    minimum = 2
+    remaining = total_questions - minimum * len(units)
+    if remaining < 0:
+        minimum = max(1, total_questions // len(units))
+        remaining = total_questions - minimum * len(units)
+
+    total_weight = sum(weights.values()) or 1.0
+    allocation = {unit: minimum for unit in units}
+    distributed = 0
+    shares: list[tuple[str, float]] = []
+    for unit, weight in weights.items():
+        exact = remaining * weight / total_weight
+        floored = int(exact)
+        allocation[unit] += floored
+        distributed += floored
+        shares.append((unit, exact - floored))
+    leftover = remaining - distributed
+    for unit, _fraction in sorted(shares, key=lambda item: item[1], reverse=True):
+        if leftover <= 0:
+            break
+        allocation[unit] += 1
+        leftover -= 1
+    return {unit: count for unit, count in allocation.items() if count > 0}
+
+
+def generate_smart_mock(
+    total_questions: int = 50,
+    mode: str = "balanced",
+    use_gemini: bool = True,
+    template_id: str = "CUSTOM",
+) -> dict[str, Any]:
     if not use_gemini:
         raise RuntimeError("Gemini is mandatory for every smart mock. Local/source-bank fallback is disabled.")
     if not gemini_available():
         raise RuntimeError("Gemini is not available, so a serious smart mock cannot be generated.")
 
-    config = get_smart_mock_config(total_questions=total_questions, mode=mode)
-    allocation = config["allocation"]
-    difficulty_curve = config["difficulty_curve"]  # Now: dict[topic] → list[difficulty]
-    questions: list[dict[str, Any]] = []
+    template = get_exam_template(template_id) if template_id and template_id != "CUSTOM" else None
+    if template:
+        allocation = _template_allocation(template, total_questions)
+        config = get_smart_mock_config(total_questions=total_questions, mode=mode)
+        # Gemini generates every question; the knowledge bank (facts + PYQ stems)
+        # is supplied as retrieval context downstream, not reused verbatim.
+        difficulty_curve = {
+            topic: (["easy"] * (count // 3) + ["medium"] * (count - 2 * (count // 3)) + ["hard"] * (count // 3))
+            if count >= 3 else ["medium"] * count
+            for topic, count in allocation.items()
+        }
+    else:
+        config = get_smart_mock_config(total_questions=total_questions, mode=mode)
+        allocation = config["allocation"]
+        difficulty_curve = config["difficulty_curve"]  # dict[topic] -> list[difficulty]
 
-    # Generate questions per topic with difficulty progression
+    if not allocation:
+        raise RuntimeError("Mock allocation is empty; ingest the knowledge pack first.")
+
+    # Bucket by (topic, difficulty): one Gemini call per bucket, executed in
+    # parallel (plan v6 sub-phase 4.3) instead of one sequential call per question.
+    buckets: list[tuple[str, str, int]] = []
     for topic_id, count in allocation.items():
         difficulties = difficulty_curve.get(topic_id, ["medium"] * count)
-        # Ensure we have exactly 'count' difficulties
-        if len(difficulties) != count:
-            difficulties = difficulties[:count] + ["medium"] * (count - len(difficulties))
+        difficulties = (difficulties[:count] + ["medium"] * count)[:count]
+        for difficulty, bucket_count in Counter(difficulties).items():
+            buckets.append((topic_id, difficulty, bucket_count))
 
-        # Generate questions with specific difficulties
-        for i, difficulty in enumerate(difficulties):
-            topic_questions = generate_topic_questions(
+    def _generate_bucket(bucket: tuple[str, str, int]) -> list[dict[str, Any]]:
+        topic_id, difficulty, bucket_count = bucket
+        try:
+            return generate_topic_questions(
                 topic_id,
-                count=1,
+                count=bucket_count,
                 difficulty=difficulty,
                 question_type="smart_mock",
                 use_gemini=True,
-                strict_gemini=True,
+                strict_gemini=False,
                 allow_local_fallback=False,
                 reuse_existing=False,
                 source_policy="exam_material",
             )
-            questions.extend(topic_questions)
+        except Exception as exc:
+            print(f"Bucket generation failed for {topic_id}/{difficulty}: {exc}")
+            return []
 
+    questions: list[dict[str, Any]] = []
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        for bucket_questions in executor.map(_generate_bucket, buckets):
+            questions.extend(bucket_questions)
+
+    # De-duplicate (plan v6 sub-phase 4.5): normalized stem, <=1 question per
+    # fact per mock, and a 48-hour cooldown on facts cited by recent questions.
+    recent_fact_ids = _recently_cited_fact_ids(hours=48)
+    seen_stems: set[str] = set()
+    seen_fact_ids: set[str] = set()
+    unique_questions: list[dict[str, Any]] = []
+    for question in questions:
+        stem = re.sub(r"[^a-z0-9]+", "", (question.get("question_text") or "").lower())
+        if stem in seen_stems:
+            continue
+        # A fact-sourced question has document_id like 'fact:banking' and the
+        # fact id in source_chunk_id. Enforce <=1 per fact per mock + cooldown.
+        is_fact_sourced = str(question.get("source_document_id") or "").startswith("fact:")
+        if is_fact_sourced:
+            fact_key = str(question.get("source_chunk_id") or "")
+            if fact_key and (fact_key in seen_fact_ids or fact_key in recent_fact_ids):
+                continue
+            if fact_key:
+                seen_fact_ids.add(fact_key)
+        seen_stems.add(stem)
+        unique_questions.append(question)
+    questions = unique_questions
+
+    # Exact allocation enforcement: top up shortfall from the weakest allocated
+    # topics, then trim to the requested total.
+    if len(questions) < total_questions:
+        shortfall = total_questions - len(questions)
+        top_up_topics = sorted(allocation.keys(), key=lambda topic: -allocation[topic])
+        for topic_id in top_up_topics:
+            if shortfall <= 0:
+                break
+            try:
+                extra = generate_topic_questions(
+                    topic_id,
+                    count=shortfall,
+                    difficulty="medium",
+                    question_type="smart_mock",
+                    use_gemini=True,
+                    strict_gemini=False,
+                    allow_local_fallback=False,
+                    reuse_existing=False,
+                    source_policy="exam_material",
+                )
+            except Exception:
+                extra = []
+            for question in extra:
+                stem = re.sub(r"[^a-z0-9]+", "", (question.get("question_text") or "").lower())
+                if stem in seen_stems:
+                    continue
+                is_fact_sourced = str(question.get("source_document_id") or "").startswith("fact:")
+                if is_fact_sourced:
+                    fact_key = str(question.get("source_chunk_id") or "")
+                    if fact_key and (fact_key in seen_fact_ids or fact_key in recent_fact_ids):
+                        continue
+                    if fact_key:
+                        seen_fact_ids.add(fact_key)
+                seen_stems.add(stem)
+                questions.append(question)
+                shortfall -= 1
+                if shortfall <= 0:
+                    break
     questions = questions[:total_questions]
 
     # Verify allocation accuracy within 1%
@@ -3519,12 +4812,12 @@ def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_g
     medium_actual = sum(1 for q in questions if q.get("topic") in medium_topics_set)
     strong_actual = sum(1 for q in questions if q.get("topic") in strong_topics_set)
 
-    # Verify percentages are within ±1% of target
-    weak_pct = weak_actual / len(questions)
-    medium_pct = medium_actual / len(questions)
-    strong_pct = strong_actual / len(questions)
+    total = len(questions) or 1
+    weak_pct = weak_actual / total
+    medium_pct = medium_actual / total
+    strong_pct = strong_actual / total
 
-    if abs(weak_pct - 0.60) > 0.01 or abs(medium_pct - 0.25) > 0.01 or abs(strong_pct - 0.15) > 0.01:
+    if not template and (abs(weak_pct - 0.60) > 0.01 or abs(medium_pct - 0.25) > 0.01 or abs(strong_pct - 0.15) > 0.01):
         # Log warning but don't fail - proceed with best effort
         print(f"WARNING: Allocation deviation - weak {weak_pct:.2%}, medium {medium_pct:.2%}, strong {strong_pct:.2%}")
 
@@ -3535,8 +4828,9 @@ def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_g
     mock_id = f"SM_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:4]}"
     save_smart_mock(mock_id, config["ranked_topics"], allocation, difficulty_curve, questions=questions)
 
-    return {
+    result = {
         "mock_id": mock_id,
+        "template_id": template_id,
         "allocation": allocation,
         "allocation_summary": {
             "weak_topics_focused": weak_actual,
@@ -3549,6 +4843,28 @@ def generate_smart_mock(total_questions: int = 50, mode: str = "balanced", use_g
         "weakness_analysis": config["ranked_topics"],
         "questions": questions,
     }
+    if template:
+        result["time_limit_minutes"] = template.get("time_limit_minutes") or 60
+        result["marks_per_question"] = template.get("marks_per_question") or (100 / max(1, len(questions)))
+        result["negative_marking_per_wrong"] = round(float(result["marks_per_question"]) * 0.25, 4)
+    return result
+
+
+def _auto_schedule_srs_from_session(topic_counts: dict[str, list[int]]) -> None:
+    """Plan v6 6.4: schedule topics that scored <60% this session for spaced review.
+
+    Never raises into submit_mock; a scheduling failure must not break submission.
+    """
+    try:
+        for topic, (seen, correct) in topic_counts.items():
+            if not seen:
+                continue
+            pct = correct / seen * 100
+            if pct < 60:
+                interval = 1 if pct < 40 else 2
+                schedule_topic_review(topic, interval_days=interval)
+    except Exception as exc:
+        print(f"[srs] auto-schedule after submit failed: {exc}")
 
 
 def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
@@ -3614,10 +4930,9 @@ def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
                     "page_end": citation["page_end"] if citation else None,
                     "citation_note": citation["citation_note"] if citation else None,
                     "options": [
-                        {"label": "A", "text": row["option_a"]},
-                        {"label": "B", "text": row["option_b"]},
-                        {"label": "C", "text": row["option_c"]},
-                        {"label": "D", "text": row["option_d"]},
+                        {"label": letter, "text": row[f"option_{letter}"]}
+                        for letter in "ABCDE"
+                        if row[f"option_{letter}"]
                     ],
                 }
             )
@@ -3677,6 +4992,8 @@ def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
     finally:
         conn.close()
     calculate_topic_accuracy()
+    # Plan v6 6.4: auto-schedule weak topics from this session for spaced review.
+    _auto_schedule_srs_from_session(topic_counts)
     breakdown = []
     for topic, (seen, correct) in topic_counts.items():
         pct = round(correct / seen * 100, 2) if seen else 0.0
@@ -3694,6 +5011,27 @@ def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
                 "trend": "SESSION",
             }
         )
+    # Plan v6 6.8: auto-save per-topic analytics post-submit so the timeline
+    # endpoint has data without a separate frontend POST. Never breaks submit.
+    try:
+        topic_time: dict[str, int] = defaultdict(int)
+        for entry in question_analysis:
+            topic_time[entry["topic"]] += int(entry.get("time_spent_seconds") or 0)
+        save_exam_analytics(
+            mock_id,
+            [
+                {
+                    "topic_id": entry["topic"],
+                    "accuracy_pct": entry["accuracy_pct"],
+                    "time_spent_seconds": topic_time.get(entry["topic"], 0),
+                    "difficulty_rating": "hard" if entry["accuracy_pct"] < 40 else "medium" if entry["accuracy_pct"] < 70 else "easy",
+                    "comparison_to_avg": round(entry["accuracy_pct"] - accuracy, 2),
+                }
+                for entry in breakdown
+            ],
+        )
+    except Exception as exc:
+        print(f"[analytics] auto-save after submit failed: {exc}")
     return {
         "mock_id": mock_id,
         "total_questions": total_questions,
@@ -3741,7 +5079,9 @@ def record_amendment(amendment: dict[str, Any]) -> None:
             INSERT OR REPLACE INTO amendment_events
             (amendment_id, title, topic_id, source_document_id, source_chunk_id, old_value, new_value,
              effective_date, publication_date, exam_priority, mastery_status, questions_generated)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, COALESCE((SELECT questions_generated FROM amendment_events WHERE amendment_id = ?), 0))
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+                    COALESCE((SELECT mastery_status FROM amendment_events WHERE amendment_id = ?), 'NEW'),
+                    COALESCE((SELECT questions_generated FROM amendment_events WHERE amendment_id = ?), 0))
             """,
             (
                 amendment_id,
@@ -3754,7 +5094,7 @@ def record_amendment(amendment: dict[str, Any]) -> None:
                 amendment.get("effective_date"),
                 None,
                 priority_map.get(amendment.get("priority", "NORMAL"), 5),
-                "NEW",
+                amendment_id,
                 amendment_id,
             ),
         )
@@ -3782,9 +5122,40 @@ CRITICAL_AMENDMENTS = [
 ]
 
 
+def _pack_amendment_events() -> list[dict[str, Any]]:
+    """Plan v6 6.6: amendment events compiled into the knowledge pack."""
+    yield_priority = {"HIGH": "HIGH", "MED": "NORMAL", "LOW": "LOW"}
+    events = []
+    for fact in knowledge.load_all_facts():
+        if fact.get("domain") != "amendments":
+            continue
+        events.append(
+            {
+                "amendment_id": fact["fact_id"],
+                "topic": (fact.get("topic_ids") or ["PH2_CURRENT_AFFAIRS"])[0],
+                "rule_name": fact["statement"][:120],
+                "effective_date": fact.get("effective_date"),
+                "old_value": None,
+                "new_value": fact["statement"],
+                "source_url": fact.get("source_doc") or "knowledge_pack",
+                "source_document_id": None,
+                "source_chunk_id": None,
+                "verify_status": "PACK_SEEDED",
+                "priority": yield_priority.get(fact.get("yield"), "NORMAL"),
+                "questions_needed": 3,
+            }
+        )
+    return events
+
+
 def seed_critical_amendments() -> dict[str, Any]:
     seeded = 0
     questions_generated = 0
+    # Plan v6 6.6: pack-seeded amendment events merged with the constants below.
+    pack_seeded = 0
+    for amendment in _pack_amendment_events():
+        record_amendment(amendment)
+        pack_seeded += 1
     for amendment_id, topic, title, effective_date, old_value, new_value, priority in CRITICAL_AMENDMENTS:
         chunks = chunks_for_topic(topic, limit=1, query=title)
         chunk = chunks[0] if chunks else None
@@ -3807,7 +5178,7 @@ def seed_critical_amendments() -> dict[str, Any]:
         generated = generate_amendment_questions(amendment_id, topic, count=3, query=f"{title} {new_value}")
         questions_generated += len(generated)
         seeded += 1
-    return {"status": "ok", "seeded": seeded, "questions_generated": questions_generated}
+    return {"status": "ok", "seeded": seeded, "pack_seeded": pack_seeded, "questions_generated": questions_generated}
 
 
 def list_amendments(limit: int = 100) -> list[dict[str, Any]]:
@@ -4183,32 +5554,52 @@ def get_due_topics(conn: sqlite3.Connection | None = None) -> list[dict[str, Any
             conn.close()
 
 
+def _sm2_update(ease: float, interval_days: int, success: bool) -> tuple[float, int]:
+    """Plan v6 6.4: one SM-2 step shared by topic and law review scheduling.
+
+    Success raises ease (+0.1) and multiplies the interval; failure lowers ease
+    (-0.2) and resets the interval to 1 day. Ease is clamped to [1.3, 4.0] and
+    the interval to [1, 365] so SQLite date math never overflows.
+    """
+    ease = ease or 2.5
+    interval_days = interval_days or 1
+    if success:
+        new_ease = min(4.0, max(1.3, ease + 0.1))
+        new_interval = max(1, int(round(interval_days * new_ease)))
+    else:
+        new_ease = max(1.3, ease - 0.2)
+        new_interval = 1
+    return new_ease, min(new_interval, 365)
+
+
 def mark_topic_reviewed(topic_id: str, success: bool = True) -> None:
     """Mark topic as reviewed and reschedule if needed.
 
     Only the soonest-due row for the topic is updated, and stale duplicate rows
     are removed. Previously the UPDATE touched EVERY row for the topic, so one
     completion wiped the per-item scheduling state of all duplicates.
+    Plan v6 6.4: rescheduling now uses the shared SM-2 step, so topic reviews
+    graduate intervals exactly like law reviews instead of a fixed 1→3 jump.
     """
     conn = get_connection()
     try:
-        ease = 2.5
-        next_interval = 1
-        if success:
-            ease = 2.8
-            next_interval = 3
-        next_due = (datetime.now() + timedelta(days=next_interval)).isoformat()
         target = conn.execute(
-            """SELECT review_id FROM review_items
+            """SELECT review_id, ease, interval_days FROM review_items
                WHERE topic_id = ? AND item_type = 'topic'
                ORDER BY due_at ASC LIMIT 1""",
             (topic_id,),
         ).fetchone()
         if target:
+            new_ease, new_interval = _sm2_update(
+                target["ease"] or 2.5,
+                target["interval_days"] or 1,
+                success,
+            )
+            next_due = (datetime.now() + timedelta(days=new_interval)).isoformat()
             conn.execute(
                 """UPDATE review_items SET due_at = ?, ease = ?, last_result = ?, interval_days = ?
                    WHERE review_id = ?""",
-                (next_due, ease, "success" if success else "retry", next_interval, target["review_id"])
+                (next_due, new_ease, "success" if success else "retry", new_interval, target["review_id"])
             )
             conn.execute(
                 """DELETE FROM review_items
@@ -4349,16 +5740,8 @@ def mark_law_review_complete(review_id: str, success: bool = True) -> dict[str, 
         ease = row["ease"] or 2.5
         interval = row["interval_days"] or 1
 
-        # SM-2 algorithm: update ease and interval based on success
-        if success:
-            new_ease = min(4.0, max(1.3, ease + 0.1))
-            new_interval = max(1, int(interval * new_ease))
-        else:
-            new_ease = max(1.3, ease - 0.2)
-            new_interval = 1  # Retry sooner on failure
-
-        # Cap interval at 365 days to prevent SQLite date overflow
-        new_interval = min(new_interval, 365)
+        # Plan v6 6.4: shared SM-2 step (identical to topic review scheduling).
+        new_ease, new_interval = _sm2_update(ease, interval, success)
         next_due = (datetime.now() + timedelta(days=new_interval)).isoformat()
 
         conn.execute(
@@ -4599,3 +5982,222 @@ def get_topic_stats_for_user(user_id: str) -> list[dict[str, Any]]:
         return [dict(row) for row in rows]
     finally:
         conn.close()
+
+
+# ============================================================================
+# AMENDMENT UPDATE TRACKER CRUD (plan v6, multi-model phase B)
+# ============================================================================
+
+
+def _normalize_update_title(title: str) -> str:
+    """Lowercase + collapse whitespace for deterministic update_id hashing."""
+    return re.sub(r"\s+", " ", title.strip().lower())
+
+
+def save_amendment_update(update: dict[str, Any]) -> str:
+    """Persist an amendment update row. Deterministic update_id from exam+title hash.
+
+    INSERT OR REPLACE so identical discoveries de-duplicate automatically.
+    update_id = "UPD_" + sha256(normalized(exam + "|" + title))[:12].
+    Returns the update_id.
+    """
+    init_db()
+    title = update.get("title", "")
+    exam = update.get("exam", "IFSCA")
+    normalized = _normalize_update_title(f"{exam}|{title}")
+    digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:12]
+    update_id = f"UPD_{digest}"
+
+    source_urls = update.get("source_urls") or update.get("source_urls_json") or []
+    search_queries = update.get("search_queries") or update.get("search_queries_json") or []
+    if isinstance(source_urls, str):
+        source_urls = json.loads(source_urls) if source_urls else []
+    if isinstance(search_queries, str):
+        search_queries = json.loads(search_queries) if search_queries else []
+
+    discovered_at = update.get("discovered_at") or datetime.now().isoformat()
+
+    conn = get_connection()
+    try:
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO amendment_updates
+            (update_id, exam, category, title, summary, old_value, new_value,
+             change_reason, verification_rationale, verification_status,
+             topic_id, update_date, discovered_at, source_urls_json,
+             search_queries_json, model_used, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                update_id,
+                update.get("exam", "IFSCA"),
+                update.get("category", "AMENDMENT"),
+                title,
+                update.get("summary"),
+                update.get("old_value"),
+                update.get("new_value"),
+                update.get("change_reason"),
+                update.get("verification_rationale"),
+                update.get("verification_status", "NEW"),
+                update.get("topic_id"),
+                update.get("update_date"),
+                discovered_at,
+                json.dumps(source_urls) if source_urls else None,
+                json.dumps(search_queries) if search_queries else None,
+                update.get("model_used"),
+                update.get("status", "ACTIVE"),
+            ),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return update_id
+
+
+def list_amendment_updates(
+    sort: str = "date_desc",
+    category: str | None = None,
+    exam: str | None = None,
+    status: str | None = None,
+    limit: int = 100,
+) -> list[dict[str, Any]]:
+    """List amendment updates with sorting and filtering. Parse JSON columns back to lists."""
+    init_db()
+    order_clause = "ORDER BY COALESCE(update_date, discovered_at) DESC"
+    if sort == "date_asc":
+        order_clause = "ORDER BY COALESCE(update_date, discovered_at) ASC"
+    elif sort == "priority":
+        order_clause = (
+            "ORDER BY CASE category "
+            "WHEN 'AMENDMENT' THEN 1 WHEN 'ACT_CHANGE' THEN 2 "
+            "WHEN 'REGULATION' THEN 3 WHEN 'CIRCULAR' THEN 4 "
+            "WHEN 'CONSULTATION' THEN 5 WHEN 'RESULT' THEN 6 "
+            "ELSE 7 END, COALESCE(update_date, discovered_at) DESC"
+        )
+
+    conditions: list[str] = []
+    params: list[Any] = []
+    if category:
+        conditions.append("category = ?")
+        params.append(category)
+    if exam:
+        conditions.append("exam = ?")
+        params.append(exam)
+    if status:
+        conditions.append("status = ?")
+        params.append(status)
+    where = ("WHERE " + " AND ".join(conditions)) if conditions else ""
+    params.append(limit)
+
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            f"SELECT * FROM amendment_updates {where} {order_clause} LIMIT ?",
+            params,
+        ).fetchall()
+        results = []
+        for row in rows:
+            item = dict(row)
+            for json_col in ("source_urls_json", "search_queries_json"):
+                raw = item.get(json_col)
+                if raw:
+                    try:
+                        item[json_col] = json.loads(raw)
+                    except (json.JSONDecodeError, TypeError):
+                        item[json_col] = []
+                else:
+                    item[json_col] = []
+            results.append(item)
+        return results
+    finally:
+        conn.close()
+
+
+_VALID_UPDATE_STATUSES = {"ACTIVE", "REVIEWED", "DISMISSED"}
+
+
+def set_amendment_update_status(update_id: str, status: str) -> bool:
+    """Update the status of an amendment update row. Returns True if updated."""
+    if status not in _VALID_UPDATE_STATUSES:
+        raise ValueError(f"Invalid status '{status}'. Must be one of {_VALID_UPDATE_STATUSES}")
+    conn = get_connection()
+    try:
+        cursor = conn.execute(
+            "UPDATE amendment_updates SET status = ? WHERE update_id = ?",
+            (status, update_id),
+        )
+        conn.commit()
+        return cursor.rowcount > 0
+    finally:
+        conn.close()
+
+
+def record_tracker_run(run: dict[str, Any]) -> str:
+    """Persist a tracker run row. Returns run_id."""
+    init_db()
+    run_id = run.get("run_id") or f"RUN_{uuid.uuid4().hex[:12]}"
+    searches = run.get("searches") or run.get("searches_json") or []
+    if isinstance(searches, str):
+        searches = json.loads(searches) if searches else []
+    conn = get_connection()
+    try:
+        conn.execute(
+            """
+            INSERT OR REPLACE INTO tracker_runs
+            (run_id, started_at, finished_at, model_used, searches_json,
+             discovered, verified, contradicted, error)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                run_id,
+                run.get("started_at"),
+                run.get("finished_at"),
+                run.get("model_used"),
+                json.dumps(searches) if searches else None,
+                run.get("discovered", 0),
+                run.get("verified", 0),
+                run.get("contradicted", 0),
+                run.get("error"),
+            ),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    return run_id
+
+
+def get_tracker_runs(limit: int = 10) -> list[dict[str, Any]]:
+    """Return recent tracker runs, newest first."""
+    init_db()
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            "SELECT * FROM tracker_runs ORDER BY started_at DESC LIMIT ?",
+            (limit,),
+        ).fetchall()
+        results = []
+        for row in rows:
+            item = dict(row)
+            raw = item.get("searches_json")
+            if raw:
+                try:
+                    item["searches_json"] = json.loads(raw)
+                except (json.JSONDecodeError, TypeError):
+                    item["searches_json"] = []
+            else:
+                item["searches_json"] = []
+            results.append(item)
+        return results
+    finally:
+        conn.close()
+
+
+def get_latest_tracker_run() -> dict[str, Any] | None:
+    """Return the most recent tracker run, or None."""
+    runs = get_tracker_runs(limit=1)
+    return runs[0] if runs else None
+
+
+# Aliases matching plan v6 spec naming
+list_tracker_runs = get_tracker_runs
+latest_tracker_run = get_latest_tracker_run

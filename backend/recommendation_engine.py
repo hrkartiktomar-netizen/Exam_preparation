@@ -22,6 +22,10 @@ class RecommendationAction(str, Enum):
     AMENDMENT_REVIEW = "AMENDMENT_REVIEW"
     ESSAY = "ESSAY"
     REVIEW = "REVIEW"
+    # Plan v6 6.3: descriptive and replay actions.
+    DRILL_PRECIS = "DRILL_PRECIS"
+    DRILL_RC = "DRILL_RC"
+    REPLAY_WRONG = "REPLAY_WRONG"
 
 
 @dataclass
@@ -34,12 +38,16 @@ class AccuracySnapshot:
     last_improvement_at: str | None = None
     days_since_improvement: int | None = None
 
-    def __post_init__(self) -> None:
+    def validate(self) -> None:
         """Validate accuracy snapshot data."""
         if not 0 <= self.accuracy_pct <= 100:
             raise ValueError(f"accuracy_pct must be 0-100, got {self.accuracy_pct}")
         if self.total_attempts < 0:
             raise ValueError(f"total_attempts must be >= 0, got {self.total_attempts}")
+
+    def __post_init__(self) -> None:
+        """Validate accuracy snapshot data at construction."""
+        self.validate()
 
 
 @dataclass
@@ -83,6 +91,29 @@ def calculate_next_action(
     try:
         # Validate input
         accuracy_snapshot.validate()
+
+        # Plan v6 6.3: descriptive components get their own drill actions. When the
+        # weakest area is a Paper-1 descriptive component, recommend the matching
+        # descriptive drill rather than a generic objective drill.
+        if accuracy_snapshot.accuracy_pct < 60:
+            if topic == "SUBJ_PRECIS":
+                return Recommendation(
+                    action=RecommendationAction.DRILL_PRECIS,
+                    topic=topic,
+                    reason=f"Précis accuracy {accuracy_snapshot.accuracy_pct:.1f}% - practice timed précis (120-130 IFSCA / 140-160 SEBI words)",
+                    priority=9,
+                    estimated_duration_minutes=20,
+                    estimated_question_count=1,
+                )
+            if topic == "SUBJ_RC":
+                return Recommendation(
+                    action=RecommendationAction.DRILL_RC,
+                    topic=topic,
+                    reason=f"Reading comprehension accuracy {accuracy_snapshot.accuracy_pct:.1f}% - practice own-words comprehension answers",
+                    priority=9,
+                    estimated_duration_minutes=20,
+                    estimated_question_count=3,
+                )
 
         # Rule 1: Critical drill for very weak topics
         if accuracy_snapshot.accuracy_pct < 40 and accuracy_snapshot.total_attempts >= 5:
@@ -136,6 +167,18 @@ def calculate_next_action(
                 priority=6,
                 estimated_duration_minutes=25,
                 estimated_question_count=1,
+            )
+
+        # Plan v6 6.3: replay wrong answers for moderate topics that reached this point
+        # (i.e. not stalled into a mock and no pending amendments). Additive to Rules 1-4.
+        if 40 <= accuracy_snapshot.accuracy_pct < 70 and accuracy_snapshot.total_attempts >= 5:
+            return Recommendation(
+                action=RecommendationAction.REPLAY_WRONG,
+                topic=topic,
+                reason=f"Replay wrong answers for {topic} ({accuracy_snapshot.accuracy_pct:.1f}% accuracy) to close the gap",
+                priority=6,
+                estimated_duration_minutes=15,
+                estimated_question_count=10,
             )
 
         # Rule 5: Default to review

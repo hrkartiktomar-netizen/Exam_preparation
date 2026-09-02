@@ -20,6 +20,7 @@ DB_PATH = BACKEND_DIR / "ifsca_exam.db"
 JOB_TYPES = {
     "amendment_questions": "Generate questions for amendment",
     "amendment_extraction": "Extract amendment metadata",
+    "validate_questions": "Verify generated questions against cited facts",
 }
 
 # Job status constants
@@ -206,6 +207,12 @@ async def execute_amendment_questions(target_resource: str, payload: dict[str, A
         raise RuntimeError(f"Amendment question generation failed: {str(e)}")
 
 
+async def execute_validate_questions(payload: dict[str, Any]) -> dict[str, Any]:
+    """Verify generated questions against their cited facts (plan v6 4.6)."""
+    limit = int(payload.get("limit", 10))
+    return db.verify_unverified_questions(limit=limit)
+
+
 async def process_queue() -> dict[str, Any]:
     """Process all pending jobs."""
     pending = get_pending_jobs(limit=10)
@@ -227,6 +234,10 @@ async def process_queue() -> dict[str, Any]:
 
             if job_type == "amendment_questions":
                 result = await execute_amendment_questions(target, payload)
+                mark_job_complete(job_id, result)
+                results["completed"] += 1
+            elif job_type == "validate_questions":
+                result = await execute_validate_questions(payload)
                 mark_job_complete(job_id, result)
                 results["completed"] += 1
             else:

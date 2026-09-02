@@ -89,12 +89,33 @@ def daily_law_revision(
             weak_legal_areas=weak_legal,
             spaced_review_due=spaced_due,
             ai_revision_focus=ai_plan.get("revision_focus") if ai_plan else None,
+            act_mcq=ai_plan.get("act_mcq") if isinstance(ai_plan, dict) else None,
+            micro_descriptive=ai_plan.get("micro_descriptive") if isinstance(ai_plan, dict) else None,
+            completed_sessions=db.get_law_revision_progress()["completed_sessions"],
+            day_completed=(act_slice.get("day_index") in db.get_law_revision_progress()["completed_day_indexes"]),
         )
 
     except Exception as exc:
         print(f"Law revision generation error: {str(exc)}")
         # Fallback: return empty but valid model
         return LawRevisionModel()
+
+
+def complete_law_revision_day(day_index: int | None = None, lines_per_day: int = 80) -> dict[str, Any]:
+    """Mark today's Act revision slice as completed; the day index then advances.
+
+    Plan v6 6.5: progress is completion-driven. When day_index is None the
+    current (resume) slice is resolved first, so the caller can complete the
+    day it was just shown.
+    """
+    try:
+        act_slice = db.daily_ifsca_act_revision(lines_per_day=lines_per_day, day_index=day_index)
+        total_days = act_slice.get("total_days") or 0
+        target_day = int(act_slice.get("day_index") or 0)
+        return db.complete_law_revision_day(target_day, total_days=total_days)
+    except Exception as exc:
+        print(f"Error completing law revision day: {str(exc)}")
+        return {"error": str(exc)}
 
 
 def schedule_essay_provisions_for_review(essay_id: str, topic_id: str) -> list[str]:

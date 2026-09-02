@@ -19,17 +19,47 @@ _cache: dict[str, dict[str, Any]] = {}
 _CACHE_TTL_SECONDS = 7200  # 2 hours
 
 
-def cache_pyq_questions(pyq_id: str, questions: list[Any]) -> None:
+def cache_pyq_questions(
+    pyq_id: str,
+    questions: list[Any],
+    marks_per_question: float | None = None,
+    negative_marking_per_wrong: float | None = None,
+) -> None:
     """
     Store parsed questions in memory cache.
 
     Args:
         pyq_id: PYQ session identifier (e.g., "PYQ_DOC1")
         questions: List of ParsedQuestion objects
+        marks_per_question: Plan v6 2.3 - marks awarded per correct answer.
+        negative_marking_per_wrong: Plan v6 2.3 - penalty per wrong answer (1/4 x marks).
     """
     _cache[pyq_id] = {
         "questions": questions,
-        "timestamp": time.time()
+        "timestamp": time.time(),
+        "marks_per_question": marks_per_question,
+        "negative_marking_per_wrong": negative_marking_per_wrong,
+    }
+
+
+def get_pyq_marking(pyq_id: str) -> dict[str, Any] | None:
+    """
+    Return the cached marking scheme for a session, or None if absent/expired.
+
+    Plan v6 2.3: lets the submit endpoint score with the paper's actual marks
+    and negative marking instead of hardcoded values.
+    """
+    if pyq_id not in _cache:
+        return None
+    entry = _cache[pyq_id]
+    if time.time() - entry["timestamp"] > _CACHE_TTL_SECONDS:
+        del _cache[pyq_id]
+        return None
+    if entry.get("marks_per_question") is None:
+        return None
+    return {
+        "marks_per_question": entry["marks_per_question"],
+        "negative_marking_per_wrong": entry["negative_marking_per_wrong"],
     }
 
 

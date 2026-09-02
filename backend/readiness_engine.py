@@ -89,20 +89,49 @@ def calculate_readiness_estimate(
         score_delta = current_score - initial_score
         delta_per_day = score_delta / days_elapsed
 
-        # Project forward: estimated_final_score = current_score + (delta_per_day × days_to_exam)
-        projected_score = current_score + (delta_per_day * days_to_exam)
+        # Plan v6 6.2: exponential smoothing (alpha=0.35) over the score history.
+        # This anchors the projection base on a smoothed current level that weights
+        # recent runs more heavily without overreacting to a single outlier score.
+        alpha = 0.35
+        smoothed_score = float(history[0]["total_score"])
+        for entry in history[1:]:
+            smoothed_score = alpha * float(entry["total_score"]) + (1.0 - alpha) * smoothed_score
 
-        # Bound projection to 0-200 range
-        final_score_estimate = max(0, min(200, int(projected_score)))
+        # Project forward from the smoothed level using the observed trend.
+        projected_score = smoothed_score + (delta_per_day * days_to_exam)
 
-        # Readiness: P(final_score >= target_score)
-        # Simple heuristic: if projected > target, high confidence; if within 10%, medium; else low
-        if final_score_estimate >= target_score:
-            readiness_pct = min(100, 50 + int(20 * (final_score_estimate - target_score) / 10))
-            confidence = "HIGH" if final_score_estimate >= target_score + 20 else "MEDIUM"
+        # Plan v6 6.2: aggregate + gating mapping. Mock history scores are on the
+        # 0-100 objective (Paper-2) scale; the Phase-II merit formula is
+        # Paper-1 descriptive × 1/3 + Paper-2 objective × 2/3, and a paper below
+        # its cut-off eliminates the candidate regardless of aggregate.
+        paper2_marks = max(0.0, min(100.0, float(projected_score)))
+        gate_failure = None
+        if paper2_marks < 40.0:
+            gate_failure = "PAPER2_CUTOFF"
+        descriptive_perf = db.latest_descriptive_performance()
+        if descriptive_perf:
+            paper1_marks = float(descriptive_perf.get("total_pct") or 0.0)
+            cutoff = descriptive_perf.get("cutoff_pct")
+            if cutoff is not None and paper1_marks < float(cutoff):
+                gate_failure = gate_failure or "PAPER1_CUTOFF"
+            aggregate_marks = paper1_marks * (1.0 / 3.0) + paper2_marks * (2.0 / 3.0)
+            # Re-express the estimate on the engine's 0-200 scale (both papers).
+            final_score_estimate = max(0, min(200, int(round(paper1_marks + paper2_marks))))
         else:
-            gap = target_score - final_score_estimate
-            readiness_pct = max(0, 50 - int(50 * gap / target_score))
+            aggregate_marks = paper2_marks
+            final_score_estimate = max(0, min(200, int(projected_score)))
+
+        # Readiness: P(aggregate >= target), bands kept from the original heuristic.
+        target_aggregate = (target_score / 200.0) * 100.0
+        if aggregate_marks >= target_aggregate:
+            readiness_pct = min(100, 50 + int(20 * (aggregate_marks - target_aggregate) / 10))
+            confidence = "HIGH" if aggregate_marks >= target_aggregate + 20 else "MEDIUM"
+        else:
+            gap = target_aggregate - aggregate_marks
+            readiness_pct = max(0, 50 - int(50 * gap / target_aggregate))
+            confidence = "LOW"
+        if gate_failure:
+            readiness_pct = min(readiness_pct, 25)
             confidence = "LOW"
 
         # Count weak areas (accuracy < 60%)
