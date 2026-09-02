@@ -517,7 +517,7 @@ def _function_improvement_audit() -> list[dict[str, Any]]:
 
 
 @app.get("/")
-async def root():
+def root():
     index_path = FRONTEND_DIR / "index.html"
     if index_path.exists():
         return FileResponse(index_path)
@@ -525,7 +525,7 @@ async def root():
 
 
 @app.get("/health", response_model=HealthResponseModel)
-async def health_check():
+def health_check():
     try:
         ingestion = IngestionStatusModel(**db.get_ingestion_status())
         db_ok = True
@@ -546,22 +546,22 @@ async def health_check():
 
 
 @app.get("/health/gemini")
-async def gemini_health():
+def gemini_health():
     return get_gemini_health()
 
 
 @app.post("/api/ai/reinitialize")
-async def reinitialize_ai():
+def reinitialize_ai():
     return initialize_gemini_runtime(run_probe=True)
 
 
 @app.get("/api/ai/status")
-async def ai_status():
+def ai_status():
     return get_gemini_health()
 
 
 @app.get("/api/ai/usecases")
-async def ai_usecases():
+def ai_usecases():
     return {
         "prompt_contract_version": PROMPT_CONTRACT_VERSION,
         "usecases": USE_CASE_CATALOG,
@@ -570,7 +570,7 @@ async def ai_usecases():
 
 
 @app.post("/api/ai/study-session")
-async def ai_study_session(request: StudySessionRequestModel | None = None):
+def ai_study_session(request: StudySessionRequestModel | None = None):
     request = request or StudySessionRequestModel()
     dashboard_data = db.dashboard_data()
     weak = dashboard_data.get("weak_topics", [])
@@ -597,7 +597,7 @@ async def ai_study_session(request: StudySessionRequestModel | None = None):
 
 
 @app.get("/api/ai/topic-brief")
-async def ai_topic_brief(topic_id: str = Query(..., min_length=1), limit: int = Query(default=10, ge=3, le=25)):
+def ai_topic_brief(topic_id: str = Query(..., min_length=1), limit: int = Query(default=10, ge=3, le=25)):
     normalized = topic_id.upper()
     topic_name = db.topic_display(normalized)
     chunks = db.chunks_for_topic(normalized, limit=limit)
@@ -608,20 +608,20 @@ async def ai_topic_brief(topic_id: str = Query(..., min_length=1), limit: int = 
 
 
 @app.get("/api/ai/pyq-calibration")
-async def ai_pyq_calibration(limit: int = Query(default=18, ge=5, le=40)):
+def ai_pyq_calibration(limit: int = Query(default=18, ge=5, le=40)):
     chunks = db.pyq_candidate_chunks(limit=limit)
     calibration = generate_pyq_calibration(chunks, _digest_profile())
     return {"ai_status": get_gemini_health(), "calibration": calibration, "sources": chunks}
 
 
 @app.get("/api/ai/product-gap-analysis")
-async def ai_product_gap_analysis():
+def ai_product_gap_analysis():
     analysis = generate_product_gap_analysis(_digest_profile(), _app_inventory(), _plan_excerpt())
     return {"ai_status": get_gemini_health(), "analysis": analysis}
 
 
 @app.get("/api/ai/mock-blueprint")
-async def ai_mock_blueprint(
+def ai_mock_blueprint(
     total_questions: int = Query(default=50, ge=5, le=100),
     mode: str = Query(default="balanced", pattern="^(balanced|weakness-heavy|amendment-heavy|pyq-like)$"),
 ):
@@ -638,12 +638,12 @@ async def ai_mock_blueprint(
 
 
 @app.get("/api/intelligence/targeting-snapshot")
-async def targeting_snapshot():
+def targeting_snapshot():
     return _cached_targeting_snapshot()
 
 
 @app.get("/api/intelligence/function-audit")
-async def function_audit():
+def function_audit():
     return {
         "generated_at": datetime.now().isoformat(),
         "architecture": "function_based_business_logic",
@@ -653,7 +653,7 @@ async def function_audit():
 
 
 @app.post("/api/admin/ingest-documents", response_model=IngestResponseModel)
-async def ingest_documents(
+def ingest_documents(
     background_tasks: BackgroundTasks,
     force: bool = Query(default=False),
     limit: int | None = Query(default=None, ge=1, le=500),
@@ -673,28 +673,28 @@ async def ingest_documents(
 
 
 @app.get("/api/admin/ingestion-status", response_model=IngestionStatusModel)
-async def ingestion_status():
+def ingestion_status():
     return IngestionStatusModel(**db.get_ingestion_status())
 
 
 @app.get("/api/documents")
-async def list_documents(limit: int = Query(default=200, ge=1, le=500)):
+def list_documents(limit: int = Query(default=200, ge=1, le=500)):
     return {"documents": db.list_documents(limit=limit)}
 
 
 @app.get("/api/topics", response_model=list[TopicModel])
-async def list_topics():
+def list_topics():
     return [TopicModel.model_validate(topic) for topic in db.list_topics()]
 
 
 @app.get("/api/topics/{topic_id}/sources", response_model=SourceSearchResponseModel)
-async def topic_sources(topic_id: str, limit: int = Query(default=10, ge=1, le=50)):
+def topic_sources(topic_id: str, limit: int = Query(default=10, ge=1, le=50)):
     results = db.chunks_for_topic(topic_id.upper(), limit=limit)
     return SourceSearchResponseModel(query=db.topic_display(topic_id.upper()), topic_id=topic_id.upper(), total=len(results), results=results)
 
 
 @app.get("/api/source-search", response_model=SourceSearchResponseModel)
-async def source_search(
+def source_search(
     q: str = Query(..., min_length=1),
     topic_id: str | None = Query(default=None),
     limit: int = Query(default=10, ge=1, le=50),
@@ -705,7 +705,7 @@ async def source_search(
 
 
 @app.post("/api/upload-mock")
-async def upload_mock(mock_data: MockUploadModel, background_tasks: BackgroundTasks):
+def upload_mock(mock_data: MockUploadModel, background_tasks: BackgroundTasks):
     try:
         db.record_mock(mock_data.model_dump())
         background_tasks.add_task(db.calculate_topic_accuracy)
@@ -724,7 +724,7 @@ async def upload_mock(mock_data: MockUploadModel, background_tasks: BackgroundTa
 
 
 @app.get("/api/weak-topics", response_model=WeakTopicsResponseModel)
-async def weak_topics():
+def weak_topics():
     topics = [TopicStatsModel.model_validate(topic) for topic in db.get_weak_topics(threshold=60.0)]
     return WeakTopicsResponseModel(
         weak_topics=topics,
@@ -734,7 +734,7 @@ async def weak_topics():
 
 
 @app.get("/api/topics/weak")
-async def get_weak_topics_by_user(user_id: str = Query(default="default")):
+def get_weak_topics_by_user(user_id: str = Query(default="default")):
     """Get weak topics for a user (topics with accuracy < 60%).
 
     Per Context7 docs for SQLite: Use aggregate functions for accuracy calculation.
@@ -747,7 +747,7 @@ async def get_weak_topics_by_user(user_id: str = Query(default="default")):
 
 
 @app.get("/api/topics/stats")
-async def get_topic_stats_by_user(
+def get_topic_stats_by_user(
     user_id: str = Query(default="default"),
     topic: str | None = Query(default=None),
 ):
@@ -831,7 +831,7 @@ def _cached_targeting_snapshot() -> dict[str, Any]:
 
 
 @app.get("/api/dashboard", response_model=DashboardStatsModel)
-async def dashboard(include_ai: bool = Query(default=True)):
+def dashboard(include_ai: bool = Query(default=True)):
     # Plan v6 6.7 + V6.9: the dashboard must stay fast (<0.5s) even with live
     # Gemini. Fresh cache serves at once; stale cache serves while refreshing in
     # the background; a cold AI cache returns fast local enrichment immediately
@@ -860,7 +860,7 @@ async def dashboard(include_ai: bool = Query(default=True)):
 
 
 @app.get("/api/dashboard/next-action")
-async def get_next_action(user_id: str = Query(default="default")):
+def get_next_action(user_id: str = Query(default="default")):
     """Get next recommended action for default user (Phase 4 autonomy).
 
     Per PROJECT_REFACTOR_PLAN.xml Week 4: Auto-recommend next action based on accuracy.
@@ -898,7 +898,7 @@ async def get_next_action(user_id: str = Query(default="default")):
 
 
 @app.get("/api/dashboard/readiness")
-async def get_readiness(
+def get_readiness(
     user_id: str = Query(default="default"),
     target_score: int = Query(default=130, ge=0, le=200),
     days_to_exam: int = Query(default=28, ge=1, le=365),
@@ -943,12 +943,12 @@ async def get_readiness(
 
 
 @app.get("/api/law/ifsca-act")
-async def ifsca_act():
+def ifsca_act():
     return db.ifsca_act_full_text()
 
 
 @app.get("/api/law/daily-revision", response_model=LawRevisionModel)
-async def get_daily_law_revision(
+def get_daily_law_revision(
     include_ai: bool = Query(default=True),
     days_back: int = Query(default=30, ge=7, le=90),
     lines_per_day: int = Query(default=80, ge=30, le=180),
@@ -963,13 +963,13 @@ async def get_daily_law_revision(
 
 
 @app.get("/api/law/daily-revision/progress")
-async def get_law_revision_progress():
+def get_law_revision_progress():
     """Completion-driven Act revision progress (plan v6 6.5)."""
     return db.get_law_revision_progress()
 
 
 @app.post("/api/law/daily-revision/complete-day")
-async def complete_law_revision_day(
+def complete_law_revision_day(
     day_index: int | None = Query(default=None, ge=0),
     lines_per_day: int = Query(default=80, ge=30, le=180),
 ):
@@ -978,7 +978,7 @@ async def complete_law_revision_day(
 
 
 @app.post("/api/questions/generate-from-source")
-async def generate_questions_from_source(request: QuestionGenerationRequestModel):
+def generate_questions_from_source(request: QuestionGenerationRequestModel):
     questions = db.generate_topic_questions(
         request.topic,
         request.count,
@@ -997,7 +997,7 @@ async def generate_questions_from_source(request: QuestionGenerationRequestModel
 
 
 @app.post("/api/questions/build-bank")
-async def build_question_bank(
+def build_question_bank(
     topic_ids: str | None = Query(default=None, description="Comma-separated topic ids; omit to target current weakest/thinnest topics."),
     target_per_topic: int = Query(default=20, ge=5, le=100),
     max_new_questions: int = Query(default=30, ge=1, le=200),
@@ -1013,7 +1013,7 @@ async def build_question_bank(
 
 
 @app.post("/api/questions/quarantine-low-quality")
-async def quarantine_low_quality_questions(min_quality: float = Query(default=0.48, ge=0.0, le=1.0)):
+def quarantine_low_quality_questions(min_quality: float = Query(default=0.48, ge=0.0, le=1.0)):
     result = db.quarantine_low_quality_questions(min_quality=min_quality)
     app.state.question_quarantine = result
     return result
@@ -1023,7 +1023,7 @@ async def quarantine_low_quality_questions(min_quality: float = Query(default=0.
 # routes in registration order, so a later literal /search would be captured as
 # question_id="search" and answer 404 "Question not found".
 @app.get("/api/questions/search", response_model=SourceSearchResponseModel)
-async def search_questions(
+def search_questions(
     query: str,
     topic_id: str | None = Query(default=None),
     limit: int = Query(default=10, ge=1, le=50),
@@ -1042,7 +1042,7 @@ async def search_questions(
 
 
 @app.get("/api/questions/{question_id}", response_model=QuestionModel)
-async def get_question(question_id: str):
+def get_question(question_id: str):
     question = db.get_question(question_id)
     if not question:
         raise HTTPException(status_code=404, detail="Question not found")
@@ -1050,7 +1050,7 @@ async def get_question(question_id: str):
 
 
 @app.post("/api/penalty-drill", response_model=PenaltyDrillResponseModel)
-async def generate_penalty_drill(request: PenaltyDrillRequestModel):
+def generate_penalty_drill(request: PenaltyDrillRequestModel):
     try:
         questions = db.generate_topic_questions(
             request.topic.upper(),
@@ -1076,7 +1076,7 @@ async def generate_penalty_drill(request: PenaltyDrillRequestModel):
 
 
 @app.get("/api/drills/wrong-queue")
-async def wrong_answer_queue(
+def wrong_answer_queue(
     topic: str | None = Query(default=None),
     limit: int = Query(default=20, ge=1, le=100),
 ):
@@ -1107,7 +1107,7 @@ async def wrong_answer_queue(
 
 
 @app.post("/api/drills/replay")
-async def replay_wrong_answers(
+def replay_wrong_answers(
     topic: str = Query(..., min_length=1),
     question_count: int = Query(default=5, ge=1, le=20),
 ):
@@ -1173,13 +1173,12 @@ async def replay_wrong_answers(
 
 
 @app.post("/api/generate-smart-mock", response_model=SmartMockResponseModel)
-async def generate_smart_mock(request: SmartMockRequestModel | None = None):
+def generate_smart_mock(request: SmartMockRequestModel | None = None):
     request = request or SmartMockRequestModel()
     try:
         if not request.use_gemini:
             raise HTTPException(status_code=400, detail="Gemini is mandatory for every mock; local generation is disabled.")
-        result = await asyncio.to_thread(
-            db.generate_smart_mock,
+        result = db.generate_smart_mock(
             total_questions=request.total_questions,
             mode=request.mode,
             use_gemini=True,
@@ -1218,12 +1217,12 @@ async def generate_smart_mock(request: SmartMockRequestModel | None = None):
 
 
 @app.post("/api/mocks/generate", response_model=SmartMockResponseModel)
-async def generate_mock_alias(request: SmartMockRequestModel | None = None):
-    return await generate_smart_mock(request)
+def generate_mock_alias(request: SmartMockRequestModel | None = None):
+    return generate_smart_mock(request)
 
 
 @app.post("/api/mocks/{mock_id}/submit", response_model=MockSubmitResponseModel)
-async def submit_mock(mock_id: str, request: MockSubmitRequestModel):
+def submit_mock(mock_id: str, request: MockSubmitRequestModel):
     try:
         result = db.submit_mock(mock_id, [answer.model_dump() for answer in request.answers])
         return MockSubmitResponseModel.model_validate(result)
@@ -1232,7 +1231,7 @@ async def submit_mock(mock_id: str, request: MockSubmitRequestModel):
 
 
 @app.post("/api/exams/start")
-async def exam_start(request: SmartMockRequestModel | None = None):
+def exam_start(request: SmartMockRequestModel | None = None):
     """Start a new exam session with adaptive mock generation.
 
     Per PROJECT_REFACTOR_PLAN.xml Phase 3: Return 50 questions with:
@@ -1242,9 +1241,7 @@ async def exam_start(request: SmartMockRequestModel | None = None):
     """
     try:
         request = request or SmartMockRequestModel()
-        # Generate adaptive mock (offload to thread to avoid blocking event loop)
-        result = await asyncio.to_thread(
-            db.generate_smart_mock,
+        result = db.generate_smart_mock(
             total_questions=request.total_questions,
             mode=request.mode,
             use_gemini=True,
@@ -1295,7 +1292,7 @@ async def exam_start(request: SmartMockRequestModel | None = None):
 
 
 @app.get("/api/exams/{exam_id}/time-remaining")
-async def exam_time_remaining(exam_id: str):
+def exam_time_remaining(exam_id: str):
     """Get remaining time for exam (server-side timer validation)."""
     try:
         conn = db.get_connection()
@@ -1330,7 +1327,7 @@ async def exam_time_remaining(exam_id: str):
 
 
 @app.post("/api/exams/{exam_id}/submit")
-async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
+def exam_submit(exam_id: str, request: MockSubmitRequestModel):
     """Submit exam with server-side time validation and scoring."""
     try:
         mock_id = _resolve_mock_id(exam_id)
@@ -1408,7 +1405,7 @@ async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
 # ========== PYQ (PREVIOUS YEAR QUESTIONS) ENDPOINTS ==========
 
 @app.get("/api/pyq/list")
-async def list_pyq_papers():
+def list_pyq_papers():
     """List available previous year papers from the compiled bank store."""
     try:
         conn = db.get_connection()
@@ -1551,7 +1548,7 @@ def _format_bank_session(doc: dict[str, Any], rows: list[dict[str, Any]], title:
 
 
 @app.post("/api/pyq/{doc_id}/load")
-async def load_pyq_paper(doc_id: str):
+def load_pyq_paper(doc_id: str):
     """Load a previous year paper from the compiled bank (blind, capped at 50)."""
     conn = None
     try:
@@ -1577,7 +1574,7 @@ async def load_pyq_paper(doc_id: str):
 
 
 @app.get("/api/pyq/drill")
-async def pyq_subject_drill(
+def pyq_subject_drill(
     subject_id: str = Query(..., min_length=1),
     exam: str | None = Query(default=None, pattern="^(IFSCA|SEBI)$"),
     limit: int = Query(default=20, ge=5, le=50),
@@ -1640,7 +1637,7 @@ async def pyq_subject_drill(
 
 
 @app.get("/api/pyq/sitting")
-async def pyq_sitting_drill(
+def pyq_sitting_drill(
     year: int = Query(..., ge=2000, le=2100),
     phase: int = Query(..., ge=1, le=4),
     exam: str | None = Query(default=None, pattern="^(IFSCA|SEBI)$"),
@@ -1689,7 +1686,7 @@ async def pyq_sitting_drill(
 
 
 @app.post("/api/admin/ingest-pyq-bank")
-async def ingest_pyq_bank(force: bool = Query(default=False)):
+def ingest_pyq_bank(force: bool = Query(default=False)):
     """Re-seed the compiled knowledge pack (facts, banks, templates) into SQLite.
 
     Reads only the committed backend/knowledge pack - never md/pdf files.
@@ -1702,7 +1699,7 @@ async def ingest_pyq_bank(force: bool = Query(default=False)):
 
 
 @app.post("/api/pyq/{pyq_id}/submit")
-async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
+def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
     """Submit a previous year question paper attempt.
 
     Scoring is computed against the DISPLAYED question set (the 50-question cap
@@ -1875,7 +1872,7 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
 
 
 @app.get("/api/pyq/{pyq_id}/answers")
-async def pyq_attempt_answers(pyq_id: str):
+def pyq_attempt_answers(pyq_id: str):
     """Plan v6 7.4: post-attempt model-answer reveal from persisted attempt rows."""
     conn = db.get_connection()
     try:
@@ -1894,7 +1891,7 @@ async def pyq_attempt_answers(pyq_id: str):
 
 
 @app.get("/api/pyq/analytics")
-async def get_pyq_analytics():
+def get_pyq_analytics():
     """Get analytics for all PYQ attempts."""
     try:
         conn = db.get_connection()
@@ -1931,7 +1928,7 @@ async def get_pyq_analytics():
 # ========== ADMIN: MATERIAL MANAGEMENT ENDPOINTS ==========
 
 @app.get("/api/admin/materials")
-async def list_materials():
+def list_materials():
     """List all source materials with their categorization."""
     try:
         conn = db.get_connection()
@@ -1954,7 +1951,7 @@ async def list_materials():
 
 
 @app.post("/api/admin/materials/{doc_id}/role")
-async def update_material_role(doc_id: str, request: dict):
+def update_material_role(doc_id: str, request: dict):
     """Update the categorization role for a source material."""
     try:
         new_role = request.get("source_role", "supporting_material")
@@ -1982,7 +1979,7 @@ async def update_material_role(doc_id: str, request: dict):
 
 
 @app.get("/api/admin/analysis/grounding")
-async def material_grounding_analysis():
+def material_grounding_analysis():
     """Analyze source material grounding and categorization statistics."""
     try:
         conn = db.get_connection()
@@ -2026,12 +2023,12 @@ async def material_grounding_analysis():
 
 
 @app.get("/api/essays/prompts", response_model=list[EssayPromptModel])
-async def essay_prompts():
+def essay_prompts():
     return [EssayPromptModel.model_validate(prompt) for prompt in db.essay_prompts()]
 
 
 @app.post("/api/grade-essay", response_model=EssayGradingResponseModel)
-async def grade_essay_endpoint(submission: EssaySubmissionModel):
+def grade_essay_endpoint(submission: EssaySubmissionModel):
     """Grade essay using automated 4-rubric system with source grounding."""
     try:
         source_chunks = db.chunks_for_topic(submission.topic.upper(), limit=6, query=submission.prompt)
@@ -2051,7 +2048,7 @@ async def grade_essay_endpoint(submission: EssaySubmissionModel):
 
 
 @app.get("/api/essays/history")
-async def essay_history(limit: int = Query(default=25, ge=1, le=100)):
+def essay_history(limit: int = Query(default=25, ge=1, le=100)):
     return {"essays": db.list_essays(limit=limit)}
 
 
@@ -2107,7 +2104,7 @@ def _pick_complete_year_set(items: list[dict[str, Any]], year: int | None) -> tu
 
 
 @app.post("/api/descriptive/start")
-async def descriptive_start(request: DescriptiveStartRequestModel):
+def descriptive_start(request: DescriptiveStartRequestModel):
     """Return blind descriptive items (essay + précis + RC) for a Paper-1 sitting."""
     items = _descriptive_items_for(request.exam, request.year)
     if not items:
@@ -2162,7 +2159,7 @@ async def descriptive_start(request: DescriptiveStartRequestModel):
 
 
 @app.post("/api/descriptive/grade", response_model=DescriptiveGradeResponseModel)
-async def descriptive_grade(request: DescriptiveGradeRequestModel):
+def descriptive_grade(request: DescriptiveGradeRequestModel):
     """Grade essay + précis + RC against stored model answers (blind grading)."""
     from precis_grader import grade_precis
     from rc_grader import grade_rc
@@ -2275,7 +2272,7 @@ async def descriptive_grade(request: DescriptiveGradeRequestModel):
 
 
 @app.get("/api/descriptive/history")
-async def descriptive_history(limit: int = Query(default=25, ge=1, le=100)):
+def descriptive_history(limit: int = Query(default=25, ge=1, le=100)):
     """Return descriptive items (prompt catalogue) for review."""
     return {
         "IFSCA": _descriptive_items_for("IFSCA")[:limit],
@@ -2284,7 +2281,7 @@ async def descriptive_history(limit: int = Query(default=25, ge=1, le=100)):
 
 
 @app.get("/api/descriptive/scores")
-async def descriptive_scores(
+def descriptive_scores(
     exam: str | None = Query(default=None, pattern="^(IFSCA|SEBI)$"),
     limit: int = Query(default=25, ge=1, le=100),
 ):
@@ -2301,7 +2298,7 @@ async def descriptive_scores(
 
 
 @app.get("/api/exams/{exam_id}/aggregate", response_model=ExamAggregateResponseModel)
-async def exam_aggregate(
+def exam_aggregate(
     exam_id: str,
     exam: str = Query(default="IFSCA", pattern="^(IFSCA|SEBI)$"),
     paper1_score: float = Query(..., ge=0, le=100),
@@ -2337,7 +2334,7 @@ async def exam_aggregate(
 
 
 @app.get("/api/history/search")
-async def history_search(query: str = Query(..., min_length=1), limit: int = Query(default=20, ge=1, le=100)):
+def history_search(query: str = Query(..., min_length=1), limit: int = Query(default=20, ge=1, le=100)):
     """Search the local study history and indexed source corpus."""
     source_results = db.search_sources(query, limit=min(limit, 50))
     essays = [
@@ -2367,13 +2364,13 @@ async def history_search(query: str = Query(..., min_length=1), limit: int = Que
 # ============================================================================
 
 @app.get("/api/law/review/due", response_model=list[SpacedReviewItemModel])
-async def get_law_review_due(limit: int = Query(default=20, ge=1, le=50)):
+def get_law_review_due(limit: int = Query(default=20, ge=1, le=50)):
     """Get law review items due today for spaced revision."""
     return law_revision_engine.get_spaced_review_due(limit=limit)
 
 
 @app.post("/api/law/review/{review_id}/complete")
-async def mark_law_review_complete(
+def mark_law_review_complete(
     review_id: str,
     success: bool = Query(default=True),
 ):
@@ -2388,7 +2385,7 @@ async def mark_law_review_complete(
 
 
 @app.get("/api/provisions/{provision_id}")
-async def get_provision_detail(provision_id: str = Path(..., description="Provision ID")):
+def get_provision_detail(provision_id: str = Path(..., description="Provision ID")):
     """Get provision detail with sources and related questions (Phase 5 completeness).
 
     Per PROJECT_REFACTOR_PLAN.xml Phase 5: Returns:
@@ -2459,13 +2456,13 @@ async def get_provision_detail(provision_id: str = Path(..., description="Provis
 
 
 @app.get("/api/law/weak-areas", response_model=list[WeakLegalAreaModel])
-async def get_weak_legal_areas(limit: int = Query(default=10, ge=1, le=20)):
+def get_weak_legal_areas(limit: int = Query(default=10, ge=1, le=20)):
     """Get legal areas where user's accuracy is weak (<60%)."""
     return law_revision_engine.get_weak_legal_areas(limit=limit)
 
 
 @app.get("/api/amendments/recent", response_model=list[RecentAmendmentModel])
-async def get_recent_amendments_endpoint(
+def get_recent_amendments_endpoint(
     days_back: int = Query(default=30, ge=7, le=90),
     limit: int = Query(default=20, ge=1, le=50),
 ):
@@ -2474,13 +2471,13 @@ async def get_recent_amendments_endpoint(
 
 
 @app.get("/api/law/high-yield", response_model=list[HighYieldProvisionModel])
-async def get_high_yield_provisions(limit: int = Query(default=15, ge=1, le=30)):
+def get_high_yield_provisions(limit: int = Query(default=15, ge=1, le=30)):
     """Get high-yield provisions most likely to appear in exam."""
     return law_revision_engine.get_high_yield_provisions(limit=limit)
 
 
 @app.post("/api/record-amendment", response_model=AmendmentResponseModel)
-async def record_amendment(amendment: AmendmentModel, auto_generate_questions: bool = Query(default=True)):
+def record_amendment(amendment: AmendmentModel, auto_generate_questions: bool = Query(default=True)):
     try:
         db.record_amendment(amendment.model_dump())
         generated = 0
@@ -2498,19 +2495,19 @@ async def record_amendment(amendment: AmendmentModel, auto_generate_questions: b
 
 
 @app.post("/api/amendments/seed")
-async def seed_amendments():
+def seed_amendments():
     if db.table_count("documents") == 0:
         db.ingest_documents(force=False)
     return db.seed_critical_amendments()
 
 
 @app.get("/api/amendments")
-async def amendments(limit: int = Query(default=100, ge=1, le=500)):
+def amendments(limit: int = Query(default=100, ge=1, le=500)):
     return {"amendments": db.list_amendments(limit=limit)}
 
 
 @app.post("/api/amendments/{amendment_id}/mastered")
-async def mark_amendment_mastered(amendment_id: str):
+def mark_amendment_mastered(amendment_id: str):
     """Plan v6 6.6: close the drill loop by marking an amendment mastered."""
     conn = db.get_connection()
     try:
@@ -2536,14 +2533,14 @@ async def mark_amendment_mastered(amendment_id: str):
 
 
 @app.get("/api/amendments/intelligence")
-async def amendment_intelligence(limit: int = Query(default=12, ge=1, le=50)):
+def amendment_intelligence(limit: int = Query(default=12, ge=1, le=50)):
     candidates = db.amendment_candidate_chunks(limit=max(limit, 15))
     watchlist = generate_amendment_watchlist(candidates)
     return {"ai_status": get_gemini_health(), "watchlist": watchlist[:limit], "candidate_count": len(candidates)}
 
 
 @app.get("/api/amendments/startup-scan")
-async def startup_amendment_scan(refresh: bool = Query(default=False)):
+def startup_amendment_scan(refresh: bool = Query(default=False)):
     if refresh or not hasattr(app.state, "startup_amendment_scan"):
         app.state.startup_amendment_scan = _run_startup_amendment_scan(force_local=False)
     return {
@@ -2553,7 +2550,7 @@ async def startup_amendment_scan(refresh: bool = Query(default=False)):
 
 
 @app.post("/api/amendments/extract")
-async def extract_amendment(request: AmendmentExtractRequestModel):
+def extract_amendment(request: AmendmentExtractRequestModel):
     extracted = extract_and_verify_amendment(request.amendment_text, request.amendment_url)
     saved = False
     questions_generated = 0
@@ -2592,13 +2589,13 @@ async def extract_amendment(request: AmendmentExtractRequestModel):
 
 
 @app.get("/api/amendments/pending-review")
-async def pending_amendments():
+def pending_amendments():
     amendments_data = [item for item in db.list_amendments(limit=500) if item.get("mastery_status") != "MASTERED"]
     return {"amendments": amendments_data}
 
 
 @app.get("/api/amendments/status")
-async def amendments_status():
+def amendments_status():
     """Return amendment polling status and new amendments."""
     conn = db.get_connection()
     try:
@@ -2655,7 +2652,7 @@ async def amendments_status():
 
 
 @app.get("/api/questions/{question_id}/source", response_model=dict[str, Any])
-async def get_question_source(question_id: str):
+def get_question_source(question_id: str):
     """Retrieve source citation details for a specific question."""
     conn = db.get_connection()
     try:
@@ -2704,7 +2701,7 @@ async def get_question_source(question_id: str):
 
 
 @app.get("/api/source-chunks/{chunk_id}", response_model=dict[str, Any])
-async def get_source_chunk(chunk_id: str):
+def get_source_chunk(chunk_id: str):
     """Retrieve a source chunk directly from the canonical document index."""
     source = db.get_source_chunk_detail(chunk_id)
     if not source:
@@ -2713,14 +2710,14 @@ async def get_source_chunk(chunk_id: str):
 
 
 @app.get("/api/sources/distribution-by-topic", response_model=dict[str, Any])
-async def source_distribution_by_topic():
+def source_distribution_by_topic():
     """Get pie chart data for source distribution by topic."""
     data = db.source_distribution_by_category()
     return {"status": "success", **data}
 
 
 @app.post("/api/exams/{exam_id}/analytics", response_model=ExamAnalyticsResponseModel)
-async def post_exam_analytics(exam_id: str, analytics: list[ExamAnalyticsModel]):
+def post_exam_analytics(exam_id: str, analytics: list[ExamAnalyticsModel]):
     """Save detailed analytics after exam completion. Per Context7 docs for FastAPI: proper error handling."""
     try:
         count = db.save_exam_analytics(exam_id, [a.model_dump() for a in analytics])
@@ -2740,7 +2737,7 @@ async def post_exam_analytics(exam_id: str, analytics: list[ExamAnalyticsModel])
 
 
 @app.get("/api/analytics/timeline", response_model=list[AnalyticsTimelineModel])
-async def get_analytics_timeline(limit: int = Query(default=10, ge=1, le=50)):
+def get_analytics_timeline(limit: int = Query(default=10, ge=1, le=50)):
     """Get score progression timeline across all mocks."""
     try:
         timeline = db.get_analytics_timeline(limit)
@@ -2750,7 +2747,7 @@ async def get_analytics_timeline(limit: int = Query(default=10, ge=1, le=50)):
 
 
 @app.get("/api/analytics/comparison/{topic_id}")
-async def compare_topic_performance(topic_id: str):
+def compare_topic_performance(topic_id: str):
     """Compare topic performance across all exams (trending)."""
     try:
         analytics = db.get_analytics_timeline(50)
@@ -2767,7 +2764,7 @@ async def compare_topic_performance(topic_id: str):
 
 
 @app.get("/api/srs/due-topics", response_model=list[SRSTopicModel])
-async def get_srs_due_topics():
+def get_srs_due_topics():
     """Get topics due for spaced repetition review today."""
     try:
         due = db.get_due_topics()
@@ -2777,7 +2774,7 @@ async def get_srs_due_topics():
 
 
 @app.post("/api/srs/schedule-topic", response_model=dict[str, Any])
-async def schedule_srs_topic(request: SRSScheduleRequestModel):
+def schedule_srs_topic(request: SRSScheduleRequestModel):
     """Schedule a topic for spaced repetition review."""
     try:
         review_id = db.schedule_topic_review(request.topic_id, request.interval_days)
@@ -2792,7 +2789,7 @@ async def schedule_srs_topic(request: SRSScheduleRequestModel):
 
 
 @app.post("/api/srs/mark-reviewed/{topic_id}", response_model=dict[str, Any])
-async def mark_srs_reviewed(topic_id: str, success: bool = Query(default=True)):
+def mark_srs_reviewed(topic_id: str, success: bool = Query(default=True)):
     """Mark topic as reviewed and reschedule for next interval."""
     try:
         db.mark_topic_reviewed(topic_id, success)
@@ -2808,7 +2805,7 @@ async def mark_srs_reviewed(topic_id: str, success: bool = Query(default=True)):
 
 
 @app.get("/api/srs/stats", response_model=dict[str, Any])
-async def get_srs_stats():
+def get_srs_stats():
     """Get SRS system statistics."""
     try:
         conn = db.get_connection()
@@ -2829,7 +2826,7 @@ async def get_srs_stats():
 
 
 @app.post("/api/study-paths/generate", response_model=StudyPathModel)
-async def generate_study_path_endpoint(weak_topics: list[str] = Query(default=[])):
+def generate_study_path_endpoint(weak_topics: list[str] = Query(default=[])):
     """Generate personalized 12-week study path."""
     try:
         exam_date = (datetime.now() + timedelta(days=84)).isoformat()[:10]
@@ -2853,7 +2850,7 @@ async def generate_study_path_endpoint(weak_topics: list[str] = Query(default=[]
 
 
 @app.get("/api/study-paths/current", response_model=StudyPathModel | None)
-async def get_active_study_path():
+def get_active_study_path():
     """Get currently active study path."""
     try:
         path_data = db.get_active_study_path()
@@ -2870,7 +2867,7 @@ async def get_active_study_path():
 
 
 @app.get("/api/study-paths/{path_id}/progress")
-async def get_study_path_progress(path_id: str):
+def get_study_path_progress(path_id: str):
     """Get progress tracking for a study path."""
     try:
         conn = db.get_connection()
@@ -2897,7 +2894,7 @@ async def get_study_path_progress(path_id: str):
 
 
 @app.get("/api/study-paths/{path_id}/week/{week}")
-async def get_study_path_week(path_id: str, week: int = Path(ge=1, le=12)):
+def get_study_path_week(path_id: str, week: int = Path(ge=1, le=12)):
     """Get specific week details from study path."""
     try:
         conn = db.get_connection()
@@ -2927,7 +2924,7 @@ async def get_study_path_week(path_id: str, week: int = Path(ge=1, le=12)):
 
 
 @app.post("/api/study-paths/{path_id}/week/{week}/mark-complete")
-async def mark_week_complete(path_id: str, week: int = Path(ge=1, le=12)):
+def mark_week_complete(path_id: str, week: int = Path(ge=1, le=12)):
     """Mark a week of study path as completed."""
     try:
         conn = db.get_connection()
@@ -2967,7 +2964,7 @@ async def mark_week_complete(path_id: str, week: int = Path(ge=1, le=12)):
 
 
 @app.get("/api/updates")
-async def get_updates(
+def get_updates(
     sort: str = Query("date_desc", pattern="^(date_desc|date_asc|priority|category)$"),
     category: str | None = Query(None),
     exam: str | None = Query(None),
@@ -2986,7 +2983,7 @@ async def get_updates(
 
 
 @app.get("/api/updates/status")
-async def get_updates_status():
+def get_updates_status():
     """Latest run + counts by verification_status and status + tracker interval."""
     try:
         latest = db.get_latest_tracker_run()
@@ -3019,7 +3016,7 @@ async def get_updates_status():
 
 
 @app.post("/api/updates/run")
-async def trigger_update_tracker():
+def trigger_update_tracker():
     """Spawn the update tracker in a background thread; return immediately."""
     t = threading.Thread(target=update_tracker.run_update_tracker, daemon=True)
     t.start()
@@ -3027,7 +3024,7 @@ async def trigger_update_tracker():
 
 
 @app.post("/api/updates/enrich-reasons")
-async def trigger_enrich_reasons():
+def trigger_enrich_reasons():
     """Spawn enrich_past_amendment_reasons in a background thread; return immediately."""
     t = threading.Thread(target=update_tracker.enrich_past_amendment_reasons, daemon=True)
     t.start()
@@ -3035,7 +3032,7 @@ async def trigger_enrich_reasons():
 
 
 @app.post("/api/updates/{update_id}/status")
-async def set_update_status(
+def set_update_status(
     update_id: str,
     status: str = Query(..., pattern="^(REVIEWED|DISMISSED)$"),
 ):

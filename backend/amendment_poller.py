@@ -164,7 +164,7 @@ class AmendmentPoller:
 
     def _sha256_exists(self, sha256: str) -> bool:
         """Check if SHA256 already cached."""
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=30)
         try:
             row = conn.execute(
                 "SELECT 1 FROM amendment_extraction_cache WHERE sha256 = ? LIMIT 1",
@@ -176,7 +176,7 @@ class AmendmentPoller:
 
     def _cache_extraction(self, sha256: str, source: str, amendment: dict[str, Any]) -> None:
         """Cache extraction result."""
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=30)
         try:
             conn.execute(
                 """
@@ -192,7 +192,7 @@ class AmendmentPoller:
 
     def _record_poll_result(self, result: dict[str, Any]) -> None:
         """Record poll result for auditing."""
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=30)
         try:
             poll_id = str(uuid.uuid4())
             conn.execute(

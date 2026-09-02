@@ -1263,3 +1263,48 @@ def test_pyq_analytics_and_answer_reveal_report_the_completed_attempt(temp_db):
     assert [a["selected_answer"] for a in answers] == ["A", "B"], answers
     assert [a["is_correct"] for a in answers] == [1, 0], answers
     assert all(a["time_spent_seconds"] == 5 for a in answers), answers
+
+
+# ---------------------------------------------------------------------------
+# 19. No route handler may be `async def` while doing purely blocking work
+# ---------------------------------------------------------------------------
+
+# FastAPI runs an `async def` endpoint on the event-loop thread and a plain
+# `def` endpoint in a threadpool. Nearly every handler here blocks on SQLite
+# (or on a Gemini HTTP call), so declaring it async pins that blocking I/O to
+# the single event-loop thread: one slow query then stalls every other
+# request, static file serving included. A handler that genuinely awaits
+# something is fine, and is recognised by the `await` in its body.
+
+
+def _blocking_async_handlers():
+    import asyncio
+    import inspect
+
+    import main
+    from fastapi.routing import APIRoute
+
+    offenders = []
+    for route in main.app.routes:
+        if not isinstance(route, APIRoute):
+            continue
+        endpoint = route.endpoint
+        if not asyncio.iscoroutinefunction(endpoint):
+            continue
+        if "await" not in inspect.getsource(endpoint):
+            offenders.append(f"{endpoint.__module__}.{endpoint.__name__}")
+    return offenders
+
+
+def test_no_route_handler_blocks_the_event_loop():
+    """An `async def` endpoint must actually await; otherwise it must be `def`.
+
+    Without an `await` the body only blocks (SQLite, Gemini HTTP), and FastAPI
+    would run it on the event-loop thread. Declared as plain `def` the same
+    body runs in the threadpool and the loop stays free for other requests.
+    """
+    offenders = _blocking_async_handlers()
+    assert not offenders, (
+        f"{len(offenders)} route handler(s) are `async def` but never await; "
+        f"they block the event loop and must be plain `def`: {offenders}"
+    )
