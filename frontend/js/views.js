@@ -23,8 +23,19 @@
     container.innerHTML = '<div class="loading-state"><div class="loading-state__ring"></div><div class="loading-state__text">Decoding ledger…</div></div>';
   }
 
-  function showError(container, msg) {
-    container.innerHTML = '<div class="error-state"><div class="error-state__message">' + msg + '</div><button class="error-state__retry">Retry</button></div>';
+  /* msg is a runtime err.message at every call site -- server-supplied detail
+     text -- so it is escaped here rather than at each of them. The button is
+     rendered only when the caller supplies something to retry: it is styled in
+     views.css but was never bound, so it used to render as a dead control. */
+  function showError(container, msg, retry) {
+    container.innerHTML =
+      '<div class="error-state"><div class="error-state__message">' + esc(msg) + '</div>' +
+      (retry ? '<button class="error-state__retry" type="button">Retry</button>' : '') +
+      '</div>';
+
+    if (!retry) return;
+    var btn = qs(".error-state__retry", container);
+    if (btn) btn.addEventListener("click", retry);
   }
 
   function showEmpty(container, msg) {
@@ -32,6 +43,83 @@
   }
 
   /* ────── PYQ View ────── */
+
+  /* Three ways into the bank, because they are not interchangeable: a paper is
+     one (exam, year, phase, paper) tuple; a sitting is every row for one
+     (year, phase), which spans exams and papers; a drill is one subject across
+     all years and exams. /api/pyq/list publishes the papers and the subject
+     enum -- the sittings are the distinct (year, phase) pairs among those
+     papers, so no second request is needed to offer them. */
+  function sittingsFrom(papers) {
+    var seen = {};
+    var sittings = [];
+    papers.forEach(function (p) {
+      var key = p.year + ":" + p.phase;
+      if (seen[key]) {
+        seen[key].question_count += p.question_count || 0;
+        return;
+      }
+      seen[key] = { year: p.year, phase: p.phase, question_count: p.question_count || 0 };
+      sittings.push(seen[key]);
+    });
+    return sittings.sort(function (a, b) {
+      return (b.year - a.year) || (a.phase - b.phase);
+    });
+  }
+
+  /* subject_id arrives as SUBJ_COMMERCE_ACCOUNTS and the card wants COMMERCE
+     ACCOUNTS. Deliberately not title-cased: SUBJ_GA would render as "Ga". */
+  function prettySubject(subjectId) {
+    return String(subjectId || "").replace(/^SUBJ_/, "").replace(/_/g, " ");
+  }
+
+  /* The cards are divs, not buttons, so they need an explicit role and key
+     binding to be reachable without a mouse. */
+  function activate(el, fn) {
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.addEventListener("click", fn);
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        fn();
+      }
+    });
+  }
+
+  function toast(msg, kind) {
+    if (window.LedgerApp && window.LedgerApp.toast) window.LedgerApp.toast(msg, kind);
+  }
+
+  /* Enter the examination console with a fetched bank session.
+
+     The in-flight check runs BEFORE the fetch, not after. Each of these
+     endpoints caches its answers under the pyq_id it mints, so fetching while an
+     attempt is live can overwrite the key that attempt will be graded against. */
+  async function openPYQSession(fetchSession, label) {
+    if (!API) return;
+    if (!window.LedgerExam) {
+      toast("Examination console unavailable", "error");
+      return;
+    }
+    if (window.LedgerExam.isActive()) {
+      toast("Finish or submit the attempt in progress first", "error");
+      return;
+    }
+
+    try {
+      var session = await fetchSession();
+      // Start before navigating: showView skips its Flip transition when
+      // .exam-live is already active, which is the intended hall entrance.
+      if (!window.LedgerExam.startSession(session)) {
+        throw new Error("the console could not open this session");
+      }
+      window.LedgerRouter.navigate("exam");
+    } catch (err) {
+      toast("Failed to load " + label + ": " + err.message, "error");
+    }
+  }
+
   async function loadPYQ() {
     if (loaded.pyq) return;
     var content = qs("#pyq-content");
@@ -39,44 +127,109 @@
 
     showLoading(content);
     try {
-      var papers = await API.pyqList();
-      if (!papers || !papers.length) { showEmpty(content, "No previous year papers found."); return; }
+      var payload = await API.pyqList();
+      // {status, papers, subjects} -- not a bare array, so testing the response
+      // itself for .length always fell through to the empty state.
+      var papers = (payload && payload.papers) || [];
+      var subjects = (payload && payload.subjects) || [];
+      var sittings = sittingsFrom(papers);
+
+      if (!papers.length && !subjects.length) {
+        showEmpty(content, "No previous year papers found.");
+        return;
+      }
 
       content.innerHTML =
-        '<div class="view-eyebrow">§03 · PREVIOUS YEAR PAPERS · ' + papers.length + ' PAPERS</div>' +
-        '<div class="pyq-view__grid" id="pyq-grid"></div>';
+        '<div class="pyq-view__group">' +
+          '<div class="view-eyebrow">§03 · PREVIOUS YEAR PAPERS · ' + papers.length + ' PAPERS</div>' +
+          '<div class="pyq-view__grid" id="pyq-grid"></div>' +
+        '</div>' +
+        (sittings.length
+          ? '<div class="pyq-view__group">' +
+              '<div class="view-eyebrow">FULL SITTINGS · ' + sittings.length + '</div>' +
+              '<div class="pyq-view__grid" id="pyq-sittings"></div>' +
+            '</div>'
+          : '') +
+        (subjects.length
+          ? '<div class="pyq-view__group">' +
+              '<div class="view-eyebrow">SUBJECT DRILLS · ' + subjects.length + '</div>' +
+              '<div class="pyq-view__grid" id="pyq-subjects"></div>' +
+            '</div>'
+          : '');
 
       var grid = qs("#pyq-grid", content);
-      grid.innerHTML = papers.map(function (p) {
-        return '<div class="pyq-card" data-doc-id="' + p.doc_id + '">' +
-          '<div class="pyq-card__year">' + (p.year || "—") + '</div>' +
-          '<div class="pyq-card__paper">' + (p.exam_type || "IFSCA") + ' · ' + (p.paper_type || "Paper I") + '</div>' +
-          '<div class="pyq-card__meta"><span>' + (p.question_count || 0) + ' questions</span></div>' +
-          '</div>';
-      }).join("");
+      if (grid) {
+        grid.innerHTML = papers.map(function (p) {
+          return '<div class="pyq-card" data-doc-id="' + esc(p.pyq_doc_id) + '">' +
+            '<div class="pyq-card__year">' + esc(p.year) + '</div>' +
+            '<div class="pyq-card__paper">' + esc(p.exam) + ' · Phase ' + esc(p.phase) +
+              ' · Paper ' + esc(p.paper) + '</div>' +
+            '<div class="pyq-card__meta"><span>' + esc(p.question_count) + ' questions</span>' +
+              (p.incomplete_count
+                ? '<span>' + esc(p.incomplete_count) + ' incomplete</span>'
+                : '') +
+            '</div>' +
+            '</div>';
+        }).join("");
 
-      qsa(".pyq-card", grid).forEach(function (card) {
-        card.addEventListener("click", function () {
-          loadPYQPaper(card.dataset.docId);
+        qsa(".pyq-card", grid).forEach(function (card) {
+          activate(card, function () { loadPYQPaper(card.dataset.docId); });
         });
-      });
+      }
+
+      var sittingGrid = qs("#pyq-sittings", content);
+      if (sittingGrid) {
+        sittingGrid.innerHTML = sittings.map(function (s) {
+          return '<div class="pyq-card" data-year="' + esc(s.year) + '" data-phase="' + esc(s.phase) + '">' +
+            '<div class="pyq-card__year">' + esc(s.year) + '</div>' +
+            '<div class="pyq-card__paper">Full sitting · Phase ' + esc(s.phase) + '</div>' +
+            '<div class="pyq-card__meta"><span>' + esc(s.question_count) + ' in bank</span></div>' +
+            '</div>';
+        }).join("");
+
+        qsa(".pyq-card", sittingGrid).forEach(function (card) {
+          var year = parseInt(card.dataset.year, 10);
+          var phase = parseInt(card.dataset.phase, 10);
+          activate(card, function () {
+            openPYQSession(
+              function () { return API.pyqSitting(year, phase); },
+              year + " Phase " + phase + " sitting"
+            );
+          });
+        });
+      }
+
+      var subjectGrid = qs("#pyq-subjects", content);
+      if (subjectGrid) {
+        subjectGrid.innerHTML = subjects.map(function (s) {
+          return '<div class="pyq-card" data-subject="' + esc(s.subject_id) + '">' +
+            '<div class="pyq-card__year">' + esc(prettySubject(s.subject_id)) + '</div>' +
+            '<div class="pyq-card__paper">Subject drill</div>' +
+            '<div class="pyq-card__meta"><span>' + esc(s.question_count) + ' questions</span></div>' +
+            '</div>';
+        }).join("");
+
+        qsa(".pyq-card", subjectGrid).forEach(function (card) {
+          var subjectId = card.dataset.subject;
+          activate(card, function () {
+            openPYQSession(
+              function () { return API.pyqDrill(subjectId, { limit: 20 }); },
+              prettySubject(subjectId) + " drill"
+            );
+          });
+        });
+      }
 
       loaded.pyq = true;
     } catch (err) {
-      showError(content, err.message);
+      showError(content, err.message, loadPYQ);
     }
   }
 
   async function loadPYQPaper(docId) {
-    if (!API) return;
-    try {
-      var result = await API.pyqLoad(docId);
-      if (result && result.exam_id) {
-        window.LedgerRouter.navigate("exam");
-      }
-    } catch (err) {
-      if (window.LedgerApp) window.LedgerApp.toast("Failed to load paper: " + err.message, "error");
-    }
+    // The session carries pyq_id, never exam_id -- gating on the latter meant a
+    // successful load navigated nowhere.
+    return openPYQSession(function () { return API.pyqLoad(docId); }, "paper " + docId);
   }
 
   /* ────── Descriptive View ────── */
@@ -302,7 +455,7 @@
 
       loaded.tracker = true;
     } catch (err) {
-      showError(content, err.message);
+      showError(content, err.message, loadTracker);
     }
   }
 
@@ -367,7 +520,7 @@
 
       loaded.updates = true;
     } catch (err) {
-      showError(content, err.message);
+      showError(content, err.message, loadUpdates);
     }
   }
 
@@ -414,7 +567,7 @@
 
       loaded.review = true;
     } catch (err) {
-      showError(content, err.message);
+      showError(content, err.message, loadReview);
     }
   }
 
@@ -460,7 +613,7 @@
 
       loaded.results = true;
     } catch (err) {
-      showError(content, err.message);
+      showError(content, err.message, loadResults);
     }
   }
 

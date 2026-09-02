@@ -1438,7 +1438,31 @@ async def list_pyq_papers():
                     "incomplete_count": row["incomplete_count"],
                 })
 
-            return {"status": "ok", "papers": papers}
+            # /api/pyq/drill requires a subject_id but nothing published the valid
+            # values, so a client could only reach it by hardcoding the enum.
+            # Complete rows only -- that is what the drill serves, so advertising a
+            # subject whose questions are all incomplete would offer a picker entry
+            # that 404s. NULL/empty subject_id is excluded because the drill filters
+            # with `subject_id = ?`, which can never match NULL; /api/pyq/sitting is
+            # the route to those rows.
+            subject_rows = conn.execute(
+                """
+                SELECT subject_id, COUNT(*) AS question_count
+                FROM previous_year_questions
+                WHERE incomplete = 0 AND COALESCE(subject_id, '') <> ''
+                GROUP BY subject_id
+                ORDER BY question_count DESC, subject_id
+                """
+            ).fetchall()
+            subjects = [
+                {
+                    "subject_id": row["subject_id"],
+                    "question_count": row["question_count"],
+                }
+                for row in subject_rows
+            ]
+
+            return {"status": "ok", "papers": papers, "subjects": subjects}
         finally:
             conn.close()
     except Exception as exc:
@@ -1578,15 +1602,25 @@ async def pyq_subject_drill(
         if not rows:
             raise HTTPException(status_code=404, detail=f"No bank questions for subject {subject_id}")
 
-        first = rows[0]
+        # The cache key must be a function of the REQUEST, not of the rows drawn.
+        # This query is ORDER BY RANDOM(), so keying off rows[0] gave one
+        # subject's drill the same pyq_id as another's whenever their first
+        # random rows shared (exam, phase, paper) -- observed live as
+        # PYQ_DOCSEBI_0_P1_PAPER1. The second drill overwrote the first's cached
+        # answers, and because _format_bank_session renumbers from 1 the
+        # question_ids matched too, so submitting the attempt already in flight
+        # graded it against the other subject's key. /api/pyq/sitting keeps its
+        # own SITTING namespace for exactly this reason.
         doc = {
-            "exam": first.get("exam") or "MIXED",
+            "exam": f"DRILL_{subject_id}" + (f"_{exam}" if exam else ""),
             "year": 0,
-            "phase": first.get("phase") or 0,
-            "paper": first.get("paper") or 0,
+            "phase": 0,
+            "paper": 0,
         }
         title = f"{exam or 'IFSCA+SEBI'} drill - {subject_id}"
         session = _format_bank_session(doc, rows, title)
+        # doc["exam"] is a cache-key fragment; publish a real exam label instead.
+        session["exam"] = exam or "MIXED"
         session["time_limit_minutes"] = max(10, len(rows))
         return session
 
@@ -1787,6 +1821,10 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
             final_score = round(max(0.0, raw_score - negative_marks), 2)
             total_unanswered = max(0, total_questions - total_answered)
             accuracy = round((total_correct / total_questions * 100), 2) if total_questions > 0 else 0.0
+            # The paper's ceiling is marks x questions, not the question count:
+            # bank marks are 1, 1.25 or 2, so a client that divides final_score
+            # by len(questions) reports "4 / 3" on a 2-mark paper.
+            max_score = round(total_questions * marks_each, 2)
 
             # Update session with results
             conn.execute(
@@ -1808,6 +1846,7 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
                 "pyq_id": pyq_id,
                 "status": "submitted",
                 "final_score": final_score,
+                "max_score": max_score,
                 "raw_score": raw_score,
                 "negative_marks": negative_marks,
                 "total_questions": total_questions,

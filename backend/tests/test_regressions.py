@@ -17,6 +17,7 @@ Covered regressions:
 from __future__ import annotations
 
 import gc
+import re
 import sqlite3
 import tempfile
 import time
@@ -865,3 +866,299 @@ def test_pyq_sitting_narrows_by_exam_and_paper_and_404s_when_empty(temp_db):
         f"phase=99 was accepted with {unbounded.status_code}; phase is bounded "
         f"to 1..4 so an out-of-range sitting is rejected at the boundary"
     )
+
+
+# ---------------------------------------------------------------------------
+# 15. POST /api/pyq/{pyq_id}/submit must publish the paper's real max_score
+# ---------------------------------------------------------------------------
+
+# frontend/js/exam.js renders the score as `result.final_score / result.max_score`
+# and falls back to `examState.questions.length` when max_score is absent. That
+# fallback is wrong for this bank: marks are 1 (400 rows), 1.25 (298 rows) and 2
+# (350 rows), so on a 2-mark paper final_score can reach twice the question count
+# and the panel reads "80 / 50". These seeds use marks != 1 so the expected
+# max_score can never be mistaken for the question count.
+
+def _seed_marked_sitting(year: int, marks: float, count: int) -> None:
+    conn = _conn()
+    try:
+        already = conn.execute("SELECT COUNT(*) FROM previous_year_questions").fetchone()[0]
+        assert already == 0, (
+            f"temp_db arrived with {already} previous_year_questions rows; the "
+            f"exact scores below assume a clean table"
+        )
+        for qnum in range(1, count + 1):
+            conn.execute(
+                """
+                INSERT INTO previous_year_questions
+                (pyq_id, exam, year, phase, paper, subject_id, question_number,
+                 question_text, option_a, option_b, option_c, option_d,
+                 correct_option, marks, incomplete)
+                VALUES (?, 'IFSCA', ?, 1, 1, 'SUBJ_QUANT', ?, ?, 'a', 'b', 'c', 'd', 'A', ?, 0)
+                """,
+                (f"M_{year}_{qnum}", year, qnum, f"MARKED {year} q{qnum}", marks),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _submit(client, pyq_id: str, selected: dict[int, str | None]):
+    """POST an attempt. selected maps question_number -> chosen option or None."""
+    answers = [
+        {
+            "question_id": f"{pyq_id}_Q{qnum}",
+            "selected_answer": choice,
+            "time_spent_seconds": 5,
+            "marked_for_review": False,
+        }
+        for qnum, choice in selected.items()
+    ]
+    return client.post(f"/api/pyq/{pyq_id}/submit", json={"answers": answers})
+
+
+def test_pyq_submit_reports_max_score_from_the_papers_real_marking(temp_db):
+    """A 2-mark paper's ceiling is marks x questions, not the question count."""
+    _seed_marked_sitting(2024, marks=2, count=3)
+    client = _sitting_client()
+
+    session = client.get("/api/pyq/sitting", params={"year": 2024, "phase": 1}).json()
+    assert session["marks_per_question"] == 2, session
+
+    response = _submit(client, session["pyq_id"], {1: "A", 2: "B", 3: None})
+    assert response.status_code == 200, response.text
+    result = response.json()
+
+    # Guards the payload actually parsed. Pydantic v2 defaults to extra='ignore',
+    # so a mis-spelled answer field is silently dropped and still returns 200 with
+    # a zero score -- which would make the max_score assertion below pass for the
+    # wrong reason.
+    assert result["total_answered"] == 2, result
+    assert result["total_correct"] == 1, result
+
+    assert "max_score" in result, (
+        f"submit returned no max_score ({sorted(result)}); exam.js then divides by "
+        f"the question count and a 2-mark paper reads '4 / 3'"
+    )
+    assert result["max_score"] == 6.0, (
+        f"max_score was {result.get('max_score')!r}, expected 3 questions x 2 marks"
+    )
+    # raw 2 - negative 0.5 = 1.5, proving the session's real marking was used.
+    assert result["final_score"] == 1.5, result
+
+
+def test_pyq_submit_max_score_keeps_fractional_marks_exact(temp_db):
+    """1.25-mark papers must not lose the fraction to integer rounding."""
+    _seed_marked_sitting(2023, marks=1.25, count=3)
+    client = _sitting_client()
+
+    session = client.get("/api/pyq/sitting", params={"year": 2023, "phase": 1}).json()
+    assert session["marks_per_question"] == 1.25, session
+
+    response = _submit(client, session["pyq_id"], {1: "A", 2: "A", 3: "A"})
+    assert response.status_code == 200, response.text
+    result = response.json()
+
+    assert result["total_correct"] == 3, result
+    assert result["max_score"] == 3.75, (
+        f"max_score was {result.get('max_score')!r}, expected 3 x 1.25 = 3.75"
+    )
+    assert result["final_score"] == result["max_score"], (
+        f"all correct but final_score {result['final_score']} != max_score "
+        f"{result['max_score']}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# 16. GET /api/pyq/list must publish the subject enum /api/pyq/drill needs
+# ---------------------------------------------------------------------------
+
+def test_pyq_list_publishes_subjects_so_the_drill_is_reachable(temp_db):
+    """/api/pyq/drill requires subject_id, but nothing published the valid values.
+
+    A client could only reach the drill by hardcoding the enum, which drifts the
+    moment a subject is renamed or added. Counts cover complete rows only,
+    because that is what the drill serves -- advertising a subject whose
+    questions are all incomplete would offer a picker entry that 404s.
+
+    The NULL-subject row is deliberately absent. The drill filters with
+    `subject_id = ?`, which can never match NULL, so listing it would offer a
+    choice that returns nothing; /api/pyq/sitting is the route to those rows.
+    """
+    _seed_sitting()
+
+    response = _sitting_client().get("/api/pyq/list")
+    assert response.status_code == 200, response.text
+    payload = response.json()
+
+    # The papers half is the existing contract and must survive unchanged.
+    # _SITTING_ROWS spans three (exam, paper) tuples: IFSCA p1, IFSCA p2, SEBI p1.
+    assert payload["status"] == "ok", payload
+    assert len(payload["papers"]) == 3, payload["papers"]
+
+    assert "subjects" in payload, (
+        f"/api/pyq/list published no subjects ({sorted(payload)}), so the drill "
+        f"endpoint has no discoverable subject_id values"
+    )
+    assert payload["subjects"] == [
+        {"subject_id": "SUBJ_QUANT", "question_count": 3},
+        {"subject_id": "SUBJ_ENGLISH", "question_count": 2},
+    ], (
+        f"subjects were {payload['subjects']}; expected the complete rows grouped "
+        f"by subject, most drillable first, with the NULL-subject row excluded"
+    )
+
+
+def test_pyq_drill_serves_a_subject_the_list_advertised(temp_db):
+    """The advertised subject_id must actually return questions from the drill."""
+    _seed_sitting()
+    client = _sitting_client()
+
+    subjects = client.get("/api/pyq/list").json()["subjects"]
+    assert subjects, "no subjects were advertised"
+
+    for entry in subjects:
+        response = client.get(
+            "/api/pyq/drill", params={"subject_id": entry["subject_id"], "limit": 5}
+        )
+        assert response.status_code == 200, (
+            f"/api/pyq/list advertised {entry['subject_id']} with "
+            f"{entry['question_count']} questions but the drill answered "
+            f"{response.status_code}: {response.text[:200]}"
+        )
+        assert response.json()["total_questions"] > 0, response.text
+
+
+# ---------------------------------------------------------------------------
+# 17. GET /api/pyq/drill must key its cache on the request, not on a random row
+# ---------------------------------------------------------------------------
+
+# The drill draws with ORDER BY RANDOM() and then built its pyq_id from rows[0]:
+# f"PYQ_DOC{exam}_{year}_P{phase}_PAPER{paper}" with year pinned to 0. Two
+# different subjects therefore mint the SAME id whenever their first random rows
+# share (exam, phase, paper) -- observed live as PYQ_DOCSEBI_0_P1_PAPER1. The
+# second drill overwrites the first's cached answers under that shared id, and
+# because _format_bank_session also renumbers from 1 the question_ids are
+# identical too, so submitting the attempt already in flight matches by position
+# and grades it against the other subject's key. /api/pyq/sitting avoids exactly
+# this with its own SITTING namespace; the drill needs the same treatment.
+#
+# Every seed row shares one (year, phase, paper) so the collision is guaranteed
+# rather than something the random draw may or may not produce.
+_DRILL_ROWS = [
+    # (pyq_id, exam, subject_id, correct_option)
+    ("D_ALPHA_IFSCA", "IFSCA", "SUBJ_ALPHA", "A"),
+    ("D_BETA_IFSCA", "IFSCA", "SUBJ_BETA", "C"),
+    ("D_ALPHA_SEBI", "SEBI", "SUBJ_ALPHA", "B"),
+]
+
+
+def _seed_drill_pair() -> None:
+    conn = _conn()
+    try:
+        already = conn.execute("SELECT COUNT(*) FROM previous_year_questions").fetchone()[0]
+        assert already == 0, (
+            f"temp_db arrived with {already} previous_year_questions rows; the "
+            f"single-row draws below assume a clean table"
+        )
+        for pyq_id, exam, subject, correct in _DRILL_ROWS:
+            conn.execute(
+                """
+                INSERT INTO previous_year_questions
+                (pyq_id, exam, year, phase, paper, subject_id, question_number,
+                 question_text, option_a, option_b, option_c, option_d,
+                 correct_option, marks, incomplete)
+                VALUES (?, ?, 2024, 1, 1, ?, 1, ?, 'a', 'b', 'c', 'd', ?, 1, 0)
+                """,
+                (pyq_id, exam, subject, f"{subject} on {exam}", correct),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _drill(client, subject_id: str, exam: str | None = None):
+    params: dict[str, object] = {"subject_id": subject_id, "limit": 5}
+    if exam:
+        params["exam"] = exam
+    response = client.get("/api/pyq/drill", params=params)
+    assert response.status_code == 200, response.text
+    return response.json()
+
+
+def test_pyq_drill_attempt_is_not_misgraded_by_a_second_drill(temp_db):
+    """Opening a second drill must not rewrite the key of the first attempt."""
+    _seed_drill_pair()
+    client = _sitting_client()
+
+    # One row each, so ORDER BY RANDOM() cannot reorder the numbering and the
+    # correct option the seed chose is the one the served question carries.
+    alpha = _drill(client, "SUBJ_ALPHA", exam="IFSCA")
+    beta = _drill(client, "SUBJ_BETA", exam="IFSCA")
+
+    assert alpha["pyq_id"] != beta["pyq_id"], (
+        f"two different subject drills both minted {alpha['pyq_id']!r}; the "
+        f"second call overwrote the first's cached answers under that shared id"
+    )
+
+    # ALPHA's single question is correct at 'A'. Submitting ALPHA's own id must
+    # still be graded against ALPHA's key even though BETA was opened after it.
+    submitted = client.post(
+        f"/api/pyq/{alpha['pyq_id']}/submit",
+        json={
+            "answers": [
+                {
+                    "question_id": alpha["questions"][0]["question_id"],
+                    "selected_answer": "A",
+                    "time_spent_seconds": 4,
+                    "marked_for_review": False,
+                }
+            ]
+        },
+    )
+    assert submitted.status_code == 200, submitted.text
+    result = submitted.json()
+    assert result["total_correct"] == 1, (
+        f"the right answer scored {result['total_correct']}/1: ALPHA's attempt "
+        f"was graded against BETA's cached key (BETA is correct at 'C')"
+    )
+
+
+def test_pyq_drill_cache_key_is_stable_per_request_and_not_a_random_row(temp_db):
+    """The key must be a function of the request, and stay out of the paper space."""
+    _seed_drill_pair()
+    client = _sitting_client()
+
+    alpha_ifsca = _drill(client, "SUBJ_ALPHA", exam="IFSCA")
+    alpha_again = _drill(client, "SUBJ_ALPHA", exam="IFSCA")
+    beta_ifsca = _drill(client, "SUBJ_BETA", exam="IFSCA")
+    alpha_sebi = _drill(client, "SUBJ_ALPHA", exam="SEBI")
+    alpha_mixed = _drill(client, "SUBJ_ALPHA")
+
+    assert alpha_ifsca["pyq_id"] == alpha_again["pyq_id"], (
+        f"the same drill request minted {alpha_ifsca['pyq_id']!r} then "
+        f"{alpha_again['pyq_id']!r}; a re-opened drill would orphan the attempt "
+        f"already cached under the first id"
+    )
+    assert len({alpha_ifsca["pyq_id"], beta_ifsca["pyq_id"], alpha_sebi["pyq_id"],
+                alpha_mixed["pyq_id"]}) == 4, (
+        "each distinct drill request needs its own key: "
+        f"ALPHA/IFSCA={alpha_ifsca['pyq_id']!r} BETA/IFSCA={beta_ifsca['pyq_id']!r} "
+        f"ALPHA/SEBI={alpha_sebi['pyq_id']!r} ALPHA/unfiltered={alpha_mixed['pyq_id']!r}"
+    )
+
+    # The unfiltered draw spans both exams, so it serves both rows.
+    assert alpha_mixed["total_questions"] == 2, alpha_mixed["total_questions"]
+
+    # The key namespace must not double as a human-readable exam label, and must
+    # stay out of the IFSCA_{year}_P{phase}_PAPER{paper} space that
+    # /api/pyq/{doc_id}/load parses.
+    for session in (alpha_ifsca, beta_ifsca, alpha_sebi, alpha_mixed):
+        assert session["exam"] in ("IFSCA", "SEBI", "MIXED"), (
+            f"drill reported exam={session['exam']!r}, which is a cache-key "
+            f"fragment rather than an exam label"
+        )
+        assert not re.match(r"^(IFSCA|SEBI)_\d{4}_P\d+_PAPER\d+$", session["pyq_id"][len("PYQ_DOC"):]), (
+            f"drill id {session['pyq_id']!r} is parseable as a real paper, so it "
+            f"could collide with /api/pyq/{{doc_id}}/load"
+        )

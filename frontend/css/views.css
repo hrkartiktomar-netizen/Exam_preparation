@@ -22,6 +22,8 @@
   padding-inline: var(--sp-5);
 }
 
+.pyq-view__group + .pyq-view__group { margin-top: var(--sp-7); }
+
 .pyq-card {
   background: var(--surface-1);
   border: var(--rule-1) solid var(--rule);
