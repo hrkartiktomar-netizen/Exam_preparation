@@ -42,12 +42,13 @@
     container.innerHTML = '<div class="empty-state"><div class="empty-state__text">' + (msg || "No entries yet.") + '</div></div>';
   }
 
-  /* A 404 on an instrument that is not yet wired to the ledger means "nothing
-     banked yet", not "the engine broke" -- showError would render that as a raw
-     status string on an otherwise empty screen. This keeps the section eyebrow
-     so the route still reads as the view it is, and turns the blank into an
-     invitation. hint and cta are optional; the button is only rendered when the
-     caller supplies a label, mirroring showError's retry contract. */
+  /* For a request that succeeded and returned no rows. showError would render
+     that as a raw status string on an otherwise empty screen, and inventing an
+     empty panel for a *failed* request is worse: it made a missing endpoint read
+     as a deliberately blank tab. This keeps the section eyebrow so the route
+     still reads as the view it is, and turns the blank into an invitation.
+     hint and cta are optional; the button is only rendered when the caller
+     supplies a label, mirroring showError's retry contract. */
   function showEmptyView(container, eyebrow, message, hint, cta) {
     container.innerHTML =
       '<div class="view-eyebrow">' + esc(eyebrow) + '</div>' +
@@ -454,10 +455,14 @@
       if (grid && topics.length) {
         grid.innerHTML = topics.map(function (t) {
           var score = t.weakness_score || t.accuracy || 0;
-          var heat = score < 30 ? "critical" : (score < 50 ? "weak" : (score < 70 ? "medium" : "strong"));
+          // A topic that was never sat is unmeasured, not failing -- without this
+          // distinction a fresh install reads as eight red critical 0% cells.
+          var unmeasured = t.status === "UNKNOWN" || !t.attempts;
+          var heat = unmeasured ? "unmeasured"
+            : (score < 30 ? "critical" : (score < 50 ? "weak" : (score < 70 ? "medium" : "strong")));
           return '<div class="heat-grid__cell" data-heat="' + heat + '">' +
-            '<div class="heat-grid__cell-label">' + (t.topic_name || t.topic || "—").substring(0, 20) + '</div>' +
-            '<div class="heat-grid__cell-score">' + Math.round(score) + '%</div>' +
+            '<div class="heat-grid__cell-label">' + esc((t.topic_name || t.topic || "—").substring(0, 20)) + '</div>' +
+            '<div class="heat-grid__cell-score">' + (unmeasured ? "NOT SIT" : Math.round(score) + "%") + '</div>' +
             '</div>';
         }).join("");
       }
@@ -489,9 +494,12 @@
     try {
       var updates = await API.updates("date_desc");
       var items = Array.isArray(updates) ? updates : updates.updates || [];
+      // The tracker feed and the curated corpus are different provenance; without
+      // a marker, rows the tracker never discovered read as its output.
+      var sourceTag = updates && updates.source === "corpus" ? " · CURATED LEDGER" : "";
 
       content.innerHTML =
-        '<div class="view-eyebrow">§06 · AMENDMENT INTELLIGENCE · ' + items.length + ' UPDATES</div>' +
+        '<div class="view-eyebrow">§06 · AMENDMENT INTELLIGENCE · ' + items.length + ' UPDATES' + sourceTag + '</div>' +
         '<div class="updates-controls">' +
           '<button class="updates-btn updates-btn--primary" id="run-tracker">RUN TRACKER</button>' +
           '<button class="updates-btn" id="startup-scan">STARTUP SCAN</button>' +
@@ -501,16 +509,24 @@
 
       var log = qs("#amendment-log", content);
       if (log) {
-        log.innerHTML = items.slice(0, 50).map(function (u) {
-          var verdict = (u.verification_status || u.status || "pending").toLowerCase();
-          var dateStr = u.discovered_at || u.date || "";
-          if (dateStr) dateStr = dateStr.substring(0, 10);
-          return '<div class="amendment-entry">' +
-            '<span class="amendment-entry__date">' + dateStr + '</span>' +
-            '<span class="amendment-entry__text">' + (u.title || u.summary || "—") + '</span>' +
-            '<span class="amendment-entry__chip" data-verdict="' + verdict + '">' + verdict.toUpperCase() + '</span>' +
-            '</div>';
-        }).join("");
+        if (!items.length) {
+          // Into the log slot rather than `content`, so the eyebrow and the three
+          // action buttons above stay live -- RUN TRACKER is how this fills up.
+          showEmptyView(log, "TRACKER FEED · EMPTY",
+            "The amendment ledger has not been opened yet.",
+            "Regulatory updates from IFSCA & SEBI collect here once the tracker is wired to the ledger.");
+        } else {
+          log.innerHTML = items.slice(0, 50).map(function (u) {
+            var verdict = esc((u.verification_status || u.status || "pending").toLowerCase());
+            var dateStr = u.discovered_at || u.date || "";
+            if (dateStr) dateStr = dateStr.substring(0, 10);
+            return '<div class="amendment-entry">' +
+              '<span class="amendment-entry__date">' + esc(dateStr) + '</span>' +
+              '<span class="amendment-entry__text">' + esc(u.title || u.summary || "—") + '</span>' +
+              '<span class="amendment-entry__chip" data-verdict="' + verdict + '">' + verdict.toUpperCase() + '</span>' +
+              '</div>';
+          }).join("");
+        }
       }
 
       // Button handlers
@@ -540,13 +556,7 @@
 
       loaded.updates = true;
     } catch (err) {
-      if (err.status === 404) {
-        showEmptyView(content, "§06 · AMENDMENT INTELLIGENCE",
-          "The amendment ledger has not been opened yet.",
-          "Regulatory updates from IFSCA & SEBI collect here once the tracker is wired to the ledger.");
-      } else {
-        showError(content, err.message, loadUpdates);
-      }
+      showError(content, err.message, loadUpdates);
     }
   }
 
@@ -561,7 +571,16 @@
       var data = await API.wrongQueue(30);
       var items = Array.isArray(data) ? data : data.wrong_answers || [];
 
-      if (!items.length) { showEmpty(content, "No wrong answers yet. Take a mock to populate."); return; }
+      if (!items.length) {
+        showEmptyView(content, "§07 · WRONG QUEUE",
+          "Nothing to review — no wrong answers banked yet.",
+          "Sit a mock and every missed question queues here for replay.",
+          {
+            label: "GO TO EXAM",
+            onClick: function () { if (window.LedgerRouter) window.LedgerRouter.navigate("exam"); }
+          });
+        return;
+      }
 
       content.innerHTML =
         '<div class="view-eyebrow">§07 · WRONG QUEUE · ' + items.length + ' ITEMS</div>' +
@@ -593,17 +612,7 @@
 
       loaded.review = true;
     } catch (err) {
-      if (err.status === 404) {
-        showEmptyView(content, "§07 · WRONG QUEUE",
-          "Nothing to review — no wrong answers banked yet.",
-          "Sit a mock and every missed question queues here for replay.",
-          {
-            label: "GO TO EXAM",
-            onClick: function () { if (window.LedgerRouter) window.LedgerRouter.navigate("exam"); }
-          });
-      } else {
-        showError(content, err.message, loadReview);
-      }
+      showError(content, err.message, loadReview);
     }
   }
 

@@ -795,7 +795,18 @@ def get_weak_topics_by_user(user_id: str = Query(default="default")):
     """
     try:
         topics = db.get_weak_topics(threshold=60.0)
-        return [{"topic": t.get("topic"), "accuracy": t.get("accuracy_pct"), "attempts": t.get("total_seen")} for t in topics]
+        return [
+            {
+                "topic": t.get("topic"),
+                "topic_name": db.TOPIC_BY_ID.get(t.get("topic"), {}).get("display_name"),
+                # "UNKNOWN" means never sat, not sat-and-failed; without it the
+                # tracker paints both as a red critical 0%.
+                "status": t.get("status"),
+                "accuracy": t.get("accuracy_pct"),
+                "attempts": t.get("total_seen"),
+            }
+            for t in topics
+        ]
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
@@ -3028,8 +3039,16 @@ def get_updates(
         updates = db.list_amendment_updates(
             sort=sort, category=category, exam=exam, status=status, limit=limit,
         )
+        source = "tracker"
+        # amendment_updates is written only by the tracker. When it has discovered
+        # nothing the curated corpus still holds real verified amendments, but that
+        # ledger has no exam/category/status columns to narrow by, so a filtered
+        # request must not silently widen into unfiltered corpus rows.
+        if not updates and not (category or exam or status):
+            updates = db.list_curated_amendments(sort=sort, limit=limit)
+            source = "corpus"
         runs = db.get_tracker_runs(limit=5)
-        return {"updates": updates, "runs": runs}
+        return {"updates": updates, "runs": runs, "source": source}
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 

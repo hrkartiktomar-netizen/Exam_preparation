@@ -192,6 +192,9 @@
 .heat-grid__cell[data-heat="weak"]     { background: rgba(255,176,32,0.12); border-color: rgba(255,176,32,0.25); }
 .heat-grid__cell[data-heat="medium"]   { background: rgba(199,158,79,0.1); border-color: rgba(199,158,79,0.2); }
 .heat-grid__cell[data-heat="strong"]   { background: rgba(55,192,146,0.1); border-color: rgba(55,192,146,0.2); }
+/* Never sat, so there is no heat to show. Muted and left on the default rule
+   border -- a missing measurement is not a failure and must not read as red. */
+.heat-grid__cell[data-heat="unmeasured"] .heat-grid__cell-score { color: var(--ink-3); font-weight: 400; }
 
 .heat-grid__cell-label {
   font-family: var(--f-mono);

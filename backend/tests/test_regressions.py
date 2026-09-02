@@ -1728,27 +1728,193 @@ def test_authored_empty_state_is_styled():
     "view,retry",
     [("loadUpdates", "loadUpdates"), ("loadReview", "loadReview")],
 )
-def test_404_renders_an_authored_empty_state_and_keeps_retry(view, retry):
-    """A 404 on these views means "nothing banked yet", not "the engine broke".
+def test_missing_endpoint_shows_error_and_retry_not_a_false_empty_state(view, retry):
+    """A 404 on these views means the route is absent, not that the ledger is empty.
 
-    api.js sets err.status from the response, so the catch can tell an absent
-    ledger from a real failure. The non-404 branch must still hand showError the
-    retry callback -- dropping it there would leave a transient 500 with no way
-    back but a page reload.
+    api.js sets err.status from the response, so the catch used to branch on 404
+    and render an authored "nothing banked yet" panel. That copy is false when the
+    server simply does not have the endpoint, and it is what hid a stale server
+    (80 routes live against 99 on disk) behind a confident-looking blank tab.
+    Every failure must reach showError with its retry callback, and showEmptyView
+    must survive on the genuine empty-data path so it and its CSS stay live.
     """
     src = _views_function(view)
 
-    assert "err.status === 404" in src, (
-        f"{view} treats a 404 like any other failure and shows a raw error "
-        "string where an empty ledger is the normal state."
+    assert "err.status === 404" not in src, (
+        f"{view} still treats a 404 as an empty ledger, so a missing endpoint "
+        f"renders as a deliberate blank panel instead of a retryable error."
+    )
+    assert re.search(rf"showError\(content, err\.message, {retry}\)", src), (
+        f"{view} does not hand showError the {retry} callback, so a failure "
+        f"offers no way back but a page reload."
     )
     assert "showEmptyView(" in src, (
-        f"{view} does not fall back to the authored empty state on a 404."
+        f"{view} no longer calls showEmptyView, orphaning the authored empty "
+        f"state and the .empty-state__hint / __cta rules that style it."
     )
 
-    else_branch = re.search(r"\} else \{(.*?)\n    \}", src, re.DOTALL)
-    assert else_branch, f"{view} has no non-404 branch, so real errors are swallowed"
-    assert re.search(rf"showError\(content, err\.message, {retry}\)", else_branch.group(1)), (
-        f"{view}'s non-404 path dropped the {retry} callback, so a transient "
-        "failure offers no retry."
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Ledger tab data regressions: §05 Tracker, §06 Updates, readiness seal
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _seed_curated_amendment(amendment_id: str, rule_name: str) -> None:
+    conn = _conn()
+    try:
+        conn.execute(
+            """
+            INSERT INTO amendments
+            (amendment_id, topic, rule_name, effective_date, old_value, new_value,
+             verify_status)
+            VALUES (?, 'PH2_FM_REGS', ?, '2026-01-15', 'was 15%', 'now 20%', 'VERIFIED')
+            """,
+            (amendment_id, rule_name),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _seed_generated_mock(mock_id: str) -> None:
+    """A mock that was built but never sat -- the shape automated runs leave behind."""
+    conn = _conn()
+    try:
+        conn.execute(
+            """
+            INSERT INTO mock_sessions (mock_id, mock_type, generated_at, status)
+            VALUES (?, 'smart', '2026-08-29T10:00:00', 'generated')
+            """,
+            (mock_id,),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def test_updates_falls_back_to_the_curated_amendment_ledger(temp_db):
+    """§06 must not read empty while curated amendments are sitting in the DB.
+
+    amendment_updates is written only by the tracker, and every run recorded so
+    far discovered 0, so list_amendment_updates() returns []. The amendments
+    table -- populated from the committed corpus -- holds the real rows. Serving
+    those under the same key keeps the frontend contract single, and the source
+    field is what lets §06 label them as curated rather than tracker output.
+    """
+    _seed_curated_amendment("AMD_1", "Fund Management Regulations 2026")
+    _seed_curated_amendment("AMD_2", "Investment Adviser Regulations 2026")
+
+    response = _sitting_client().get("/api/updates")
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload.get("source") == "corpus", (
+        f"the tracker feed is empty but /api/updates reported "
+        f"source={payload.get('source')!r} instead of falling back to the corpus"
+    )
+    assert {u["title"] for u in payload["updates"]} == {
+        "Fund Management Regulations 2026",
+        "Investment Adviser Regulations 2026",
+    }, (
+        f"curated amendments were not mapped into the update shape the frontend "
+        f"already reads: {payload['updates']}"
+    )
+
+
+def test_updates_prefers_tracker_rows_over_the_corpus(temp_db):
+    """The fallback must not mask genuine tracker discoveries once they exist."""
+    _seed_curated_amendment("AMD_1", "Fund Management Regulations 2026")
+    db.save_amendment_update({"exam": "IFSCA", "title": "TRACKER DISCOVERY"})
+
+    response = _sitting_client().get("/api/updates")
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload.get("source") == "tracker", (
+        f"a tracker row exists but /api/updates reported "
+        f"source={payload.get('source')!r}"
+    )
+    assert [u["title"] for u in payload["updates"]] == ["TRACKER DISCOVERY"], (
+        f"the corpus fallback fired on top of real tracker output: "
+        f"{[u['title'] for u in payload['updates']]}"
+    )
+
+
+def test_weak_topics_report_unmeasured_status_and_a_display_name(temp_db):
+    """§05 paints eight red "critical 0%" cells for a user who has sat nothing.
+
+    get_weak_topics() admits status == "UNKNOWN", the handler throws that status
+    away, and views.js then computes weakness_score || accuracy || 0 -> 0 ->
+    data-heat="critical". The cell label also falls back to the raw PH2_* id
+    because topic_name is never sent.
+    """
+    response = _sitting_client().get("/api/topics/weak")
+
+    assert response.status_code == 200, response.text
+    rows = response.json()
+    assert rows, "no topics returned, so the assertions below would be vacuous"
+
+    for row in rows:
+        assert row.get("status") == "UNKNOWN", (
+            f"{row.get('topic')} has no attempts and is therefore unmeasured, but "
+            f"the response carried status={row.get('status')!r} -- views.js cannot "
+            f"tell 'never sat' apart from 'sat and failed'."
+        )
+        assert row.get("topic_name") and row["topic_name"] != row["topic"], (
+            f"{row.get('topic')} was published without a display name, so the heat "
+            f"grid label falls back to the raw topic id."
+        )
+
+
+def test_heat_grid_styles_the_unmeasured_state():
+    """views.js emits data-heat="unmeasured", so views.css has to define it.
+
+    The four measured heat values each carry a rule; without one for unmeasured
+    the cell loses its background and border and reads as a broken grid slot.
+    """
+    tracker = _views_function("loadTracker")
+    assert '"unmeasured"' in tracker, (
+        "loadTracker still maps an unmeasured topic onto a red 'critical' cell "
+        "reading 0%."
+    )
+
+    css = _frontend_text("css", "views.css")
+    assert '.heat-grid__cell[data-heat="unmeasured"]' in css, (
+        "views.js emits data-heat=\"unmeasured\" but views.css never styles it."
+    )
+
+
+def test_readiness_with_no_submitted_mock_is_zero_not_fifty(temp_db):
+    """No prep must read as no measurement, not as a fabricated 50%.
+
+    Two defects combine. get_user_performance_history admits any mock with a
+    generated_at, so mocks the automated runs leave behind (status 'generated',
+    submitted_at NULL, score NULL) count as performance history and defeat the
+    no-data guard. The guard itself then returns readiness_percentage=50 and
+    final_score_estimate=100, telling a brand-new user they are half-ready for an
+    exam they have not studied for.
+    """
+    _seed_generated_mock("MOCK_GEN_1")
+    _seed_generated_mock("MOCK_GEN_2")
+
+    assert db.get_user_performance_history("default") == [], (
+        "a mock that was generated but never submitted is being counted as "
+        "performance history, so the readiness projection starts from garbage."
+    )
+
+    response = _sitting_client().get("/api/dashboard/readiness")
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload["readiness_percentage"] == 0, (
+        f"with no submitted mock the seal should read 0%, got "
+        f"{payload['readiness_percentage']}%"
+    )
+    assert payload["final_score_estimate"] == 0, (
+        f"with no submitted mock there is no score to project, got "
+        f"{payload['final_score_estimate']}"
+    )
+    assert payload["confidence"] == "LOW", (
+        f"an unmeasured user must be reported as LOW confidence, got "
+        f"{payload['confidence']!r}"
     )

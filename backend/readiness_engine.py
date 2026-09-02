@@ -68,10 +68,11 @@ def calculate_readiness_estimate(
         # Get user's performance history
         history = db.get_user_performance_history(user_id)
         if not history or len(history) < 2:
-            # Insufficient data for prediction
+            # Nothing measured yet, so any projected score would be invented.
+            # A reassuring midpoint reads as a real result on the seal.
             return ReadinessEstimate(
-                readiness_percentage=50,  # No data = 50% confidence
-                final_score_estimate=100,
+                readiness_percentage=0,
+                final_score_estimate=0,
                 days_to_exam=days_to_exam,
                 weak_areas_count=len(db.get_weak_topics_for_user(user_id)),
                 confidence="LOW",

@@ -5938,7 +5938,7 @@ def get_user_performance_history(user_id: str, limit: int = 100) -> list[dict[st
     try:
         rows = conn.execute(
             """SELECT
-                   COALESCE(ms.submitted_at, ms.generated_at, ms.started_at) as tested_at,
+                   ms.submitted_at as tested_at,
                    COALESCE(
                        ms.score,
                        SUM(CASE WHEN qa.is_correct = 1 THEN 4 WHEN qa.is_correct = 0 THEN -1 ELSE 0 END),
@@ -5946,7 +5946,7 @@ def get_user_performance_history(user_id: str, limit: int = 100) -> list[dict[st
                    ) as total_score
                FROM mock_sessions ms
                LEFT JOIN question_attempts qa ON ms.mock_id = qa.mock_id
-               WHERE COALESCE(ms.submitted_at, ms.generated_at, ms.started_at) IS NOT NULL
+               WHERE ms.submitted_at IS NOT NULL
                GROUP BY ms.mock_id
                ORDER BY tested_at ASC
                LIMIT ?""",
@@ -6130,6 +6130,51 @@ def list_amendment_updates(
                     item[json_col] = []
             results.append(item)
         return results
+    finally:
+        conn.close()
+
+
+def list_curated_amendments(sort: str = "date_desc", limit: int = 100) -> list[dict[str, Any]]:
+    """Serve the curated amendments ledger in the amendment_updates shape.
+
+    amendment_updates is written only by the tracker, so a tracker that has
+    discovered nothing leaves §06 empty even though the amendments table holds
+    real, verified rows from the committed corpus. Mapping into the existing
+    update shape keeps the frontend contract single.
+    """
+    init_db()
+    direction = "ASC" if sort == "date_asc" else "DESC"
+
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            f"""
+            SELECT amendment_id, topic, rule_name, effective_date, old_value,
+                   new_value, source_url, verify_status, created_at
+            FROM amendments
+            ORDER BY COALESCE(effective_date, created_at) {direction}
+            LIMIT ?
+            """,
+            (limit,),
+        ).fetchall()
+        return [
+            {
+                "update_id": row["amendment_id"],
+                "title": row["rule_name"],
+                "summary": row["new_value"],
+                "old_value": row["old_value"],
+                "new_value": row["new_value"],
+                "verification_status": row["verify_status"] or "VERIFIED",
+                "topic_id": row["topic"],
+                "update_date": row["effective_date"],
+                "discovered_at": row["created_at"],
+                "category": "AMENDMENT",
+                "status": "curated",
+                "source_urls_json": [row["source_url"]] if row["source_url"] else [],
+                "search_queries_json": [],
+            }
+            for row in rows
+        ]
     finally:
         conn.close()
 
