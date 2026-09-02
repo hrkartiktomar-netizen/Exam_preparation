@@ -324,7 +324,7 @@
     var scoreLabel = qs(".exam-results__score-label", resultsEl);
     var topicsGrid = qs(".exam-results__topics", resultsEl);
 
-    var total = result.total_score || result.score || 0;
+    var total = result.final_score || 0;
     var maxScore = result.max_score || examState.questions.length;
 
     if (scoreNum) {
@@ -342,7 +342,9 @@
     }
 
     if (scoreLabel) {
-      var pct = maxScore > 0 ? ((total / maxScore) * 100).toFixed(1) : 0;
+      // accuracy_pct is correct/total; final_score is net of negative marking,
+      // so deriving the percentage from the score overstates every wrong answer.
+      var pct = (result.accuracy_pct || 0).toFixed(1);
       scoreLabel.textContent = pct + "% ACCURACY · " + examState.questions.length + " QUESTIONS";
     }
 

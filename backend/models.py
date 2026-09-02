@@ -528,6 +528,22 @@ class DescriptiveGradeRequestModel(BaseModel):
     precis_text: str = Field(default="", max_length=10000)
     rc_answers: list[str] = Field(default_factory=list)
 
+    @model_validator(mode="after")
+    def require_answer_text(self) -> DescriptiveGradeRequestModel:
+        # Every answer field defaults to empty and unknown keys are ignored, so a
+        # client posting the wrong field names would be graded on nothing and
+        # returned a zero score -- indistinguishable from a genuinely weak essay.
+        answered = (
+            self.essay_text.strip()
+            or self.precis_text.strip()
+            or any(answer.strip() for answer in self.rc_answers)
+        )
+        if not answered:
+            raise ValueError(
+                "no answer text supplied: provide one of essay_text, precis_text, rc_answers"
+            )
+        return self
+
 
 class DescriptiveComponentGradeModel(BaseModel):
     component: str

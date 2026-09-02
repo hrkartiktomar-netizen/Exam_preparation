@@ -33,6 +33,11 @@ INDEX_PATH = EXTRACTED_DIR / "COMPREHENSIVE_INDEX.json"
 # (zero file dependence); "chunks" keeps the legacy md/txt FTS path for research.
 SOURCE_MODE = os.getenv("SOURCE_MODE", "knowledge")
 
+# Every smart mock is normalised to this many marks regardless of question count,
+# so marks_per_question is derived rather than fixed. Published in the submit
+# response so clients can render "score / max" without assuming the scale.
+MOCK_EXAM_MAX_SCORE = 100.0
+
 
 TOPIC_DEFINITIONS: list[dict[str, Any]] = [
     {
@@ -4860,7 +4865,7 @@ def generate_smart_mock(
     }
     if template:
         result["time_limit_minutes"] = template.get("time_limit_minutes") or 60
-        result["marks_per_question"] = template.get("marks_per_question") or (100 / max(1, len(questions)))
+        result["marks_per_question"] = template.get("marks_per_question") or (MOCK_EXAM_MAX_SCORE / max(1, len(questions)))
         result["negative_marking_per_wrong"] = round(float(result["marks_per_question"]) * 0.25, 4)
     return result
 
@@ -4990,7 +4995,7 @@ def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
         total_questions = len(question_rows)
         accuracy = round((total_correct / total_questions * 100), 2) if total_questions else 0.0
         total_unanswered = max(0, total_questions - total_answered)
-        marks_per_question = round(100 / total_questions, 4) if total_questions else 0.0
+        marks_per_question = round(MOCK_EXAM_MAX_SCORE / total_questions, 4) if total_questions else 0.0
         negative_marking_per_wrong = round(marks_per_question * 0.25, 4)
         raw_score = round(total_correct * marks_per_question, 2)
         negative_marks = round(total_wrong * negative_marking_per_wrong, 2)
@@ -5058,6 +5063,7 @@ def submit_mock(mock_id: str, answers: list[dict[str, Any]]) -> dict[str, Any]:
         "raw_score": raw_score,
         "negative_marks": negative_marks,
         "final_score": final_score,
+        "max_score": MOCK_EXAM_MAX_SCORE,
         "topic_breakdown": breakdown,
         "question_analysis": question_analysis,
     }

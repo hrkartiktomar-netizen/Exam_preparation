@@ -1082,28 +1082,24 @@ async def wrong_answer_queue(
     """Plan v6 7.7: recent wrong answers feeding the replay drill UI."""
     conn = db.get_connection()
     try:
+        # LEFT JOIN, not INNER: question_attempts.question_id is nullable and a
+        # replayed drill can reference a question that is no longer in the bank.
+        # An inner join would silently drop those rows from the queue.
+        sql = """
+            SELECT qa.question_id, qa.topic, qa.question_text, qa.correct_option,
+                   qa.your_option, qa.attempt_date, q.source AS source_document
+            FROM question_attempts qa
+            LEFT JOIN questions q ON q.question_id = qa.question_id
+            WHERE qa.is_correct = 0
+        """
+        params: list[Any] = []
         if topic:
-            rows = conn.execute(
-                """
-                SELECT question_id, topic, question_text, correct_option, your_option, attempt_date
-                FROM question_attempts
-                WHERE is_correct = 0 AND topic = ?
-                ORDER BY created_at DESC
-                LIMIT ?
-                """,
-                (topic.upper(), limit),
-            ).fetchall()
-        else:
-            rows = conn.execute(
-                """
-                SELECT question_id, topic, question_text, correct_option, your_option, attempt_date
-                FROM question_attempts
-                WHERE is_correct = 0
-                ORDER BY created_at DESC
-                LIMIT ?
-                """,
-                (limit,),
-            ).fetchall()
+            sql += " AND qa.topic = ?"
+            params.append(topic.upper())
+        sql += " ORDER BY qa.created_at DESC LIMIT ?"
+        params.append(limit)
+
+        rows = conn.execute(sql, params).fetchall()
         return {"wrong_answers": [dict(row) for row in rows]}
     finally:
         conn.close()
@@ -1370,7 +1366,7 @@ async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
             conn.close()
 
         result = db.submit_mock(mock_id, [answer.model_dump() for answer in request.answers])
-        weak_areas = [
+        topic_breakdown = [
             {
                 "topic": item["topic"],
                 "accuracy_pct": item["accuracy_pct"],
@@ -1378,14 +1374,15 @@ async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
                 "total": item["total_seen"],
             }
             for item in result.get("topic_breakdown", [])
-            if item.get("accuracy_pct", 100) < 60
         ]
+        weak_areas = [row for row in topic_breakdown if row["accuracy_pct"] < 60]
         return {
             "exam_id": exam_id,
             "mock_id": mock_id,
             "status": "submitted",
             "code": 200,
             "final_score": result["final_score"],
+            "max_score": result["max_score"],
             "raw_score": result["raw_score"],
             "negative_marks": result["negative_marks"],
             "total_questions": result["total_questions"],
@@ -1393,6 +1390,7 @@ async def exam_submit(exam_id: str, request: MockSubmitRequestModel):
             "total_wrong": result["total_wrong"],
             "total_unanswered": result["total_unanswered"],
             "accuracy_pct": result["accuracy_pct"],
+            "topic_breakdown": topic_breakdown,
             "weak_areas": weak_areas,
             "elapsed_seconds": int(elapsed),
             "timestamp": datetime.now().isoformat(),

@@ -127,6 +127,7 @@
   font-family: var(--f-serif);
   font-size: var(--fs-500);
   line-height: var(--lh-body);
+  white-space: pre-line;
 }
 
 .descriptive-editor {
@@ -388,6 +389,15 @@
   color: var(--signal);
   font-size: var(--fs-200);
   margin-bottom: var(--sp-3);
+}
+
+.wrong-item__topic {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  margin-top: var(--sp-3);
 }
 
 .wrong-item__source {

@@ -10,6 +10,15 @@
   function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
   function qsa(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); }
 
+  /* Views build markup with innerHTML, and some interpolated values are
+     externally generated (Gemini grading feedback, stored passage text), so
+     anything not authored here is escaped before it reaches the DOM. */
+  function esc(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
   function showLoading(container) {
     container.innerHTML = '<div class="loading-state"><div class="loading-state__ring"></div><div class="loading-state__text">Decoding ledger…</div></div>';
   }
@@ -85,7 +94,13 @@
         '</div>' +
         '<div style="display:flex;gap:var(--sp-4);margin-bottom:var(--sp-5);flex-wrap:wrap">' +
           '<select id="desc-exam" class="exam-setup__select"><option value="IFSCA">IFSCA Grade A</option><option value="SEBI">SEBI Grade A</option></select>' +
-          '<select id="desc-year" class="exam-setup__select"><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option></select>' +
+          '<select id="desc-year" class="exam-setup__select">' +
+            '<option value="">AUTO — best gradable paper</option>' +
+            '<option value="2025">2025</option>' +
+            '<option value="2024">2024</option>' +
+            '<option value="2023">2023</option>' +
+          '</select>' +
+          '<select id="desc-component" class="exam-setup__select" style="display:none"></select>' +
           '<button class="next-action__cta" id="desc-start">START SESSION</button>' +
         '</div>' +
         '<textarea class="descriptive-editor" id="desc-editor" placeholder="Begin writing your response here…" rows="12"></textarea>' +
@@ -101,6 +116,40 @@
     var startBtn = qs("#desc-start");
     var gradeBtn = qs("#desc-grade");
     var resultEl = qs("#desc-result");
+    var componentSel = qs("#desc-component");
+
+    /* The sitting on screen. `year` is the one the backend resolved, which
+       differs from the dropdown when AUTO picks the best gradable paper, and it
+       has to be echoed back on grade -- the grade endpoint re-derives the paper
+       from exam+year, so omitting it silently grades a different sitting. */
+    var sitting = null;
+
+    var COMPONENT_ORDER = ["essay", "precis", "rc"];
+    var COMPONENT_FIELD = { essay: "essay_text", precis: "precis_text", rc: "rc_answers" };
+
+    function activeKey() {
+      return componentSel ? componentSel.value : "";
+    }
+
+    function activeComponent() {
+      return (sitting && sitting.components && sitting.components[activeKey()]) || null;
+    }
+
+    function renderPrompt() {
+      var promptEl = qs("#desc-prompt");
+      var item = activeComponent();
+      if (!promptEl || !item) return;
+      qs(".descriptive-prompt__type", promptEl).textContent = item.item_type || "ESSAY";
+      // Précis and RC refer to a passage; without it the item cannot be answered.
+      var body = [item.prompt_text, item.passage_text].filter(Boolean).join("\n\n");
+      qs(".descriptive-prompt__text", promptEl).textContent = body || "No prompt text for this item.";
+    }
+
+    function resetAnswer() {
+      if (editor) editor.value = "";
+      if (wordcount) wordcount.textContent = "0 WORDS";
+      if (gradeBtn) gradeBtn.style.display = "none";
+    }
 
     if (editor) {
       editor.addEventListener("input", function () {
@@ -110,16 +159,45 @@
       });
     }
 
+    if (componentSel) {
+      componentSel.addEventListener("change", function () {
+        renderPrompt();
+        resetAnswer();
+        if (resultEl) resultEl.innerHTML = "";
+      });
+    }
+
     if (startBtn) {
       startBtn.addEventListener("click", async function () {
         try {
-          var result = await API.descriptiveStart(qs("#desc-exam").value, qs("#desc-year").value);
-          var promptEl = qs("#desc-prompt");
-          if (promptEl && result) {
-            qs(".descriptive-prompt__type", promptEl).textContent = (result.type || "ESSAY").toUpperCase();
-            qs(".descriptive-prompt__text", promptEl).textContent = result.prompt || result.topic || "Write your response.";
+          var yearSel = qs("#desc-year");
+          // "" is not a valid `int | None`, so AUTO must serialise as null.
+          var year = yearSel.value ? Number(yearSel.value) : null;
+          var result = await API.descriptiveStart(qs("#desc-exam").value, year);
+          if (!result) return;
+          sitting = result;
+
+          // A sitting may omit components entirely (SEBI 2024 has no essay), so
+          // the picker lists only what the backend actually returned.
+          var components = result.components || {};
+          var available = COMPONENT_ORDER.filter(function (key) { return components[key]; });
+          if (componentSel) {
+            componentSel.innerHTML = available.map(function (key) {
+              var item = components[key];
+              var marks = item.marks ? " · " + esc(item.marks) + " marks" : "";
+              return '<option value="' + key + '">' + esc(item.item_type || key) + marks + '</option>';
+            }).join("");
+            componentSel.style.display = available.length > 1 ? "" : "none";
           }
-          if (editor) { editor.value = ""; editor.focus(); }
+
+          renderPrompt();
+          resetAnswer();
+          if (editor) editor.focus();
+          if (resultEl) {
+            resultEl.innerHTML =
+              '<div class="view-eyebrow">§ ' + esc(result.exam) + ' ' + esc(result.year) +
+              ' · ' + esc(result.time_limit_minutes) + ' MIN · CUT-OFF ' + esc(result.cutoff_pct) + '%</div>';
+          }
         } catch (err) {
           if (window.LedgerApp) window.LedgerApp.toast(err.message, "error");
         }
@@ -128,26 +206,43 @@
 
     if (gradeBtn) {
       gradeBtn.addEventListener("click", async function () {
+        if (!sitting || !activeComponent()) {
+          if (window.LedgerApp) window.LedgerApp.toast("Start a session first.", "error");
+          return;
+        }
         try {
           gradeBtn.textContent = "GRADING…";
           gradeBtn.disabled = true;
-          var result = await API.descriptiveGrade({
-            response_text: editor.value,
-            exam_type: qs("#desc-exam").value,
-          });
-          if (resultEl && result) {
-            resultEl.innerHTML =
-              '<div class="view-eyebrow">§ GRADING RESULT</div>' +
-              '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--sp-4)">' +
-              ["content", "structure", "language", "analysis"].map(function (key) {
-                var score = result[key + "_score"] || result[key] || 0;
-                return '<div class="exam-results__topic"><div class="exam-results__topic-name">' + key.toUpperCase() + '</div>' +
-                  '<div class="exam-results__bar"><div class="exam-results__bar-fill" style="width:' + (score * 10) + '%"></div></div>' +
-                  '<div style="font-family:var(--f-mono);font-size:var(--fs-050);color:var(--ink-3);margin-top:var(--sp-1)">' + score + '/10</div></div>';
-              }).join("") +
-              '</div>' +
-              (result.feedback ? '<p style="margin-top:var(--sp-5);color:var(--ink-2)">' + result.feedback + '</p>' : '');
-          }
+
+          var field = COMPONENT_FIELD[activeKey()];
+          var payload = { exam: sitting.exam, year: sitting.year };
+          payload[field] = field === "rc_answers" ? [editor.value] : editor.value;
+
+          var result = await API.descriptiveGrade(payload);
+          if (!resultEl || !result) return;
+
+          var graded = result.components || [];
+          resultEl.innerHTML =
+            '<div class="view-eyebrow">§ GRADING RESULT · ' + esc(result.total_score) + ' / ' + esc(result.total_max_marks) +
+              ' · ' + (result.cleared_cutoff ? "CLEARED" : "BELOW") + ' CUT-OFF ' + esc(result.cutoff_pct) + '%</div>' +
+            (graded.length
+              ? '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--sp-4)">' +
+                graded.map(function (c) {
+                  var max = c.max_marks || 0;
+                  // Bars are a ratio of the item's own marks, which are 30/35
+                  // here -- not a fixed 10-point scale.
+                  var pct = max > 0 ? (((c.score || 0) / max) * 100).toFixed(1) : 0;
+                  return '<div class="exam-results__topic"><div class="exam-results__topic-name">' + esc(c.component) + '</div>' +
+                    '<div class="exam-results__bar"><div class="exam-results__bar-fill" style="width:' + pct + '%"></div></div>' +
+                    '<div style="font-family:var(--f-mono);font-size:var(--fs-050);color:var(--ink-3);margin-top:var(--sp-1)">' +
+                      esc(c.score) + '/' + esc(max) + '</div>' +
+                    (c.feedback
+                      ? '<p style="margin-top:var(--sp-3);color:var(--ink-2);font-size:var(--fs-200)">' + esc(c.feedback) + '</p>'
+                      : '') +
+                    '</div>';
+                }).join("") +
+                '</div>'
+              : '<p style="margin-top:var(--sp-4);color:var(--ink-2)">This item has no stored model answer, so it cannot be graded.</p>');
         } catch (err) {
           if (window.LedgerApp) window.LedgerApp.toast(err.message, "error");
         } finally {
@@ -285,7 +380,7 @@
     showLoading(content);
     try {
       var data = await API.wrongQueue(30);
-      var items = Array.isArray(data) ? data : data.questions || [];
+      var items = Array.isArray(data) ? data : data.wrong_answers || [];
 
       if (!items.length) { showEmpty(content, "No wrong answers yet. Take a mock to populate."); return; }
 
@@ -301,11 +396,12 @@
             '<span class="wrong-item__toggle">▼</span>' +
           '</div>' +
           '<div class="wrong-item__body"><div class="wrong-item__detail">' +
-            '<div class="wrong-item__correct">✓ ' + (item.correct_answer || "—") + '</div>' +
+            '<div class="wrong-item__correct">✓ ' + (item.correct_option || "—") + '</div>' +
             '<div style="color:var(--ink-2);font-size:var(--fs-200)">' +
-              '<strong>Your answer:</strong> ' + (item.user_answer || "—") +
+              '<strong>Your answer:</strong> ' + (item.your_option || "—") +
             '</div>' +
-            (item.source_chunk ? '<div class="wrong-item__source">' + item.source_chunk + '</div>' : '') +
+            (item.topic ? '<div class="wrong-item__topic">' + item.topic + '</div>' : '') +
+            (item.source_document ? '<div class="wrong-item__source">' + item.source_document + '</div>' : '') +
           '</div></div>' +
           '</div>';
       }).join("");

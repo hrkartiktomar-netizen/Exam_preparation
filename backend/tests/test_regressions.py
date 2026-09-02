@@ -526,3 +526,171 @@ def test_job_queue_schema_respects_patched_db_path(temp_db):
         "job_queue.init_job_queue_schema() ignored database.DB_PATH and wrote to "
         "the production database file instead of the test database"
     )
+
+
+# ---------------------------------------------------------------------------
+# 11. /api/exams/{id}/submit must publish the score scale and topic breakdown
+# ---------------------------------------------------------------------------
+
+def test_exam_submit_exposes_max_score_and_topic_breakdown(temp_db):
+    """The results panel read keys the endpoint never sent.
+
+    frontend/js/exam.js renders `result.total_score || result.score` over
+    `result.max_score`, and iterates `result.topic_breakdown`. The endpoint
+    returned `final_score` with no scale and only `weak_areas` -- a subset
+    filtered to accuracy < 60 -- so the score always displayed as 0 and
+    competent topics disappeared from the grid entirely.
+
+    db.submit_mock normalises every mock to a 100-mark scale
+    (marks_per_question = 100 / total_questions). That scale is a scoring
+    invariant, so the scorer owns it and the endpoint republishes it rather
+    than the client hard-coding a number it has no way to derive.
+    """
+    import main
+
+    _insert_smart_mock(_conn())
+
+    with TestClient(main.app) as client:
+        response = client.post(
+            "/api/exams/SM_T1/submit",
+            json={
+                "answers": [
+                    {"question_id": "Q_T1", "selected_answer": "B", "time_spent_seconds": 10}
+                ]
+            },
+        )
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+
+    assert payload.get("max_score") == 100.0, (
+        f"endpoint did not publish the 100-mark scale submit_mock scores "
+        f"against; keys present: {sorted(payload)}"
+    )
+
+    breakdown = payload.get("topic_breakdown")
+    assert breakdown, (
+        f"endpoint dropped the full per-topic breakdown; only weak_areas "
+        f"(accuracy < 60) survived, so topics the candidate answered well "
+        f"vanish from the results grid. keys present: {sorted(payload)}"
+    )
+
+    entry = breakdown[0]
+    for key in ("topic", "correct", "total"):
+        assert key in entry, (
+            f"topic_breakdown item is missing '{key}'; the results grid reads "
+            f"t.correct and t.total, so it would render NaN. item: {entry}"
+        )
+
+    # weak_areas stays as the filtered subset -- a different question from the
+    # breakdown, not a replacement for it.
+    assert payload["weak_areas"] == []
+    assert len(breakdown) == 1
+    assert entry["correct"] == 1 and entry["total"] == 1
+
+
+# ---------------------------------------------------------------------------
+# 12. /api/drills/wrong-queue must cite the source document of a wrong answer
+# ---------------------------------------------------------------------------
+
+def test_wrong_queue_returns_the_source_document(temp_db):
+    """The review view has a source line the endpoint never fed.
+
+    frontend/js/views.js loadReview() renders a `.wrong-item__source` element
+    guarded on a source field, but the endpoint selected only from
+    question_attempts -- whose own `source` column records the attempt channel
+    (SMART_MOCK / QRE), not where the fact came from. The guard therefore could
+    never be true and the citation silently never rendered.
+
+    questions.source does carry the originating document (32 distinct filenames
+    across the bank), so the citation is one LEFT JOIN away. It is a LEFT JOIN
+    because question_attempts.question_id is nullable and replayed drills may
+    reference questions that are no longer in the bank; an inner join would drop
+    those rows from the queue entirely.
+    """
+    import main
+
+    conn = _conn()
+    try:
+        db.save_question(
+            {
+                "question_id": "Q_W1",
+                "topic": "PH2_FM_REGS",
+                "question_text": "Which regulation governs fund management?",
+                "options": [
+                    {"label": "A", "text": "x"},
+                    {"label": "B", "text": "FME Regulations"},
+                    {"label": "C", "text": "y"},
+                    {"label": "D", "text": "z"},
+                ],
+                "correct_option": "B",
+                "explanation": "FME",
+                "source": "IFSCA_Compliance_Handbook.md",
+                "difficulty": "easy",
+                "source_policy": "exam_material",
+            },
+            created_by="test",
+        )
+        conn.execute(
+            """
+            INSERT INTO question_attempts
+            (mock_id, question_id, topic, question_text, correct_option, your_option,
+             is_correct, time_spent_seconds, attempt_date, source)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            ("SM_W1", "Q_W1", "PH2_FM_REGS", "Which regulation governs fund management?",
+             "B", "C", 0, 12, "2026-09-01", "SMART_MOCK"),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+    with TestClient(main.app) as client:
+        response = client.get("/api/drills/wrong-queue?limit=10")
+
+    assert response.status_code == 200, response.text
+    items = response.json()["wrong_answers"]
+    assert len(items) == 1, items
+    row = items[0]
+
+    assert row.get("correct_option") == "B", row
+    assert row.get("your_option") == "C", row
+    assert row.get("source_document") == "IFSCA_Compliance_Handbook.md", (
+        f"endpoint did not join questions.source, so the review view's citation "
+        f"line can never render; keys present: {sorted(row)}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# 13. /api/descriptive/grade must reject a payload carrying no answer text
+# ---------------------------------------------------------------------------
+
+def test_descriptive_grade_rejects_payload_without_answer_text(temp_db):
+    """A grade request with no answer text used to return 200 and a zero score.
+
+    DescriptiveGradeRequestModel takes one field per component (essay_text,
+    precis_text, rc_answers). The descriptive view posted {response_text,
+    exam_type} instead, and Pydantic's default is to ignore unknown keys, so
+    every answer field kept its empty default and the endpoint graded nothing --
+    answering 200 with total_score 0.0 and components []. A client cannot tell
+    that apart from a genuinely zero-scoring essay, which is why the mismatched
+    payload survived unnoticed. Validation belongs at the boundary so that a
+    request carrying no answer is loud rather than silently scoreless.
+    """
+    import main
+
+    with TestClient(main.app) as client:
+        stale = client.post(
+            "/api/descriptive/grade",
+            json={"response_text": "A precis of the passage.", "exam_type": "IFSCA"},
+        )
+        assert stale.status_code == 422, (
+            f"payload with no recognised answer field was accepted with "
+            f"{stale.status_code}: {stale.text[:200]}"
+        )
+
+        empty = client.post("/api/descriptive/grade", json={"exam": "IFSCA"})
+        assert empty.status_code == 422, (
+            f"payload with every answer field empty was accepted with "
+            f"{empty.status_code}: {empty.text[:200]}"
+        )
