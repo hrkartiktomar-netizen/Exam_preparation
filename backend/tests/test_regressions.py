@@ -16,8 +16,10 @@ Covered regressions:
 
 from __future__ import annotations
 
+import gc
 import sqlite3
 import tempfile
+import time
 from pathlib import Path
 from unittest.mock import patch
 
@@ -40,7 +42,13 @@ def temp_db():
         yield Path(temp_db_path)
     finally:
         db.DB_PATH = original_db_path
-        Path(temp_db_path).unlink(missing_ok=True)
+        gc.collect()
+        for attempt in range(5):
+            try:
+                Path(temp_db_path).unlink(missing_ok=True)
+                break
+            except PermissionError:
+                time.sleep(0.05 * (attempt + 1))
 
 
 def _conn() -> sqlite3.Connection:
@@ -394,7 +402,8 @@ def test_srs_mark_reviewed_touches_only_soonest_row(temp_db):
     conn.close()
     assert len(rows) == 1
     assert rows[0]["last_result"] == "success"
-    assert rows[0]["interval_days"] == 3
+    # Plan v6 6.4 unified SM-2: ease 2.5 -> 2.6, interval = round(5 * 2.6) = 13.
+    assert rows[0]["interval_days"] == 13
 
 
 def test_amendment_recency_cutoff_matches_sqlite_timestamp_format(temp_db):

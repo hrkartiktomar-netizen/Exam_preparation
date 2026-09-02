@@ -1,0 +1,36 @@
+{
+"schema_version": 1,
+"source_docs": ["IFSCA_GradeA_Syllabus_Official.md", "IFSCA_2025_GradeA_Recruitment_Notification.md", "IFSCA_2025_Phase1_Info_Handout_English.md", "SEBI Grade A Guidebook.md", "question banks"],
+"rules": {
+  "negative_marking_fraction": 0.25,
+  "option_count": 5,
+  "ifsca_phase2_weightage": {"paper1": 0.3333, "paper2": 0.6667},
+  "ifsca_final": {"phase2": 0.85, "interview": 0.15},
+  "ifsca_paper1_evaluated_only_if_paper2_cleared": true,
+  "sebi_phase2_weightage": {"paper1": 0.3333, "paper2": 0.6667},
+  "sebi_final": {"phase2": 0.85, "interview": 0.15}
+},
+"templates": [
+  {"template_id": "IFSCA_PH1_P1", "exam": "IFSCA", "name": "IFSCA Phase I Paper 1 (all streams)", "phase": 1, "paper": 1, "total_questions": 100, "marks_per_question": 1, "total_marks": 100, "time_limit_minutes": 60, "cutoff_pct": 30, "sections": [{"name": "General Awareness (Financial Sector)", "questions": 25}, {"name": "English Language", "questions": 25}, {"name": "Quantitative Aptitude", "questions": 25}, {"name": "Reasoning", "questions": 25}], "sectional_cutoff": false, "notes": "Screening only; marks not counted for final selection."},
+  {"template_id": "IFSCA_PH1_P2_GENERAL", "exam": "IFSCA", "name": "IFSCA Phase I Paper 2 (General stream)", "phase": 1, "paper": 2, "total_questions": 50, "marks_per_question": 2, "total_marks": 100, "time_limit_minutes": 60, "cutoff_pct": 40, "syllabus_units": ["General knowledge & current events", "Economic & social development", "Commerce & accountancy", "Management", "Finance", "Costing", "Indian & global economy", "GoI financial-sector schemes"], "notes": "Aggregate cut-off across both Phase I papers: 40%."},
+  {"template_id": "IFSCA_PH2_P1_DESC", "exam": "IFSCA", "name": "IFSCA Phase II Paper 1 (Descriptive English)", "phase": 2, "paper": 1, "total_marks": 100, "time_limit_minutes": 60, "cutoff_pct": 30, "descriptive_components": [{"type": "ESSAY", "marks": 30, "word_limit_min": 200, "word_limit_max": 400, "note": "About 200 words (2023) / 250-270 words (2024); handout sample about 400 words - configurable."}, {"type": "PRECIS", "marks": 35, "word_limit_min": 120, "word_limit_max": 130, "title_required": true}, {"type": "RC", "marks": 35, "answers_in_own_words": true}], "notes": "Typed on computer; one question displayed at a time; evaluated only if Paper 2 minimum is cleared."},
+  {"template_id": "IFSCA_PH2_P2_GENERAL", "exam": "IFSCA", "name": "IFSCA Phase II Paper 2 (General stream)", "phase": 2, "paper": 2, "total_questions": 50, "marks_per_question": 2, "total_marks": 100, "time_limit_minutes": 60, "cutoff_pct": 40, "syllabus_units": ["IFSCA Act/IFSCA/IFSC/GIFT IFSC/GIFT City/Global Financial Centres", "Union Budget & Economic Survey", "Banking", "Capital Market", "Insurance", "Pension Sector"], "bilingual": true},
+  {"template_id": "SEBI_PH1_P1", "exam": "SEBI", "name": "SEBI Phase 1 Paper 1", "phase": 1, "paper": 1, "total_questions": 80, "marks_per_question": 1.25, "total_marks": 100, "time_limit_minutes": 60, "cutoff_pct": 30, "sections": [{"name": "General Awareness", "questions": 20, "marks": 25}, {"name": "English Language", "questions": 20, "marks": 25}, {"name": "Quantitative Aptitude", "questions": 20, "marks": 25}, {"name": "Reasoning", "questions": 20, "marks": 25}], "sectional_cutoff": false},
+  {"template_id": "SEBI_PH1_P2_GENERAL", "exam": "SEBI", "name": "SEBI Phase 1 Paper 2 (General stream)", "phase": 1, "paper": 2, "total_questions": 50, "marks_per_question": 2, "total_marks": 100, "time_limit_minutes": 40, "cutoff_pct": 40, "syllabus_units": ["Commerce & Accountancy", "Management", "Finance", "Costing", "Companies Act", "Economics"]},
+  {"template_id": "SEBI_PH2_P1_DESC", "exam": "SEBI", "name": "SEBI Phase 2 Paper 1 (Descriptive)", "phase": 2, "paper": 1, "total_marks": 100, "time_limit_minutes": 60, "cutoff_pct": 30, "descriptive_components": [{"type": "ESSAY", "marks": 30, "word_limit_min": 250, "word_limit_max": 270, "topics_offered": 4}, {"type": "PRECIS", "marks": 30, "word_limit_min": 140, "word_limit_max": 160, "title_required": true}, {"type": "RC", "marks": 40, "questions": 5}], "notes": "Letter Writing appears in the 2025 TOC."},
+  {"template_id": "SEBI_PH2_P2_GENERAL", "exam": "SEBI", "name": "SEBI Phase 2 Paper 2 (General stream)", "phase": 2, "paper": 2, "total_questions": 100, "marks_per_question": 1, "total_marks": 100, "time_limit_minutes": 90, "cutoff_pct": 40, "aggregate_cutoff_pct": 50, "syllabus_units": ["Commerce & Accountancy", "Management", "Finance", "Costing", "Companies Act", "Economics"], "notes": "Post-2024 pattern: 100 x 1 mark (2022 was 50 x 2 marks)."},
+  {"template_id": "SUBJECT_DRILL", "exam": "ANY", "name": "Subject drill (cross-exam)", "phase": null, "paper": null, "total_questions": 20, "marks_per_question": 1, "time_limit_minutes": 20, "cutoff_pct": null, "notes": "Mixed IFSCA/SEBI bank questions filtered by subject_id."},
+  {"template_id": "CUSTOM", "exam": "ANY", "name": "Custom mock", "phase": null, "paper": null, "total_questions": 50, "marks_per_question": 1, "time_limit_minutes": 60, "cutoff_pct": null}
+],
+"exam_mode_rules": {
+  "palette_statuses": ["not visited", "not answered", "answered", "marked for review", "answered and marked"],
+  "strict_no_early_submit": true,
+  "auto_submit_on_expiry": true,
+  "keyboard_locked_for_objective_in_real_mode": true,
+  "bilingual": "All tests bilingual Hindi/English except the English Language test (English only) - IFSCA.",
+  "calculator": "Strictly prohibited (including calculator/smart watches).",
+  "descriptive_typing": "Space+Enter does not create a new line; only Enter alone does; consecutive space/enter keystrokes register as one.",
+  "five_options_one_correct": true,
+  "score_equating": "Multi-session scores are equated and reported to 2 decimal places."
+}
+}
