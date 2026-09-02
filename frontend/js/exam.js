@@ -447,7 +447,7 @@
         var pct = t.total > 0 ? Math.round((t.correct / t.total) * 100) : 0;
         var level = pct < 40 ? "data-low" : (pct < 70 ? "data-mid" : "");
         return '<div class="exam-results__topic">' +
-          '<div class="exam-results__topic-name">' + (t.topic || "Unknown") + ' · ' + t.correct + '/' + t.total + '</div>' +
+          '<div class="exam-results__topic-name">' + esc(t.topic || "Unknown") + ' · ' + esc(t.correct) + '/' + esc(t.total) + '</div>' +
           '<div class="exam-results__bar"><div class="exam-results__bar-fill" ' + level + ' style="width:' + pct + '%"></div></div>' +
           '</div>';
       }).join("");

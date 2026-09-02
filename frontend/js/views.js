@@ -545,16 +545,16 @@
       list.innerHTML = items.map(function (item, i) {
         return '<div class="wrong-item" data-idx="' + i + '">' +
           '<div class="wrong-item__header">' +
-            '<div class="wrong-item__question">' + (item.question_text || item.text || "Question " + (i + 1)) + '</div>' +
+            '<div class="wrong-item__question">' + esc(item.question_text || item.text || "Question " + (i + 1)) + '</div>' +
             '<span class="wrong-item__toggle">▼</span>' +
           '</div>' +
           '<div class="wrong-item__body"><div class="wrong-item__detail">' +
-            '<div class="wrong-item__correct">✓ ' + (item.correct_option || "—") + '</div>' +
+            '<div class="wrong-item__correct">✓ ' + esc(item.correct_option || "—") + '</div>' +
             '<div style="color:var(--ink-2);font-size:var(--fs-200)">' +
-              '<strong>Your answer:</strong> ' + (item.your_option || "—") +
+              '<strong>Your answer:</strong> ' + esc(item.your_option || "—") +
             '</div>' +
-            (item.topic ? '<div class="wrong-item__topic">' + item.topic + '</div>' : '') +
-            (item.source_document ? '<div class="wrong-item__source">' + item.source_document + '</div>' : '') +
+            (item.topic ? '<div class="wrong-item__topic">' + esc(item.topic) + '</div>' : '') +
+            (item.source_document ? '<div class="wrong-item__source">' + esc(item.source_document) + '</div>' : '') +
           '</div></div>' +
           '</div>';
       }).join("");
@@ -669,27 +669,37 @@
         (attempts.length ? '<div class="results-pyq" id="results-pyq"></div>' : '');
 
       if (entries.length) {
+        // get_analytics_timeline orders by generated_at DESC, so the array
+        // arrives newest-first. A progression chart has to read left to right in
+        // time, and "latest" is the first element, not the last.
+        var chronological = entries.slice().reverse();
+
         // Timeline bars
         var timelineEl = qs("#results-timeline", content);
-        var maxScore = Math.max.apply(null, entries.map(function (e) { return e.score || e.percentage || 0; }));
-        timelineEl.innerHTML = entries.map(function (e) {
-          var pct = maxScore > 0 ? ((e.score || e.percentage || 0) / maxScore) * 100 : 0;
+        var maxScore = Math.max.apply(null, chronological.map(function (e) { return e.score || 0; }));
+        timelineEl.innerHTML = chronological.map(function (e) {
+          var pct = maxScore > 0 ? ((e.score || 0) / maxScore) * 100 : 0;
           var pass = pct >= 60;
           return '<div class="results-bar" ' + (pass ? 'data-pass' : 'data-fail') + ' style="height:' + Math.max(pct, 4) + '%">' +
-            '<span class="results-bar__label">' + (e.date || "").substring(5, 10) + '</span>' +
+            '<span class="results-bar__label">' + esc((e.created_at || "").substring(5, 10)) + '</span>' +
             '</div>';
         }).join("");
 
-        // Gate vis
+        // Gate vis. The timeline carries one combined score per mock: there is no
+        // paper split to show. mock_sessions has no paper1/paper2 columns and
+        // /api/exams/{exam_id}/aggregate takes both scores as inputs rather than
+        // storing them, so a PAPER II cell could only ever read 0 and an
+        // AGGREGATE cell only ever equalled Paper I. These are the three figures
+        // the endpoint really returns; 40 is the cut-off that endpoint uses.
         var gateEl = qs("#results-gate", content);
-        var lastEntry = entries[entries.length - 1] || {};
-        var p1 = lastEntry.paper1_score || lastEntry.score || 0;
-        var p2 = lastEntry.paper2_score || 0;
-        var agg = p1 + p2;
+        var latest = chronological[chronological.length - 1] || {};
+        var lastScore = Math.round((latest.score || 0) * 10) / 10;
+        var lastAccuracy = Math.round(latest.accuracy || 0);
+        var lastTopicAccuracy = Math.round(latest.avg_topic_accuracy || 0);
         gateEl.innerHTML =
-          '<div class="results-gate__item"><div class="results-gate__value" ' + (p1 >= 40 ? 'data-pass' : 'data-fail') + '>' + p1 + '</div><div class="results-gate__label">PAPER I</div></div>' +
-          '<div class="results-gate__item"><div class="results-gate__value" ' + (p2 >= 40 ? 'data-pass' : 'data-fail') + '>' + p2 + '</div><div class="results-gate__label">PAPER II</div></div>' +
-          '<div class="results-gate__item"><div class="results-gate__value" ' + (agg >= 130 ? 'data-pass' : 'data-fail') + '>' + agg + '</div><div class="results-gate__label">AGGREGATE</div></div>';
+          '<div class="results-gate__item"><div class="results-gate__value" ' + (lastScore >= 40 ? 'data-pass' : 'data-fail') + '>' + esc(lastScore) + '</div><div class="results-gate__label">LATEST SCORE</div></div>' +
+          '<div class="results-gate__item"><div class="results-gate__value" ' + (lastAccuracy >= 40 ? 'data-pass' : 'data-fail') + '>' + esc(lastAccuracy) + '%</div><div class="results-gate__label">ACCURACY</div></div>' +
+          '<div class="results-gate__item"><div class="results-gate__value" ' + (lastTopicAccuracy >= 40 ? 'data-pass' : 'data-fail') + '>' + esc(lastTopicAccuracy) + '%</div><div class="results-gate__label">AVG TOPIC</div></div>';
       }
 
       if (attempts.length) {

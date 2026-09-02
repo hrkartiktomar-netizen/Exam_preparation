@@ -1567,3 +1567,62 @@ def test_update_tracker_run_holds_its_guard_for_the_job_not_the_request(
         "the job guard was never released after the tracker finished"
     )
     assert len(runs) == 2, f"the rejected request still ran the tracker: {len(runs)} runs"
+
+
+# ---------------------------------------------------------------------------
+# 21. The Results view must only read timeline fields the API actually returns
+# ---------------------------------------------------------------------------
+
+# loadResults renders /api/analytics/timeline, whose response_model is
+# list[AnalyticsTimelineModel]. Reading a field that model does not declare
+# yields undefined in JS, and string concatenation then renders blank or zero
+# instead of raising -- which is how the timeline bar labels went empty and the
+# PAPER II gate showed a permanent 0 while the suite stayed green.
+
+
+def _load_results_source():
+    """Return the body of loadResults from frontend/js/views.js."""
+    import re
+    from pathlib import Path
+
+    views = Path(__file__).resolve().parents[2] / "frontend" / "js" / "views.js"
+    text = views.read_text(encoding="utf-8")
+    match = re.search(r"^  async function loadResults\(", text, re.MULTILINE)
+    assert match, "loadResults vanished from views.js, so this test is vacuous"
+    # views.js is one IIFE with every view at two-space indent, so the next
+    # top-level function marks the end of this one. Nested callbacks sit deeper,
+    # so they cannot terminate the slice early.
+    rest = text[match.end():]
+    end = re.search(r"^  (?:async )?function ", rest, re.MULTILINE)
+    return rest[: end.start()] if end else rest
+
+
+def test_results_view_reads_only_declared_timeline_fields():
+    """Every timeline property the Results view reads must exist on the model.
+
+    The allowed set comes from AnalyticsTimelineModel rather than a hardcoded
+    list, so adding a field to the model widens what the view may read and
+    renaming one fails here instead of rendering blank in the browser.
+    """
+    import re
+
+    from models import AnalyticsTimelineModel
+
+    declared = set(AnalyticsTimelineModel.model_fields)
+    # Stops the assertion passing because both sides went empty.
+    assert {"score", "created_at"} <= declared, (
+        f"AnalyticsTimelineModel no longer declares score/created_at: {sorted(declared)}"
+    )
+
+    src = _load_results_source()
+    read = set(re.findall(r"\be\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    read |= set(re.findall(r"\blastEntry\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no timeline field reads found, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"loadResults reads {undeclared} from /api/analytics/timeline, but "
+        f"AnalyticsTimelineModel only returns {sorted(declared)}. Undefined "
+        "fields concatenate as empty strings, so the timeline labels go blank "
+        "and the gate reports a score the API never supplied."
+    )
