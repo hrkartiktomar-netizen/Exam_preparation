@@ -25,8 +25,8 @@ def apply_smart_material_schema(conn: sqlite3.Connection | None = None) -> None:
         conn = database.get_connection()
 
     try:
-        # Read and execute migration
-        migration_path = Path(__file__).resolve().parent.parent / "migrations" / "003_smart_material_classification.sql"
+        # Migrations live beside this module, at backend/migrations/.
+        migration_path = Path(__file__).resolve().parent / "migrations" / "003_smart_material_classification.sql"
 
         if not migration_path.exists():
             print(f"⚠️  Migration file not found: {migration_path}")
@@ -211,22 +211,51 @@ def query_qgen_eligible_chunks(topic_id: str | None = None, conn: sqlite3.Connec
             conn.close()
 
 
-def get_pyq_by_year_phase(year: int, phase: int, conn: sqlite3.Connection | None = None) -> list[dict[str, Any]]:
-    """Get all previous year questions for a specific year and phase."""
+def get_pyq_by_year_phase(
+    year: int,
+    phase: int,
+    *,
+    exam: str | None = None,
+    paper: int | None = None,
+    limit: int | None = None,
+    conn: sqlite3.Connection | None = None,
+) -> list[dict[str, Any]]:
+    """Get every bank question for one sitting (year + phase).
+
+    A sitting is wider than a paper: 2024 Phase 1 spans two exams and two
+    papers. Rows are grouped by exam, paper and subject rather than ordered by
+    question_number alone, because question_number restarts per subject and
+    ordering by it interleaves subjects into something that no longer reads as
+    the paper that was actually sat. Grouping uses subject_id, not section:
+    section holds 55 free-text variants including mojibake range markers, while
+    subject_id is a small enum.
+
+    Incomplete rows are excluded -- they lack options or a correct answer, so
+    they cannot be presented as a blind attempt.
+    """
 
     owns_conn = conn is None
     if conn is None:
         conn = database.get_connection()
 
     try:
-        rows = conn.execute(
-            """
+        sql = """
             SELECT * FROM previous_year_questions
-            WHERE year = ? AND phase = ?
-            ORDER BY question_number
-            """,
-            (year, phase)
-        ).fetchall()
+            WHERE year = ? AND phase = ? AND incomplete = 0
+            """
+        params: list[Any] = [year, phase]
+        if exam:
+            sql += " AND exam = ?"
+            params.append(exam)
+        if paper is not None:
+            sql += " AND paper = ?"
+            params.append(paper)
+        sql += " ORDER BY exam, paper, COALESCE(subject_id, ''), question_number, rowid"
+        if limit is not None:
+            sql += " LIMIT ?"
+            params.append(limit)
+
+        rows = conn.execute(sql, params).fetchall()
 
         return [dict(row) for row in rows]
 
@@ -236,7 +265,15 @@ def get_pyq_by_year_phase(year: int, phase: int, conn: sqlite3.Connection | None
 
 
 def record_pyq_attempt(pyq_id: str, user_answer: str, is_correct: bool, time_spent_seconds: int, conn: sqlite3.Connection | None = None) -> bool:
-    """Track user's attempt on a previous year question."""
+    """Track user's attempt on a previous year question.
+
+    Deliberately not wired into /api/pyq/{pyq_id}/submit. That endpoint records
+    attempts in pyq_sessions + pyq_question_attempts, and /api/pyq/analytics
+    reads only those tables. Writing here as well would fork attempt state into
+    two stores nothing reconciles, so the bank columns this updates
+    (attempted/user_answer/is_correct/time_spent_seconds/attempt_date) stay
+    unwritten rather than disagreeing with the analytics source of truth.
+    """
 
     owns_conn = conn is None
     if conn is None:

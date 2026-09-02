@@ -694,3 +694,174 @@ def test_descriptive_grade_rejects_payload_without_answer_text(temp_db):
             f"payload with every answer field empty was accepted with "
             f"{empty.status_code}: {empty.text[:200]}"
         )
+
+
+# ---------------------------------------------------------------------------
+# 14. GET /api/pyq/sitting must return a whole sitting, not a single paper
+# ---------------------------------------------------------------------------
+
+# A sitting is not a paper. In the real bank, 2024 Phase 1 spans two exams and
+# two papers (280 rows) and 2022 Phase 1 spans two exams and two papers (109
+# rows), but /api/pyq/{doc_id}/load can only ever return one
+# (exam, year, phase, paper) tuple, and /api/pyq/drill filters on subject_id --
+# which is NULL on 109 real rows, so it cannot reach them at all. This fixture
+# reproduces that shape in miniature: two subjects that each restart
+# question_number at 1, a second paper, a second exam, and a row with no subject.
+_SITTING_ROWS = [
+    # (pyq_id, exam, paper, subject_id, question_number, question_text, incomplete)
+    ("S_QUANT_1", "IFSCA", 1, "SUBJ_QUANT", 1, "IFSCA P1 QUANT q1", 0),
+    ("S_QUANT_2", "IFSCA", 1, "SUBJ_QUANT", 2, "IFSCA P1 QUANT q2", 0),
+    ("S_ENG_1", "IFSCA", 1, "SUBJ_ENGLISH", 1, "IFSCA P1 ENGLISH q1", 0),
+    ("S_ENG_2", "IFSCA", 1, "SUBJ_ENGLISH", 2, "IFSCA P1 ENGLISH q2", 0),
+    ("S_P2_QUANT_1", "IFSCA", 2, "SUBJ_QUANT", 1, "IFSCA P2 QUANT q1", 0),
+    ("S_SEBI_1", "SEBI", 1, None, 1, "SEBI P1 UNSUBJECTED q1", 0),
+    ("S_INCOMPLETE", "IFSCA", 1, "SUBJ_QUANT", 3, "IFSCA P1 QUANT q3 INCOMPLETE", 1),
+]
+
+
+def _seed_sitting() -> None:
+    conn = _conn()
+    try:
+        already = conn.execute("SELECT COUNT(*) FROM previous_year_questions").fetchone()[0]
+        assert already == 0, (
+            f"temp_db arrived with {already} previous_year_questions rows; the "
+            f"exact counts below assume a clean table"
+        )
+        for pyq_id, exam, paper, subject, qnum, text, incomplete in _SITTING_ROWS:
+            conn.execute(
+                """
+                INSERT INTO previous_year_questions
+                (pyq_id, exam, year, phase, paper, subject_id, question_number,
+                 question_text, option_a, option_b, option_c, option_d,
+                 correct_option, marks, incomplete)
+                VALUES (?, ?, 2024, 1, ?, ?, ?, ?, 'a', 'b', 'c', 'd', 'A', 1, ?)
+                """,
+                (pyq_id, exam, paper, subject, qnum, text, incomplete),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _sitting_client():
+    """A TestClient that does NOT run the lifespan.
+
+    The endpoint under test reads SQLite and writes only the in-process answer
+    cache, so it needs no startup. Running the lifespan would call
+    db.bootstrap_from_knowledge(), which seeds previous_year_questions from the
+    committed knowledge pack and would quietly change every count asserted here.
+    """
+    import main
+
+    return TestClient(main.app)
+
+
+def test_pyq_sitting_returns_every_paper_in_subject_order(temp_db):
+    """One year+phase must yield the whole sitting, grouped so numbering reads.
+
+    question_number restarts per subject -- the real bank has 170
+    (year, phase, paper, question_number) groups that repeat, and every one of
+    them holds distinct questions, so ordering by question_number alone
+    interleaves subjects and reads as a shuffled paper. Deduping those repeats
+    would destroy real exam content, so the count must survive intact.
+    """
+    _seed_sitting()
+
+    response = _sitting_client().get("/api/pyq/sitting", params={"year": 2024, "phase": 1})
+
+    assert response.status_code == 200, response.text
+    session = response.json()
+
+    assert session["total_questions"] == 6, (
+        f"expected the 6 complete rows of the sitting; the incomplete row must be "
+        f"excluded and the repeated per-subject question numbers must NOT be "
+        f"deduped. got {session.get('total_questions')}"
+    )
+
+    order = [q["question_text"] for q in session["questions"]]
+    assert order == [
+        "IFSCA P1 ENGLISH q1",
+        "IFSCA P1 ENGLISH q2",
+        "IFSCA P1 QUANT q1",
+        "IFSCA P1 QUANT q2",
+        "IFSCA P2 QUANT q1",
+        "SEBI P1 UNSUBJECTED q1",
+    ], (
+        f"questions were not grouped by paper then subject, so per-subject "
+        f"numbering interleaves: {order}"
+    )
+
+    assert session["exam"] == "MIXED", (
+        f"sitting spans IFSCA and SEBI but reported exam={session.get('exam')!r}"
+    )
+    assert "SEBI P1 UNSUBJECTED q1" in order, (
+        "the row with no subject_id was dropped; /api/pyq/drill filters on "
+        "subject_id and cannot serve those 109 real rows, so this endpoint is "
+        "the only route to them"
+    )
+
+
+def test_pyq_sitting_session_id_cannot_collide_with_paper_load(temp_db):
+    """The sitting's cache key must stay out of the single-paper namespace.
+
+    /api/pyq/{pyq_id}/submit grades against pyq_cache.get_pyq_questions(pyq_id),
+    and /api/pyq/{doc_id}/load caches under PYQ_DOC{EXAM}_{year}_P{phase}_PAPER{n}.
+    The two order rows differently, so if a sitting narrowed to one paper reused
+    that key it would overwrite the cached answer set of an attempt already in
+    flight and silently misgrade it.
+    """
+    import pyq_cache
+
+    _seed_sitting()
+    client = _sitting_client()
+
+    session = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "exam": "IFSCA", "paper": 1}
+    ).json()
+
+    load_ids = {
+        f"PYQ_DOC{exam}_2024_P1_PAPER{paper}"
+        for exam in ("IFSCA", "SEBI")
+        for paper in (1, 2)
+    }
+    assert session["pyq_id"] not in load_ids, (
+        f"sitting session id {session['pyq_id']!r} collides with an id that "
+        f"/api/pyq/{{doc_id}}/load mints for the same sitting"
+    )
+    assert session["exam"] == "IFSCA", (
+        f"narrowed to one exam but reported {session.get('exam')!r}"
+    )
+    assert pyq_cache.get_pyq_questions(session["pyq_id"]), (
+        "the sitting was not cached under its own id, so it cannot be submitted"
+    )
+
+
+def test_pyq_sitting_narrows_by_exam_and_paper_and_404s_when_empty(temp_db):
+    _seed_sitting()
+    client = _sitting_client()
+
+    by_paper = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "paper": 2}
+    )
+    assert by_paper.status_code == 200, by_paper.text
+    assert by_paper.json()["total_questions"] == 1, by_paper.text
+
+    by_exam = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "exam": "SEBI"}
+    )
+    assert by_exam.status_code == 200, by_exam.text
+    assert by_exam.json()["total_questions"] == 1, by_exam.text
+
+    # 2021 is in bounds but the fixture seeds only 2024, so this exercises the
+    # empty-result path rather than the parameter-bound path below.
+    missing = client.get("/api/pyq/sitting", params={"year": 2021, "phase": 1})
+    assert missing.status_code == 404, (
+        f"an empty sitting answered {missing.status_code}; /api/pyq/drill 404s "
+        f"on an empty result set and this endpoint should match: {missing.text[:200]}"
+    )
+
+    unbounded = client.get("/api/pyq/sitting", params={"year": 2024, "phase": 99})
+    assert unbounded.status_code == 422, (
+        f"phase=99 was accepted with {unbounded.status_code}; phase is bounded "
+        f"to 1..4 so an out-of-range sitting is rejected at the boundary"
+    )

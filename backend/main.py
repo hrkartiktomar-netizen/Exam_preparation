@@ -31,6 +31,7 @@ import gemini_integration
 import update_tracker
 import pyq_parser
 import pyq_cache
+import smart_material_classification
 from gemini_integration import (
     PROMPT_CONTRACT_VERSION,
     USE_CASE_CATALOG,
@@ -1593,6 +1594,55 @@ async def pyq_subject_drill(
         raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Error building drill: {str(exc)}") from exc
+    finally:
+        if conn:
+            conn.close()
+
+
+@app.get("/api/pyq/sitting")
+async def pyq_sitting_drill(
+    year: int = Query(..., ge=2000, le=2100),
+    phase: int = Query(..., ge=1, le=4),
+    exam: str | None = Query(default=None, pattern="^(IFSCA|SEBI)$"),
+    paper: int | None = Query(default=None, ge=1, le=9),
+    limit: int = Query(default=50, ge=5, le=100),
+):
+    """Whole-sitting drill: every bank question from one year and phase.
+
+    A sitting is not a paper. 2024 Phase 1 spans two exams and two papers (280
+    bank rows), but /api/pyq/{doc_id}/load only ever serves one
+    (exam, year, phase, paper) tuple, and /api/pyq/drill filters on subject_id
+    -- NULL on 109 real rows, which it therefore cannot reach at all.
+    """
+    conn = None
+    try:
+        conn = db.get_connection()
+        rows = smart_material_classification.get_pyq_by_year_phase(
+            year, phase, exam=exam, paper=paper, limit=limit, conn=conn
+        )
+        if not rows:
+            raise HTTPException(
+                status_code=404,
+                detail=f"No bank questions for {year} Phase {phase}",
+            )
+
+        exams = {row.get("exam") for row in rows if row.get("exam")}
+        exam_label = next(iter(exams)) if len(exams) == 1 else "MIXED"
+
+        # "SITTING" keeps this session out of the PYQ_DOC{EXAM}_..._PAPER{n} key
+        # space that /api/pyq/{doc_id}/load owns. The two order rows differently,
+        # so sharing a key would let a sitting narrowed to one paper overwrite
+        # the cached answers of an attempt already in flight and misgrade it.
+        doc = {"exam": "SITTING", "year": year, "phase": phase, "paper": 0}
+        title = f"{exam_label} Grade A {year} - Phase {phase} sitting"
+        session = _format_bank_session(doc, rows, title)
+        session["exam"] = exam_label
+        return session
+
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Error building sitting: {str(exc)}") from exc
     finally:
         if conn:
             conn.close()
