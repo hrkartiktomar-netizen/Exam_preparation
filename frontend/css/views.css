@@ -564,6 +564,19 @@
   font-style: italic;
 }
 
+.empty-state__hint {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  max-width: 48ch;
+  line-height: var(--lh-snug);
+  margin-top: var(--sp-4);
+}
+
+.empty-state__cta { margin-top: var(--sp-6); }
+
 /* Loading state */
 .loading-state {
   display: flex;

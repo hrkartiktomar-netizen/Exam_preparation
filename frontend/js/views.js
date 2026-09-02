@@ -42,6 +42,26 @@
     container.innerHTML = '<div class="empty-state"><div class="empty-state__text">' + (msg || "No entries yet.") + '</div></div>';
   }
 
+  /* A 404 on an instrument that is not yet wired to the ledger means "nothing
+     banked yet", not "the engine broke" -- showError would render that as a raw
+     status string on an otherwise empty screen. This keeps the section eyebrow
+     so the route still reads as the view it is, and turns the blank into an
+     invitation. hint and cta are optional; the button is only rendered when the
+     caller supplies a label, mirroring showError's retry contract. */
+  function showEmptyView(container, eyebrow, message, hint, cta) {
+    container.innerHTML =
+      '<div class="view-eyebrow">' + esc(eyebrow) + '</div>' +
+      '<div class="empty-state">' +
+        '<div class="empty-state__text">' + esc(message) + '</div>' +
+        (hint ? '<div class="empty-state__hint">' + esc(hint) + '</div>' : '') +
+        (cta && cta.label ? '<button class="updates-btn empty-state__cta" type="button">' + esc(cta.label) + '</button>' : '') +
+      '</div>';
+
+    if (!cta || !cta.onClick) return;
+    var btn = qs(".empty-state__cta", container);
+    if (btn) btn.addEventListener("click", cta.onClick);
+  }
+
   /* ────── PYQ View ────── */
 
   /* Three ways into the bank, because they are not interchangeable: a paper is
@@ -520,7 +540,13 @@
 
       loaded.updates = true;
     } catch (err) {
-      showError(content, err.message, loadUpdates);
+      if (err.status === 404) {
+        showEmptyView(content, "§06 · AMENDMENT INTELLIGENCE",
+          "The amendment ledger has not been opened yet.",
+          "Regulatory updates from IFSCA & SEBI collect here once the tracker is wired to the ledger.");
+      } else {
+        showError(content, err.message, loadUpdates);
+      }
     }
   }
 
@@ -567,7 +593,17 @@
 
       loaded.review = true;
     } catch (err) {
-      showError(content, err.message, loadReview);
+      if (err.status === 404) {
+        showEmptyView(content, "§07 · WRONG QUEUE",
+          "Nothing to review — no wrong answers banked yet.",
+          "Sit a mock and every missed question queues here for replay.",
+          {
+            label: "GO TO EXAM",
+            onClick: function () { if (window.LedgerRouter) window.LedgerRouter.navigate("exam"); }
+          });
+      } else {
+        showError(content, err.message, loadReview);
+      }
     }
   }
 

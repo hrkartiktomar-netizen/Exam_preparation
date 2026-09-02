@@ -693,13 +693,15 @@
 .cold-open__sub {
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--sp-2);
   font-family: var(--f-mono);
   font-size: var(--fs-100);
   letter-spacing: var(--track-caps);
   color: var(--ink-3);
 }
-.cold-open__meta-rest { white-space: nowrap; }
+.cold-open__meta-rest { white-space: normal; }
 
 /* M3 · Verb pill rotator — pure CSS, three ledger verbs */
 .verb-pill {

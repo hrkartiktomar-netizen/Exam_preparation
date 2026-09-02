@@ -9,6 +9,7 @@
 
   var scene, camera, renderer, sealGroup, ringMesh;
   var containerEl = null;
+  var readoutEl = null;
   var isWebGL = false;
   var readinessPercent = 0;
   var targetPercent = 0;
@@ -109,6 +110,16 @@
     renderer.toneMappingExposure = 1.1;
     container.appendChild(renderer.domElement);
 
+    // Center % readout — the SVG poster carries one; the WebGL gauge must too
+    container.style.position = "relative";
+    readoutEl = document.createElement("div");
+    readoutEl.style.cssText =
+      "position:absolute;inset:0;display:flex;align-items:center;justify-content:center;" +
+      "font-family:var(--f-mono);font-size:var(--fs-300);font-weight:300;color:var(--ink-1);" +
+      "letter-spacing:var(--track-caps);pointer-events:none;";
+    readoutEl.textContent = Math.round(targetPercent) + "%";
+    container.appendChild(readoutEl);
+
     // Context loss (docs: preventDefault, pause; restore → rebuild)
     renderer.domElement.addEventListener("webglcontextlost", function (e) {
       e.preventDefault();
@@ -160,7 +171,7 @@
 
     var disc = new THREE.Mesh(
       new THREE.CircleGeometry(0.5, 32),
-      new THREE.MeshStandardMaterial({ color: 0xC79E4F, metalness: 0.9, roughness: 0.2, side: THREE.DoubleSide })
+      new THREE.MeshStandardMaterial({ color: 0xC79E4F, metalness: 0.9, roughness: 0.2, side: THREE.DoubleSide, transparent: true, opacity: 0.18 })
     );
     sealGroup.add(disc);
 
@@ -247,6 +258,7 @@
 
   function updateReadiness(percent) {
     targetPercent = percent;
+    if (readoutEl) readoutEl.textContent = Math.round(percent) + "%";
   }
 
   function resize(container) {
@@ -263,6 +275,8 @@
     stopLoop();
     if (io) { io.disconnect(); io = null; }
     if (containerEl) containerEl.removeEventListener("mousemove", onMouseMove);
+    if (readoutEl && readoutEl.parentNode) readoutEl.parentNode.removeChild(readoutEl);
+    readoutEl = null;
     if (scene) {
       scene.traverse(function (obj) {
         if (obj.geometry) obj.geometry.dispose();

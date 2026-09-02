@@ -1626,3 +1626,129 @@ def test_results_view_reads_only_declared_timeline_fields():
         "fields concatenate as empty strings, so the timeline labels go blank "
         "and the gate reports a score the API never supplied."
     )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 22. Frontend effect parity
+#
+# These behaviours existed only as uncommitted edits in the main working tree,
+# so this branch would have merged a plainer frontend than the one actually
+# being worked on: a WebGL readiness seal with no centre readout, a cold-open
+# subtitle that overflows instead of wrapping, and two views that answer a 404
+# with a bare error string. None of it is derivable from the backend suite, so
+# each is pinned at source level.
+# ─────────────────────────────────────────────────────────────────────────────
+
+FRONTEND_DIR = Path(__file__).resolve().parents[2] / "frontend"
+
+
+def _frontend_text(*parts):
+    return FRONTEND_DIR.joinpath(*parts).read_text(encoding="utf-8")
+
+
+def _views_function(name):
+    """Return the body of a two-space-indented function in views.js."""
+    text = _frontend_text("js", "views.js")
+    match = re.search(rf"^  (?:async )?function {name}\(", text, re.MULTILINE)
+    assert match, f"{name} vanished from views.js, so this test is vacuous"
+    rest = text[match.end():]
+    end = re.search(r"^  (?:async )?function ", rest, re.MULTILINE)
+    return rest[: end.start()] if end else rest
+
+
+def test_webgl_seal_renders_a_centre_readout_and_disposes_it():
+    """The WebGL gauge must show the same centre % as the SVG poster it replaces.
+
+    seal.js holds the SVG poster until three.js arrives, and the poster carries
+    a percentage in its middle. Without a matching readout the gauge reads as a
+    bare ring once WebGL takes over. The readout is also a DOM node appended to
+    the container, so destroy() has to remove it or a re-init leaks a second one.
+    """
+    src = _frontend_text("js", "seal.js")
+
+    assert re.search(r"readoutEl\s*=\s*document\.createElement\(", src), (
+        "seal.js never builds the WebGL centre readout, so the gauge shows a "
+        "ring with no percentage where the SVG poster showed one."
+    )
+    update = re.search(
+        r"function updateReadiness\(percent\) \{(.*?)\n  \}", src, re.DOTALL
+    )
+    assert update, "updateReadiness vanished from seal.js"
+    assert "readoutEl" in update.group(1), (
+        "updateReadiness sets targetPercent but never refreshes the readout, so "
+        "the centre figure freezes at whatever the first render wrote."
+    )
+    destroy = re.search(r"function destroy\(\) \{(.*?)\n  \}", src, re.DOTALL)
+    assert destroy, "destroy vanished from seal.js"
+    assert "readoutEl" in destroy.group(1), (
+        "destroy() leaves the readout node attached, so re-initialising the seal "
+        "stacks a second percentage over the first."
+    )
+
+
+def test_cold_open_subtitle_wraps_instead_of_overflowing():
+    """.cold-open__sub is a flex row of mono caps under the readiness numeral.
+
+    With nowrap on the trailing meta span it cannot break, so on a narrow
+    viewport it overflows the cold open rather than wrapping under the verb pill.
+    """
+    css = _frontend_text("css", "today.css")
+
+    sub = re.search(r"\.cold-open__sub \{(.*?)\}", css, re.DOTALL)
+    assert sub, ".cold-open__sub vanished from today.css"
+    assert "flex-wrap: wrap" in sub.group(1), (
+        ".cold-open__sub cannot wrap, so the readiness meta line overflows the "
+        "cold open on narrow viewports."
+    )
+
+    rest = re.search(r"\.cold-open__meta-rest \{(.*?)\}", css, re.DOTALL)
+    assert rest, ".cold-open__meta-rest vanished from today.css"
+    assert "nowrap" not in rest.group(1), (
+        ".cold-open__meta-rest still forces nowrap, which defeats the wrap on "
+        "its flex parent."
+    )
+
+
+def test_authored_empty_state_is_styled():
+    """showEmptyView emits .empty-state__hint and .empty-state__cta.
+
+    Both classes are created in JS, so if the CSS never defines them the hint
+    renders as unstyled body text and the call-to-action loses its spacing.
+    """
+    css = _frontend_text("css", "views.css")
+    assert ".empty-state__hint" in css, (
+        "views.js emits .empty-state__hint but views.css never styles it."
+    )
+    assert ".empty-state__cta" in css, (
+        "views.js emits .empty-state__cta but views.css never styles it."
+    )
+
+
+@pytest.mark.parametrize(
+    "view,retry",
+    [("loadUpdates", "loadUpdates"), ("loadReview", "loadReview")],
+)
+def test_404_renders_an_authored_empty_state_and_keeps_retry(view, retry):
+    """A 404 on these views means "nothing banked yet", not "the engine broke".
+
+    api.js sets err.status from the response, so the catch can tell an absent
+    ledger from a real failure. The non-404 branch must still hand showError the
+    retry callback -- dropping it there would leave a transient 500 with no way
+    back but a page reload.
+    """
+    src = _views_function(view)
+
+    assert "err.status === 404" in src, (
+        f"{view} treats a 404 like any other failure and shows a raw error "
+        "string where an empty ledger is the normal state."
+    )
+    assert "showEmptyView(" in src, (
+        f"{view} does not fall back to the authored empty state on a 404."
+    )
+
+    else_branch = re.search(r"\} else \{(.*?)\n    \}", src, re.DOTALL)
+    assert else_branch, f"{view} has no non-404 branch, so real errors are swallowed"
+    assert re.search(rf"showError\(content, err\.message, {retry}\)", else_branch.group(1)), (
+        f"{view}'s non-404 path dropped the {retry} callback, so a transient "
+        "failure offers no retry."
+    )
