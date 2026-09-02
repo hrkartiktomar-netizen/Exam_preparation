@@ -9,6 +9,7 @@ import os
 import random
 import re
 import sqlite3
+import threading
 import uuid
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
@@ -978,6 +979,9 @@ def _run_migration_004(conn: sqlite3.Connection | None = None) -> None:
 
 
 _INITIALIZED_DB_PATHS: set[str] = set()
+# Re-entrant: init_db() is called from request handlers, the APScheduler jobs and
+# the daemon threads main.py spawns, all sharing one SQLite file.
+_INIT_LOCK = threading.RLock()
 
 
 def init_db() -> None:
@@ -989,6 +993,17 @@ def init_db() -> None:
     db_key = str(DB_PATH.resolve())
     if db_key in _INITIALIZED_DB_PATHS and DB_PATH.exists():
         return
+    with _INIT_LOCK:
+        # _INITIALIZED_DB_PATHS is only published at the END of the init below, so two
+        # concurrent first-time callers both passed the unlocked check and both ran
+        # _ensure_runtime_schema; the loser died on "duplicate column name: option_e".
+        db_key = str(DB_PATH.resolve())
+        if db_key in _INITIALIZED_DB_PATHS and DB_PATH.exists():
+            return
+        _init_db_uncached(db_key)
+
+
+def _init_db_uncached(db_key: str) -> None:
     conn = get_connection()
     conn.executescript(SCHEMA)
     _ensure_runtime_schema(conn)

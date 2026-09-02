@@ -213,8 +213,9 @@ def _mock_call_json_discovery_two_items(prompt, **kwargs):
     return None
 
 
+@patch("update_tracker.gemini_available", return_value=True)
 @patch("update_tracker.call_json", side_effect=_mock_call_json_discovery_two_items)
-def test_tracker_pipeline(mock_call, temp_db):
+def test_tracker_pipeline(mock_call, mock_avail, temp_db):
     """Discovery returns 2 items -> one VERIFIED, one CONTRADICTED.
     Only VERIFIED persisted as VERIFIED; CONTRADICTED persisted with its status.
     Run row recorded.
@@ -267,8 +268,9 @@ def _mock_call_json_enrich(prompt, **kwargs):
     }
 
 
+@patch("update_tracker.gemini_available", return_value=True)
 @patch("update_tracker.call_json", side_effect=_mock_call_json_enrich)
-def test_enrich_past_amendment_reasons(mock_call, temp_db):
+def test_enrich_past_amendment_reasons(mock_call, mock_avail, temp_db):
     """enrich_past_amendment_reasons creates update rows for known amendments."""
     import update_tracker
 
@@ -370,8 +372,9 @@ def test_enrich_gemini_unavailable(mock_avail, temp_db):
 # ---------------------------------------------------------------------------
 
 
+@patch("update_tracker.gemini_available", return_value=True)
 @patch("update_tracker.call_json", side_effect=_mock_call_json_discovery_two_items)
-def test_verified_calls_record_amendment_contradicted_does_not(mock_call, temp_db):
+def test_verified_calls_record_amendment_contradicted_does_not(mock_call, mock_avail, temp_db):
     """VERIFIED candidates flow into db.record_amendment; CONTRADICTED do not."""
     import update_tracker
 
@@ -390,8 +393,9 @@ def test_verified_calls_record_amendment_contradicted_does_not(mock_call, temp_d
 # ---------------------------------------------------------------------------
 
 
+@patch("update_tracker.gemini_available", return_value=True)
 @patch("update_tracker.call_json", side_effect=_mock_call_json_discovery_two_items)
-def test_dedupe_on_second_run(mock_call, temp_db):
+def test_dedupe_on_second_run(mock_call, mock_avail, temp_db):
     """Running the pipeline twice with same discovery results should not duplicate rows."""
     import update_tracker
 
