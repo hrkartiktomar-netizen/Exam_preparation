@@ -1997,3 +1997,77 @@ def test_ticker_readiness_and_srs_cells_are_fed_from_their_own_endpoints():
         "plus the readiness and SRS results, because the dashboard carries "
         "neither readiness_percentage nor an SRS due count."
     )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 27. The Today sparkline must read a score history that actually exists
+#
+# renderProof(dashData) drew its sparkline from data.score_history. /api/dashboard
+# is serialised through DashboardStatsModel, which declares no such field, so the
+# guard `sparkEl && data.score_history && data.score_history.length > 1` was never
+# truthy and the polyline was never appended -- the Proof section rendered an empty
+# SVG for every user, including ones with a dozen submitted mocks.
+#
+# The real source is /api/analytics/timeline (list[AnalyticsTimelineModel], carrying
+# score and created_at), which API.timeline() in api.js already wraps. Only the
+# sparkline is pinned here: the sibling scatter reads data.recent_attempts, and no
+# endpoint anywhere returns per-attempt time_spent/is_correct, so a blanket check
+# would force deleting a chart that is honestly waiting on a backend feed.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def test_proof_sparkline_is_fed_from_the_timeline_endpoint():
+    """renderProof must be handed the timeline, not just the dashboard payload."""
+    api_js = _frontend_text("js", "api.js")
+    assert "timeline:" in api_js, (
+        "api.js no longer exposes timeline(), so the sparkline has no score "
+        "history to read"
+    )
+
+    loader = _today_function("loadData")
+    assert "API.timeline()" in loader, (
+        "loadData never fetches /api/analytics/timeline, so the Proof sparkline "
+        "has no score history and stays an empty SVG no matter how many mocks "
+        "the user has submitted."
+    )
+
+    call = re.search(r"renderProof\(([^)]*)\)", loader)
+    assert call, "loadData stopped calling renderProof, so the Proof section is dead"
+    args = [a.strip() for a in call.group(1).split(",") if a.strip()]
+    assert len(args) == 2, (
+        f"renderProof is called with {args}; it needs the dashboard payload plus "
+        "the timeline result, because the dashboard declares no score history."
+    )
+
+
+def test_proof_sparkline_reads_only_declared_timeline_fields():
+    """Every timeline property the sparkline reads must exist on the model.
+
+    The allowed set comes from AnalyticsTimelineModel rather than a hardcoded
+    list, so renaming a field fails here instead of drawing a flat line at zero.
+    """
+    from models import AnalyticsTimelineModel
+
+    declared = set(AnalyticsTimelineModel.model_fields)
+    # Stops the assertion passing because both sides went empty.
+    assert {"score", "created_at"} <= declared, (
+        f"AnalyticsTimelineModel no longer declares score/created_at: {sorted(declared)}"
+    )
+
+    src = _today_function("renderProof")
+    assert "score_history" not in src, (
+        "renderProof still reads score_history, a field /api/dashboard never "
+        "returns. The length guard hides the miss, so the sparkline silently "
+        "renders nothing instead of failing loudly."
+    )
+
+    read = set(re.findall(r"\bentry\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no timeline field reads found, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"renderProof reads {undeclared} from /api/analytics/timeline, but "
+        f"AnalyticsTimelineModel only returns {sorted(declared)}. Undefined "
+        "fields fall through `|| 0`, so every point collapses onto the baseline "
+        "and the sparkline draws a flat line that reads as a real score trend."
+    )

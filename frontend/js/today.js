@@ -337,7 +337,9 @@
   }
 
   /* ────── A10-A12: Proof Section ────── */
-  function renderProof(data) {
+  // The score history is not a dashboard field, so it arrives from
+  // /api/analytics/timeline; reading it off `data` left the sparkline empty.
+  function renderProof(data, timeline) {
     // Scatter plot
     var scatterEl = qs("[data-chart='scatter'] svg");
     if (scatterEl && data.recent_attempts && data.recent_attempts.length) {
@@ -374,16 +376,18 @@
 
     // Sparkline
     var sparkEl = qs("[data-chart='sparkline'] svg");
-    if (sparkEl && data.score_history && data.score_history.length > 1) {
+    // get_analytics_timeline orders by generated_at DESC, so the array arrives
+    // newest-first and has to be flipped before it is plotted left to right.
+    var scores = (timeline || []).slice().reverse();
+    if (sparkEl && scores.length > 1) {
       var sw = 500, sh = 150;
       sparkEl.setAttribute("viewBox", "0 0 " + sw + " " + sh);
       sparkEl.innerHTML = "";
 
-      var scores = data.score_history;
-      var maxScore = Math.max.apply(null, scores.map(function (s) { return s.score || 0; }));
-      var points = scores.map(function (s, i) {
+      var maxScore = Math.max.apply(null, scores.map(function (entry) { return entry.score || 0; }));
+      var points = scores.map(function (entry, i) {
         var x = 20 + (i / (scores.length - 1)) * (sw - 40);
-        var y = sh - 20 - ((s.score || 0) / (maxScore || 1)) * (sh - 40);
+        var y = sh - 20 - ((entry.score || 0) / (maxScore || 1)) * (sh - 40);
         return x + "," + y;
       }).join(" ");
 
@@ -733,6 +737,7 @@
         API.topicStats(),
         API.lawDaily(),
         API.srsDue(),
+        API.timeline(),
       ]);
 
       dashData = results[0].status === "fulfilled" ? results[0].value : null;
@@ -741,6 +746,7 @@
       var topicData = results[3].status === "fulfilled" ? results[3].value : null;
       lawData = results[4].status === "fulfilled" ? results[4].value : null;
       var srsDueData = results[5].status === "fulfilled" ? results[5].value : null;
+      var timelineData = results[6].status === "fulfilled" ? results[6].value : null;
 
       // A01: Counter
       var readinessPercent = 0;
@@ -781,7 +787,7 @@
       renderQuietBeat(lawData);
 
       // A10-A12: Proof
-      if (dashData) renderProof(dashData);
+      if (dashData) renderProof(dashData, timelineData);
 
       // A15: Burst
       burstTopicStats = topicData ? (Array.isArray(topicData) ? topicData : topicData.topics || []) : [];
