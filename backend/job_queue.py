@@ -10,11 +10,18 @@ import json
 import sqlite3
 import uuid
 from datetime import datetime
-from pathlib import Path
 from typing import Any
 
-BACKEND_DIR = Path(__file__).resolve().parent
-DB_PATH = BACKEND_DIR / "ifsca_exam.db"
+# Every connection below reads database.DB_PATH at call time instead of caching it
+# in a module constant: tests rebind db.DB_PATH to isolate their writes, and a
+# constant captured at import would silently send those writes to the real
+# database file.
+#
+# Every connection also sets PRAGMA busy_timeout = 30000, mirroring
+# database.get_connection(). A bare sqlite3.connect() defaults to only a 5-second
+# busy timeout, which is shorter than the write contention window created by the
+# scheduler job, the amendment poller and the request handlers all sharing this
+# one SQLite file.
 
 # Job types and their executors
 JOB_TYPES = {
@@ -32,8 +39,9 @@ JOB_STATUS_FAILED = "failed"
 
 def init_job_queue_schema() -> None:
     """Create job queue tables if not exist."""
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(db.DB_PATH)
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA busy_timeout = 30000")
     try:
         conn.executescript("""
             CREATE TABLE IF NOT EXISTS job_queue (
@@ -69,8 +77,9 @@ def enqueue_job(
 ) -> str:
     """Enqueue a new job."""
     job_id = str(uuid.uuid4())
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(db.DB_PATH)
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA busy_timeout = 30000")
     try:
         conn.execute(
             """
@@ -94,8 +103,9 @@ def enqueue_job(
 
 def get_pending_jobs(limit: int = 10) -> list[dict[str, Any]]:
     """Get pending jobs."""
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(db.DB_PATH)
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA busy_timeout = 30000")
     try:
         rows = conn.execute(
             """
@@ -113,7 +123,8 @@ def get_pending_jobs(limit: int = 10) -> list[dict[str, Any]]:
 
 def mark_job_running(job_id: str) -> None:
     """Mark job as running."""
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(db.DB_PATH)
+    conn.execute("PRAGMA busy_timeout = 30000")
     try:
         conn.execute(
             """
@@ -130,7 +141,8 @@ def mark_job_running(job_id: str) -> None:
 
 def mark_job_complete(job_id: str, result: dict[str, Any]) -> None:
     """Mark job as complete."""
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(db.DB_PATH)
+    conn.execute("PRAGMA busy_timeout = 30000")
     try:
         conn.execute(
             """
@@ -147,7 +159,8 @@ def mark_job_complete(job_id: str, result: dict[str, Any]) -> None:
 
 def mark_job_failed(job_id: str, error_message: str) -> None:
     """Mark job as failed."""
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(db.DB_PATH)
+    conn.execute("PRAGMA busy_timeout = 30000")
     try:
         row = conn.execute(
             "SELECT retry_count, max_retries FROM job_queue WHERE job_id = ?",

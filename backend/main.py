@@ -178,6 +178,7 @@ async def lifespan(app: FastAPI):
         name="Daily Amendment Poll (3am UTC)",
         coalesce=True,
         max_instances=1,
+        misfire_grace_time=300,
     )
     scheduler.add_job(
         job_queue.process_queue,
@@ -186,6 +187,7 @@ async def lifespan(app: FastAPI):
         name="Job Queue Processor (every 15 min)",
         coalesce=True,
         max_instances=1,
+        misfire_grace_time=300,
     )
     # Plan v6 4.6: idle verifier. verify_unverified_questions is quota-aware and
     # stops safely when Gemini is unavailable, so it is safe to schedule.
@@ -196,6 +198,7 @@ async def lifespan(app: FastAPI):
         name="Question Verifier (every 30 min)",
         coalesce=True,
         max_instances=1,
+        misfire_grace_time=300,
     )
     # Autonomous agentic update tracker (plan v6, multi-model phase B)
     _tracker_interval_hours = int(os.getenv("UPDATE_TRACK_INTERVAL_HOURS", "6"))
@@ -206,6 +209,7 @@ async def lifespan(app: FastAPI):
         name="Update Tracker Agent",
         coalesce=True,
         max_instances=1,
+        misfire_grace_time=300,
     )
     scheduler.start()
     app.state.scheduler = scheduler
@@ -1012,6 +1016,28 @@ async def quarantine_low_quality_questions(min_quality: float = Query(default=0.
     result = db.quarantine_low_quality_questions(min_quality=min_quality)
     app.state.question_quarantine = result
     return result
+
+
+# Must stay registered BEFORE "/api/questions/{question_id}": Starlette matches
+# routes in registration order, so a later literal /search would be captured as
+# question_id="search" and answer 404 "Question not found".
+@app.get("/api/questions/search", response_model=SourceSearchResponseModel)
+async def search_questions(
+    query: str,
+    topic_id: str | None = Query(default=None),
+    limit: int = Query(default=10, ge=1, le=50),
+):
+    """Full-text search questions and return by authority score."""
+    if not query or not query.strip():
+        return {"query": query, "topic_id": topic_id, "total": 0, "results": []}
+    topic = topic_id.upper() if topic_id else None
+    results = db.search_sources(query, topic_id=topic, limit=limit)
+    return {
+        "query": query,
+        "topic_id": topic,
+        "total": len(results),
+        "results": results,
+    }
 
 
 @app.get("/api/questions/{question_id}", response_model=QuestionModel)
@@ -2591,21 +2617,6 @@ async def get_source_chunk(chunk_id: str):
     if not source:
         return {"status": "not_found", "chunk_id": chunk_id}
     return {"status": "found", "chunk_id": chunk_id, "source": source, "citation_note": source.get("citation_note")}
-
-
-@app.get("/api/questions/search", response_model=SourceSearchResponseModel)
-async def search_questions(query: str, topic_id: str | None = None, limit: int = 10):
-    """Full-text search questions and return by authority score."""
-    if not query or not query.strip():
-        return {"query": query, "topic_id": topic_id, "total": 0, "results": []}
-    topic = topic_id.upper() if topic_id else None
-    results = db.search_sources(query, topic_id=topic, limit=limit)
-    return {
-        "query": query,
-        "topic_id": topic,
-        "total": len(results),
-        "results": results,
-    }
 
 
 @app.get("/api/sources/distribution-by-topic", response_model=dict[str, Any])

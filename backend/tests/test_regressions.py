@@ -460,3 +460,69 @@ def test_pyq_cache_ttl_covers_full_exam():
     import pyq_cache
 
     assert pyq_cache._CACHE_TTL_SECONDS >= 3600, "cache must outlive the 60-minute exam timer"
+
+
+# ---------------------------------------------------------------------------
+# 9. /api/questions/search must not be shadowed by /api/questions/{question_id}
+# ---------------------------------------------------------------------------
+
+def test_questions_search_route_is_not_shadowed_by_question_id(temp_db):
+    """Starlette resolves routes in registration order.
+
+    /api/questions/search was registered ~1,579 lines after
+    /api/questions/{question_id}, so the literal segment "search" was captured as
+    a question_id and every call fell into that handler's not-found branch,
+    returning 404 "Question not found". The search endpoint was dead code.
+    """
+    import main
+
+    client = TestClient(main.app)
+
+    # A missing required `query` can only produce a 422 from the search handler's
+    # own signature; the {question_id} handler has no required query param and
+    # would answer 404 instead. This makes the check independent of DB contents.
+    missing_param = client.get("/api/questions/search")
+    assert missing_param.status_code == 422, (
+        f"expected a 422 from the search handler's required `query` param, "
+        f"got {missing_param.status_code}: {missing_param.text}"
+    )
+
+    response = client.get("/api/questions/search", params={"query": "IFSCA"})
+    shadowed = response.status_code == 404 and response.json().get("detail") == "Question not found"
+    assert not shadowed, (
+        f"/api/questions/search was swallowed by /api/questions/{{question_id}}: {response.text}"
+    )
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload["query"] == "IFSCA"
+    assert payload["total"] == len(payload["results"])
+
+
+# ---------------------------------------------------------------------------
+# 10. job_queue must honour a patched database.DB_PATH (test isolation)
+# ---------------------------------------------------------------------------
+
+def test_job_queue_schema_respects_patched_db_path(temp_db):
+    """job_queue resolved its own DB_PATH constant at import time.
+
+    The temp_db fixture rebinds database.DB_PATH only, so init_job_queue_schema()
+    -- reached from the lifespan during `with TestClient(app)` -- created the
+    job_queue table in the real backend/ifsca_exam.db rather than the temp DB.
+    Tests mutated the production database and leaked state between runs.
+    """
+    import job_queue
+
+    job_queue.init_job_queue_schema()
+
+    conn = sqlite3.connect(temp_db)
+    try:
+        row = conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name='job_queue'"
+        ).fetchone()
+    finally:
+        conn.close()
+
+    assert row is not None, (
+        "job_queue.init_job_queue_schema() ignored database.DB_PATH and wrote to "
+        "the production database file instead of the test database"
+    )
