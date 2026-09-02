@@ -572,6 +572,75 @@
   }
 
   /* ────── Results View ────── */
+
+  /* The two post-attempt PYQ endpoints compose: /api/pyq/analytics lists the
+     last ten completed attempts and yields their pyq_ids, and
+     /api/pyq/{id}/answers reveals the model answers for one of them. The reveal
+     is fetched on first expand, not up front -- ten attempts of up to 50
+     questions each is a lot of payload for a list the user may never open. */
+  function renderPyqAttempts(container, attempts) {
+    container.innerHTML =
+      '<div class="view-eyebrow">PYQ ATTEMPTS · ' + attempts.length + ' RECORDED</div>' +
+      attempts.map(function (a) {
+        var attempted = a.questions_attempted || 0;
+        var correct = a.correct_count || 0;
+        return '<div class="wrong-item" data-pyq-id="' + esc(a.pyq_id) + '">' +
+          '<div class="wrong-item__header">' +
+            '<div class="wrong-item__question">' + esc(a.pyq_title || a.pyq_id) + '</div>' +
+            '<span class="wrong-item__toggle">▼</span>' +
+          '</div>' +
+          '<div class="wrong-item__body"><div class="wrong-item__detail">' +
+            '<div class="wrong-item__correct">' + correct + ' / ' + attempted + ' CORRECT</div>' +
+            '<div class="wrong-item__topic">SCORE ' + esc(a.score) + ' · ACCURACY ' + esc(a.accuracy) + '%</div>' +
+            '<div class="wrong-item__source">Expand to reveal the model answers</div>' +
+          '</div></div>' +
+          '</div>';
+      }).join("");
+
+    qsa(".wrong-item__header", container).forEach(function (header) {
+      header.addEventListener("click", function () {
+        var item = header.parentElement;
+        item.classList.toggle("is-open");
+        if (item.classList.contains("is-open") && !item.dataset.revealed) {
+          item.dataset.revealed = "1";
+          revealPyqAnswers(item);
+        }
+      });
+    });
+  }
+
+  async function revealPyqAnswers(item) {
+    var detail = qs(".wrong-item__detail", item);
+    // The hint ("Expand to reveal...") and any previous fetch error both live in
+    // a .wrong-item__source line; dropping it keeps the expanded body from
+    // showing a stale instruction or stacking errors across retries.
+    var stale = qs(".wrong-item__source", detail);
+    if (stale) stale.remove();
+    try {
+      var data = await API.pyqAnswers(item.dataset.pyqId);
+      var answers = (data && data.answers) || [];
+      var reveal = answers.length
+        ? '<div class="pyq-reveal">' + answers.map(function (a) {
+            return '<div class="pyq-reveal__row" ' + (a.is_correct === 1 ? 'data-pass' : 'data-fail') + '>' +
+              '<span>Q' + esc(a.question_number) + '</span>' +
+              '<span>YOU ' + esc(a.selected_answer || "—") + '</span>' +
+              '<span>KEY ' + esc(a.official_answer || "—") + '</span>' +
+              '<span>' + esc(a.time_spent_seconds || 0) + 's</span>' +
+              '</div>';
+          }).join("") + '</div>'
+        : '<div class="wrong-item__source">No per-question rows were stored for this attempt.</div>';
+      detail.insertAdjacentHTML("beforeend", reveal);
+    } catch (err) {
+      // Clearing the flag lets a second click retry instead of leaving the row
+      // permanently stuck on the error text.
+      delete item.dataset.revealed;
+      detail.insertAdjacentHTML(
+        "beforeend",
+        '<div class="wrong-item__source">' + esc(err.message) + '</div>'
+      );
+    }
+  }
+
   async function loadResults() {
     if (loaded.results) return;
     var content = qs("#results-content");
@@ -579,37 +648,53 @@
 
     showLoading(content);
     try {
-      var timeline = await API.timeline();
+      var settled = await Promise.all([API.timeline(), API.pyqAnalytics()]);
+      var timeline = settled[0];
       var entries = Array.isArray(timeline) ? timeline : timeline.entries || [];
+      var attempts = (settled[1] && settled[1].attempts) || [];
 
-      if (!entries.length) { showEmpty(content, "No exam history yet. Complete a mock to see results."); return; }
+      // Guarding on entries alone used to blank the whole view, so a user who had
+      // sat PYQ papers but no mock was told they had no history at all.
+      if (!entries.length && !attempts.length) {
+        showEmpty(content, "No exam history yet. Complete a mock or a PYQ paper to see results.");
+        return;
+      }
 
       content.innerHTML =
-        '<div class="view-eyebrow">§08 · EXAMINATION RESULTS · ' + entries.length + ' ENTRIES</div>' +
-        '<div class="results-timeline" id="results-timeline"></div>' +
-        '<div class="results-gate" id="results-gate"></div>';
+        (entries.length
+          ? '<div class="view-eyebrow">§08 · EXAMINATION RESULTS · ' + entries.length + ' ENTRIES</div>' +
+            '<div class="results-timeline" id="results-timeline"></div>' +
+            '<div class="results-gate" id="results-gate"></div>'
+          : '') +
+        (attempts.length ? '<div class="results-pyq" id="results-pyq"></div>' : '');
 
-      // Timeline bars
-      var timelineEl = qs("#results-timeline", content);
-      var maxScore = Math.max.apply(null, entries.map(function (e) { return e.score || e.percentage || 0; }));
-      timelineEl.innerHTML = entries.map(function (e) {
-        var pct = maxScore > 0 ? ((e.score || e.percentage || 0) / maxScore) * 100 : 0;
-        var pass = pct >= 60;
-        return '<div class="results-bar" ' + (pass ? 'data-pass' : 'data-fail') + ' style="height:' + Math.max(pct, 4) + '%">' +
-          '<span class="results-bar__label">' + (e.date || "").substring(5, 10) + '</span>' +
-          '</div>';
-      }).join("");
+      if (entries.length) {
+        // Timeline bars
+        var timelineEl = qs("#results-timeline", content);
+        var maxScore = Math.max.apply(null, entries.map(function (e) { return e.score || e.percentage || 0; }));
+        timelineEl.innerHTML = entries.map(function (e) {
+          var pct = maxScore > 0 ? ((e.score || e.percentage || 0) / maxScore) * 100 : 0;
+          var pass = pct >= 60;
+          return '<div class="results-bar" ' + (pass ? 'data-pass' : 'data-fail') + ' style="height:' + Math.max(pct, 4) + '%">' +
+            '<span class="results-bar__label">' + (e.date || "").substring(5, 10) + '</span>' +
+            '</div>';
+        }).join("");
 
-      // Gate vis
-      var gateEl = qs("#results-gate", content);
-      var lastEntry = entries[entries.length - 1] || {};
-      var p1 = lastEntry.paper1_score || lastEntry.score || 0;
-      var p2 = lastEntry.paper2_score || 0;
-      var agg = p1 + p2;
-      gateEl.innerHTML =
-        '<div class="results-gate__item"><div class="results-gate__value" ' + (p1 >= 40 ? 'data-pass' : 'data-fail') + '>' + p1 + '</div><div class="results-gate__label">PAPER I</div></div>' +
-        '<div class="results-gate__item"><div class="results-gate__value" ' + (p2 >= 40 ? 'data-pass' : 'data-fail') + '>' + p2 + '</div><div class="results-gate__label">PAPER II</div></div>' +
-        '<div class="results-gate__item"><div class="results-gate__value" ' + (agg >= 130 ? 'data-pass' : 'data-fail') + '>' + agg + '</div><div class="results-gate__label">AGGREGATE</div></div>';
+        // Gate vis
+        var gateEl = qs("#results-gate", content);
+        var lastEntry = entries[entries.length - 1] || {};
+        var p1 = lastEntry.paper1_score || lastEntry.score || 0;
+        var p2 = lastEntry.paper2_score || 0;
+        var agg = p1 + p2;
+        gateEl.innerHTML =
+          '<div class="results-gate__item"><div class="results-gate__value" ' + (p1 >= 40 ? 'data-pass' : 'data-fail') + '>' + p1 + '</div><div class="results-gate__label">PAPER I</div></div>' +
+          '<div class="results-gate__item"><div class="results-gate__value" ' + (p2 >= 40 ? 'data-pass' : 'data-fail') + '>' + p2 + '</div><div class="results-gate__label">PAPER II</div></div>' +
+          '<div class="results-gate__item"><div class="results-gate__value" ' + (agg >= 130 ? 'data-pass' : 'data-fail') + '>' + agg + '</div><div class="results-gate__label">AGGREGATE</div></div>';
+      }
+
+      if (attempts.length) {
+        renderPyqAttempts(qs("#results-pyq", content), attempts);
+      }
 
       loaded.results = true;
     } catch (err) {

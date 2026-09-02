@@ -1518,7 +1518,13 @@ def _format_bank_session(doc: dict[str, Any], rows: list[dict[str, Any]], title:
         )
     marks = rows[0].get("marks") if rows else 1
     negative = round((marks or 1) * 0.25, 4)
-    pyq_cache.cache_pyq_questions(pyq_id, parsed, marks_per_question=marks, negative_marking_per_wrong=negative)
+    pyq_cache.cache_pyq_questions(
+        pyq_id,
+        parsed,
+        marks_per_question=marks,
+        negative_marking_per_wrong=negative,
+        title=title,
+    )
 
     formatted_questions = []
     for pq in parsed:
@@ -1728,13 +1734,13 @@ async def submit_pyq_attempt(pyq_id: str, request: MockSubmitRequestModel):
             # pyq_source_doc_id stays 0 (placeholder): the legacy FK to
             # source_documents was removed by _repair_pyq_schema in database.py.
             session_id = pyq_id
-            # Carry the paper title into the session row (PYQ_DOC{doc_id} -> documents.title)
-            doc_id = pyq_id.removeprefix("PYQ_DOC")
-            title_row = conn.execute(
-                "SELECT title FROM documents WHERE document_id = ? LIMIT 1",
-                (doc_id,),
-            ).fetchone()
-            pyq_title = title_row["title"] if title_row else pyq_id
+            # The title the handler minted when it built this session is the only
+            # readable name for it. It used to be looked up in documents, but
+            # documents.document_id holds ids like 'doc_ifsca_act_2019' -- a
+            # different namespace from PYQ ids like 'IFSCA_2024_P2_PAPER2' -- so
+            # that query never matched and pyq_title silently stored the cache
+            # key, which /api/pyq/analytics then published as the display name.
+            pyq_title = pyq_cache.get_pyq_title(pyq_id) or pyq_id
             conn.execute(
                 """
                 INSERT INTO pyq_sessions

@@ -1162,3 +1162,104 @@ def test_pyq_drill_cache_key_is_stable_per_request_and_not_a_random_row(temp_db)
             f"drill id {session['pyq_id']!r} is parseable as a real paper, so it "
             f"could collide with /api/pyq/{{doc_id}}/load"
         )
+
+
+# ---------------------------------------------------------------------------
+# 18. The PYQ post-attempt read path must report a title, not a cache key
+# ---------------------------------------------------------------------------
+
+# submit_pyq_attempt resolves pyq_title with
+#     SELECT title FROM documents WHERE document_id = pyq_id.removeprefix("PYQ_DOC")
+# but documents.document_id holds values like 'doc_ifsca_act_2019' -- a different
+# namespace from PYQ doc ids like 'IFSCA_2024_P2_PAPER2'. The lookup returns no
+# row for any PYQ session, so pyq_title always falls back to the raw cache key.
+# Confirmed against the live database: its one pyq_sessions row stores
+# pyq_title == 'PYQ_DOCIFSCA_2024_P2_PAPER2'.
+#
+# /api/pyq/analytics publishes pyq_title as the attempt's display name, so
+# anything rendering that list shows cache keys. The real title already exists:
+# _format_bank_session is handed one and returns it, it is simply never carried
+# into the cache that submit later reads.
+_SITTING_TITLE = "IFSCA Grade A 2024 - Phase 1 sitting"
+
+
+def test_pyq_session_stores_a_readable_title_not_the_cache_key(temp_db):
+    """pyq_sessions.pyq_title must be the title the load response advertised."""
+    _seed_sitting()
+    client = _sitting_client()
+
+    response = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "exam": "IFSCA", "limit": 50}
+    )
+    assert response.status_code == 200, response.text
+    session = response.json()
+    assert session["title"] == _SITTING_TITLE, session["title"]
+
+    # Every seeded row is correct at 'A', so q1 right and q2 wrong is exact:
+    # marks 1, negative 0.25 -> raw 1.0, penalty 0.25, final 0.75.
+    submit_response = _submit(client, session["pyq_id"], {1: "A", 2: "B"})
+    assert submit_response.status_code == 200, submit_response.text
+
+    conn = _conn()
+    try:
+        row = conn.execute(
+            "SELECT pyq_id, pyq_title, score, accuracy, total_questions, status "
+            "FROM pyq_sessions WHERE pyq_id = ?",
+            (session["pyq_id"],),
+        ).fetchone()
+    finally:
+        # A leaked handle keeps the temp .db open and the fixture's unlink then
+        # raises PermissionError on Windows.
+        conn.close()
+    assert row is not None, "submit wrote no pyq_sessions row"
+    assert row["pyq_title"] == _SITTING_TITLE, (
+        f"pyq_sessions stored pyq_title={row['pyq_title']!r}, the in-process "
+        f"cache key, instead of the title {session['title']!r} that "
+        f"/api/pyq/sitting advertised for this attempt"
+    )
+    assert row["status"] == "completed", row["status"]
+    assert row["score"] == 0.75, row["score"]
+    assert row["accuracy"] == 20.0, row["accuracy"]
+
+
+def test_pyq_analytics_and_answer_reveal_report_the_completed_attempt(temp_db):
+    """The two post-attempt endpoints must agree with what submit persisted."""
+    _seed_sitting()
+    client = _sitting_client()
+
+    session = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "exam": "IFSCA", "limit": 50}
+    ).json()
+    pyq_id = session["pyq_id"]
+    submit_response = _submit(client, pyq_id, {1: "A", 2: "B"})
+    assert submit_response.status_code == 200, submit_response.text
+    submitted = submit_response.json()
+    assert submitted["total_correct"] == 1, submitted
+    assert submitted["total_wrong"] == 1, submitted
+
+    analytics = client.get("/api/pyq/analytics")
+    assert analytics.status_code == 200, analytics.text
+    payload = analytics.json()
+    assert payload["status"] == "ok", payload
+    assert payload["total_pyq_attempts"] == 1, payload
+    attempt = payload["attempts"][0]
+    assert attempt["pyq_id"] == pyq_id, attempt
+    assert attempt["pyq_title"] == _SITTING_TITLE, (
+        f"/api/pyq/analytics advertised pyq_title={attempt['pyq_title']!r}; the "
+        f"results list this feeds would show a cache key instead of a paper name"
+    )
+    assert attempt["score"] == 0.75, attempt
+    assert attempt["accuracy"] == 20.0, attempt
+    assert attempt["questions_attempted"] == 2, attempt
+    assert attempt["correct_count"] == 1, attempt
+
+    reveal = client.get(f"/api/pyq/{pyq_id}/answers")
+    assert reveal.status_code == 200, reveal.text
+    answers = reveal.json()["answers"]
+    assert [a["question_number"] for a in answers] == [1, 2], answers
+    # The reveal is the one place the official answer may be published: the
+    # attempt is already graded and cached answers cleared.
+    assert all(a["official_answer"] == "A" for a in answers), answers
+    assert [a["selected_answer"] for a in answers] == ["A", "B"], answers
+    assert [a["is_correct"] for a in answers] == [1, 0], answers
+    assert all(a["time_spent_seconds"] == 5 for a in answers), answers

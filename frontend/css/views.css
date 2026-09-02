@@ -488,6 +488,38 @@
   text-transform: uppercase;
 }
 
+.results-pyq { margin-top: var(--sp-9); }
+
+/* The attempts list reuses the .wrong-item accordion shell, which animates its
+   open body to a fixed 600px. A whole sitting's model answers run past that and
+   would be clipped, so the cap is lifted here. max-height:none cannot be
+   transitioned to, so these rows snap open instead of easing. */
+.results-pyq .wrong-item.is-open .wrong-item__body { max-height: none; }
+
+.pyq-reveal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+}
+
+.pyq-reveal__row {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: baseline;
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  line-height: var(--lh-mono);
+  color: var(--ink-3);
+  padding: var(--sp-2);
+  background: var(--canvas-deep);
+  border-left: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-2);
+}
+
+.pyq-reveal__row[data-pass] { border-left-color: var(--signal); }
+.pyq-reveal__row[data-fail] { border-left-color: var(--danger); }
+
 /* ── Shared View Components ─────────────────────────────────── */
 
 /* Section title (used in all views) */
