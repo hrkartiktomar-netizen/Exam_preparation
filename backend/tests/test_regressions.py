@@ -2071,3 +2071,122 @@ def test_proof_sparkline_reads_only_declared_timeline_fields():
         "fields fall through `|| 0`, so every point collapses onto the baseline "
         "and the sparkline draws a flat line that reads as a real score trend."
     )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 28. The §05 SRS list must read the fields /api/srs/due-topics actually sends
+#
+# loadTracker rendered each due row as `item.topic || item.topic_name || "—"` and
+# `item.due_date || "TODAY"`. The route is response_model=list[SRSTopicModel],
+# which declares topic_id / display_name / due_at and strips everything else, so
+# all three reads were undefined: every row printed an em-dash where the topic
+# belongs and "TODAY" for the date. get_due_topics() admits rows due *before*
+# today (`DATE(r.due_at) <= DATE(?)`), so "TODAY" was not even a safe
+# approximation -- an item overdue by a week claimed it fell due today.
+#
+# Same family as §26 and §27: the `||` fallback turns a contract miss into a
+# confident-looking wrong value instead of an error, so the suite stayed green
+# while the tab rendered nothing usable.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _seed_due_review_item(topic_id: str, due_at: str) -> None:
+    """A topic review that fell due in the past -- the overdue case §05 must show."""
+    conn = _conn()
+    try:
+        conn.execute(
+            """
+            INSERT INTO review_items
+            (review_id, item_type, item_id, topic_id, due_at, interval_days, ease)
+            VALUES (?, 'topic', ?, ?, ?, 3, 2.5)
+            """,
+            (f"SRS_{topic_id}_TEST", topic_id, topic_id, due_at),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def test_srs_due_topics_publishes_a_display_name_and_a_due_date(temp_db):
+    """Ground truth for the source contract below.
+
+    Asserting the ghosts are *absent* matters as much as the real keys: if the
+    route ever started publishing `topic`/`due_date`, the views.js test would
+    pass for the wrong reason and hide a second contract.
+    """
+    _seed_due_review_item("PH2_FM_REGS", "2026-08-01T09:00:00.000000")
+
+    response = _sitting_client().get("/api/srs/due-topics")
+
+    assert response.status_code == 200, response.text
+    rows = response.json()
+    assert len(rows) == 1, f"the seeded overdue item was not returned: {rows}"
+    row = rows[0]
+    assert row.get("display_name"), (
+        f"the due row carries no display_name, so §05 has nothing to label it "
+        f"with: {row}"
+    )
+    assert row.get("due_at", "").startswith("2026-08-01"), (
+        f"due_at={row.get('due_at')!r}, so the list cannot show when this review "
+        f"fell due"
+    )
+    for ghost in ("topic", "topic_name", "due_date"):
+        assert ghost not in row, (
+            f"/api/srs/due-topics unexpectedly published {ghost!r}; the views.js "
+            f"contract test below would then pass for the wrong reason"
+        )
+
+
+def test_tracker_srs_rows_read_only_declared_srs_fields():
+    """Every SRS property loadTracker reads must exist on SRSTopicModel.
+
+    The allowed set comes from the model rather than a hardcoded list, so
+    renaming a field fails here instead of rendering em-dashes in the browser.
+    Keyed on `item.` alone: the sibling heat-grid callback binds `t.` and reads
+    /api/topics/weak, a different untyped contract.
+    """
+    from models import SRSTopicModel
+
+    declared = set(SRSTopicModel.model_fields)
+    # Stops the assertion passing because both sides went empty.
+    assert {"display_name", "due_at", "topic_id"} <= declared, (
+        f"SRSTopicModel no longer declares the fields §05 needs: {sorted(declared)}"
+    )
+
+    src = _views_function("loadTracker")
+    read = set(re.findall(r"\bitem\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no SRS field reads found, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"loadTracker reads {undeclared} from /api/srs/due-topics, but "
+        f"SRSTopicModel only returns {sorted(declared)}. Undefined fields fall "
+        "through `||`, so every SRS row prints an em-dash for its topic and "
+        '"TODAY" for its due date -- including items that fell due days ago.'
+    )
+
+
+def test_tracker_srs_due_label_is_the_real_date_not_a_hardcoded_today():
+    """The due cell must show a date derived from due_at.
+
+    due_at is a required str on SRSTopicModel carrying a full ISO timestamp
+    (`datetime.isoformat()`), so it has to be truncated to the date the way §06
+    already does, and it can never legitimately be absent -- a `|| "TODAY"`
+    fallback would only ever mask a contract miss with a false claim.
+    """
+    src = _views_function("loadTracker")
+
+    assert '"TODAY"' not in src, (
+        '§05 still hardcodes "TODAY" in the due cell, so an item overdue by a '
+        "week reports that it fell due today."
+    )
+    due = re.search(r'srs-item__due">(.*?)</span>', src, re.DOTALL)
+    assert due, "the srs-item__due cell vanished from loadTracker"
+    assert "due_at" in due.group(1), (
+        "the due cell does not read due_at, so it cannot show when the review "
+        "fell due."
+    )
+    assert "substring(0, 10)" in due.group(1), (
+        "due_at is a full ISO timestamp; without truncation the cell prints "
+        "'2026-08-01T09:00:00.000000' instead of the date."
+    )

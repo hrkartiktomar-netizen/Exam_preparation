@@ -471,9 +471,12 @@
       var srsList = qs("#srs-list", content);
       if (srsList && Array.isArray(srsDue) && srsDue.length) {
         srsList.innerHTML = srsDue.map(function (item) {
+          // display_name is nullable (get_due_topics LEFT JOINs topics), so
+          // topic_id is a real fallback rather than dead weight. due_at is a full
+          // ISO timestamp, hence the same date slice §06 uses.
           return '<div class="srs-item">' +
-            '<span class="srs-item__topic">' + (item.topic || item.topic_name || "—") + '</span>' +
-            '<span class="srs-item__due">' + (item.due_date || "TODAY") + '</span>' +
+            '<span class="srs-item__topic">' + esc(item.display_name || item.topic_id) + '</span>' +
+            '<span class="srs-item__due">' + esc(item.due_at.substring(0, 10)) + '</span>' +
             '</div>';
         }).join("");
       }
