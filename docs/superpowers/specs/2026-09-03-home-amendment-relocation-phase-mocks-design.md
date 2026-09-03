@@ -196,9 +196,36 @@ counts them. The eyebrow count becomes honest (28 rather than 39).
 
 - Accepts a **basename only**, must end in `.md`.
 - Any separator, `..`, absolute path, or other extension → **404**.
-- Resolved against a dict built by walking allowlisted `source_documents/md/**`.
+- Resolved against a dict built by walking allowlisted `source_documents/md/**` — 211 files
+  confirmed across 10 bucket directories, with **zero basename collisions** (verified with
+  `sort | uniq -d`), so a basename is a safe unique key.
 - Returns `{name, bucket, lines, bytes, text}`.
 - Largest corpus file is ~4068 lines / ~330KB — acceptable for local serving.
+
+Conformance details added at self-review:
+
+- **Response model is mandatory.** `main.py` declares `response_model=` 35 times, and this
+  project has already shipped four frontend bugs caused by a handler returning a key its Pydantic
+  model never declared — FastAPI strips it silently. Add `CorpusDocumentModel` to `models.py`
+  declaring `name`, `bucket`, `lines`, `bytes`, and `text`.
+  The name **cannot** be `DocumentModel`: that already exists at `models.py:96-111` and models
+  ingestion *metadata* (`document_id`, `sha256`, `pages`, `status`) for the `documents` table, not
+  file content. Verified free of collision.
+- **Handler is `def`, not `async def`.** Reading up to 330KB from disk is blocking I/O. FastAPI
+  runs sync handlers in a threadpool, so `def` is correct; `async def` would block the event loop.
+  This also matches the codebase, which is 121 sync handlers to 8 async.
+- **Allowlist logic does not live in the controller.** `main.py` is already 3168 lines, and
+  walking the corpus is a filesystem concern, not an HTTP one. Add a small module
+  `backend/document_store.py` exposing `resolve(name) -> Path | None` and
+  `read_document(name) -> dict | None`, so the handler does only: parse, call, map.
+  The index is built lazily and cached at module level, following the existing
+  `_INITIALIZED_DB_PATHS` precedent (`database.py:986`). Trade-off disclosed: a newly added `.md`
+  file needs a server restart to appear. Rejected alternative: putting these functions in
+  `database.py` — wrong module, this is not database access.
+- **Uniform 404 is deliberate, not laziness.** Malformed input (`..`, absolute path) could
+  reasonably be 400 and only unknown names 404. Returning 404 for both avoids an existence
+  oracle: a 400/404 split tells a prober which input shapes are valid and lets them enumerate the
+  allowlist. Recorded as ADR-0001.
 
 ### 3c. Reader UI
 
@@ -252,6 +279,18 @@ because they are descriptive papers.
 New `GET /api/exam-templates` returns
 `[{template_id, exam, name, phase, paper, total_questions, marks_per_question,
 time_limit_minutes, cutoff_pct}]`, ordered exam → phase → paper, with `CUSTOM` last.
+
+Conformance details added at self-review:
+
+- Add `ExamTemplateModel` to `models.py` (name verified free) and declare it as the endpoint's
+  `response_model=list[ExamTemplateModel]`. Without it, FastAPI strips whatever the model omits —
+  the exact defect class that already caused four frontend bugs here.
+- `phase`, `paper`, `total_questions`, and `cutoff_pct` must be **Optional/nullable** in the
+  model. The live rows prove they can be NULL: `SUBJECT_DRILL` and `CUSTOM` have `phase=None` and
+  `paper=None`, and the two `*_DESC` templates have `total_questions=None`. A non-nullable field
+  would raise a validation error on rows that legitimately exist.
+- Handler is `def`, not `async def` — `list_exam_templates()` does blocking sqlite access, same as
+  the existing `get_exam_template`.
 
 ### 4b. `/api/exams/start` behavioural fix
 
@@ -414,3 +453,47 @@ breaking `temp_db` teardown.
 **Final gate, in the user's stated order:** all of the above green *and* browser-walked → only
 then write `start.bat` → then launch **through** `start.bat` itself and confirm `/health` reports
 9 keys and the app loads at the printed URL.
+
+---
+
+## Section 7 — Deliberate deviations from generic guidance
+
+Recorded so a future reader knows these were decisions, not oversights.
+
+- **No `/api/v1/` versioning.** Generic REST guidance says version from day one. This API is
+  entirely unversioned (`/api/updates`, `/api/exams/start`, `/api/health`). Introducing a version
+  prefix for two new endpoints would split one coherent surface into two conventions. New
+  endpoints follow the existing unversioned style.
+- **No pagination on `/api/exam-templates`.** Generic guidance says always paginate collections.
+  This one returns 9 rows, bounded by a static JSON file. Pagination would be noise. The document
+  route returns a single resource, not a collection.
+- **No rate limit on `/api/documents/{name}`.** It spends no Gemini tokens, so the existing
+  `gemini_spend_guard` does not apply, and after the Section 5 rewrite the server binds to
+  `127.0.0.1` only. Revisit immediately if this endpoint is ever exposed beyond loopback.
+- **Flat project layout retained.** The FastAPI template guidance recommends
+  `app/api/v1/endpoints/`, `schemas/`, `services/`, `repositories/`. This codebase is flat:
+  `main.py`, `models.py`, `database.py`. Restructuring a 3168-line controller is out of scope and
+  directly opposed to the zero-regression priority. New schemas go in the existing `models.py`;
+  the one new module is `document_store.py`, which is the smallest layering step that gets
+  filesystem logic out of the controller without a rewrite.
+- **`TestClient`, not `httpx.AsyncClient`.** The template guidance's async test fixtures do not
+  apply: the new handlers are sync `def`, and the existing suite already uses the sync `client`
+  fixture at `conftest.py:86`. Introducing `pytest-asyncio` clients here would add a second test
+  idiom for no benefit.
+- **No in-memory repository adapters.** Clean Architecture's testability ideal wants use cases
+  injectable with in-memory adapters. The existing `test_db` fixture already provides real
+  isolation via a temp sqlite file and `db.DB_PATH` reassignment (`conftest.py:23-80`), and the
+  suite passes with it. Retrofitting ports-and-adapters onto this codebase is a far larger change
+  than this spec covers.
+
+## Section 8 — Architecture Decision Records
+
+Three decisions in this spec are significant enough to warrant ADRs, created alongside it in
+`docs/adr/` (directory did not previously exist):
+
+- **ADR-0001** — Serve corpus documents through a basename-allowlisted read-only route with a
+  uniform 404. Security architecture.
+- **ADR-0002** — Filter `LOCAL_FALLBACK` rows at read time and never delete them. Data integrity
+  and auditability.
+- **ADR-0003** — Resolve Gemini keys from user-level environment variables rather than per-tree
+  `.env` files. Configuration and secret handling.
