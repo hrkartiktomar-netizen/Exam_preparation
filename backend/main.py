@@ -3047,6 +3047,16 @@ def get_updates(
         if not updates and not (category or exam or status):
             updates = db.list_curated_amendments(sort=sort, limit=limit)
             source = "corpus"
+        # LOCAL_FALLBACK is what extract_amendment_structured returns when Gemini
+        # cannot parse a page (gemini_integration.py:1372-1382): rule_name is the
+        # literal string "Manual review required" and new_value is the first 500
+        # characters of raw HTML or PDF binary. The rows stay in the table for
+        # audit (ADR-0002) but are never shown. Applied after both sources
+        # resolve, so the tracker feed is filtered too, not just the corpus.
+        updates = [
+            u for u in updates
+            if (u.get("verification_status") or "").upper() != "LOCAL_FALLBACK"
+        ]
         runs = db.get_tracker_runs(limit=5)
         return {"updates": updates, "runs": runs, "source": source}
     except Exception as exc:
