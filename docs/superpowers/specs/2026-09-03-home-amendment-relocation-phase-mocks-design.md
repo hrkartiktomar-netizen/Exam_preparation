@@ -400,6 +400,12 @@ future worktree resolve them identically.
 - **Drop `--reload` from the default path.** It re-runs `lifespan`, which restarts all four
   APScheduler jobs (`main.py:177-217`) and re-seeds the banks on every file edit. Keep it behind
   an explicit dev flag.
+  This deliberately tensions with a recorded project hazard — a server running *without*
+  `--reload` once served stale Python over freshly edited static files, which produced misleading
+  behaviour during development. The lesson is not discarded: the dev flag exists precisely so that
+  anyone editing backend code can opt back into hot reload. What changes is the *default*, because
+  a launcher whose job is "start my study app" should not restart its scheduler and re-seed its
+  question banks every time a file is touched.
 
 Also fixed while in there, because it is the same lie: `.env.example` is corrected to the
 `GEMINI_KEY_N` names the code actually reads, the bogus Flask/`PORT` lines are removed, and it is
