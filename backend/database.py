@@ -4698,6 +4698,59 @@ def _template_allocation(template: dict[str, Any], total_questions: int) -> dict
     return {unit: count for unit, count in allocation.items() if count > 0}
 
 
+def _template_is_objective_ready(template: dict[str, Any]) -> bool:
+    """True when this template can actually drive generate_smart_mock.
+
+    Mirrors _template_allocation above: that function returns {} unless the
+    template declares sections, is a TEMPLATE_UNIT_TOPICS key, or declares
+    syllabus units. An empty allocation makes generate_smart_mock raise
+    "Mock allocation is empty; ingest the knowledge pack first.", which
+    exam_start's blanket except turns into an HTTP 500 whose message blames a
+    knowledge pack that is already ingested. SUBJECT_DRILL and the two
+    descriptive papers are all three shapes of that dead end, so they are
+    catalogue rows but not generatable exams. CUSTOM bypasses the template path
+    entirely (generate_smart_mock only looks the template up when
+    template_id != "CUSTOM") and is always ready.
+    """
+    template_id = template["template_id"]
+    if template_id == "CUSTOM":
+        return True
+    if template_id in TEMPLATE_UNIT_TOPICS:
+        return True
+    if json.loads(template.get("sections_json") or "[]"):
+        return True
+    return bool(json.loads(template.get("syllabus_units_json") or "[]"))
+
+
+def list_exam_templates() -> list[dict[str, Any]]:
+    """Every exam template a user can actually start, ordered for a picker.
+
+    No init_db() here: get_exam_template does not call it either, and lifespan
+    (main.py:152) has already run it by the time any request is served. Tests
+    create the table themselves with _run_migration_005, which is the same
+    pattern conftest uses for migration 002.
+
+    COALESCE(phase, 0) / COALESCE(paper, 0) sort CUSTOM's NULLs first rather
+    than last, so the picker's top option is the current default behaviour and
+    the IFSCA/SEBI papers follow in exam -> phase -> paper order.
+    """
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            """
+            SELECT * FROM exam_templates
+            ORDER BY exam,
+                     COALESCE(phase, 0),
+                     COALESCE(paper, 0),
+                     template_id
+            """
+        ).fetchall()
+    finally:
+        conn.close()
+    templates = [dict(row) for row in rows]
+    return [template for template in templates if _template_is_objective_ready(template)]
+
+
 def generate_smart_mock(
     total_questions: int = 50,
     mode: str = "balanced",
