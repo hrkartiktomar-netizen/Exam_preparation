@@ -23,6 +23,7 @@ from fastapi.staticfiles import StaticFiles
 
 import database as db
 import amendment_poller
+import document_store
 import job_queue
 import essay_grader
 import law_revision_engine
@@ -59,6 +60,7 @@ from models import (
     AmendmentModel,
     AmendmentResponseModel,
     AnalyticsTimelineModel,
+    CorpusDocumentModel,
     DashboardStatsModel,
     EssayGradingResponseModel,
     EssayPromptModel,
@@ -734,6 +736,31 @@ def ingestion_status():
 @app.get("/api/documents")
 def list_documents(limit: int = Query(default=200, ge=1, le=500)):
     return {"documents": db.list_documents(limit=limit)}
+
+
+@app.get("/api/documents/{name}", response_model=CorpusDocumentModel)
+def get_corpus_document(name: str):
+    """Serve one markdown corpus document for manual reading.
+
+    Sync def on purpose: reading up to ~330KB from disk is blocking I/O, and
+    FastAPI runs sync handlers in a threadpool. async def here would block the
+    event loop for the duration of the read. This also matches the codebase,
+    which is 121 sync handlers to 8 async.
+
+    Uniform 404 for both malformed and unknown names (ADR-0001). Deliberately
+    NOT Path(pattern=...): that would answer 422 for a malformed name and 404 for
+    an unknown one, and the split tells a prober which input shapes the allowlist
+    accepts. Note also that Path in this module is fastapi.Path (main.py:19),
+    with pathlib.Path imported as PathLib (F17).
+
+    No rate limit: this spends no Gemini tokens, so gemini_spend_guard does not
+    apply, and the server binds to loopback only. Revisit immediately if this
+    endpoint is ever exposed beyond 127.0.0.1.
+    """
+    document = document_store.read_document(name)
+    if document is None:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return CorpusDocumentModel(**document)
 
 
 @app.get("/api/topics", response_model=list[TopicModel])

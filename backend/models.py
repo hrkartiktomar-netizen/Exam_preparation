@@ -574,3 +574,22 @@ class ExamAggregateResponseModel(BaseModel):
     aggregate_score: float = 0.0
     aggregate_cutoff_pct: float = 40.0
     aggregate_cleared: bool = False
+
+
+class CorpusDocumentModel(BaseModel):
+    """A markdown corpus document, served for manual reading.
+
+    Deliberately not named DocumentModel: that already exists (models.py:96-111)
+    and models ingestion *metadata* for the documents table -- document_id,
+    sha256, pages, line_count, status. This models file *content*. Reusing the
+    name would either shadow that model or force a rename across its callers.
+
+    Every field is declared because response_model silently strips anything it
+    does not (F1), and the frontend reader depends on all five.
+    """
+
+    name: str
+    bucket: str
+    lines: int
+    bytes: int
+    text: str

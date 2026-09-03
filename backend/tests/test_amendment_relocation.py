@@ -10,6 +10,8 @@ from __future__ import annotations
 
 import sqlite3
 
+import pytest
+
 import database as db
 import document_store
 
@@ -237,3 +239,70 @@ def test_is_safe_basename_is_the_explicit_gate():
     assert document_store._is_safe_basename("") is False
     assert document_store._is_safe_basename("C:x.md") is False
     assert document_store._is_safe_basename("x" + NUL + ".md") is False
+
+
+def test_document_route_serves_a_real_corpus_file(client):
+    resp = client.get("/api/documents/IFSCA_Compliance_Handbook.md")
+    if resp.status_code == 404 and document_store.resolve("IFSCA_Compliance_Handbook.md") is None:
+        pytest.skip("IFSCA_Compliance_Handbook.md absent from this corpus")
+    assert resp.status_code == 200, resp.text
+    body = resp.json()
+    assert body["name"] == "IFSCA_Compliance_Handbook.md"
+    assert body["bucket"]
+    assert body["lines"] > 0
+    assert body["bytes"] > 0
+    assert body["text"]
+
+
+def test_document_route_response_model_declares_every_key(client):
+    """F1: response_model silently strips undeclared keys with a 200. This pins
+    the exact contract the frontend reader depends on, so a field added to
+    read_document() without being added to the model cannot vanish unnoticed --
+    the defect class that already caused four frontend bugs in this project."""
+    resp = client.get("/api/documents/IFSCA_Compliance_Handbook.md")
+    if resp.status_code == 404 and document_store.resolve("IFSCA_Compliance_Handbook.md") is None:
+        pytest.skip("corpus file absent")
+    assert set(resp.json().keys()) == {"name", "bucket", "lines", "bytes", "text"}
+
+
+@pytest.mark.parametrize("probe", [
+    "..%2F..%2Fbackend%2Fifsca_exam.db",
+    "%2e%2e%2f%2e%2e%2fbackend%2f.env.example",
+    "..%5C..%5Cbackend%5Cifsca_exam.db",
+    "C:%5CWindows%5Cwin.ini",
+    "%5C%5Clocalhost%5Cshare%5Cx.md",
+    "IFSCA_Compliance_Handbook.txt",
+    "IFSCA_Compliance_Handbook",
+    "no_such_document_at_all.md",
+    "%00.md",
+    "IFSCA_Compliance_Handbook.md%00.txt",
+])
+def test_document_route_returns_404_for_every_malformed_probe(client, probe):
+    """ADR-0001: uniform 404 for both malformed and unknown names. No 400/404
+    split, because the split is itself an existence oracle that lets a prober
+    enumerate which input shapes the allowlist accepts.
+
+    F7: httpx normalizes a literal '../' away before sending, so every probe here
+    is percent-encoded and arrives un-normalized. F3: the %2F forms 404 at the
+    router, which is the correct end-to-end behaviour but does not exercise this
+    handler. The backslash and drive forms are the ones that reach it (F4), and
+    they are additionally unit-tested against document_store in Task 3, which is
+    where the real security weight sits.
+    """
+    resp = client.get("/api/documents/" + probe)
+    assert resp.status_code == 404, f"{probe!r} returned {resp.status_code}: {resp.text[:200]}"
+
+
+def test_document_route_does_not_shadow_the_existing_list_endpoint(client):
+    """F14: /api/documents (main.py:734) is an exact match and must still work
+    after the parameterized sibling is registered."""
+    resp = client.get("/api/documents")
+    assert resp.status_code == 200
+    assert "documents" in resp.json()
+
+
+def test_document_route_is_not_reachable_for_a_non_md_extension(client):
+    """Guards the .md-only rule specifically: a sibling corpus artefact with
+    another extension must not become readable through this route."""
+    resp = client.get("/api/documents/IFSCA_Compliance_Handbook.pdf")
+    assert resp.status_code == 404
