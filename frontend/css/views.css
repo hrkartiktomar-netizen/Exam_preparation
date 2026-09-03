@@ -22,6 +22,8 @@
   padding-inline: var(--sp-5);
 }
 
+.pyq-view__group + .pyq-view__group { margin-top: var(--sp-7); }
+
 .pyq-card {
   background: var(--surface-1);
   border: var(--rule-1) solid var(--rule);
@@ -127,6 +129,7 @@
   font-family: var(--f-serif);
   font-size: var(--fs-500);
   line-height: var(--lh-body);
+  white-space: pre-line;
 }
 
 .descriptive-editor {
@@ -189,6 +192,9 @@
 .heat-grid__cell[data-heat="weak"]     { background: rgba(255,176,32,0.12); border-color: rgba(255,176,32,0.25); }
 .heat-grid__cell[data-heat="medium"]   { background: rgba(199,158,79,0.1); border-color: rgba(199,158,79,0.2); }
 .heat-grid__cell[data-heat="strong"]   { background: rgba(55,192,146,0.1); border-color: rgba(55,192,146,0.2); }
+/* Never sat, so there is no heat to show. Muted and left on the default rule
+   border -- a missing measurement is not a failure and must not read as red. */
+.heat-grid__cell[data-heat="unmeasured"] .heat-grid__cell-score { color: var(--ink-3); font-weight: 400; }
 
 .heat-grid__cell-label {
   font-family: var(--f-mono);
@@ -323,6 +329,175 @@
 .amendment-entry__chip[data-verdict="contradicted"] { background: rgba(255,77,94,0.15); color: var(--danger); }
 .amendment-entry__chip[data-verdict="pending"]      { background: rgba(180,172,160,0.15); color: var(--ink-2); }
 
+.amendment-entry__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  white-space: nowrap;
+}
+
+.amendment-entry__btn {
+  padding: 2px var(--sp-2);
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-pill);
+  background: transparent;
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: all var(--t-fast) var(--e-out);
+}
+
+.amendment-entry__btn:hover { color: var(--metal); border-color: var(--metal); }
+.amendment-entry__btn--source:hover { color: var(--signal); border-color: var(--signal); }
+
+.amendment-entry__btn:focus-visible {
+  outline: var(--rule-2) solid var(--signal);
+  outline-offset: 2px;
+}
+
+/* Fourth child of an auto/1fr/auto grid: without the span it lands in column
+   one of a second row instead of underlining the whole entry. */
+.amendment-entry__detail {
+  grid-column: 1 / -1;
+  display: none;
+}
+
+.amendment-entry.is-open .amendment-entry__detail { display: block; }
+
+.amendment-delta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+  padding: var(--sp-4) 0 var(--sp-2);
+}
+
+/* Only the rows that actually carry a prior text get the two-column split. */
+.amendment-delta--paired { grid-template-columns: 1fr 1fr; }
+
+.amendment-delta__label {
+  display: block;
+  margin-bottom: var(--sp-2);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.amendment-delta__col {
+  padding-left: var(--sp-3);
+  border-left: var(--rule-2) solid var(--rule-strong);
+}
+
+.amendment-delta__col--new { border-left-color: var(--signal); }
+
+.amendment-delta__text {
+  font-family: var(--f-serif);
+  font-size: var(--fs-200);
+  line-height: var(--lh-body);
+  color: var(--ink-1);
+  /* The corpus is OCR output: its line breaks carry meaning, so they survive. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.amendment-entry__facts {
+  padding-bottom: var(--sp-3);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── Corpus source reader (READ SOURCE) ─────────────────────── */
+.doc-reader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-veil);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-5);
+  background: var(--scrim);
+  backdrop-filter: blur(6px);
+}
+
+.doc-reader__panel {
+  display: flex;
+  flex-direction: column;
+  width: min(var(--w-read), 100%);
+  max-height: 88vh;
+  background: var(--surface-1);
+  color: var(--ink-1);
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-3);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.doc-reader__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: var(--rule-1) solid var(--rule);
+}
+
+.doc-reader__title {
+  font-family: var(--f-mono);
+  font-size: var(--fs-100);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-1);
+  overflow-wrap: anywhere;
+}
+
+.doc-reader__close {
+  flex: none;
+  padding: var(--sp-1) var(--sp-3);
+  border: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-pill);
+  background: transparent;
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all var(--t-fast) var(--e-out);
+}
+
+.doc-reader__close:hover { color: var(--danger); border-color: var(--danger); }
+
+.doc-reader__close:focus-visible {
+  outline: var(--rule-2) solid var(--signal);
+  outline-offset: 2px;
+}
+
+.doc-reader__meta {
+  padding: var(--sp-2) var(--sp-4);
+  border-bottom: var(--rule-1) solid var(--rule);
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.doc-reader__body {
+  padding: var(--sp-5);
+  overflow-y: auto;
+  font-family: var(--f-serif);
+  font-size: var(--fs-200);
+  line-height: var(--lh-body);
+  color: var(--ink-1);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 /* ── Review View (A23) ──────────────────────────────────────── */
 .review-view { padding: var(--sp-9) 0; }
 
@@ -388,6 +563,15 @@
   color: var(--signal);
   font-size: var(--fs-200);
   margin-bottom: var(--sp-3);
+}
+
+.wrong-item__topic {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  color: var(--ink-3);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  margin-top: var(--sp-3);
 }
 
 .wrong-item__source {
@@ -476,6 +660,38 @@
   text-transform: uppercase;
 }
 
+.results-pyq { margin-top: var(--sp-9); }
+
+/* The attempts list reuses the .wrong-item accordion shell, which animates its
+   open body to a fixed 600px. A whole sitting's model answers run past that and
+   would be clipped, so the cap is lifted here. max-height:none cannot be
+   transitioned to, so these rows snap open instead of easing. */
+.results-pyq .wrong-item.is-open .wrong-item__body { max-height: none; }
+
+.pyq-reveal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+}
+
+.pyq-reveal__row {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: baseline;
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  line-height: var(--lh-mono);
+  color: var(--ink-3);
+  padding: var(--sp-2);
+  background: var(--canvas-deep);
+  border-left: var(--rule-1) solid var(--rule);
+  border-radius: var(--r-2);
+}
+
+.pyq-reveal__row[data-pass] { border-left-color: var(--signal); }
+.pyq-reveal__row[data-fail] { border-left-color: var(--danger); }
+
 /* ── Shared View Components ─────────────────────────────────── */
 
 /* Section title (used in all views) */
@@ -519,6 +735,19 @@
   font-size: var(--fs-500);
   font-style: italic;
 }
+
+.empty-state__hint {
+  font-family: var(--f-mono);
+  font-size: var(--fs-050);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  max-width: 48ch;
+  line-height: var(--lh-snug);
+  margin-top: var(--sp-4);
+}
+
+.empty-state__cta { margin-top: var(--sp-6); }
 
 /* Loading state */
 .loading-state {

@@ -13,7 +13,7 @@ TopicStatus = Literal["UNKNOWN", "CRITICAL", "WEAK", "MEDIUM", "STRONG"]
 
 
 class OptionModel(BaseModel):
-    label: Literal["A", "B", "C", "D"]
+    label: Literal["A", "B", "C", "D", "E"]
     text: str = Field(min_length=1)
 
 
@@ -21,8 +21,8 @@ class QuestionModel(BaseModel):
     question_id: str
     topic: str
     question_text: str = Field(min_length=1)
-    options: list[OptionModel] = Field(min_length=4, max_length=4)
-    correct_option: Literal["A", "B", "C", "D"]
+    options: list[OptionModel] = Field(min_length=4, max_length=5)
+    correct_option: Literal["A", "B", "C", "D", "E"]
     explanation: str = Field(min_length=1)
     source: str | None = None
     source_document_id: str | None = None
@@ -44,7 +44,7 @@ class AttemptModel(BaseModel):
     id: int | str
     topic: str
     question_text: str = ""
-    correct_option: Literal["A", "B", "C", "D"]
+    correct_option: Literal["A", "B", "C", "D", "E"]
     your_option: str | None = None
     is_correct: bool
     time_spent_seconds: int = Field(default=0, ge=0)
@@ -238,6 +238,7 @@ class SmartMockRequestModel(BaseModel):
     total_questions: int = Field(default=50, ge=5, le=100)
     mode: Literal["balanced", "weakness-heavy", "amendment-heavy", "pyq-like"] = "balanced"
     use_gemini: bool = True
+    template: str = "CUSTOM"
 
 
 class StudySessionRequestModel(BaseModel):
@@ -263,7 +264,7 @@ class SmartMockResponseModel(BaseModel):
 
 class AnswerModel(BaseModel):
     question_id: str
-    selected_answer: Literal["A", "B", "C", "D"] | None = Field(
+    selected_answer: Literal["A", "B", "C", "D", "E"] | None = Field(
         default=None,
         validation_alias=AliasChoices("selected_answer", "selected_option"),
     )
@@ -492,6 +493,10 @@ class LawRevisionModel(BaseModel):
     spaced_review_due: list[SpacedReviewItemModel] = []
     generated_at: str = Field(default_factory=lambda: datetime.now().isoformat())
     ai_revision_focus: str | None = None
+    act_mcq: dict[str, Any] | None = None
+    micro_descriptive: dict[str, Any] | None = None
+    completed_sessions: int | None = None
+    day_completed: bool = False
 
 
 class EssayReviewItemModel(BaseModel):
@@ -505,3 +510,106 @@ class EssayReviewItemModel(BaseModel):
     interval_days: int
     ease: float = Field(ge=1.3, le=4.0)
     referenced_text: str | None = None
+
+
+# ============================================================================
+# PHASE 5: Descriptive lab (Paper 1) models
+# ============================================================================
+
+class DescriptiveStartRequestModel(BaseModel):
+    exam: Literal["IFSCA", "SEBI"] = "IFSCA"
+    year: int | None = None
+
+
+class DescriptiveGradeRequestModel(BaseModel):
+    exam: Literal["IFSCA", "SEBI"] = "IFSCA"
+    year: int | None = None
+    essay_text: str = Field(default="", max_length=20000)
+    precis_text: str = Field(default="", max_length=10000)
+    rc_answers: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def require_answer_text(self) -> DescriptiveGradeRequestModel:
+        # Every answer field defaults to empty and unknown keys are ignored, so a
+        # client posting the wrong field names would be graded on nothing and
+        # returned a zero score -- indistinguishable from a genuinely weak essay.
+        answered = (
+            self.essay_text.strip()
+            or self.precis_text.strip()
+            or any(answer.strip() for answer in self.rc_answers)
+        )
+        if not answered:
+            raise ValueError(
+                "no answer text supplied: provide one of essay_text, precis_text, rc_answers"
+            )
+        return self
+
+
+class DescriptiveComponentGradeModel(BaseModel):
+    component: str
+    score: float
+    max_marks: float
+    feedback: str = ""
+    ai_model: str | None = None
+
+
+class DescriptiveGradeResponseModel(BaseModel):
+    exam: str
+    year: int | None = None
+    components: list[DescriptiveComponentGradeModel] = []
+    total_score: float = 0.0
+    total_max_marks: float = 100.0
+    cutoff_pct: float = 30.0
+    cleared_cutoff: bool = False
+    ai_status: dict[str, Any] | None = None
+
+
+class ExamAggregateResponseModel(BaseModel):
+    exam: str
+    paper1_score: float
+    paper2_score: float
+    paper2_cutoff_pct: float = 40.0
+    paper2_cleared: bool = False
+    paper1_counted: bool = False
+    aggregate_score: float = 0.0
+    aggregate_cutoff_pct: float = 40.0
+    aggregate_cleared: bool = False
+
+
+class CorpusDocumentModel(BaseModel):
+    """A markdown corpus document, served for manual reading.
+
+    Deliberately not named DocumentModel: that already exists (models.py:96-111)
+    and models ingestion *metadata* for the documents table -- document_id,
+    sha256, pages, line_count, status. This models file *content*. Reusing the
+    name would either shadow that model or force a rename across its callers.
+
+    Every field is declared because response_model silently strips anything it
+    does not (F1), and the frontend reader depends on all five.
+    """
+
+    name: str
+    bucket: str
+    lines: int
+    bytes: int
+    text: str
+
+
+class ExamTemplateModel(BaseModel):
+    """One row of the phase/paper picker.
+
+    Every numeric field is nullable because the live rows genuinely carry NULLs
+    (CUSTOM has no phase, paper or cutoff) and response_model raises a 500 when a
+    non-nullable field receives None. The three *_json columns and `notes` are
+    deliberately undeclared: response_model strips them, which is how the raw JSON
+    blobs stay inside the backend.
+    """
+
+    template_id: str
+    exam: str
+    name: str
+    phase: int | None = None
+    paper: int | None = None
+    total_questions: int | None = None
+    time_limit_minutes: int | None = None
+    cutoff_pct: float | None = None

@@ -40,6 +40,12 @@
       return;
     }
 
+    // Empty state: a zero reading settles instantly — no scramble on a blank ledger
+    if (pct === 0) {
+      digits.forEach(function (d, i) { d.textContent = target[i]; });
+      return;
+    }
+
     // Each flap cycles intermediate digits before settling (railway board)
     digits.forEach(function (d, i) {
       var finalVal = parseInt(target[i], 10);
@@ -90,7 +96,14 @@
   /* ────── A07: Module Constellation ────── */
   function renderConstellation(stats) {
     var svg = qs(".constellation__svg");
-    if (!svg || !stats || !stats.length) return;
+    if (!svg) return;
+    if (!stats || !stats.length) {
+      svg.setAttribute("viewBox", "0 0 700 440");
+      svg.innerHTML =
+        '<text x="350" y="212" text-anchor="middle" font-family="var(--f-mono)" ' +
+        'font-size="13" letter-spacing="2" fill="var(--ink-3)">NO TOPIC DATA YET — SIT A MOCK TO CHART YOUR SKY</text>';
+      return;
+    }
 
     var w = 700, h = 440;
     svg.setAttribute("viewBox", "0 0 " + w + " " + h);
@@ -183,17 +196,19 @@
   }
 
   /* ────── A08: Ticker Tape ────── */
-  function renderTicker(data) {
+  // Readiness and the SRS due count are not dashboard fields, so they arrive
+  // from their own endpoints; reading them off `data` printed a permanent 0.
+  function renderTicker(data, readiness, srsDue) {
     var track = qs(".ticker__track");
     if (!track || !data) return;
 
     var items = [
-      { label: "READINESS", value: (data.readiness_percentage || 0) + "%" },
-      { label: "MOCKS", value: String(data.total_mocks || 0) },
+      { label: "READINESS", value: ((readiness && readiness.readiness_percentage) || 0) + "%" },
+      { label: "MOCKS", value: String(data.total_mocks_completed || 0) },
       { label: "ACCURACY", value: (data.overall_accuracy || 0).toFixed(1) + "%" },
-      { label: "AMENDMENTS", value: String(data.pending_amendments || 0) },
-      { label: "SRS DUE", value: String(data.srs_due || 0) },
-      { label: "QUESTIONS", value: String(data.total_attempts || 0) },
+      { label: "AMENDMENTS", value: String((data.recent_amendments || []).length) },
+      { label: "SRS DUE", value: String((srsDue || []).length) },
+      { label: "QUESTIONS", value: String(data.total_questions_attempted || 0) },
     ];
 
     // Duplicate for seamless loop
@@ -231,7 +246,8 @@
   /* ────── A09: Statute Path ────── */
   var STATUTES = [
     { num: "§01", title: "NOTIFY", subtitle: "The amendment radar never sleeps.",
-      desc: "An autonomous agent discovers regulatory changes from the IFSCA, SEBI, and RBI gazette systems. It corroborates, extracts reasons, and persists VERIFIED or CONTRADICTED verdicts overnight." },
+      desc: "An autonomous agent discovers regulatory changes from the IFSCA, SEBI, and RBI gazette systems. It corroborates, extracts reasons, and persists VERIFIED or CONTRADICTED verdicts overnight.",
+      cta: { label: "OPEN AMENDMENT INTELLIGENCE →", view: "updates" } },
     { num: "§02", title: "STUDY", subtitle: "The Act, one ruled slice a day.",
       desc: "The IFSCA Act 2019, sliced into 80-line daily portions with SM-2 spaced repetition. Completion-driven: your day index only advances when you stamp the day complete." },
     { num: "§03", title: "MOCK", subtitle: "Sit the hall before it sits you.",
@@ -251,7 +267,10 @@
       panel.innerHTML =
         '<div class="statute-path__statute-num">' + s.num + ' ' + s.title + '</div>' +
         '<h3 class="statute-path__title">' + s.subtitle + '</h3>' +
-        '<p class="statute-path__desc">' + s.desc + '</p>';
+        '<p class="statute-path__desc">' + s.desc + '</p>' +
+        (s.cta
+          ? '<button class="statute-path__cta" type="button" data-view="' + s.cta.view + '">' + s.cta.label + '</button>'
+          : '');
       panels.appendChild(panel);
     });
 
@@ -322,7 +341,9 @@
   }
 
   /* ────── A10-A12: Proof Section ────── */
-  function renderProof(data) {
+  // The score history is not a dashboard field, so it arrives from
+  // /api/analytics/timeline; reading it off `data` left the sparkline empty.
+  function renderProof(data, timeline) {
     // Scatter plot
     var scatterEl = qs("[data-chart='scatter'] svg");
     if (scatterEl && data.recent_attempts && data.recent_attempts.length) {
@@ -359,16 +380,18 @@
 
     // Sparkline
     var sparkEl = qs("[data-chart='sparkline'] svg");
-    if (sparkEl && data.score_history && data.score_history.length > 1) {
+    // get_analytics_timeline orders by generated_at DESC, so the array arrives
+    // newest-first and has to be flipped before it is plotted left to right.
+    var scores = (timeline || []).slice().reverse();
+    if (sparkEl && scores.length > 1) {
       var sw = 500, sh = 150;
       sparkEl.setAttribute("viewBox", "0 0 " + sw + " " + sh);
       sparkEl.innerHTML = "";
 
-      var scores = data.score_history;
-      var maxScore = Math.max.apply(null, scores.map(function (s) { return s.score || 0; }));
-      var points = scores.map(function (s, i) {
+      var maxScore = Math.max.apply(null, scores.map(function (entry) { return entry.score || 0; }));
+      var points = scores.map(function (entry, i) {
         var x = 20 + (i / (scores.length - 1)) * (sw - 40);
-        var y = sh - 20 - ((s.score || 0) / (maxScore || 1)) * (sh - 40);
+        var y = sh - 20 - ((entry.score || 0) / (maxScore || 1)) * (sh - 40);
         return x + "," + y;
       }).join(" ");
 
@@ -380,52 +403,6 @@
       polyline.setAttribute("stroke-linecap", "round");
       polyline.setAttribute("stroke-linejoin", "round");
       sparkEl.appendChild(polyline);
-    }
-  }
-
-  /* ────── A13: Quiet Beat ────── */
-  function renderQuietBeat(lawData) {
-    var textEl = qs(".quiet-beat__text");
-    if (!textEl || !lawData) return;
-
-    var text = lawData.daily_text || lawData.text || lawData.content || "Today's law revision content will appear here when available.";
-
-    // Wrap each word for ghost→solid effect
-    var words = text.split(/\s+/);
-    textEl.innerHTML = words.map(function (w) {
-      return '<span class="ghost-word">' + w + '</span>';
-    }).join(" ");
-
-    var eyebrow = qs(".quiet-beat__eyebrow .mask-reveal__inner") || qs(".quiet-beat__eyebrow");
-    if (eyebrow) {
-      var dayLines = (lawData.line_end != null && lawData.line_start != null)
-        ? (lawData.line_end - lawData.line_start + 1)
-        : (lawData.lines_count || 0);
-      eyebrow.textContent = "§ DAILY ACT REVISION · DAY " + (lawData.day_index || 1) + " · " + dayLines + " LINES";
-    }
-
-    // Ghost→solid scroll scrub
-    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-      var ghostWords = qsa(".ghost-word", textEl);
-      if (ghostWords.length) {
-        ScrollTrigger.create({
-          trigger: textEl,
-          start: "top 70%",
-          end: "bottom 30%",
-          scrub: 0.5,
-          onUpdate: function (self) {
-            var progress = self.progress;
-            var litCount = Math.floor(progress * ghostWords.length);
-            ghostWords.forEach(function (w, i) {
-              if (i < litCount) {
-                w.classList.add("is-lit");
-              } else {
-                w.classList.remove("is-lit");
-              }
-            });
-          }
-        });
-      }
     }
   }
 
@@ -717,6 +694,8 @@
         API.nextAction(),
         API.topicStats(),
         API.lawDaily(),
+        API.srsDue(),
+        API.timeline(),
       ]);
 
       dashData = results[0].status === "fulfilled" ? results[0].value : null;
@@ -724,6 +703,8 @@
       var nextActionData = results[2].status === "fulfilled" ? results[2].value : null;
       var topicData = results[3].status === "fulfilled" ? results[3].value : null;
       lawData = results[4].status === "fulfilled" ? results[4].value : null;
+      var srsDueData = results[5].status === "fulfilled" ? results[5].value : null;
+      var timelineData = results[6].status === "fulfilled" ? results[6].value : null;
 
       // A01: Counter
       var readinessPercent = 0;
@@ -758,13 +739,10 @@
       }
 
       // A08: Ticker
-      if (dashData) renderTicker(dashData);
-
-      // A13: Quiet Beat
-      renderQuietBeat(lawData);
+      if (dashData) renderTicker(dashData, readinessData, srsDueData);
 
       // A10-A12: Proof
-      if (dashData) renderProof(dashData);
+      if (dashData) renderProof(dashData, timelineData);
 
       // A15: Burst
       burstTopicStats = topicData ? (Array.isArray(topicData) ? topicData : topicData.topics || []) : [];

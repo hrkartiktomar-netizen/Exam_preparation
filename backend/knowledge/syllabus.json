@@ -1,0 +1,82 @@
+{
+"schema_version": 1,
+"source_doc": "IFSCA_GradeA_Syllabus_Official.md",
+"ifsca": {
+  "phase1_paper2_general": {
+    "name": "Syllabus for Paper 2 of Phase I in General Stream",
+    "subjects": [
+      {"id": 1, "name": "General knowledge, Current events of national and international importance"},
+      {"id": 2, "name": "Economic and social development", "sub": ["Growth and Development: measurement of growth (National Income, per capita income); Poverty Alleviation and Employment Generation; Sustainable Development and Environmental issues", "Social Structure in India: Multiculturalism; Demographic Trends; Urbanisation and Migration; Gender Issues - Social Justice"]},
+      {"id": 3, "name": "Commerce and Accountancy", "sub": ["Accounting as a financial information system", "Accounting Standards: Depreciation, Inventories, Revenue Recognition, Fixed Assets, Foreign Exchange Transactions, Investments", "Cash Flow Statement, Fund Flow Statement, financial statement analysis, ratio analysis", "Accounting for Share Capital Transactions including Bonus Shares, Right Shares", "Employees Stock Option and Buy-Back of Securities", "Preparation and Presentation of Company Final Accounts"]},
+      {"id": 4, "name": "Management", "sub": ["Management nature and scope; Management Processes: Planning, Organization, Staffing, Directing, Controlling", "Role of a Manager; Leadership tasks", "Leadership Styles; Leadership Theories; successful vs effective leader", "Human Resource Development: concept, goals", "Motivation, Morale and Incentives: theories of motivation; morale factors; role of incentives", "Communication: process steps, channels, oral vs written, verbal vs non-verbal, upward/downward/lateral, barriers, role of IT", "Corporate Governance: factors and mechanisms"]},
+      {"id": 5, "name": "Finance", "sub": ["Financial System: role and functions of regulatory bodies", "Financial Markets: primary and secondary (Forex, Money, Bond, Equity), functions, instruments, recent developments", "Basics of Derivatives: Forward, Futures and Swap", "Recent Developments in the Financial Sector", "Financial Inclusion - use of technology", "Alternate source of finance, private and social cost-benefit, Public-Private Partnership", "Direct and Indirect taxes; Non-tax sources of Revenue, GST, Finance Commission, Fiscal Policy, FRBM Act", "Inflation: definition, trends, estimates, consequences, remedies; WPI and CPI components and trends", "Financial Risk Management"]},
+      {"id": 6, "name": "Costing", "sub": ["Overview of Cost and Management Accounting", "Methods of Costing: Unit, Job, Batch, Contract, Process/Operation, Service Sectors", "Basics of Cost Control and Analysis: Standard Costing, Marginal Costing, Budget and Budgetary Control", "Lean System and Innovation: Lean intro, JIT, Kaizen Costing, 5S, TPM, Cellular Manufacturing/One-Piece Flow, Six Sigma, Process Innovation and BPR"]},
+      {"id": 7, "name": "Indian Economy & Global Economy", "sub": ["Demand and Supply; Market Structures; National Income concepts and measurement; Classical & Keynesian approach; Consumption, Investment, Multiplier and Accelerator; Demand and Supply for Money; IS-LM; Inflation and Phillips Curve; Business Cycles", "Balance of Payments; Foreign Exchange Markets; Inflation; Monetary and Fiscal Policy; Non-banking Financial Institutions", "Role of International Financial Institutions: BIS, IOSCO, IMF & World Bank"]},
+      {"id": 8, "name": "Central Government's initiatives/schemes in the financial sector"}
+    ]
+  },
+  "phase2_paper2_general": {
+    "name": "Syllabus for Paper 2 of Phase II in General Stream",
+    "subjects": [
+      {"id": 1, "name": "IFSCA Act, IFSCA, IFSC, GIFT IFSC, GIFT City and Global Financial Centres"},
+      {"id": 2, "name": "Union Budget - Concepts, approach and broad trends & Economic Survey"},
+      {"id": 3, "name": "Banking", "sub": ["Structure and Functions of Financial Institutions", "Functions of Reserve Bank of India", "Banking System in India - Structure and Developments; Financial Institutions - SIDBI, EXIM Bank, NABARD, NHB, NaBFID etc.", "Recent Developments in Global Financial System and impact on Indian Financial System", "Role of Information Technology in Banking and Finance", "Non-Banking System", "Developments in Digital Payments"]},
+      {"id": 4, "name": "Capital Market", "sub": ["Role and Functions of Regulatory bodies in Financial Sector", "Primary and Secondary Markets (Forex, Money, Bond, Equity etc.), functions, instruments, recent developments", "Basics of Derivatives: Forward, Futures and Swap", "Spot and Derivative market of Precious Metals"]},
+      {"id": 5, "name": "Insurance", "sub": ["History of Indian Insurance; principles of insurance", "Risk and uncertainty; pooling and diversification; indemnity and insurable interest", "Legal foundations; Group/Health Insurance/Pensions; intermediation role; bancassurance in India", "Insurer functions: product design, pricing, distribution, underwriting, claims, investment, reinsurance", "Insurance lines: Property-Liability, Life and Annuities, Health; liability risks; valuation and solvency; specialist lines (Agricultural, Export Credit Guarantee); reinsurance, GIC of India, obligator sessions, retention within country"]},
+      {"id": 6, "name": "Pension Sector", "sub": ["Status of pension sector in India", "Types of retirement schemes and their features", "National Pension System", "Atal Pension Yojana", "Annuity Plans", "Basics of investment"]}
+    ]
+  },
+  "phase1_paper2_legal": {
+    "name": "Paper 2 of Phase I - Legal Stream",
+    "subjects": [
+      "Constitution of India - Preamble, Part I, III, IV, IVA, V, VI, VIII, IXA, IXB, XI",
+      "Contract Laws - Indian Contract Act 1872; Sale of Goods Act 1930; Indian Partnership Act 1932; Specific Relief Act 1963",
+      "Code of Civil Procedure 1908 (Part I-V, VII, Schedule 1)",
+      "Transfer of Property Act 1882 (Chapters III-V)",
+      "Arbitration and Conciliation Act 1996 (Part I and II)",
+      "Administrative Law",
+      "Jurisprudence and Interpretation of Statutes",
+      "Important Latin terms and maxims",
+      "Law of Torts and Consumer Protection Act 2019",
+      "The Special Economic Zone Act 2005",
+      "The Digital Data Protection Act 2023",
+      "The Right to Information Act 2005",
+      "The Mediation Act 2023",
+      "Intellectual Property Rights (basic concepts)"
+    ]
+  },
+  "phase2_paper2_legal": {
+    "name": "Paper 2 of Phase II - Legal Stream",
+    "subjects": [
+      "Criminal Laws - Bharatiya Nyaya Sanhita 2023 (Chapters I, II, III, IV, VII, XII, XVII, XIX); Bharatiya Nagarik Suraksha Sanhita 2023",
+      "Bharatiya Sakshya Adhiniyam 2023",
+      "Corporate Laws - Companies Act 2013; LLP Act 2008; Insolvency and Bankruptcy Code 2016 (Part I-II); Law of Trusts",
+      "IFSCA Act and 13 Acts: RBI Act 1934; Insurance Act 1938; Banking Regulation Act 1949; SCRA 1956; DICGC Act 1961; SEBI Act 1992; Depositories Act 1996; IRDAI Act 1999; FEMA 1999; CIC Act 2005; PSS Act 2007; PFRDA Act 2013; Factoring Regulation Act 2011"
+    ]
+  },
+  "phase2_paper1": {
+    "name": "Paper 1 of Phase II - English Writing Skills",
+    "note": "Framed to assess writing skills including expression and understanding of the topic, including precis writing, essay writing and comprehension."
+  },
+  "it_stream": {
+    "name": "Paper 2 for Information Technology Stream (Common for both Phases)",
+    "subjects": [
+      "Database Concepts: ER-model; relational model, relational algebra, tuple calculus, integrity constraints, normal forms; file organization, indexing (B and B+ trees), transactions and concurrency control",
+      "SQL Queries: select, view, truncate, delete, update, alter, inner join, outer joins, aggregate functions, union, intersection, except, in and exist, nested queries",
+      "Programming Concepts (Java/C/C++): control, scope, binding, parameter passing, functional and logic programming, OOP, inheritance, class/object, constructors, functions, exception handling",
+      "Data Analytics Languages (Python/R): regex, slicing, reshaping, dataframes, dictionaries/sets, file management, classes/functions, data mining, lists, import/export, charts",
+      "Algorithms: tree/graph traversals, connected components, spanning trees, shortest paths, hashing, sorting, searching, greedy/dynamic programming/divide-and-conquer",
+      "Networking Concepts: ISO/OSI stack, LAN technologies, TCP/UDP/IP, switches/gateways/routers, application protocols (DNS, SMTP, POP, FTP, HTTP), firewalls",
+      "Information & Cyber Security: cyber attacks, software development security, network security, authentication, CIA, network audit, systems audit",
+      "Data warehousing: extraction, cleaning, transformation, loading, metadata, data cube, data mart, data models",
+      "Shell Programming: basics, variables, arguments, if, loop, return, UNIX commands",
+      "AI/ML: supervised/unsupervised learning, preprocessing, model evaluation, linear/logistic regression, decision trees, clustering, feature engineering, Python ML, TensorFlow, PyTorch, scikit-learn, NLP, sentiment analysis, neural networks, overfitting/underfitting, cross-validation, reinforcement learning, cloud AI, deployment basics"
+    ]
+  }
+},
+"sebi": {
+  "source_doc": "SEBI Grade A Guidebook.md",
+  "note": "SEBI stream subjects pooled in Phase 1 Paper 2 and Phase 2 Paper 2: Commerce & Accountancy, Management, Finance, Costing, Companies Act, Economics; Phase 1 Paper 1: GA, English, Quant, Reasoning.",
+  "recommended_resources": ["NCERT Class 11-12 Accounts", "Dr D.S. Rawat (Accounting Standards)", "LM Prasad (Management/OB/HRM)", "Bharati Pathak (Indian Financial System)", "Ramesh Singh (Indian Economy)", "HL Ahuja (Micro/Macro)", "M.N. Arora (Cost Accounting)", "AUBSP (Companies Act Simplified)", "ICMAI intermediate material"]
+}
+}

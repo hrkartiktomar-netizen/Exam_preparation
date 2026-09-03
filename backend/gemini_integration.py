@@ -158,20 +158,27 @@ GEMINI_STATE: dict[str, Any] = {
 }
 
 
+import threading
+
+_STATE_LOCK = threading.Lock()
+
+
 def refresh_gemini_keys() -> None:
     new_keys = gemini_keys_from_env()
-    if new_keys != GEMINI_STATE["keys"]:
-        GEMINI_STATE["keys"] = new_keys
-        GEMINI_STATE["rate_limited_until"] = {}
-        GEMINI_STATE["calls"] = {}
-        GEMINI_STATE["errors_seen"] = {}
+    with _STATE_LOCK:
+        if new_keys != GEMINI_STATE["keys"]:
+            GEMINI_STATE["keys"] = new_keys
+            GEMINI_STATE["rate_limited_until"] = {}
+            GEMINI_STATE["calls"] = {}
+            GEMINI_STATE["errors_seen"] = {}
 
 
 def available_gemini_keys() -> list[str]:
     refresh_gemini_keys()
     now = time.time()
-    keys = GEMINI_STATE["keys"]
-    available = [key for key in keys if GEMINI_STATE["rate_limited_until"].get(key, 0) <= now]
+    with _STATE_LOCK:
+        keys = GEMINI_STATE["keys"]
+        available = [key for key in keys if GEMINI_STATE["rate_limited_until"].get(key, 0) <= now]
     # Do NOT fall back to rate-limited keys: the old `available or keys` bypassed
     # the 60s (429) / 24h (401/403) cooldowns and hammered the API right after a
     # rate limit. call_json() treats an empty result as "no keys available" and
@@ -183,26 +190,29 @@ def next_gemini_key() -> str | None:
     keys = available_gemini_keys()
     if not keys:
         return None
-    key = min(keys, key=lambda value: GEMINI_STATE["calls"].get(value, 0))
-    GEMINI_STATE["calls"][key] = GEMINI_STATE["calls"].get(key, 0) + 1
+    with _STATE_LOCK:
+        key = min(keys, key=lambda value: GEMINI_STATE["calls"].get(value, 0))
+        GEMINI_STATE["calls"][key] = GEMINI_STATE["calls"].get(key, 0) + 1
     return key
 
 
 def mark_gemini_success(operation: str) -> None:
-    GEMINI_STATE["last_operation"] = operation
-    GEMINI_STATE["last_error"] = None
-    GEMINI_STATE["last_model_response_at"] = datetime.now().isoformat()
+    with _STATE_LOCK:
+        GEMINI_STATE["last_operation"] = operation
+        GEMINI_STATE["last_error"] = None
+        GEMINI_STATE["last_model_response_at"] = datetime.now().isoformat()
 
 
 def mark_gemini_error(key: str | None, code: int | None = None, message: str | None = None, operation: str | None = None) -> None:
-    if key:
-        GEMINI_STATE["errors_seen"][key] = GEMINI_STATE["errors_seen"].get(key, 0) + 1
-        if code == 429:
-            GEMINI_STATE["rate_limited_until"][key] = time.time() + 60
-        elif code in {401, 403}:
-            GEMINI_STATE["rate_limited_until"][key] = time.time() + 24 * 60 * 60
-    GEMINI_STATE["last_operation"] = operation or GEMINI_STATE["last_operation"]
-    GEMINI_STATE["last_error"] = message or (f"Gemini API error {code}" if code else "Gemini call failed")
+    with _STATE_LOCK:
+        if key:
+            GEMINI_STATE["errors_seen"][key] = GEMINI_STATE["errors_seen"].get(key, 0) + 1
+            if code == 429:
+                GEMINI_STATE["rate_limited_until"][key] = time.time() + 60
+            elif code in {401, 403}:
+                GEMINI_STATE["rate_limited_until"][key] = time.time() + 24 * 60 * 60
+        GEMINI_STATE["last_operation"] = operation or GEMINI_STATE["last_operation"]
+        GEMINI_STATE["last_error"] = message or (f"Gemini API error {code}" if code else "Gemini call failed")
 
 
 def gemini_available() -> bool:
@@ -232,8 +242,46 @@ def get_gemini_health() -> dict[str, Any]:
     }
 
 
-def generation_config(schema: Any | None = None, temperature: float = 0.2) -> types.GenerateContentConfig:
-    thinking_level = getattr(types.ThinkingLevel, DEFAULT_THINKING_LEVEL, types.ThinkingLevel.HIGH)
+def model_profile(profile: str) -> tuple[str, str]:
+    """Resolve (model, thinking_level) for a capability profile.
+
+    Read lazily at call time (after .env is loaded) so env overrides apply.
+    Profiles:
+      - "mock":     fast model for question/mock generation. Default
+                    gemini-3.5-flash-lite with HIGH thinking (speed + context).
+      - "accuracy": higher-accuracy model for search-grounded update tracking,
+                    grading, and verification. Default gemini-3.7-flash.
+    """
+    load_env_file()
+    if profile == "accuracy":
+        model = (
+            os.getenv("GEMINI_MODEL_ACCURACY")
+            or os.getenv("GEMINI_MODEL")
+            or DEFAULT_GEMINI_MODEL
+        )
+        thinking = (os.getenv("GEMINI_ACCURACY_THINKING") or "high").strip().upper() or "HIGH"
+    else:  # "mock" and any default
+        model = (
+            os.getenv("GEMINI_MODEL_MOCK")
+            or os.getenv("GEMINI_MODEL")
+            or DEFAULT_GEMINI_MODEL
+        )
+        thinking = (
+            os.getenv("GEMINI_MOCK_THINKING")
+            or os.getenv("GEMINI_THINKING_LEVEL")
+            or "high"
+        ).strip().upper() or "HIGH"
+    return model, thinking
+
+
+def generation_config(
+    schema: Any | None = None,
+    temperature: float = 0.2,
+    thinking_level_name: str | None = None,
+    google_search: bool = False,
+) -> types.GenerateContentConfig:
+    level_name = (thinking_level_name or DEFAULT_THINKING_LEVEL).strip().upper()
+    thinking_level = getattr(types.ThinkingLevel, level_name, types.ThinkingLevel.HIGH)
     config_kwargs: dict[str, Any] = {
         "response_mime_type": "application/json",
         "temperature": temperature,
@@ -241,6 +289,8 @@ def generation_config(schema: Any | None = None, temperature: float = 0.2) -> ty
     }
     if schema is not None:
         config_kwargs["response_json_schema"] = schema
+    if google_search:
+        config_kwargs["tools"] = [types.Tool(google_search=types.GoogleSearch())]
     return types.GenerateContentConfig(**config_kwargs)
 
 
@@ -259,12 +309,47 @@ def _safe_json_loads(text: str) -> Any:
     return json.loads(cleaned)
 
 
-def call_json(prompt: str, schema: Any | None = None, temperature: float = 0.2, operation: str = "generic") -> Any | None:
+def _extract_grounding(response: Any) -> dict[str, Any] | None:
+    """Pull Google Search grounding metadata from a generate_content response."""
+    try:
+        candidate = response.candidates[0]
+        metadata = getattr(candidate, "grounding_metadata", None)
+        if not metadata:
+            return None
+        queries = list(getattr(metadata, "web_search_queries", None) or [])
+        sources: list[dict[str, str]] = []
+        for chunk in getattr(metadata, "grounding_chunks", None) or []:
+            web = getattr(chunk, "web", None)
+            if not web:
+                continue
+            sources.append(
+                {
+                    "title": getattr(web, "title", "") or "",
+                    "uri": getattr(web, "uri", "") or "",
+                }
+            )
+        if not queries and not sources:
+            return None
+        return {"web_search_queries": queries, "sources": sources}
+    except Exception:
+        return None
+
+
+def call_json(
+    prompt: str,
+    schema: Any | None = None,
+    temperature: float = 0.2,
+    operation: str = "generic",
+    profile: str = "mock",
+    google_search: bool = False,
+) -> Any | None:
     refresh_gemini_keys()
     if not GEMINI_STATE["keys"]:
         mark_gemini_error(None, message="No Gemini API keys loaded", operation=operation)
         return None
+    model, thinking_level = model_profile(profile)
     max_attempts = max(1, min(len(GEMINI_STATE["keys"]), 5))
+    search_enabled = google_search
     for _ in range(max_attempts):
         client, key = _client_for_next_key()
         if client is None:
@@ -272,15 +357,29 @@ def call_json(prompt: str, schema: Any | None = None, temperature: float = 0.2, 
             return None
         try:
             response = client.models.generate_content(
-                model=DEFAULT_GEMINI_MODEL,
+                model=model,
                 contents=prompt,
-                config=generation_config(schema=schema, temperature=temperature),
+                config=generation_config(
+                    schema=schema,
+                    temperature=temperature,
+                    thinking_level_name=thinking_level,
+                    google_search=search_enabled,
+                ),
             )
             mark_gemini_success(operation)
-            return _safe_json_loads(response.text or "{}")
+            parsed = _safe_json_loads(response.text or "{}")
+            if search_enabled and isinstance(parsed, dict):
+                grounding = _extract_grounding(response)
+                if grounding:
+                    parsed["_grounding"] = grounding
+            return parsed
         except errors.APIError as exc:
             code = getattr(exc, "code", None)
             mark_gemini_error(key, code, str(exc), operation)
+            # If the search tool caused the failure, drop it and retry once on this pass.
+            if search_enabled and code not in {401, 403, 429}:
+                search_enabled = False
+                continue
             if code in {401, 403, 429, 500, 502, 503, 504}:
                 continue
             return None
@@ -364,6 +463,7 @@ QUESTION_SCHEMA = {
             "option_b": {"type": "string"},
             "option_c": {"type": "string"},
             "option_d": {"type": "string"},
+            "option_e": {"type": "string"},
             "correct_answer": {"type": "string"},
             "explanation": {"type": "string"},
             "source_index": {"type": "integer"},
@@ -371,7 +471,7 @@ QUESTION_SCHEMA = {
             "trap_logic": {"type": "string"},
             "exam_rationale": {"type": "string"},
         },
-        "required": ["question_text", "option_a", "option_b", "option_c", "option_d", "correct_answer", "explanation", "source_index"],
+        "required": ["question_text", "option_a", "option_b", "option_c", "option_d", "option_e", "correct_answer", "explanation", "source_index"],
     },
 }
 
@@ -384,10 +484,18 @@ def generate_questions_with_gemini(
     question_type: str = "source_grounded",
     is_amendment_based: bool = False,
     source_policy: str = "general",
+    style_anchors: list[str] | None = None,
 ) -> list[dict[str, Any]]:
     if not gemini_available() or not chunks or count <= 0:
         return []
     context = _source_context(chunks, max_chunks=8, chars_per_chunk=1400)
+    style_block = ""
+    if style_anchors:
+        anchors = "\n".join(f"- {anchor[:300]}" for anchor in style_anchors[:6])
+        style_block = f"""
+Real past-year stems for style calibration (each shows the real correct answer; match their phrasing, length, and trap shape; never copy verbatim):
+{anchors}
+"""
     prompt = _contract_prompt(
         "question_generation",
         f"Generate {count} source-grounded IFSCA Grade A MCQs for topic {topic}.",
@@ -416,7 +524,7 @@ Question design rules:
 - For medium questions, test comparison, exception, compliance consequence, or correct regulatory sequence.
 - For hard questions, test scenario application, amendment effect, cross-document distinction, or trap-prone wording.
 - Keep each stem self-contained and exam-like.
-- Exactly four options: A, B, C, D. correct_answer must be one of A/B/C/D.
+- Exactly five options: A, B, C, D, E. correct_answer must be one of A/B/C/D/E.
 - Every distractor must be plausible to a serious candidate but contradicted or unsupported by the cited source.
 - explanation must cite the source index and explain the trap.
 - source_index must match the single strongest supporting context block (1-based index from list below).
@@ -426,7 +534,7 @@ Question design rules:
 IMPORTANT: Each question MUST reference one chunk from the list below via source_index.
 Chunks are numbered [1], [2], [3], etc. in the source context.
 If a question cannot be grounded in the provided sources, skip it.
-
+{style_block}
 Retrieved source context:
 {context}
 
@@ -442,7 +550,7 @@ Return JSON array only.
             source_index = int(item.get("source_index", 1)) - 1
             chunk = chunks[source_index] if 0 <= source_index < len(chunks) else chunks[0]
             correct = str(item["correct_answer"]).strip().upper()[:1]
-            if correct not in {"A", "B", "C", "D"}:
+            if correct not in {"A", "B", "C", "D", "E"}:
                 continue
             questions.append(
                 {
@@ -454,6 +562,7 @@ Return JSON array only.
                         {"label": "B", "text": item["option_b"]},
                         {"label": "C", "text": item["option_c"]},
                         {"label": "D", "text": item["option_d"]},
+                        {"label": "E", "text": item["option_e"]},
                     ],
                     "correct_option": correct,
                     "explanation": item["explanation"],
@@ -577,7 +686,7 @@ Grading rules:
 Return JSON only.
 """,
         )
-        result = call_json(prompt, schema=ESSAY_SCHEMA, temperature=0.15, operation="essay_grading")
+        result = call_json(prompt, schema=ESSAY_SCHEMA, temperature=0.15, operation="essay_grading", profile="accuracy")
         if isinstance(result, dict):
             try:
                 for key in ("content_accuracy", "structure_clarity", "regulatory_knowledge", "examples_evidence"):
@@ -706,7 +815,7 @@ Candidate chunks:
 {context}
 """,
     )
-    result = call_json(prompt, schema=AMENDMENT_WATCHLIST_SCHEMA, temperature=0.15, operation=operation)
+    result = call_json(prompt, schema=AMENDMENT_WATCHLIST_SCHEMA, temperature=0.15, operation=operation, profile="accuracy")
     if isinstance(result, list):
         by_chunk = {item.get("chunk_id"): item for item in candidates}
         enriched = []
@@ -1102,18 +1211,89 @@ LAW_REVISION_SCHEMA = {
         "mcq_traps": {"type": "array", "items": {"type": "string"}},
         "descriptive_angles": {"type": "array", "items": {"type": "string"}},
         "self_test": {"type": "array", "items": {"type": "string"}},
+        "act_mcq": {
+            "type": "object",
+            "properties": {
+                "question": {"type": "string"},
+                "options": {"type": "object"},
+                "correct_option": {"type": "string"},
+                "explanation": {"type": "string"},
+            },
+        },
+        "micro_descriptive": {
+            "type": "object",
+            "properties": {
+                "prompt": {"type": "string"},
+                "word_limit": {"type": "integer"},
+                "focus": {"type": "array", "items": {"type": "string"}},
+            },
+        },
     },
     "required": ["revision_focus", "key_points", "mcq_traps", "descriptive_angles", "self_test"],
 }
 
 
+_LAW_SECTION_LINE = re.compile(r"^\s*(\d{1,3})[A-Z]?\.?\s+(.{40,})")
+
+
+def _local_act_slice_drill(revision: dict[str, Any]) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    """Deterministic grounded drill from today's Act slice (plan v6 6.5).
+
+    act_mcq blanks the section number of the slice's most substantial numbered
+    provision; every option is a number and the correct one is verbatim from
+    the slice, so nothing is invented. micro_descriptive asks the user to
+    restate the slice's provisions in their own words.
+    """
+    lines = (revision.get("daily_text") or "").splitlines()
+    candidates: list[tuple[int, str]] = []
+    for line in lines:
+        _, _, content = line.partition(": ")
+        match = _LAW_SECTION_LINE.match(content.strip())
+        if match:
+            candidates.append((int(match.group(1)), match.group(2).strip()))
+
+    act_mcq: dict[str, Any] | None = None
+    if candidates:
+        section_no, text = max(candidates, key=lambda item: len(item[1]))
+        stem_text = text if len(text) <= 260 else text[:257] + "..."
+        neighbours = sorted(
+            {section_no + delta for delta in (-2, -1, 1, 2, 3, 5, 10) if section_no + delta > 0}
+        )
+        values = sorted({section_no, *neighbours[:4]})
+        labels = ["A", "B", "C", "D", "E"]
+        options = {labels[index]: str(value) for index, value in enumerate(values[:5])}
+        correct_label = labels[values.index(section_no)]
+        act_mcq = {
+            "question": f'Which section of the IFSCA Act, 2019 provides: "{stem_text}"?',
+            "options": options,
+            "correct_option": correct_label,
+            "explanation": f"Section {section_no}, exactly as it appears in today's Act slice (lines {revision.get('line_start')}-{revision.get('line_end')}).",
+            "grounding": "LOCAL_SLICE_DRILL",
+        }
+
+    micro_descriptive = {
+        "prompt": (
+            f"In about 120 words, restate the legal effect of each provision covered in today's "
+            f"IFSCA Act slice (lines {revision.get('line_start')}-{revision.get('line_end')}), "
+            "citing the section numbers and naming the authority or power each provision creates."
+        ),
+        "word_limit": 120,
+        "focus": [f"Section {number}" for number, _ in candidates[:12]],
+        "grounding": "LOCAL_SLICE_DRILL",
+    }
+    return act_mcq, micro_descriptive
+
+
 def generate_law_revision_plan(revision: dict[str, Any], force_local: bool = False) -> dict[str, Any]:
+    drill_mcq, drill_micro = _local_act_slice_drill(revision)
     local = {
         "revision_focus": revision.get("title") or "IFSCA Act daily revision",
         "key_points": ["Read the cited lines, mark powers/functions, definitions, and exam-trap wording."],
         "mcq_traps": ["Do not confuse IFSC Authority powers with domestic regulator powers unless the Act assigns them."],
         "descriptive_angles": ["Use statutory mandate and unified-regulator framing in essays."],
         "self_test": ["State the core legal effect of today's Act slice without looking at the text."],
+        "act_mcq": drill_mcq,
+        "micro_descriptive": drill_micro,
         "ai_model": None,
     }
     if force_local or not gemini_available():
@@ -1134,12 +1314,18 @@ Rules:
 - Focus on exam recall, MCQ trap wording, and Phase II descriptive evidence.
 - Do not invent sections or legal effects absent from the slice.
 - Keep the plan concise and revision-ready.
+- act_mcq: exactly one five-option MCQ (labels A to E) grounded verbatim in the slice; the correct option must quote or paraphrase the slice itself, and distractors must be wrong under the slice. Include a one-line explanation citing the section.
+- micro_descriptive: one 100-150 word answer prompt grounded in the slice, with word_limit as an integer and focus listing the section numbers it targets.
 
 Return JSON only.
 """,
     )
     result = call_json(prompt, schema=LAW_REVISION_SCHEMA, temperature=0.12, operation="daily_law_revision")
     if isinstance(result, dict):
+        if not isinstance(result.get("act_mcq"), dict):
+            result["act_mcq"] = drill_mcq
+        if not isinstance(result.get("micro_descriptive"), dict):
+            result["micro_descriptive"] = drill_micro
         result["ai_model"] = DEFAULT_GEMINI_MODEL
         result["prompt_version"] = PROMPT_CONTRACT_VERSION
         return result
@@ -1177,7 +1363,7 @@ Rules:
 Return JSON with topic, rule_name, old_value, new_value, effective_date, priority.
 """,
     )
-    result = call_json(prompt, schema=schema, temperature=0.1, operation="amendment_extraction")
+    result = call_json(prompt, schema=schema, temperature=0.1, operation="amendment_extraction", profile="accuracy")
     if isinstance(result, dict):
         result["source_url"] = amendment_url
         result["verify_status"] = "GEMINI_EXTRACTED"
@@ -1239,7 +1425,7 @@ def generate_exam_analysis(
 Return JSON with: overall_assessment, weak_topics (array), strength_topics (array), improvement_areas (array), next_focus (string), estimated_days_to_master (int).""",
     )
 
-    result = call_json(prompt, schema=schema, temperature=0.3, operation="exam_analysis")
+    result = call_json(prompt, schema=schema, temperature=0.3, operation="exam_analysis", profile="accuracy")
     if isinstance(result, dict) and isinstance(result.get("weak_topics"), list):
         result["exam_id"] = exam_id
         result["ai_model"] = DEFAULT_GEMINI_MODEL
@@ -1379,4 +1565,66 @@ Return JSON: interval_days (int 1-30), confidence (0-1), reasoning (str).""",
         "confidence": 0.6,
         "reasoning": f"Ebbinghaus: {current_accuracy:.0%} suggests {interval}-day interval.",
         "ai_model": None,
+    }
+
+
+# ============================================================================
+# QUESTION VERIFICATION (plan v6 sub-phase 4.6)
+# ============================================================================
+
+VERIFIER_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "correct": {"type": "boolean"},
+        "correct_letter": {"type": "string"},
+        "issue": {"type": "string"},
+    },
+    "required": ["correct", "correct_letter"],
+}
+
+
+def verify_question_against_fact(question: dict[str, Any], fact_excerpt: str) -> dict[str, Any] | None:
+    """Re-answer a generated question using only its cited fact.
+
+    Returns {correct, correct_letter, issue} or None when unverifiable.
+    """
+    if not gemini_available() or not fact_excerpt:
+        return None
+    options_block = "\n".join(
+        f"{option['label']}. {option['text']}" for option in question.get("options", [])
+    )
+    prompt = _contract_prompt(
+        "question_verification",
+        "Verify a generated MCQ against its cited source fact only.",
+        f"""
+Question:
+{question.get("question_text", "")}
+
+Options:
+{options_block}
+
+Claimed correct answer: {question.get("correct_option", "")}
+
+Cited source fact (the ONLY admissible evidence):
+{fact_excerpt[:1500]}
+
+Rules:
+- Answer the question using ONLY the cited fact. Never use outside knowledge.
+- correct=true only if the claimed letter is unambiguously supported by the fact.
+- correct_letter must be your answer letter (A/B/C/D/E) based on the fact.
+- issue: one short sentence; empty string when fully grounded.
+
+Return JSON only.
+""",
+    )
+    result = call_json(prompt, schema=VERIFIER_SCHEMA, temperature=0.0, operation="question_verification", profile="accuracy")
+    if not isinstance(result, dict):
+        return None
+    letter = str(result.get("correct_letter", "")).strip().upper()[:1]
+    if letter not in {"A", "B", "C", "D", "E"}:
+        return None
+    return {
+        "correct": bool(result.get("correct")) and letter == str(question.get("correct_option", "")).upper(),
+        "correct_letter": letter,
+        "issue": str(result.get("issue") or ""),
     }

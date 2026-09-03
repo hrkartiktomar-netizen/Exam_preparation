@@ -5,11 +5,30 @@
   "use strict";
 
   var API = window.LedgerAPI;
-  var examState = null; // { id, questions, currentIdx, answers, states, timerInterval }
+  var examState = null; // { id, kind, questions, currentIdx, answers, states, spent, timeLimitMinutes, timerInterval }
   var starting = false; // in-flight guard for startExam (B6)
 
   function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
   function qsa(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); }
+
+  var LETTERS = ["A", "B", "C", "D", "E"];
+
+  function esc(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  /* An option's own label, not its position. 401 of the 1024 complete bank rows
+     are missing a middle option and 399 have no option A at all, so position and
+     label disagree on ~39% of PYQ questions -- grading a click by position marks
+     a right answer wrong. Position is only a fallback for options that arrive as
+     bare strings. */
+  function labelOf(opt, i) {
+    if (opt == null) return null;
+    if (typeof opt === "object" && opt.label) return opt.label;
+    return LETTERS[i] || null;
+  }
 
   var STATES = {
     NOT_VISITED: "not-visited",
@@ -20,6 +39,60 @@
   };
 
   /* ────── Setup ────── */
+  var papers = []; // /api/exam-templates rows, cached so the Examination filter can re-run
+
+  function paperLabel(t) {
+    var parts = [t.name];
+    if (t.total_questions) parts.push(t.total_questions + " Q");
+    if (t.time_limit_minutes) parts.push(t.time_limit_minutes + " MIN");
+    return parts.join(" · ");
+  }
+
+  /* The Examination select is a client-side filter only -- SmartMockRequestModel
+     has no exam field, because template_id already encodes exam + phase + paper.
+     CUSTOM carries exam="ANY", so the adaptive mock survives every filter. */
+  function renderPapers() {
+    var select = qs("#exam-paper");
+    if (!select || !papers.length) return;
+
+    var examSelect = qs("#exam-type");
+    var exam = examSelect ? examSelect.value : "";
+    var list = papers.filter(function (t) { return t.exam === "ANY" || t.exam === exam; });
+    var keep = select.value;
+
+    select.innerHTML = list.map(function (t) {
+      return '<option value="' + esc(t.template_id) + '">' + esc(paperLabel(t)) + "</option>";
+    }).join("");
+
+    // Surviving pick wins; otherwise the list head, which the backend sorts to CUSTOM.
+    if (keep && list.some(function (t) { return t.template_id === keep; })) select.value = keep;
+    seedCount();
+  }
+
+  /* Choosing a paper seeds Questions from that paper's real length, so the number
+     shown is the number the backend will actually allocate. */
+  function seedCount() {
+    var select = qs("#exam-paper");
+    var countInput = qs("#exam-count");
+    if (!select || !countInput) return;
+
+    var paper = papers.filter(function (t) { return t.template_id === select.value; })[0];
+    if (paper && paper.total_questions) countInput.value = paper.total_questions;
+  }
+
+  async function loadPapers() {
+    if (!API || !API.examTemplates) return;
+    try {
+      var result = await API.examTemplates();
+      papers = (result && result.templates) || [];
+      renderPapers();
+    } catch (err) {
+      if (window.LedgerApp && window.LedgerApp.toast) {
+        window.LedgerApp.toast("Phase papers unavailable: " + err.message, "error");
+      }
+    }
+  }
+
   function initSetup() {
     var form = qs(".exam-setup__form");
     if (!form) return;
@@ -30,6 +103,13 @@
       e.preventDefault();
       startExam();
     });
+
+    var examSelect = qs("#exam-type");
+    var paperSelect = qs("#exam-paper");
+    if (examSelect) examSelect.addEventListener("change", renderPapers);
+    if (paperSelect) paperSelect.addEventListener("change", seedCount);
+
+    loadPapers();
   }
 
   async function startExam() {
@@ -37,40 +117,26 @@
     if (examState || starting) return; // re-entry guard (B6)
     starting = true;
 
-    var examSelect = qs("#exam-type");
+    var paperSelect = qs("#exam-paper");
     var countInput = qs("#exam-count");
+    // Model-real names. exam_type/question_count/allocation_mode are undeclared on
+    // SmartMockRequestModel, so pydantic's extra="ignore" dropped them and the
+    // form's values never reached the backend at all.
     var body = {
-      exam_type: examSelect ? examSelect.value : "IFSCA",
-      question_count: countInput ? parseInt(countInput.value, 10) || 50 : 50,
-      allocation_mode: "targeting_weighted",
+      total_questions: countInput ? parseInt(countInput.value, 10) || 50 : 50,
+      mode: "balanced", // the model's Literal has no "targeting_weighted"; that 422s
+      template: paperSelect ? paperSelect.value : "CUSTOM",
     };
 
     try {
       var result = await API.examsStart(body);
       if (!result || !result.exam_id) throw new Error("No exam ID returned");
 
-      examState = {
-        id: result.exam_id,
-        questions: result.questions || [],
-        currentIdx: 0,
-        answers: {},
-        states: {},
-        timerInterval: null,
-      };
       starting = false; // examState now guards re-entry
-
-      // Initialize all states to NOT_VISITED
-      examState.questions.forEach(function (q, i) {
-        examState.states[i] = STATES.NOT_VISITED;
+      beginSession(result.exam_id, result.questions, {
+        kind: "mock",
+        timeLimitMinutes: result.time_limit_seconds / 60,
       });
-      if (examState.questions.length > 0) {
-        examState.states[0] = STATES.NOT_ANSWERED;
-      }
-
-      showLiveConsole();
-      startTimer();
-      renderQuestion(0);
-      renderPalette();
 
     } catch (err) {
       starting = false;
@@ -78,6 +144,40 @@
         window.LedgerApp.toast("Failed to start exam: " + err.message, "error");
       }
     }
+  }
+
+  /* Enter the live console with an already-fetched session. Shared by the smart
+     mock (fetched here) and PYQ papers/sittings/drills (fetched by views.js),
+     because both responses carry the same question shape: question_id,
+     question_text and options of {label, text}. */
+  function beginSession(id, questions, opts) {
+    var o = opts || {};
+    var list = questions || [];
+
+    examState = {
+      id: id,
+      kind: o.kind || "mock",
+      questions: list,
+      currentIdx: 0,
+      answers: {},
+      states: {},
+      spent: {},
+      timeLimitMinutes: o.timeLimitMinutes || null,
+      timerInterval: null,
+    };
+
+    // Initialize all states to NOT_VISITED
+    list.forEach(function (q, i) {
+      examState.states[i] = STATES.NOT_VISITED;
+    });
+    if (list.length > 0) {
+      examState.states[0] = STATES.NOT_ANSWERED;
+    }
+
+    showLiveConsole();
+    startTimer();
+    renderQuestion(0);
+    renderPalette();
   }
 
   /* ────── Live Console ────── */
@@ -103,41 +203,74 @@
   /* ────── Timer ────── */
   function startTimer() {
     if (!examState) return;
+    var state = examState;
     var timerEl = qs(".exam-bar__timer");
 
-    examState.timerInterval = setInterval(async function () {
-      try {
-        var timeData = await API.examTime(examState.id);
-        var remaining = timeData.remaining_seconds || 0;
+    // The mock's clock is server-held and authoritative. A PYQ session has no
+    // server clock to poll -- /api/exams/{id}/time-remaining resolves a mock_id,
+    // so asking it about a PYQ id would 404 once a second for the whole attempt
+    // -- so it counts down locally from the limit the session was served with.
+    // Decided by kind, not by the presence of a limit: both arrive carrying one,
+    // under different keys -- /api/exams/start sends time_limit_seconds while the
+    // PYQ endpoints send time_limit_minutes -- so "has a limit" cannot tell them
+    // apart, and guessing wrong puts a mock on a clock nothing can correct.
+    var localRemaining = null;
+    if (state.kind === "pyq") {
+      localRemaining = (state.timeLimitMinutes || 60) * 60;
+    }
+    if (localRemaining !== null) paintTimer(timerEl, localRemaining);
 
-        var h = Math.floor(remaining / 3600);
-        var m = Math.floor((remaining % 3600) / 60);
-        var s = remaining % 60;
-        var display = String(h).padStart(2, "0") + ":" +
-                      String(m).padStart(2, "0") + ":" +
-                      String(s).padStart(2, "0");
+    state.timerInterval = setInterval(async function () {
+      state.spent[state.currentIdx] = (state.spent[state.currentIdx] || 0) + 1;
 
-        if (timerEl) {
-          timerEl.textContent = display;
-          if (remaining <= 300) {
-            timerEl.dataset.warning = "";
-          } else {
-            delete timerEl.dataset.warning;
-          }
+      var remaining;
+      if (localRemaining !== null) {
+        localRemaining -= 1;
+        remaining = localRemaining;
+      } else {
+        try {
+          var timeData = await API.examTime(state.id);
+          remaining = timeData.time_remaining_seconds;
+          // A missing clock key is a contract break, not an expired exam: `|| 0`
+          // here made the two indistinguishable and force-submitted the mock on
+          // the first tick. Freeze and retry instead.
+          if (typeof remaining !== "number") return;
+        } catch (e) {
+          return; // timer fetch failed, will retry
         }
+      }
 
-        if (remaining === 600 || remaining === 300 || remaining === 60) {
-          if (window.LedgerApp && window.LedgerApp.announce) {
-            window.LedgerApp.announce(Math.round(remaining / 60) + " minute" + (remaining === 60 ? "" : "s") + " remaining");
-          }
-        }
+      paintTimer(timerEl, remaining);
 
-        if (remaining <= 0) {
-          clearInterval(examState.timerInterval);
-          submitExam();
-        }
-      } catch (e) { /* timer fetch failed, will retry */ }
+      if (remaining <= 0) {
+        clearInterval(state.timerInterval);
+        submitExam();
+      }
     }, 1000);
+  }
+
+  function paintTimer(timerEl, remaining) {
+    var h = Math.floor(remaining / 3600);
+    var m = Math.floor((remaining % 3600) / 60);
+    var s = remaining % 60;
+    var display = String(h).padStart(2, "0") + ":" +
+                  String(m).padStart(2, "0") + ":" +
+                  String(s).padStart(2, "0");
+
+    if (timerEl) {
+      timerEl.textContent = display;
+      if (remaining <= 300) {
+        timerEl.dataset.warning = "";
+      } else {
+        delete timerEl.dataset.warning;
+      }
+    }
+
+    if (remaining === 600 || remaining === 300 || remaining === 60) {
+      if (window.LedgerApp && window.LedgerApp.announce) {
+        window.LedgerApp.announce(Math.round(remaining / 60) + " minute" + (remaining === 60 ? "" : "s") + " remaining");
+      }
+    }
   }
 
   /* ────── Render Question ────── */
@@ -155,12 +288,11 @@
 
     if (optionsEl) {
       var options = q.options || [];
-      var letters = ["A", "B", "C", "D"];
       optionsEl.innerHTML = options.map(function (opt, i) {
         var selected = examState.answers[idx] === i;
         return '<div class="exam-option' + (selected ? ' is-selected' : '') + '" data-option="' + i + '">' +
-          '<span class="exam-option__letter">' + letters[i] + '</span>' +
-          '<span class="exam-option__text">' + (opt.text || opt) + '</span>' +
+          '<span class="exam-option__letter">' + esc(labelOf(opt, i)) + '</span>' +
+          '<span class="exam-option__text">' + esc(opt && opt.text ? opt.text : opt) + '</span>' +
           '</div>';
       }).join("");
 
@@ -181,6 +313,13 @@
   }
 
   function selectOption(qIdx, optIdx) {
+    if (!examState || !examState.questions[qIdx]) return;
+    // The keyboard path passes a raw digit, so it can name an option this
+    // question does not have. Recording it anyway showed no selection but still
+    // submitted a letter that does not exist, grading the question wrong.
+    var options = examState.questions[qIdx].options || [];
+    if (optIdx < 0 || optIdx >= options.length) return;
+
     examState.answers[qIdx] = optIdx;
 
     var state = examState.states[qIdx];
@@ -265,7 +404,7 @@
         if (examState.currentIdx < examState.questions.length - 1) renderQuestion(examState.currentIdx + 1);
       } else if (e.key === "ArrowLeft" || e.key === "p") {
         if (examState.currentIdx > 0) renderQuestion(examState.currentIdx - 1);
-      } else if (e.key >= "1" && e.key <= "4") {
+      } else if (e.key >= "1" && e.key <= "5") {
         selectOption(examState.currentIdx, parseInt(e.key, 10) - 1);
       }
     });
@@ -299,12 +438,36 @@
   }
 
   /* ────── Submit ────── */
+
+  /* Both submit endpoints take the same MockSubmitRequestModel: a LIST of
+     {question_id, selected_answer, time_spent_seconds, marked_for_review}.
+     examState.answers holds positional option indexes keyed by question index,
+     which that model rejects outright, so the payload has to be rebuilt from the
+     questions rather than posted as-is. */
+  function buildAnswers() {
+    return examState.questions.map(function (q, i) {
+      var chosen = examState.answers[i];
+      var state = examState.states[i];
+      return {
+        question_id: q.question_id,
+        selected_answer: chosen === undefined
+          ? null
+          : labelOf((q.options || [])[chosen], chosen),
+        time_spent_seconds: examState.spent[i] || 0,
+        marked_for_review: state === STATES.MARKED || state === STATES.MARKED_ANSWERED,
+      };
+    });
+  }
+
   async function submitExam() {
     if (!examState || !API) return;
     clearInterval(examState.timerInterval);
 
     try {
-      var result = await API.examSubmit(examState.id, examState.answers);
+      var answers = buildAnswers();
+      var result = examState.kind === "pyq"
+        ? await API.pyqSubmit(examState.id, answers)
+        : await API.examSubmit(examState.id, answers);
       hideLiveConsole();
       renderResults(result);
     } catch (err) {
@@ -324,7 +487,7 @@
     var scoreLabel = qs(".exam-results__score-label", resultsEl);
     var topicsGrid = qs(".exam-results__topics", resultsEl);
 
-    var total = result.total_score || result.score || 0;
+    var total = result.final_score || 0;
     var maxScore = result.max_score || examState.questions.length;
 
     if (scoreNum) {
@@ -342,7 +505,9 @@
     }
 
     if (scoreLabel) {
-      var pct = maxScore > 0 ? ((total / maxScore) * 100).toFixed(1) : 0;
+      // accuracy_pct is correct/total; final_score is net of negative marking,
+      // so deriving the percentage from the score overstates every wrong answer.
+      var pct = (result.accuracy_pct || 0).toFixed(1);
       scoreLabel.textContent = pct + "% ACCURACY · " + examState.questions.length + " QUESTIONS";
     }
 
@@ -352,7 +517,7 @@
         var pct = t.total > 0 ? Math.round((t.correct / t.total) * 100) : 0;
         var level = pct < 40 ? "data-low" : (pct < 70 ? "data-mid" : "");
         return '<div class="exam-results__topic">' +
-          '<div class="exam-results__topic-name">' + (t.topic || "Unknown") + ' · ' + t.correct + '/' + t.total + '</div>' +
+          '<div class="exam-results__topic-name">' + esc(t.topic || "Unknown") + ' · ' + esc(t.correct) + '/' + esc(t.total) + '</div>' +
           '<div class="exam-results__bar"><div class="exam-results__bar-fill" ' + level + ' style="width:' + pct + '%"></div></div>' +
           '</div>';
       }).join("");
@@ -374,6 +539,26 @@
     initSetup();
     initControls();
   }
+
+  /* Hand an already-fetched bank session to the console. Returns false when an
+     attempt is in flight or the session is not renderable, so the caller can say
+     why nothing happened instead of silently navigating to an empty console. */
+  function startSession(session) {
+    if (examState || starting) return false;
+    if (!session || !session.pyq_id) return false;
+    if (!session.questions || !session.questions.length) return false;
+
+    beginSession(session.pyq_id, session.questions, {
+      kind: "pyq",
+      timeLimitMinutes: session.time_limit_minutes,
+    });
+    return true;
+  }
+
+  window.LedgerExam = {
+    startSession: startSession,
+    isActive: function () { return !!examState; },
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

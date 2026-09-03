@@ -51,6 +51,8 @@
     amendmentsIntel:   function () { return get("/api/amendments/intelligence?limit=8"); },
     startupScan:       function (refresh) { return get("/api/amendments/startup-scan?refresh=" + (refresh ? "true" : "false")); },
     enrichReasons:     function () { return post("/api/updates/enrich-reasons"); },
+    // Basename only: the store rejects any name carrying a path separator.
+    corpusDocument:    function (name) { return get("/api/documents/" + encodeURIComponent(name)); },
 
     // SRS
     srsDue:            function () { return get("/api/srs/due-topics"); },
@@ -61,6 +63,7 @@
 
     // Exams
     examsStart:        function (body) { return post("/api/exams/start", body); },
+    examTemplates:     function () { return get("/api/exam-templates"); },
     examTime:          function (id) { return get("/api/exams/" + id + "/time-remaining"); },
     examSubmit:        function (id, answers) { return post("/api/exams/" + id + "/submit", { answers: answers }); },
     examAnalytics:     function (id, list) { return post("/api/exams/" + id + "/analytics", list); },
@@ -73,6 +76,21 @@
     // PYQ
     pyqList:           function () { return get("/api/pyq/list"); },
     pyqLoad:           function (docId) { return post("/api/pyq/" + docId + "/load"); },
+    pyqSitting:        function (year, phase, opts) {
+      var o = opts || {};
+      var q = "/api/pyq/sitting?year=" + year + "&phase=" + phase;
+      if (o.exam) q += "&exam=" + encodeURIComponent(o.exam);
+      if (o.paper) q += "&paper=" + o.paper;
+      if (o.limit) q += "&limit=" + o.limit;
+      return get(q);
+    },
+    pyqDrill:          function (subjectId, opts) {
+      var o = opts || {};
+      var q = "/api/pyq/drill?subject_id=" + encodeURIComponent(subjectId);
+      if (o.exam) q += "&exam=" + encodeURIComponent(o.exam);
+      q += "&limit=" + (o.limit || 20);
+      return get(q);
+    },
     pyqSubmit:         function (id, answers) { return post("/api/pyq/" + id + "/submit", { answers: answers }); },
     pyqAnswers:        function (id) { return get("/api/pyq/" + id + "/answers"); },
     pyqAnalytics:      function () { return get("/api/pyq/analytics"); },

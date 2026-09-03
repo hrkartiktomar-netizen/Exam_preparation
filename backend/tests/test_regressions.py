@@ -16,8 +16,11 @@ Covered regressions:
 
 from __future__ import annotations
 
+import gc
+import re
 import sqlite3
 import tempfile
+import time
 from pathlib import Path
 from unittest.mock import patch
 
@@ -40,7 +43,13 @@ def temp_db():
         yield Path(temp_db_path)
     finally:
         db.DB_PATH = original_db_path
-        Path(temp_db_path).unlink(missing_ok=True)
+        gc.collect()
+        for attempt in range(5):
+            try:
+                Path(temp_db_path).unlink(missing_ok=True)
+                break
+            except PermissionError:
+                time.sleep(0.05 * (attempt + 1))
 
 
 def _conn() -> sqlite3.Connection:
@@ -302,7 +311,9 @@ def test_exam_start_returns_expected_time_and_negative_marking(temp_db):
         "created_by": "gemini",
     }
 
-    def fake_generate_smart_mock(total_questions=50, mode="balanced", use_gemini=True):
+    def fake_generate_smart_mock(
+        total_questions=50, mode="balanced", use_gemini=True, template_id="CUSTOM"
+    ):
         return {
             "mock_id": "SM_EXAM1",
             "allocation": {"PH2_FM_REGS": 1},
@@ -394,7 +405,8 @@ def test_srs_mark_reviewed_touches_only_soonest_row(temp_db):
     conn.close()
     assert len(rows) == 1
     assert rows[0]["last_result"] == "success"
-    assert rows[0]["interval_days"] == 3
+    # Plan v6 6.4 unified SM-2: ease 2.5 -> 2.6, interval = round(5 * 2.6) = 13.
+    assert rows[0]["interval_days"] == 13
 
 
 def test_amendment_recency_cutoff_matches_sqlite_timestamp_format(temp_db):
@@ -451,3 +463,1902 @@ def test_pyq_cache_ttl_covers_full_exam():
     import pyq_cache
 
     assert pyq_cache._CACHE_TTL_SECONDS >= 3600, "cache must outlive the 60-minute exam timer"
+
+
+# ---------------------------------------------------------------------------
+# 9. /api/questions/search must not be shadowed by /api/questions/{question_id}
+# ---------------------------------------------------------------------------
+
+def test_questions_search_route_is_not_shadowed_by_question_id(temp_db):
+    """Starlette resolves routes in registration order.
+
+    /api/questions/search was registered ~1,579 lines after
+    /api/questions/{question_id}, so the literal segment "search" was captured as
+    a question_id and every call fell into that handler's not-found branch,
+    returning 404 "Question not found". The search endpoint was dead code.
+    """
+    import main
+
+    client = TestClient(main.app)
+
+    # A missing required `query` can only produce a 422 from the search handler's
+    # own signature; the {question_id} handler has no required query param and
+    # would answer 404 instead. This makes the check independent of DB contents.
+    missing_param = client.get("/api/questions/search")
+    assert missing_param.status_code == 422, (
+        f"expected a 422 from the search handler's required `query` param, "
+        f"got {missing_param.status_code}: {missing_param.text}"
+    )
+
+    response = client.get("/api/questions/search", params={"query": "IFSCA"})
+    shadowed = response.status_code == 404 and response.json().get("detail") == "Question not found"
+    assert not shadowed, (
+        f"/api/questions/search was swallowed by /api/questions/{{question_id}}: {response.text}"
+    )
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload["query"] == "IFSCA"
+    assert payload["total"] == len(payload["results"])
+
+
+# ---------------------------------------------------------------------------
+# 10. job_queue must honour a patched database.DB_PATH (test isolation)
+# ---------------------------------------------------------------------------
+
+def test_job_queue_schema_respects_patched_db_path(temp_db):
+    """job_queue resolved its own DB_PATH constant at import time.
+
+    The temp_db fixture rebinds database.DB_PATH only, so init_job_queue_schema()
+    -- reached from the lifespan during `with TestClient(app)` -- created the
+    job_queue table in the real backend/ifsca_exam.db rather than the temp DB.
+    Tests mutated the production database and leaked state between runs.
+    """
+    import job_queue
+
+    job_queue.init_job_queue_schema()
+
+    conn = sqlite3.connect(temp_db)
+    try:
+        row = conn.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name='job_queue'"
+        ).fetchone()
+    finally:
+        conn.close()
+
+    assert row is not None, (
+        "job_queue.init_job_queue_schema() ignored database.DB_PATH and wrote to "
+        "the production database file instead of the test database"
+    )
+
+
+# ---------------------------------------------------------------------------
+# 11. /api/exams/{id}/submit must publish the score scale and topic breakdown
+# ---------------------------------------------------------------------------
+
+def test_exam_submit_exposes_max_score_and_topic_breakdown(temp_db):
+    """The results panel read keys the endpoint never sent.
+
+    frontend/js/exam.js renders `result.total_score || result.score` over
+    `result.max_score`, and iterates `result.topic_breakdown`. The endpoint
+    returned `final_score` with no scale and only `weak_areas` -- a subset
+    filtered to accuracy < 60 -- so the score always displayed as 0 and
+    competent topics disappeared from the grid entirely.
+
+    db.submit_mock normalises every mock to a 100-mark scale
+    (marks_per_question = 100 / total_questions). That scale is a scoring
+    invariant, so the scorer owns it and the endpoint republishes it rather
+    than the client hard-coding a number it has no way to derive.
+    """
+    import main
+
+    _insert_smart_mock(_conn())
+
+    with TestClient(main.app) as client:
+        response = client.post(
+            "/api/exams/SM_T1/submit",
+            json={
+                "answers": [
+                    {"question_id": "Q_T1", "selected_answer": "B", "time_spent_seconds": 10}
+                ]
+            },
+        )
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+
+    assert payload.get("max_score") == 100.0, (
+        f"endpoint did not publish the 100-mark scale submit_mock scores "
+        f"against; keys present: {sorted(payload)}"
+    )
+
+    breakdown = payload.get("topic_breakdown")
+    assert breakdown, (
+        f"endpoint dropped the full per-topic breakdown; only weak_areas "
+        f"(accuracy < 60) survived, so topics the candidate answered well "
+        f"vanish from the results grid. keys present: {sorted(payload)}"
+    )
+
+    entry = breakdown[0]
+    for key in ("topic", "correct", "total"):
+        assert key in entry, (
+            f"topic_breakdown item is missing '{key}'; the results grid reads "
+            f"t.correct and t.total, so it would render NaN. item: {entry}"
+        )
+
+    # weak_areas stays as the filtered subset -- a different question from the
+    # breakdown, not a replacement for it.
+    assert payload["weak_areas"] == []
+    assert len(breakdown) == 1
+    assert entry["correct"] == 1 and entry["total"] == 1
+
+
+# ---------------------------------------------------------------------------
+# 12. /api/drills/wrong-queue must cite the source document of a wrong answer
+# ---------------------------------------------------------------------------
+
+def test_wrong_queue_returns_the_source_document(temp_db):
+    """The review view has a source line the endpoint never fed.
+
+    frontend/js/views.js loadReview() renders a `.wrong-item__source` element
+    guarded on a source field, but the endpoint selected only from
+    question_attempts -- whose own `source` column records the attempt channel
+    (SMART_MOCK / QRE), not where the fact came from. The guard therefore could
+    never be true and the citation silently never rendered.
+
+    questions.source does carry the originating document (32 distinct filenames
+    across the bank), so the citation is one LEFT JOIN away. It is a LEFT JOIN
+    because question_attempts.question_id is nullable and replayed drills may
+    reference questions that are no longer in the bank; an inner join would drop
+    those rows from the queue entirely.
+    """
+    import main
+
+    conn = _conn()
+    try:
+        db.save_question(
+            {
+                "question_id": "Q_W1",
+                "topic": "PH2_FM_REGS",
+                "question_text": "Which regulation governs fund management?",
+                "options": [
+                    {"label": "A", "text": "x"},
+                    {"label": "B", "text": "FME Regulations"},
+                    {"label": "C", "text": "y"},
+                    {"label": "D", "text": "z"},
+                ],
+                "correct_option": "B",
+                "explanation": "FME",
+                "source": "IFSCA_Compliance_Handbook.md",
+                "difficulty": "easy",
+                "source_policy": "exam_material",
+            },
+            created_by="test",
+        )
+        conn.execute(
+            """
+            INSERT INTO question_attempts
+            (mock_id, question_id, topic, question_text, correct_option, your_option,
+             is_correct, time_spent_seconds, attempt_date, source)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            ("SM_W1", "Q_W1", "PH2_FM_REGS", "Which regulation governs fund management?",
+             "B", "C", 0, 12, "2026-09-01", "SMART_MOCK"),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+    with TestClient(main.app) as client:
+        response = client.get("/api/drills/wrong-queue?limit=10")
+
+    assert response.status_code == 200, response.text
+    items = response.json()["wrong_answers"]
+    assert len(items) == 1, items
+    row = items[0]
+
+    assert row.get("correct_option") == "B", row
+    assert row.get("your_option") == "C", row
+    assert row.get("source_document") == "IFSCA_Compliance_Handbook.md", (
+        f"endpoint did not join questions.source, so the review view's citation "
+        f"line can never render; keys present: {sorted(row)}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# 13. /api/descriptive/grade must reject a payload carrying no answer text
+# ---------------------------------------------------------------------------
+
+def test_descriptive_grade_rejects_payload_without_answer_text(temp_db):
+    """A grade request with no answer text used to return 200 and a zero score.
+
+    DescriptiveGradeRequestModel takes one field per component (essay_text,
+    precis_text, rc_answers). The descriptive view posted {response_text,
+    exam_type} instead, and Pydantic's default is to ignore unknown keys, so
+    every answer field kept its empty default and the endpoint graded nothing --
+    answering 200 with total_score 0.0 and components []. A client cannot tell
+    that apart from a genuinely zero-scoring essay, which is why the mismatched
+    payload survived unnoticed. Validation belongs at the boundary so that a
+    request carrying no answer is loud rather than silently scoreless.
+    """
+    import main
+
+    with TestClient(main.app) as client:
+        stale = client.post(
+            "/api/descriptive/grade",
+            json={"response_text": "A precis of the passage.", "exam_type": "IFSCA"},
+        )
+        assert stale.status_code == 422, (
+            f"payload with no recognised answer field was accepted with "
+            f"{stale.status_code}: {stale.text[:200]}"
+        )
+
+        empty = client.post("/api/descriptive/grade", json={"exam": "IFSCA"})
+        assert empty.status_code == 422, (
+            f"payload with every answer field empty was accepted with "
+            f"{empty.status_code}: {empty.text[:200]}"
+        )
+
+
+# ---------------------------------------------------------------------------
+# 14. GET /api/pyq/sitting must return a whole sitting, not a single paper
+# ---------------------------------------------------------------------------
+
+# A sitting is not a paper. In the real bank, 2024 Phase 1 spans two exams and
+# two papers (280 rows) and 2022 Phase 1 spans two exams and two papers (109
+# rows), but /api/pyq/{doc_id}/load can only ever return one
+# (exam, year, phase, paper) tuple, and /api/pyq/drill filters on subject_id --
+# which is NULL on 109 real rows, so it cannot reach them at all. This fixture
+# reproduces that shape in miniature: two subjects that each restart
+# question_number at 1, a second paper, a second exam, and a row with no subject.
+_SITTING_ROWS = [
+    # (pyq_id, exam, paper, subject_id, question_number, question_text, incomplete)
+    ("S_QUANT_1", "IFSCA", 1, "SUBJ_QUANT", 1, "IFSCA P1 QUANT q1", 0),
+    ("S_QUANT_2", "IFSCA", 1, "SUBJ_QUANT", 2, "IFSCA P1 QUANT q2", 0),
+    ("S_ENG_1", "IFSCA", 1, "SUBJ_ENGLISH", 1, "IFSCA P1 ENGLISH q1", 0),
+    ("S_ENG_2", "IFSCA", 1, "SUBJ_ENGLISH", 2, "IFSCA P1 ENGLISH q2", 0),
+    ("S_P2_QUANT_1", "IFSCA", 2, "SUBJ_QUANT", 1, "IFSCA P2 QUANT q1", 0),
+    ("S_SEBI_1", "SEBI", 1, None, 1, "SEBI P1 UNSUBJECTED q1", 0),
+    ("S_INCOMPLETE", "IFSCA", 1, "SUBJ_QUANT", 3, "IFSCA P1 QUANT q3 INCOMPLETE", 1),
+]
+
+
+def _seed_sitting() -> None:
+    conn = _conn()
+    try:
+        already = conn.execute("SELECT COUNT(*) FROM previous_year_questions").fetchone()[0]
+        assert already == 0, (
+            f"temp_db arrived with {already} previous_year_questions rows; the "
+            f"exact counts below assume a clean table"
+        )
+        for pyq_id, exam, paper, subject, qnum, text, incomplete in _SITTING_ROWS:
+            conn.execute(
+                """
+                INSERT INTO previous_year_questions
+                (pyq_id, exam, year, phase, paper, subject_id, question_number,
+                 question_text, option_a, option_b, option_c, option_d,
+                 correct_option, marks, incomplete)
+                VALUES (?, ?, 2024, 1, ?, ?, ?, ?, 'a', 'b', 'c', 'd', 'A', 1, ?)
+                """,
+                (pyq_id, exam, paper, subject, qnum, text, incomplete),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _sitting_client():
+    """A TestClient that does NOT run the lifespan.
+
+    The endpoint under test reads SQLite and writes only the in-process answer
+    cache, so it needs no startup. Running the lifespan would call
+    db.bootstrap_from_knowledge(), which seeds previous_year_questions from the
+    committed knowledge pack and would quietly change every count asserted here.
+    """
+    import main
+
+    return TestClient(main.app)
+
+
+def test_pyq_sitting_returns_every_paper_in_subject_order(temp_db):
+    """One year+phase must yield the whole sitting, grouped so numbering reads.
+
+    question_number restarts per subject -- the real bank has 170
+    (year, phase, paper, question_number) groups that repeat, and every one of
+    them holds distinct questions, so ordering by question_number alone
+    interleaves subjects and reads as a shuffled paper. Deduping those repeats
+    would destroy real exam content, so the count must survive intact.
+    """
+    _seed_sitting()
+
+    response = _sitting_client().get("/api/pyq/sitting", params={"year": 2024, "phase": 1})
+
+    assert response.status_code == 200, response.text
+    session = response.json()
+
+    assert session["total_questions"] == 6, (
+        f"expected the 6 complete rows of the sitting; the incomplete row must be "
+        f"excluded and the repeated per-subject question numbers must NOT be "
+        f"deduped. got {session.get('total_questions')}"
+    )
+
+    order = [q["question_text"] for q in session["questions"]]
+    assert order == [
+        "IFSCA P1 ENGLISH q1",
+        "IFSCA P1 ENGLISH q2",
+        "IFSCA P1 QUANT q1",
+        "IFSCA P1 QUANT q2",
+        "IFSCA P2 QUANT q1",
+        "SEBI P1 UNSUBJECTED q1",
+    ], (
+        f"questions were not grouped by paper then subject, so per-subject "
+        f"numbering interleaves: {order}"
+    )
+
+    assert session["exam"] == "MIXED", (
+        f"sitting spans IFSCA and SEBI but reported exam={session.get('exam')!r}"
+    )
+    assert "SEBI P1 UNSUBJECTED q1" in order, (
+        "the row with no subject_id was dropped; /api/pyq/drill filters on "
+        "subject_id and cannot serve those 109 real rows, so this endpoint is "
+        "the only route to them"
+    )
+
+
+def test_pyq_sitting_session_id_cannot_collide_with_paper_load(temp_db):
+    """The sitting's cache key must stay out of the single-paper namespace.
+
+    /api/pyq/{pyq_id}/submit grades against pyq_cache.get_pyq_questions(pyq_id),
+    and /api/pyq/{doc_id}/load caches under PYQ_DOC{EXAM}_{year}_P{phase}_PAPER{n}.
+    The two order rows differently, so if a sitting narrowed to one paper reused
+    that key it would overwrite the cached answer set of an attempt already in
+    flight and silently misgrade it.
+    """
+    import pyq_cache
+
+    _seed_sitting()
+    client = _sitting_client()
+
+    session = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "exam": "IFSCA", "paper": 1}
+    ).json()
+
+    load_ids = {
+        f"PYQ_DOC{exam}_2024_P1_PAPER{paper}"
+        for exam in ("IFSCA", "SEBI")
+        for paper in (1, 2)
+    }
+    assert session["pyq_id"] not in load_ids, (
+        f"sitting session id {session['pyq_id']!r} collides with an id that "
+        f"/api/pyq/{{doc_id}}/load mints for the same sitting"
+    )
+    assert session["exam"] == "IFSCA", (
+        f"narrowed to one exam but reported {session.get('exam')!r}"
+    )
+    assert pyq_cache.get_pyq_questions(session["pyq_id"]), (
+        "the sitting was not cached under its own id, so it cannot be submitted"
+    )
+
+
+def test_pyq_sitting_narrows_by_exam_and_paper_and_404s_when_empty(temp_db):
+    _seed_sitting()
+    client = _sitting_client()
+
+    by_paper = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "paper": 2}
+    )
+    assert by_paper.status_code == 200, by_paper.text
+    assert by_paper.json()["total_questions"] == 1, by_paper.text
+
+    by_exam = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "exam": "SEBI"}
+    )
+    assert by_exam.status_code == 200, by_exam.text
+    assert by_exam.json()["total_questions"] == 1, by_exam.text
+
+    # 2021 is in bounds but the fixture seeds only 2024, so this exercises the
+    # empty-result path rather than the parameter-bound path below.
+    missing = client.get("/api/pyq/sitting", params={"year": 2021, "phase": 1})
+    assert missing.status_code == 404, (
+        f"an empty sitting answered {missing.status_code}; /api/pyq/drill 404s "
+        f"on an empty result set and this endpoint should match: {missing.text[:200]}"
+    )
+
+    unbounded = client.get("/api/pyq/sitting", params={"year": 2024, "phase": 99})
+    assert unbounded.status_code == 422, (
+        f"phase=99 was accepted with {unbounded.status_code}; phase is bounded "
+        f"to 1..4 so an out-of-range sitting is rejected at the boundary"
+    )
+
+
+# ---------------------------------------------------------------------------
+# 15. POST /api/pyq/{pyq_id}/submit must publish the paper's real max_score
+# ---------------------------------------------------------------------------
+
+# frontend/js/exam.js renders the score as `result.final_score / result.max_score`
+# and falls back to `examState.questions.length` when max_score is absent. That
+# fallback is wrong for this bank: marks are 1 (400 rows), 1.25 (298 rows) and 2
+# (350 rows), so on a 2-mark paper final_score can reach twice the question count
+# and the panel reads "80 / 50". These seeds use marks != 1 so the expected
+# max_score can never be mistaken for the question count.
+
+def _seed_marked_sitting(year: int, marks: float, count: int) -> None:
+    conn = _conn()
+    try:
+        already = conn.execute("SELECT COUNT(*) FROM previous_year_questions").fetchone()[0]
+        assert already == 0, (
+            f"temp_db arrived with {already} previous_year_questions rows; the "
+            f"exact scores below assume a clean table"
+        )
+        for qnum in range(1, count + 1):
+            conn.execute(
+                """
+                INSERT INTO previous_year_questions
+                (pyq_id, exam, year, phase, paper, subject_id, question_number,
+                 question_text, option_a, option_b, option_c, option_d,
+                 correct_option, marks, incomplete)
+                VALUES (?, 'IFSCA', ?, 1, 1, 'SUBJ_QUANT', ?, ?, 'a', 'b', 'c', 'd', 'A', ?, 0)
+                """,
+                (f"M_{year}_{qnum}", year, qnum, f"MARKED {year} q{qnum}", marks),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _submit(client, pyq_id: str, selected: dict[int, str | None]):
+    """POST an attempt. selected maps question_number -> chosen option or None."""
+    answers = [
+        {
+            "question_id": f"{pyq_id}_Q{qnum}",
+            "selected_answer": choice,
+            "time_spent_seconds": 5,
+            "marked_for_review": False,
+        }
+        for qnum, choice in selected.items()
+    ]
+    return client.post(f"/api/pyq/{pyq_id}/submit", json={"answers": answers})
+
+
+def test_pyq_submit_reports_max_score_from_the_papers_real_marking(temp_db):
+    """A 2-mark paper's ceiling is marks x questions, not the question count."""
+    _seed_marked_sitting(2024, marks=2, count=3)
+    client = _sitting_client()
+
+    session = client.get("/api/pyq/sitting", params={"year": 2024, "phase": 1}).json()
+    assert session["marks_per_question"] == 2, session
+
+    response = _submit(client, session["pyq_id"], {1: "A", 2: "B", 3: None})
+    assert response.status_code == 200, response.text
+    result = response.json()
+
+    # Guards the payload actually parsed. Pydantic v2 defaults to extra='ignore',
+    # so a mis-spelled answer field is silently dropped and still returns 200 with
+    # a zero score -- which would make the max_score assertion below pass for the
+    # wrong reason.
+    assert result["total_answered"] == 2, result
+    assert result["total_correct"] == 1, result
+
+    assert "max_score" in result, (
+        f"submit returned no max_score ({sorted(result)}); exam.js then divides by "
+        f"the question count and a 2-mark paper reads '4 / 3'"
+    )
+    assert result["max_score"] == 6.0, (
+        f"max_score was {result.get('max_score')!r}, expected 3 questions x 2 marks"
+    )
+    # raw 2 - negative 0.5 = 1.5, proving the session's real marking was used.
+    assert result["final_score"] == 1.5, result
+
+
+def test_pyq_submit_max_score_keeps_fractional_marks_exact(temp_db):
+    """1.25-mark papers must not lose the fraction to integer rounding."""
+    _seed_marked_sitting(2023, marks=1.25, count=3)
+    client = _sitting_client()
+
+    session = client.get("/api/pyq/sitting", params={"year": 2023, "phase": 1}).json()
+    assert session["marks_per_question"] == 1.25, session
+
+    response = _submit(client, session["pyq_id"], {1: "A", 2: "A", 3: "A"})
+    assert response.status_code == 200, response.text
+    result = response.json()
+
+    assert result["total_correct"] == 3, result
+    assert result["max_score"] == 3.75, (
+        f"max_score was {result.get('max_score')!r}, expected 3 x 1.25 = 3.75"
+    )
+    assert result["final_score"] == result["max_score"], (
+        f"all correct but final_score {result['final_score']} != max_score "
+        f"{result['max_score']}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# 16. GET /api/pyq/list must publish the subject enum /api/pyq/drill needs
+# ---------------------------------------------------------------------------
+
+def test_pyq_list_publishes_subjects_so_the_drill_is_reachable(temp_db):
+    """/api/pyq/drill requires subject_id, but nothing published the valid values.
+
+    A client could only reach the drill by hardcoding the enum, which drifts the
+    moment a subject is renamed or added. Counts cover complete rows only,
+    because that is what the drill serves -- advertising a subject whose
+    questions are all incomplete would offer a picker entry that 404s.
+
+    The NULL-subject row is deliberately absent. The drill filters with
+    `subject_id = ?`, which can never match NULL, so listing it would offer a
+    choice that returns nothing; /api/pyq/sitting is the route to those rows.
+    """
+    _seed_sitting()
+
+    response = _sitting_client().get("/api/pyq/list")
+    assert response.status_code == 200, response.text
+    payload = response.json()
+
+    # The papers half is the existing contract and must survive unchanged.
+    # _SITTING_ROWS spans three (exam, paper) tuples: IFSCA p1, IFSCA p2, SEBI p1.
+    assert payload["status"] == "ok", payload
+    assert len(payload["papers"]) == 3, payload["papers"]
+
+    assert "subjects" in payload, (
+        f"/api/pyq/list published no subjects ({sorted(payload)}), so the drill "
+        f"endpoint has no discoverable subject_id values"
+    )
+    assert payload["subjects"] == [
+        {"subject_id": "SUBJ_QUANT", "question_count": 3},
+        {"subject_id": "SUBJ_ENGLISH", "question_count": 2},
+    ], (
+        f"subjects were {payload['subjects']}; expected the complete rows grouped "
+        f"by subject, most drillable first, with the NULL-subject row excluded"
+    )
+
+
+def test_pyq_drill_serves_a_subject_the_list_advertised(temp_db):
+    """The advertised subject_id must actually return questions from the drill."""
+    _seed_sitting()
+    client = _sitting_client()
+
+    subjects = client.get("/api/pyq/list").json()["subjects"]
+    assert subjects, "no subjects were advertised"
+
+    for entry in subjects:
+        response = client.get(
+            "/api/pyq/drill", params={"subject_id": entry["subject_id"], "limit": 5}
+        )
+        assert response.status_code == 200, (
+            f"/api/pyq/list advertised {entry['subject_id']} with "
+            f"{entry['question_count']} questions but the drill answered "
+            f"{response.status_code}: {response.text[:200]}"
+        )
+        assert response.json()["total_questions"] > 0, response.text
+
+
+# ---------------------------------------------------------------------------
+# 17. GET /api/pyq/drill must key its cache on the request, not on a random row
+# ---------------------------------------------------------------------------
+
+# The drill draws with ORDER BY RANDOM() and then built its pyq_id from rows[0]:
+# f"PYQ_DOC{exam}_{year}_P{phase}_PAPER{paper}" with year pinned to 0. Two
+# different subjects therefore mint the SAME id whenever their first random rows
+# share (exam, phase, paper) -- observed live as PYQ_DOCSEBI_0_P1_PAPER1. The
+# second drill overwrites the first's cached answers under that shared id, and
+# because _format_bank_session also renumbers from 1 the question_ids are
+# identical too, so submitting the attempt already in flight matches by position
+# and grades it against the other subject's key. /api/pyq/sitting avoids exactly
+# this with its own SITTING namespace; the drill needs the same treatment.
+#
+# Every seed row shares one (year, phase, paper) so the collision is guaranteed
+# rather than something the random draw may or may not produce.
+_DRILL_ROWS = [
+    # (pyq_id, exam, subject_id, correct_option)
+    ("D_ALPHA_IFSCA", "IFSCA", "SUBJ_ALPHA", "A"),
+    ("D_BETA_IFSCA", "IFSCA", "SUBJ_BETA", "C"),
+    ("D_ALPHA_SEBI", "SEBI", "SUBJ_ALPHA", "B"),
+]
+
+
+def _seed_drill_pair() -> None:
+    conn = _conn()
+    try:
+        already = conn.execute("SELECT COUNT(*) FROM previous_year_questions").fetchone()[0]
+        assert already == 0, (
+            f"temp_db arrived with {already} previous_year_questions rows; the "
+            f"single-row draws below assume a clean table"
+        )
+        for pyq_id, exam, subject, correct in _DRILL_ROWS:
+            conn.execute(
+                """
+                INSERT INTO previous_year_questions
+                (pyq_id, exam, year, phase, paper, subject_id, question_number,
+                 question_text, option_a, option_b, option_c, option_d,
+                 correct_option, marks, incomplete)
+                VALUES (?, ?, 2024, 1, 1, ?, 1, ?, 'a', 'b', 'c', 'd', ?, 1, 0)
+                """,
+                (pyq_id, exam, subject, f"{subject} on {exam}", correct),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _drill(client, subject_id: str, exam: str | None = None):
+    params: dict[str, object] = {"subject_id": subject_id, "limit": 5}
+    if exam:
+        params["exam"] = exam
+    response = client.get("/api/pyq/drill", params=params)
+    assert response.status_code == 200, response.text
+    return response.json()
+
+
+def test_pyq_drill_attempt_is_not_misgraded_by_a_second_drill(temp_db):
+    """Opening a second drill must not rewrite the key of the first attempt."""
+    _seed_drill_pair()
+    client = _sitting_client()
+
+    # One row each, so ORDER BY RANDOM() cannot reorder the numbering and the
+    # correct option the seed chose is the one the served question carries.
+    alpha = _drill(client, "SUBJ_ALPHA", exam="IFSCA")
+    beta = _drill(client, "SUBJ_BETA", exam="IFSCA")
+
+    assert alpha["pyq_id"] != beta["pyq_id"], (
+        f"two different subject drills both minted {alpha['pyq_id']!r}; the "
+        f"second call overwrote the first's cached answers under that shared id"
+    )
+
+    # ALPHA's single question is correct at 'A'. Submitting ALPHA's own id must
+    # still be graded against ALPHA's key even though BETA was opened after it.
+    submitted = client.post(
+        f"/api/pyq/{alpha['pyq_id']}/submit",
+        json={
+            "answers": [
+                {
+                    "question_id": alpha["questions"][0]["question_id"],
+                    "selected_answer": "A",
+                    "time_spent_seconds": 4,
+                    "marked_for_review": False,
+                }
+            ]
+        },
+    )
+    assert submitted.status_code == 200, submitted.text
+    result = submitted.json()
+    assert result["total_correct"] == 1, (
+        f"the right answer scored {result['total_correct']}/1: ALPHA's attempt "
+        f"was graded against BETA's cached key (BETA is correct at 'C')"
+    )
+
+
+def test_pyq_drill_cache_key_is_stable_per_request_and_not_a_random_row(temp_db):
+    """The key must be a function of the request, and stay out of the paper space."""
+    _seed_drill_pair()
+    client = _sitting_client()
+
+    alpha_ifsca = _drill(client, "SUBJ_ALPHA", exam="IFSCA")
+    alpha_again = _drill(client, "SUBJ_ALPHA", exam="IFSCA")
+    beta_ifsca = _drill(client, "SUBJ_BETA", exam="IFSCA")
+    alpha_sebi = _drill(client, "SUBJ_ALPHA", exam="SEBI")
+    alpha_mixed = _drill(client, "SUBJ_ALPHA")
+
+    assert alpha_ifsca["pyq_id"] == alpha_again["pyq_id"], (
+        f"the same drill request minted {alpha_ifsca['pyq_id']!r} then "
+        f"{alpha_again['pyq_id']!r}; a re-opened drill would orphan the attempt "
+        f"already cached under the first id"
+    )
+    assert len({alpha_ifsca["pyq_id"], beta_ifsca["pyq_id"], alpha_sebi["pyq_id"],
+                alpha_mixed["pyq_id"]}) == 4, (
+        "each distinct drill request needs its own key: "
+        f"ALPHA/IFSCA={alpha_ifsca['pyq_id']!r} BETA/IFSCA={beta_ifsca['pyq_id']!r} "
+        f"ALPHA/SEBI={alpha_sebi['pyq_id']!r} ALPHA/unfiltered={alpha_mixed['pyq_id']!r}"
+    )
+
+    # The unfiltered draw spans both exams, so it serves both rows.
+    assert alpha_mixed["total_questions"] == 2, alpha_mixed["total_questions"]
+
+    # The key namespace must not double as a human-readable exam label, and must
+    # stay out of the IFSCA_{year}_P{phase}_PAPER{paper} space that
+    # /api/pyq/{doc_id}/load parses.
+    for session in (alpha_ifsca, beta_ifsca, alpha_sebi, alpha_mixed):
+        assert session["exam"] in ("IFSCA", "SEBI", "MIXED"), (
+            f"drill reported exam={session['exam']!r}, which is a cache-key "
+            f"fragment rather than an exam label"
+        )
+        assert not re.match(r"^(IFSCA|SEBI)_\d{4}_P\d+_PAPER\d+$", session["pyq_id"][len("PYQ_DOC"):]), (
+            f"drill id {session['pyq_id']!r} is parseable as a real paper, so it "
+            f"could collide with /api/pyq/{{doc_id}}/load"
+        )
+
+
+# ---------------------------------------------------------------------------
+# 18. The PYQ post-attempt read path must report a title, not a cache key
+# ---------------------------------------------------------------------------
+
+# submit_pyq_attempt resolves pyq_title with
+#     SELECT title FROM documents WHERE document_id = pyq_id.removeprefix("PYQ_DOC")
+# but documents.document_id holds values like 'doc_ifsca_act_2019' -- a different
+# namespace from PYQ doc ids like 'IFSCA_2024_P2_PAPER2'. The lookup returns no
+# row for any PYQ session, so pyq_title always falls back to the raw cache key.
+# Confirmed against the live database: its one pyq_sessions row stores
+# pyq_title == 'PYQ_DOCIFSCA_2024_P2_PAPER2'.
+#
+# /api/pyq/analytics publishes pyq_title as the attempt's display name, so
+# anything rendering that list shows cache keys. The real title already exists:
+# _format_bank_session is handed one and returns it, it is simply never carried
+# into the cache that submit later reads.
+_SITTING_TITLE = "IFSCA Grade A 2024 - Phase 1 sitting"
+
+
+def test_pyq_session_stores_a_readable_title_not_the_cache_key(temp_db):
+    """pyq_sessions.pyq_title must be the title the load response advertised."""
+    _seed_sitting()
+    client = _sitting_client()
+
+    response = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "exam": "IFSCA", "limit": 50}
+    )
+    assert response.status_code == 200, response.text
+    session = response.json()
+    assert session["title"] == _SITTING_TITLE, session["title"]
+
+    # Every seeded row is correct at 'A', so q1 right and q2 wrong is exact:
+    # marks 1, negative 0.25 -> raw 1.0, penalty 0.25, final 0.75.
+    submit_response = _submit(client, session["pyq_id"], {1: "A", 2: "B"})
+    assert submit_response.status_code == 200, submit_response.text
+
+    conn = _conn()
+    try:
+        row = conn.execute(
+            "SELECT pyq_id, pyq_title, score, accuracy, total_questions, status "
+            "FROM pyq_sessions WHERE pyq_id = ?",
+            (session["pyq_id"],),
+        ).fetchone()
+    finally:
+        # A leaked handle keeps the temp .db open and the fixture's unlink then
+        # raises PermissionError on Windows.
+        conn.close()
+    assert row is not None, "submit wrote no pyq_sessions row"
+    assert row["pyq_title"] == _SITTING_TITLE, (
+        f"pyq_sessions stored pyq_title={row['pyq_title']!r}, the in-process "
+        f"cache key, instead of the title {session['title']!r} that "
+        f"/api/pyq/sitting advertised for this attempt"
+    )
+    assert row["status"] == "completed", row["status"]
+    assert row["score"] == 0.75, row["score"]
+    assert row["accuracy"] == 20.0, row["accuracy"]
+
+
+def test_pyq_analytics_and_answer_reveal_report_the_completed_attempt(temp_db):
+    """The two post-attempt endpoints must agree with what submit persisted."""
+    _seed_sitting()
+    client = _sitting_client()
+
+    session = client.get(
+        "/api/pyq/sitting", params={"year": 2024, "phase": 1, "exam": "IFSCA", "limit": 50}
+    ).json()
+    pyq_id = session["pyq_id"]
+    submit_response = _submit(client, pyq_id, {1: "A", 2: "B"})
+    assert submit_response.status_code == 200, submit_response.text
+    submitted = submit_response.json()
+    assert submitted["total_correct"] == 1, submitted
+    assert submitted["total_wrong"] == 1, submitted
+
+    analytics = client.get("/api/pyq/analytics")
+    assert analytics.status_code == 200, analytics.text
+    payload = analytics.json()
+    assert payload["status"] == "ok", payload
+    assert payload["total_pyq_attempts"] == 1, payload
+    attempt = payload["attempts"][0]
+    assert attempt["pyq_id"] == pyq_id, attempt
+    assert attempt["pyq_title"] == _SITTING_TITLE, (
+        f"/api/pyq/analytics advertised pyq_title={attempt['pyq_title']!r}; the "
+        f"results list this feeds would show a cache key instead of a paper name"
+    )
+    assert attempt["score"] == 0.75, attempt
+    assert attempt["accuracy"] == 20.0, attempt
+    assert attempt["questions_attempted"] == 2, attempt
+    assert attempt["correct_count"] == 1, attempt
+
+    reveal = client.get(f"/api/pyq/{pyq_id}/answers")
+    assert reveal.status_code == 200, reveal.text
+    answers = reveal.json()["answers"]
+    assert [a["question_number"] for a in answers] == [1, 2], answers
+    # The reveal is the one place the official answer may be published: the
+    # attempt is already graded and cached answers cleared.
+    assert all(a["official_answer"] == "A" for a in answers), answers
+    assert [a["selected_answer"] for a in answers] == ["A", "B"], answers
+    assert [a["is_correct"] for a in answers] == [1, 0], answers
+    assert all(a["time_spent_seconds"] == 5 for a in answers), answers
+
+
+# ---------------------------------------------------------------------------
+# 19. No route handler may be `async def` while doing purely blocking work
+# ---------------------------------------------------------------------------
+
+# FastAPI runs an `async def` endpoint on the event-loop thread and a plain
+# `def` endpoint in a threadpool. Nearly every handler here blocks on SQLite
+# (or on a Gemini HTTP call), so declaring it async pins that blocking I/O to
+# the single event-loop thread: one slow query then stalls every other
+# request, static file serving included. A handler that genuinely awaits
+# something is fine, and is recognised by the `await` in its body.
+
+
+def _blocking_async_handlers():
+    import asyncio
+    import inspect
+
+    import main
+    from fastapi.routing import APIRoute
+
+    offenders = []
+    for route in main.app.routes:
+        if not isinstance(route, APIRoute):
+            continue
+        endpoint = route.endpoint
+        if not asyncio.iscoroutinefunction(endpoint):
+            continue
+        if "await" not in inspect.getsource(endpoint):
+            offenders.append(f"{endpoint.__module__}.{endpoint.__name__}")
+    return offenders
+
+
+def test_no_route_handler_blocks_the_event_loop():
+    """An `async def` endpoint must actually await; otherwise it must be `def`.
+
+    Without an `await` the body only blocks (SQLite, Gemini HTTP), and FastAPI
+    would run it on the event-loop thread. Declared as plain `def` the same
+    body runs in the threadpool and the loop stays free for other requests.
+    """
+    offenders = _blocking_async_handlers()
+    assert not offenders, (
+        f"{len(offenders)} route handler(s) are `async def` but never await; "
+        f"they block the event loop and must be plain `def`: {offenders}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# 20. Gemini-spending routes must reject a concurrent duplicate with 409
+# ---------------------------------------------------------------------------
+
+# A route that can reach a model call bills an API key, and the generator
+# endpoints also write rows. A double-clicked button or a frontend retry then
+# pays twice for one result. The guard claims a key for the duration of the
+# work and answers a concurrent duplicate with 409; sequential requests are
+# unaffected because the key is released when the work ends.
+
+SPEND_GRAPH_MODULES = (
+    "main",
+    "database",
+    "gemini_integration",
+    "precis_grader",
+    "rc_grader",
+    "update_tracker",
+    "amendment_poller",
+    "smart_material_classification",
+    "recommendation_engine",
+    "pyq_cache",
+)
+
+# The one route allowed to reach the model without this guard: its background
+# warmer already dedupes on _DASHBOARD_WARMING under _DASHBOARD_WARM_LOCK.
+SPEND_ROUTES_ALREADY_GUARDED = {"GET /api/dashboard"}
+
+# These hand the work to threading.Thread(target=...), so the guard must be
+# held for the job's lifetime rather than the request's, which a request-scoped
+# dependency cannot express. Verified behaviourally instead of structurally.
+SPEND_JOB_ROUTES = {"POST /api/updates/run", "POST /api/updates/enrich-reasons"}
+
+
+def _spend_call_graph():
+    """Return (edges, model_calling_functions) for the backend modules.
+
+    References are collected whether or not they are called, so a function
+    passed as `threading.Thread(target=...)` still produces an edge. The
+    over-approximation is harmless: a name that is not a function definition
+    simply dead-ends during the walk.
+    """
+    import ast
+    from pathlib import Path
+
+    backend_dir = Path(__file__).resolve().parents[1]
+    aliases_by_module, defs_by_module = {}, {}
+
+    for mod in SPEND_GRAPH_MODULES:
+        path = backend_dir / f"{mod}.py"
+        if not path.exists():
+            continue
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        aliases = {}
+        for node in ast.walk(tree):
+            if isinstance(node, ast.ImportFrom) and node.module in SPEND_GRAPH_MODULES:
+                for alias in node.names:
+                    aliases[alias.asname or alias.name] = (node.module, alias.name)
+            elif isinstance(node, ast.Import):
+                for alias in node.names:
+                    if alias.name in SPEND_GRAPH_MODULES:
+                        aliases[alias.asname or alias.name] = (alias.name, None)
+        aliases_by_module[mod] = aliases
+        defs_by_module[mod] = {
+            node.name: node
+            for node in tree.body
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+        }
+
+    edges, model_calls = {}, set()
+    for mod, funcs in defs_by_module.items():
+        aliases = aliases_by_module[mod]
+        for name, node in funcs.items():
+            dumped = ast.dump(node)
+            if mod == "gemini_integration" and (
+                "generate_content" in dumped or "_client.models" in dumped
+            ):
+                model_calls.add((mod, name))
+            targets = set()
+            for sub in ast.walk(node):
+                if isinstance(sub, ast.Name):
+                    ref = sub.id
+                    if ref in aliases and aliases[ref][1] is not None:
+                        targets.add(aliases[ref])
+                    elif ref in funcs:
+                        targets.add((mod, ref))
+                elif isinstance(sub, ast.Attribute) and isinstance(sub.value, ast.Name):
+                    owner = aliases.get(sub.value.id)
+                    if owner and owner[1] is None:
+                        targets.add((owner[0], sub.attr))
+            edges[(mod, name)] = targets
+    return edges, model_calls
+
+
+def _gemini_spending_routes():
+    import main
+    from fastapi.routing import APIRoute
+
+    edges, model_calls = _spend_call_graph()
+
+    def reaches_model(key, seen):
+        if key in seen:
+            return False
+        seen.add(key)
+        return any(
+            nxt in model_calls or reaches_model(nxt, seen) for nxt in edges.get(key, ())
+        )
+
+    spending = set()
+    for route in main.app.routes:
+        if not isinstance(route, APIRoute):
+            continue
+        key = (route.endpoint.__module__, route.endpoint.__name__)
+        if key not in edges or not reaches_model(key, set()):
+            continue
+        methods = ",".join(sorted(route.methods - {"HEAD", "OPTIONS"}))
+        spending.add(f"{methods} {route.path}")
+    return spending
+
+
+def _route_label(route):
+    methods = ",".join(sorted(route.methods - {"HEAD", "OPTIONS"}))
+    return f"{methods} {route.path}"
+
+
+def _spend_guard_key_on(route):
+    for dep in route.dependencies:
+        key = getattr(dep.dependency, "spend_guard_key", None)
+        if key:
+            return key
+    return None
+
+
+def test_every_gemini_spending_route_carries_an_idempotency_guard():
+    """A route that can bill the API key must reject a concurrent duplicate.
+
+    The spending set is derived from the call graph rather than hardcoded, so a
+    newly added endpoint that reaches a model call fails here until it is
+    guarded.
+    """
+    import inspect
+
+    import main
+    from fastapi.routing import APIRoute
+
+    spending = _gemini_spending_routes()
+
+    # Both sanity checks below exist so the exemptions cannot outlive their
+    # justification: if the walk stops finding these routes it has broken.
+    assert SPEND_ROUTES_ALREADY_GUARDED <= spending, (
+        "the dashboard fell out of the spending set, so the call-graph walk is "
+        f"broken and this test is vacuous; found {sorted(spending)}"
+    )
+    assert SPEND_JOB_ROUTES <= spending, (
+        "the update-tracker jobs fell out of the spending set, so attribute "
+        f"references are no longer followed; found {sorted(spending)}"
+    )
+    warm_src = inspect.getsource(main._warm_dashboard_ai)
+    assert "_DASHBOARD_WARMING" in warm_src and "_DASHBOARD_WARM_LOCK" in warm_src, (
+        "GET /api/dashboard is exempt only because _warm_dashboard_ai dedupes "
+        "itself; that dedupe is gone, so the route needs the guard too"
+    )
+
+    unguarded = sorted(
+        _route_label(route)
+        for route in main.app.routes
+        if isinstance(route, APIRoute)
+        and _route_label(route) in spending
+        and _route_label(route) not in SPEND_ROUTES_ALREADY_GUARDED
+        and _route_label(route) not in SPEND_JOB_ROUTES
+        and _spend_guard_key_on(route) is None
+    )
+    assert not unguarded, (
+        f"{len(unguarded)} Gemini-spending route(s) have no idempotency guard, "
+        f"so a double-submit bills twice: {unguarded}"
+    )
+
+
+def test_spend_guard_releases_so_sequential_requests_are_never_blocked():
+    """Only an *overlapping* duplicate is rejected; the key must not leak."""
+    import main
+
+    key = main.spend_guard_key("selftest", "a=1")
+    try:
+        assert main._begin_spend_guard(key), "a previous test leaked this key"
+        assert not main._begin_spend_guard(key), "a claimed key must not be re-claimable"
+        main._end_spend_guard(key)
+        assert main._begin_spend_guard(key), "the key was not released"
+    finally:
+        main._end_spend_guard(key)
+
+
+def test_guarded_spend_route_returns_409_while_the_same_key_is_in_flight(client):
+    """The duplicate is refused before the handler runs, and says why."""
+    import main
+    from fastapi.routing import APIRoute
+
+    path = "/api/ai/product-gap-analysis"
+    route = next(
+        r for r in main.app.routes if isinstance(r, APIRoute) and r.path == path
+    )
+    base = _spend_guard_key_on(route)
+    assert base, f"{path} is unguarded"
+
+    key = main.spend_guard_key(base, "")
+    assert main._begin_spend_guard(key), "a previous test leaked this key"
+    try:
+        response = client.get(path)
+        assert response.status_code == 409, response.text
+        # api.js renders `detail` verbatim, so it must be a non-empty string.
+        detail = response.json()["detail"]
+        assert isinstance(detail, str) and detail.strip(), detail
+    finally:
+        main._end_spend_guard(key)
+
+
+def test_update_tracker_run_holds_its_guard_for_the_job_not_the_request(
+    client, monkeypatch
+):
+    """The request returns immediately, so a request-scoped guard is useless.
+
+    The thread must own the key until it finishes; otherwise a second POST
+    starts a duplicate tracker that spends again and writes duplicate rows.
+    """
+    import threading
+
+    import update_tracker
+
+    started, release = threading.Event(), threading.Event()
+    runs = []
+
+    def fake_tracker():
+        runs.append(1)
+        started.set()
+        release.wait(timeout=15)
+        return {"status": "ok"}
+
+    monkeypatch.setattr(update_tracker, "run_update_tracker", fake_tracker)
+
+    first = client.post("/api/updates/run")
+    assert first.status_code == 200, first.text
+    assert started.wait(timeout=10), "the tracker thread never started"
+
+    duplicate = client.post("/api/updates/run")
+    assert duplicate.status_code == 409, duplicate.text
+    assert isinstance(duplicate.json()["detail"], str)
+
+    release.set()
+    retry, deadline = None, time.time() + 10
+    while time.time() < deadline:
+        retry = client.post("/api/updates/run")
+        if retry.status_code == 200:
+            break
+        time.sleep(0.05)
+    assert retry is not None and retry.status_code == 200, (
+        "the job guard was never released after the tracker finished"
+    )
+    assert len(runs) == 2, f"the rejected request still ran the tracker: {len(runs)} runs"
+
+
+# ---------------------------------------------------------------------------
+# 21. The Results view must only read timeline fields the API actually returns
+# ---------------------------------------------------------------------------
+
+# loadResults renders /api/analytics/timeline, whose response_model is
+# list[AnalyticsTimelineModel]. Reading a field that model does not declare
+# yields undefined in JS, and string concatenation then renders blank or zero
+# instead of raising -- which is how the timeline bar labels went empty and the
+# PAPER II gate showed a permanent 0 while the suite stayed green.
+
+
+def _load_results_source():
+    """Return the body of loadResults from frontend/js/views.js."""
+    import re
+    from pathlib import Path
+
+    views = Path(__file__).resolve().parents[2] / "frontend" / "js" / "views.js"
+    text = views.read_text(encoding="utf-8")
+    match = re.search(r"^  async function loadResults\(", text, re.MULTILINE)
+    assert match, "loadResults vanished from views.js, so this test is vacuous"
+    # views.js is one IIFE with every view at two-space indent, so the next
+    # top-level function marks the end of this one. Nested callbacks sit deeper,
+    # so they cannot terminate the slice early.
+    rest = text[match.end():]
+    end = re.search(r"^  (?:async )?function ", rest, re.MULTILINE)
+    return rest[: end.start()] if end else rest
+
+
+def test_results_view_reads_only_declared_timeline_fields():
+    """Every timeline property the Results view reads must exist on the model.
+
+    The allowed set comes from AnalyticsTimelineModel rather than a hardcoded
+    list, so adding a field to the model widens what the view may read and
+    renaming one fails here instead of rendering blank in the browser.
+    """
+    import re
+
+    from models import AnalyticsTimelineModel
+
+    declared = set(AnalyticsTimelineModel.model_fields)
+    # Stops the assertion passing because both sides went empty.
+    assert {"score", "created_at"} <= declared, (
+        f"AnalyticsTimelineModel no longer declares score/created_at: {sorted(declared)}"
+    )
+
+    src = _load_results_source()
+    read = set(re.findall(r"\be\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    read |= set(re.findall(r"\blastEntry\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no timeline field reads found, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"loadResults reads {undeclared} from /api/analytics/timeline, but "
+        f"AnalyticsTimelineModel only returns {sorted(declared)}. Undefined "
+        "fields concatenate as empty strings, so the timeline labels go blank "
+        "and the gate reports a score the API never supplied."
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 22. Frontend effect parity
+#
+# These behaviours existed only as uncommitted edits in the main working tree,
+# so this branch would have merged a plainer frontend than the one actually
+# being worked on: a WebGL readiness seal with no centre readout, a cold-open
+# subtitle that overflows instead of wrapping, and two views that answer a 404
+# with a bare error string. None of it is derivable from the backend suite, so
+# each is pinned at source level.
+# ─────────────────────────────────────────────────────────────────────────────
+
+FRONTEND_DIR = Path(__file__).resolve().parents[2] / "frontend"
+
+
+def _frontend_text(*parts):
+    return FRONTEND_DIR.joinpath(*parts).read_text(encoding="utf-8")
+
+
+def _views_function(name):
+    """Return the body of a two-space-indented function in views.js."""
+    text = _frontend_text("js", "views.js")
+    match = re.search(rf"^  (?:async )?function {name}\(", text, re.MULTILINE)
+    assert match, f"{name} vanished from views.js, so this test is vacuous"
+    rest = text[match.end():]
+    end = re.search(r"^  (?:async )?function ", rest, re.MULTILINE)
+    return rest[: end.start()] if end else rest
+
+
+def test_webgl_seal_renders_a_centre_readout_and_disposes_it():
+    """The WebGL gauge must show the same centre % as the SVG poster it replaces.
+
+    seal.js holds the SVG poster until three.js arrives, and the poster carries
+    a percentage in its middle. Without a matching readout the gauge reads as a
+    bare ring once WebGL takes over. The readout is also a DOM node appended to
+    the container, so destroy() has to remove it or a re-init leaks a second one.
+    """
+    src = _frontend_text("js", "seal.js")
+
+    assert re.search(r"readoutEl\s*=\s*document\.createElement\(", src), (
+        "seal.js never builds the WebGL centre readout, so the gauge shows a "
+        "ring with no percentage where the SVG poster showed one."
+    )
+    update = re.search(
+        r"function updateReadiness\(percent\) \{(.*?)\n  \}", src, re.DOTALL
+    )
+    assert update, "updateReadiness vanished from seal.js"
+    assert "readoutEl" in update.group(1), (
+        "updateReadiness sets targetPercent but never refreshes the readout, so "
+        "the centre figure freezes at whatever the first render wrote."
+    )
+    destroy = re.search(r"function destroy\(\) \{(.*?)\n  \}", src, re.DOTALL)
+    assert destroy, "destroy vanished from seal.js"
+    assert "readoutEl" in destroy.group(1), (
+        "destroy() leaves the readout node attached, so re-initialising the seal "
+        "stacks a second percentage over the first."
+    )
+
+
+def test_cold_open_subtitle_wraps_instead_of_overflowing():
+    """.cold-open__sub is a flex row of mono caps under the readiness numeral.
+
+    With nowrap on the trailing meta span it cannot break, so on a narrow
+    viewport it overflows the cold open rather than wrapping under the verb pill.
+    """
+    css = _frontend_text("css", "today.css")
+
+    sub = re.search(r"\.cold-open__sub \{(.*?)\}", css, re.DOTALL)
+    assert sub, ".cold-open__sub vanished from today.css"
+    assert "flex-wrap: wrap" in sub.group(1), (
+        ".cold-open__sub cannot wrap, so the readiness meta line overflows the "
+        "cold open on narrow viewports."
+    )
+
+    rest = re.search(r"\.cold-open__meta-rest \{(.*?)\}", css, re.DOTALL)
+    assert rest, ".cold-open__meta-rest vanished from today.css"
+    assert "nowrap" not in rest.group(1), (
+        ".cold-open__meta-rest still forces nowrap, which defeats the wrap on "
+        "its flex parent."
+    )
+
+
+def test_authored_empty_state_is_styled():
+    """showEmptyView emits .empty-state__hint and .empty-state__cta.
+
+    Both classes are created in JS, so if the CSS never defines them the hint
+    renders as unstyled body text and the call-to-action loses its spacing.
+    """
+    css = _frontend_text("css", "views.css")
+    assert ".empty-state__hint" in css, (
+        "views.js emits .empty-state__hint but views.css never styles it."
+    )
+    assert ".empty-state__cta" in css, (
+        "views.js emits .empty-state__cta but views.css never styles it."
+    )
+
+
+@pytest.mark.parametrize(
+    "view,retry",
+    [("loadUpdates", "loadUpdates"), ("loadReview", "loadReview")],
+)
+def test_missing_endpoint_shows_error_and_retry_not_a_false_empty_state(view, retry):
+    """A 404 on these views means the route is absent, not that the ledger is empty.
+
+    api.js sets err.status from the response, so the catch used to branch on 404
+    and render an authored "nothing banked yet" panel. That copy is false when the
+    server simply does not have the endpoint, and it is what hid a stale server
+    (80 routes live against 99 on disk) behind a confident-looking blank tab.
+    Every failure must reach showError with its retry callback, and showEmptyView
+    must survive on the genuine empty-data path so it and its CSS stay live.
+    """
+    src = _views_function(view)
+
+    assert "err.status === 404" not in src, (
+        f"{view} still treats a 404 as an empty ledger, so a missing endpoint "
+        f"renders as a deliberate blank panel instead of a retryable error."
+    )
+    assert re.search(rf"showError\(content, err\.message, {retry}\)", src), (
+        f"{view} does not hand showError the {retry} callback, so a failure "
+        f"offers no way back but a page reload."
+    )
+    assert "showEmptyView(" in src, (
+        f"{view} no longer calls showEmptyView, orphaning the authored empty "
+        f"state and the .empty-state__hint / __cta rules that style it."
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Ledger tab data regressions: §05 Tracker, §06 Updates, readiness seal
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _seed_curated_amendment(amendment_id: str, rule_name: str) -> None:
+    conn = _conn()
+    try:
+        conn.execute(
+            """
+            INSERT INTO amendments
+            (amendment_id, topic, rule_name, effective_date, old_value, new_value,
+             verify_status)
+            VALUES (?, 'PH2_FM_REGS', ?, '2026-01-15', 'was 15%', 'now 20%', 'VERIFIED')
+            """,
+            (amendment_id, rule_name),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _seed_generated_mock(mock_id: str) -> None:
+    """A mock that was built but never sat -- the shape automated runs leave behind."""
+    conn = _conn()
+    try:
+        conn.execute(
+            """
+            INSERT INTO mock_sessions (mock_id, mock_type, generated_at, status)
+            VALUES (?, 'smart', '2026-08-29T10:00:00', 'generated')
+            """,
+            (mock_id,),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def test_updates_falls_back_to_the_curated_amendment_ledger(temp_db):
+    """§06 must not read empty while curated amendments are sitting in the DB.
+
+    amendment_updates is written only by the tracker, and every run recorded so
+    far discovered 0, so list_amendment_updates() returns []. The amendments
+    table -- populated from the committed corpus -- holds the real rows. Serving
+    those under the same key keeps the frontend contract single, and the source
+    field is what lets §06 label them as curated rather than tracker output.
+    """
+    _seed_curated_amendment("AMD_1", "Fund Management Regulations 2026")
+    _seed_curated_amendment("AMD_2", "Investment Adviser Regulations 2026")
+
+    response = _sitting_client().get("/api/updates")
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload.get("source") == "corpus", (
+        f"the tracker feed is empty but /api/updates reported "
+        f"source={payload.get('source')!r} instead of falling back to the corpus"
+    )
+    assert {u["title"] for u in payload["updates"]} == {
+        "Fund Management Regulations 2026",
+        "Investment Adviser Regulations 2026",
+    }, (
+        f"curated amendments were not mapped into the update shape the frontend "
+        f"already reads: {payload['updates']}"
+    )
+
+
+def test_updates_prefers_tracker_rows_over_the_corpus(temp_db):
+    """The fallback must not mask genuine tracker discoveries once they exist."""
+    _seed_curated_amendment("AMD_1", "Fund Management Regulations 2026")
+    db.save_amendment_update({"exam": "IFSCA", "title": "TRACKER DISCOVERY"})
+
+    response = _sitting_client().get("/api/updates")
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload.get("source") == "tracker", (
+        f"a tracker row exists but /api/updates reported "
+        f"source={payload.get('source')!r}"
+    )
+    assert [u["title"] for u in payload["updates"]] == ["TRACKER DISCOVERY"], (
+        f"the corpus fallback fired on top of real tracker output: "
+        f"{[u['title'] for u in payload['updates']]}"
+    )
+
+
+def test_weak_topics_report_unmeasured_status_and_a_display_name(temp_db):
+    """§05 paints eight red "critical 0%" cells for a user who has sat nothing.
+
+    get_weak_topics() admits status == "UNKNOWN", the handler throws that status
+    away, and views.js then computes weakness_score || accuracy || 0 -> 0 ->
+    data-heat="critical". The cell label also falls back to the raw PH2_* id
+    because topic_name is never sent.
+    """
+    response = _sitting_client().get("/api/topics/weak")
+
+    assert response.status_code == 200, response.text
+    rows = response.json()
+    assert rows, "no topics returned, so the assertions below would be vacuous"
+
+    for row in rows:
+        assert row.get("status") == "UNKNOWN", (
+            f"{row.get('topic')} has no attempts and is therefore unmeasured, but "
+            f"the response carried status={row.get('status')!r} -- views.js cannot "
+            f"tell 'never sat' apart from 'sat and failed'."
+        )
+        assert row.get("topic_name") and row["topic_name"] != row["topic"], (
+            f"{row.get('topic')} was published without a display name, so the heat "
+            f"grid label falls back to the raw topic id."
+        )
+
+
+def test_heat_grid_styles_the_unmeasured_state():
+    """views.js emits data-heat="unmeasured", so views.css has to define it.
+
+    The four measured heat values each carry a rule; without one for unmeasured
+    the cell loses its background and border and reads as a broken grid slot.
+    """
+    tracker = _views_function("loadTracker")
+    assert '"unmeasured"' in tracker, (
+        "loadTracker still maps an unmeasured topic onto a red 'critical' cell "
+        "reading 0%."
+    )
+
+    css = _frontend_text("css", "views.css")
+    assert '.heat-grid__cell[data-heat="unmeasured"]' in css, (
+        "views.js emits data-heat=\"unmeasured\" but views.css never styles it."
+    )
+
+
+def test_readiness_with_no_submitted_mock_is_zero_not_fifty(temp_db):
+    """No prep must read as no measurement, not as a fabricated 50%.
+
+    Two defects combine. get_user_performance_history admits any mock with a
+    generated_at, so mocks the automated runs leave behind (status 'generated',
+    submitted_at NULL, score NULL) count as performance history and defeat the
+    no-data guard. The guard itself then returns readiness_percentage=50 and
+    final_score_estimate=100, telling a brand-new user they are half-ready for an
+    exam they have not studied for.
+    """
+    _seed_generated_mock("MOCK_GEN_1")
+    _seed_generated_mock("MOCK_GEN_2")
+
+    assert db.get_user_performance_history("default") == [], (
+        "a mock that was generated but never submitted is being counted as "
+        "performance history, so the readiness projection starts from garbage."
+    )
+
+    response = _sitting_client().get("/api/dashboard/readiness")
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert payload["readiness_percentage"] == 0, (
+        f"with no submitted mock the seal should read 0%, got "
+        f"{payload['readiness_percentage']}%"
+    )
+    assert payload["final_score_estimate"] == 0, (
+        f"with no submitted mock there is no score to project, got "
+        f"{payload['final_score_estimate']}"
+    )
+    assert payload["confidence"] == "LOW", (
+        f"an unmeasured user must be reported as LOW confidence, got "
+        f"{payload['confidence']!r}"
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 26. The Today ticker must not print numbers the API never sent
+#
+# renderTicker(dashData) read readiness_percentage, total_mocks,
+# pending_amendments, srs_due and total_attempts. /api/dashboard is serialised
+# through DashboardStatsModel, whose fields are total_mocks_completed,
+# total_questions_attempted and recent_amendments -- and response_model strips
+# anything else the builder adds. Five of the six cells therefore read
+# `undefined || 0` and printed a permanent 0 that looked like a measurement,
+# the same false-number class as the 62% readiness seal.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _today_function(name):
+    """Return the body of a two-space-indented function in today.js."""
+    text = _frontend_text("js", "today.js")
+    match = re.search(rf"^  (?:async )?function {name}\(", text, re.MULTILINE)
+    assert match, f"{name} vanished from today.js, so this test is vacuous"
+    rest = text[match.end():]
+    end = re.search(r"^  (?:async )?function ", rest, re.MULTILINE)
+    return rest[: end.start()] if end else rest
+
+
+def test_ticker_reads_only_fields_the_dashboard_actually_returns():
+    """Every `data.<key>` renderTicker reads must exist on DashboardStatsModel.
+
+    The allowed set comes from the model rather than a hardcoded list, so
+    renaming a field fails here instead of silently rendering 0 in the browser.
+    """
+    from models import DashboardStatsModel
+
+    declared = set(DashboardStatsModel.model_fields)
+    # Stops the assertion passing because both sides went empty.
+    assert {"total_mocks_completed", "overall_accuracy"} <= declared, (
+        f"DashboardStatsModel no longer declares the stat fields the ticker "
+        f"needs: {sorted(declared)}"
+    )
+
+    src = _today_function("renderTicker")
+    read = set(re.findall(r"\bdata\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no dashboard field reads found, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"renderTicker reads {undeclared} from /api/dashboard, but "
+        f"DashboardStatsModel only returns {sorted(declared)}. Undefined keys "
+        "fall through `|| 0`, so the ticker prints a hard zero that reads as a "
+        "measured value instead of the count the API actually supplied."
+    )
+
+
+def test_ticker_readiness_and_srs_cells_are_fed_from_their_own_endpoints():
+    """READINESS and SRS DUE have no dashboard field, so they need real sources.
+
+    readiness_percentage lives on /api/dashboard/readiness and the due count on
+    /api/srs/due-topics; both were already being fetched or fetchable, but
+    renderTicker was handed the dashboard payload alone.
+    """
+    api_js = _frontend_text("js", "api.js")
+    assert "srsDue:" in api_js, (
+        "api.js no longer exposes srsDue(), so the SRS cell has no source to read"
+    )
+
+    loader = _today_function("loadData")
+    assert "API.srsDue()" in loader, (
+        "loadData never fetches /api/srs/due-topics, so the SRS DUE cell can "
+        "only ever print 0 no matter how many topics are due."
+    )
+
+    call = re.search(r"renderTicker\(([^)]*)\)", loader)
+    assert call, "loadData stopped calling renderTicker, so the ticker is dead"
+    args = [a.strip() for a in call.group(1).split(",") if a.strip()]
+    assert len(args) == 3, (
+        f"renderTicker is called with {args}; it needs the dashboard payload "
+        "plus the readiness and SRS results, because the dashboard carries "
+        "neither readiness_percentage nor an SRS due count."
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 27. The Today sparkline must read a score history that actually exists
+#
+# renderProof(dashData) drew its sparkline from data.score_history. /api/dashboard
+# is serialised through DashboardStatsModel, which declares no such field, so the
+# guard `sparkEl && data.score_history && data.score_history.length > 1` was never
+# truthy and the polyline was never appended -- the Proof section rendered an empty
+# SVG for every user, including ones with a dozen submitted mocks.
+#
+# The real source is /api/analytics/timeline (list[AnalyticsTimelineModel], carrying
+# score and created_at), which API.timeline() in api.js already wraps. Only the
+# sparkline is pinned here: the sibling scatter reads data.recent_attempts, and no
+# endpoint anywhere returns per-attempt time_spent/is_correct, so a blanket check
+# would force deleting a chart that is honestly waiting on a backend feed.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def test_proof_sparkline_is_fed_from_the_timeline_endpoint():
+    """renderProof must be handed the timeline, not just the dashboard payload."""
+    api_js = _frontend_text("js", "api.js")
+    assert "timeline:" in api_js, (
+        "api.js no longer exposes timeline(), so the sparkline has no score "
+        "history to read"
+    )
+
+    loader = _today_function("loadData")
+    assert "API.timeline()" in loader, (
+        "loadData never fetches /api/analytics/timeline, so the Proof sparkline "
+        "has no score history and stays an empty SVG no matter how many mocks "
+        "the user has submitted."
+    )
+
+    call = re.search(r"renderProof\(([^)]*)\)", loader)
+    assert call, "loadData stopped calling renderProof, so the Proof section is dead"
+    args = [a.strip() for a in call.group(1).split(",") if a.strip()]
+    assert len(args) == 2, (
+        f"renderProof is called with {args}; it needs the dashboard payload plus "
+        "the timeline result, because the dashboard declares no score history."
+    )
+
+
+def test_proof_sparkline_reads_only_declared_timeline_fields():
+    """Every timeline property the sparkline reads must exist on the model.
+
+    The allowed set comes from AnalyticsTimelineModel rather than a hardcoded
+    list, so renaming a field fails here instead of drawing a flat line at zero.
+    """
+    from models import AnalyticsTimelineModel
+
+    declared = set(AnalyticsTimelineModel.model_fields)
+    # Stops the assertion passing because both sides went empty.
+    assert {"score", "created_at"} <= declared, (
+        f"AnalyticsTimelineModel no longer declares score/created_at: {sorted(declared)}"
+    )
+
+    src = _today_function("renderProof")
+    assert "score_history" not in src, (
+        "renderProof still reads score_history, a field /api/dashboard never "
+        "returns. The length guard hides the miss, so the sparkline silently "
+        "renders nothing instead of failing loudly."
+    )
+
+    read = set(re.findall(r"\bentry\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no timeline field reads found, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"renderProof reads {undeclared} from /api/analytics/timeline, but "
+        f"AnalyticsTimelineModel only returns {sorted(declared)}. Undefined "
+        "fields fall through `|| 0`, so every point collapses onto the baseline "
+        "and the sparkline draws a flat line that reads as a real score trend."
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 28. The §05 SRS list must read the fields /api/srs/due-topics actually sends
+#
+# loadTracker rendered each due row as `item.topic || item.topic_name || "—"` and
+# `item.due_date || "TODAY"`. The route is response_model=list[SRSTopicModel],
+# which declares topic_id / display_name / due_at and strips everything else, so
+# all three reads were undefined: every row printed an em-dash where the topic
+# belongs and "TODAY" for the date. get_due_topics() admits rows due *before*
+# today (`DATE(r.due_at) <= DATE(?)`), so "TODAY" was not even a safe
+# approximation -- an item overdue by a week claimed it fell due today.
+#
+# Same family as §26 and §27: the `||` fallback turns a contract miss into a
+# confident-looking wrong value instead of an error, so the suite stayed green
+# while the tab rendered nothing usable.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _seed_due_review_item(topic_id: str, due_at: str) -> None:
+    """A topic review that fell due in the past -- the overdue case §05 must show."""
+    conn = _conn()
+    try:
+        conn.execute(
+            """
+            INSERT INTO review_items
+            (review_id, item_type, item_id, topic_id, due_at, interval_days, ease)
+            VALUES (?, 'topic', ?, ?, ?, 3, 2.5)
+            """,
+            (f"SRS_{topic_id}_TEST", topic_id, topic_id, due_at),
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def test_srs_due_topics_publishes_a_display_name_and_a_due_date(temp_db):
+    """Ground truth for the source contract below.
+
+    Asserting the ghosts are *absent* matters as much as the real keys: if the
+    route ever started publishing `topic`/`due_date`, the views.js test would
+    pass for the wrong reason and hide a second contract.
+    """
+    _seed_due_review_item("PH2_FM_REGS", "2026-08-01T09:00:00.000000")
+
+    response = _sitting_client().get("/api/srs/due-topics")
+
+    assert response.status_code == 200, response.text
+    rows = response.json()
+    assert len(rows) == 1, f"the seeded overdue item was not returned: {rows}"
+    row = rows[0]
+    assert row.get("display_name"), (
+        f"the due row carries no display_name, so §05 has nothing to label it "
+        f"with: {row}"
+    )
+    assert row.get("due_at", "").startswith("2026-08-01"), (
+        f"due_at={row.get('due_at')!r}, so the list cannot show when this review "
+        f"fell due"
+    )
+    for ghost in ("topic", "topic_name", "due_date"):
+        assert ghost not in row, (
+            f"/api/srs/due-topics unexpectedly published {ghost!r}; the views.js "
+            f"contract test below would then pass for the wrong reason"
+        )
+
+
+def test_tracker_srs_rows_read_only_declared_srs_fields():
+    """Every SRS property loadTracker reads must exist on SRSTopicModel.
+
+    The allowed set comes from the model rather than a hardcoded list, so
+    renaming a field fails here instead of rendering em-dashes in the browser.
+    Keyed on `item.` alone: the sibling heat-grid callback binds `t.` and reads
+    /api/topics/weak, a different untyped contract.
+    """
+    from models import SRSTopicModel
+
+    declared = set(SRSTopicModel.model_fields)
+    # Stops the assertion passing because both sides went empty.
+    assert {"display_name", "due_at", "topic_id"} <= declared, (
+        f"SRSTopicModel no longer declares the fields §05 needs: {sorted(declared)}"
+    )
+
+    src = _views_function("loadTracker")
+    read = set(re.findall(r"\bitem\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no SRS field reads found, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"loadTracker reads {undeclared} from /api/srs/due-topics, but "
+        f"SRSTopicModel only returns {sorted(declared)}. Undefined fields fall "
+        "through `||`, so every SRS row prints an em-dash for its topic and "
+        '"TODAY" for its due date -- including items that fell due days ago.'
+    )
+
+
+def test_tracker_srs_due_label_is_the_real_date_not_a_hardcoded_today():
+    """The due cell must show a date derived from due_at.
+
+    due_at is a required str on SRSTopicModel carrying a full ISO timestamp
+    (`datetime.isoformat()`), so it has to be truncated to the date the way §06
+    already does, and it can never legitimately be absent -- a `|| "TODAY"`
+    fallback would only ever mask a contract miss with a false claim.
+    """
+    src = _views_function("loadTracker")
+
+    assert '"TODAY"' not in src, (
+        '§05 still hardcodes "TODAY" in the due cell, so an item overdue by a '
+        "week reports that it fell due today."
+    )
+    due = re.search(r'srs-item__due">(.*?)</span>', src, re.DOTALL)
+    assert due, "the srs-item__due cell vanished from loadTracker"
+    assert "due_at" in due.group(1), (
+        "the due cell does not read due_at, so it cannot show when the review "
+        "fell due."
+    )
+    assert "substring(0, 10)" in due.group(1), (
+        "due_at is a full ISO timestamp; without truncation the cell prints "
+        "'2026-08-01T09:00:00.000000' instead of the date."
+    )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 29. The exam clock must read the key /api/exams/{id}/time-remaining sends
+#
+# exam.js polled the server clock with `timeData.remaining_seconds || 0`. The
+# endpoint returns `time_remaining_seconds` in both of its branches, so the read
+# was always undefined and the `|| 0` turned that into a hard zero. One tick into
+# a mock -- one second after the candidate started -- `remaining <= 0` fired,
+# cleared the interval and called submitExam(). Every smart mock force-submitted
+# itself with zero answers recorded, which is the most visible way the Exam tab
+# could be "not working".
+#
+# PYQ sittings were unaffected: they count down locally because
+# /api/exams/{id}/time-remaining resolves a mock_id and would 404 on a PYQ id.
+# That asymmetry is why the drill flow looked healthy while mocks did not.
+#
+# Same family as §26-§28: a `||` fallback converts a contract miss into a
+# confident wrong value instead of an error, so the suite stayed green.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _exam_function(name):
+    """Return the body of a two-space-indented function in exam.js."""
+    text = _frontend_text("js", "exam.js")
+    match = re.search(rf"^  (?:async )?function {name}\(", text, re.MULTILINE)
+    assert match, f"{name} vanished from exam.js, so this test is vacuous"
+    rest = text[match.end():]
+    end = re.search(r"^  (?:async )?function ", rest, re.MULTILINE)
+    return rest[: end.start()] if end else rest
+
+
+def _time_remaining_keys():
+    """The keys exam_time_remaining can return, read off the handler source.
+
+    The route declares no response_model, so nothing is stripped and the handler's
+    own dict literals are the whole contract.
+    """
+    text = (Path(__file__).resolve().parents[1] / "main.py").read_text(encoding="utf-8")
+    match = re.search(r"^def exam_time_remaining\(", text, re.MULTILINE)
+    assert match, "exam_time_remaining vanished from main.py"
+    rest = text[match.end():]
+    end = re.search(r"^@app\.", rest, re.MULTILINE)
+    body = rest[: end.start()] if end else rest
+    return set(re.findall(r'"([a-z_]+)"\s*:', body))
+
+
+def test_time_remaining_endpoint_publishes_time_remaining_seconds(temp_db):
+    """Ground truth for the source contract below.
+
+    Any unstarted exam id lands in the not_found branch -- _resolve_mock_id only
+    strips a prefix and never raises -- so this needs no seeding. Asserting the
+    ghost key is *absent* matters as much as the real one: were the endpoint ever
+    to start publishing `remaining_seconds`, the exam.js test would pass for the
+    wrong reason and hide a second contract.
+    """
+    response = _sitting_client().get("/api/exams/EXAM_NO_SUCH_MOCK/time-remaining")
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert isinstance(payload.get("time_remaining_seconds"), int), (
+        f"the clock endpoint returned no integer time_remaining_seconds: {payload}"
+    )
+    assert "remaining_seconds" not in payload, (
+        f"/api/exams/{{id}}/time-remaining unexpectedly published 'remaining_seconds'; "
+        f"the exam.js contract test below would then pass for the wrong reason"
+    )
+
+
+def test_exam_timer_reads_only_keys_the_clock_endpoint_returns():
+    """Every field startTimer reads off the poll must exist in the response.
+
+    The allowed set is read from the handler rather than hardcoded, so renaming the
+    key fails here instead of force-submitting a candidate's mock in the browser.
+    """
+    declared = _time_remaining_keys()
+    # Stops the assertion passing because both sides went empty.
+    assert "time_remaining_seconds" in declared, (
+        f"exam_time_remaining no longer publishes the clock value: {sorted(declared)}"
+    )
+
+    src = _exam_function("startTimer")
+    read = set(re.findall(r"\btimeData\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no clock reads found in startTimer, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"startTimer reads {undeclared} from /api/exams/{{id}}/time-remaining, but the "
+        f"endpoint only returns {sorted(declared)}. The undefined read falls through "
+        "`|| 0`, so `remaining <= 0` fires on the first tick and submitExam() ends the "
+        "mock one second after it started."
+    )
+
+
+def test_exam_clock_expiry_still_submits_and_no_longer_fakes_a_zero():
+    """The fix must not buy the clock back by deleting the expiry behaviour.
+
+    Auto-submitting when the server says time is up is correct and must survive;
+    what has to go is the `|| 0` that manufactured an expiry out of a missing key.
+    """
+    src = _exam_function("startTimer")
+
+    assert "remaining <= 0" in src, (
+        "startTimer no longer submits when the clock runs out, so a mock would stay "
+        "open forever past its limit."
+    )
+    assert "submitExam()" in src, (
+        "the expiry branch no longer calls submitExam(), so an expired mock is never "
+        "graded."
+    )
+
+    # Pinned to the assignment rather than a substring, because the correct key
+    # `time_remaining_seconds` contains `remaining_seconds` -- a substring check
+    # would keep failing after a correct fix.
+    poll = re.search(r"remaining\s*=\s*timeData\.(.*?);", src)
+    assert poll, "startTimer no longer assigns remaining from the server clock"
+    assert poll.group(1).strip() == "time_remaining_seconds", (
+        f"the clock reads `timeData.{poll.group(1).strip()}`; the endpoint publishes "
+        "time_remaining_seconds, and any other key arrives undefined. A `|| 0` on that "
+        "read is indistinguishable from a genuinely expired exam, so `remaining <= 0` "
+        "fires on the first tick and submitExam() ends the mock one second after it "
+        "started."
+    )
+
+
+def test_exam_start_reads_the_time_limit_the_endpoint_actually_sends():
+    """/api/exams/start sends time_limit_seconds, not time_limit_minutes.
+
+    startExam read `result.time_limit_minutes`, so examState.timeLimitMinutes was
+    permanently null for every mock. Nothing reads it on the mock path today --
+    startTimer branches on kind and polls the server -- so this is latent rather
+    than visible, but the neighbouring comment justified that branch by claiming
+    "mock responses carry time_limit_minutes too", which is false. Reading the key
+    that exists makes the state honest if the mock clock is ever moved off the
+    one-request-per-second poll.
+
+    The second guard matches a *published* key (name followed by a colon) rather
+    than any mention of the string, because exam_start now reads the chosen
+    paper's `time_limit_minutes` internally in order to derive the seconds it
+    sends. What must stay true is that the payload carries one clock, not that
+    the function never names the template's field.
+    """
+    text = (Path(__file__).resolve().parents[1] / "main.py").read_text(encoding="utf-8")
+    match = re.search(r"^def exam_start\(", text, re.MULTILINE)
+    assert match, "exam_start vanished from main.py"
+    rest = text[match.end():]
+    end = re.search(r"^@app\.", rest, re.MULTILINE)
+    body = rest[: end.start()] if end else rest
+
+    assert '"time_limit_seconds"' in body, (
+        "exam_start no longer publishes time_limit_seconds, so this test's premise "
+        f"about the mock's time limit is stale: {sorted(set(re.findall(chr(34) + '([a-z_]+)' + chr(34) + r'\s*:', body)))}"
+    )
+    assert not re.search(r'"time_limit_minutes"\s*:', body), (
+        "exam_start started publishing time_limit_minutes; if it now carries both, "
+        "pick one and delete this assertion rather than leaving two clocks."
+    )
+
+    src = _exam_function("startExam")
+    read = set(re.findall(r"\bresult\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert {"exam_id", "questions"} <= read, (
+        f"startExam stopped reading the session it needs: {sorted(read)}"
+    )
+    assert "time_limit_minutes" not in read, (
+        "startExam still reads time_limit_minutes, which /api/exams/start never "
+        "sends, so every mock's timeLimitMinutes is null."
+    )
+    assert "time_limit_seconds" in read, (
+        "startExam does not read the time limit the endpoint actually sends."
+    )
