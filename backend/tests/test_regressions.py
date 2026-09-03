@@ -311,7 +311,9 @@ def test_exam_start_returns_expected_time_and_negative_marking(temp_db):
         "created_by": "gemini",
     }
 
-    def fake_generate_smart_mock(total_questions=50, mode="balanced", use_gemini=True):
+    def fake_generate_smart_mock(
+        total_questions=50, mode="balanced", use_gemini=True, template_id="CUSTOM"
+    ):
         return {
             "mock_id": "SM_EXAM1",
             "allocation": {"PH2_FM_REGS": 1},
@@ -2325,6 +2327,12 @@ def test_exam_start_reads_the_time_limit_the_endpoint_actually_sends():
     "mock responses carry time_limit_minutes too", which is false. Reading the key
     that exists makes the state honest if the mock clock is ever moved off the
     one-request-per-second poll.
+
+    The second guard matches a *published* key (name followed by a colon) rather
+    than any mention of the string, because exam_start now reads the chosen
+    paper's `time_limit_minutes` internally in order to derive the seconds it
+    sends. What must stay true is that the payload carries one clock, not that
+    the function never names the template's field.
     """
     text = (Path(__file__).resolve().parents[1] / "main.py").read_text(encoding="utf-8")
     match = re.search(r"^def exam_start\(", text, re.MULTILINE)
@@ -2337,7 +2345,7 @@ def test_exam_start_reads_the_time_limit_the_endpoint_actually_sends():
         "exam_start no longer publishes time_limit_seconds, so this test's premise "
         f"about the mock's time limit is stale: {sorted(set(re.findall(chr(34) + '([a-z_]+)' + chr(34) + r'\s*:', body)))}"
     )
-    assert '"time_limit_minutes"' not in body, (
+    assert not re.search(r'"time_limit_minutes"\s*:', body), (
         "exam_start started publishing time_limit_minutes; if it now carries both, "
         "pick one and delete this assertion rather than leaving two clocks."
     )
