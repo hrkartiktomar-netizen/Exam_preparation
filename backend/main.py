@@ -1339,12 +1339,13 @@ def list_exam_templates_endpoint():
 
 @app.post("/api/exams/start", dependencies=[Depends(gemini_spend_guard("exams:start"))])
 def exam_start(request: SmartMockRequestModel | None = None):
-    """Start a new exam session with adaptive mock generation.
+    """Start an exam session: a CUSTOM adaptive mock, or one chosen phase paper.
 
-    Per PROJECT_REFACTOR_PLAN.xml Phase 3: Return 50 questions with:
-    - Standard fields (question_text, options, difficulty)
-    - expected_time_sec: Time user should spend (~3 min default)
-    - negative_marking: Penalty for wrong answer (-1 points)
+    The chosen paper arrives as request.template and is forwarded to
+    generate_smart_mock as template_id, which is what makes it load that
+    template's question counts, section weighting and time limit. Without the
+    forward the request was accepted and then ignored, so every exam came back
+    as a CUSTOM mock.
     """
     try:
         request = request or SmartMockRequestModel()
@@ -1352,6 +1353,7 @@ def exam_start(request: SmartMockRequestModel | None = None):
             total_questions=request.total_questions,
             mode=request.mode,
             use_gemini=True,
+            template_id=request.template,
         )
 
         # exam_id = mock_id for simplicity and consistency
@@ -1389,7 +1391,10 @@ def exam_start(request: SmartMockRequestModel | None = None):
             "exam_id": exam_id,
             "mock_id": mock_id,
             "started_at": datetime.now().isoformat(),
-            "time_limit_seconds": 3600,
+            # generate_smart_mock only sets time_limit_minutes on the template path
+            # (database.py:4919-4920), so an absent key means CUSTOM: 60 minutes,
+            # which is exactly what this endpoint always returned before.
+            "time_limit_seconds": int(result.get("time_limit_minutes") or 60) * 60,
             "question_count": len(question_payload),
             "questions": question_payload,
             "allocation_summary": result.get("allocation_summary", {}),
