@@ -71,7 +71,7 @@
       starting = false; // examState now guards re-entry
       beginSession(result.exam_id, result.questions, {
         kind: "mock",
-        timeLimitMinutes: result.time_limit_minutes,
+        timeLimitMinutes: result.time_limit_seconds / 60,
       });
 
     } catch (err) {
@@ -146,8 +146,10 @@
     // server clock to poll -- /api/exams/{id}/time-remaining resolves a mock_id,
     // so asking it about a PYQ id would 404 once a second for the whole attempt
     // -- so it counts down locally from the limit the session was served with.
-    // Decided by kind, not by the presence of a limit: mock responses carry
-    // time_limit_minutes too, and must keep polling the server.
+    // Decided by kind, not by the presence of a limit: both arrive carrying one,
+    // under different keys -- /api/exams/start sends time_limit_seconds while the
+    // PYQ endpoints send time_limit_minutes -- so "has a limit" cannot tell them
+    // apart, and guessing wrong puts a mock on a clock nothing can correct.
     var localRemaining = null;
     if (state.kind === "pyq") {
       localRemaining = (state.timeLimitMinutes || 60) * 60;
@@ -164,7 +166,11 @@
       } else {
         try {
           var timeData = await API.examTime(state.id);
-          remaining = timeData.remaining_seconds || 0;
+          remaining = timeData.time_remaining_seconds;
+          // A missing clock key is a contract break, not an expired exam: `|| 0`
+          // here made the two indistinguishable and force-submitted the mock on
+          // the first tick. Freeze and retry instead.
+          if (typeof remaining !== "number") return;
         } catch (e) {
           return; // timer fetch failed, will retry
         }

@@ -2190,3 +2190,167 @@ def test_tracker_srs_due_label_is_the_real_date_not_a_hardcoded_today():
         "due_at is a full ISO timestamp; without truncation the cell prints "
         "'2026-08-01T09:00:00.000000' instead of the date."
     )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 29. The exam clock must read the key /api/exams/{id}/time-remaining sends
+#
+# exam.js polled the server clock with `timeData.remaining_seconds || 0`. The
+# endpoint returns `time_remaining_seconds` in both of its branches, so the read
+# was always undefined and the `|| 0` turned that into a hard zero. One tick into
+# a mock -- one second after the candidate started -- `remaining <= 0` fired,
+# cleared the interval and called submitExam(). Every smart mock force-submitted
+# itself with zero answers recorded, which is the most visible way the Exam tab
+# could be "not working".
+#
+# PYQ sittings were unaffected: they count down locally because
+# /api/exams/{id}/time-remaining resolves a mock_id and would 404 on a PYQ id.
+# That asymmetry is why the drill flow looked healthy while mocks did not.
+#
+# Same family as §26-§28: a `||` fallback converts a contract miss into a
+# confident wrong value instead of an error, so the suite stayed green.
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _exam_function(name):
+    """Return the body of a two-space-indented function in exam.js."""
+    text = _frontend_text("js", "exam.js")
+    match = re.search(rf"^  (?:async )?function {name}\(", text, re.MULTILINE)
+    assert match, f"{name} vanished from exam.js, so this test is vacuous"
+    rest = text[match.end():]
+    end = re.search(r"^  (?:async )?function ", rest, re.MULTILINE)
+    return rest[: end.start()] if end else rest
+
+
+def _time_remaining_keys():
+    """The keys exam_time_remaining can return, read off the handler source.
+
+    The route declares no response_model, so nothing is stripped and the handler's
+    own dict literals are the whole contract.
+    """
+    text = (Path(__file__).resolve().parents[1] / "main.py").read_text(encoding="utf-8")
+    match = re.search(r"^def exam_time_remaining\(", text, re.MULTILINE)
+    assert match, "exam_time_remaining vanished from main.py"
+    rest = text[match.end():]
+    end = re.search(r"^@app\.", rest, re.MULTILINE)
+    body = rest[: end.start()] if end else rest
+    return set(re.findall(r'"([a-z_]+)"\s*:', body))
+
+
+def test_time_remaining_endpoint_publishes_time_remaining_seconds(temp_db):
+    """Ground truth for the source contract below.
+
+    Any unstarted exam id lands in the not_found branch -- _resolve_mock_id only
+    strips a prefix and never raises -- so this needs no seeding. Asserting the
+    ghost key is *absent* matters as much as the real one: were the endpoint ever
+    to start publishing `remaining_seconds`, the exam.js test would pass for the
+    wrong reason and hide a second contract.
+    """
+    response = _sitting_client().get("/api/exams/EXAM_NO_SUCH_MOCK/time-remaining")
+
+    assert response.status_code == 200, response.text
+    payload = response.json()
+    assert isinstance(payload.get("time_remaining_seconds"), int), (
+        f"the clock endpoint returned no integer time_remaining_seconds: {payload}"
+    )
+    assert "remaining_seconds" not in payload, (
+        f"/api/exams/{{id}}/time-remaining unexpectedly published 'remaining_seconds'; "
+        f"the exam.js contract test below would then pass for the wrong reason"
+    )
+
+
+def test_exam_timer_reads_only_keys_the_clock_endpoint_returns():
+    """Every field startTimer reads off the poll must exist in the response.
+
+    The allowed set is read from the handler rather than hardcoded, so renaming the
+    key fails here instead of force-submitting a candidate's mock in the browser.
+    """
+    declared = _time_remaining_keys()
+    # Stops the assertion passing because both sides went empty.
+    assert "time_remaining_seconds" in declared, (
+        f"exam_time_remaining no longer publishes the clock value: {sorted(declared)}"
+    )
+
+    src = _exam_function("startTimer")
+    read = set(re.findall(r"\btimeData\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert read, "no clock reads found in startTimer, so the extraction is broken"
+
+    undeclared = sorted(read - declared)
+    assert not undeclared, (
+        f"startTimer reads {undeclared} from /api/exams/{{id}}/time-remaining, but the "
+        f"endpoint only returns {sorted(declared)}. The undefined read falls through "
+        "`|| 0`, so `remaining <= 0` fires on the first tick and submitExam() ends the "
+        "mock one second after it started."
+    )
+
+
+def test_exam_clock_expiry_still_submits_and_no_longer_fakes_a_zero():
+    """The fix must not buy the clock back by deleting the expiry behaviour.
+
+    Auto-submitting when the server says time is up is correct and must survive;
+    what has to go is the `|| 0` that manufactured an expiry out of a missing key.
+    """
+    src = _exam_function("startTimer")
+
+    assert "remaining <= 0" in src, (
+        "startTimer no longer submits when the clock runs out, so a mock would stay "
+        "open forever past its limit."
+    )
+    assert "submitExam()" in src, (
+        "the expiry branch no longer calls submitExam(), so an expired mock is never "
+        "graded."
+    )
+
+    # Pinned to the assignment rather than a substring, because the correct key
+    # `time_remaining_seconds` contains `remaining_seconds` -- a substring check
+    # would keep failing after a correct fix.
+    poll = re.search(r"remaining\s*=\s*timeData\.(.*?);", src)
+    assert poll, "startTimer no longer assigns remaining from the server clock"
+    assert poll.group(1).strip() == "time_remaining_seconds", (
+        f"the clock reads `timeData.{poll.group(1).strip()}`; the endpoint publishes "
+        "time_remaining_seconds, and any other key arrives undefined. A `|| 0` on that "
+        "read is indistinguishable from a genuinely expired exam, so `remaining <= 0` "
+        "fires on the first tick and submitExam() ends the mock one second after it "
+        "started."
+    )
+
+
+def test_exam_start_reads_the_time_limit_the_endpoint_actually_sends():
+    """/api/exams/start sends time_limit_seconds, not time_limit_minutes.
+
+    startExam read `result.time_limit_minutes`, so examState.timeLimitMinutes was
+    permanently null for every mock. Nothing reads it on the mock path today --
+    startTimer branches on kind and polls the server -- so this is latent rather
+    than visible, but the neighbouring comment justified that branch by claiming
+    "mock responses carry time_limit_minutes too", which is false. Reading the key
+    that exists makes the state honest if the mock clock is ever moved off the
+    one-request-per-second poll.
+    """
+    text = (Path(__file__).resolve().parents[1] / "main.py").read_text(encoding="utf-8")
+    match = re.search(r"^def exam_start\(", text, re.MULTILINE)
+    assert match, "exam_start vanished from main.py"
+    rest = text[match.end():]
+    end = re.search(r"^@app\.", rest, re.MULTILINE)
+    body = rest[: end.start()] if end else rest
+
+    assert '"time_limit_seconds"' in body, (
+        "exam_start no longer publishes time_limit_seconds, so this test's premise "
+        f"about the mock's time limit is stale: {sorted(set(re.findall(chr(34) + '([a-z_]+)' + chr(34) + r'\s*:', body)))}"
+    )
+    assert '"time_limit_minutes"' not in body, (
+        "exam_start started publishing time_limit_minutes; if it now carries both, "
+        "pick one and delete this assertion rather than leaving two clocks."
+    )
+
+    src = _exam_function("startExam")
+    read = set(re.findall(r"\bresult\.([A-Za-z_][A-Za-z0-9_]*)", src))
+    assert {"exam_id", "questions"} <= read, (
+        f"startExam stopped reading the session it needs: {sorted(read)}"
+    )
+    assert "time_limit_minutes" not in read, (
+        "startExam still reads time_limit_minutes, which /api/exams/start never "
+        "sends, so every mock's timeLimitMinutes is null."
+    )
+    assert "time_limit_seconds" in read, (
+        "startExam does not read the time limit the endpoint actually sends."
+    )
