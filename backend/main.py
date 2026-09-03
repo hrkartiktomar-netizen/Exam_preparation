@@ -67,6 +67,7 @@ from models import (
     EssaySubmissionModel,
     ExamAnalyticsModel,
     ExamAnalyticsResponseModel,
+    ExamTemplateModel,
     HealthResponseModel,
     IngestResponseModel,
     IngestionStatusModel,
@@ -1318,6 +1319,22 @@ def submit_mock(mock_id: str, request: MockSubmitRequestModel):
         return MockSubmitResponseModel.model_validate(result)
     except Exception as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/api/exam-templates", response_model=dict[str, list[ExamTemplateModel]])
+def list_exam_templates_endpoint():
+    """Phase/paper catalogue for the mock picker.
+
+    Only templates that can actually generate an objective exam are returned --
+    db.list_exam_templates filters out SUBJECT_DRILL and the two descriptive
+    papers, whose allocation resolves to empty and would surface as a 500 from
+    /api/exams/start. Sync def: the handler does blocking sqlite access, matching
+    get_exam_template and the rest of this module's read endpoints.
+
+    No pagination: the collection is bounded by the exam-pattern knowledge file
+    (10 rows today, 7 after filtering). See the spec's API-design deviations.
+    """
+    return {"templates": [ExamTemplateModel(**row) for row in db.list_exam_templates()]}
 
 
 @app.post("/api/exams/start", dependencies=[Depends(gemini_spend_guard("exams:start"))])

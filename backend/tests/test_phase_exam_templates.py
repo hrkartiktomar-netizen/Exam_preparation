@@ -274,3 +274,73 @@ def test_template_is_objective_ready_predicate(
     no units in the row. The last case proves the `or "[]"` guards against NULL
     columns, which migration 005 permits."""
     assert db._template_is_objective_ready(template) is expected
+
+
+def test_get_exam_templates_returns_the_catalogue(test_db: str, client) -> None:
+    _seed_templates(test_db)
+    response = client.get("/api/exam-templates")
+    assert response.status_code == 200
+    body = response.json()
+    assert [t["template_id"] for t in body["templates"]] == EXPECTED_ORDER
+
+
+def test_get_exam_templates_declares_every_field_the_picker_renders(test_db: str, client) -> None:
+    """response_model strips undeclared keys silently (HTTP 200, key absent), so a
+    field missing from ExamTemplateModel shows up in the UI as undefined rather
+    than as an error. This asserts the wire contract explicitly."""
+    _seed_templates(test_db)
+    body = client.get("/api/exam-templates").json()
+    ifsca_p1 = next(t for t in body["templates"] if t["template_id"] == "IFSCA_PH1_P1")
+    for field in (
+        "template_id", "exam", "name", "phase", "paper",
+        "total_questions", "time_limit_minutes", "cutoff_pct",
+    ):
+        assert field in ifsca_p1, f"{field} was stripped by response_model"
+    assert ifsca_p1["exam"] == "IFSCA"
+    assert ifsca_p1["phase"] == 1
+    assert ifsca_p1["paper"] == 1
+    assert ifsca_p1["total_questions"] == 100
+    assert ifsca_p1["time_limit_minutes"] == 60
+    assert ifsca_p1["cutoff_pct"] == 30.0
+
+
+def test_get_exam_templates_survives_null_phase_and_paper(test_db: str, client) -> None:
+    """CUSTOM has phase=NULL, paper=NULL and cutoff_pct=NULL. A non-nullable
+    declaration on any of those makes FastAPI raise a 500 during response
+    validation, so this is the regression test for the nullable annotations."""
+    _seed_templates(test_db)
+    body = client.get("/api/exam-templates").json()
+    custom = next(t for t in body["templates"] if t["template_id"] == "CUSTOM")
+    assert custom["phase"] is None
+    assert custom["paper"] is None
+    assert custom["cutoff_pct"] is None
+    assert custom["total_questions"] == 50
+
+
+def test_get_exam_templates_does_not_leak_the_json_blobs(test_db: str, client) -> None:
+    """sections_json / syllabus_units_json / descriptive_components_json are raw
+    JSON strings meant for _template_allocation, not for the browser."""
+    _seed_templates(test_db)
+    body = client.get("/api/exam-templates").json()
+    for template in body["templates"]:
+        assert "sections_json" not in template
+        assert "syllabus_units_json" not in template
+        assert "descriptive_components_json" not in template
+
+
+def test_get_exam_templates_on_an_unseeded_install_returns_an_empty_list(test_db: str, client) -> None:
+    _seed_templates(test_db, rows=[])
+    response = client.get("/api/exam-templates")
+    assert response.status_code == 200
+    assert response.json() == {"templates": []}
+
+
+def test_exam_templates_route_does_not_shadow_or_get_shadowed(test_db: str, client) -> None:
+    """/api/exam-templates must stay distinct from /api/exams/start and from
+    /api/documents. FastAPI matches in declaration order, so a later
+    /api/{something} catch-all would swallow it -- this pins the observable
+    behaviour rather than the registration order."""
+    _seed_templates(test_db)
+    assert client.get("/api/exam-templates").status_code == 200
+    assert client.get("/api/documents").status_code == 200
+    assert client.get("/api/exams/start").status_code in (404, 405)

@@ -593,3 +593,23 @@ class CorpusDocumentModel(BaseModel):
     lines: int
     bytes: int
     text: str
+
+
+class ExamTemplateModel(BaseModel):
+    """One row of the phase/paper picker.
+
+    Every numeric field is nullable because the live rows genuinely carry NULLs
+    (CUSTOM has no phase, paper or cutoff) and response_model raises a 500 when a
+    non-nullable field receives None. The three *_json columns and `notes` are
+    deliberately undeclared: response_model strips them, which is how the raw JSON
+    blobs stay inside the backend.
+    """
+
+    template_id: str
+    exam: str
+    name: str
+    phase: int | None = None
+    paper: int | None = None
+    total_questions: int | None = None
+    time_limit_minutes: int | None = None
+    cutoff_pct: float | None = None
