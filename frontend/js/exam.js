@@ -39,6 +39,60 @@
   };
 
   /* ────── Setup ────── */
+  var papers = []; // /api/exam-templates rows, cached so the Examination filter can re-run
+
+  function paperLabel(t) {
+    var parts = [t.name];
+    if (t.total_questions) parts.push(t.total_questions + " Q");
+    if (t.time_limit_minutes) parts.push(t.time_limit_minutes + " MIN");
+    return parts.join(" · ");
+  }
+
+  /* The Examination select is a client-side filter only -- SmartMockRequestModel
+     has no exam field, because template_id already encodes exam + phase + paper.
+     CUSTOM carries exam="ANY", so the adaptive mock survives every filter. */
+  function renderPapers() {
+    var select = qs("#exam-paper");
+    if (!select || !papers.length) return;
+
+    var examSelect = qs("#exam-type");
+    var exam = examSelect ? examSelect.value : "";
+    var list = papers.filter(function (t) { return t.exam === "ANY" || t.exam === exam; });
+    var keep = select.value;
+
+    select.innerHTML = list.map(function (t) {
+      return '<option value="' + esc(t.template_id) + '">' + esc(paperLabel(t)) + "</option>";
+    }).join("");
+
+    // Surviving pick wins; otherwise the list head, which the backend sorts to CUSTOM.
+    if (keep && list.some(function (t) { return t.template_id === keep; })) select.value = keep;
+    seedCount();
+  }
+
+  /* Choosing a paper seeds Questions from that paper's real length, so the number
+     shown is the number the backend will actually allocate. */
+  function seedCount() {
+    var select = qs("#exam-paper");
+    var countInput = qs("#exam-count");
+    if (!select || !countInput) return;
+
+    var paper = papers.filter(function (t) { return t.template_id === select.value; })[0];
+    if (paper && paper.total_questions) countInput.value = paper.total_questions;
+  }
+
+  async function loadPapers() {
+    if (!API || !API.examTemplates) return;
+    try {
+      var result = await API.examTemplates();
+      papers = (result && result.templates) || [];
+      renderPapers();
+    } catch (err) {
+      if (window.LedgerApp && window.LedgerApp.toast) {
+        window.LedgerApp.toast("Phase papers unavailable: " + err.message, "error");
+      }
+    }
+  }
+
   function initSetup() {
     var form = qs(".exam-setup__form");
     if (!form) return;
@@ -49,6 +103,13 @@
       e.preventDefault();
       startExam();
     });
+
+    var examSelect = qs("#exam-type");
+    var paperSelect = qs("#exam-paper");
+    if (examSelect) examSelect.addEventListener("change", renderPapers);
+    if (paperSelect) paperSelect.addEventListener("change", seedCount);
+
+    loadPapers();
   }
 
   async function startExam() {
@@ -56,12 +117,15 @@
     if (examState || starting) return; // re-entry guard (B6)
     starting = true;
 
-    var examSelect = qs("#exam-type");
+    var paperSelect = qs("#exam-paper");
     var countInput = qs("#exam-count");
+    // Model-real names. exam_type/question_count/allocation_mode are undeclared on
+    // SmartMockRequestModel, so pydantic's extra="ignore" dropped them and the
+    // form's values never reached the backend at all.
     var body = {
-      exam_type: examSelect ? examSelect.value : "IFSCA",
-      question_count: countInput ? parseInt(countInput.value, 10) || 50 : 50,
-      allocation_mode: "targeting_weighted",
+      total_questions: countInput ? parseInt(countInput.value, 10) || 50 : 50,
+      mode: "balanced", // the model's Literal has no "targeting_weighted"; that 422s
+      template: paperSelect ? paperSelect.value : "CUSTOM",
     };
 
     try {

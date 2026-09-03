@@ -149,18 +149,6 @@
         </div>
       </div>
 
-      <!-- Quiet Beat · Law Column (A13, A14) -->
-      <div class="quiet-beat section reveal" data-scene="hall-paper">
-        <div class="quiet-beat__content">
-          <div class="quiet-beat__eyebrow mask-reveal"><span class="mask-reveal__inner">§ DAILY ACT REVISION</span></div>
-          <div class="quiet-beat__text">Today's law revision content will appear when the engine loads.</div>
-          <div class="quiet-beat__actions">
-            <button class="quiet-beat__btn">Open today's slice</button>
-            <button class="quiet-beat__btn quiet-beat__btn--primary">Stamp the day</button>
-          </div>
-        </div>
-      </div>
-
       <!-- Burst · Particle Band (A15) -->
       <div class="burst section" data-scene="ledger-noir">
         <div class="burst__canvas"><canvas aria-hidden="true"></canvas></div>
@@ -200,8 +188,14 @@
               </select>
             </div>
             <div class="exam-setup__field">
+              <label class="exam-setup__label" for="exam-paper">Paper</label>
+              <select class="exam-setup__select" id="exam-paper">
+                <option value="CUSTOM">Custom adaptive mock</option>
+              </select>
+            </div>
+            <div class="exam-setup__field">
               <label class="exam-setup__label" for="exam-count">Questions</label>
-              <input class="exam-setup__input" id="exam-count" type="number" value="50" min="10" max="200" step="5" />
+              <input class="exam-setup__input" id="exam-count" type="number" value="50" min="10" max="100" step="5" />
             </div>
             <button class="exam-setup__start" type="submit">BEGIN EXAMINATION</button>
           </form>

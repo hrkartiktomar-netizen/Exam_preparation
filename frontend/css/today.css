@@ -430,6 +430,35 @@
   max-width: var(--w-narrow);
 }
 
+/* §01 call to action — the only route into Amendment Intelligence now that the
+   daily Act revision no longer renders on the home page. */
+.statute-path__cta {
+  align-self: flex-start;
+  margin-top: var(--sp-6);
+  padding: var(--sp-2) var(--sp-5);
+  border: var(--rule-1) solid var(--metal);
+  border-radius: var(--r-pill);
+  background: transparent;
+  font-family: var(--f-mono);
+  font-size: var(--fs-100);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--metal);
+  cursor: pointer;
+  transition: all var(--t-fast) var(--e-out);
+}
+
+.statute-path__cta:hover {
+  background: var(--metal);
+  color: var(--on-metal);
+  border-color: var(--metal-hi);
+}
+
+.statute-path__cta:focus-visible {
+  outline: var(--rule-2) solid var(--signal);
+  outline-offset: var(--sp-2);
+}
+
 /* ── Proof Section (A10-A12) ────────────────────────────────── */
 .proof {
   padding: var(--sp-9) 0;
@@ -470,88 +499,6 @@
   border-radius: var(--r-3);
   padding: var(--sp-5);
   min-height: 120px;
-}
-
-/* ── Quiet Beat · Law Column (A13, A14) ─────────────────────── */
-.quiet-beat {
-  padding: var(--sp-10) 0;
-  transition: background-color var(--t-scene) var(--e-inout),
-              color var(--t-scene) var(--e-inout);
-}
-
-.quiet-beat__content {
-  max-width: var(--w-read);
-  margin-inline: auto;
-  padding-inline: var(--sp-5);
-}
-
-.quiet-beat__eyebrow {
-  font-family: var(--f-mono);
-  font-size: var(--fs-050);
-  color: var(--ink-3);
-  letter-spacing: var(--track-caps);
-  text-transform: uppercase;
-  margin-bottom: var(--sp-5);
-}
-
-/* Drop cap for law text */
-.quiet-beat__text {
-  font-family: var(--f-serif);
-  font-size: var(--fs-500);
-  line-height: var(--lh-body);
-  color: var(--ink-1);
-}
-
-.quiet-beat__text::first-letter {
-  float: left;
-  font-size: 3.5em;
-  line-height: 0.8;
-  padding-right: var(--sp-3);
-  color: var(--metal);
-  font-weight: 400;
-}
-
-/* Ghost→solid scrub effect */
-.quiet-beat__text .ghost-word {
-  opacity: 0.12;
-  transition: opacity 0.05s linear;
-}
-
-.quiet-beat__text .ghost-word.is-lit {
-  opacity: 1;
-}
-
-.quiet-beat__actions {
-  display: flex;
-  gap: var(--sp-4);
-  margin-top: var(--sp-6);
-}
-
-.quiet-beat__btn {
-  padding: var(--sp-2) var(--sp-5);
-  border: var(--rule-1) solid var(--rule-strong);
-  border-radius: var(--r-pill);
-  font-family: var(--f-mono);
-  font-size: var(--fs-100);
-  letter-spacing: var(--track-caps);
-  text-transform: uppercase;
-  color: var(--ink-2);
-  transition: all var(--t-fast) var(--e-out);
-}
-
-.quiet-beat__btn:hover {
-  color: var(--ink-1);
-  border-color: var(--metal);
-}
-
-.quiet-beat__btn--primary {
-  background: var(--metal);
-  color: var(--on-metal);
-  border-color: var(--metal);
-}
-
-.quiet-beat__btn--primary:hover {
-  background: var(--metal-hi);
 }
 
 /* ── Burst · Particle Band (A15) ────────────────────────────── */
@@ -680,10 +627,6 @@
   .proof__grid {
     grid-template-columns: 1fr;
   }
-
-  .quiet-beat__actions {
-    flex-direction: column;
-  }
 }
 
 /* N-cell split-flap digits (B3, M2) */
@@ -804,19 +747,3 @@ body[data-quality="lite"] .ledger-thread {
 /* ── M14 · Line-mask reveal ── */
 .mask-reveal { overflow: hidden; }
 .mask-reveal__inner { display: inline-block; will-change: transform; }
-
-/* ── Quiet beat · drop cap + settle ── */
-.quiet-beat__text .ghost-word:first-child::first-letter {
-  font-family: var(--f-display);
-  font-weight: 300;
-  font-size: 3.2em;
-  line-height: 0.82;
-  float: left;
-  padding-right: 0.09em;
-  color: var(--signal);
-}
-.quiet-beat.is-visible .quiet-beat__text { animation: quiet-settle 1.2s var(--e-out) both; }
-@keyframes quiet-settle {
-  from { opacity: 0.55; letter-spacing: 0.012em; }
-  to   { opacity: 1;     letter-spacing: 0; }
-}

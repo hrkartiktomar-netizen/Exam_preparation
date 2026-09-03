@@ -246,7 +246,8 @@
   /* ────── A09: Statute Path ────── */
   var STATUTES = [
     { num: "§01", title: "NOTIFY", subtitle: "The amendment radar never sleeps.",
-      desc: "An autonomous agent discovers regulatory changes from the IFSCA, SEBI, and RBI gazette systems. It corroborates, extracts reasons, and persists VERIFIED or CONTRADICTED verdicts overnight." },
+      desc: "An autonomous agent discovers regulatory changes from the IFSCA, SEBI, and RBI gazette systems. It corroborates, extracts reasons, and persists VERIFIED or CONTRADICTED verdicts overnight.",
+      cta: { label: "OPEN AMENDMENT INTELLIGENCE →", view: "updates" } },
     { num: "§02", title: "STUDY", subtitle: "The Act, one ruled slice a day.",
       desc: "The IFSCA Act 2019, sliced into 80-line daily portions with SM-2 spaced repetition. Completion-driven: your day index only advances when you stamp the day complete." },
     { num: "§03", title: "MOCK", subtitle: "Sit the hall before it sits you.",
@@ -266,7 +267,10 @@
       panel.innerHTML =
         '<div class="statute-path__statute-num">' + s.num + ' ' + s.title + '</div>' +
         '<h3 class="statute-path__title">' + s.subtitle + '</h3>' +
-        '<p class="statute-path__desc">' + s.desc + '</p>';
+        '<p class="statute-path__desc">' + s.desc + '</p>' +
+        (s.cta
+          ? '<button class="statute-path__cta" type="button" data-view="' + s.cta.view + '">' + s.cta.label + '</button>'
+          : '');
       panels.appendChild(panel);
     });
 
@@ -399,52 +403,6 @@
       polyline.setAttribute("stroke-linecap", "round");
       polyline.setAttribute("stroke-linejoin", "round");
       sparkEl.appendChild(polyline);
-    }
-  }
-
-  /* ────── A13: Quiet Beat ────── */
-  function renderQuietBeat(lawData) {
-    var textEl = qs(".quiet-beat__text");
-    if (!textEl || !lawData) return;
-
-    var text = lawData.daily_text || lawData.text || lawData.content || "Today's law revision content will appear here when available.";
-
-    // Wrap each word for ghost→solid effect
-    var words = text.split(/\s+/);
-    textEl.innerHTML = words.map(function (w) {
-      return '<span class="ghost-word">' + w + '</span>';
-    }).join(" ");
-
-    var eyebrow = qs(".quiet-beat__eyebrow .mask-reveal__inner") || qs(".quiet-beat__eyebrow");
-    if (eyebrow) {
-      var dayLines = (lawData.line_end != null && lawData.line_start != null)
-        ? (lawData.line_end - lawData.line_start + 1)
-        : (lawData.lines_count || 0);
-      eyebrow.textContent = "§ DAILY ACT REVISION · DAY " + (lawData.day_index || 1) + " · " + dayLines + " LINES";
-    }
-
-    // Ghost→solid scroll scrub
-    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-      var ghostWords = qsa(".ghost-word", textEl);
-      if (ghostWords.length) {
-        ScrollTrigger.create({
-          trigger: textEl,
-          start: "top 70%",
-          end: "bottom 30%",
-          scrub: 0.5,
-          onUpdate: function (self) {
-            var progress = self.progress;
-            var litCount = Math.floor(progress * ghostWords.length);
-            ghostWords.forEach(function (w, i) {
-              if (i < litCount) {
-                w.classList.add("is-lit");
-              } else {
-                w.classList.remove("is-lit");
-              }
-            });
-          }
-        });
-      }
     }
   }
 
@@ -782,9 +740,6 @@
 
       // A08: Ticker
       if (dashData) renderTicker(dashData, readinessData, srsDueData);
-
-      // A13: Quiet Beat
-      renderQuietBeat(lawData);
 
       // A10-A12: Proof
       if (dashData) renderProof(dashData, timelineData);

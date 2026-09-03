@@ -487,6 +487,104 @@
     }
   }
 
+  /* ────── Corpus source reader ──────
+     One overlay, rebuilt per open. The markdown is written with textContent,
+     never parsed into HTML: the corpus is OCR output, so injecting it would be
+     an XSS surface and would collapse the whitespace that makes it readable. */
+  var readerOverlay = null;
+  var readerOnKey = null;
+
+  function closeSourceReader() {
+    if (!readerOverlay) return;
+    if (readerOnKey) document.removeEventListener("keydown", readerOnKey);
+    readerOnKey = null;
+    readerOverlay.remove();
+    readerOverlay = null;
+    if (window.LedgerSmooth && window.LedgerSmooth.start) window.LedgerSmooth.start();
+  }
+
+  async function openSourceReader(name) {
+    closeSourceReader();
+
+    var overlay = document.createElement("div");
+    overlay.className = "doc-reader";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", "Source document " + name);
+    // hall-paper is the warm cream palette, applied to the sheet rather than the
+    // backdrop: the scene also redefines --scrim, which would wash out the veil
+    // behind it. journey.js crossfades only #view-today [data-scene], so this
+    // attribute drives the static palette and nothing else.
+    overlay.innerHTML =
+      '<div class="doc-reader__panel" data-scene="hall-paper">' +
+        '<div class="doc-reader__bar">' +
+          '<span class="doc-reader__title">' + esc(name) + '</span>' +
+          '<button class="doc-reader__close" type="button">CLOSE ✕</button>' +
+        '</div>' +
+        '<div class="doc-reader__meta">OPENING…</div>' +
+        '<div class="doc-reader__body"></div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    readerOverlay = overlay;
+    if (window.LedgerSmooth && window.LedgerSmooth.stop) window.LedgerSmooth.stop();
+
+    var closeBtn = qs(".doc-reader__close", overlay);
+    if (closeBtn) closeBtn.addEventListener("click", closeSourceReader);
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) closeSourceReader();
+    });
+    readerOnKey = function (e) { if (e.key === "Escape") closeSourceReader(); };
+    document.addEventListener("keydown", readerOnKey);
+
+    var body = qs(".doc-reader__body", overlay);
+    var meta = qs(".doc-reader__meta", overlay);
+    try {
+      var doc = await API.corpusDocument(name);
+      if (!readerOverlay) return; // closed while the fetch was in flight
+      meta.textContent = doc.bucket + " · " + doc.lines + " LINES · " + doc.bytes + " BYTES";
+      body.textContent = doc.text;
+    } catch (err) {
+      if (!readerOverlay) return;
+      meta.textContent = "SOURCE UNAVAILABLE";
+      body.textContent = "Could not open " + name + ": " + err.message;
+    }
+  }
+
+  /* The curated ledger has no "before" side to show: every surviving row carries
+     a NULL old_value, so the delta renders one column and says what it is rather
+     than inventing a prior text to differ against. */
+  function amendmentDetailHtml(u) {
+    var oldText = u.old_value;
+    var newText = u.new_value || u.summary || "";
+    var delta = "";
+
+    if (oldText) {
+      delta +=
+        '<div class="amendment-delta__col amendment-delta__col--old">' +
+          '<span class="amendment-delta__label">WAS</span>' +
+          '<p class="amendment-delta__text">' + esc(oldText) + '</p>' +
+        '</div>';
+    }
+    if (newText) {
+      delta +=
+        '<div class="amendment-delta__col amendment-delta__col--new">' +
+          '<span class="amendment-delta__label">' + (oldText ? "NOW" : "AS FILED") + '</span>' +
+          '<p class="amendment-delta__text">' + esc(newText) + '</p>' +
+        '</div>';
+    }
+    if (!delta) delta = '<p class="amendment-delta__text">No text recorded for this row.</p>';
+
+    var facts = [];
+    if (u.topic_id) facts.push(u.topic_id);
+    if (u.update_date) facts.push("EFFECTIVE " + String(u.update_date).substring(0, 10));
+    if (u.category) facts.push(u.category);
+
+    return '<div class="amendment-delta' + (oldText ? ' amendment-delta--paired' : '') + '">' + delta + '</div>' +
+      (facts.length
+        ? '<div class="amendment-entry__facts">' + facts.map(function (f) { return esc(f); }).join(" · ") + '</div>'
+        : '');
+  }
+
   /* ────── Updates View ────── */
   async function loadUpdates() {
     if (loaded.updates) return;
@@ -519,16 +617,52 @@
             "The amendment ledger has not been opened yet.",
             "Regulatory updates from IFSCA & SEBI collect here once the tracker is wired to the ledger.");
         } else {
-          log.innerHTML = items.slice(0, 50).map(function (u) {
+          log.innerHTML = items.slice(0, 50).map(function (u, i) {
             var verdict = esc((u.verification_status || u.status || "pending").toLowerCase());
             var dateStr = u.discovered_at || u.date || "";
             if (dateStr) dateStr = dateStr.substring(0, 10);
-            return '<div class="amendment-entry">' +
+            // source_urls_json is a list on both feeds; the corpus maps the row's
+            // single source_url into it. The store takes a bare basename, which is
+            // exactly the shape the curated rows already hold.
+            var srcs = Array.isArray(u.source_urls_json) ? u.source_urls_json.filter(Boolean) : [];
+            var src = srcs.length ? String(srcs[0]) : "";
+            return '<div class="amendment-entry" data-idx="' + i + '">' +
               '<span class="amendment-entry__date">' + esc(dateStr) + '</span>' +
               '<span class="amendment-entry__text">' + esc(u.title || u.summary || "—") + '</span>' +
-              '<span class="amendment-entry__chip" data-verdict="' + verdict + '">' + verdict.toUpperCase() + '</span>' +
-              '</div>';
+              '<span class="amendment-entry__tools">' +
+                '<span class="amendment-entry__chip" data-verdict="' + verdict + '">' + verdict.toUpperCase() + '</span>' +
+                '<button class="amendment-entry__btn" type="button" data-act="detail" aria-expanded="false">DETAIL</button>' +
+                (src
+                  ? '<button class="amendment-entry__btn amendment-entry__btn--source" type="button" data-act="source" data-src="' + esc(src) + '">READ SOURCE</button>'
+                  : '') +
+              '</span>' +
+              '<div class="amendment-entry__detail"></div>' +
+            '</div>';
           }).join("");
+
+          // One delegated listener for every row: details are built on first open
+          // so fifty rows do not each pay for markup nobody reads.
+          log.addEventListener("click", function (e) {
+            var btn = e.target && e.target.closest ? e.target.closest("[data-act]") : null;
+            if (!btn || !log.contains(btn)) return;
+
+            if (btn.dataset.act === "source") {
+              openSourceReader(btn.dataset.src);
+              return;
+            }
+
+            var entry = btn.closest(".amendment-entry");
+            if (!entry) return;
+            var detail = qs(".amendment-entry__detail", entry);
+            if (!detail) return;
+            var open = entry.classList.toggle("is-open");
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+            if (open && !detail.dataset.filled) {
+              var row = items[Number(entry.dataset.idx)];
+              detail.innerHTML = row ? amendmentDetailHtml(row) : "";
+              detail.dataset.filled = "1";
+            }
+          });
         }
       }
 

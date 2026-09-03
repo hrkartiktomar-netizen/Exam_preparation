@@ -78,7 +78,7 @@
   /* ── Layer 1 · Typography ─────────────────────────────────── */
   /* Display: Inter (loaded) at whisper weights (300-400)
      Body: Inter at 400
-     Serif: Charter for quiet-beat law text
+     Serif: Charter for statute text and the corpus reader
      Mono: Cascadia Mono for statute labels and data */
   --f-display: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
   --f-body:    "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -221,7 +221,7 @@
   color-scheme: dark;
 }
 
-/* hall-paper: warm cream for Quiet Beat law column */
+/* hall-paper: warm cream for long-form reading surfaces (corpus document reader) */
 [data-scene="hall-paper"] {
   --canvas: var(--p-paper-000);  --canvas-deep: var(--p-paper-200);
   --surface-1: #FBF8F2;  --surface-2: var(--p-paper-200);  --surface-3: var(--p-paper-400);

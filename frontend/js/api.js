@@ -51,6 +51,8 @@
     amendmentsIntel:   function () { return get("/api/amendments/intelligence?limit=8"); },
     startupScan:       function (refresh) { return get("/api/amendments/startup-scan?refresh=" + (refresh ? "true" : "false")); },
     enrichReasons:     function () { return post("/api/updates/enrich-reasons"); },
+    // Basename only: the store rejects any name carrying a path separator.
+    corpusDocument:    function (name) { return get("/api/documents/" + encodeURIComponent(name)); },
 
     // SRS
     srsDue:            function () { return get("/api/srs/due-topics"); },
@@ -61,6 +63,7 @@
 
     // Exams
     examsStart:        function (body) { return post("/api/exams/start", body); },
+    examTemplates:     function () { return get("/api/exam-templates"); },
     examTime:          function (id) { return get("/api/exams/" + id + "/time-remaining"); },
     examSubmit:        function (id, answers) { return post("/api/exams/" + id + "/submit", { answers: answers }); },
     examAnalytics:     function (id, list) { return post("/api/exams/" + id + "/analytics", list); },
